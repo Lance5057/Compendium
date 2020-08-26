@@ -17,29 +17,28 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MaterialHelper {
 	String name;
-	int color;
 	String parentMod;
 	
-	// public Material mat;
-	// MaterialIntegration matint;
-	public List<MaterialBase> addons;
+	private CraftableMaterial craftable;
+	private MeltableMaterial meltable;
+	private 
+
+	//public List<MaterialBase> addons;
 
 	boolean preset = false;
-	
-	public MaterialHelper(String name, int color)
-	{
-		this(name, color, Reference.MOD_ID);
+
+	public MaterialHelper(String name) {
+		this(name, Reference.MOD_ID);
 	}
 
-	public MaterialHelper(String name, int color, String parentMod) {
+	public MaterialHelper(String name, String parentMod) {
 		this.name = name;
-		this.color = color;
 		this.parentMod = parentMod;
 
 		// mat = new Material(name, color);
 		addons = new ArrayList<MaterialBase>();
 	}
-	
+
 	public MaterialHelper ingot() {
 		addons.add(new MeltableMaterial(name, parentMod));
 		return this;
@@ -50,13 +49,12 @@ public class MaterialHelper {
 		return this;
 	}
 
-
 	public MaterialHelper components() {
 		addons.add(new MaterialVanillaComponents(name, parentMod));
 		addons.add(new MaterialExtraComponents(name, parentMod));
 		return this;
 	}
-	
+
 	public MaterialHelper extracomponents() {
 		addons.add(new MaterialExtraComponents(name, parentMod));
 		return this;
@@ -73,67 +71,13 @@ public class MaterialHelper {
 				biomeCategory));
 		return this;
 	}
-	
-	public MaterialHelper finish()
-	{
+
+	public MaterialHelper finish() {
 		tags();
 		recipes();
 		loot();
-		return this; 
+		return this;
 	}
-
-//	public MaterialHelper(Material mat) {
-//		this.name = mat.identifier;
-//		this.color = mat.materialTextColor;
-//
-//		this.mat = mat;
-//		addons = new ArrayList<MaterialBase>();
-//
-//		preset = true;
-//	}
-
-//	public void pre() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupPre(this);
-//		}
-//	}
-//
-//	public void init() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupInit(this);
-//		}
-//	}
-
-//	public void integrate() {
-//		if (!preset) {
-//			matint = new MaterialIntegration(mat, null, StringUtils.capitalize(mat.identifier));
-//
-//			for (MaterialBase mb : addons) {
-//				mb.setupIntegration(matint);
-//			}
-//			matint.toolforge().preInit();
-//
-//			TinkersCompendium.proxy.registerMatColor(mat, color);
-//
-//			TinkerRegistry.integrate(matint);
-//		}
-//	}
-
-//	public void post() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupPost(this);
-//		}
-
-//		if (!preset)
-//			matint.integrate();
-
-//		if(TinkersCompendium.config.developerFeatures)
-//		{
-//			OutputWikiPages.outputWikiMaterial(this);
-//		}
-//	}
-	
-	
 
 	public void client() {
 		for (MaterialBase mb : addons) {
@@ -146,20 +90,20 @@ public class MaterialHelper {
 			mb.setupModels(this);
 		}
 	}
-	
+
 	public void tags() {
 		for (MaterialBase mb : addons) {
 			mb.setupBlockTags();
 			mb.setupItemTags();
 		}
 	}
-	
+
 	public void recipes() {
 		for (MaterialBase mb : addons) {
 			mb.setupRecipes();
 		}
 	}
-	
+
 	public void loot() {
 		for (MaterialBase mb : addons) {
 			mb.setupLoot();

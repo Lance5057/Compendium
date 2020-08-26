@@ -14,7 +14,7 @@ import lance5057.compendium.core.library.materialutilities.addons.base.MaterialB
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.BlockItem;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
@@ -25,52 +25,41 @@ import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class CraftableMaterial implements MaterialBase {
-//	public HeadMaterialStats head;
-//	public HandleMaterialStats handle;
-//	public ShieldMaterialStats shield;
-//	public ExtraMaterialStats extra;
-//	public BowMaterialStats bow;
 
-//	public String type;
-//	public String oreDict;
-	String matName;
-	String parentMod;
+//	public Item gem = new Item(new Item.Properties().group(TCItems.TCITEMS));;
+//	public Item nugget = new Item(new Item.Properties().group(TCItems.TCITEMS));;
+//
+//	public Block block = new Block(Block.Properties.create(Material.GLASS));
+//	public Item itemBlock = new BlockItem(block, new Item.Properties().group(TCItems.TCITEMS));
 
-	public Item gem = new Item(new Item.Properties().group(TCItems.TCITEMS));;
-	public Item nugget = new Item(new Item.Properties().group(TCItems.TCITEMS));;
+	public final RegistryObject<Item> GEM;
+	public final RegistryObject<Item> NUGGET;
+	public final RegistryObject<Block> STORAGE_BLOCK;
+	public final RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
+	private final String name;
 
-	public Block block = new Block(Block.Properties.create(Material.GLASS));
-	public Item itemBlock = new BlockItem(block, new Item.Properties().group(TCItems.TCITEMS));
-	
 	public static Tag<Item> MATERIAL_GEM;
 	public static Tag<Item> MATERIAL_NUGGET;
 	public static Tag<Item> MATERIAL_STORAGE_BLOCK;
 
-	public CraftableMaterial(String matName) {
-		this(matName, Reference.MOD_ID);
-	}
-	
 	public CraftableMaterial(String matName, String parentMod) {
-		this.matName = matName;
-		this.parentMod = parentMod;
-		
-		gem.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gem"));
-		nugget.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "nugget"));
-		itemBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gemblock"));
+		name = matName;
 
-		TCItems.ITEMS.add(gem);
-		TCItems.ITEMS.add(nugget);
-		TCItems.ITEMS.add(itemBlock);
+		this.GEM = TCItems.ITEMS.register(name + "gem", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		NUGGET = TCItems.ITEMS.register(name + "nugget", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 
-		block.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gemblock"));
-		TCBlocks.BLOCKS.add(block);
-		
-		MATERIAL_GEM = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + matName));
+		STORAGE_BLOCK = TCBlocks.BLOCKS.register(name + "storage_block", () -> new Block(Block.Properties
+				.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
+		STORAGE_ITEMBLOCK = TCItems.ITEMS.register(name + "storage_itemblock",
+				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
+
+		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + matName));
 		MATERIAL_NUGGET = ItemTags.getCollection()
 				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + matName));
 		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
@@ -98,80 +87,80 @@ public class CraftableMaterial implements MaterialBase {
 
 	@Override
 	public void setupItemTags() {
-		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_GEM, gem));
-		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_NUGGET, nugget));
-		// TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>,
-		// Item>(Tags.Items.STORAGE_BLOCKS, itemBlock));
-
-		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.INGOTS, MATERIAL_GEM));
-		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.NUGGETS, MATERIAL_NUGGET));
+//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_GEM, gem));
+//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_NUGGET, nugget));
+//		// TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>,
+//		// Item>(Tags.Items.STORAGE_BLOCKS, itemBlock));
+//
+//		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.INGOTS, MATERIAL_GEM));
+//		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.NUGGETS, MATERIAL_NUGGET));
 	}
 
 	@Override
 	public void setupBlockTags() {
-		//getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(block);
-		
+		// getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(block);
+
 	}
 
 	@Override
 	public void setupRecipes() {
-		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-				ShapelessRecipeBuilder.shapelessRecipe(nugget, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-						// ResourceLocation(parentMod, matName+"ingot")),2)
-						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName)))),
-				new ResourceLocation(Reference.MOD_ID, matName + "nugget1").toString()));
-		
-		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-				ShapelessRecipeBuilder.shapelessRecipe(gem, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-						// ResourceLocation(parentMod, matName+"ingot")),2)
-						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName)))),
-				new ResourceLocation(Reference.MOD_ID, matName + "ingot1").toString()));
-		
-		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-				ShapelessRecipeBuilder.shapelessRecipe(gem, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-						// ResourceLocation(parentMod, matName+"ingot")),2)
-						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-								.getOrCreate(new ResourceLocation(parentMod, "nuggets/" + matName))), 9),
-				new ResourceLocation(Reference.MOD_ID, matName + "ingot2").toString()));
-		
-		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-				ShapelessRecipeBuilder.shapelessRecipe(this.itemBlock, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-						// ResourceLocation(parentMod, matName+"ingot")),2)
-						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName))), 9),
-				new ResourceLocation(Reference.MOD_ID, matName + "block1").toString()));
+//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+//				ShapelessRecipeBuilder.shapelessRecipe(nugget, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+//						// ResourceLocation(parentMod, matName+"ingot")),2)
+//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+//								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName)))),
+//				new ResourceLocation(Reference.MOD_ID, matName + "nugget1").toString()));
+//
+//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+//				ShapelessRecipeBuilder.shapelessRecipe(gem, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+//						// ResourceLocation(parentMod, matName+"ingot")),2)
+//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+//								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName)))),
+//				new ResourceLocation(Reference.MOD_ID, matName + "ingot1").toString()));
+//
+//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+//				ShapelessRecipeBuilder.shapelessRecipe(gem, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+//						// ResourceLocation(parentMod, matName+"ingot")),2)
+//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+//								.getOrCreate(new ResourceLocation(parentMod, "nuggets/" + matName))), 9),
+//				new ResourceLocation(Reference.MOD_ID, matName + "ingot2").toString()));
+//
+//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+//				ShapelessRecipeBuilder.shapelessRecipe(this.itemBlock, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+//						// ResourceLocation(parentMod, matName+"ingot")),2)
+//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+//								.getOrCreate(new ResourceLocation(parentMod, "gems/" + matName))), 9),
+//				new ResourceLocation(Reference.MOD_ID, matName + "block1").toString()));
 	}
 
 	@Override
 	public void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setupEnglishLocalization(LanguageProvider lang) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setupLoot() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setup(FMLCommonSetupEvent event) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 //	public CraftableMaterial(HeadMaterialStats head, HandleMaterialStats handle, ExtraMaterialStats extra,
