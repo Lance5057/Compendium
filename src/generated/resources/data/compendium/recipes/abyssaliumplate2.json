@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:gems/abyssalium"
+    }
+  },
+  "result": {
+    "item": "compendium:abyssaliumplate",
+    "count": 2
+  }
+}

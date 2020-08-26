@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "compendium:opalwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:opalspring",
+    "count": 8
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/dogbearium"
+    },
+    {
+      "tag": "compendium:nuggets/dogbearium"
+    }
+  ],
+  "result": {
+    "item": "compendium:dogbeariumcoin",
+    "count": 2
+  }
+}

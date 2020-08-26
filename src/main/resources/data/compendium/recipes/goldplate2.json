@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:gems/gold"
+    },
+    {
+      "tag": "forge:gems/gold"
+    }
+  ],
+  "result": {
+    "item": "compendium:goldplate",
+    "count": 2
+  }
+}

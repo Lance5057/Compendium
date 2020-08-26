@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:gems/froststeel"
+    }
+  },
+  "result": {
+    "item": "compendium:froststeelplate",
+    "count": 2
+  }
+}

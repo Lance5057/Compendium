@@ -1,0 +1,20 @@
+{
+	"variants": {
+		"color=white": { "model": "compendium:silkblock" },
+		"color=orange": { "model": "compendium:silkblock_orange" },
+		"color=magenta": { "model": "compendium:silkblock_magenta" },
+		"color=light_blue": { "model": "compendium:silkblock_light_blue" },
+		"color=yellow": { "model": "compendium:silkblock_yellow" },
+		"color=lime": { "model": "compendium:silkblock_lime" },
+		"color=pink": { "model": "compendium:silkblock_pink" },
+		"color=gray": { "model": "compendium:silkblock_gray" },
+		"color=silver": { "model": "compendium:silkblock_light_gray" },
+		"color=cyan": { "model": "compendium:silkblock_cyan" },
+		"color=purple": { "model": "compendium:silkblock_purple" },
+		"color=blue": { "model": "compendium:silkblock_blue" },
+		"color=brown": { "model": "compendium:silkblock_brown" },
+		"color=green": { "model": "compendium:silkblock_green" },
+		"color=red": { "model": "compendium:silkblock_red" },
+		"color=black": { "model": "compendium:silkblock_black" }
+	}
+}

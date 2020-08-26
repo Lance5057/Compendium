@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "compendium:block/topaz_door_bottom",
+    "top": "compendium:block/topaz_door_top"
+  }
+}

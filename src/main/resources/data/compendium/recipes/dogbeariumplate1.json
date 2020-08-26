@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/dogbearium"
+    },
+    {
+      "tag": "compendium:ingots/dogbearium"
+    }
+  ],
+  "result": {
+    "item": "compendium:dogbeariumplate",
+    "count": 2
+  }
+}

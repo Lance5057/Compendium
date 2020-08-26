@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    },
+    {
+      "tag": "compendium:nuggets/sinisterium"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumingot"
+  }
+}

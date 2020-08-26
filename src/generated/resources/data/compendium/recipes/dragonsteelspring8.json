@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "compendium:dragonsteelwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:dragonsteelspring",
+    "count": 8
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/nihilite"
+    }
+  ],
+  "result": {
+    "item": "compendium:nihilitenugget",
+    "count": 9
+  }
+}

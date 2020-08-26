@@ -1,0 +1,14 @@
+[
+{
+ "modid": "compendium",
+ "name": "Compendium",
+ "description": "A massive expansion",
+ "version": "2.04a",
+ "mcversion": "1.15.2",
+ "url": "",
+ "authorList": ["Lance5057"],
+ "requiredMods": [],
+ "dependencies": [],
+ "useDependencyInformation": "true"
+}
+]

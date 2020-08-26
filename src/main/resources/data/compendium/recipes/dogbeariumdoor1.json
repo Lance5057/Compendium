@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ii",
+    "ii",
+    "ii"
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/dogbearium"
+    }
+  },
+  "result": {
+    "item": "compendium:dogbeariumdooritem"
+  }
+}

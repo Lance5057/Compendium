@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/dragonsteel"
+    },
+    {
+      "tag": "compendium:gems/dragonsteel"
+    },
+    {
+      "tag": "compendium:gems/dragonsteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:dragonsteelrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i"
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:rod/moonsilver"
+    }
+  },
+  "result": {
+    "item": "compendium:moonsilverstakeitem"
+  }
+}

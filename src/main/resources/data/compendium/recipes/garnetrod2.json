@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/garnet"
+    },
+    {
+      "tag": "compendium:gems/garnet"
+    },
+    {
+      "tag": "compendium:gems/garnet"
+    }
+  ],
+  "result": {
+    "item": "compendium:garnetrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:rosegoldwire"
+    },
+    {
+      "item": "compendium:rosegoldwire"
+    },
+    {
+      "item": "compendium:rosegoldwire"
+    },
+    {
+      "item": "compendium:rosegoldwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:rosegoldspring",
+    "count": 4
+  }
+}

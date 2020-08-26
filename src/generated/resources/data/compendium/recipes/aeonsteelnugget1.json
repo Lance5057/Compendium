@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/aeonsteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:aeonsteelnugget",
+    "count": 9
+  }
+}

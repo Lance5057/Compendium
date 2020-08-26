@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:orichalcumwire"
+    },
+    {
+      "item": "compendium:orichalcumwire"
+    },
+    {
+      "item": "compendium:orichalcumwire"
+    },
+    {
+      "item": "compendium:orichalcumwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:orichalcumspring",
+    "count": 4
+  }
+}

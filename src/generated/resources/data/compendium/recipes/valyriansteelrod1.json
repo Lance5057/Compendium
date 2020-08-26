@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/valyriansteel"
+    }
+  },
+  "result": {
+    "item": "compendium:valyriansteelrod",
+    "count": 6
+  }
+}

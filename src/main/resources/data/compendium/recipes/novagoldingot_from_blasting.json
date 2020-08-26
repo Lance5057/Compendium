@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "compendium:ores/novagold"
+  },
+  "result": "compendium:novagoldingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

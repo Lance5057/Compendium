@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/depthsilver"
+    }
+  },
+  "result": {
+    "item": "compendium:depthsilverplate",
+    "count": 2
+  }
+}

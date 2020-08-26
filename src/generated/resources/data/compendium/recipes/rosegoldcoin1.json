@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/rosegold"
+    },
+    {
+      "tag": "compendium:nuggets/rosegold"
+    }
+  ],
+  "result": {
+    "item": "compendium:rosegoldcoin",
+    "count": 2
+  }
+}

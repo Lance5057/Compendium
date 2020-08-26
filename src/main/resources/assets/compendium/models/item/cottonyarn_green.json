@@ -1,0 +1,7 @@
+{
+	"parent": "item/generated",
+    "textures": {
+        "layer0": "compendium:items/cottonyarn_green",
+		"layer1": "compendium:items/yarn_overlay"
+    }
+}

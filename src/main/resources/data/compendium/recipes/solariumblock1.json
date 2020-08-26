@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    },
+    {
+      "tag": "compendium:ingots/solarium"
+    }
+  ],
+  "result": {
+    "item": "compendium:solariumstorageblock"
+  }
+}

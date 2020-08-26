@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/emerald"
+    },
+    {
+      "tag": "forge:nuggets/emerald"
+    }
+  ],
+  "result": {
+    "item": "compendium:emeraldcoin",
+    "count": 2
+  }
+}

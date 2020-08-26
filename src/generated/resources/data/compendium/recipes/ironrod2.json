@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:gems/iron"
+    }
+  },
+  "result": {
+    "item": "compendium:ironrod",
+    "count": 6
+  }
+}

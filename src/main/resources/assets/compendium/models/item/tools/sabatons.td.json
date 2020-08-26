@@ -1,0 +1,9 @@
+{
+    "textures": {
+        "layer0": "compendium:items/armor/sabatons/_plates",
+        "layer1": "compendium:items/armor/sabatons/_trim",
+		"layer2": "compendium:items/armor/sabatons/_caps",
+		"layer3": "compendium:items/armor/sabatons/_soles",
+		"broken1": "compendium:items/armor/sabatons/_plates"
+    }
+}

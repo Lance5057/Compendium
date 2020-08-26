@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/diamond"
+    },
+    {
+      "tag": "forge:nuggets/diamond"
+    }
+  ],
+  "result": {
+    "item": "compendium:diamondcoin",
+    "count": 2
+  }
+}

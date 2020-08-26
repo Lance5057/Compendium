@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:gems/platinum"
+    }
+  },
+  "result": {
+    "item": "compendium:platinumrod",
+    "count": 6
+  }
+}

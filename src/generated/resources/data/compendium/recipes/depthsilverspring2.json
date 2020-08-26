@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:depthsilverwire"
+    },
+    {
+      "item": "compendium:depthsilverwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:depthsilverspring",
+    "count": 2
+  }
+}

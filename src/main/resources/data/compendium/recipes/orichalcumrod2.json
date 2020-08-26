@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/orichalcum"
+    },
+    {
+      "tag": "compendium:gems/orichalcum"
+    },
+    {
+      "tag": "compendium:gems/orichalcum"
+    }
+  ],
+  "result": {
+    "item": "compendium:orichalcumrod",
+    "count": 6
+  }
+}

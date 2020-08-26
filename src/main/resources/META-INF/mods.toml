@@ -1,0 +1,10 @@
+modLoader="javafml"
+loaderVersion="[26,)"
+issueTrackerURL="https://github.com/Lance5057/Tinkers-Compendium/issues"
+[[mods]]
+modId="compendium"
+version="${file.jarVersion}"
+displayName="Compendium"
+displayURL="https://github.com/Lance5057/Tinkers-Compendium"
+credits="Alan199921, DivineAspect, Skysom, FreneticScribbler, Lanse505, Belathus, RoyalJelly"
+authors="Lance5057"

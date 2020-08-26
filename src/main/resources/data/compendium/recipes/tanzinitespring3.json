@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:tanzinitewire"
+    },
+    {
+      "item": "compendium:tanzinitewire"
+    },
+    {
+      "item": "compendium:tanzinitewire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:tanzinitespring",
+    "count": 3
+  }
+}

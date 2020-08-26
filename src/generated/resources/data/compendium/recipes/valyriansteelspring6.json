@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "compendium:valyriansteelwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:valyriansteelspring",
+    "count": 6
+  }
+}

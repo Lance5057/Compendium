@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/moonsilver"
+    },
+    {
+      "tag": "compendium:ingots/moonsilver"
+    },
+    {
+      "tag": "compendium:ingots/moonsilver"
+    }
+  ],
+  "result": {
+    "item": "compendium:moonsilverrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:queensgoldrod"
+    },
+    {
+      "item": "compendium:queensgoldrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:queensgoldwire",
+    "count": 4
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/queensgold"
+    }
+  },
+  "result": {
+    "item": "compendium:queensgoldplate",
+    "count": 2
+  }
+}

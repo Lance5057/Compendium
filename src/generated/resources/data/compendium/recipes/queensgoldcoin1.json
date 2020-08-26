@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/queensgold"
+    },
+    {
+      "tag": "compendium:nuggets/queensgold"
+    }
+  ],
+  "result": {
+    "item": "compendium:queensgoldcoin",
+    "count": 2
+  }
+}

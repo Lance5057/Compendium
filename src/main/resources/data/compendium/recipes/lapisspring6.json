@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "compendium:lapiswire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:lapisspring",
+    "count": 6
+  }
+}

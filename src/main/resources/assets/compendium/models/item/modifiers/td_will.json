@@ -1,0 +1,31 @@
+{
+    "textures": {
+        "arrow": "compendium:items/arrow/mod_will",
+        "battleaxe": "compendium:items/battleaxe/mod_will",
+        "battlesign": "compendium:items/battlesign/mod_will",
+        "bolt": "compendium:items/bolt/mod_will",
+        "broadsword": "compendium:items/broadsword/mod_will",
+        "cleaver": "compendium:items/cleaver/mod_will",
+        "crossbow": "compendium:items/crossbow/mod_will",
+        "excavator": "compendium:items/excavator/mod_will",
+        "frypan": "compendium:items/frypan/mod_will",
+        "hammer": "compendium:items/hammer/mod_will",
+        "hatchet": "compendium:items/hatchet/mod_will",
+        "longbow": "compendium:items/longbow/mod_will",
+        "longbow1": "compendium:items/longbow/mod_will",
+        "longbow2": "compendium:items/longbow/mod_will",
+        "longbow3": "compendium:items/longbow/mod_will",
+        "longsword": "compendium:items/longsword/mod_will",
+        "lumberaxe": "compendium:items/lumberaxe/mod_will",
+        "mattock": "compendium:items/mattock/mod_will",
+        "pickaxe": "compendium:items/pickaxe/mod_will",
+        "rapier": "compendium:items/rapier/mod_will",
+        "scythe": "compendium:items/scythe/mod_will",
+        "shortbow": "compendium:items/shortbow/mod_will",
+        "shortbow1": "compendium:items/shortbow/mod_will",
+        "shortbow2": "compendium:items/shortbow/mod_will",
+        "shortbow3": "compendium:items/shortbow/mod_will",
+        "shovel": "compendium:items/shovel/mod_will",
+        "shuriken": "compendium:items/shuriken/mod_will"
+    }
+}

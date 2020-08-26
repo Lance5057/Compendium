@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {
+    "bottom": "compendium:block/valyriansteel_door_top",
+    "top": "compendium:block/valyriansteel_door_bottom"
+  }
+}

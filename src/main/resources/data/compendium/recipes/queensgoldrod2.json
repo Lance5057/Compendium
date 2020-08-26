@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/queensgold"
+    },
+    {
+      "tag": "compendium:gems/queensgold"
+    },
+    {
+      "tag": "compendium:gems/queensgold"
+    }
+  ],
+  "result": {
+    "item": "compendium:queensgoldrod",
+    "count": 6
+  }
+}

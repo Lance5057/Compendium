@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/froststeel"
+    },
+    {
+      "tag": "compendium:gems/froststeel"
+    },
+    {
+      "tag": "compendium:gems/froststeel"
+    }
+  ],
+  "result": {
+    "item": "compendium:froststeelrod",
+    "count": 6
+  }
+}

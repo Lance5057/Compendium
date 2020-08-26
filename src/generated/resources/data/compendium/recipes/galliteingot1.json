@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:storage_blocks/gallite"
+    }
+  ],
+  "result": {
+    "item": "compendium:galliteingot",
+    "count": 9
+  }
+}

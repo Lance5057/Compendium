@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/topaz"
+    },
+    {
+      "tag": "compendium:ingots/topaz"
+    },
+    {
+      "tag": "compendium:ingots/topaz"
+    }
+  ],
+  "result": {
+    "item": "compendium:topazrod",
+    "count": 6
+  }
+}

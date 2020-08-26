@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/opal"
+    },
+    {
+      "tag": "compendium:ingots/opal"
+    },
+    {
+      "tag": "compendium:ingots/opal"
+    }
+  ],
+  "result": {
+    "item": "compendium:opalrod",
+    "count": 6
+  }
+}

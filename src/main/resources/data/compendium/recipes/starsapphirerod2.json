@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/starsapphire"
+    },
+    {
+      "tag": "compendium:gems/starsapphire"
+    },
+    {
+      "tag": "compendium:gems/starsapphire"
+    }
+  ],
+  "result": {
+    "item": "compendium:starsapphirerod",
+    "count": 6
+  }
+}

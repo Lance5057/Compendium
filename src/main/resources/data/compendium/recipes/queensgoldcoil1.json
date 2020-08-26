@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:queensgoldwire"
+    },
+    {
+      "item": "compendium:queensgoldwire"
+    },
+    {
+      "item": "compendium:queensgoldwire"
+    },
+    {
+      "item": "compendium:queensgoldwire"
+    }
+  ],
+  "result": {
+    "item": "compendium:queensgoldcoil"
+  }
+}

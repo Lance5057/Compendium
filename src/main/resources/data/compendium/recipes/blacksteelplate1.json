@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/blacksteel"
+    },
+    {
+      "tag": "compendium:ingots/blacksteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:blacksteelplate",
+    "count": 2
+  }
+}

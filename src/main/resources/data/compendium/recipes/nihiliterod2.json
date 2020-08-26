@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/nihilite"
+    },
+    {
+      "tag": "compendium:gems/nihilite"
+    },
+    {
+      "tag": "compendium:gems/nihilite"
+    }
+  ],
+  "result": {
+    "item": "compendium:nihiliterod",
+    "count": 6
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/ice"
+    },
+    {
+      "tag": "compendium:ingots/ice"
+    }
+  ],
+  "result": {
+    "item": "compendium:iceplate",
+    "count": 2
+  }
+}

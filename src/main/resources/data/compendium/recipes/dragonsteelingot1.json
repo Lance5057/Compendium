@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:storage_blocks/dragonsteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:dragonsteelingot",
+    "count": 9
+  }
+}

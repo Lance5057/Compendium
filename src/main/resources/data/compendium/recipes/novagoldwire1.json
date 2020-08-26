@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:novagoldrod"
+    },
+    {
+      "item": "compendium:novagoldrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:novagoldwire",
+    "count": 4
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "textures": {
+        "layer0": "compendium:items/baubles/amulet/_setting",
+        "layer1": "compendium:items/baubles/amulet/_chain",
+		"layer2": "compendium:items/baubles/amulet/_clasp",
+		"broken1": "compendium:items/baubles/amulet/_broken"
+    }
+}

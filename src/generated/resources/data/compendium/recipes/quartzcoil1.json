@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:quartzwire"
+    },
+    {
+      "item": "compendium:quartzwire"
+    },
+    {
+      "item": "compendium:quartzwire"
+    },
+    {
+      "item": "compendium:quartzwire"
+    }
+  ],
+  "result": {
+    "item": "compendium:quartzcoil"
+  }
+}

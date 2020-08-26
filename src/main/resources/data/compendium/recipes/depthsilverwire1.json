@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:depthsilverrod"
+    },
+    {
+      "item": "compendium:depthsilverrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:depthsilverwire",
+    "count": 4
+  }
+}

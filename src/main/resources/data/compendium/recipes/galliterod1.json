@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/gallite"
+    },
+    {
+      "tag": "compendium:ingots/gallite"
+    },
+    {
+      "tag": "compendium:ingots/gallite"
+    }
+  ],
+  "result": {
+    "item": "compendium:galliterod",
+    "count": 6
+  }
+}

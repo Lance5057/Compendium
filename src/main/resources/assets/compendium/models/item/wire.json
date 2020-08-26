@@ -1,0 +1,9 @@
+{
+    "parent": "item/generated",
+    "textures": {
+		"layer0": "compendium:items/wire",
+		"layer1": "compendium:items/wirespool",
+		"layer2": "compendium:items/wirespool"
+        
+    }
+}

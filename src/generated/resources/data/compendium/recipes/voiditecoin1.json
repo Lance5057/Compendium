@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/voidite"
+    },
+    {
+      "tag": "compendium:nuggets/voidite"
+    }
+  ],
+  "result": {
+    "item": "compendium:voiditecoin",
+    "count": 2
+  }
+}

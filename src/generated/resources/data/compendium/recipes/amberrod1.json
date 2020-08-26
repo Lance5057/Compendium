@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/amber"
+    }
+  },
+  "result": {
+    "item": "compendium:amberrod",
+    "count": 6
+  }
+}

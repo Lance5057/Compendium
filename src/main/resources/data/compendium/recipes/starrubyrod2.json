@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/starruby"
+    },
+    {
+      "tag": "compendium:gems/starruby"
+    },
+    {
+      "tag": "compendium:gems/starruby"
+    }
+  ],
+  "result": {
+    "item": "compendium:starrubyrod",
+    "count": 6
+  }
+}

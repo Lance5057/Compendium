@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:emeraldwire"
+    },
+    {
+      "item": "compendium:emeraldwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:emeraldspring",
+    "count": 2
+  }
+}

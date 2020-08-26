@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/aeonsteel"
+    },
+    {
+      "tag": "compendium:nuggets/aeonsteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:aeonsteelcoin",
+    "count": 2
+  }
+}

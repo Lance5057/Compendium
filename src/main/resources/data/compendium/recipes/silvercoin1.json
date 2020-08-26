@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/silver"
+    },
+    {
+      "tag": "compendium:nuggets/silver"
+    }
+  ],
+  "result": {
+    "item": "compendium:silvercoin",
+    "count": 2
+  }
+}

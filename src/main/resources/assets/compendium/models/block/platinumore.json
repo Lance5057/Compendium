@@ -1,0 +1,7 @@
+{
+    "parent": "compendium:block/ore_node_center",
+    "textures": {
+        "0": "block/stone",
+		"1": "compendium:block/platinumore"
+    }
+}

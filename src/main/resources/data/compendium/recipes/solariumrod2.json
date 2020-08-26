@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/solarium"
+    },
+    {
+      "tag": "compendium:gems/solarium"
+    },
+    {
+      "tag": "compendium:gems/solarium"
+    }
+  ],
+  "result": {
+    "item": "compendium:solariumrod",
+    "count": 6
+  }
+}

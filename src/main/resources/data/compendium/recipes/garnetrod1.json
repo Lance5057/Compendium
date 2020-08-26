@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/garnet"
+    },
+    {
+      "tag": "compendium:ingots/garnet"
+    },
+    {
+      "tag": "compendium:ingots/garnet"
+    }
+  ],
+  "result": {
+    "item": "compendium:garnetrod",
+    "count": 6
+  }
+}

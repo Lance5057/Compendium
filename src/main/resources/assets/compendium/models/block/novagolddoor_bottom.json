@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom",
+  "textures": {
+    "bottom": "compendium:block/novagold_door_top",
+    "top": "compendium:block/novagold_door_bottom"
+  }
+}

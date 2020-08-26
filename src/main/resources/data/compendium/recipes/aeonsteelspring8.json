@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "compendium:aeonsteelwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:aeonsteelspring",
+    "count": 8
+  }
+}

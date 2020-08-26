@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/dogbearium"
+    },
+    {
+      "tag": "compendium:ingots/dogbearium"
+    },
+    {
+      "tag": "compendium:ingots/dogbearium"
+    }
+  ],
+  "result": {
+    "item": "compendium:dogbeariumrod",
+    "count": 6
+  }
+}

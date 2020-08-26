@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "compendium:starrubywire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:starrubyspring",
+    "count": 7
+  }
+}

@@ -1,0 +1,28 @@
+package lance5057.tDefense.core.data.builders;
+
+import lance5057.tDefense.core.library.materialutilities.MaterialBase;
+import lance5057.tDefense.core.library.materialutilities.MaterialHelper;
+import lance5057.tDefense.core.materials.CompendiumMaterials;
+import net.minecraft.data.DataGenerator;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ExistingFileHelper;
+
+public class TCBlockModels extends BlockStateProvider {
+	private final ExistingFileHelper fh;
+
+	public TCBlockModels(DataGenerator gen, String modid, ExistingFileHelper fh) {
+		super(gen, modid, fh);
+		this.fh = fh;
+	}
+
+	@Override
+	protected void registerStatesAndModels() {
+		for(MaterialHelper m : CompendiumMaterials.materials)
+		{
+			for(MaterialBase mb: m.addons)
+			{
+				mb.setupBlockModels(this,fh);
+			}
+		}
+	}
+}

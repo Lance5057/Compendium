@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    },
+    {
+      "tag": "compendium:ingots/froststeel"
+    }
+  ],
+  "result": {
+    "item": "compendium:froststeelstorageblock"
+  }
+}

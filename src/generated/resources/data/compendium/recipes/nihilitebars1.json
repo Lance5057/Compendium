@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:rod/nihilite"
+    }
+  },
+  "result": {
+    "item": "compendium:nihilitebarsitem",
+    "count": 8
+  }
+}

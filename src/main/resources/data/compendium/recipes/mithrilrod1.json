@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/mithril"
+    },
+    {
+      "tag": "compendium:ingots/mithril"
+    },
+    {
+      "tag": "compendium:ingots/mithril"
+    }
+  ],
+  "result": {
+    "item": "compendium:mithrilrod",
+    "count": 6
+  }
+}

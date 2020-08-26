@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/silver"
+    }
+  },
+  "result": {
+    "item": "compendium:silverplate",
+    "count": 2
+  }
+}

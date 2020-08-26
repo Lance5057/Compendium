@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumspring",
+    "count": 3
+  }
+}

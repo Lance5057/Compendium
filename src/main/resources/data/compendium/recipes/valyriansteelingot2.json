@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    },
+    {
+      "tag": "compendium:nuggets/valyriansteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:valyriansteelingot"
+  }
+}

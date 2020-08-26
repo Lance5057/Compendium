@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/lapis"
+    },
+    {
+      "tag": "forge:ingots/lapis"
+    }
+  ],
+  "result": {
+    "item": "compendium:lapisplate",
+    "count": 2
+  }
+}

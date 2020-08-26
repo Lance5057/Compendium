@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    },
+    {
+      "tag": "compendium:nuggets/mithril"
+    }
+  ],
+  "result": {
+    "item": "compendium:mithrilingot"
+  }
+}

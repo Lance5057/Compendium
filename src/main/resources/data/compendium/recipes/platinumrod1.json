@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/platinum"
+    },
+    {
+      "tag": "compendium:ingots/platinum"
+    },
+    {
+      "tag": "compendium:ingots/platinum"
+    }
+  ],
+  "result": {
+    "item": "compendium:platinumrod",
+    "count": 6
+  }
+}

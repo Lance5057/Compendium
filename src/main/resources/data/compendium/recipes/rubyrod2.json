@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/ruby"
+    },
+    {
+      "tag": "compendium:gems/ruby"
+    },
+    {
+      "tag": "compendium:gems/ruby"
+    }
+  ],
+  "result": {
+    "item": "compendium:rubyrod",
+    "count": 6
+  }
+}

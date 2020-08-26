@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "compendium:sinisteriumwire"
+    },
+    {
+      "item": "compendium:sinisteriumwire"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumcoil"
+  }
+}

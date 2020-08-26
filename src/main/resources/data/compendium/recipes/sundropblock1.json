@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    },
+    {
+      "tag": "compendium:ingots/sundrop"
+    }
+  ],
+  "result": {
+    "item": "compendium:sundropstorageblock"
+  }
+}

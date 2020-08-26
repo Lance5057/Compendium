@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/voidite"
+    },
+    {
+      "tag": "compendium:gems/voidite"
+    },
+    {
+      "tag": "compendium:gems/voidite"
+    }
+  ],
+  "result": {
+    "item": "compendium:voiditerod",
+    "count": 6
+  }
+}

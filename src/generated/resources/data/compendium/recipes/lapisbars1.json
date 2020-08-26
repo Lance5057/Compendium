@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:rod/lapis"
+    }
+  },
+  "result": {
+    "item": "compendium:lapisbarsitem",
+    "count": 8
+  }
+}

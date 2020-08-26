@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/citrine"
+    },
+    {
+      "tag": "compendium:gems/citrine"
+    }
+  ],
+  "result": {
+    "item": "compendium:citrineplate",
+    "count": 2
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {
+    "bottom": "compendium:block/aeonsteel_door_top",
+    "top": "compendium:block/aeonsteel_door_bottom"
+  }
+}

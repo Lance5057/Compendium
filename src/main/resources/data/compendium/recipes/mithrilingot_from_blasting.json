@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "compendium:ores/mithril"
+  },
+  "result": "compendium:mithrilingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

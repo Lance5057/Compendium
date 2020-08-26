@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom",
+  "textures": {
+    "bottom": "compendium:block/citrine_door_top",
+    "top": "compendium:block/citrine_door_bottom"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "textures": {
+        "layer0": "compendium:items/armor/helm/_top",
+        "layer1": "compendium:items/armor/helm/_plate",
+		"layer2": "compendium:items/armor/helm/_visor",
+		"layer3": "compendium:items/armor/helm/_chain",
+		"broken1": "compendium:items/armor/helm/_plate"
+    }
+}

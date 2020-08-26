@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/pandorium"
+    },
+    {
+      "tag": "compendium:gems/pandorium"
+    },
+    {
+      "tag": "compendium:gems/pandorium"
+    }
+  ],
+  "result": {
+    "item": "compendium:pandoriumrod",
+    "count": 6
+  }
+}

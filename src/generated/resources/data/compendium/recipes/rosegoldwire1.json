@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:rosegoldrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:rosegoldwire",
+    "count": 2
+  }
+}

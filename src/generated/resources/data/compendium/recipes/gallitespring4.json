@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:gallitewire"
+    },
+    {
+      "item": "compendium:gallitewire"
+    },
+    {
+      "item": "compendium:gallitewire"
+    },
+    {
+      "item": "compendium:gallitewire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:gallitespring",
+    "count": 4
+  }
+}

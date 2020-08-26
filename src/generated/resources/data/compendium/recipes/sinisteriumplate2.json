@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:gems/sinisterium"
+    }
+  },
+  "result": {
+    "item": "compendium:sinisteriumplate",
+    "count": 2
+  }
+}

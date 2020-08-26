@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:nuggets/solarium"
+    },
+    {
+      "tag": "compendium:nuggets/solarium"
+    }
+  ],
+  "result": {
+    "item": "compendium:solariumcoin",
+    "count": 2
+  }
+}

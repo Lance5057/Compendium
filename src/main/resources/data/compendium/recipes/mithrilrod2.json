@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/mithril"
+    },
+    {
+      "tag": "compendium:gems/mithril"
+    },
+    {
+      "tag": "compendium:gems/mithril"
+    }
+  ],
+  "result": {
+    "item": "compendium:mithrilrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/tanzinite"
+    },
+    {
+      "tag": "compendium:gems/tanzinite"
+    },
+    {
+      "tag": "compendium:gems/tanzinite"
+    }
+  ],
+  "result": {
+    "item": "compendium:tanziniterod",
+    "count": 6
+  }
+}

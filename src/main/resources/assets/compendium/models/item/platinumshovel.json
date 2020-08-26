@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "compendium:items/platinumshovel",
+        "layer1": "compendium:items/shovelbase"
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "compendium:sapphirewire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:sapphirespring",
+    "count": 6
+  }
+}

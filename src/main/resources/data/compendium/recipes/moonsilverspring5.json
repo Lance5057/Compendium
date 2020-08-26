@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:moonsilverwire"
+    },
+    {
+      "item": "compendium:moonsilverwire"
+    },
+    {
+      "item": "compendium:moonsilverwire"
+    },
+    {
+      "item": "compendium:moonsilverwire"
+    },
+    {
+      "item": "compendium:moonsilverwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:moonsilverspring",
+    "count": 5
+  }
+}

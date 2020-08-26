@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:abyssaliumwire"
+    },
+    {
+      "item": "compendium:abyssaliumwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:abyssaliumspring",
+    "count": 2
+  }
+}

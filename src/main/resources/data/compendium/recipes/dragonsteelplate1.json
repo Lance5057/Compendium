@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/dragonsteel"
+    },
+    {
+      "tag": "compendium:ingots/dragonsteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:dragonsteelplate",
+    "count": 2
+  }
+}

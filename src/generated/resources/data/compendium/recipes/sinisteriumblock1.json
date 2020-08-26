@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    },
+    {
+      "tag": "compendium:ingots/sinisterium"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumstorageblock"
+  }
+}

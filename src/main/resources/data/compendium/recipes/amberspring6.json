@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "compendium:amberwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:amberspring",
+    "count": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:dogbeariumwire"
+    },
+    {
+      "item": "compendium:dogbeariumwire"
+    },
+    {
+      "item": "compendium:dogbeariumwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:dogbeariumspring",
+    "count": 3
+  }
+}

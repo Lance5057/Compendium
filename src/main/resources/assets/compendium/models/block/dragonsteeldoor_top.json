@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "compendium:block/dragonsteel_door_top",
+    "top": "compendium:block/dragonsteel_door_bottom"
+  }
+}

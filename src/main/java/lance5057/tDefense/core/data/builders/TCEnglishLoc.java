@@ -1,0 +1,27 @@
+package lance5057.tDefense.core.data.builders;
+
+import lance5057.tDefense.Reference;
+import lance5057.tDefense.core.library.materialutilities.MaterialBase;
+import lance5057.tDefense.core.library.materialutilities.MaterialHelper;
+import lance5057.tDefense.core.materials.CompendiumMaterials;
+import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.LanguageProvider;
+
+public class TCEnglishLoc extends LanguageProvider {
+
+	public TCEnglishLoc(DataGenerator gen) {
+		super(gen, Reference.MOD_ID, "en_us");
+	}
+
+	@Override
+	protected void addTranslations() {
+		for(MaterialHelper m : CompendiumMaterials.materials)
+		{
+			for(MaterialBase mb: m.addons)
+			{
+				mb.setupEnglishLocalization(this);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/voidite"
+    }
+  },
+  "result": {
+    "item": "compendium:voiditeplate",
+    "count": 2
+  }
+}

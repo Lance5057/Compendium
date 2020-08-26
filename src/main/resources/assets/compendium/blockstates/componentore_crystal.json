@@ -1,0 +1,23 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+	"model": "forge:multi-layer",
+    "custom": {
+      "base": "compendium:componentore_crystal#base",
+      "Solid": "compendium:componentore_crystal#base",
+      "Translucent": "compendium:componentore_crystal#gem"
+		},
+        "transform": "forge:default-block"
+    },
+    "variants": {
+    	"normal": [{}],
+    	"inventory": [{}],
+    
+		"base": [{
+			"model": "compendium:ore_crystal"
+			}],
+		"gem": [{
+			"model": "compendium:ore_crystal_transparent"
+			}]	
+	}
+}

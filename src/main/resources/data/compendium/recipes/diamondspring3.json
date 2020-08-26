@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:diamondwire"
+    },
+    {
+      "item": "compendium:diamondwire"
+    },
+    {
+      "item": "compendium:diamondwire"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "compendium:diamondspring",
+    "count": 3
+  }
+}

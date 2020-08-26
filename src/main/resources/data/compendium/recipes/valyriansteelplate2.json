@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/valyriansteel"
+    },
+    {
+      "tag": "compendium:gems/valyriansteel"
+    }
+  ],
+  "result": {
+    "item": "compendium:valyriansteelplate",
+    "count": 2
+  }
+}

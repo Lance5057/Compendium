@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/topaz"
+    },
+    {
+      "tag": "compendium:gems/topaz"
+    }
+  ],
+  "result": {
+    "item": "compendium:topazplate",
+    "count": 2
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:gems/dogbearium"
+    }
+  },
+  "result": {
+    "item": "compendium:dogbeariumplate",
+    "count": 2
+  }
+}

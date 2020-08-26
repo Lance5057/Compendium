@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/quartz"
+    }
+  },
+  "result": {
+    "item": "compendium:quartzrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    },
+    {
+      "tag": "compendium:ingots/novagold"
+    }
+  ],
+  "result": {
+    "item": "compendium:novagoldstorageblock"
+  }
+}

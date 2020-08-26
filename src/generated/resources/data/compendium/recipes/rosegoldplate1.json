@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "tag": "compendium:ingots/rosegold"
+    }
+  },
+  "result": {
+    "item": "compendium:rosegoldplate",
+    "count": 2
+  }
+}

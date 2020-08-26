@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    },
+    {
+      "tag": "compendium:ingots/pandorium"
+    }
+  ],
+  "result": {
+    "item": "compendium:pandoriumstorageblock"
+  }
+}

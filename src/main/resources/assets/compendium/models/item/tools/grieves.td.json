@@ -1,0 +1,9 @@
+{
+    "textures": {
+        "layer0": "compendium:items/armor/grieves/_plate",
+        "layer1": "compendium:items/armor/grieves/_trim",
+		"layer2": "compendium:items/armor/grieves/_chain",
+		"layer3": "compendium:items/armor/grieves/_cloth",
+		"broken1": "compendium:items/armor/grieves/_plate"
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "compendium:gems/novagold"
+    },
+    {
+      "tag": "compendium:gems/novagold"
+    },
+    {
+      "tag": "compendium:gems/novagold"
+    }
+  ],
+  "result": {
+    "item": "compendium:novagoldrod",
+    "count": 6
+  }
+}
