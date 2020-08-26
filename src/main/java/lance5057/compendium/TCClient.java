@@ -1,7 +1,7 @@
-package lance5057.tDefense;
+package lance5057.compendium;
 
-import lance5057.tDefense.core.library.materialutilities.MaterialHelper;
-import lance5057.tDefense.core.materials.CompendiumMaterials;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

@@ -1,10 +1,17 @@
-package lance5057.tDefense.core.library.materialutilities;
+package lance5057.compendium.core.library.materialutilities;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lance5057.tDefense.Reference;
-import lance5057.tDefense.core.library.TCItemTier;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.library.TCItemTier;
+import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialTools;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 

@@ -1,4 +1,4 @@
-package lance5057.tDefense.core.blocks;
+package lance5057.compendium.core.blocks;
 
 import net.minecraft.block.DoorBlock;
 

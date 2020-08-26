@@ -1,6 +1,6 @@
-package lance5057.tDefense.core.library;
+package lance5057.compendium.core.library;
 
-import lance5057.tDefense.Reference;
+import lance5057.compendium.Reference;
 import net.minecraft.item.Item;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;

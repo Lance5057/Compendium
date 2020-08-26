@@ -1,4 +1,4 @@
-package lance5057.tDefense.core.data.builders;
+package lance5057.compendium.core.data.builders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class TCItemTags extends ItemTagsProvider {
 	public TCItemTags(DataGenerator generatorIn) {
 		super(generatorIn);
 	}
-
+	
 	@Override
 	protected void registerTags() {
 		for(Pair<Tag<Item>, Item> p : ItemTags)

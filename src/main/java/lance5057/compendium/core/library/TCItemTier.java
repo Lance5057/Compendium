@@ -1,4 +1,4 @@
-package lance5057.tDefense.core.library;
+package lance5057.compendium.core.library;
 
 import java.util.function.Supplier;
 

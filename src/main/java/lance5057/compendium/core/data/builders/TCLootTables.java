@@ -1,4 +1,4 @@
-package lance5057.tDefense.core.data.builders;
+package lance5057.compendium.core.data.builders;
 
 import java.util.ArrayList;
 import java.util.List;

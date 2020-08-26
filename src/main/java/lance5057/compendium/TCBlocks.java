@@ -1,4 +1,4 @@
-package lance5057.tDefense;
+package lance5057.compendium;
 
 import java.util.ArrayList;
 import java.util.List;

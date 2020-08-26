@@ -1,9 +1,9 @@
-package lance5057.tDefense.core.data.builders;
+package lance5057.compendium.core.data.builders;
 
-import lance5057.tDefense.Reference;
-import lance5057.tDefense.core.library.materialutilities.MaterialBase;
-import lance5057.tDefense.core.library.materialutilities.MaterialHelper;
-import lance5057.tDefense.core.materials.CompendiumMaterials;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
+import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;

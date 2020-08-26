@@ -1,11 +1,11 @@
-package lance5057.tDefense.core.materials;
+package lance5057.compendium.core.materials;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lance5057.tDefense.Reference;
-import lance5057.tDefense.core.library.TCItemTier;
-import lance5057.tDefense.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.library.TCItemTier;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;

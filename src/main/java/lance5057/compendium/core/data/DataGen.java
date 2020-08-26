@@ -1,13 +1,13 @@
-package lance5057.tDefense.core.data;
+package lance5057.compendium.core.data;
 
-import lance5057.tDefense.Reference;
-import lance5057.tDefense.core.data.builders.TCBlockModels;
-import lance5057.tDefense.core.data.builders.TCBlockTags;
-import lance5057.tDefense.core.data.builders.TCEnglishLoc;
-import lance5057.tDefense.core.data.builders.TCItemModels;
-import lance5057.tDefense.core.data.builders.TCItemTags;
-import lance5057.tDefense.core.data.builders.TCLootTables;
-import lance5057.tDefense.core.data.builders.TCRecipes;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.data.builders.TCBlockModels;
+import lance5057.compendium.core.data.builders.TCBlockTags;
+import lance5057.compendium.core.data.builders.TCEnglishLoc;
+import lance5057.compendium.core.data.builders.TCItemModels;
+import lance5057.compendium.core.data.builders.TCItemTags;
+import lance5057.compendium.core.data.builders.TCLootTables;
+import lance5057.compendium.core.data.builders.TCRecipes;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

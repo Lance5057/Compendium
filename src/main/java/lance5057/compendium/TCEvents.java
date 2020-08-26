@@ -1,4 +1,4 @@
-package lance5057.tDefense;
+package lance5057.compendium;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
