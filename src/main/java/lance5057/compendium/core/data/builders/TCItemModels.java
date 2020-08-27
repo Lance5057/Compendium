@@ -25,13 +25,13 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
 	@Override
 	protected void registerModels() {
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			for(MaterialBase mb: m.addons)
-			{
-				mb.setupItemModels(this,fh);
-			}
-		}
+//		for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			for(MaterialBase mb: m.addons)
+//			{
+//				mb.setupItemModels(this,fh);
+//			}
+//		}
 	}
 	
 }

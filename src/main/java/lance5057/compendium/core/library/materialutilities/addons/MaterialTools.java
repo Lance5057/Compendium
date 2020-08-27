@@ -64,11 +64,11 @@ public class MaterialTools implements MaterialBase {
 		axe.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"axe"));
 		hoe.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"hoe"));
 		
-		TCItems.ITEMS.add(sword);
-		TCItems.ITEMS.add(pickaxe);
-		TCItems.ITEMS.add(shovel);
-		TCItems.ITEMS.add(axe);
-		TCItems.ITEMS.add(hoe);
+//		TCItems.ITEMS.add(sword);
+//		TCItems.ITEMS.add(pickaxe);
+//		TCItems.ITEMS.add(shovel);
+//		TCItems.ITEMS.add(axe);
+//		TCItems.ITEMS.add(hoe);
 	}
 
 	@Override

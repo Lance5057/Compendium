@@ -47,8 +47,6 @@ public class MeltableMaterial implements MaterialBase {
 	String matName;
 	String parentMod;
 
-	int temp;
-
 	public final RegistryObject<Item> INGOT;
 	public final RegistryObject<Item> NUGGET;
 	public final RegistryObject<Block> STORAGE_BLOCK;

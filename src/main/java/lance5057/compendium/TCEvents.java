@@ -21,7 +21,7 @@ public class TCEvents {
 ////		if (TinkersCompendium.botania != null)
 ////			TinkersCompendium.botania.registerItems(event);
 
-		TinkersCompendium.items.registerItems(event);
+		//TinkersCompendium.items.registerItems(event);
 	}
 	
 	@SubscribeEvent
@@ -36,6 +36,6 @@ public class TCEvents {
 ////		if (TinkersCompendium.botania != null)
 ////			TinkersCompendium.botania.registerBlocks(event);
 
-		TinkersCompendium.blocks.registerBlocks(event);
+		//TinkersCompendium.blocks.registerBlocks(event);
 	}
 }

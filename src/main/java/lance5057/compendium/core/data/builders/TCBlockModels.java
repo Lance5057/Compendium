@@ -17,12 +17,12 @@ public class TCBlockModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			for(MaterialBase mb: m.addons)
-			{
-				mb.setupBlockModels(this,fh);
-			}
-		}
+//		for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			for(MaterialBase mb: m.addons)
+//			{
+//				mb.setupBlockModels(this,fh);
+//			}
+//		}
 	}
 }

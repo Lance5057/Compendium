@@ -1,27 +1,23 @@
 package lance5057.compendium.core.library.materialutilities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.TCItemTier;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialTools;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
-import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class MaterialHelper {
-	String name;
-	String parentMod;
+	public String name;
+	public String parentMod;
+	
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 	
 	private CraftableMaterial craftable;
 	private MeltableMaterial meltable;
-	private 
+	//private 
 
 	//public List<MaterialBase> addons;
 
@@ -34,86 +30,93 @@ public class MaterialHelper {
 	public MaterialHelper(String name, String parentMod) {
 		this.name = name;
 		this.parentMod = parentMod;
-
-		// mat = new Material(name, color);
-		addons = new ArrayList<MaterialBase>();
 	}
 
-	public MaterialHelper ingot() {
-		addons.add(new MeltableMaterial(name, parentMod));
+	//Meltable
+	public MaterialHelper withIngot() {
+		meltable = new MeltableMaterial(name, parentMod);
 		return this;
 	}
+	
+	public MeltableMaterial getIngot() {
+		return meltable;
+	}
 
-	public MaterialHelper gem() {
-		addons.add(new CraftableMaterial(name));
+	//Craftable
+	public MaterialHelper witGem() {
+		craftable = new CraftableMaterial(this);
 		return this;
 	}
-
-	public MaterialHelper components() {
-		addons.add(new MaterialVanillaComponents(name, parentMod));
-		addons.add(new MaterialExtraComponents(name, parentMod));
-		return this;
+	
+	public CraftableMaterial getGem() {
+		return craftable;
 	}
 
-	public MaterialHelper extracomponents() {
-		addons.add(new MaterialExtraComponents(name, parentMod));
-		return this;
-	}
+//	public MaterialHelper components() {
+//		addons.add(new MaterialVanillaComponents(name, parentMod));
+//		addons.add(new MaterialExtraComponents(name, parentMod));
+//		return this;
+//	}
+//
+//	public MaterialHelper extracomponents() {
+//		addons.add(new MaterialExtraComponents(name, parentMod));
+//		return this;
+//	}
+//
+//	public MaterialHelper tool(TCItemTier tier) {
+//		addons.add(new MaterialTools(name, tier));
+//		return this;
+//	}
+//
+//	public MaterialHelper ore(float hardness, int level, String tool, float resistance, int ymax, int ymin,
+//			int veinSize, int veinChance, Category biomeCategory) {
+//		addons.add(new MaterialOre(name, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
+//				biomeCategory));
+//		return this;
+//	}
 
-	public MaterialHelper tool(TCItemTier tier) {
-		addons.add(new MaterialTools(name, tier));
-		return this;
-	}
-
-	public MaterialHelper ore(float hardness, int level, String tool, float resistance, int ymax, int ymin,
-			int veinSize, int veinChance, Category biomeCategory) {
-		addons.add(new MaterialOre(name, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
-				biomeCategory));
-		return this;
-	}
-
-	public MaterialHelper finish() {
-		tags();
-		recipes();
-		loot();
-		return this;
-	}
-
-	public void client() {
-		for (MaterialBase mb : addons) {
-			mb.setupClient(this);
-		}
-	}
-
-	public void models() {
-		for (MaterialBase mb : addons) {
-			mb.setupModels(this);
-		}
-	}
-
-	public void tags() {
-		for (MaterialBase mb : addons) {
-			mb.setupBlockTags();
-			mb.setupItemTags();
-		}
-	}
-
-	public void recipes() {
-		for (MaterialBase mb : addons) {
-			mb.setupRecipes();
-		}
-	}
-
-	public void loot() {
-		for (MaterialBase mb : addons) {
-			mb.setupLoot();
-		}
-	}
-
-	public void setup(final FMLCommonSetupEvent event) {
-		for (MaterialBase mb : addons) {
-			mb.setup(event);
-		}
-	}
+//	public MaterialHelper finish() {
+//		tags();
+//		recipes();
+//		loot();
+//		return this;
+//	}
+//
+//	public void client() {
+//		for (MaterialBase mb : addons) {
+//			mb.setupClient(this);
+//		}
+//	}
+//
+//	public void models() {
+//		for (MaterialBase mb : addons) {
+//			mb.setupModels(this);
+//		}
+//	}
+//
+//	public void tags() {
+//		for (MaterialBase mb : addons) {
+//			mb.setupBlockTags();
+//			mb.setupItemTags();
+//		}
+//	}
+//
+//	public void recipes() {
+//		for (MaterialBase mb : addons) {
+//			mb.setupRecipes();
+//		}
+//	}
+//
+//	public void loot() {
+//		for (MaterialBase mb : addons) {
+//			mb.setupLoot();
+//		}
+//	}
+//
+//	public void setup(final FMLCommonSetupEvent event) {
+//		for (MaterialBase mb : addons) {
+//			mb.setup(event);
+//		}
+//	}
 
 }

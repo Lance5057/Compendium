@@ -2,21 +2,15 @@ package lance5057.compendium.core.library.materialutilities.addons;
 
 import java.io.PrintWriter;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-
 import lance5057.compendium.Reference;
 import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
-import lance5057.compendium.core.data.builders.TCItemTags;
-import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
@@ -24,7 +18,6 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
@@ -42,28 +35,28 @@ public class CraftableMaterial implements MaterialBase {
 	public final RegistryObject<Item> NUGGET;
 	public final RegistryObject<Block> STORAGE_BLOCK;
 	public final RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
-	private final String name;
 
 	public static Tag<Item> MATERIAL_GEM;
 	public static Tag<Item> MATERIAL_NUGGET;
 	public static Tag<Item> MATERIAL_STORAGE_BLOCK;
 
-	public CraftableMaterial(String matName, String parentMod) {
-		name = matName;
+	public CraftableMaterial(MaterialHelper mh) {
 
-		this.GEM = TCItems.ITEMS.register(name + "gem", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
-		NUGGET = TCItems.ITEMS.register(name + "nugget", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		GEM = mh.ITEMS.register(mh.name + "gem",
+				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		NUGGET = mh.ITEMS.register(mh.name + "nugget",
+				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 
-		STORAGE_BLOCK = TCBlocks.BLOCKS.register(name + "storage_block", () -> new Block(Block.Properties
+		STORAGE_BLOCK = TCBlocks.BLOCKS.register(mh.name + "storage_block", () -> new Block(Block.Properties
 				.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
-		STORAGE_ITEMBLOCK = TCItems.ITEMS.register(name + "storage_itemblock",
+		STORAGE_ITEMBLOCK = TCItems.ITEMS.register(mh.name + "storage_itemblock",
 				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
-		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + matName));
+		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + mh.name));
 		MATERIAL_NUGGET = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + matName));
+				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + mh.name));
 		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + matName));
+				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + mh.name));
 
 	}
 

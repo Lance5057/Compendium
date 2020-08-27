@@ -15,13 +15,13 @@ public class TCEnglishLoc extends LanguageProvider {
 
 	@Override
 	protected void addTranslations() {
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			for(MaterialBase mb: m.addons)
-			{
-				mb.setupEnglishLocalization(this);
-			}
-		}
+//		for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			for(MaterialBase mb: m.addons)
+//			{
+//				mb.setupEnglishLocalization(this);
+//			}
+//		}
 	}
 
 }

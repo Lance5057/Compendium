@@ -138,7 +138,7 @@ public class MaterialGemOre implements MaterialBase {
 
 		oreBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "ore"));
 
-		TCBlocks.BLOCKS.add(oreBlock);
+		//TCBlocks.BLOCKS.add(oreBlock);
 
 		// OutputJsons.outputBlockJson(oreBlock);
 
@@ -148,7 +148,7 @@ public class MaterialGemOre implements MaterialBase {
 		oreItemBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "ore"));
 		//oreClump.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "oreclump"));
 
-		TCItems.ITEMS.add(oreItemBlock);
+		//TCItems.ITEMS.add(oreItemBlock);
 		//.ITEMS.add(oreClump);
 
 		MATERIAL_ORE = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "ores/" + matName));

@@ -63,17 +63,17 @@ public class MaterialVanillaComponents implements MaterialBase {
 		trapdoor.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "trapdoor"));
 		bars.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "bars"));
 
-		TCBlocks.BLOCKS.add(door);
-		TCBlocks.BLOCKS.add(trapdoor);
-		TCBlocks.BLOCKS.add(bars);
+//		TCBlocks.BLOCKS.add(door);
+//		TCBlocks.BLOCKS.add(trapdoor);
+//		TCBlocks.BLOCKS.add(bars);
 
 		itemDoor.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "dooritem"));
 		itemTrapdoor.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "trapdooritem"));
 		itemBars.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "barsitem"));
 
-		TCItems.ITEMS.add(itemDoor);
-		TCItems.ITEMS.add(itemTrapdoor);
-		TCItems.ITEMS.add(itemBars);
+//		TCItems.ITEMS.add(itemDoor);
+//		TCItems.ITEMS.add(itemTrapdoor);
+//		TCItems.ITEMS.add(itemBars);
 	}
 
 	@Override

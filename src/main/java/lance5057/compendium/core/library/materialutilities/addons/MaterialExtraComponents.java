@@ -99,59 +99,59 @@ public class MaterialExtraComponents implements MaterialBase {
 		this.matName = matName;
 		this.parentMod = parentMod;
 
-		stake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stake"));
-		shinglesblock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblock"));
-		shingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shingles"));
-		shinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesalt"));
-
-		TCBlocks.BLOCKS.add(stake);
-		TCBlocks.BLOCKS.add(shinglesblock);
-		TCBlocks.BLOCKS.add(shingles);
-		TCBlocks.BLOCKS.add(shinglesalt);
-
-		itemStake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stakeitem"));
-		itemShinglesBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblockitem"));
-		itemShingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesitem"));
-		itemShinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesaltitem"));
-
-		TCItems.ITEMS.add(itemStake);
-		TCItems.ITEMS.add(itemShinglesBlock);
-		TCItems.ITEMS.add(itemShingles);
-		TCItems.ITEMS.add(itemShinglesalt);
-
-		dust.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "dust"));
-		plate.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "plate"));
-		coin.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coin"));
-		gear.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gear"));
-		rod.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "rod"));
-		coil.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coil"));
-		spring.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "spring"));
-		casing.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "casing"));
-		wire.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "wire"));
-
-		TCItems.ITEMS.add(dust);
-		// TCItems.ITEMS.add(grain);
-		TCItems.ITEMS.add(plate);
-		TCItems.ITEMS.add(coin);
-		TCItems.ITEMS.add(gear);
-		TCItems.ITEMS.add(rod);
-		TCItems.ITEMS.add(spring);
-		TCItems.ITEMS.add(casing);
-		TCItems.ITEMS.add(wire);
-		TCItems.ITEMS.add(coil);
-
-		MATERIAL_DUST = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "dust/" + matName));
-		MATERIAL_PLATE = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "plate/" + matName));
-		MATERIAL_COIN = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coin/" + matName));
-		MATERIAL_GEAR = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gear/" + matName));
-		MATERIAL_ROD = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "rod/" + matName));
-		MATERIAL_COIL = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coil/" + matName));
-		MATERIAL_SPRING = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "spring/" + matName));
-		MATERIAL_CASING = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "casing/" + matName));
-		MATERIAL_WIRE = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "wire/" + matName));
+//		stake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stake"));
+//		shinglesblock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblock"));
+//		shingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shingles"));
+//		shinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesalt"));
+//
+//		TCBlocks.BLOCKS.add(stake);
+//		TCBlocks.BLOCKS.add(shinglesblock);
+//		TCBlocks.BLOCKS.add(shingles);
+//		TCBlocks.BLOCKS.add(shinglesalt);
+//
+//		itemStake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stakeitem"));
+//		itemShinglesBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblockitem"));
+//		itemShingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesitem"));
+//		itemShinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesaltitem"));
+//
+//		TCItems.ITEMS.add(itemStake);
+//		TCItems.ITEMS.add(itemShinglesBlock);
+//		TCItems.ITEMS.add(itemShingles);
+//		TCItems.ITEMS.add(itemShinglesalt);
+//
+//		dust.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "dust"));
+//		plate.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "plate"));
+//		coin.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coin"));
+//		gear.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gear"));
+//		rod.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "rod"));
+//		coil.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coil"));
+//		spring.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "spring"));
+//		casing.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "casing"));
+//		wire.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "wire"));
+//
+//		TCItems.ITEMS.add(dust);
+//		// TCItems.ITEMS.add(grain);
+//		TCItems.ITEMS.add(plate);
+//		TCItems.ITEMS.add(coin);
+//		TCItems.ITEMS.add(gear);
+//		TCItems.ITEMS.add(rod);
+//		TCItems.ITEMS.add(spring);
+//		TCItems.ITEMS.add(casing);
+//		TCItems.ITEMS.add(wire);
+//		TCItems.ITEMS.add(coil);
+//
+//		MATERIAL_DUST = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "dust/" + matName));
+//		MATERIAL_PLATE = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "plate/" + matName));
+//		MATERIAL_COIN = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coin/" + matName));
+//		MATERIAL_GEAR = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gear/" + matName));
+//		MATERIAL_ROD = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "rod/" + matName));
+//		MATERIAL_COIL = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coil/" + matName));
+//		MATERIAL_SPRING = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "spring/" + matName));
+//		MATERIAL_CASING = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "casing/" + matName));
+//		MATERIAL_WIRE = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "wire/" + matName));
 	}
 
 	@Override
