@@ -15,6 +15,10 @@ public abstract interface MaterialBase {
 	public abstract void setupClient(MaterialHelper mat);
 
 	public abstract void setupModels(MaterialHelper mat);
+	
+	public abstract void setupItems(MaterialHelper mat);
+	
+	public abstract void setupBlocks(MaterialHelper mat);
 
 	public abstract void setup(final FMLCommonSetupEvent event);
 

@@ -26,7 +26,6 @@ public class TinkersCompendium {
 		blocks = new TCBlocks();
 		items = new TCItems();
 		mats = new CompendiumMaterials();
-		mats.addListenersToModBus(modEventBus);
 		
 		TCItems.register(modEventBus);
 		

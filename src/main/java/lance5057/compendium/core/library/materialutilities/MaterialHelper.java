@@ -6,6 +6,7 @@ import lance5057.compendium.core.library.materialutilities.addons.MeltableMateri
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -25,11 +26,6 @@ public class MaterialHelper {
 
 	boolean preset = false;
 
-	public void register(IEventBus bus) {
-		ITEMS.register(bus);
-		BLOCKS.register(bus);
-	}
-
 	public MaterialHelper(String name) {
 		this(name, Reference.MOD_ID);
 	}
@@ -37,11 +33,15 @@ public class MaterialHelper {
 	public MaterialHelper(String name, String parentMod) {
 		this.name = name;
 		this.parentMod = parentMod;
+		
+		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		modEventBus.register(ITEMS);
+		modEventBus.register(BLOCKS);
 	}
 
 	// Meltable
 	public MaterialHelper withIngot() {
-		meltable = new MeltableMaterial(name, parentMod);
+		meltable = new MeltableMaterial(this);
 		return this;
 	}
 
@@ -125,5 +125,4 @@ public class MaterialHelper {
 //			mb.setup(event);
 //		}
 //	}
-
 }

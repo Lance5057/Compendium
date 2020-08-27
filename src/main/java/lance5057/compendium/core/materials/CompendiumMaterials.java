@@ -1140,12 +1140,7 @@ public class CompendiumMaterials {
 //			mh.setup(event);
 //		}
 	}
-//
 	
-	public void addListenersToModBus(IEventBus bus)
-	{
-		AEONSTEEL.register(bus);
-	}
 ////	public void registerItems(final RegistryEvent.Register<Item> event) {
 ////		final IForgeRegistry registry = event.getRegistry();
 ////

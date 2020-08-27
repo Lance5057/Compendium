@@ -228,4 +228,16 @@ public class MaterialVanillaComponents implements MaterialBase {
 
 	}
 
+	@Override
+	public void setupItems(MaterialHelper mat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setupBlocks(MaterialHelper mat) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
