@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.TCItemTier;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome.Category;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -1145,6 +1141,11 @@ public class CompendiumMaterials {
 //		}
 	}
 //
+	
+	public void addListenersToModBus(IEventBus bus)
+	{
+		AEONSTEEL.register(bus);
+	}
 ////	public void registerItems(final RegistryEvent.Register<Item> event) {
 ////		final IForgeRegistry registry = event.getRegistry();
 ////

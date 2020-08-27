@@ -5,23 +5,30 @@ import lance5057.compendium.core.library.materialutilities.addons.CraftableMater
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MaterialHelper {
 	public String name;
 	public String parentMod;
-	
+
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Reference.MOD_ID);
-	
+	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS,
+			Reference.MOD_ID);
+
 	private CraftableMaterial craftable;
 	private MeltableMaterial meltable;
-	//private 
+	// private
 
-	//public List<MaterialBase> addons;
+	// public List<MaterialBase> addons;
 
 	boolean preset = false;
+
+	public void register(IEventBus bus) {
+		ITEMS.register(bus);
+		BLOCKS.register(bus);
+	}
 
 	public MaterialHelper(String name) {
 		this(name, Reference.MOD_ID);
@@ -32,22 +39,22 @@ public class MaterialHelper {
 		this.parentMod = parentMod;
 	}
 
-	//Meltable
+	// Meltable
 	public MaterialHelper withIngot() {
 		meltable = new MeltableMaterial(name, parentMod);
 		return this;
 	}
-	
+
 	public MeltableMaterial getIngot() {
 		return meltable;
 	}
 
-	//Craftable
+	// Craftable
 	public MaterialHelper witGem() {
 		craftable = new CraftableMaterial(this);
 		return this;
 	}
-	
+
 	public CraftableMaterial getGem() {
 		return craftable;
 	}
