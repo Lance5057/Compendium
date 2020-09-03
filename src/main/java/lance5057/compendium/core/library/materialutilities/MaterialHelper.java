@@ -2,6 +2,12 @@ package lance5057.compendium.core.library.materialutilities;
 
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialGemOre;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -20,9 +26,14 @@ public class MaterialHelper {
 
 	private CraftableMaterial craftable;
 	private MeltableMaterial meltable;
-	// private
+	private MaterialVanillaComponents vcomponents;
+	private MaterialExtraComponents ecomponents;
+	private MaterialVanillaTools vtools;
+	private MaterialExtraTools etools;
 
-	// public List<MaterialBase> addons;
+	// TODO add dense and sparse
+	private MaterialOre ore;
+	private MaterialGemOre gemore;
 
 	boolean preset = false;
 
@@ -33,10 +44,10 @@ public class MaterialHelper {
 	public MaterialHelper(String name, String parentMod) {
 		this.name = name;
 		this.parentMod = parentMod;
-		
+
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		modEventBus.register(ITEMS);
-		modEventBus.register(BLOCKS);
+		ITEMS.register(modEventBus);
+		BLOCKS.register(modEventBus);
 	}
 
 	// Meltable
@@ -50,13 +61,33 @@ public class MaterialHelper {
 	}
 
 	// Craftable
-	public MaterialHelper witGem() {
+	public MaterialHelper withGem() {
 		craftable = new CraftableMaterial(this);
 		return this;
 	}
 
 	public CraftableMaterial getGem() {
 		return craftable;
+	}
+
+	// Vanilla Components
+	public MaterialHelper withVanillaComponents() {
+		vcomponents = new MaterialVanillaComponents(this);
+		return this;
+	}
+
+	public MaterialVanillaComponents getVanillaComponents() {
+		return vcomponents;
+	}
+
+	// Extra Components
+	public MaterialHelper withExtraComponents() {
+		ecomponents = new MaterialExtraComponents(this);
+		return this;
+	}
+
+	public MaterialExtraComponents getExtraComponents() {
+		return ecomponents;
 	}
 
 //	public MaterialHelper components() {

@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom",
-  "textures": {
-    "bottom": "compendium:block/voidite_door_top",
-    "top": "compendium:block/voidite_door_bottom"
-  }
-}

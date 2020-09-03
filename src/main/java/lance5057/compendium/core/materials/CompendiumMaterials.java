@@ -230,7 +230,7 @@ public class CompendiumMaterials {
 //	public void preInit(FMLPreInitializationEvent event) {
 	public CompendiumMaterials() {
 
-		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel").withIngot());
+		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel").withIngot().withVanillaComponents().withExtraComponents());
 //				.components()
 //				.tool(new TCItemTier(4, 500, 15f, 4f, 22, () -> {
 //					return Ingredient.fromTag(ItemTags.getCollection()

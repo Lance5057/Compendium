@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "compendium:ores/aeonsteel"
-  },
-  "result": "compendium:aeonsteelingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

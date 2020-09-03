@@ -1,9 +1,0 @@
-{
-    "textures": {
-		"layer0": "compendium:items/armor/hauberk/_plate",
-		"layer1": "compendium:items/armor/hauberk/_chain",
-		"layer2": "compendium:items/armor/hauberk/_clasp",
-		"layer3": "compendium:items/armor/hauberk/_cloth",
-		"layer4": "compendium:items/armor/hauberk/_rivet"
-    }
-}

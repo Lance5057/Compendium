@@ -1,8 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/sandclump_base",
-		"layer1": "compendium:items/dust",
-		"layer2": "compendium:items/sandclump_base"
-    }
-}

@@ -1,8 +1,0 @@
-{
-    "textures": {
-        "layer0": "compendium:items/armor/coif/_chain",
-        "layer1": "compendium:items/armor/coif/_circlet",
-		"layer2": "compendium:items/armor/coif/_cloth",
-		"broken1": "compendium:items/armor/coif/_chain"
-    }
-}

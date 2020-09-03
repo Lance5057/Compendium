@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "compendium:ores/froststeel"
-  },
-  "result": "compendium:froststeelingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

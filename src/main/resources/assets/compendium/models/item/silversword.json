@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/silversword",
-        "layer1": "compendium:items/swordbase"
-    }
-}

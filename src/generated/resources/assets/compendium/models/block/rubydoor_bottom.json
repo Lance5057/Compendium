@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom",
-  "textures": {
-    "bottom": "compendium:block/ruby_door_bottom",
-    "top": "compendium:block/ruby_door_top"
-  }
-}

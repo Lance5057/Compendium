@@ -1,6 +1,0 @@
-{
-    "parent": "block/crop",
-    "textures": {
-        "crop": "compendium:blocks/cotton_stage_2"
-    }
-}

@@ -1,6 +1,0 @@
-{
-	"variants": {
-		"normal": { "model": "compendium:componentblock" },
-		"inventory": { "model": "compendium:componentblock" }
-	}
-}

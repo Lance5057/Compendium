@@ -1,9 +1,0 @@
-{
-    "textures": {
-        "layer0": "compendium:items/armor/chausses/_chain",
-		"layer0": "compendium:items/armor/chausses/_plate",
-        "layer1": "compendium:items/armor/chausses/_clasp",
-		"layer2": "compendium:items/armor/chausses/_cloth",
-		"broken1": "compendium:items/armor/chausses/_chain"
-    }
-}

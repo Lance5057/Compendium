@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/rubyaxe",
-        "layer1": "compendium:items/axebase"
-    }
-}

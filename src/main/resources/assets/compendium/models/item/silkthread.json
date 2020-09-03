@@ -1,8 +1,0 @@
-{
-	"parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/silk",
-		"layer1": "compendium:items/silk",
-		"layer2": "compendium:items/silkspool"
-    }
-}

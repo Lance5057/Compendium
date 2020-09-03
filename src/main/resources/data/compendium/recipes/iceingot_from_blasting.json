@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "compendium:ores/ice"
-  },
-  "result": "compendium:iceingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

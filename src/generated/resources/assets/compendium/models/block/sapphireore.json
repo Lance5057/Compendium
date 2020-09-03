@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/ore_node_corner",
-  "textures": {
-    "rod": "compendium:block/sapphireore"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom_rh",
-  "textures": {
-    "bottom": "compendium:block/abyssalium_door_bottom",
-    "top": "compendium:block/abyssalium_door_top"
-  }
-}

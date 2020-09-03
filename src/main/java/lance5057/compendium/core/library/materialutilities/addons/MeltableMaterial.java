@@ -14,6 +14,7 @@ import com.mojang.datafixers.util.Pair;
 import lance5057.compendium.Reference;
 import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
+import lance5057.compendium.core.data.builders.TCBlockTags;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
@@ -60,14 +61,14 @@ public class MeltableMaterial implements MaterialBase {
 	public MeltableMaterial(MaterialHelper mh) {
 		name = matName;
 
-		INGOT = mh.ITEMS.register(mh.name + "gem",
+		INGOT = mh.ITEMS.register(mh.name + "ingot",
 				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 		NUGGET = mh.ITEMS.register(mh.name + "nugget",
 				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 
-		STORAGE_BLOCK = mh.BLOCKS.register(mh.name + "storage_block", () -> new Block(Block.Properties
+		STORAGE_BLOCK = mh.BLOCKS.register(mh.name + "block", () -> new Block(Block.Properties
 				.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
-		STORAGE_ITEMBLOCK = TCItems.ITEMS.register(mh.name + "storage_itemblock",
+		STORAGE_ITEMBLOCK = mh.ITEMS.register(mh.name + "itemblock",
 				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 		MATERIAL_INGOT = ItemTags.getCollection()
@@ -91,119 +92,119 @@ public class MeltableMaterial implements MaterialBase {
 
 	}
 
-	@Override
-	public void setupWiki(MaterialHelper mat, PrintWriter out) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setupItemTags() {
-//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.INGOTS, ingot));
-//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.NUGGETS, nugget));
-//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.STORAGE_BLOCKS, this.itemBlock));
-//		// TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>,
-//		// Item>(Tags.Items.STORAGE_BLOCKS, itemBlock));
+//	@Override
+//	public void setupWiki(MaterialHelper mat, PrintWriter out) {
+//		// TODO Auto-generated method stub
 //
-//		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.INGOTS, MATERIAL_INGOT));
-//		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.NUGGETS, MATERIAL_NUGGET));
-//		TCItemTags.NestedTags
-//				.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.STORAGE_BLOCKS, MATERIAL_STORAGE_BLOCK));
-	}
-
-	@Override
-	public void setupBlockTags() {
-		// getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(block);
-	}
-
-	@Override
-	public void setupRecipes() {
-//		TCRecipes.furnace
-//				.add(new ImmutablePair<CookingRecipeBuilder, String>(
-//						CookingRecipeBuilder.smeltingRecipe(
-//								Ingredient.fromTag(ItemTags.getCollection()
-//										.getOrCreate(new ResourceLocation(parentMod, "ores/" + matName))),
-//								this.ingot, 1.0F, 100),
-//						new ResourceLocation(Reference.MOD_ID, matName + "ingot_from_smelting").toString()));
+//	}
 //
-//		TCRecipes.furnace
-//				.add(new ImmutablePair<CookingRecipeBuilder, String>(
-//						CookingRecipeBuilder.blastingRecipe(
-//								Ingredient.fromTag(ItemTags.getCollection()
-//										.getOrCreate(new ResourceLocation(parentMod, "ores/" + matName))),
-//								this.ingot, 1.0F, 100),
-//						new ResourceLocation(Reference.MOD_ID, matName + "ingot_from_blasting").toString()));
+//	@Override
+//	public void setupItemTags() {
+////		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.INGOTS, INGOT.get()));
+////		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.NUGGETS, NUGGET.get()));
+////		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.STORAGE_BLOCKS, STORAGE_ITEMBLOCK.get()));
+////		// TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>,
+////		// Item>(Tags.Items.STORAGE_BLOCKS, itemBlock));
+////
+////		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.INGOTS, MATERIAL_INGOT));
+////		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.NUGGETS, MATERIAL_NUGGET));
+////		TCItemTags.NestedTags
+////				.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.STORAGE_BLOCKS, MATERIAL_STORAGE_BLOCK));
+//	}
 //
-//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-//				ShapelessRecipeBuilder.shapelessRecipe(nugget, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-//						// ResourceLocation(parentMod, matName+"ingot")),2)
-//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-//								.getOrCreate(new ResourceLocation(parentMod, "ingots/" + matName)))),
-//				new ResourceLocation(Reference.MOD_ID, matName + "nugget1").toString()));
+//	@Override
+//	public void setupBlockTags() {
+//		//TCBlockTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(Tags.Items.INGOTS, INGOT.get()));
+//	}
 //
-//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-//				ShapelessRecipeBuilder.shapelessRecipe(ingot, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-//						// ResourceLocation(parentMod, matName+"ingot")),2)
-//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-//								.getOrCreate(new ResourceLocation(parentMod, "storage_blocks/" + matName)))),
-//				new ResourceLocation(Reference.MOD_ID, matName + "ingot1").toString()));
+//	@Override
+//	public void setupRecipes() {
+////		TCRecipes.furnace
+////				.add(new ImmutablePair<CookingRecipeBuilder, String>(
+////						CookingRecipeBuilder.smeltingRecipe(
+////								Ingredient.fromTag(ItemTags.getCollection()
+////										.getOrCreate(new ResourceLocation(parentMod, "ores/" + matName))),
+////								this.ingot, 1.0F, 100),
+////						new ResourceLocation(Reference.MOD_ID, matName + "ingot_from_smelting").toString()));
+////
+////		TCRecipes.furnace
+////				.add(new ImmutablePair<CookingRecipeBuilder, String>(
+////						CookingRecipeBuilder.blastingRecipe(
+////								Ingredient.fromTag(ItemTags.getCollection()
+////										.getOrCreate(new ResourceLocation(parentMod, "ores/" + matName))),
+////								this.ingot, 1.0F, 100),
+////						new ResourceLocation(Reference.MOD_ID, matName + "ingot_from_blasting").toString()));
+////
+////		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+////				ShapelessRecipeBuilder.shapelessRecipe(nugget, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+////						// ResourceLocation(parentMod, matName+"ingot")),2)
+////						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+////								.getOrCreate(new ResourceLocation(parentMod, "ingots/" + matName)))),
+////				new ResourceLocation(Reference.MOD_ID, matName + "nugget1").toString()));
+////
+////		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+////				ShapelessRecipeBuilder.shapelessRecipe(ingot, 9)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+////						// ResourceLocation(parentMod, matName+"ingot")),2)
+////						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+////								.getOrCreate(new ResourceLocation(parentMod, "storage_blocks/" + matName)))),
+////				new ResourceLocation(Reference.MOD_ID, matName + "ingot1").toString()));
+////
+////		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+////				ShapelessRecipeBuilder.shapelessRecipe(ingot, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+////						// ResourceLocation(parentMod, matName+"ingot")),2)
+////						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+////								.getOrCreate(new ResourceLocation(parentMod, "nuggets/" + matName))), 9),
+////				new ResourceLocation(Reference.MOD_ID, matName + "ingot2").toString()));
+////
+////		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
+////				ShapelessRecipeBuilder.shapelessRecipe(this.itemBlock, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
+////						// ResourceLocation(parentMod, matName+"ingot")),2)
+////						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
+////								.getOrCreate(new ResourceLocation(parentMod, "ingots/" + matName))), 9),
+////				new ResourceLocation(Reference.MOD_ID, matName + "block1").toString()));
+//	}
 //
-//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-//				ShapelessRecipeBuilder.shapelessRecipe(ingot, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-//						// ResourceLocation(parentMod, matName+"ingot")),2)
-//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-//								.getOrCreate(new ResourceLocation(parentMod, "nuggets/" + matName))), 9),
-//				new ResourceLocation(Reference.MOD_ID, matName + "ingot2").toString()));
-//
-//		TCRecipes.shapeless.add(new ImmutablePair<ShapelessRecipeBuilder, String>(
-//				ShapelessRecipeBuilder.shapelessRecipe(this.itemBlock, 1)// .addIngredient(ForgeRegistries.ITEMS.getValue(new
-//						// ResourceLocation(parentMod, matName+"ingot")),2)
-//						.addIngredient(Ingredient.fromTag(ItemTags.getCollection()
-//								.getOrCreate(new ResourceLocation(parentMod, "ingots/" + matName))), 9),
-//				new ResourceLocation(Reference.MOD_ID, matName + "block1").toString()));
-	}
-
-	@Override
-	public void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh) {
+//	@Override
+//	public void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh) {
 //		mp.singleTexture(matName + "ingot", mp.mcLoc("item/generated"), "layer0",
 //				mp.modLoc("items/" + matName + "ingot"));
 //		mp.singleTexture(matName + "nugget", mp.mcLoc("item/generated"), "layer0",
 //				mp.modLoc("items/" + matName + "nugget"));
 //		mp.getBuilder(matName + "storageblock").parent(
 //				new ModelFile.UncheckedModelFile(new ResourceLocation(Reference.MOD_ID, "block/" + matName + "block")));
-	}
-
-	@Override
-	public void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh) {
-		//bsp.simpleBlock(block);
-	}
-
-	@Override
-	public void setupEnglishLocalization(LanguageProvider lang) {
-//		lang.add(this.block, StringUtils.capitalise(matName) + " Block");
-//		lang.add(this.ingot, StringUtils.capitalise(matName) + " Ingot");
-//		lang.add(this.nugget, StringUtils.capitalise(matName) + " Nugget");
-	}
-
-	public class Loot extends BlockLootTables {
-		@Override
-		protected void addTables() {
-			//this.registerLootTable(block, dropping(itemBlock));
-		}
-
-		@Override
-		@Nonnull
-		protected Iterable<Block> getKnownBlocks() {
-			List<Block> l = new ArrayList<Block>();
-			//l.add(block);
-			return l;
-		}
-	}
-
-	@Override
-	public void setupLoot() {
-		TCLootTables.tables.add(Pair.of(Loot::new, LootParameterSets.BLOCK));
-	}
+//	}
+//
+//	@Override
+//	public void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh) {
+//		bsp.simpleBlock(STORAGE_BLOCK.get());
+//	}
+//
+//	@Override
+//	public void setupEnglishLocalization(LanguageProvider lang) {
+////		lang.add(this.block, StringUtils.capitalise(matName) + " Block");
+////		lang.add(this.ingot, StringUtils.capitalise(matName) + " Ingot");
+////		lang.add(this.nugget, StringUtils.capitalise(matName) + " Nugget");
+//	}
+//
+//	public class Loot extends BlockLootTables {
+//		@Override
+//		protected void addTables() {
+//			//this.registerLootTable(block, dropping(itemBlock));
+//		}
+//
+//		@Override
+//		@Nonnull
+//		protected Iterable<Block> getKnownBlocks() {
+//			List<Block> l = new ArrayList<Block>();
+//			//l.add(block);
+//			return l;
+//		}
+//	}
+//
+//	@Override
+//	public void setupLoot() {
+//		TCLootTables.tables.add(Pair.of(Loot::new, LootParameterSets.BLOCK));
+//	}
 
 	@Override
 	public void setup(FMLCommonSetupEvent event) {

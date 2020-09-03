@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "compendium:ores/blacksteel"
-  },
-  "result": "compendium:blacksteelingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

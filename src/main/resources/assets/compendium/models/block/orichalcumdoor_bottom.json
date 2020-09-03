@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom",
-  "textures": {
-    "bottom": "compendium:block/orichalcum_door_top",
-    "top": "compendium:block/orichalcum_door_bottom"
-  }
-}

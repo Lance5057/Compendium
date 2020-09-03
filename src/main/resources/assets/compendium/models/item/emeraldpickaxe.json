@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/emeraldpickaxe",
-        "layer1": "compendium:items/pickaxebase"
-    }
-}

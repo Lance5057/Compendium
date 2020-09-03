@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "compendium:ores/rosegold"
-  },
-  "result": "compendium:rosegoldingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

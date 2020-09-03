@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "compendium:ores/moonsilver"
-  },
-  "result": "compendium:moonsilveringot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

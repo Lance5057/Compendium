@@ -1,6 +1,0 @@
-{
-    "parent": "compendium:blocks/ore_node_center",
-    "textures": {
-        "all": "compendium:blocks/amberore"
-    }
-}

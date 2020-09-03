@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/shingles_inner_corner",
-  "textures": {
-    "0": "compendium:block/goldshingles",
-    "1": "compendium:block/shingles_log",
-    "2": "block/oak_log"
-  }
-}

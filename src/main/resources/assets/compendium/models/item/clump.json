@@ -1,9 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "compendium:items/oreclump",
-		"layer1": "compendium:items/oreclump",
-		"layer2": "compendium:items/geode_stone",
-		"layer3": "compendium:items/oreclump"
-    }
-}

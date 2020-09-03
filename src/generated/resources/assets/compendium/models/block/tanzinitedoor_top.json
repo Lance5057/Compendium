@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top",
-  "textures": {
-    "bottom": "compendium:block/tanzinite_door_bottom",
-    "top": "compendium:block/tanzinite_door_top"
-  }
-}

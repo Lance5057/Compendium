@@ -22,19 +22,19 @@ public abstract interface MaterialBase {
 
 	public abstract void setup(final FMLCommonSetupEvent event);
 
-	public abstract void setupWiki(MaterialHelper mat, PrintWriter out);
+	//public abstract void setupWiki(MaterialHelper mat, PrintWriter out);
 
-	public abstract void setupItemTags();
+	//public abstract void setupItemTags();
 
-	public abstract void setupBlockTags();
+	//public abstract void setupBlockTags();
 
-	public abstract void setupRecipes();
+	//public abstract void setupRecipes();
 
-	public abstract void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh);
+	//public abstract void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh);
 
-	public abstract void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh);
+	//public abstract void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh);
 	
-	public abstract void setupEnglishLocalization(LanguageProvider lang);
+	//public abstract void setupEnglishLocalization(LanguageProvider lang);
 	
-	public abstract void setupLoot();
+	//public abstract void setupLoot();
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/componentstake_base",
-  "textures": {
-    "rod": "compendium:block/quartzstake"
-  }
-}

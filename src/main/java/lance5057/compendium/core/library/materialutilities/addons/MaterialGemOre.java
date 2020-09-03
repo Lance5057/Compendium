@@ -286,12 +286,6 @@ public class MaterialGemOre implements MaterialBase {
 //	}
 
 	@Override
-	public void setupWiki(MaterialHelper mat, PrintWriter out) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void setupClient(MaterialHelper mat) {
 		// TODO Auto-generated method stub
 
@@ -309,70 +303,70 @@ public class MaterialGemOre implements MaterialBase {
 
 	}
 
-	@Override
-	public void setupItemTags() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setupBlockTags() {
-		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_ORE, oreItemBlock));
-
-		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.ORES, MATERIAL_ORE));
-	}
-
-	@Override
-	public void setupRecipes() {
-	}
-
-	@Override
-	public void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh) {
-		mp.getBuilder(matName + "ore")
-		.parent(new ModelFile.UncheckedModelFile(
-				new ResourceLocation(Reference.MOD_ID, "block/" + matName + "ore")));
-	}
-
-	@Override
-	public void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh) {
-		oreModel(bsp);
-	}
-
-	private void oreModel(BlockStateProvider bsp) {
-		ModelFile ore = bsp.models()
-				.withExistingParent(matName + "ore", bsp.modLoc("block/ore_node_corner"))
-				.texture("rod", "compendium:block/" + matName + "ore");
-
-		VariantBlockStateBuilder builder = bsp.getVariantBuilder(this.oreBlock);
-
-		builder.partialState().modelForState().modelFile(ore).addModel();
-	}
-
-	@Override
-	public void setupEnglishLocalization(LanguageProvider lang) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public class Loot extends BlockLootTables {
-		@Override
-		protected void addTables() {
-			//this.registerLootTable(this.droppingItemWithFortune(oreBlock, TagLootEntry.func_216176_b(p_216176_0_));
-		}
-
-		@Override
-		@Nonnull
-		protected Iterable<Block> getKnownBlocks() {
-			List<Block> l = new ArrayList<Block>();
-			l.add(oreBlock);
-			return l;
-		}
-	}
-
-	@Override
-	public void setupLoot() {
-		TCLootTables.tables.add(Pair.of(Loot::new, LootParameterSets.BLOCK));
-	}
+//	@Override
+//	public void setupItemTags() {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	@Override
+//	public void setupBlockTags() {
+//		TCItemTags.ItemTags.add(new ImmutablePair<Tag<Item>, Item>(MATERIAL_ORE, oreItemBlock));
+//
+//		TCItemTags.NestedTags.add(new ImmutablePair<Tag<Item>, Tag<Item>>(Tags.Items.ORES, MATERIAL_ORE));
+//	}
+//
+//	@Override
+//	public void setupRecipes() {
+//	}
+//
+//	@Override
+//	public void setupItemModels(ModelProvider<ItemModelBuilder> mp, ExistingFileHelper fh) {
+//		mp.getBuilder(matName + "ore")
+//		.parent(new ModelFile.UncheckedModelFile(
+//				new ResourceLocation(Reference.MOD_ID, "block/" + matName + "ore")));
+//	}
+//
+//	@Override
+//	public void setupBlockModels(BlockStateProvider bsp, ExistingFileHelper fh) {
+//		oreModel(bsp);
+//	}
+//
+//	private void oreModel(BlockStateProvider bsp) {
+//		ModelFile ore = bsp.models()
+//				.withExistingParent(matName + "ore", bsp.modLoc("block/ore_node_corner"))
+//				.texture("rod", "compendium:block/" + matName + "ore");
+//
+//		VariantBlockStateBuilder builder = bsp.getVariantBuilder(this.oreBlock);
+//
+//		builder.partialState().modelForState().modelFile(ore).addModel();
+//	}
+//
+//	@Override
+//	public void setupEnglishLocalization(LanguageProvider lang) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//	public class Loot extends BlockLootTables {
+//		@Override
+//		protected void addTables() {
+//			//this.registerLootTable(this.droppingItemWithFortune(oreBlock, TagLootEntry.func_216176_b(p_216176_0_));
+//		}
+//
+//		@Override
+//		@Nonnull
+//		protected Iterable<Block> getKnownBlocks() {
+//			List<Block> l = new ArrayList<Block>();
+//			l.add(oreBlock);
+//			return l;
+//		}
+//	}
+//
+//	@Override
+//	public void setupLoot() {
+//		TCLootTables.tables.add(Pair.of(Loot::new, LootParameterSets.BLOCK));
+//	}
 
 	@Override
 	public void setupItems(MaterialHelper mat) {

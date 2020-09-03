@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/componentstake",
-  "textures": {
-    "rod": "compendium:block/abyssaliumstake"
-  }
-}

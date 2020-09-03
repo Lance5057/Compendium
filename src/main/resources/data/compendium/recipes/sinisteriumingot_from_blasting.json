@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "compendium:ores/sinisterium"
-  },
-  "result": "compendium:sinisteriumingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

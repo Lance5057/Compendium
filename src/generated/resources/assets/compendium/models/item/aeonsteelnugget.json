@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld",
   "textures": {
-    "layer0": "compendium:items/aeonsteelnugget"
+    "layer0": "compendium:item/aeonsteelnugget"
   }
 }

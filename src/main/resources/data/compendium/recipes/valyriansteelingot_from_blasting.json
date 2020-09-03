@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "compendium:ores/valyriansteel"
-  },
-  "result": "compendium:valyriansteelingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

@@ -1,9 +1,13 @@
 package lance5057.compendium.core.data.builders;
 
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
+import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 
@@ -17,12 +21,148 @@ public class TCBlockModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-//		for(MaterialHelper m : CompendiumMaterials.materials)
-//		{
-//			for(MaterialBase mb: m.addons)
-//			{
-//				mb.setupBlockModels(this,fh);
-//			}
-//		}
+		for (MaterialHelper mh : CompendiumMaterials.materials) {
+
+			// Meltable Materials
+			if (mh.getIngot() != null) {
+				MeltableMaterial mm = mh.getIngot();
+
+				this.simpleBlock(mm.STORAGE_BLOCK.get());
+			}
+
+			// Craftable Materials
+			if (mh.getGem() != null) {
+				CraftableMaterial cm = mh.getGem();
+
+				this.simpleBlock(cm.STORAGE_BLOCK.get());
+			}
+
+			// Vanilla Component Materials
+			if (mh.getVanillaComponents() != null) {
+				MaterialVanillaComponents vc = mh.getVanillaComponents();
+
+				doorBlock(vc.DOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_bottom"),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_top"));
+				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trapdoor"), true);
+				paneBlock(vc.BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"));
+			}
+		}
 	}
+
+//	private void stakeModel(BlockStateProvider bsp, String matName) {
+//		ModelFile stakeModel = bsp.models()
+//				.withExistingParent(matName + "componentstake", bsp.modLoc("block/componentstake"))
+//				.texture("rod", "compendium:block/" + matName + "stake");
+//		ModelFile stakeBaseModel = bsp.models()
+//				.withExistingParent(matName + "componentstake_base", bsp.modLoc("block/componentstake_base"))
+//				.texture("rod", "compendium:block/" + matName + "stake");
+//
+//		//VariantBlockStateBuilder builder = bsp.getVariantBuilder(this.stake);
+//
+//		for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
+//
+//			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
+//					.modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+//
+//					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
+//					.modelForState()
+////					.modelFile(stake)
+////					.rotationX(stakeXRotation(dir))
+////					.rotationY(stakeYRotation(dir))
+//					// .nextModel()
+//					.modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+//		}
+//	}
+//
+//	private void shinglesModel(BlockStateProvider bsp, String suffix, Block b, String matName) {
+//		ModelFile shinglesModel = bsp.models()
+//				.withExistingParent(matName + "shingles" + suffix, bsp.modLoc("block/shingles" + suffix))
+//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
+//				.texture("2", "minecraft:block/oak_log");
+//		ModelFile shinglesInnerModel = bsp.models()
+//				.withExistingParent(matName + "shingles_inner" + suffix,
+//						bsp.modLoc("block/shingles_inner_corner" + suffix))
+//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
+//				.texture("2", "minecraft:block/oak_log");
+//		ModelFile shinglesOuterModel = bsp.models()
+//				.withExistingParent(matName + "shingles_outer" + suffix,
+//						bsp.modLoc("block/shingles_outer_corner" + suffix))
+//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
+//				.texture("2", "minecraft:block/oak_log");
+//
+//		VariantBlockStateBuilder builder = bsp.getVariantBuilder(b);
+//
+//		for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
+//
+//			// Bottom
+//			// Straight
+//			builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+//					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+//					.rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					// Inner
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+//					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+//					.rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+//					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+//					.rotationY(stakeYRotation(dir) - 90).addModel()
+//
+//					// Outer
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+//					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+//					.rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+//					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+//					.rotationY(stakeYRotation(dir) - 90).addModel()
+//
+//					// Top
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+//					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					// Inner
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+//					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+//					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					// Outer
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+//					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+//
+//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+//					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel();
+//		}
+//	}
+//
+//	private int stakeXRotation(Direction d) {
+//		if (d == Direction.UP)
+//			return 0;
+//		if (d == Direction.DOWN)
+//			return 180;
+//		return 90;
+//	}
+//
+//	private int stakeYRotation(Direction d) {
+//		if (d == Direction.UP || d == Direction.DOWN || d == Direction.NORTH)
+//			return 0;
+//		if (d == Direction.WEST)
+//			return 270;
+//		if (d == Direction.SOUTH)
+//			return 180;
+//		return 90;
+//	}
 }
