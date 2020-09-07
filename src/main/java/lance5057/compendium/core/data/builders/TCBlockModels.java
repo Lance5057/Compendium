@@ -1,15 +1,17 @@
 package lance5057.compendium.core.data.builders;
 
-import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 
 public class TCBlockModels extends BlockStateProvider {
 	private final ExistingFileHelper fh;
@@ -46,8 +48,29 @@ public class TCBlockModels extends BlockStateProvider {
 				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trapdoor"), true);
 				paneBlock(vc.BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"),
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"));
+				
+				lanternModel(mh);
 			}
 		}
+	}
+	
+	private void lanternModel(MaterialHelper mh)
+	{
+		ModelFile lanternModel = models()
+				.withExistingParent(mh.name + "componentlantern", mcLoc("block/lantern"))
+				.texture("all", "compendium:block/" + mh.name + "lantern")
+				.texture("all2", "compendium:block/lantern_flame");
+		
+		ModelFile lanternhangingModel = models()
+				.withExistingParent(mh.name + "componentlanternhanging", mcLoc("block/hanging_lantern"))
+				.texture("all", "compendium:block/" + mh.name + "lantern")
+				.texture("all2", "compendium:block/lantern_flame");
+		
+		VariantBlockStateBuilder builder = getVariantBuilder(mh.getVanillaComponents().LANTERN.get());
+		
+		builder.partialState().with(LanternBlock.HANGING, false).modelForState().modelFile(lanternModel).addModel()
+		.partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel).addModel();
+		
 	}
 
 //	private void stakeModel(BlockStateProvider bsp, String matName) {

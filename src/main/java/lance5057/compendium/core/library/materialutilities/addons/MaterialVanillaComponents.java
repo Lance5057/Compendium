@@ -1,6 +1,5 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.Reference;
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.blocks.ComponentDoor;
 import lance5057.compendium.core.blocks.ComponentPane;
@@ -8,6 +7,7 @@ import lance5057.compendium.core.blocks.ComponentTrapDoor;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -15,7 +15,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -26,10 +25,12 @@ public class MaterialVanillaComponents implements MaterialBase {
 	public static RegistryObject<ComponentDoor> DOOR;
 	public static RegistryObject<ComponentTrapDoor> TRAPDOOR;
 	public static RegistryObject<ComponentPane> BARS;
+	public static RegistryObject<LanternBlock> LANTERN;
 
 	public static RegistryObject<BlockItem> ITEM_DOOR;
 	public static RegistryObject<BlockItem> ITEM_TRAPDOOR;
 	public static RegistryObject<BlockItem> ITEM_BARS;
+	public static RegistryObject<BlockItem> ITEM_LANTERN;
 
 	public MaterialVanillaComponents(MaterialHelper mh) {
 		this.matName = mh.name;
@@ -43,6 +44,8 @@ public class MaterialVanillaComponents implements MaterialBase {
 		BARS = mh.BLOCKS.register(mh.name + "bars",
 				() -> new ComponentPane(Block.Properties.create(Material.IRON, MaterialColor.AIR)
 						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
+		LANTERN = mh.BLOCKS.register(mh.name + "lantern", () -> new LanternBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR)
+						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
 		
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
 				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
@@ -50,6 +53,8 @@ public class MaterialVanillaComponents implements MaterialBase {
 				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_BARS = mh.ITEMS.register(mh.name + "itembars",
 				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_LANTERN  = mh.ITEMS.register(mh.name + "itemlantern",
+				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 //		TCBlocks.BLOCKS.add(door);
 //		TCBlocks.BLOCKS.add(trapdoor);
@@ -70,6 +75,7 @@ public class MaterialVanillaComponents implements MaterialBase {
 		RenderTypeLookup.setRenderLayer(this.BARS.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.DOOR.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.TRAPDOOR.get(), cutout);
+		RenderTypeLookup.setRenderLayer(this.LANTERN.get(), cutout);
 	}
 
 	@Override

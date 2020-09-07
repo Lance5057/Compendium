@@ -57,9 +57,13 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getVanillaComponents() != null) {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
-				forBlockItem(vc.ITEM_DOOR, modLoc("block/"+mh.name+"door_top_hinge"));
-				forBlockItem(vc.ITEM_BARS, modLoc("block/"+mh.name+"bars_side_alt"));
-				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/"+mh.name+"trapdoor_bottom"));
+				forBlockItem(vc.ITEM_DOOR, modLoc("block/" + mh.name + "door_top"));
+				// forBlockItem(vc.ITEM_BARS, modLoc("block/"+mh.name+"bars_side_alt"));
+				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/" + mh.name + "trapdoor_bottom"));
+
+				// Bars
+				this.singleTexture(Reference.MOD_ID, mcLoc("item/handheld"), "layer0",
+						modLoc("block/" + mh.name + "bars"));
 			}
 		}
 	}
