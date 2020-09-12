@@ -45,7 +45,7 @@ public class MaterialVanillaComponents implements MaterialBase {
 				() -> new ComponentPane(Block.Properties.create(Material.IRON, MaterialColor.AIR)
 						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
 		LANTERN = mh.BLOCKS.register(mh.name + "lantern", () -> new LanternBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR)
-						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
+						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid().lightValue(15)));
 		
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
 				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));

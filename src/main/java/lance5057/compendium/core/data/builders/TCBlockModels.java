@@ -1,12 +1,19 @@
 package lance5057.compendium.core.data.builders;
 
+import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import net.minecraft.block.Block;
 import net.minecraft.block.LanternBlock;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.state.properties.Half;
+import net.minecraft.state.properties.StairsShape;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
@@ -45,32 +52,156 @@ public class TCBlockModels extends BlockStateProvider {
 
 				doorBlock(vc.DOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_bottom"),
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_top"));
-				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trapdoor"), true);
+				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trapdoor"),
+						true);
 				paneBlock(vc.BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"),
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"));
-				
+
 				lanternModel(mh);
+			}
+
+			// Extra Component Materials
+			if (mh.getExtraComponents() != null) {
+				MaterialExtraComponents me = mh.getExtraComponents();
+
+				this.simpleBlock(me.SHINGLES_BLOCK.get());
+				stakeModel(mh);
+				this.shinglesModel(mh, "", me.SHINGLES.get());
+				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
 			}
 		}
 	}
-	
-	private void lanternModel(MaterialHelper mh)
-	{
+
+	private void stakeModel(MaterialHelper mh) {
+		ModelFile stakeModel = models().withExistingParent(mh.name + "componentstake", modLoc("block/componentstake"))
+				.texture("rod", "compendium:block/" + mh.name + "stake");
+		ModelFile stakeBaseModel = models()
+				.withExistingParent(mh.name + "componentstake_base", modLoc("block/componentstake_base"))
+				.texture("rod", "compendium:block/" + mh.name + "stake");
+
+		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().STAKE.get());
+
+		for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
+
+			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
+					.modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+
+					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
+					.modelForState()
+//				.modelFile(stake)
+//				.rotationX(stakeXRotation(dir))
+//				.rotationY(stakeYRotation(dir))
+					// .nextModel()
+					.modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+		}
+	}
+
+	private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
+		ModelFile shinglesModel = models()
+				.withExistingParent(mh.name + "shingles" + suffix, modLoc("block/shingles" + suffix))
+				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
+				.texture("2", "minecraft:block/oak_log");
+		ModelFile shinglesInnerModel = models()
+				.withExistingParent(mh.name + "shingles_inner" + suffix, modLoc("block/shingles_inner_corner" + suffix))
+				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
+				.texture("2", "minecraft:block/oak_log");
+		ModelFile shinglesOuterModel = models()
+				.withExistingParent(mh.name + "shingles_outer" + suffix, modLoc("block/shingles_outer_corner" + suffix))
+				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
+				.texture("2", "minecraft:block/oak_log");
+
+		VariantBlockStateBuilder builder = getVariantBuilder(b);
+
+		for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
+
+			// Bottom
+			// Straight
+			builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+					.rotationY(stakeYRotation(dir) - 180).addModel()
+
+					// Inner
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+					.rotationY(stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+					.rotationY(stakeYRotation(dir) - 90).addModel()
+
+					// Outer
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+					.rotationY(stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
+					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+					.rotationY(stakeYRotation(dir) - 90).addModel()
+
+					// Top
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+
+					// Inner
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+
+					// Outer
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
+					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel();
+		}
+	}
+
+	private int stakeXRotation(Direction d) {
+		if (d == Direction.UP)
+			return 0;
+		if (d == Direction.DOWN)
+			return 180;
+		return 90;
+	}
+
+	private int stakeYRotation(Direction d) {
+		if (d == Direction.UP || d == Direction.DOWN || d == Direction.NORTH)
+			return 0;
+		if (d == Direction.WEST)
+			return 270;
+		if (d == Direction.SOUTH)
+			return 180;
+		return 90;
+	}
+
+	private void lanternModel(MaterialHelper mh) {
 		ModelFile lanternModel = models()
-				.withExistingParent(mh.name + "componentlantern", mcLoc("block/lantern"))
+				.withExistingParent(mh.name + "componentlantern", modLoc("block/bases/lantern"))
 				.texture("all", "compendium:block/" + mh.name + "lantern")
-				.texture("all2", "compendium:block/lantern_flame");
-		
+				.texture("all2", "compendium:block/lanternflame");
+
 		ModelFile lanternhangingModel = models()
-				.withExistingParent(mh.name + "componentlanternhanging", mcLoc("block/hanging_lantern"))
+				.withExistingParent(mh.name + "componentlanternhanging", modLoc("block/bases/hanging_lantern"))
 				.texture("all", "compendium:block/" + mh.name + "lantern")
-				.texture("all2", "compendium:block/lantern_flame");
-		
+				.texture("all2", "compendium:block/lanternflame");
+
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getVanillaComponents().LANTERN.get());
-		
+
 		builder.partialState().with(LanternBlock.HANGING, false).modelForState().modelFile(lanternModel).addModel()
-		.partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel).addModel();
-		
+				.partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel)
+				.addModel();
+
 	}
 
 //	private void stakeModel(BlockStateProvider bsp, String matName) {

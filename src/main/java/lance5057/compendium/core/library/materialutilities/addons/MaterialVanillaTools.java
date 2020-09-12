@@ -1,10 +1,7 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import java.io.PrintWriter;
-
 import lance5057.compendium.Reference;
 import lance5057.compendium.TCItems;
-import lance5057.compendium.core.library.TCItemTier;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.item.AxeItem;
@@ -14,16 +11,11 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MaterialVanillaTools implements MaterialBase {
 	
-	public TCItemTier tier;
+	
 	
 	public Item sword;
 	public Item pickaxe;
@@ -31,15 +23,13 @@ public class MaterialVanillaTools implements MaterialBase {
 	public Item axe;
 	public Item hoe;
 
-	public MaterialVanillaTools(String matName, TCItemTier tier)
-	{
-		this.tier = tier;
-		
-		sword = new SwordItem(tier, 3, -2.4f, new Item.Properties().group(TCItems.TCITEMS));
-		pickaxe = new PickaxeItem(tier,1, -2.8F, (new Item.Properties()).group(TCItems.TCITEMS));
-		shovel = new ShovelItem(tier, 1.5F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
-		axe = new AxeItem(tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
-		hoe = new HoeItem(tier, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
+	public MaterialVanillaTools(MaterialHelper mh)
+	{		
+		sword = new SwordItem(mh.tier, 3, -2.4f, new Item.Properties().group(TCItems.TCITEMS));
+		pickaxe = new PickaxeItem(mh.tier,1, -2.8F, (new Item.Properties()).group(TCItems.TCITEMS));
+		shovel = new ShovelItem(mh.tier, 1.5F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
+		axe = new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
+		hoe = new HoeItem(mh.tier, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS));
 //		bow;
 //		crossbow;
 //		shield;
@@ -49,11 +39,11 @@ public class MaterialVanillaTools implements MaterialBase {
 //		trident;
 //		sickle;
 		
-		sword.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"sword"));
-		pickaxe.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"pickaxe"));
-		shovel.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"shovel"));
-		axe.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"axe"));
-		hoe.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName+"hoe"));
+		sword.setRegistryName(new ResourceLocation(Reference.MOD_ID, mh.name+"sword"));
+		pickaxe.setRegistryName(new ResourceLocation(Reference.MOD_ID, mh.name+"pickaxe"));
+		shovel.setRegistryName(new ResourceLocation(Reference.MOD_ID, mh.name+"shovel"));
+		axe.setRegistryName(new ResourceLocation(Reference.MOD_ID, mh.name+"axe"));
+		hoe.setRegistryName(new ResourceLocation(Reference.MOD_ID, mh.name+"hoe"));
 		
 //		TCItems.ITEMS.add(sword);
 //		TCItems.ITEMS.add(pickaxe);

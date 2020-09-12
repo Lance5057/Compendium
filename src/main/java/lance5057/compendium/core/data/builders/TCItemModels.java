@@ -3,12 +3,12 @@ package lance5057.compendium.core.data.builders;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
@@ -64,6 +64,27 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				// Bars
 				this.singleTexture(Reference.MOD_ID, mcLoc("item/handheld"), "layer0",
 						modLoc("block/" + mh.name + "bars"));
+			}
+
+			// Extra Component Materials
+			if (mh.getIngot() != null) {
+				MaterialExtraComponents me = mh.getExtraComponents();
+
+				forItem(me.CASING);
+				forItem(me.COIL);
+				forItem(me.COIN);
+				forItem(me.DUST);
+				forItem(me.GEAR);
+				forItem(me.PLATE);
+				forItem(me.ROD);
+				//forItem(me.SHARDS);
+				forItem(me.SPRING);
+				forItem(me.WIRE);
+				
+				forBlockItem(me.ITEM_SHINGLES);
+				forBlockItem(me.ITEM_SHINGLES_ALT);
+				forBlockItem(me.ITEM_SHINGLES_BLOCK);
+				forBlockItem(me.ITEM_STAKE);
 			}
 		}
 	}

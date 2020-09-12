@@ -1,52 +1,16 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.codehaus.plexus.util.StringUtils;
-
-import com.mojang.datafixers.util.Pair;
-
-import lance5057.compendium.Reference;
-import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.blocks.BlockShingles;
 import lance5057.compendium.core.blocks.ComponentStake;
-import lance5057.compendium.core.data.builders.TCItemTags;
-import lance5057.compendium.core.data.builders.TCLootTables;
-import lance5057.compendium.core.data.builders.TCRecipes;
-import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.state.properties.Half;
-import net.minecraft.state.properties.StairsShape;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootParameterSets;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MaterialExtraComponents implements MaterialBase {
@@ -54,100 +18,63 @@ public class MaterialExtraComponents implements MaterialBase {
 	String matName;
 	String parentMod;
 
-//	public Item ingot = new Item(new Item.Properties().group(TCItems.TCITEMS));
-//	public Item nugget = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item dust = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	// public Item grain = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item plate = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item coin = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item gear = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item rod = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item coil = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item spring = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item casing = new Item(new Item.Properties().group(TCItems.TCITEMS));
-	public Item wire = new Item(new Item.Properties().group(TCItems.TCITEMS));
+	public RegistryObject<Item> DUST;
+	public RegistryObject<Item> SHARDS;
+	public RegistryObject<Item> PLATE;
+	public RegistryObject<Item> COIN;
+	public RegistryObject<Item> GEAR;
+	public RegistryObject<Item> ROD;
+	public RegistryObject<Item> COIL;
+	public RegistryObject<Item> SPRING;
+	public RegistryObject<Item> CASING;
+	public RegistryObject<Item> WIRE;
 
-	public ComponentStake stake = new ComponentStake();
-	public Block shinglesblock = new Block(
-			Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL));
-	public BlockShingles shingles = new BlockShingles(() -> shinglesblock.getDefaultState(),
-			Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid());
-	public BlockShingles shinglesalt = new BlockShingles(() -> shinglesblock.getDefaultState(),
-			Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid());
-	
+	public RegistryObject<ComponentStake> STAKE;
+	public RegistryObject<Block> SHINGLES_BLOCK;
+	public RegistryObject<BlockShingles> SHINGLES;
+	public RegistryObject<BlockShingles> SHINGLES_ALT;
 
-	public Item itemStake = new BlockItem(stake, new Item.Properties().group(TCItems.TCITEMS));
-	public Item itemShinglesBlock = new BlockItem(shinglesblock, new Item.Properties().group(TCItems.TCITEMS));
-	public Item itemShingles = new BlockItem(shingles, new Item.Properties().group(TCItems.TCITEMS));
-	public Item itemShinglesalt = new BlockItem(shinglesalt, new Item.Properties().group(TCItems.TCITEMS));
-
-	public static Tag<Item> MATERIAL_DUST;
-	public static Tag<Item> MATERIAL_PLATE;
-	public static Tag<Item> MATERIAL_COIN;
-	public static Tag<Item> MATERIAL_GEAR;
-	public static Tag<Item> MATERIAL_ROD;
-	public static Tag<Item> MATERIAL_COIL;
-	public static Tag<Item> MATERIAL_SPRING;
-	public static Tag<Item> MATERIAL_CASING;
-	public static Tag<Item> MATERIAL_WIRE;
+	public RegistryObject<BlockItem> ITEM_STAKE;
+	public RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK;
+	public RegistryObject<BlockItem> ITEM_SHINGLES;
+	public RegistryObject<BlockItem> ITEM_SHINGLES_ALT;
 
 	public MaterialExtraComponents(MaterialHelper mh) {
 		this.matName = mh.name;
 		this.parentMod = mh.parentMod;
 
-//		stake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stake"));
-//		shinglesblock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblock"));
-//		shingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shingles"));
-//		shinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesalt"));
-//
-//		TCBlocks.BLOCKS.add(stake);
-//		TCBlocks.BLOCKS.add(shinglesblock);
-//		TCBlocks.BLOCKS.add(shingles);
-//		TCBlocks.BLOCKS.add(shinglesalt);
-//
-//		itemStake.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "stakeitem"));
-//		itemShinglesBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesblockitem"));
-//		itemShingles.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesitem"));
-//		itemShinglesalt.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "shinglesaltitem"));
-//
-//		TCItems.ITEMS.add(itemStake);
-//		TCItems.ITEMS.add(itemShinglesBlock);
-//		TCItems.ITEMS.add(itemShingles);
-//		TCItems.ITEMS.add(itemShinglesalt);
-//
-//		dust.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "dust"));
-//		plate.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "plate"));
-//		coin.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coin"));
-//		gear.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "gear"));
-//		rod.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "rod"));
-//		coil.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "coil"));
-//		spring.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "spring"));
-//		casing.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "casing"));
-//		wire.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "wire"));
-//
-//		TCItems.ITEMS.add(dust);
-//		// TCItems.ITEMS.add(grain);
-//		TCItems.ITEMS.add(plate);
-//		TCItems.ITEMS.add(coin);
-//		TCItems.ITEMS.add(gear);
-//		TCItems.ITEMS.add(rod);
-//		TCItems.ITEMS.add(spring);
-//		TCItems.ITEMS.add(casing);
-//		TCItems.ITEMS.add(wire);
-//		TCItems.ITEMS.add(coil);
-//
-//		MATERIAL_DUST = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "dust/" + matName));
-//		MATERIAL_PLATE = ItemTags.getCollection()
-//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "plate/" + matName));
-//		MATERIAL_COIN = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coin/" + matName));
-//		MATERIAL_GEAR = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gear/" + matName));
-//		MATERIAL_ROD = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "rod/" + matName));
-//		MATERIAL_COIL = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "coil/" + matName));
-//		MATERIAL_SPRING = ItemTags.getCollection()
-//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "spring/" + matName));
-//		MATERIAL_CASING = ItemTags.getCollection()
-//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "casing/" + matName));
-//		MATERIAL_WIRE = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "wire/" + matName));
+		STAKE = mh.BLOCKS.register(mh.name + "stake", () -> new ComponentStake());
+		SHINGLES_BLOCK = mh.BLOCKS.register(mh.name + "shinglesblock", () -> new Block(
+				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
+		SHINGLES = mh.BLOCKS.register(mh.name + "shingles",
+				() -> new BlockShingles(() -> SHINGLES.get().getDefaultState(), Block.Properties.create(Material.IRON)
+						.hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		SHINGLES_ALT = mh.BLOCKS.register(mh.name + "shinglesalt",
+				() -> new BlockShingles(() -> SHINGLES.get().getDefaultState(), Block.Properties.create(Material.IRON)
+						.hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+
+		//DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+
+		ITEM_STAKE = mh.ITEMS.register(mh.name + "itemstake",
+				() -> new BlockItem(STAKE.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_SHINGLES_BLOCK = mh.ITEMS.register(mh.name + "itemshinglesblock",
+				() -> new BlockItem(SHINGLES_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_SHINGLES = mh.ITEMS.register(mh.name + "itemshingles",
+				() -> new BlockItem(SHINGLES.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_SHINGLES_ALT = mh.ITEMS.register(mh.name + "itemshinglesalt",
+				() -> new BlockItem(SHINGLES_ALT.get(), new Item.Properties().group(TCItems.TCITEMS)));
+
+		DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		SHARDS = mh.ITEMS.register(mh.name + "shards", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		PLATE = mh.ITEMS.register(mh.name + "plate", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		COIN = mh.ITEMS.register(mh.name + "coin", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		GEAR = mh.ITEMS.register(mh.name + "gear", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		ROD = mh.ITEMS.register(mh.name + "rod", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		COIL = mh.ITEMS.register(mh.name + "coil", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		SPRING = mh.ITEMS.register(mh.name + "spring", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		CASING = mh.ITEMS.register(mh.name + "casing", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		WIRE = mh.ITEMS.register(mh.name + "wire", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		
 	}
 
 	@Override
@@ -633,13 +560,13 @@ public class MaterialExtraComponents implements MaterialBase {
 	@Override
 	public void setupItems(MaterialHelper mat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setupBlocks(MaterialHelper mat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

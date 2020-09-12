@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.core.library.TCItemTier;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -230,13 +233,10 @@ public class CompendiumMaterials {
 //	public void preInit(FMLPreInitializationEvent event) {
 	public CompendiumMaterials() {
 
-		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel").withIngot().withVanillaComponents().withExtraComponents());
-//				.components()
-//				.tool(new TCItemTier(4, 500, 15f, 4f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "aeonsteel/ingot")));
-//				}))
-				//.finish());
+		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel", new TCItemTier(4, 500, 15f, 4f, 22, () -> {
+			return Ingredient.fromTag(
+					ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "aeonsteel/ingot")));
+		})).withIngot().withVanillaComponents().withExtraComponents());
 
 //		materials.add(queensgold = new MaterialHelper("queensgold", 0xdcff00).ingot()
 //				.components()
@@ -1140,7 +1140,7 @@ public class CompendiumMaterials {
 //			mh.setup(event);
 //		}
 	}
-	
+
 ////	public void registerItems(final RegistryEvent.Register<Item> event) {
 ////		final IForgeRegistry registry = event.getRegistry();
 ////
