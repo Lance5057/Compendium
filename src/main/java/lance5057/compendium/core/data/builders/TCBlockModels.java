@@ -1,5 +1,6 @@
 package lance5057.compendium.core.data.builders;
 
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
@@ -64,19 +65,19 @@ public class TCBlockModels extends BlockStateProvider {
 			if (mh.getExtraComponents() != null) {
 				MaterialExtraComponents me = mh.getExtraComponents();
 
-				this.simpleBlock(me.SHINGLES_BLOCK.get());
+				simpleBlock(me.SHINGLES_BLOCK.get(), models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/" + mh.name +"shingles")));
 				stakeModel(mh);
-				this.shinglesModel(mh, "", me.SHINGLES.get());
-				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
+				this.shinglesModel(mh);
+				//this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
 			}
 		}
 	}
 
 	private void stakeModel(MaterialHelper mh) {
-		ModelFile stakeModel = models().withExistingParent(mh.name + "componentstake", modLoc("block/componentstake"))
+		ModelFile stakeModel = models().withExistingParent(mh.name + "componentstake", modLoc("block/bases/componentstake"))
 				.texture("rod", "compendium:block/" + mh.name + "stake");
 		ModelFile stakeBaseModel = models()
-				.withExistingParent(mh.name + "componentstake_base", modLoc("block/componentstake_base"))
+				.withExistingParent(mh.name + "componentstake_base", modLoc("block/bases/componentstake_base"))
 				.texture("rod", "compendium:block/" + mh.name + "stake");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().STAKE.get());
@@ -96,21 +97,21 @@ public class TCBlockModels extends BlockStateProvider {
 		}
 	}
 
-	private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
+	private void shinglesModel(MaterialHelper mh) {
 		ModelFile shinglesModel = models()
-				.withExistingParent(mh.name + "shingles" + suffix, modLoc("block/shingles" + suffix))
+				.withExistingParent(mh.name + "shingles", modLoc("block/bases/shingles"))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesInnerModel = models()
-				.withExistingParent(mh.name + "shingles_inner" + suffix, modLoc("block/shingles_inner_corner" + suffix))
+				.withExistingParent(mh.name + "shingles_inner", modLoc("block/bases/shingles_inner_corner"))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesOuterModel = models()
-				.withExistingParent(mh.name + "shingles_outer" + suffix, modLoc("block/shingles_outer_corner" + suffix))
+				.withExistingParent(mh.name + "shingles_outer", modLoc("block/bases/shingles_outer_corner"))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 
-		VariantBlockStateBuilder builder = getVariantBuilder(b);
+		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().SHINGLES.get());
 
 		for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
 

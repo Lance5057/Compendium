@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/hanging_lantern",
+  "parent": "compendium:block/bases/hanging_lantern",
   "textures": {
     "all": "compendium:block/aeonsteellantern",
     "all2": "compendium:block/lanternflame"
