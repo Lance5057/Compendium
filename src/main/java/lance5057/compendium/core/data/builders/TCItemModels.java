@@ -5,6 +5,7 @@ import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
@@ -57,17 +58,19 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getVanillaComponents() != null) {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
-				forBlockItem(vc.ITEM_DOOR, modLoc("block/" + mh.name + "door_top"));
-				// forBlockItem(vc.ITEM_BARS, modLoc("block/"+mh.name+"bars_side_alt"));
+				this.singleTexture(vc.ITEM_DOOR.getId().getPath(), mcLoc("item/handheld"), "layer0",
+						modLoc("item/" + mh.name + "door"));
 				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/" + mh.name + "trapdoor_bottom"));
 
 				// Bars
-				this.singleTexture(Reference.MOD_ID, mcLoc("item/handheld"), "layer0",
+				this.singleTexture(vc.ITEM_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
 						modLoc("block/" + mh.name + "bars"));
+				
+				forBlockItem(vc.ITEM_LANTERN);
 			}
 
 			// Extra Component Materials
-			if (mh.getIngot() != null) {
+			if (mh.getExtraComponents() != null) {
 				MaterialExtraComponents me = mh.getExtraComponents();
 
 				forItem(me.CASING);
@@ -77,14 +80,40 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				forItem(me.GEAR);
 				forItem(me.PLATE);
 				forItem(me.ROD);
-				//forItem(me.SHARDS);
+				// forItem(me.SHARDS);
 				forItem(me.SPRING);
 				forItem(me.WIRE);
-				
+
 				forBlockItem(me.ITEM_SHINGLES);
 				forBlockItem(me.ITEM_SHINGLES_ALT);
 				forBlockItem(me.ITEM_SHINGLES_BLOCK);
 				forBlockItem(me.ITEM_STAKE);
+				forBlockItem(me.ITEM_SHEET);
+			}
+
+			// Vanilla Tools Materials
+			if (mh.getVanillaTools() != null) {
+				MaterialVanillaTools vt = mh.getVanillaTools();
+
+				withExistingParent(vt.AXE.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + vt.AXE.getId().getPath()))
+						.texture("layer1", modLoc("item/axebase"));
+
+				withExistingParent(vt.HOE.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + vt.HOE.getId().getPath()))
+						.texture("layer1", modLoc("item/hoebase"));
+
+				withExistingParent(vt.PICKAXE.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + vt.PICKAXE.getId().getPath()))
+						.texture("layer1", modLoc("item/pickaxebase"));
+
+				withExistingParent(vt.SHOVEL.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + vt.SHOVEL.getId().getPath()))
+						.texture("layer1", modLoc("item/shovelbase"));
+
+				withExistingParent(vt.SWORD.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + vt.SWORD.getId().getPath()))
+						.texture("layer1", modLoc("item/swordbase"));
 			}
 		}
 	}

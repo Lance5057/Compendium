@@ -12,6 +12,9 @@ import lance5057.compendium.core.library.materialutilities.addons.MaterialVanill
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -46,6 +49,7 @@ public class MaterialHelper {
 	public MaterialHelper(String name, String parentMod,TCItemTier tier) {
 		this.name = name;
 		this.parentMod = parentMod;
+		this.tier = tier;
 
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		ITEMS.register(modEventBus);
@@ -91,6 +95,16 @@ public class MaterialHelper {
 	public MaterialExtraComponents getExtraComponents() {
 		return ecomponents;
 	}
+	
+	// Vanilla Tools
+	public MaterialHelper withVanillaTools() {
+		this.vtools = new MaterialVanillaTools(this);
+		return this;
+	}
+	
+	public MaterialVanillaTools getVanillaTools() {
+		return vtools;
+	}
 
 //	public MaterialHelper components() {
 //		addons.add(new MaterialVanillaComponents(name, parentMod));
@@ -122,11 +136,16 @@ public class MaterialHelper {
 //		return this;
 //	}
 //
-//	public void client() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupClient(this);
-//		}
-//	}
+	public void client() {
+		if(this.getVanillaComponents() != null)
+		{
+			this.getVanillaComponents().setupClient(this);
+		}
+		if(this.getExtraComponents() != null)
+		{
+			this.getExtraComponents().setupClient(this);
+		}
+	}
 //
 //	public void models() {
 //		for (MaterialBase mb : addons) {

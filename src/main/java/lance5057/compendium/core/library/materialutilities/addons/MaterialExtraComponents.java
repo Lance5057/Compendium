@@ -2,12 +2,15 @@ package lance5057.compendium.core.library.materialutilities.addons;
 
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.blocks.BlockShingles;
+import lance5057.compendium.core.blocks.ComponentSheet;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,7 +22,7 @@ public class MaterialExtraComponents implements MaterialBase {
 	String parentMod;
 
 	public RegistryObject<Item> DUST;
-	public RegistryObject<Item> SHARDS;
+	//public RegistryObject<Item> SHARDS;
 	public RegistryObject<Item> PLATE;
 	public RegistryObject<Item> COIN;
 	public RegistryObject<Item> GEAR;
@@ -33,11 +36,13 @@ public class MaterialExtraComponents implements MaterialBase {
 	public RegistryObject<Block> SHINGLES_BLOCK;
 	public RegistryObject<BlockShingles> SHINGLES;
 	public RegistryObject<BlockShingles> SHINGLES_ALT;
+	public RegistryObject<ComponentSheet> SHEET;
 
 	public RegistryObject<BlockItem> ITEM_STAKE;
 	public RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK;
 	public RegistryObject<BlockItem> ITEM_SHINGLES;
 	public RegistryObject<BlockItem> ITEM_SHINGLES_ALT;
+	public RegistryObject<BlockItem> ITEM_SHEET;
 
 	public MaterialExtraComponents(MaterialHelper mh) {
 		this.matName = mh.name;
@@ -47,11 +52,12 @@ public class MaterialExtraComponents implements MaterialBase {
 		SHINGLES_BLOCK = mh.BLOCKS.register(mh.name + "shinglesblock", () -> new Block(
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 		SHINGLES = mh.BLOCKS.register(mh.name + "shingles",
-				() -> new BlockShingles(() -> SHINGLES.get().getDefaultState(), Block.Properties.create(Material.IRON)
+				() -> new BlockShingles(() -> SHINGLES_BLOCK.get().getDefaultState(), Block.Properties.create(Material.IRON)
 						.hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
 		SHINGLES_ALT = mh.BLOCKS.register(mh.name + "shinglesalt",
-				() -> new BlockShingles(() -> SHINGLES.get().getDefaultState(), Block.Properties.create(Material.IRON)
+				() -> new BlockShingles(() -> SHINGLES_BLOCK.get().getDefaultState(), Block.Properties.create(Material.IRON)
 						.hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		SHEET = mh.BLOCKS.register(mh.name + "sheet", () -> new ComponentSheet(Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 
 		//DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 
@@ -63,9 +69,11 @@ public class MaterialExtraComponents implements MaterialBase {
 				() -> new BlockItem(SHINGLES.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_SHINGLES_ALT = mh.ITEMS.register(mh.name + "itemshinglesalt",
 				() -> new BlockItem(SHINGLES_ALT.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_SHEET = mh.ITEMS.register(mh.name + "itemsheet",
+				() -> new BlockItem(SHEET.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 		DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
-		SHARDS = mh.ITEMS.register(mh.name + "shards", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
+		//SHARDS = mh.ITEMS.register(mh.name + "shards", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
 		PLATE = mh.ITEMS.register(mh.name + "plate", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
 		COIN = mh.ITEMS.register(mh.name + "coin", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
 		GEAR = mh.ITEMS.register(mh.name + "gear", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));;
@@ -79,10 +87,8 @@ public class MaterialExtraComponents implements MaterialBase {
 
 	@Override
 	public void setupClient(MaterialHelper mat) {
-//		RenderType cutout = RenderType.getCutout();
-//		RenderTypeLookup.setRenderLayer(this.shingles, cutout);
-//		RenderTypeLookup.setRenderLayer(this.door, cutout);
-//		RenderTypeLookup.setRenderLayer(this.trapdoor, cutout);
+		RenderType cutout = RenderType.getCutout();
+		RenderTypeLookup.setRenderLayer(this.SHINGLES.get(), cutout);
 	}
 
 	@Override

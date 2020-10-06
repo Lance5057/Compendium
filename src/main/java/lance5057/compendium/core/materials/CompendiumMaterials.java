@@ -236,7 +236,7 @@ public class CompendiumMaterials {
 		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel", new TCItemTier(4, 500, 15f, 4f, 22, () -> {
 			return Ingredient.fromTag(
 					ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "aeonsteel/ingot")));
-		})).withIngot().withVanillaComponents().withExtraComponents());
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
 
 //		materials.add(queensgold = new MaterialHelper("queensgold", 0xdcff00).ingot()
 //				.components()

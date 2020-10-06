@@ -4,5 +4,12 @@
     "0": "compendium:block/aeonsteelshingles",
     "1": "compendium:block/shingles_log",
     "2": "block/oak_log"
-  }
+  },
+  "display": {
+        "gui": {
+            "rotation": [ 30, 225, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.625, 0.625, 0.625 ]
+        }
+	}
 }

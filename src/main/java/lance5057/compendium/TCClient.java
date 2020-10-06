@@ -8,9 +8,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class TCClient {
 	public static void setRenderLayers() {
-//		for(MaterialHelper mh : CompendiumMaterials.materials)
-//		{
-//			mh.client();
-//		}
+		for(MaterialHelper mh : CompendiumMaterials.materials)
+		{
+			mh.client();
+		}
 	}
 }

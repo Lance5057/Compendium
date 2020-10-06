@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -20,14 +22,8 @@ public class TCBlockTags extends BlockTagsProvider {
 
 	@Override
 	protected void registerTags() {
-		for(Pair<Tag<Block>, Block> p : BlockTags)
-		{
-			getBuilder(p.getKey()).add(p.getValue());
-		}
-		
-		for(Pair<Tag<Block>, Tag<Block>> p : NestedTags)
-		{
-			getBuilder(p.getKey()).add(p.getValue());
+		for (MaterialHelper mh : CompendiumMaterials.materials) {
+
 		}
 	}
 

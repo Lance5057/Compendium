@@ -1,6 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.core.blocks.ComponentSheet;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
@@ -10,13 +11,16 @@ import lance5057.compendium.core.library.materialutilities.addons.MeltableMateri
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.block.LanternBlock;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.Half;
+import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
@@ -67,17 +71,19 @@ public class TCBlockModels extends BlockStateProvider {
 
 				simpleBlock(me.SHINGLES_BLOCK.get(), models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/" + mh.name +"shingles")));
 				stakeModel(mh);
-				this.shinglesModel(mh);
-				//this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
+				this.shinglesModel(mh, "", me.SHINGLES.get());
+				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
+				this.sheetModel(mh);
+				//simpleBlock(me.SHEET.get(), new ConfiguredModel(models().withExistingParent(mh.name + "componentsheet", mcLoc("block/carpet")).texture("wool", "compendium:block/" + mh.name + "sheet")));
 			}
 		}
 	}
 
 	private void stakeModel(MaterialHelper mh) {
-		ModelFile stakeModel = models().withExistingParent(mh.name + "componentstake", modLoc("block/bases/componentstake"))
+		ModelFile stakeModel = models().withExistingParent(mh.name + "stake", modLoc("block/bases/componentstake"))
 				.texture("rod", "compendium:block/" + mh.name + "stake");
 		ModelFile stakeBaseModel = models()
-				.withExistingParent(mh.name + "componentstake_base", modLoc("block/bases/componentstake_base"))
+				.withExistingParent(mh.name + "stake_base", modLoc("block/bases/componentstake_base"))
 				.texture("rod", "compendium:block/" + mh.name + "stake");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().STAKE.get());
@@ -97,21 +103,21 @@ public class TCBlockModels extends BlockStateProvider {
 		}
 	}
 
-	private void shinglesModel(MaterialHelper mh) {
+	private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
 		ModelFile shinglesModel = models()
-				.withExistingParent(mh.name + "shingles", modLoc("block/bases/shingles"))
+				.withExistingParent(mh.name + "shingles"+suffix, modLoc("block/bases/shingles"+suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesInnerModel = models()
-				.withExistingParent(mh.name + "shingles_inner", modLoc("block/bases/shingles_inner_corner"))
+				.withExistingParent(mh.name + "shingles_inner"+suffix, modLoc("block/bases/shingles_inner_corner"+suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesOuterModel = models()
-				.withExistingParent(mh.name + "shingles_outer", modLoc("block/bases/shingles_outer_corner"))
+				.withExistingParent(mh.name + "shingles_outer"+suffix, modLoc("block/bases/shingles_outer_corner"+suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 
-		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().SHINGLES.get());
+		VariantBlockStateBuilder builder = getVariantBuilder(b);
 
 		for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
 
@@ -188,12 +194,12 @@ public class TCBlockModels extends BlockStateProvider {
 
 	private void lanternModel(MaterialHelper mh) {
 		ModelFile lanternModel = models()
-				.withExistingParent(mh.name + "componentlantern", modLoc("block/bases/lantern"))
+				.withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern"))
 				.texture("all", "compendium:block/" + mh.name + "lantern")
 				.texture("all2", "compendium:block/lanternflame");
 
 		ModelFile lanternhangingModel = models()
-				.withExistingParent(mh.name + "componentlanternhanging", modLoc("block/bases/hanging_lantern"))
+				.withExistingParent(mh.name + "lanternhanging", modLoc("block/bases/hanging_lantern"))
 				.texture("all", "compendium:block/" + mh.name + "lantern")
 				.texture("all2", "compendium:block/lanternflame");
 
@@ -203,6 +209,23 @@ public class TCBlockModels extends BlockStateProvider {
 				.partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel)
 				.addModel();
 
+	}
+	
+	private void sheetModel(MaterialHelper mh)
+	{
+		ModelFile sheetBottom = models()
+				.withExistingParent(mh.name + "sheet", modLoc("block/bases/carpet"))
+				.texture("all", "compendium:block/" + mh.name + "sheet");
+
+		ModelFile sheetTop = models()
+				.withExistingParent(mh.name + "sheettop", modLoc("block/bases/carpet_top"))
+				.texture("all", "compendium:block/" + mh.name + "sheet");
+
+		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().SHEET.get());
+
+		builder.partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(sheetBottom).addModel()
+				.partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(sheetTop).addModel()
+				.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(sheetTop).addModel();
 	}
 
 //	private void stakeModel(BlockStateProvider bsp, String matName) {
