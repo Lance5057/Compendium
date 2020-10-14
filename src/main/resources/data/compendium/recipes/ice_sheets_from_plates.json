@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:iceplate"
+    }
+  },
+  "result": {
+    "item": "compendium:iceitemsheet",
+    "count": 3
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:sinisteriumingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "sinisteriumdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sinisteriumdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:sinisteriumingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sinisteriumdust",
+      "has_the_recipe"
+    ]
+  ]
+}

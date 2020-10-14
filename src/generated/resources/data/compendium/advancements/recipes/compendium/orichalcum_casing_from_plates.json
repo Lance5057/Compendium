@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:orichalcum_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "orichalcumcasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:orichalcumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:orichalcum_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orichalcumcasing",
+      "has_the_recipe"
+    ]
+  ]
+}

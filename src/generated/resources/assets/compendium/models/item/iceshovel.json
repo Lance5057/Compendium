@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "compendium:item/iceshovel",
+    "layer1": "compendium:item/shovelbase"
+  }
+}

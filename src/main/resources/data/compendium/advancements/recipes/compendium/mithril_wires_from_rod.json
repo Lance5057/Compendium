@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:mithril_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "mithrilrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:mithrilrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:mithril_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mithrilrod",
+      "has_the_recipe"
+    ]
+  ]
+}

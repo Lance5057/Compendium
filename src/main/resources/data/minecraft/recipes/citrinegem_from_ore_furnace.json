@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:citrineitemore"
+  },
+  "result": "compendium:citrinegem",
+  "experience": 1.0,
+  "cookingtime": 100
+}

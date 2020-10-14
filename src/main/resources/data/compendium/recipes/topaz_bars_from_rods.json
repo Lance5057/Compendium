@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:topazrod"
+    }
+  },
+  "result": {
+    "item": "compendium:topazitembars",
+    "count": 8
+  }
+}

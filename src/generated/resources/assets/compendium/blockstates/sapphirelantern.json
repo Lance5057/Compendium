@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/sapphirelantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/sapphirelanternhanging"
+    }
+  }
+}

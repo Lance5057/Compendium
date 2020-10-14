@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:froststeelrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:froststeelwire",
+    "count": 4
+  }
+}

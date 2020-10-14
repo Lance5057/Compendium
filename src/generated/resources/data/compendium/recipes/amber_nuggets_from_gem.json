@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:ambergem"
+    }
+  ],
+  "result": {
+    "item": "compendium:ambernugget",
+    "count": 9
+  }
+}

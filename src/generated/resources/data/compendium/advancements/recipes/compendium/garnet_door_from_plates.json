@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:garnet_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "garnetdoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:garnetplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:garnet_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnetdoor",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:emerald_stakes_from_rods"
+    ]
+  },
+  "criteria": {
+    "emeraldrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:emeraldrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:emerald_stakes_from_rods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "emeraldrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:queensgold_coil_from_wire"
+    ]
+  },
+  "criteria": {
+    "queensgoldwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:queensgoldwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:queensgold_coil_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "queensgoldwire",
+      "has_the_recipe"
+    ]
+  ]
+}

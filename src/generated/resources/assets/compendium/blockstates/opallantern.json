@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/opallantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/opallanternhanging"
+    }
+  }
+}

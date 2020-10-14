@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:froststeelnugget"
+    }
+  },
+  "result": {
+    "item": "compendium:froststeelcoin",
+    "count": 4
+  }
+}

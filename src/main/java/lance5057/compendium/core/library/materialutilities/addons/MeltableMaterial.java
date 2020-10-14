@@ -48,15 +48,15 @@ public class MeltableMaterial implements MaterialBase {
 	String matName;
 	String parentMod;
 
-	public static RegistryObject<Item> INGOT;
-	public static RegistryObject<Item> NUGGET;
-	public static RegistryObject<Block> STORAGE_BLOCK;
-	public static RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
+	public RegistryObject<Item> INGOT;
+	public RegistryObject<Item> NUGGET;
+	public RegistryObject<Block> STORAGE_BLOCK;
+	public RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
 	private final String name;
 
-	public static Tag<Item> MATERIAL_INGOT;
-	public static Tag<Item> MATERIAL_NUGGET;
-	public static Tag<Item> MATERIAL_STORAGE_BLOCK;
+	public Tag<Item> MATERIAL_INGOT;
+	public Tag<Item> MATERIAL_NUGGET;
+	public Tag<Item> MATERIAL_STORAGE_BLOCK;
 
 	public MeltableMaterial(MaterialHelper mh) {
 		name = matName;

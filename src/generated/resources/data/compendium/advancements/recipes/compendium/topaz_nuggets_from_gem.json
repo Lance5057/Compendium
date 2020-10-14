@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:topaz_nuggets_from_gem"
+    ]
+  },
+  "criteria": {
+    "topazingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:topazgem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:topaz_nuggets_from_gem"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topazingot",
+      "has_the_recipe"
+    ]
+  ]
+}

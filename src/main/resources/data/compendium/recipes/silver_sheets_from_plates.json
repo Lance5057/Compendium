@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:silverplate"
+    }
+  },
+  "result": {
+    "item": "compendium:silveritemsheet",
+    "count": 3
+  }
+}

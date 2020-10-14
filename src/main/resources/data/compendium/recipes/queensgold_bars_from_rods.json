@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:queensgoldrod"
+    }
+  },
+  "result": {
+    "item": "compendium:queensgolditembars",
+    "count": 8
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:froststeelingot"
+    }
+  },
+  "result": {
+    "item": "compendium:froststeelrod",
+    "count": 6
+  }
+}

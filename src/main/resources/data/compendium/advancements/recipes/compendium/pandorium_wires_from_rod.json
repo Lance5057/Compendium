@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pandorium_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "pandoriumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pandoriumrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pandorium_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pandoriumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

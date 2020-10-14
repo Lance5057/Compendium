@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:froststeelrod"
+    }
+  },
+  "result": {
+    "item": "compendium:froststeelitemstake",
+    "count": 3
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " p ",
+    "psp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:silverwire"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compendium:silvercoil"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:diamond_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "diamondcasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:diamondplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:diamond_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "diamondcasing",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " ps",
+    "psl"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:tanziniteplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:tanziniteitemshingles",
+    "count": 4
+  }
+}

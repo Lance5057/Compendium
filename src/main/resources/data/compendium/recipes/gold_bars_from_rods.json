@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:goldrod"
+    }
+  },
+  "result": {
+    "item": "compendium:golditembars",
+    "count": 8
+  }
+}

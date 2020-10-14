@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:orichalcum_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "orichalcumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:orichalcumnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:orichalcum_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orichalcumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

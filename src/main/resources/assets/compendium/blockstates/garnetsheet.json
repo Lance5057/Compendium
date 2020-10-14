@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/garnetsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/garnetsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/garnetsheettop"
+    }
+  }
+}

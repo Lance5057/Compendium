@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:citrinegem"
+    }
+  ],
+  "result": {
+    "item": "compendium:citrinenugget",
+    "count": 9
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:valyriansteelingot"
+    }
+  ],
+  "result": {
+    "item": "compendium:valyriansteelnugget",
+    "count": 9
+  }
+}

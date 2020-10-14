@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:dogbeariumplate"
+    }
+  },
+  "result": {
+    "item": "compendium:dogbeariumitemdoor",
+    "count": 3
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nihilite_shingles_alt_from_plates"
+    ]
+  },
+  "criteria": {
+    "nihiliteplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nihiliteplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nihilite_shingles_alt_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nihiliteplate",
+      "has_the_recipe"
+    ]
+  ]
+}

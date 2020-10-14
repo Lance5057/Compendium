@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nihilite_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "nihilitenugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nihilitenugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nihilite_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nihilitenugget",
+      "has_the_recipe"
+    ]
+  ]
+}

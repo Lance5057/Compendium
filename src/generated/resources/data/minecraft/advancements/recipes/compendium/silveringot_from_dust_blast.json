@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:silveringot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "silverdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:silverdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:silveringot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silverdust",
+      "has_the_recipe"
+    ]
+  ]
+}

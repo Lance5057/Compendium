@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tanzinite_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "tanzinitewire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tanzinitewire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tanzinite_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tanzinitewire",
+      "has_the_recipe"
+    ]
+  ]
+}

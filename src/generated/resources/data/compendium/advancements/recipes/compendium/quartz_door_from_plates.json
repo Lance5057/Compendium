@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:quartz_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "quartzdoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:quartzplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:quartz_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quartzdoor",
+      "has_the_recipe"
+    ]
+  ]
+}

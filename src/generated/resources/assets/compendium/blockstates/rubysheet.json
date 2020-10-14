@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/rubysheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/rubysheet"
+    },
+    "type=double": {
+      "model": "compendium:block/rubysheettop"
+    }
+  }
+}

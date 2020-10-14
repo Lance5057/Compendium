@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/sapphiresheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/sapphiresheet"
+    },
+    "type=double": {
+      "model": "compendium:block/sapphiresheettop"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/rubylantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/rubylanternhanging"
+    }
+  }
+}

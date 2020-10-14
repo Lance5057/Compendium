@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/citrinesheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/citrinesheet"
+    },
+    "type=double": {
+      "model": "compendium:block/citrinesheettop"
+    }
+  }
+}

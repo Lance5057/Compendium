@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/topazsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/topazsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/topazsheettop"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sapphirerod"
+    }
+  ],
+  "result": {
+    "item": "compendium:sapphirewire",
+    "count": 4
+  }
+}

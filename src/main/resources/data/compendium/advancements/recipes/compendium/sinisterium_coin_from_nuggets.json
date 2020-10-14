@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sinisterium_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "sinisteriumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sinisteriumnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sinisterium_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sinisteriumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

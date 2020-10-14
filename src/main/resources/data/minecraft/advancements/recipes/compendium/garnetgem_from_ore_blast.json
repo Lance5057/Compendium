@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:garnetgem_from_ore_blast"
+    ]
+  },
+  "criteria": {
+    "garnetore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:garnetitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:garnetgem_from_ore_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnetore",
+      "has_the_recipe"
+    ]
+  ]
+}

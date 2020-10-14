@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tanzinite_storage_block_from_gems"
+    ]
+  },
+  "criteria": {
+    "tanzinitestorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tanzinitegem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tanzinite_storage_block_from_gems"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tanzinitestorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:amethystgem"
+    }
+  ],
+  "result": {
+    "item": "compendium:amethystnugget",
+    "count": 9
+  }
+}

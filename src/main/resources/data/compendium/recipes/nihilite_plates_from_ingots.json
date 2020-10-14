@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:nihiliteingot"
+    }
+  },
+  "result": {
+    "item": "compendium:nihiliteplate",
+    "count": 2
+  }
+}

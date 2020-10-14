@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:opalgem"
+    }
+  },
+  "result": {
+    "item": "compendium:opalrod",
+    "count": 6
+  }
+}

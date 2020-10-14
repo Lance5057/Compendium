@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:pandoriumitemblock"
+    }
+  ],
+  "result": {
+    "item": "compendium:pandoriumingot",
+    "count": 9
+  }
+}

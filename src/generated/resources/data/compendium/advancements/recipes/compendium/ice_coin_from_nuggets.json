@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:ice_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "icenugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:icenugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:ice_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "icenugget",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:amethystnugget"
+    }
+  },
+  "result": {
+    "item": "compendium:amethystcoin",
+    "count": 4
+  }
+}

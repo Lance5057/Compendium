@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:valyriansteelingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "valyriansteeldust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:valyriansteeldust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:valyriansteelingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "valyriansteeldust",
+      "has_the_recipe"
+    ]
+  ]
+}

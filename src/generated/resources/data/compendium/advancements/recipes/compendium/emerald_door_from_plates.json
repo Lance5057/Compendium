@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:emerald_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "emeralddoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:emeraldplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:emerald_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "emeralddoor",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:opalrod"
+    }
+  },
+  "result": {
+    "item": "compendium:opalitembars",
+    "count": 8
+  }
+}

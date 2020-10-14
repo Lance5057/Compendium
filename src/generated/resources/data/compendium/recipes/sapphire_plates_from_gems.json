@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:sapphiregem"
+    }
+  },
+  "result": {
+    "item": "compendium:sapphireplate",
+    "count": 2
+  }
+}

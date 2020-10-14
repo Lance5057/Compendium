@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:orichalcumingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "orichalcumdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:orichalcumdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:orichalcumingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orichalcumdust",
+      "has_the_recipe"
+    ]
+  ]
+}

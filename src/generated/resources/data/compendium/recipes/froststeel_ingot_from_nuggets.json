@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    },
+    {
+      "item": "compendium:froststeelnugget"
+    }
+  ],
+  "result": {
+    "item": "compendium:froststeelingot"
+  }
+}

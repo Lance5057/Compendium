@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/aeonsteelsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/aeonsteelsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/aeonsteelsheettop"
+    }
+  }
+}

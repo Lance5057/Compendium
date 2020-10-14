@@ -5,16 +5,14 @@ import lance5057.compendium.core.library.TCItemTier;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialGemOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,9 +23,8 @@ public class MaterialHelper {
 	public String parentMod;
 	public TCItemTier tier;
 
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS,
-			Reference.MOD_ID);
+	public final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	public final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
 	private CraftableMaterial craftable;
 	private MeltableMaterial meltable;
@@ -38,15 +35,18 @@ public class MaterialHelper {
 
 	// TODO add dense and sparse
 	private MaterialOre ore;
-	private MaterialGemOre gemore;
 
 	boolean preset = false;
 
-	public MaterialHelper(String name,TCItemTier tier) {
+	public MaterialHelper(String name) {
+		this(name, Reference.MOD_ID, null);
+	}
+
+	public MaterialHelper(String name, TCItemTier tier) {
 		this(name, Reference.MOD_ID, tier);
 	}
 
-	public MaterialHelper(String name, String parentMod,TCItemTier tier) {
+	public MaterialHelper(String name, String parentMod, TCItemTier tier) {
 		this.name = name;
 		this.parentMod = parentMod;
 		this.tier = tier;
@@ -95,15 +95,26 @@ public class MaterialHelper {
 	public MaterialExtraComponents getExtraComponents() {
 		return ecomponents;
 	}
-	
+
 	// Vanilla Tools
 	public MaterialHelper withVanillaTools() {
 		this.vtools = new MaterialVanillaTools(this);
 		return this;
 	}
-	
+
 	public MaterialVanillaTools getVanillaTools() {
 		return vtools;
+	}
+
+	public MaterialHelper withOre(float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
+			int veinSize, int veinChance, Category biomeCategory) {
+		this.ore = new MaterialOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
+				biomeCategory);
+		return this;
+	}
+
+	public MaterialOre getOre() {
+		return this.ore;
 	}
 
 //	public MaterialHelper components() {
@@ -137,12 +148,10 @@ public class MaterialHelper {
 //	}
 //
 	public void client() {
-		if(this.getVanillaComponents() != null)
-		{
+		if (this.getVanillaComponents() != null) {
 			this.getVanillaComponents().setupClient(this);
 		}
-		if(this.getExtraComponents() != null)
-		{
+		if (this.getExtraComponents() != null) {
 			this.getExtraComponents().setupClient(this);
 		}
 	}

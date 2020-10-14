@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_hoe_from_ingots"
+    ]
+  },
+  "criteria": {
+    "rosegoldingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegoldingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_hoe_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldingot",
+      "has_the_recipe"
+    ]
+  ]
+}

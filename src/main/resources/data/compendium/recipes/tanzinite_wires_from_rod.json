@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:tanziniterod"
+    }
+  ],
+  "result": {
+    "item": "compendium:tanzinitewire",
+    "count": 4
+  }
+}

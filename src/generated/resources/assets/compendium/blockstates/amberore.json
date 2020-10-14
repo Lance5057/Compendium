@@ -1,0 +1,270 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/amberore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_sparse",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/amberore_corner",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

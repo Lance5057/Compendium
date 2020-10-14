@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/orichalcumsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/orichalcumsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/orichalcumsheettop"
+    }
+  }
+}

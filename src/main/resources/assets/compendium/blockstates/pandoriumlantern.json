@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/pandoriumlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/pandoriumlanternhanging"
+    }
+  }
+}

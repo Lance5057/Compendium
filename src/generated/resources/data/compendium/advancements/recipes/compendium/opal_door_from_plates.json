@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:opal_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "opaldoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:opalplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:opal_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "opaldoor",
+      "has_the_recipe"
+    ]
+  ]
+}

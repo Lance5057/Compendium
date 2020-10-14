@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pandorium_shingles_block_from_plates"
+    ]
+  },
+  "criteria": {
+    "pandoriumplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pandoriumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pandorium_shingles_block_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pandoriumplate",
+      "has_the_recipe"
+    ]
+  ]
+}

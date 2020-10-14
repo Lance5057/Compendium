@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:ruby_stakes_from_rods"
+    ]
+  },
+  "criteria": {
+    "rubyrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rubyrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:ruby_stakes_from_rods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rubyrod",
+      "has_the_recipe"
+    ]
+  ]
+}

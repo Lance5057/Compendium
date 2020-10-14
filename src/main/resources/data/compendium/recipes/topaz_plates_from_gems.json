@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:topazgem"
+    }
+  },
+  "result": {
+    "item": "compendium:topazplate",
+    "count": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " pl",
+    "pls"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:iceplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:iceitemshinglesalt",
+    "count": 4
+  }
+}

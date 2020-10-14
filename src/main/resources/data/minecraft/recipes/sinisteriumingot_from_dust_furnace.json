@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:sinisteriumdust"
+  },
+  "result": "compendium:sinisteriumingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

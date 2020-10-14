@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:queensgold_gear_from_ingots"
+    ]
+  },
+  "criteria": {
+    "queensgoldingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:queensgoldingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:queensgold_gear_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "queensgoldingot",
+      "has_the_recipe"
+    ]
+  ]
+}

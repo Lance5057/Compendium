@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aeonsteel_ingot_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "aeonsteelnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:aeonsteelnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aeonsteel_ingot_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aeonsteelnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

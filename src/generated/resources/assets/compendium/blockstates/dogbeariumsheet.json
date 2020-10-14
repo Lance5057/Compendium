@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/dogbeariumsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/dogbeariumsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/dogbeariumsheettop"
+    }
+  }
+}

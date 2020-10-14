@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:amethystplate"
+    }
+  },
+  "result": {
+    "item": "compendium:amethystitemdoor",
+    "count": 3
+  }
+}

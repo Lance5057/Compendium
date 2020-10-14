@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/icelantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/icelanternhanging"
+    }
+  }
+}

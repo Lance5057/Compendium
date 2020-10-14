@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/pandoriumsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/pandoriumsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/pandoriumsheettop"
+    }
+  }
+}

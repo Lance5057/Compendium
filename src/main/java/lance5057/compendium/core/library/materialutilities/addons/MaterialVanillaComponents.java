@@ -22,15 +22,15 @@ public class MaterialVanillaComponents implements MaterialBase {
 	String matName;
 	String parentMod;
 
-	public static RegistryObject<ComponentDoor> DOOR;
-	public static RegistryObject<ComponentTrapDoor> TRAPDOOR;
-	public static RegistryObject<ComponentPane> BARS;
-	public static RegistryObject<LanternBlock> LANTERN;
+	public RegistryObject<ComponentDoor> DOOR;
+	public RegistryObject<ComponentTrapDoor> TRAPDOOR;
+	public RegistryObject<ComponentPane> BARS;
+	public RegistryObject<LanternBlock> LANTERN;
 
-	public static RegistryObject<BlockItem> ITEM_DOOR;
-	public static RegistryObject<BlockItem> ITEM_TRAPDOOR;
-	public static RegistryObject<BlockItem> ITEM_BARS;
-	public static RegistryObject<BlockItem> ITEM_LANTERN;
+	public RegistryObject<BlockItem> ITEM_DOOR;
+	public RegistryObject<BlockItem> ITEM_TRAPDOOR;
+	public RegistryObject<BlockItem> ITEM_BARS;
+	public RegistryObject<BlockItem> ITEM_LANTERN;
 
 	public MaterialVanillaComponents(MaterialHelper mh) {
 		this.matName = mh.name;

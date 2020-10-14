@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/lapissheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/lapissheet"
+    },
+    "type=double": {
+      "model": "compendium:block/lapissheettop"
+    }
+  }
+}

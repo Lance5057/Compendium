@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sinisterium_stakes_from_rods"
+    ]
+  },
+  "criteria": {
+    "sinisteriumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sinisteriumrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sinisterium_stakes_from_rods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sinisteriumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:citrinerod"
+    }
+  ],
+  "result": {
+    "item": "compendium:citrinewire",
+    "count": 4
+  }
+}

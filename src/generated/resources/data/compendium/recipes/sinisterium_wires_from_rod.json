@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sinisteriumrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumwire",
+    "count": 4
+  }
+}

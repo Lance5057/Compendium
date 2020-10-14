@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:queensgold_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "queensgoldcasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:queensgoldplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:queensgold_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "queensgoldcasing",
+      "has_the_recipe"
+    ]
+  ]
+}

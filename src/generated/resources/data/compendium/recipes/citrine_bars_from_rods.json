@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:citrinerod"
+    }
+  },
+  "result": {
+    "item": "compendium:citrineitembars",
+    "count": 8
+  }
+}

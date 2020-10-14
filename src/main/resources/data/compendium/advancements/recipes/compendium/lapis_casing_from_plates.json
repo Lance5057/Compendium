@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lapis_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "lapiscasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:lapisplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lapis_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lapiscasing",
+      "has_the_recipe"
+    ]
+  ]
+}

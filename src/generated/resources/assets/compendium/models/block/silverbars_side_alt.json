@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_glass_pane_side_alt",
+  "textures": {
+    "pane": "compendium:block/silverbars",
+    "edge": "compendium:block/silverbars"
+  }
+}

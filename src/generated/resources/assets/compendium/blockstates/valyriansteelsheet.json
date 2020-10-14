@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/valyriansteelsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/valyriansteelsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/valyriansteelsheettop"
+    }
+  }
+}

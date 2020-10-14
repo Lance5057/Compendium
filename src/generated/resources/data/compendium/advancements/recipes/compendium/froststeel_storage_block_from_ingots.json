@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:froststeel_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "froststeelstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:froststeelingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:froststeel_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "froststeelstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

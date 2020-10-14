@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " p ",
+    "psp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:valyriansteelwire"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compendium:valyriansteelcoil"
+  }
+}

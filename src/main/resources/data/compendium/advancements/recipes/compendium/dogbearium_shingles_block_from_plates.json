@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:dogbearium_shingles_block_from_plates"
+    ]
+  },
+  "criteria": {
+    "dogbeariumplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:dogbeariumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:dogbearium_shingles_block_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dogbeariumplate",
+      "has_the_recipe"
+    ]
+  ]
+}

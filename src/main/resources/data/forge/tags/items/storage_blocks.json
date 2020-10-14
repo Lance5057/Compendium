@@ -1,6 +1,28 @@
 {
   "replace": false,
   "values": [
-    "compendium:aeonsteelitemblock"
+    "compendium:aeonsteelitemblock",
+    "compendium:queensgolditemblock",
+    "compendium:dogbeariumitemblock",
+    "compendium:sinisteriumitemblock",
+    "compendium:nihiliteitemblock",
+    "compendium:orichalcumitemblock",
+    "compendium:pandoriumitemblock",
+    "compendium:rosegolditemblock",
+    "compendium:platinumitemblock",
+    "compendium:silveritemblock",
+    "compendium:valyriansteelitemblock",
+    "compendium:iceitemblock",
+    "compendium:froststeelitemblock",
+    "compendium:mithrilitemblock",
+    "compendium:sapphireitemblock",
+    "compendium:rubyitemblock",
+    "compendium:citrineitemblock",
+    "compendium:amethystitemblock",
+    "compendium:topazitemblock",
+    "compendium:garnetitemblock",
+    "compendium:opalitemblock",
+    "compendium:tanziniteitemblock",
+    "compendium:amberitemblock"
   ]
 }

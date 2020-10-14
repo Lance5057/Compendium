@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:garnet_rods_from_gemss"
+    ]
+  },
+  "criteria": {
+    "garnetgem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:garnetgem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:garnet_rods_from_gemss"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnetgem",
+      "has_the_recipe"
+    ]
+  ]
+}

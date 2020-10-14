@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:goldplate"
+    }
+  },
+  "result": {
+    "item": "compendium:golditemsheet",
+    "count": 3
+  }
+}

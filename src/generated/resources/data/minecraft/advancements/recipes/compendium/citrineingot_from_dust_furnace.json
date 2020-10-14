@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:citrineingot_from_dust_furnace"
+    ]
+  },
+  "criteria": {
+    "citrinedust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:citrinedust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:citrineingot_from_dust_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "citrinedust",
+      "has_the_recipe"
+    ]
+  ]
+}

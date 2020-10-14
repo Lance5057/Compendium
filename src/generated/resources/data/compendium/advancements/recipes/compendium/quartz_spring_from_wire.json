@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:quartz_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "quartzwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:quartzwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:quartz_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quartzwire",
+      "has_the_recipe"
+    ]
+  ]
+}

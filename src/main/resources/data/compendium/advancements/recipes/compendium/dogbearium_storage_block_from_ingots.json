@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:dogbearium_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "dogbeariumstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:dogbeariumingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:dogbearium_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dogbeariumstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

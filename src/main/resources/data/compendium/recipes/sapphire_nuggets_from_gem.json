@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sapphiregem"
+    }
+  ],
+  "result": {
+    "item": "compendium:sapphirenugget",
+    "count": 9
+  }
+}

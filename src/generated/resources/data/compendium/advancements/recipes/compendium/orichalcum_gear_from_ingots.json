@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:orichalcum_gear_from_ingots"
+    ]
+  },
+  "criteria": {
+    "orichalcumingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:orichalcumingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:orichalcum_gear_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orichalcumingot",
+      "has_the_recipe"
+    ]
+  ]
+}

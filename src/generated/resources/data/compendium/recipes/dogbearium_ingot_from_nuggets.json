@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    },
+    {
+      "item": "compendium:dogbeariumnugget"
+    }
+  ],
+  "result": {
+    "item": "compendium:dogbeariumingot"
+  }
+}

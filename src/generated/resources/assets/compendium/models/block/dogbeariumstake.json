@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/componentstake",
+  "textures": {
+    "rod": "compendium:block/dogbeariumstake"
+  }
+}

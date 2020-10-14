@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sapphire_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "sapphirecasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphireplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sapphire_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphirecasing",
+      "has_the_recipe"
+    ]
+  ]
+}

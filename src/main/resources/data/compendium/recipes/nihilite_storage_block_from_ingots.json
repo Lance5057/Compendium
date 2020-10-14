@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    },
+    {
+      "item": "compendium:nihiliteingot"
+    }
+  ],
+  "result": {
+    "item": "compendium:nihiliteitemblock"
+  }
+}

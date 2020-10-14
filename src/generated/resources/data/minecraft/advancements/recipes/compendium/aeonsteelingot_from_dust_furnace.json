@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:aeonsteelingot_from_dust_furnace"
+    ]
+  },
+  "criteria": {
+    "aeonsteeldust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:aeonsteeldust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:aeonsteelingot_from_dust_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aeonsteeldust",
+      "has_the_recipe"
+    ]
+  ]
+}

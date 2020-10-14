@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ii",
+    " s",
+    " s"
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:tanzinitegem"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compendium:tanzinitehoe"
+  }
+}

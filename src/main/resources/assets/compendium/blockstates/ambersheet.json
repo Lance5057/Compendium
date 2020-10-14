@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/ambersheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/ambersheet"
+    },
+    "type=double": {
+      "model": "compendium:block/ambersheettop"
+    }
+  }
+}

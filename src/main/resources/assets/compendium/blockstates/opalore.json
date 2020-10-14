@@ -1,0 +1,270 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/opalore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_sparse",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/opalore_corner",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

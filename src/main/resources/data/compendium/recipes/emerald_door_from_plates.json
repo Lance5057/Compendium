@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:emeraldplate"
+    }
+  },
+  "result": {
+    "item": "compendium:emeralditemdoor",
+    "count": 3
+  }
+}

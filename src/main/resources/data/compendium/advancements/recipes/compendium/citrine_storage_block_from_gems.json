@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:citrine_storage_block_from_gems"
+    ]
+  },
+  "criteria": {
+    "citrinestorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:citrinegem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:citrine_storage_block_from_gems"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "citrinestorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

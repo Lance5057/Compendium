@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:ice_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "icedoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:iceplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:ice_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "icedoor",
+      "has_the_recipe"
+    ]
+  ]
+}

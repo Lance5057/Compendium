@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:dogbearium_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "dogbeariumdoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:dogbeariumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:dogbearium_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dogbeariumdoor",
+      "has_the_recipe"
+    ]
+  ]
+}

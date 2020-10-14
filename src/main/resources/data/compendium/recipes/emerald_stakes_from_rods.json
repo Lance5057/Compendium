@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:emeraldrod"
+    }
+  },
+  "result": {
+    "item": "compendium:emeralditemstake",
+    "count": 3
+  }
+}

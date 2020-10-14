@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/ironsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/ironsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/ironsheettop"
+    }
+  }
+}

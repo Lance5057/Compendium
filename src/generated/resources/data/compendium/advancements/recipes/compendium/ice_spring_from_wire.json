@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:ice_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "icewire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:icewire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:ice_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "icewire",
+      "has_the_recipe"
+    ]
+  ]
+}

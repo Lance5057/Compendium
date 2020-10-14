@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/orichalcumlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/orichalcumlanternhanging"
+    }
+  }
+}

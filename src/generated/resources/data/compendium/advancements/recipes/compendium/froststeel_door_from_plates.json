@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:froststeel_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "froststeeldoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:froststeelplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:froststeel_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "froststeeldoor",
+      "has_the_recipe"
+    ]
+  ]
+}

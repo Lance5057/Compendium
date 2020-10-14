@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    },
+    {
+      "item": "compendium:silvernugget"
+    }
+  ],
+  "result": {
+    "item": "compendium:silveringot"
+  }
+}

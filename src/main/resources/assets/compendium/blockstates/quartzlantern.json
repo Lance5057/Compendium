@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/quartzlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/quartzlanternhanging"
+    }
+  }
+}

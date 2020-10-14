@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " ps",
+    "psl"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:citrineplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:citrineitemshingles",
+    "count": 4
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:sapphireingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "sapphiredust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphiredust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:sapphireingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphiredust",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/topazore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_sparse",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/topazore_corner",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

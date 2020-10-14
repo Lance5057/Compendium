@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    },
+    {
+      "item": "compendium:opalgem"
+    }
+  ],
+  "result": {
+    "item": "compendium:opalitemblock"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:opal_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "opalrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:opalrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:opal_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "opalrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,6 +1,28 @@
 {
   "replace": false,
   "values": [
-    "compendium:aeonsteelnugget"
+    "compendium:aeonsteelnugget",
+    "compendium:queensgoldnugget",
+    "compendium:dogbeariumnugget",
+    "compendium:sinisteriumnugget",
+    "compendium:nihilitenugget",
+    "compendium:orichalcumnugget",
+    "compendium:pandoriumnugget",
+    "compendium:rosegoldnugget",
+    "compendium:platinumnugget",
+    "compendium:silvernugget",
+    "compendium:valyriansteelnugget",
+    "compendium:icenugget",
+    "compendium:froststeelnugget",
+    "compendium:mithrilnugget",
+    "compendium:sapphirenugget",
+    "compendium:rubynugget",
+    "compendium:citrinenugget",
+    "compendium:amethystnugget",
+    "compendium:topaznugget",
+    "compendium:garnetnugget",
+    "compendium:opalnugget",
+    "compendium:tanzinitenugget",
+    "compendium:ambernugget"
   ]
 }

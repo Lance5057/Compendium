@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:platinum_axe_from_ingots"
+    ]
+  },
+  "criteria": {
+    "platinumingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:platinum_axe_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumingot",
+      "has_the_recipe"
+    ]
+  ]
+}

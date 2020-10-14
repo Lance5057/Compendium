@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:valyriansteelrod"
+    }
+  },
+  "result": {
+    "item": "compendium:valyriansteelitembars",
+    "count": 8
+  }
+}

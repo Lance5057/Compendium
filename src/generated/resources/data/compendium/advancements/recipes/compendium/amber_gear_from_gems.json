@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:amber_gear_from_gems"
+    ]
+  },
+  "criteria": {
+    "ambergem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:ambergem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:amber_gear_from_gems"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ambergem",
+      "has_the_recipe"
+    ]
+  ]
+}

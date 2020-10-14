@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/amethystlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/amethystlanternhanging"
+    }
+  }
+}

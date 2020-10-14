@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:emeraldrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:emeraldwire",
+    "count": 4
+  }
+}

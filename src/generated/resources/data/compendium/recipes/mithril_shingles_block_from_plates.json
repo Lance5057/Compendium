@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " p ",
+    "plp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:mithrilplate"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:mithrilitemshinglesblock",
+    "count": 4
+  }
+}

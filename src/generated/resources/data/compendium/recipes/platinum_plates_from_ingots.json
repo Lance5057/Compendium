@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:platinumingot"
+    }
+  },
+  "result": {
+    "item": "compendium:platinumplate",
+    "count": 2
+  }
+}

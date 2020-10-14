@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tanzinite_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "tanzinitecasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tanziniteplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tanzinite_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tanzinitecasing",
+      "has_the_recipe"
+    ]
+  ]
+}

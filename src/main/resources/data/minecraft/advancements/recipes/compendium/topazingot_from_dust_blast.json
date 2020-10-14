@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:topazingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "topazdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:topazdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:topazingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topazdust",
+      "has_the_recipe"
+    ]
+  ]
+}

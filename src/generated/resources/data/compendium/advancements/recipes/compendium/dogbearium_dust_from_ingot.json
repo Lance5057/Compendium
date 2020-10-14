@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:dogbearium_dust_from_ingot"
+    ]
+  },
+  "criteria": {
+    "dogbeariumingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:dogbeariumingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:dogbearium_dust_from_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dogbeariumingot",
+      "has_the_recipe"
+    ]
+  ]
+}

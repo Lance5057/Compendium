@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:aeonsteelitemblock"
+    }
+  ],
+  "result": {
+    "item": "compendium:aeonsteelingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/lapislantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/lapislanternhanging"
+    }
+  }
+}

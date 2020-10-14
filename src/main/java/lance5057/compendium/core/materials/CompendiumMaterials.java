@@ -9,6 +9,8 @@ import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -234,236 +236,138 @@ public class CompendiumMaterials {
 	public CompendiumMaterials() {
 
 		materials.add(AEONSTEEL = new MaterialHelper("aeonsteel", new TCItemTier(4, 500, 15f, 4f, 22, () -> {
-			return Ingredient.fromTag(
-					ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "aeonsteel/ingot")));
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/aeonsteel")));
 		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
 
-//		materials.add(queensgold = new MaterialHelper("queensgold", 0xdcff00).ingot()
+		materials.add(queensgold = new MaterialHelper("queensgold", new TCItemTier(1, 70, 3.00f, 3.00f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/queensgold")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(dogbearium = new MaterialHelper("dogbearium", new TCItemTier(2, 150, 5.00f, 9.00f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/dogbearium")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(sinisterium = new MaterialHelper("sinisterium", new TCItemTier(3, 224, 5.00f, 5.00f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/sinisterium")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(nihilite = new MaterialHelper("nihilite", new TCItemTier(4, 400, 9.7f, 7.1f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/nihilite")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(orichalcum = new MaterialHelper("orichalcum", new TCItemTier(3, 180, 5.3f, 6.23f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/orichalcum")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(pandorium = new MaterialHelper("pandorium", new TCItemTier(3, 999, 10.2f, 8.72f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/pandorium")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(rosegold = new MaterialHelper("rosegold", new TCItemTier(0, 99, 4f, 1f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/rosegold")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(platinum = new MaterialHelper("platinum", new TCItemTier(1, 99, 3.7f, 4f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/platinum")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools().withOre(5, 2, ToolType.PICKAXE,
+				4, 20, 15, 3, 5, null));
+
+		materials.add(silver = new MaterialHelper("silver", new TCItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/silver")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 1, ToolType.PICKAXE, 4, 32, 5, 15, 6, null));
+
+		materials.add(valyriansteel = new MaterialHelper("valyriansteel", new TCItemTier(3, 610, 7f, 7f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/valyriansteel")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(ice = new MaterialHelper("ice", new TCItemTier(1, 120, 4.00f, 3.00f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/ice")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(froststeel = new MaterialHelper("froststeel", new TCItemTier(3, 610, 7f, 7f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/froststeel")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(mithril = new MaterialHelper("mithril", new TCItemTier(3, 800, 8f, 6f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "ingots/mithril")));
+		})).withIngot().withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(iron = new MaterialHelper("iron").withExtraComponents());
+		materials.add(gold = new MaterialHelper("gold").withVanillaComponents().withExtraComponents());
+		materials.add(emerald = new MaterialHelper("emerald", new TCItemTier(3, 320, 10f, 4f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/emerald")));
+		})).withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(diamond = new MaterialHelper("diamond").withVanillaComponents().withExtraComponents());
+		materials.add(lapis = new MaterialHelper("lapis", new TCItemTier(0, 120, 2f, 2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/lapis")));
+		})).withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(quartz = new MaterialHelper("quartz", new TCItemTier(1, 430, 5.5f, 7f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/quartz")));
+		})).withVanillaComponents().withExtraComponents().withVanillaTools());
+
+		materials.add(sapphire = new MaterialHelper("sapphire", new TCItemTier(3, 320, 4f, 4f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/sapphire")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 2, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.OCEAN));
+
+		materials.add(ruby = new MaterialHelper("ruby", new TCItemTier(3, 320, 4f, 10f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/ruby")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 2, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.MESA));
+
+//		materials.add(starsapphire = new MaterialHelper("starsapphire", 0x6e00ff).gem()
 //				.components()
-//				.tool(new TCItemTier(1, 70, 3.00f, 3.00f, 22, () -> {
+//				.tool(new TCItemTier(4, 115, 12f, 1f, 22, () -> {
 //					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "queensgold/ingot")));
+//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
 //				}))
 //				.finish());
 //
-//		materials.add(dogbearium = new MaterialHelper("dogbearium", 0x6d3300).ingot()
+//		materials.add(starruby = new MaterialHelper("starruby", 0xff0061).gem()
 //				.components()
-//				.tool(new TCItemTier(2, 150, 5.00f, 9.00f, 22, () -> {
+//				.tool(new TCItemTier(1, 115, 1f, 12f, 22, () -> {
 //					return Ingredient.fromTag(ItemTags.getCollection()
 //							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
 //				}))
 //				.finish());
-//
-//		materials.add(sinisterium = new MaterialHelper("sinisterium", 0x210000).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 224, 5.00f, 5.00f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(nihilite = new MaterialHelper("nihilite", 0x000021).ingot()
-//				.components()
-//				.tool(new TCItemTier(4, 400, 9.7f, 7.1f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(orichalcum = new MaterialHelper("orichalcum", 0xffc700).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 180, 5.3f, 6.23f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(pandorium = new MaterialHelper("pandorium", 0x7f6a00).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 999, 10.2f, 8.72f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(rosegold = new MaterialHelper("rosegold", 0xff9b84).ingot()
-//				.components()
-//				.tool(new TCItemTier(0, 99, 4f, 1f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(platinum = new MaterialHelper("platinum", 0xe8e8e8).ingot()
-//				.components()
-//				.tool(new TCItemTier(1, 99, 3.7f, 4f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "platinumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 20, 15, 3, 5, null)
-//				.finish());
-//
-//		materials.add(silver = new MaterialHelper("silver", 0xd1ecf6).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 1, "pickaxe", 4, 32, 5, 15, 6, null)
-//				.finish());
-//
-//		materials.add(valyriansteel = new MaterialHelper("valyriansteel", 0xe2d9e2).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 610, 7f, 7f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(ice = new MaterialHelper("ice", 0xc6dcff).ingot()
-//				.components()
-//				.tool(new TCItemTier(1, 120, 4.00f, 3.00f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(froststeel = new MaterialHelper("froststeel", 0xc6dcff).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 610, 7f, 7f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(mithril = new MaterialHelper("mithril", 0x99CCFF).ingot()
-//				.components()
-//				.tool(new TCItemTier(3, 800, 8f, 6f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(iron = new MaterialHelper("iron", 0xa470e0,"forge").extracomponents().finish());
-//		materials.add(gold = new MaterialHelper("gold", 0xfff428,"forge").components().finish());
-//		materials.add(emerald = new MaterialHelper("emerald", 0x16cc4f,"forge").components()
-//				.tool(new TCItemTier(3, 320, 10f, 4f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(diamond = new MaterialHelper("diamond", 0x96ecf2,"forge").components().finish());
-//		materials.add(lapis = new MaterialHelper("lapis", 0x4349bc,"forge").components()
-//				.tool(new TCItemTier(0, 120, 2f, 2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(quartz = new MaterialHelper("quartz", 0xede8e8,"forge").components()
-//				.tool(new TCItemTier(1, 430, 5.5f, 7f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.finish());
-//
-//		materials.add(sapphire = new MaterialHelper("sapphire", 0x6e00ff).gem()
-//				.components()
-//				.tool(new TCItemTier(3, 320, 4f, 4f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 16, 5, 4, 5, Category.OCEAN)
-//				.finish());
-//
-//		materials.add(ruby = new MaterialHelper("ruby", 0xff0061).gem()
-//				.components()
-//				.tool(new TCItemTier(3, 320, 4f, 10f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 16, 5, 4, 5, Category.MESA)
-//				.finish());
-//
-////		materials.add(starsapphire = new MaterialHelper("starsapphire", 0x6e00ff).gem()
-////				.components()
-////				.tool(new TCItemTier(4, 115, 12f, 1f, 22, () -> {
-////					return Ingredient.fromTag(ItemTags.getCollection()
-////							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-////				}))
-////				.finish());
-////
-////		materials.add(starruby = new MaterialHelper("starruby", 0xff0061).gem()
-////				.components()
-////				.tool(new TCItemTier(1, 115, 1f, 12f, 22, () -> {
-////					return Ingredient.fromTag(ItemTags.getCollection()
-////							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-////				}))
-////				.finish());
-//
-//		materials.add(citrine = new MaterialHelper("citrine", 0xffe877).gem()
-//				.components()
-//				.tool(new TCItemTier(3, 430, 5.5f, 7f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 16, 5, 4, 5, Category.DESERT)
-//				.finish());
-//
-//		materials.add(amethyst = new MaterialHelper("amethyst", 0xb436e2).gem()
-//				.components()
-//				.tool(new TCItemTier(1, 530, 5.5f, 6.2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 16, 5, 4, 5, Category.TAIGA)
-//				.finish());
-//
-//		materials.add(topaz = new MaterialHelper("topaz", 0xffc551).gem()
-//				.components()
-//				.tool(new TCItemTier(1, 530, 5.5f, 6.2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 0, "pickaxe", 4, 16, 5, 4, 5, Category.PLAINS)
-//				.finish());
-//
-//		materials.add(garnet = new MaterialHelper("garnet", 0x9e1c1c).gem()
-//				.components()
-//				.tool(new TCItemTier(1, 530, 4.5f, 7.2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 2, "pickaxe", 4, 16, 5, 4, 5, Category.SAVANNA)
-//				.finish());
-//
-//		materials.add(opal = new MaterialHelper("opal", 0xe2e2e2).gem()
-//				.components()
-//				.tool(new TCItemTier(1, 530, 6.5f, 6.2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 1, "pickaxe", 4, 16, 5, 4, 5, Category.SWAMP)
-//				.finish());
-//
-//		materials.add(tanzinite = new MaterialHelper("tanzinite", 0x8860e5).gem()
-//				.components()
-//				.tool(new TCItemTier(1, 630, 5.5f, 6.2f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 1, "pickaxe", 4, 16, 5, 4, 5, Category.JUNGLE)
-//				.finish());
-//
-//		materials.add(amber = new MaterialHelper("amber", 0xdba827).gem()
-//				.components()
-//				.tool(new TCItemTier(0, 120, 2f, 3f, 22, () -> {
-//					return Ingredient.fromTag(ItemTags.getCollection()
-//							.getOrCreate(new ResourceLocation(Reference.MOD_ID, "dogbeariumingot")));
-//				}))
-//				.ore(5, 0, "pickaxe", 4, 16, 5, 4, 5, Category.FOREST)
-//				.finish());
+
+		materials.add(citrine = new MaterialHelper("citrine", new TCItemTier(3, 430, 5.5f, 7f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/citrine")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 2, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.DESERT));
+
+		materials.add(amethyst = new MaterialHelper("amethyst", new TCItemTier(1, 530, 5.5f, 6.2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/amethyst")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 2, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.TAIGA));
+
+		materials.add(topaz = new MaterialHelper("topaz", new TCItemTier(1, 530, 5.5f, 6.2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/topaz")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 0,  ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.PLAINS));
+
+		materials.add(garnet = new MaterialHelper("garnet", new TCItemTier(1, 530, 4.5f, 7.2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/garnet")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 2,  ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.SAVANNA));
+
+		materials.add(opal = new MaterialHelper("opal", new TCItemTier(1, 530, 6.5f, 6.2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/opal")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 1, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.SWAMP));
+
+		materials.add(tanzinite = new MaterialHelper("tanzinite", new TCItemTier(1, 630, 5.5f, 6.2f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/tanzinite")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 1, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.JUNGLE));
+
+		materials.add(amber = new MaterialHelper("amber", new TCItemTier(0, 120, 2f, 3f, 22, () -> {
+			return Ingredient.fromTag(new ItemTags.Wrapper(new ResourceLocation("forge", "gems/amber")));
+		})).withGem().withVanillaComponents().withExtraComponents().withVanillaTools()
+				.withOre(5, 0, ToolType.PICKAXE, 4, 16, 5, 4, 5, Category.FOREST));
 //
 //		materials.add(gallite = new MaterialHelper("gallite", 0xdba827).ingot().components().finish());
 //		materials.add(sundrop = new MaterialHelper("sundrop", 0xdba827).ingot().components().finish());
@@ -1136,9 +1040,10 @@ public class CompendiumMaterials {
 	}
 
 	public void setup(final FMLCommonSetupEvent event) {
-//		for (MaterialHelper mh : materials) {
-//			mh.setup(event);
-//		}
+		for (MaterialHelper mh : materials) {
+			if (mh.getOre() != null)
+				mh.getOre().OreGen();
+		}
 	}
 
 ////	public void registerItems(final RegistryEvent.Register<Item> event) {

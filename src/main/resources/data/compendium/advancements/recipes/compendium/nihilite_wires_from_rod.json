@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nihilite_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "nihiliterod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nihiliterod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nihilite_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nihiliterod",
+      "has_the_recipe"
+    ]
+  ]
+}

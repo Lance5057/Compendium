@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:diamondwire"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compendium:diamondspring"
+  }
+}

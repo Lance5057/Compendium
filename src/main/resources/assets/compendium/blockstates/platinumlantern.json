@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/platinumlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/platinumlanternhanging"
+    }
+  }
+}

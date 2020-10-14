@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/quartzsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/quartzsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/quartzsheettop"
+    }
+  }
+}

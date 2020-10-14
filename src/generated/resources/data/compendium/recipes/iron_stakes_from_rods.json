@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:ironrod"
+    }
+  },
+  "result": {
+    "item": "compendium:ironitemstake",
+    "count": 3
+  }
+}

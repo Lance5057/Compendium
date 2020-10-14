@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    },
+    {
+      "item": "compendium:garnetnugget"
+    }
+  ],
+  "result": {
+    "item": "compendium:garnetgem"
+  }
+}

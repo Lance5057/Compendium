@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:rubynugget"
+    }
+  },
+  "result": {
+    "item": "compendium:rubycoin",
+    "count": 4
+  }
+}

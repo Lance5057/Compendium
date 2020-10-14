@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " p ",
+    "plp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:aeonsteelplate"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:aeonsteelitemshinglesblock",
+    "count": 4
+  }
+}

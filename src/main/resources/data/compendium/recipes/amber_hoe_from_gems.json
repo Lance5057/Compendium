@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ii",
+    " s",
+    " s"
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:ambergem"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "compendium:amberhoe"
+  }
+}

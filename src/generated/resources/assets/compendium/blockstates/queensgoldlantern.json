@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/queensgoldlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/queensgoldlanternhanging"
+    }
+  }
+}

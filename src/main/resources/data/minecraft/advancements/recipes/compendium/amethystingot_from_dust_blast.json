@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:amethystingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "amethystdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:amethystdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:amethystingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "amethystdust",
+      "has_the_recipe"
+    ]
+  ]
+}

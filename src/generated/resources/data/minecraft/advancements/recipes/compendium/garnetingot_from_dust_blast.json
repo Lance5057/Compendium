@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:garnetingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "garnetdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:garnetdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:garnetingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnetdust",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "compendium:item/silverpickaxe",
+    "layer1": "compendium:item/pickaxebase"
+  }
+}

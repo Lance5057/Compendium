@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:opalingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "opaldust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:opaldust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:opalingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "opaldust",
+      "has_the_recipe"
+    ]
+  ]
+}

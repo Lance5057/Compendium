@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sinisterium_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "sinisteriumwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sinisteriumwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sinisterium_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sinisteriumwire",
+      "has_the_recipe"
+    ]
+  ]
+}

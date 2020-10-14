@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:amberingot_from_dust_furnace"
+    ]
+  },
+  "criteria": {
+    "amberdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:amberdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:amberingot_from_dust_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "amberdust",
+      "has_the_recipe"
+    ]
+  ]
+}

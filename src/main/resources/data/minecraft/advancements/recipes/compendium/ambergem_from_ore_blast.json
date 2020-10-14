@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:ambergem_from_ore_blast"
+    ]
+  },
+  "criteria": {
+    "amberore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:amberitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:ambergem_from_ore_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "amberore",
+      "has_the_recipe"
+    ]
+  ]
+}

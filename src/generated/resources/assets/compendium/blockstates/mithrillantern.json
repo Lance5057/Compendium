@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/mithrillantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/mithrillanternhanging"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:platinum_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "platinumdoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:platinum_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumdoor",
+      "has_the_recipe"
+    ]
+  ]
+}

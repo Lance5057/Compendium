@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:amethyst_gem_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "amethystnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:amethystnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:amethyst_gem_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "amethystnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

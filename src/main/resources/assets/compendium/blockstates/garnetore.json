@@ -1,0 +1,270 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/garnetore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_sparse",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/garnetore_corner",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

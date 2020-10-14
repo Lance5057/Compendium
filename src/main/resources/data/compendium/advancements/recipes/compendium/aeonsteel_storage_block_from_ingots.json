@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aeonsteel_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "aeonsteelstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:aeonsteelingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aeonsteel_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aeonsteelstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

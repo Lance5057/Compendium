@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "compendium:item/rubyshovel",
+    "layer1": "compendium:item/shovelbase"
+  }
+}

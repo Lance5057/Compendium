@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/opalsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/opalsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/opalsheettop"
+    }
+  }
+}

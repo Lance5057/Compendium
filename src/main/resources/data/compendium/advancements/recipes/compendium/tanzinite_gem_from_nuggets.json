@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tanzinite_gem_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "tanzinitenugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tanzinitenugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tanzinite_gem_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tanzinitenugget",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -13,6 +13,7 @@ import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
@@ -316,6 +317,30 @@ public class TCRecipes extends RecipeProvider {
 							.key('s', Items.STICK).patternLine("i").patternLine("i").patternLine("s")
 							.addCriterion(mh.name + "gem", hasItem(mh.getGem().GEM.get()))
 							.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_sword_from_gems"));
+				}
+			}
+
+			if (mh.getOre() != null) {
+				MaterialOre mo = mh.getOre();
+				if (mh.getIngot() != null) {
+					CookingRecipeBuilder
+							.smeltingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
+							.addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
+							.build(consumer, mh.name + "ingot_from_ore_furnace");
+					CookingRecipeBuilder
+							.blastingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
+							.addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
+							.build(consumer, mh.name + "ingot_from_ore_blast");
+				}
+				if (mh.getGem() != null) {
+					CookingRecipeBuilder
+							.smeltingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getGem().GEM.get(), 1f, 100)
+							.addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
+							.build(consumer, mh.name + "gem_from_ore_furnace");
+					CookingRecipeBuilder
+							.blastingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getGem().GEM.get(), 1f, 100)
+							.addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
+							.build(consumer, mh.name + "gem_from_ore_blast");
 				}
 			}
 		}

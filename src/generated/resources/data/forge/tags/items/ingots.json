@@ -1,6 +1,19 @@
 {
   "replace": false,
   "values": [
-    "compendium:aeonsteelingot"
+    "compendium:aeonsteelingot",
+    "compendium:queensgoldingot",
+    "compendium:dogbeariumingot",
+    "compendium:sinisteriumingot",
+    "compendium:nihiliteingot",
+    "compendium:orichalcumingot",
+    "compendium:pandoriumingot",
+    "compendium:rosegoldingot",
+    "compendium:platinumingot",
+    "compendium:silveringot",
+    "compendium:valyriansteelingot",
+    "compendium:iceingot",
+    "compendium:froststeelingot",
+    "compendium:mithrilingot"
   ]
 }

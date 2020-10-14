@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:opal_gems_from_storage_block"
+    ]
+  },
+  "criteria": {
+    "opalstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:opalitemblock"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:opal_gems_from_storage_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "opalstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

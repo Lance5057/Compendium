@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/rosegoldsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/rosegoldsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/rosegoldsheettop"
+    }
+  }
+}

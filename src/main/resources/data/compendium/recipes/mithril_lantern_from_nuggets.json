@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ptp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:mithrilnugget"
+    },
+    "t": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "compendium:mithrilitemlantern"
+  }
+}

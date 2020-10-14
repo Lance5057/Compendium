@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:pandoriumingot"
+    },
+    "s": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "compendium:pandoriumdust"
+  }
+}

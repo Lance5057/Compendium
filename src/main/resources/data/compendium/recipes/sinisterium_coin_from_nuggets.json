@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:sinisteriumnugget"
+    }
+  },
+  "result": {
+    "item": "compendium:sinisteriumcoin",
+    "count": 4
+  }
+}

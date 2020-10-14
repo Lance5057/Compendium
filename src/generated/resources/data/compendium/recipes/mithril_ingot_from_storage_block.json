@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:mithrilitemblock"
+    }
+  ],
+  "result": {
+    "item": "compendium:mithrilingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:froststeel_gear_from_ingots"
+    ]
+  },
+  "criteria": {
+    "froststeelingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:froststeelingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:froststeel_gear_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "froststeelingot",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/aeonsteeldoor_top"
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "compendium:item/aeonsteeldoor"
+  }
 }

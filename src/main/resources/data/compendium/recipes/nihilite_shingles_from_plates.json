@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " ps",
+    "psl"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:nihiliteplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:nihiliteitemshingles",
+    "count": 4
+  }
+}

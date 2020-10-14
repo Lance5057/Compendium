@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/tanzinitelantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/tanzinitelanternhanging"
+    }
+  }
+}

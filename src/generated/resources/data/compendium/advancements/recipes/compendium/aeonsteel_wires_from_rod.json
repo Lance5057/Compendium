@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aeonsteel_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "aeonsteelrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:aeonsteelrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aeonsteel_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aeonsteelrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:sapphiregem",
+    "compendium:rubygem",
+    "compendium:citrinegem",
+    "compendium:amethystgem",
+    "compendium:topazgem",
+    "compendium:garnetgem",
+    "compendium:opalgem",
+    "compendium:tanzinitegem",
+    "compendium:ambergem"
+  ]
+}

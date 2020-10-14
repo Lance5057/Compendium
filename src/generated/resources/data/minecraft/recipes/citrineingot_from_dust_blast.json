@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "compendium:citrinedust"
+  },
+  "result": "compendium:citrinegem",
+  "experience": 1.0,
+  "cookingtime": 100
+}

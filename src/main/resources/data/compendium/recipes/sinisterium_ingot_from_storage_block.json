@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:sinisteriumitemblock"
+    }
+  ],
+  "result": {
+    "item": "compendium:sinisteriumingot",
+    "count": 9
+  }
+}

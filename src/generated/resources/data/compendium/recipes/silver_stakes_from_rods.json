@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:silverrod"
+    }
+  },
+  "result": {
+    "item": "compendium:silveritemstake",
+    "count": 3
+  }
+}

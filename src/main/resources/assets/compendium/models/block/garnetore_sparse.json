@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/ore_sparse",
+  "textures": {
+    "1": "compendium:block/garnetore"
+  }
+}

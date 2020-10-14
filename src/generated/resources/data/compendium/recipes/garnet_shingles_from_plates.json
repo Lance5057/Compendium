@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " ps",
+    "psl"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:garnetplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:garnetitemshingles",
+    "count": 4
+  }
+}

@@ -1,11 +1,15 @@
 package lance5057.compendium.core.data.builders;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.blocks.ComponentSheet;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
@@ -75,6 +79,21 @@ public class TCBlockModels extends BlockStateProvider {
 				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
 				this.sheetModel(mh);
 				//simpleBlock(me.SHEET.get(), new ConfiguredModel(models().withExistingParent(mh.name + "componentsheet", mcLoc("block/carpet")).texture("wool", "compendium:block/" + mh.name + "sheet")));
+			}
+			
+			if(mh.getOre() != null)
+			{
+				MaterialOre mo = mh.getOre();
+				
+//				List<ConfiguredModel> models = new ArrayList<ConfiguredModel>();
+//				models.addAll(Arrays.asList();
+//				models.addAll(Arrays.asList();
+//				models.addAll(Arrays.asList(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/"+mh.name + "ore")), true)));
+
+				getVariantBuilder(mo.ORE.get())
+	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore")).texture("1", modLoc("block/"+mh.name + "ore")), true))
+	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_sparse", modLoc("block/bases/ore_sparse")).texture("1", modLoc("block/"+mh.name + "ore")), true))
+	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_corner", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/"+mh.name + "ore")), true));
 			}
 		}
 	}
@@ -227,120 +246,4 @@ public class TCBlockModels extends BlockStateProvider {
 				.partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(sheetTop).addModel()
 				.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(sheetTop).addModel();
 	}
-
-//	private void stakeModel(BlockStateProvider bsp, String matName) {
-//		ModelFile stakeModel = bsp.models()
-//				.withExistingParent(matName + "componentstake", bsp.modLoc("block/componentstake"))
-//				.texture("rod", "compendium:block/" + matName + "stake");
-//		ModelFile stakeBaseModel = bsp.models()
-//				.withExistingParent(matName + "componentstake_base", bsp.modLoc("block/componentstake_base"))
-//				.texture("rod", "compendium:block/" + matName + "stake");
-//
-//		//VariantBlockStateBuilder builder = bsp.getVariantBuilder(this.stake);
-//
-//		for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
-//
-//			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
-//					.modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
-//
-//					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
-//					.modelForState()
-////					.modelFile(stake)
-////					.rotationX(stakeXRotation(dir))
-////					.rotationY(stakeYRotation(dir))
-//					// .nextModel()
-//					.modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
-//		}
-//	}
-//
-//	private void shinglesModel(BlockStateProvider bsp, String suffix, Block b, String matName) {
-//		ModelFile shinglesModel = bsp.models()
-//				.withExistingParent(matName + "shingles" + suffix, bsp.modLoc("block/shingles" + suffix))
-//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
-//				.texture("2", "minecraft:block/oak_log");
-//		ModelFile shinglesInnerModel = bsp.models()
-//				.withExistingParent(matName + "shingles_inner" + suffix,
-//						bsp.modLoc("block/shingles_inner_corner" + suffix))
-//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
-//				.texture("2", "minecraft:block/oak_log");
-//		ModelFile shinglesOuterModel = bsp.models()
-//				.withExistingParent(matName + "shingles_outer" + suffix,
-//						bsp.modLoc("block/shingles_outer_corner" + suffix))
-//				.texture("0", "compendium:block/" + matName + "shingles").texture("1", "compendium:block/shingles_log")
-//				.texture("2", "minecraft:block/oak_log");
-//
-//		VariantBlockStateBuilder builder = bsp.getVariantBuilder(b);
-//
-//		for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
-//
-//			// Bottom
-//			// Straight
-//			builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-//					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-//					.rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					// Inner
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-//					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-//					.rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-//					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-//					.rotationY(stakeYRotation(dir) - 90).addModel()
-//
-//					// Outer
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-//					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-//					.rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-//					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-//					.rotationY(stakeYRotation(dir) - 90).addModel()
-//
-//					// Top
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-//					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					// Inner
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-//					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-//					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					// Outer
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-//					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
-//
-//					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-//					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-//					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel();
-//		}
-//	}
-//
-//	private int stakeXRotation(Direction d) {
-//		if (d == Direction.UP)
-//			return 0;
-//		if (d == Direction.DOWN)
-//			return 180;
-//		return 90;
-//	}
-//
-//	private int stakeYRotation(Direction d) {
-//		if (d == Direction.UP || d == Direction.DOWN || d == Direction.NORTH)
-//			return 0;
-//		if (d == Direction.WEST)
-//			return 270;
-//		if (d == Direction.SOUTH)
-//			return 180;
-//		return 90;
-//	}
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/mithrilsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/mithrilsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/mithrilsheettop"
+    }
+  }
+}

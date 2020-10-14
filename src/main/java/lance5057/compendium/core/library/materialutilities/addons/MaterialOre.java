@@ -1,30 +1,15 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
-
-import com.mojang.datafixers.util.Pair;
-
 import lance5057.compendium.Reference;
-import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
-import lance5057.compendium.core.data.builders.TCItemTags;
-import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStage;
@@ -32,16 +17,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.storage.loot.LootParameterSets;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -50,19 +27,19 @@ public class MaterialOre implements MaterialBase {
 	String matName;
 	String parentMod;
 
-	public Block oreBlock;
+	public RegistryObject<Block> ORE;
 //	public Block gravelBlock;
 //	public Block sandBlock;
 //	public Block sandstoneBlock;
 //	public Block netherBlock;
 
-	public Item oreItemBlock;
+	public RegistryObject<BlockItem> ITEM_ORE;
 //	public Item gravelItemBlock;
 //	public Item sandItemBlock;
 //	public Item sandstoneItemBlock;
 //	public Item netherItemBlock;
 
-	public Item oreClump;
+	//public RegistryObject<Item> ITEM_CLUMP;
 //	public Item oreGravel;
 //	public Item oreSand;
 
@@ -110,57 +87,36 @@ public class MaterialOre implements MaterialBase {
 //			int ymax, int ymin, int veinSize, int veinChance) {
 //		this(prefix, style, color, hardness, level, tool, resistance, 64, 0, 8, 10, -2, -2, -2, -2, -2, -2);
 //	}
-	public MaterialOre(String matName, float hardness, int level, String tool, float resistance, int ymax, int ymin,
+	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
 			int veinSize, int veinChance, Category biomeCategory) {
-		this(matName, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance, biomeCategory,
+		this(mh, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance, biomeCategory,
 				Reference.MOD_ID);
 	}
 
-	public MaterialOre(String matName, float hardness, int level, String tool, float resistance, int ymax, int ymin,
+	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
 			int veinSize, int veinChance, Category biomeCategory, String parentMod) {
 		this.matName = matName;
 		this.parentMod = parentMod;
 
-		this.hardness = hardness;
-		this.mininglevel = level;
-		this.tool = tool;
-		this.resistance = resistance;
 		this.oreYMax = ymax;
 		this.oreYMin = ymin;
 		this.oreSize = veinSize;
 		this.oreChance = veinChance;
 		this.category = biomeCategory;
 
-		oreBlock = new Block(Block.Properties.create(Material.ROCK)
-				.harvestLevel(level)
-				.hardnessAndResistance(hardness, resistance)
-				.harvestTool(ToolType.get(tool)));
-
-		oreBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "ore"));
-
-		//TCBlocks.BLOCKS.add(oreBlock);
-
-		// OutputJsons.outputBlockJson(oreBlock);
-
-		oreItemBlock = new BlockItem(oreBlock, new Item.Properties().group(TCItems.TCITEMS));
-		oreClump = new Item(new Item.Properties().group(TCItems.TCITEMS));
-
-		oreItemBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "ore"));
-		oreClump.setRegistryName(new ResourceLocation(Reference.MOD_ID, matName + "oreclump"));
-
-//		TCItems.ITEMS.add(oreItemBlock);
-//		TCItems.ITEMS.add(oreClump);
-
-		MATERIAL_ORE = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "ores/" + matName));
+		ORE = mh.BLOCKS.register(mh.name + "ore", () -> new Block(
+				Block.Properties.create(Material.IRON).harvestLevel(level).harvestTool(tool).hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
+		ITEM_ORE = mh.ITEMS.register(mh.name + "itemore",
+				() -> new BlockItem(ORE.get(), new Item.Properties().group(TCItems.TCITEMS)));
 	}
 
-	void OreGen() {
+	public void OreGen() {
 		for (Biome biome : ForgeRegistries.BIOMES) {
 			if (this.category == null || biome.getCategory() == this.category) {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 						Feature.ORE
 								.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-										oreBlock.getDefaultState(), oreSize))
+										ORE.get().getDefaultState(), oreSize))
 								.withPlacement(Placement.COUNT_RANGE
 										.configure(new CountRangeConfig(this.oreChance, 0, 0, this.oreYMax))));
 			}

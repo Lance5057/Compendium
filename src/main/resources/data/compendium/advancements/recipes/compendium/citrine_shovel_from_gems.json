@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:citrine_shovel_from_gems"
+    ]
+  },
+  "criteria": {
+    "citrinegem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:citrinegem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:citrine_shovel_from_gems"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "citrinegem",
+      "has_the_recipe"
+    ]
+  ]
+}

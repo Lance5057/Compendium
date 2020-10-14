@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shinglesalt",
+  "textures": {
+    "0": "compendium:block/quartzshingles",
+    "1": "compendium:block/shingles_log",
+    "2": "block/oak_log"
+  }
+}

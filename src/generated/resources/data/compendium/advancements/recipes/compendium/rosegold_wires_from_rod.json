@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "rosegoldrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegoldrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:topaz_trapdoor_from_plates"
+    ]
+  },
+  "criteria": {
+    "topazplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:topazplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:topaz_trapdoor_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topazplate",
+      "has_the_recipe"
+    ]
+  ]
+}

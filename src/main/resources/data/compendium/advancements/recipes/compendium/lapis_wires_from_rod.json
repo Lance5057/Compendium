@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lapis_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "lapisrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:lapisrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lapis_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lapisrod",
+      "has_the_recipe"
+    ]
+  ]
+}

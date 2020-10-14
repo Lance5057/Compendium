@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sapphire_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "sapphirerod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphirerod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sapphire_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphirerod",
+      "has_the_recipe"
+    ]
+  ]
+}

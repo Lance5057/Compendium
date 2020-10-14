@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:amethystrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:amethystwire",
+    "count": 4
+  }
+}

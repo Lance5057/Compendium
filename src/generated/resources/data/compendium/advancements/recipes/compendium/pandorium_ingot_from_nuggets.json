@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pandorium_ingot_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "pandoriumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pandoriumnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pandorium_ingot_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pandoriumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

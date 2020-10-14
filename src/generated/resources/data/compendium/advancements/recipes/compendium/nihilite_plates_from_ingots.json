@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nihilite_plates_from_ingots"
+    ]
+  },
+  "criteria": {
+    "nihiliteingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nihiliteingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nihilite_plates_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nihiliteingot",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:mithril_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "mithrilstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:mithrilingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:mithril_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mithrilstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

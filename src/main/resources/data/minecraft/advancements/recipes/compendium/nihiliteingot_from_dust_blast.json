@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:nihiliteingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "nihilitedust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nihilitedust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:nihiliteingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nihilitedust",
+      "has_the_recipe"
+    ]
+  ]
+}

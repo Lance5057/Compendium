@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:garnetgem"
+    }
+  },
+  "result": {
+    "item": "compendium:garnetplate",
+    "count": 2
+  }
+}

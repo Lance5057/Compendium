@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:citrine_lantern_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "citrinenugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:citrinenugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:citrine_lantern_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "citrinenugget",
+      "has_the_recipe"
+    ]
+  ]
+}

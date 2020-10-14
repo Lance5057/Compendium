@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/platinumsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/platinumsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/platinumsheettop"
+    }
+  }
+}

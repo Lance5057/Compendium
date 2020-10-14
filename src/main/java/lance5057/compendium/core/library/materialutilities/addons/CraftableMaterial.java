@@ -1,9 +1,6 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import java.io.PrintWriter;
-
 import lance5057.compendium.Reference;
-import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
@@ -14,12 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -31,14 +23,14 @@ public class CraftableMaterial implements MaterialBase {
 //	public Block block = new Block(Block.Properties.create(Material.GLASS));
 //	public Item itemBlock = new BlockItem(block, new Item.Properties().group(TCItems.TCITEMS));
 
-	public static RegistryObject<Item> GEM;
-	public static RegistryObject<Item> NUGGET;
-	public static RegistryObject<Block> STORAGE_BLOCK;
-	public static RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
+	public RegistryObject<Item> GEM;
+	public RegistryObject<Item> NUGGET;
+	public RegistryObject<Block> STORAGE_BLOCK;
+	public RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
 
-	public static Tag<Item> MATERIAL_GEM;
-	public static Tag<Item> MATERIAL_NUGGET;
-	public static Tag<Item> MATERIAL_STORAGE_BLOCK;
+	public Tag<Item> MATERIAL_GEM;
+	public Tag<Item> MATERIAL_NUGGET;
+	public Tag<Item> MATERIAL_STORAGE_BLOCK;
 
 	public CraftableMaterial(MaterialHelper mh) {
 

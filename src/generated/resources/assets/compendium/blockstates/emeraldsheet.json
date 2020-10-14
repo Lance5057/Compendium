@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/emeraldsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/emeraldsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/emeraldsheettop"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom_rh",
+  "textures": {
+    "bottom": "compendium:block/opal_door_bottom",
+    "top": "compendium:block/opal_door_top"
+  }
+}

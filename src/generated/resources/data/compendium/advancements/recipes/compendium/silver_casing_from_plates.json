@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:silver_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "silvercasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:silverplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:silver_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silvercasing",
+      "has_the_recipe"
+    ]
+  ]
+}

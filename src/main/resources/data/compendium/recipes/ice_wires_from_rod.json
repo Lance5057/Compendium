@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:icerod"
+    }
+  ],
+  "result": {
+    "item": "compendium:icewire",
+    "count": 4
+  }
+}

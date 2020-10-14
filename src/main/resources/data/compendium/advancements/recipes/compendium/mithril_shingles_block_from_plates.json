@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:mithril_shingles_block_from_plates"
+    ]
+  },
+  "criteria": {
+    "mithrilplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:mithrilplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:mithril_shingles_block_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mithrilplate",
+      "has_the_recipe"
+    ]
+  ]
+}

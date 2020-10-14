@@ -4,6 +4,7 @@ import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
@@ -114,6 +115,11 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				withExistingParent(vt.SWORD.getId().getPath(), mcLoc("item/handheld"))
 						.texture("layer0", modLoc("item/" + vt.SWORD.getId().getPath()))
 						.texture("layer1", modLoc("item/swordbase"));
+			}
+			if (mh.getOre() != null) {
+				MaterialOre mo = mh.getOre();
+				
+				forBlockItem(mo.ITEM_ORE);
 			}
 		}
 	}

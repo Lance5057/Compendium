@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/emeraldlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/emeraldlanternhanging"
+    }
+  }
+}

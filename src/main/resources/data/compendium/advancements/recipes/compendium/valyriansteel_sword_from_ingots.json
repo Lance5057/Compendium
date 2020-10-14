@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:valyriansteel_sword_from_ingots"
+    ]
+  },
+  "criteria": {
+    "valyriansteelingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:valyriansteelingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:valyriansteel_sword_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "valyriansteelingot",
+      "has_the_recipe"
+    ]
+  ]
+}

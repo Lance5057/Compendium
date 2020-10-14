@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sapphire_plates_from_gems"
+    ]
+  },
+  "criteria": {
+    "sapphiregem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphiregem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sapphire_plates_from_gems"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphiregem",
+      "has_the_recipe"
+    ]
+  ]
+}

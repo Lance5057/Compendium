@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_door_from_plates"
+    ]
+  },
+  "criteria": {
+    "rosegolddoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegoldplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_door_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegolddoor",
+      "has_the_recipe"
+    ]
+  ]
+}

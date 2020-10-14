@@ -1,10 +1,10 @@
 {
   "variants": {
     "hanging=false": {
-      "model": "compendium:block/aeonsteelcomponentlantern"
+      "model": "compendium:block/aeonsteellantern"
     },
     "hanging=true": {
-      "model": "compendium:block/aeonsteelcomponentlanternhanging"
+      "model": "compendium:block/aeonsteellanternhanging"
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:platinum_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "platinumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumnugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:platinum_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

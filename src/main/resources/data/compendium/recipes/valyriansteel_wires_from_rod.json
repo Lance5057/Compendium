@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:valyriansteelrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:valyriansteelwire",
+    "count": 4
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    },
+    {
+      "item": "compendium:ambernugget"
+    }
+  ],
+  "result": {
+    "item": "compendium:ambergem"
+  }
+}

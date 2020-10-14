@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:sapphireitemore"
+  },
+  "result": "compendium:sapphiregem",
+  "experience": 1.0,
+  "cookingtime": 100
+}

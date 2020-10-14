@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:gold_shingles_from_plates"
+    ]
+  },
+  "criteria": {
+    "goldplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:goldplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:gold_shingles_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goldplate",
+      "has_the_recipe"
+    ]
+  ]
+}

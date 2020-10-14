@@ -30,6 +30,14 @@ public class TCItemTags extends ItemTagsProvider {
 				getBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
 				getBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
 				getBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
+				
+				Tag<Item> INGOT_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "ingots/" + mh.name));
+				Tag<Item> NUGGET_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "nuggets/" + mh.name));
+				Tag<Item> BLOCK_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "storage_blocks/" + mh.name));
+				
+				getBuilder(INGOT_MATERIAL).add(mm.INGOT.get());
+				getBuilder(NUGGET_MATERIAL).add(mm.NUGGET.get());
+				getBuilder(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
 			}
 
 			// Craftable Materials
@@ -38,6 +46,14 @@ public class TCItemTags extends ItemTagsProvider {
 				getBuilder(Tags.Items.GEMS).add(cm.GEM.get());
 				getBuilder(Tags.Items.NUGGETS).add(cm.NUGGET.get());
 				getBuilder(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
+				
+				Tag<Item> INGOT_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "gems/" + mh.name));
+				Tag<Item> NUGGET_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "nuggets/" + mh.name));
+				Tag<Item> BLOCK_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "storage_blocks/" + mh.name));
+				
+				getBuilder(INGOT_MATERIAL).add(cm.GEM.get());
+				getBuilder(NUGGET_MATERIAL).add(cm.NUGGET.get());
+				getBuilder(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
 			}
 			
 			// Extra Components

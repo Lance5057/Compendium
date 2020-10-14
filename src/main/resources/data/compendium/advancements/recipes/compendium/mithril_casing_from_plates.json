@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:mithril_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "mithrilcasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:mithrilplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:mithril_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mithrilcasing",
+      "has_the_recipe"
+    ]
+  ]
+}

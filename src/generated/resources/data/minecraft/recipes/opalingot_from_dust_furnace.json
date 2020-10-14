@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:opaldust"
+  },
+  "result": "compendium:opalgem",
+  "experience": 1.0,
+  "cookingtime": 100
+}

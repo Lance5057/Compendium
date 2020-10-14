@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:platinum_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "platinumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumrod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:platinum_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumrod",
+      "has_the_recipe"
+    ]
+  ]
+}
