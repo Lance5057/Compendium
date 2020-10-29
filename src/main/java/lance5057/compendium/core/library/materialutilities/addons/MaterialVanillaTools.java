@@ -32,7 +32,7 @@ public class MaterialVanillaTools implements MaterialBase {
 		AXE = mh.ITEMS.register(mh.name + "axe",
 				() -> new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
 		HOE = mh.ITEMS.register(mh.name + "hoe",
-				() -> new HoeItem(mh.tier, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
+				() -> new HoeItem(mh.tier, -3, 0.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
 //		bow;
 //		crossbow;
 //		shield;

@@ -1,19 +1,19 @@
 package lance5057.compendium.core.library;
 
-import lance5057.compendium.Reference;
+import lance5057.compendium.core.data.builders.TCItemTags;
 import net.minecraft.item.Item;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 
 public class CompendiumTags {
-	public static final Tag<Item> DUST = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "dusts"));
-	public static final Tag<Item> PLATE = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "plates"));
-	public static final Tag<Item> COIN = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "coins"));
-	public static final Tag<Item> GEAR = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "gears"));
-	public static final Tag<Item> ROD = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "rods"));
-	public static final Tag<Item> COIL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "coils"));
-	public static final Tag<Item> SPRING = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "springs"));
-	public static final Tag<Item> CASING = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "casings"));
-	public static final Tag<Item> WIRE = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "wires"));
+	public static final INamedTag<Item> DUST = TCItemTags.ItemTag("dusts");
+	public static final INamedTag<Item> PLATE = TCItemTags.ItemTag("plates");
+	public static final INamedTag<Item> COIN = TCItemTags.ItemTag("coins");
+	public static final INamedTag<Item> GEAR = TCItemTags.ItemTag("gears");
+	public static final INamedTag<Item> ROD = TCItemTags.ItemTag("rods");
+	public static final INamedTag<Item> COIL = TCItemTags.ItemTag("coils");
+	public static final INamedTag<Item> SPRING = TCItemTags.ItemTag("springs");
+	public static final INamedTag<Item> CASING = TCItemTags.ItemTag("casings");
+	public static final INamedTag<Item> WIRE = TCItemTags.ItemTag("wires");
 }

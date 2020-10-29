@@ -1,5 +1,6 @@
 modLoader="javafml"
 loaderVersion="[26,)"
+license="GGPL3"
 issueTrackerURL="https://github.com/Lance5057/Tinkers-Compendium/issues"
 [[mods]]
 modId="compendium"

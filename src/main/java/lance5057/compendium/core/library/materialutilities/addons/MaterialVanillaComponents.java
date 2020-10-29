@@ -35,7 +35,7 @@ public class MaterialVanillaComponents implements MaterialBase {
 	public MaterialVanillaComponents(MaterialHelper mh) {
 		this.matName = mh.name;
 		this.parentMod = mh.parentMod;
-		
+
 		DOOR = mh.BLOCKS.register(mh.name + "door",
 				() -> new ComponentDoor(Block.Properties.create(Material.IRON, MaterialColor.IRON)
 						.hardnessAndResistance(5.0F).sound(SoundType.METAL).notSolid()));
@@ -44,16 +44,19 @@ public class MaterialVanillaComponents implements MaterialBase {
 		BARS = mh.BLOCKS.register(mh.name + "bars",
 				() -> new ComponentPane(Block.Properties.create(Material.IRON, MaterialColor.AIR)
 						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid()));
-		LANTERN = mh.BLOCKS.register(mh.name + "lantern", () -> new LanternBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR)
-						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid().lightValue(15)));
-		
+		LANTERN = mh.BLOCKS.register(mh.name + "lantern",
+				() -> new LanternBlock(Block.Properties.create(Material.IRON, MaterialColor.AIR)
+						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid().setLightLevel((state) -> {
+							return 15;
+						})));
+
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
 				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_TRAPDOOR = mh.ITEMS.register(mh.name + "itemtrapdoor",
 				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_BARS = mh.ITEMS.register(mh.name + "itembars",
 				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.TCITEMS)));
-		ITEM_LANTERN  = mh.ITEMS.register(mh.name + "itemlantern",
+		ITEM_LANTERN = mh.ITEMS.register(mh.name + "itemlantern",
 				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 //		TCBlocks.BLOCKS.add(door);

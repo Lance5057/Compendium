@@ -8,8 +8,8 @@ import net.minecraft.block.EndRodBlock;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer.Builder;
@@ -34,7 +34,7 @@ public class ComponentStake extends EndRodBlock implements IWaterLoggable {
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 	      return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	   }
 	
@@ -60,7 +60,7 @@ public class ComponentStake extends EndRodBlock implements IWaterLoggable {
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 	      Direction direction = context.getFace();
 	      BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(direction.getOpposite()));
-	      IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+	      FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 	      
 	      if(blockstate.getBlock() == this)
 	    	  return this.getDefaultState().with(FACING, direction).with(CONNECTED, true).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));

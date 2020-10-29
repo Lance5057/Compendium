@@ -60,7 +60,7 @@ public class TCEnglishLoc extends LanguageProvider {
 				this.add(me.COIL.get(), name + " Coil");
 				this.add(me.COIN.get(), name + " Coin");
 				this.add(me.DUST.get(), name + " Dust");
-				this.add(me.GEAR.get(), name + " Dust");
+				this.add(me.GEAR.get(), name + " Gear");
 				this.add(me.ITEM_SHEET.get(), name + " Sheet");
 				this.add(me.ITEM_SHINGLES.get(), name + " Shingles");
 				this.add(me.ITEM_SHINGLES_ALT.get(), name + " Joisted Shingles");

@@ -1,5 +1,5 @@
 {
-  "parent": "block/door_top_rh",
+  "parent": "minecraft:block/door_top_rh",
   "textures": {
     "bottom": "compendium:block/sapphire_door_bottom",
     "top": "compendium:block/sapphire_door_top"

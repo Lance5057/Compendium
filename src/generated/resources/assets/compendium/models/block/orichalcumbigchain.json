@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/bigchain",
+  "textures": {
+    "0": "compendium:block/orichalcumbigchain"
+  }
+}

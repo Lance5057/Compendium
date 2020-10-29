@@ -1,45 +1,17 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.codehaus.plexus.util.StringUtils;
-
-import com.mojang.datafixers.util.Pair;
-
 import lance5057.compendium.Reference;
-import lance5057.compendium.TCBlocks;
 import lance5057.compendium.TCItems;
-import lance5057.compendium.core.data.builders.TCBlockTags;
-import lance5057.compendium.core.data.builders.TCItemTags;
-import lance5057.compendium.core.data.builders.TCLootTables;
-import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.data.CookingRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootParameterSets;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -71,12 +43,12 @@ public class MeltableMaterial implements MaterialBase {
 		STORAGE_ITEMBLOCK = mh.ITEMS.register(mh.name + "itemblock",
 				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
-		MATERIAL_INGOT = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "ingots/" + matName));
-		MATERIAL_NUGGET = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + matName));
-		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + matName));
+//		MATERIAL_INGOT = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "ingots/" + matName));
+//		MATERIAL_NUGGET = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + matName));
+//		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + matName));
 
 	}
 

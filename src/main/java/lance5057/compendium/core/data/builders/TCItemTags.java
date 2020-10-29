@@ -1,23 +1,30 @@
 package lance5057.compendium.core.data.builders;
 
+import java.util.List;
+import java.util.function.Function;
+
 import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import net.minecraft.block.Block;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
 import net.minecraft.item.Item;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 
 public class TCItemTags extends ItemTagsProvider {
 
-	public TCItemTags(DataGenerator generatorIn) {
-		super(generatorIn);
+	public TCItemTags(DataGenerator generatorIn, BlockTagsProvider blockTagProvider) {
+		super(generatorIn, blockTagProvider);
 	}
 
 	@Override
@@ -27,70 +34,90 @@ public class TCItemTags extends ItemTagsProvider {
 			// Meltable Materials
 			if (mh.getIngot() != null) {
 				MeltableMaterial mm = mh.getIngot();
-				getBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
-				getBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
-				getBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
-				
-				Tag<Item> INGOT_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "ingots/" + mh.name));
-				Tag<Item> NUGGET_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "nuggets/" + mh.name));
-				Tag<Item> BLOCK_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "storage_blocks/" + mh.name));
-				
-				getBuilder(INGOT_MATERIAL).add(mm.INGOT.get());
-				getBuilder(NUGGET_MATERIAL).add(mm.NUGGET.get());
-				getBuilder(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
+				getOrCreateBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
+				getOrCreateBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
+				getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
+
+				INamedTag<Item> INGOT_MATERIAL = ItemTag("ingots/" + mh.name);
+				INamedTag<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
+				INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
+
+				getOrCreateBuilder(INGOT_MATERIAL).add(mm.INGOT.get());
+				getOrCreateBuilder(NUGGET_MATERIAL).add(mm.NUGGET.get());
+				getOrCreateBuilder(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
 			}
 
 			// Craftable Materials
 			if (mh.getGem() != null) {
 				CraftableMaterial cm = mh.getGem();
-				getBuilder(Tags.Items.GEMS).add(cm.GEM.get());
-				getBuilder(Tags.Items.NUGGETS).add(cm.NUGGET.get());
-				getBuilder(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
-				
-				Tag<Item> INGOT_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "gems/" + mh.name));
-				Tag<Item> NUGGET_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "nuggets/" + mh.name));
-				Tag<Item> BLOCK_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "storage_blocks/" + mh.name));
-				
-				getBuilder(INGOT_MATERIAL).add(cm.GEM.get());
-				getBuilder(NUGGET_MATERIAL).add(cm.NUGGET.get());
-				getBuilder(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
+				getOrCreateBuilder(Tags.Items.GEMS).add(cm.GEM.get());
+				getOrCreateBuilder(Tags.Items.NUGGETS).add(cm.NUGGET.get());
+				getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
+
+				INamedTag<Item> INGOT_MATERIAL = ItemTag("gems/" + mh.name);
+				INamedTag<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
+				INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
+
+				getOrCreateBuilder(INGOT_MATERIAL).add(cm.GEM.get());
+				getOrCreateBuilder(NUGGET_MATERIAL).add(cm.NUGGET.get());
+				getOrCreateBuilder(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
 			}
-			
+
 			// Extra Components
-			if(mh.getExtraComponents() != null)
-			{
+			if (mh.getExtraComponents() != null) {
 				MaterialExtraComponents ec = mh.getExtraComponents();
-				getBuilder(CompendiumTags.CASING).add(ec.CASING.get());
-				getBuilder(CompendiumTags.COIL).add(ec.COIL.get());
-				getBuilder(CompendiumTags.COIN).add(ec.COIN.get());
-				getBuilder(CompendiumTags.DUST).add(ec.DUST.get());
-				getBuilder(CompendiumTags.GEAR).add(ec.GEAR.get());
-				getBuilder(CompendiumTags.PLATE).add(ec.PLATE.get());
-				getBuilder(CompendiumTags.ROD).add(ec.ROD.get());
-				getBuilder(CompendiumTags.SPRING).add(ec.SPRING.get());
-				getBuilder(CompendiumTags.WIRE).add(ec.WIRE.get());
-				
-				Tag<Item> CASING_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "casings/" + mh.name));
-				Tag<Item> COIL_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "coils/" + mh.name));
-				Tag<Item> COIN_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "coins/" + mh.name));
-				Tag<Item> DUST_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "dusts/" + mh.name));
-				Tag<Item> GEAR_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "gears/" + mh.name));
-				Tag<Item> PLATE_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "plates/" + mh.name));
-				Tag<Item> ROD_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "rods/" + mh.name));
-				Tag<Item> SPRING_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "springs/" + mh.name));
-				Tag<Item> WIRE_MATERIAL = ItemTags.getCollection().getOrCreate(new ResourceLocation("forge", "wires/" + mh.name));
-				
-				getBuilder(CASING_MATERIAL).add(ec.CASING.get());
-				getBuilder(COIL_MATERIAL).add(ec.COIL.get());
-				getBuilder(COIN_MATERIAL).add(ec.COIN.get());
-				getBuilder(DUST_MATERIAL).add(ec.DUST.get());
-				getBuilder(GEAR_MATERIAL).add(ec.GEAR.get());
-				getBuilder(PLATE_MATERIAL).add(ec.PLATE.get());
-				getBuilder(ROD_MATERIAL).add(ec.ROD.get());
-				getBuilder(SPRING_MATERIAL).add(ec.SPRING.get());
-				getBuilder(WIRE_MATERIAL).add(ec.WIRE.get());
+				getOrCreateBuilder(CompendiumTags.CASING).add(ec.CASING.get());
+				getOrCreateBuilder(CompendiumTags.COIL).add(ec.COIL.get());
+				getOrCreateBuilder(CompendiumTags.COIN).add(ec.COIN.get());
+				getOrCreateBuilder(CompendiumTags.DUST).add(ec.DUST.get());
+				getOrCreateBuilder(CompendiumTags.GEAR).add(ec.GEAR.get());
+				getOrCreateBuilder(CompendiumTags.PLATE).add(ec.PLATE.get());
+				getOrCreateBuilder(CompendiumTags.ROD).add(ec.ROD.get());
+				getOrCreateBuilder(CompendiumTags.SPRING).add(ec.SPRING.get());
+				getOrCreateBuilder(CompendiumTags.WIRE).add(ec.WIRE.get());
+
+				INamedTag<Item> CASING_MATERIAL = ItemTag("casings/" + mh.name);
+				INamedTag<Item> COIL_MATERIAL = ItemTag("coils/" + mh.name);
+				INamedTag<Item> COIN_MATERIAL = ItemTag("coins/" + mh.name);
+				INamedTag<Item> DUST_MATERIAL = ItemTag("dusts/" + mh.name);
+				INamedTag<Item> GEAR_MATERIAL = ItemTag("gears/" + mh.name);
+				INamedTag<Item> PLATE_MATERIAL = ItemTag("plates/" + mh.name);
+				INamedTag<Item> ROD_MATERIAL = ItemTag("rods/" + mh.name);
+				INamedTag<Item> SPRING_MATERIAL = ItemTag("springs/" + mh.name);
+				INamedTag<Item> WIRE_MATERIAL = ItemTag("wires/" + mh.name);
+
+				getOrCreateBuilder(CASING_MATERIAL).add(ec.CASING.get());
+				getOrCreateBuilder(COIL_MATERIAL).add(ec.COIL.get());
+				getOrCreateBuilder(COIN_MATERIAL).add(ec.COIN.get());
+				getOrCreateBuilder(DUST_MATERIAL).add(ec.DUST.get());
+				getOrCreateBuilder(GEAR_MATERIAL).add(ec.GEAR.get());
+				getOrCreateBuilder(PLATE_MATERIAL).add(ec.PLATE.get());
+				getOrCreateBuilder(ROD_MATERIAL).add(ec.ROD.get());
+				getOrCreateBuilder(SPRING_MATERIAL).add(ec.SPRING.get());
+				getOrCreateBuilder(WIRE_MATERIAL).add(ec.WIRE.get());
 			}
 		}
+	}
+
+	private static <T> ITag.INamedTag<T> getOrRegister(List<? extends ITag.INamedTag<T>> list,
+			Function<ResourceLocation, ITag.INamedTag<T>> register, ResourceLocation loc) {
+		for (ITag.INamedTag<T> existing : list) {
+			if (existing.getName().equals(loc)) {
+				return existing;
+			}
+		}
+
+		return register.apply(loc);
+	}
+
+	public static ITag.INamedTag<Block> BlockTag(String name) {
+		return getOrRegister(BlockTags.getAllTags(), loc -> BlockTags.makeWrapperTag(loc.toString()),
+				new ResourceLocation("forge", name));
+	}
+
+	public static ITag.INamedTag<Item> ItemTag(String name) {
+		return getOrRegister(ItemTags.getAllTags(), loc -> ItemTags.makeWrapperTag(loc.toString()),
+				new ResourceLocation("forge", name));
 	}
 
 }

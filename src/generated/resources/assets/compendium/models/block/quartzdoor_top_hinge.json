@@ -1,5 +1,5 @@
 {
-  "parent": "block/door_top_rh",
+  "parent": "minecraft:block/door_top_rh",
   "textures": {
     "bottom": "compendium:block/quartz_door_bottom",
     "top": "compendium:block/quartz_door_top"

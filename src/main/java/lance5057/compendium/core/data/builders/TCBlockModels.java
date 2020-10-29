@@ -1,9 +1,5 @@
 package lance5057.compendium.core.data.builders;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
@@ -25,12 +21,12 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class TCBlockModels extends BlockStateProvider {
-	private final ExistingFileHelper fh;
+	private final net.minecraftforge.common.data.ExistingFileHelper fh;
 
 	public TCBlockModels(DataGenerator gen, String modid, ExistingFileHelper fh) {
 		super(gen, modid, fh);
@@ -78,7 +74,7 @@ public class TCBlockModels extends BlockStateProvider {
 				this.shinglesModel(mh, "", me.SHINGLES.get());
 				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
 				this.sheetModel(mh);
-				//simpleBlock(me.SHEET.get(), new ConfiguredModel(models().withExistingParent(mh.name + "componentsheet", mcLoc("block/carpet")).texture("wool", "compendium:block/" + mh.name + "sheet")));
+				this.axisBlock(me.BIGCHAIN.get(), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/"+mh.name + "bigchain")), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/"+mh.name + "bigchain")));//.cross(me.BIGCHAIN.get().getRegistryName().getPath(), modLoc("block/" + mh.name + "bigchain")));
 			}
 			
 			if(mh.getOre() != null)

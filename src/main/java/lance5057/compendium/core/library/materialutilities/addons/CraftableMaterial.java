@@ -1,6 +1,5 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.Reference;
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
@@ -8,9 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -44,11 +41,11 @@ public class CraftableMaterial implements MaterialBase {
 		STORAGE_ITEMBLOCK = mh.ITEMS.register(mh.name + "itemblock",
 				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
-		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + mh.name));
-		MATERIAL_NUGGET = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + mh.name));
-		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
-				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + mh.name));
+//		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + mh.name));
+//		MATERIAL_NUGGET = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "nuggets/" + mh.name));
+//		MATERIAL_STORAGE_BLOCK = ItemTags.getCollection()
+//				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "storage_blocks/" + mh.name));
 
 	}
 

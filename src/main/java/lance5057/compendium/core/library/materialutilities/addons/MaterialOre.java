@@ -12,15 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class MaterialOre implements MaterialBase {
 
@@ -110,18 +104,18 @@ public class MaterialOre implements MaterialBase {
 				() -> new BlockItem(ORE.get(), new Item.Properties().group(TCItems.TCITEMS)));
 	}
 
-	public void OreGen() {
-		for (Biome biome : ForgeRegistries.BIOMES) {
-			if (this.category == null || biome.getCategory() == this.category) {
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-						Feature.ORE
-								.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-										ORE.get().getDefaultState(), oreSize))
-								.withPlacement(Placement.COUNT_RANGE
-										.configure(new CountRangeConfig(this.oreChance, 0, 0, this.oreYMax))));
-			}
-		}
-	}
+//	public void OreGen() {
+//		for (Biome biome : ForgeRegistries.BIOMES) {
+//			if (this.category == null || biome.getCategory() == this.category) {
+//				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+//						Feature.ORE
+//								.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a,
+//										ORE.get().getDefaultState(), oreSize))
+//								.withPlacement(Placement.
+//										.configure(new ChanceConfig(this.oreChance, 0, 0, this.oreYMax))));
+//			}
+//		}
+//	}
 
 //	@Override
 //	public void setupPre(MaterialHelper mat) {

@@ -19,7 +19,7 @@ public class TCItems {
 
 	public static Item book = new Item(new Item.Properties().group(TCITEMS));
 
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
 	public static void register(IEventBus modBus) {
 		ITEMS.register(modBus);

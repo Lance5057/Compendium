@@ -9,10 +9,10 @@ import lance5057.compendium.core.library.materialutilities.addons.MeltableMateri
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.world.storage.loot.ItemLootEntry;
-import net.minecraft.world.storage.loot.RandomValueRange;
-import net.minecraft.world.storage.loot.functions.ApplyBonus;
-import net.minecraft.world.storage.loot.functions.SetCount;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.functions.ApplyBonus;
+import net.minecraft.loot.functions.SetCount;
 
 public class BlockLoot extends BlockLootTables {
 	{
@@ -51,6 +51,7 @@ public class BlockLoot extends BlockLootTables {
 				this.registerDropSelfLootTable(me.SHINGLES_ALT.get());
 				this.registerDropSelfLootTable(me.SHINGLES_BLOCK.get());
 				this.registerDropSelfLootTable(me.STAKE.get());
+				this.registerDropSelfLootTable(me.BIGCHAIN.get());
 			}
 			if (mh.getOre() != null) {
 				MaterialOre mo = mh.getOre();
