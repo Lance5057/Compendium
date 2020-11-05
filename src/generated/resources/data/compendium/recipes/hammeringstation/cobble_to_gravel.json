@@ -1,0 +1,10 @@
+{
+  "type": "compendium:hammering_station",
+  "strikes": 2,
+  "input": {
+    "item": "minecraft:cobble"
+  },
+  "result": {
+    "item": "minecraft:gravel"
+  }
+}

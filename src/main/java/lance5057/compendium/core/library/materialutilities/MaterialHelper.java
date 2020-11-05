@@ -106,6 +106,16 @@ public class MaterialHelper {
 		return vtools;
 	}
 
+	// Extra Tools
+	public MaterialHelper withExtraTools() {
+		this.etools = new MaterialExtraTools(this);
+		return this;
+	}
+
+	public MaterialExtraTools getExtraTools() {
+		return etools;
+	}
+
 	public MaterialHelper withOre(float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
 			int veinSize, int veinChance, Category biomeCategory) {
 		this.ore = new MaterialOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,

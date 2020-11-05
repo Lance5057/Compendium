@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import lance5057.compendium.core.workstations.WorkstationRecipes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,7 +30,8 @@ public class TinkersCompendium {
 		
 		TCItems.register(modEventBus);
 		TCBlocks.register(modEventBus);
-		
+		TCTileEntities.register(modEventBus);
+		WorkstationRecipes.register(modEventBus);
 	}
 
 	private void modSetup(final FMLCommonSetupEvent event) {
