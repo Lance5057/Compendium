@@ -2,7 +2,7 @@
   "type": "compendium:hammering_station",
   "strikes": 2,
   "input": {
-    "item": "minecraft:cobble"
+    "item": "minecraft:cobblestone"
   },
   "result": {
     "item": "minecraft:gravel"

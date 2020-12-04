@@ -1,0 +1,137 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/fire_floor",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "compendium:block/irontopbars",
+		"1": "minecraft:block/netherrack",
+		"2": "compendium:block/irontile",
+		"3": "minecraft:block/fire_0",
+		"particle": "compendium:block/irontopbars"
+	},
+	"elements": [
+		{
+			"name": "bars",
+			"from": [0, 0, 0],
+			"to": [0, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "bars",
+			"from": [16, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [24, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "bars",
+			"from": [0, 0, 0],
+			"to": [16, 16, 0],
+			"rotation": {"angle": 0, "axis": "y", "origin": [24, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "bars",
+			"from": [0, 0, 16],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [24, 8, 24]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "rack",
+			"from": [0.001, 0, 0.001],
+			"to": [15.991, 2, 15.991],
+			"faces": {
+				"north": {"uv": [0, 0, 15.99, 2], "texture": "#1"},
+				"east": {"uv": [0, 0, 15.99, 2], "texture": "#1"},
+				"south": {"uv": [0, 0, 15.99, 2], "texture": "#1"},
+				"west": {"uv": [0, 0, 15.99, 2], "texture": "#1"},
+				"up": {"uv": [0, 0, 15.99, 15.99], "texture": "#1"},
+				"down": {"uv": [0, 0, 15.99, 15.99], "texture": "#2"}
+			}
+		},
+		{
+			"name": "fire",
+			"from": [0.001, 2, 0.001],
+			"to": [15.991, 18, 15.991],
+			"rotation": {"angle": 0, "axis": "y", "origin": [9, 10, 9]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [0, 1, 8.8],
+			"to": [16, 23.4, 8.8],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 9, 8], "rescale": true},
+			"faces": {
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [0, 1, 7.2],
+			"to": [16, 23.4, 7.2],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 9, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [8.8, 1, 0],
+			"to": [8.8, 23.4, 16],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8, 9, 8], "rescale": true},
+			"faces": {
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [7.2, 1, 0],
+			"to": [7.2, 23.4, 16],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8, 9, 8], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		}
+	],
+	"groups": [0, 1, 2, 3, 4, 5,
+		{
+			"name": "fire_floor",
+			"origin": [8, 8, 8],
+			"children": [6, 7, 8, 9]
+		}
+	]
+}

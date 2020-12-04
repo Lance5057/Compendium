@@ -1,0 +1,10 @@
+{
+  "type": "compendium:hammering_station",
+  "strikes": 4,
+  "input": {
+    "tag": "forge:gems/silver"
+  },
+  "result": {
+    "item": "compendium:silverplate"
+  }
+}

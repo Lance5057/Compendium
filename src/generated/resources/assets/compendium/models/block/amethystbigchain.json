@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
+    "all": "compendium:block/amethystchain",
     "0": "compendium:block/amethystbigchain"
   }
 }

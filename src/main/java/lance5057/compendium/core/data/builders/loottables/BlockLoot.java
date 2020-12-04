@@ -43,6 +43,7 @@ public class BlockLoot extends BlockLootTables {
 				this.registerDropSelfLootTable(vc.DOOR.get());
 				this.registerDropSelfLootTable(vc.LANTERN.get());
 				this.registerDropSelfLootTable(vc.TRAPDOOR.get());
+				this.registerDropSelfLootTable(vc.CHAIN.get());
 			}
 
 			// Extra Component Materials
@@ -55,6 +56,17 @@ public class BlockLoot extends BlockLootTables {
 				this.registerDropSelfLootTable(me.SHINGLES_BLOCK.get());
 				this.registerDropSelfLootTable(me.STAKE.get());
 				this.registerDropSelfLootTable(me.BIGCHAIN.get());
+				this.registerDropSelfLootTable(me.BRAZIER.get());
+				this.registerDropSelfLootTable(me.SOUL_BRAZIER.get());
+				this.registerDropSelfLootTable(me.CHAINLINK_BARS.get());
+				this.registerDropSelfLootTable(me.CHAINLINK_BLOCK.get());
+				this.registerDropSelfLootTable(me.LADDER.get());
+				this.registerDropSelfLootTable(me.SHEET_BLOCK.get());
+				this.registerDropSelfLootTable(me.TOP_BARS.get());
+				this.registerDropSelfLootTable(me.TRIMMED_WINDOW.get());
+				this.registerDropSelfLootTable(me.TRIMMED_WINDOW_BLOCK.get());
+				this.registerDropSelfLootTable(me.WALL.get());
+				this.registerDropSelfLootTable(me.SMALL_TILE.get());
 			}
 			if (mh.getOre() != null) {
 				MaterialOre mo = mh.getOre();

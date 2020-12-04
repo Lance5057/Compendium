@@ -1,0 +1,9 @@
+{
+  "parent": "compendium:block/bases/brazier",
+  "textures": {
+    "0": "compendium:block/platinumtopbars",
+    "2": "compendium:block/platinumtile",
+    "3": "minecraft:block/fire_1",
+    "particle": "compendium:block/platinumtopbars"
+  }
+}

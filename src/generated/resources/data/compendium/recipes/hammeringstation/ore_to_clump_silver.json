@@ -1,0 +1,11 @@
+{
+  "type": "compendium:hammering_station",
+  "strikes": 4,
+  "input": {
+    "tag": "forge:ores/silver"
+  },
+  "result": {
+    "item": "compendium:silverdust",
+    "count": 2
+  }
+}

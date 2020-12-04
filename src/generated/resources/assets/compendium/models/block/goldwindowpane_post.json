@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "textures": {
+    "pane": "compendium:block/goldtrimmedglass",
+    "edge": "compendium:block/goldtrimmedglass"
+  }
+}

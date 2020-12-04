@@ -1,0 +1,9 @@
+{
+  "parent": "compendium:block/bases/brazier",
+  "textures": {
+    "0": "compendium:block/diamondtopbars",
+    "2": "compendium:block/diamondtile",
+    "3": "minecraft:block/fire_1",
+    "particle": "compendium:block/diamondtopbars"
+  }
+}

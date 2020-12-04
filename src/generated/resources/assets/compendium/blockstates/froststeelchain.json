@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/froststeelbigchain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/froststeelchain"
+    },
+    "axis=z": {
+      "model": "compendium:block/froststeelbigchain",
+      "x": 90
+    }
+  }
+}

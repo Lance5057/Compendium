@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
+    "all": "compendium:block/diamondchain",
     "0": "compendium:block/diamondbigchain"
   }
 }

@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
+    "all": "compendium:block/dogbeariumchain",
     "0": "compendium:block/dogbeariumbigchain"
   }
 }

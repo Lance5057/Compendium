@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
+    "all": "compendium:block/citrinechain",
     "0": "compendium:block/citrinebigchain"
   }
 }

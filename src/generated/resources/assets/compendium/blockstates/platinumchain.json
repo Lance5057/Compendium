@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/platinumbigchain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/platinumchain"
+    },
+    "axis=z": {
+      "model": "compendium:block/platinumbigchain",
+      "x": 90
+    }
+  }
+}

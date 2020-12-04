@@ -4,6 +4,7 @@ import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
@@ -66,8 +67,9 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				// Bars
 				this.singleTexture(vc.ITEM_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
 						modLoc("block/" + mh.name + "bars"));
-				
+
 				forBlockItem(vc.ITEM_LANTERN);
+				forBlockItem(vc.ITEM_CHAIN);
 			}
 
 			// Extra Component Materials
@@ -85,11 +87,26 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				forItem(me.SPRING);
 				forItem(me.WIRE);
 
+				forBlockItem(me.ITEM_BIGCHAIN);
+				forBlockItem(me.ITEM_BRAZIER);
+				this.singleTexture(me.ITEM_CHAINLINK_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
+						modLoc("block/" + mh.name + "chainlink"));
+
+				forBlockItem(me.ITEM_CHAINLINK_BLOCK);
+				forBlockItem(me.ITEM_SHEET);
+				forBlockItem(me.ITEM_SHEET_BLOCK);
 				forBlockItem(me.ITEM_SHINGLES);
 				forBlockItem(me.ITEM_SHINGLES_ALT);
 				forBlockItem(me.ITEM_SHINGLES_BLOCK);
+				forBlockItem(me.ITEM_SOUL_BRAZIER);
 				forBlockItem(me.ITEM_STAKE);
-				forBlockItem(me.ITEM_SHEET);
+				this.singleTexture(me.ITEM_TOP_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
+						modLoc("block/" + mh.name + "topbars"));
+				this.singleTexture(me.ITEM_TRIMMED_WINDOW.getId().getPath(), mcLoc("item/handheld"), "layer0",
+						modLoc("block/" + mh.name + "trimmedglass"));
+				forBlockItem(me.ITEM_TRIMMED_WINDOW_BLOCK);
+				forBlockItem(me.ITEM_WALL);
+				forBlockItem(me.ITEM_SMALL_TILE);
 			}
 
 			// Vanilla Tools Materials
@@ -116,9 +133,20 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 						.texture("layer0", modLoc("item/" + vt.SWORD.getId().getPath()))
 						.texture("layer1", modLoc("item/swordbase"));
 			}
+
+			// Vanilla Tools Materials
+			if (mh.getExtraTools() != null) {
+				MaterialExtraTools et = mh.getExtraTools();
+
+				withExistingParent(et.HAMMER.getId().getPath(), mcLoc("item/handheld"))
+						.texture("layer0", modLoc("item/" + et.HAMMER.getId().getPath()))
+						.texture("layer1", modLoc("item/hammerbase"));
+			}
+
+			// Ore
 			if (mh.getOre() != null) {
 				MaterialOre mo = mh.getOre();
-				
+
 				forBlockItem(mo.ITEM_ORE);
 			}
 		}

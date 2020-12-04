@@ -5,6 +5,7 @@ import lance5057.compendium.TCItems;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -12,6 +13,12 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,13 +40,15 @@ public class MaterialOre implements MaterialBase {
 //	public Item sandstoneItemBlock;
 //	public Item netherItemBlock;
 
-	//public RegistryObject<Item> ITEM_CLUMP;
+	// public RegistryObject<Item> ITEM_CLUMP;
 //	public Item oreGravel;
 //	public Item oreSand;
 
 	String tool;
 
 	public static Tag<Item> MATERIAL_ORE;
+
+//	public static ConfiguredFeature<?, ?> ORE_FEATURE;
 
 //	public String prefix;
 //	public String style;
@@ -59,7 +68,7 @@ public class MaterialOre implements MaterialBase {
 	public Biome[] oreBiomeWhite;
 	public Biome[] oreBiomeBlack;
 
-	private Category category;
+	public Category category;
 
 //	public float biomeElevationMin = -2;
 //	public float biomeElevationMax = -2;
@@ -81,14 +90,13 @@ public class MaterialOre implements MaterialBase {
 //			int ymax, int ymin, int veinSize, int veinChance) {
 //		this(prefix, style, color, hardness, level, tool, resistance, 64, 0, 8, 10, -2, -2, -2, -2, -2, -2);
 //	}
-	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
-			int veinSize, int veinChance, Category biomeCategory) {
-		this(mh, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance, biomeCategory,
-				Reference.MOD_ID);
+	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax,
+			int ymin, int veinSize, int veinChance, Category biomeCategory) {
+		this(mh, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance, biomeCategory, Reference.MOD_ID);
 	}
 
-	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
-			int veinSize, int veinChance, Category biomeCategory, String parentMod) {
+	public MaterialOre(MaterialHelper mh, float hardness, int level, ToolType tool, float resistance, int ymax,
+			int ymin, int veinSize, int veinChance, Category biomeCategory, String parentMod) {
 		this.matName = matName;
 		this.parentMod = parentMod;
 
@@ -98,10 +106,17 @@ public class MaterialOre implements MaterialBase {
 		this.oreChance = veinChance;
 		this.category = biomeCategory;
 
-		ORE = mh.BLOCKS.register(mh.name + "ore", () -> new Block(
-				Block.Properties.create(Material.IRON).harvestLevel(level).harvestTool(tool).hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
+		ORE = mh.BLOCKS.register(mh.name + "ore",
+				() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(level).harvestTool(tool)
+						.hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
 		ITEM_ORE = mh.ITEMS.register(mh.name + "itemore",
 				() -> new BlockItem(ORE.get(), new Item.Properties().group(TCItems.TCITEMS)));
+
+//		ORE_FEATURE = Feature.ORE
+//				.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
+//						this.ORE.get().getDefaultState(), this.oreSize))
+//				.withPlacement(
+//						Placement.field_242907_l.configure(new TopSolidRangeConfig(this.oreYMin, 0, this.oreYMax))).func_242728_a().func_242731_b(oreChance);
 	}
 
 //	public void OreGen() {
@@ -321,12 +336,12 @@ public class MaterialOre implements MaterialBase {
 	@Override
 	public void setupItems(MaterialHelper mat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setupBlocks(MaterialHelper mat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

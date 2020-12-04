@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/emeraldbigchain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/emeraldchain"
+    },
+    "axis=z": {
+      "model": "compendium:block/emeraldbigchain",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "compendium:hammering_station",
+  "strikes": 4,
+  "input": {
+    "tag": "forge:ores/mithril"
+  },
+  "result": {
+    "item": "compendium:mithrildust",
+    "count": 2
+  }
+}

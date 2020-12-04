@@ -2,6 +2,8 @@ package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.blocks.HammeringStationBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

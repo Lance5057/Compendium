@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
+    "all": "compendium:block/tanzinitechain",
     "0": "compendium:block/tanzinitebigchain"
   }
 }

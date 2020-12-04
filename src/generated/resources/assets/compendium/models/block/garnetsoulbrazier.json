@@ -1,0 +1,10 @@
+{
+  "parent": "compendium:block/bases/brazier",
+  "textures": {
+    "0": "compendium:block/garnettopbars",
+    "1": "minecraft:block/soul_sand",
+    "2": "compendium:block/garnettile",
+    "3": "minecraft:block/soul_fire_1",
+    "particle": "compendium:block/garnettopbars"
+  }
+}

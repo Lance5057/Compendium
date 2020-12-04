@@ -7,6 +7,7 @@ import lance5057.compendium.core.blocks.ComponentTrapDoor;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.ChainBlock;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,11 +27,13 @@ public class MaterialVanillaComponents implements MaterialBase {
 	public RegistryObject<ComponentTrapDoor> TRAPDOOR;
 	public RegistryObject<ComponentPane> BARS;
 	public RegistryObject<LanternBlock> LANTERN;
+	public RegistryObject<ChainBlock> CHAIN;
 
 	public RegistryObject<BlockItem> ITEM_DOOR;
 	public RegistryObject<BlockItem> ITEM_TRAPDOOR;
 	public RegistryObject<BlockItem> ITEM_BARS;
 	public RegistryObject<BlockItem> ITEM_LANTERN;
+	public RegistryObject<BlockItem> ITEM_CHAIN;
 
 	public MaterialVanillaComponents(MaterialHelper mh) {
 		this.matName = mh.name;
@@ -49,6 +52,9 @@ public class MaterialVanillaComponents implements MaterialBase {
 						.hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).notSolid().setLightLevel((state) -> {
 							return 15;
 						})));
+		CHAIN = mh.BLOCKS.register(mh.name + "chain",
+				() -> new ChainBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON)
+						.hardnessAndResistance(5.0F).sound(SoundType.METAL).notSolid()));
 
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
 				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
@@ -58,6 +64,8 @@ public class MaterialVanillaComponents implements MaterialBase {
 				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_LANTERN = mh.ITEMS.register(mh.name + "itemlantern",
 				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_CHAIN = mh.ITEMS.register(mh.name + "itemchain",
+				() -> new BlockItem(CHAIN.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 //		TCBlocks.BLOCKS.add(door);
 //		TCBlocks.BLOCKS.add(trapdoor);
@@ -79,6 +87,7 @@ public class MaterialVanillaComponents implements MaterialBase {
 		RenderTypeLookup.setRenderLayer(this.DOOR.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.TRAPDOOR.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.LANTERN.get(), cutout);
+		RenderTypeLookup.setRenderLayer(this.CHAIN.get(), cutout);
 	}
 
 	@Override

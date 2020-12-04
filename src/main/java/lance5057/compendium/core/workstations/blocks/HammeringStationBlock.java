@@ -17,17 +17,19 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 public class HammeringStationBlock extends Block {
+	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
 	public HammeringStationBlock() {
 		super(Block.Properties.create(Material.ROCK).harvestLevel(0).hardnessAndResistance(3, 4)
-				.harvestTool(ToolType.PICKAXE));
+				.harvestTool(ToolType.PICKAXE).notSolid());
 	}
 
 	@Override
@@ -40,17 +42,23 @@ public class HammeringStationBlock extends Block {
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		return new HammeringStationTE();
 	}
+	
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return SHAPE;
+	}
 
 	@Nonnull
 	@Override
 	public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos,
 			@Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
-		//if (world instanceof ServerWorld) {
+		if (hand == Hand.MAIN_HAND) {
 			TileEntity entity = world.getTileEntity(blockPos);
 			if (entity instanceof HammeringStationTE) {
 
 				HammeringStationTE te = ((HammeringStationTE) entity);
 				if (!playerEntity.isCrouching()) {
+					boolean success = false;
 					// Get item in both hands, ignore sent hand
 					ItemStack heldmain = playerEntity.getHeldItem(Hand.MAIN_HAND);
 					ItemStack heldoff = playerEntity.getHeldItem(Hand.OFF_HAND);
@@ -58,29 +66,35 @@ public class HammeringStationBlock extends Block {
 					// Try inserting main hand item
 					if (!(heldmain.getItem() instanceof HammerItem)) {
 						te.insertItem(heldmain);
+						success = true;
 					}
 					// Try inserting off hand item
 					if (!(heldoff.getItem() instanceof HammerItem)) {
 						te.insertItem(heldoff);
+						success = true;
 					}
 
 					// Hit it!
 					// Try main hand, only try off hand if that fails
 					if (heldmain.getItem() instanceof HammerItem) {
-						te.hammer(heldmain);
-						// heldmain.attemptDamageItem(1, RANDOM, null);
+						te.hammer(playerEntity, heldmain);
+						success = true;
 					} else if (heldoff.getItem() instanceof HammerItem) {
-						te.hammer(heldoff);
-						// heldoff.attemptDamageItem(1, RANDOM, null);
+						te.hammer(playerEntity, heldoff);
+						success = true;
 					}
+
+					if(success)
+						return ActionResultType.SUCCESS;
 				} else // If crouching, take item off table
 				{
 					te.extractItem(playerEntity);
 					return ActionResultType.SUCCESS;
 				}
 			}
-		//}
+		}
 		return super.onBlockActivated(blockState, world, blockPos, playerEntity, hand, blockRayTraceResult);
+		
 	}
 
 	@Override

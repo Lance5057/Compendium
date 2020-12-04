@@ -8,6 +8,10 @@ import javax.annotation.Nullable;
 import com.google.gson.JsonObject;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.core.data.builders.TCItemTags;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
+import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -27,20 +31,37 @@ public class HammeringStationRecipeProvider extends RecipeProvider {
 
 	@Override
 	protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
-		//From Tag
-		this.createRecipe("stone_to_cobble", new ItemStack(Blocks.COBBLESTONE), Ingredient.fromTag(Items.STONE), consumer, 2);
-		this.createRecipe("cobble_to_gravel", new ItemStack(Blocks.GRAVEL), Ingredient.fromTag(Items.COBBLESTONE), consumer, 2);
+		// From Tag
+		this.createRecipe("stone_to_cobble", new ItemStack(Blocks.COBBLESTONE), Ingredient.fromTag(Items.STONE),
+				consumer, 2);
+		this.createRecipe("cobble_to_gravel", new ItemStack(Blocks.GRAVEL), Ingredient.fromItems(Blocks.COBBLESTONE),
+				consumer, 2);
 		this.createRecipe("gravel_to_sand", new ItemStack(Blocks.SAND), Ingredient.fromTag(Items.GRAVEL), consumer, 2);
-		
-		
+		this.createRecipe("deadcoral_to_soulsand", new ItemStack(Blocks.SOUL_SAND), Ingredient.fromItems(Blocks.DEAD_BRAIN_CORAL_BLOCK, Blocks.DEAD_BUBBLE_CORAL_BLOCK, Blocks.DEAD_FIRE_CORAL_BLOCK, Blocks.DEAD_HORN_CORAL_BLOCK, Blocks.DEAD_TUBE_CORAL_BLOCK), consumer);
+
+		for (MaterialHelper mh : CompendiumMaterials.materials) {
+			if (mh.getExtraComponents() != null) {
+				MaterialExtraComponents me = mh.getExtraComponents();
+
+				this.createRecipe("ingot_to_plate_" + mh.name, new ItemStack(me.PLATE.get()),
+						Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + mh.name)), consumer);
+				this.createRecipe("gem_to_plate_" + mh.name, new ItemStack(me.PLATE.get()),
+						Ingredient.fromTag(TCItemTags.ItemTag("gems/" + mh.name)), consumer);
+				this.createRecipe("ore_to_clump_" + mh.name, new ItemStack(me.DUST.get(), 2),
+						Ingredient.fromTag(TCItemTags.ItemTag("ores/" + mh.name)), consumer);
+			}
+		}
 	}
 
 	private void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer) {
-		consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output, input));
+		consumer.accept(
+				new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output, input));
 	}
-	
-	private void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer, int strike) {
-		consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output, input, strike));
+
+	private void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer,
+			int strike) {
+		consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output,
+				input, strike));
 	}
 
 	// Copied it since inner class was private

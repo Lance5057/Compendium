@@ -1,6 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.TCBlocks;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
@@ -35,6 +36,8 @@ public class TCBlockModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
+		this.simpleBlock(TCBlocks.HAMMERING_STATION.get(), models().getExistingFile(modLoc("block/hammeringtable")));
+
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
 
 			// Meltable Materials
@@ -63,33 +66,102 @@ public class TCBlockModels extends BlockStateProvider {
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"));
 
 				lanternModel(mh);
+				this.axisBlock(vc.CHAIN.get(),
+						models().withExistingParent(mh.name + "chain", mcLoc("block/chain")).texture("all",
+								modLoc("block/" + mh.name + "chain")),
+						models().withExistingParent(mh.name + "bigchain", mcLoc("block/chain")).texture("all",
+								modLoc("block/" + mh.name + "chain")));// .cross(me.BIGCHAIN.get().getRegistryName().getPath(),
+																		// modLoc("block/" + mh.name + "bigchain")));
+
 			}
 
 			// Extra Component Materials
 			if (mh.getExtraComponents() != null) {
 				MaterialExtraComponents me = mh.getExtraComponents();
 
-				simpleBlock(me.SHINGLES_BLOCK.get(), models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/" + mh.name +"shingles")));
+				// Stake
 				stakeModel(mh);
+
+				// Shingles
 				this.shinglesModel(mh, "", me.SHINGLES.get());
 				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
+				simpleBlock(me.SHINGLES_BLOCK.get(),
+						models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(),
+								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "shingles")));
+
+				// Sheet
 				this.sheetModel(mh);
-				this.axisBlock(me.BIGCHAIN.get(), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/"+mh.name + "bigchain")), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/"+mh.name + "bigchain")));//.cross(me.BIGCHAIN.get().getRegistryName().getPath(), modLoc("block/" + mh.name + "bigchain")));
-			}
-			
-			if(mh.getOre() != null)
-			{
-				MaterialOre mo = mh.getOre();
+				simpleBlock(me.SHEET_BLOCK.get(), models().cubeAll(me.SHEET_BLOCK.get().getRegistryName().getPath(),
+						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "sheet")));
+
+				// Big Chain
+				this.axisBlock(me.BIGCHAIN.get(),
+						models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0",
+								modLoc("block/" + mh.name + "bigchain")),
+						models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0",
+								modLoc("block/" + mh.name + "bigchain")));
+
+				// Brazier
+				simpleBlock(me.BRAZIER.get(),
+						models().withExistingParent(mh.name + "brazier", modLoc("block/bases/brazier"))
+								.texture("0", modLoc("block/" + mh.name + "topbars"))
+								.texture("2", modLoc("block/" + mh.name + "tile")).texture("3", mcLoc("block/fire_1"))
+								.texture("particle", modLoc("block/" + mh.name + "topbars")));
+				simpleBlock(me.SOUL_BRAZIER.get(), models()
+						.withExistingParent(mh.name + "soulbrazier", modLoc("block/bases/brazier"))
+						.texture("0", modLoc("block/" + mh.name + "topbars")).texture("1", mcLoc("block/soul_sand"))
+						.texture("2", modLoc("block/" + mh.name + "tile")).texture("3", mcLoc("block/soul_fire_1"))
+						.texture("particle", modLoc("block/" + mh.name + "topbars")));
+
+				// Top Bars
+				paneBlock(me.TOP_BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "topbars"),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "topbars"));
+
+				// Chainlink
+				paneBlock(me.CHAINLINK_BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"));
+				simpleBlock(me.CHAINLINK_BLOCK.get(), models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(),
+						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "chainlink")));
+
+				//Wall
+				this.wallBlock(me.WALL.get(), modLoc("block/" + mh.name + "wall"));
 				
+				// Glass
+				paneBlock(me.TRIMMED_WINDOW.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"));
+				simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(), models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
+						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "trimmedglass")));
+				
+				//Small Tiles
+				simpleBlock(me.SMALL_TILE.get(),
+						models().cubeAll(me.SMALL_TILE.get().getRegistryName().getPath(),
+								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "smalltile")));
+				
+				
+			}
+
+			if (mh.getOre() != null) {
+				MaterialOre mo = mh.getOre();
+
 //				List<ConfiguredModel> models = new ArrayList<ConfiguredModel>();
 //				models.addAll(Arrays.asList();
 //				models.addAll(Arrays.asList();
 //				models.addAll(Arrays.asList(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/"+mh.name + "ore")), true)));
 
-				getVariantBuilder(mo.ORE.get())
-	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore")).texture("1", modLoc("block/"+mh.name + "ore")), true))
-	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_sparse", modLoc("block/bases/ore_sparse")).texture("1", modLoc("block/"+mh.name + "ore")), true))
-	            .partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_corner", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/"+mh.name + "ore")), true));
+				getVariantBuilder(mo.ORE.get()).partialState()
+						.addModels(ConfiguredModel
+								.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore"))
+										.texture("1", modLoc("block/" + mh.name + "ore")), true))
+						.partialState()
+						.addModels(ConfiguredModel.allRotations(
+								models().withExistingParent(mh.name + "ore_sparse", modLoc("block/bases/ore_sparse"))
+										.texture("1", modLoc("block/" + mh.name + "ore")),
+								true))
+						.partialState()
+						.addModels(ConfiguredModel.allRotations(
+								models().withExistingParent(mh.name + "ore_corner", modLoc("block/bases/ore_corner"))
+										.texture("1", modLoc("block/" + mh.name + "ore")),
+								true));
 			}
 		}
 	}
@@ -120,15 +192,17 @@ public class TCBlockModels extends BlockStateProvider {
 
 	private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
 		ModelFile shinglesModel = models()
-				.withExistingParent(mh.name + "shingles"+suffix, modLoc("block/bases/shingles"+suffix))
+				.withExistingParent(mh.name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesInnerModel = models()
-				.withExistingParent(mh.name + "shingles_inner"+suffix, modLoc("block/bases/shingles_inner_corner"+suffix))
+				.withExistingParent(mh.name + "shingles_inner" + suffix,
+						modLoc("block/bases/shingles_inner_corner" + suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 		ModelFile shinglesOuterModel = models()
-				.withExistingParent(mh.name + "shingles_outer"+suffix, modLoc("block/bases/shingles_outer_corner"+suffix))
+				.withExistingParent(mh.name + "shingles_outer" + suffix,
+						modLoc("block/bases/shingles_outer_corner" + suffix))
 				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
 				.texture("2", "minecraft:block/oak_log");
 
@@ -208,8 +282,7 @@ public class TCBlockModels extends BlockStateProvider {
 	}
 
 	private void lanternModel(MaterialHelper mh) {
-		ModelFile lanternModel = models()
-				.withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern"))
+		ModelFile lanternModel = models().withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern"))
 				.texture("all", "compendium:block/" + mh.name + "lantern")
 				.texture("all2", "compendium:block/lanternflame");
 
@@ -225,15 +298,12 @@ public class TCBlockModels extends BlockStateProvider {
 				.addModel();
 
 	}
-	
-	private void sheetModel(MaterialHelper mh)
-	{
-		ModelFile sheetBottom = models()
-				.withExistingParent(mh.name + "sheet", modLoc("block/bases/carpet"))
+
+	private void sheetModel(MaterialHelper mh) {
+		ModelFile sheetBottom = models().withExistingParent(mh.name + "sheet", modLoc("block/bases/carpet"))
 				.texture("all", "compendium:block/" + mh.name + "sheet");
 
-		ModelFile sheetTop = models()
-				.withExistingParent(mh.name + "sheettop", modLoc("block/bases/carpet_top"))
+		ModelFile sheetTop = models().withExistingParent(mh.name + "sheettop", modLoc("block/bases/carpet_top"))
 				.texture("all", "compendium:block/" + mh.name + "sheet");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().SHEET.get());
