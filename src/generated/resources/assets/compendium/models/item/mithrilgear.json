@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/mithrilgear"
+    "layer0": "compendium:item/material/mithril/mithrilgear"
   }
 }

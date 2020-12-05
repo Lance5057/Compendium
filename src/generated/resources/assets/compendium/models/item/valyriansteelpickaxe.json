@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/valyriansteelpickaxe",
+    "layer0": "compendium:item/material/valyriansteel/valyriansteelpickaxe",
     "layer1": "compendium:item/pickaxebase"
   }
 }

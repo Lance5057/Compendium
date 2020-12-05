@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/aeonsteelsword",
+    "layer0": "compendium:item/material/aeonsteel/aeonsteelsword",
     "layer1": "compendium:item/swordbase"
   }
 }

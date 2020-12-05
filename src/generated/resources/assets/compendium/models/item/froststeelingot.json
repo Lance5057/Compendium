@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/froststeelingot"
+    "layer0": "compendium:item/material/froststeel/froststeelingot"
   }
 }

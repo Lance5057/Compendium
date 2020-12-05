@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/rosegoldcoil"
+    "layer0": "compendium:item/material/rosegold/rosegoldcoil"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/aeonsteeldust"
+    "layer0": "compendium:item/material/aeonsteel/aeonsteeldust"
   }
 }

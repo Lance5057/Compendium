@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/queensgoldpickaxe",
+    "layer0": "compendium:item/material/queensgold/queensgoldpickaxe",
     "layer1": "compendium:item/pickaxebase"
   }
 }

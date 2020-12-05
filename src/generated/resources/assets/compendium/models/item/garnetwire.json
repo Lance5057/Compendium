@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/garnetwire"
+    "layer0": "compendium:item/material/garnet/garnetwire"
   }
 }

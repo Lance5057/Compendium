@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/citrinehammer",
+    "layer0": "compendium:item/material/citrine/citrinehammer",
     "layer1": "compendium:item/hammerbase"
   }
 }

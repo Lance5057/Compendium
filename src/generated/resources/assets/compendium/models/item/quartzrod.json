@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/quartzrod"
+    "layer0": "compendium:item/material/quartz/quartzrod"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/topazhoe",
+    "layer0": "compendium:item/material/topaz/topazhoe",
     "layer1": "compendium:item/hoebase"
   }
 }

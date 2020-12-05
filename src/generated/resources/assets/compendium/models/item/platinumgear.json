@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/platinumgear"
+    "layer0": "compendium:item/material/platinum/platinumgear"
   }
 }

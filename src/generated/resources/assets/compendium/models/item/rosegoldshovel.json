@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/rosegoldshovel",
+    "layer0": "compendium:item/material/rosegold/rosegoldshovel",
     "layer1": "compendium:item/shovelbase"
   }
 }

@@ -3,6 +3,7 @@ package lance5057.compendium.core.library.materialutilities.addons;
 import lance5057.compendium.TCItems;
 import lance5057.compendium.core.blocks.BlockClimbable;
 import lance5057.compendium.core.blocks.BlockShingles;
+import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentPane;
 import lance5057.compendium.core.blocks.ComponentSheet;
 import lance5057.compendium.core.blocks.ComponentStake;
@@ -35,6 +36,13 @@ public class MaterialExtraComponents implements MaterialBase {
 	public RegistryObject<Item> SPRING;
 	public RegistryObject<Item> CASING;
 	public RegistryObject<Item> WIRE;
+	public RegistryObject<Item> CLASP;
+	public RegistryObject<Item> RINGSHANK;
+	public RegistryObject<Item> RIVETS;
+	public RegistryObject<Item> SETTING;
+	public RegistryObject<Item> JUMPRINGS;
+	public RegistryObject<Item> FILIGREE;
+	public RegistryObject<Item> FOIL;
 
 	public RegistryObject<ComponentStake> STAKE;
 	public RegistryObject<Block> SHINGLES_BLOCK;
@@ -53,6 +61,7 @@ public class MaterialExtraComponents implements MaterialBase {
 	public RegistryObject<Block> TRIMMED_WINDOW_BLOCK;
 	public RegistryObject<LadderBlock> LADDER;
 	public RegistryObject<Block> SMALL_TILE;
+	public RegistryObject<ComponentBarDoor> BAR_DOOR;
 
 	public RegistryObject<BlockItem> ITEM_STAKE;
 	public RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK;
@@ -71,6 +80,7 @@ public class MaterialExtraComponents implements MaterialBase {
 	public RegistryObject<BlockItem> ITEM_TRIMMED_WINDOW_BLOCK;
 	public RegistryObject<BlockItem> ITEM_LADDER;
 	public RegistryObject<BlockItem> ITEM_SMALL_TILE;
+	public RegistryObject<BlockItem> ITEM_BAR_DOOR;
 
 	public MaterialExtraComponents(MaterialHelper mh) {
 		this.matName = mh.name;
@@ -95,8 +105,8 @@ public class MaterialExtraComponents implements MaterialBase {
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 		CHAINLINK_BARS = mh.BLOCKS.register(mh.name + "chainlink", () -> new ComponentPane(
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
-		CHAINLINK_BLOCK = mh.BLOCKS.register(mh.name + "chainlinkblock", () -> new Block(
-				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		CHAINLINK_BLOCK = mh.BLOCKS.register(mh.name + "chainlinkblock", () -> new Block(Block.Properties
+				.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
 		BRAZIER = mh.BLOCKS.register(mh.name + "brazier", () -> new Block(Block.Properties.create(Material.IRON)
 				.hardnessAndResistance(5F, 10F).sound(SoundType.METAL).setLightLevel((state) -> {
 					return 15;
@@ -109,12 +119,14 @@ public class MaterialExtraComponents implements MaterialBase {
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 		TRIMMED_WINDOW = mh.BLOCKS.register(mh.name + "windowpane", () -> new ComponentPane(
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
-		TRIMMED_WINDOW_BLOCK = mh.BLOCKS.register(mh.name + "windowblock", () -> new Block(
-				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		TRIMMED_WINDOW_BLOCK = mh.BLOCKS.register(mh.name + "windowblock", () -> new Block(Block.Properties
+				.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
 		LADDER = mh.BLOCKS.register(mh.name + "ladder", () -> new LadderBlock(
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 		SMALL_TILE = mh.BLOCKS.register(mh.name + "smalltile", () -> new Block(
 				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
+		BAR_DOOR = mh.BLOCKS.register(mh.name + "bardoor", () -> new ComponentBarDoor(
+				Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
 
 		ITEM_STAKE = mh.ITEMS.register(mh.name + "itemstake",
 				() -> new BlockItem(STAKE.get(), new Item.Properties().group(TCItems.TCITEMS)));
@@ -150,6 +162,8 @@ public class MaterialExtraComponents implements MaterialBase {
 				() -> new BlockItem(LADDER.get(), new Item.Properties().group(TCItems.TCITEMS)));
 		ITEM_SMALL_TILE = mh.ITEMS.register(mh.name + "itemsmalltile",
 				() -> new BlockItem(SMALL_TILE.get(), new Item.Properties().group(TCItems.TCITEMS)));
+		ITEM_BAR_DOOR = mh.ITEMS.register(mh.name + "itembardoor",
+				() -> new BlockItem(BAR_DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
 
 		DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 		// SHARDS = mh.ITEMS.register(mh.name + "shards", () -> new Item(new
@@ -170,6 +184,16 @@ public class MaterialExtraComponents implements MaterialBase {
 
 		WIRE = mh.ITEMS.register(mh.name + "wire", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 
+		CLASP = mh.ITEMS.register(mh.name + "clasp", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		RINGSHANK = mh.ITEMS.register(mh.name + "ringshank",
+				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		RIVETS = mh.ITEMS.register(mh.name + "rivets", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		SETTING = mh.ITEMS.register(mh.name + "setting", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		JUMPRINGS = mh.ITEMS.register(mh.name + "jumprings",
+				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		FILIGREE = mh.ITEMS.register(mh.name + "filigree",
+				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+		FOIL = mh.ITEMS.register(mh.name + "foil", () -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
 	}
 
 	@Override
@@ -185,6 +209,7 @@ public class MaterialExtraComponents implements MaterialBase {
 		RenderTypeLookup.setRenderLayer(this.TOP_BARS.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.TRIMMED_WINDOW.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.TRIMMED_WINDOW_BLOCK.get(), cutout);
+		RenderTypeLookup.setRenderLayer(this.BAR_DOOR.get(), RenderType.getTranslucent());
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/sapphirecoil"
+    "layer0": "compendium:item/material/sapphire/sapphirecoil"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/queensgolddust"
+    "layer0": "compendium:item/material/queensgold/queensgolddust"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/nihilitesword",
+    "layer0": "compendium:item/material/nihilite/nihilitesword",
     "layer1": "compendium:item/swordbase"
   }
 }

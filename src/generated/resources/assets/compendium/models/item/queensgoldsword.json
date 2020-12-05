@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/queensgoldsword",
+    "layer0": "compendium:item/material/queensgold/queensgoldsword",
     "layer1": "compendium:item/swordbase"
   }
 }

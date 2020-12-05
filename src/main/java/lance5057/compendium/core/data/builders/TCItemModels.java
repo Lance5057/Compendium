@@ -42,8 +42,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getIngot() != null) {
 				MeltableMaterial mm = mh.getIngot();
 
-				forItem(mm.INGOT);
-				forItem(mm.NUGGET);
+				forItem(mm.INGOT, mh.name);
+				forItem(mm.NUGGET, mh.name);
 				forBlockItem(mm.STORAGE_ITEMBLOCK);
 			}
 
@@ -51,8 +51,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getGem() != null) {
 				CraftableMaterial cm = mh.getGem();
 
-				forItem(cm.GEM);
-				forItem(cm.NUGGET);
+				forItem(cm.GEM, mh.name);
+				forItem(cm.NUGGET, mh.name);
 				forBlockItem(cm.STORAGE_ITEMBLOCK);
 			}
 
@@ -61,7 +61,7 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
 				this.singleTexture(vc.ITEM_DOOR.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("item/" + mh.name + "door"));
+						modLoc("item/material/" + mh.name + "/" + mh.name + "door"));
 				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/" + mh.name + "trapdoor_bottom"));
 
 				// Bars
@@ -76,16 +76,23 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getExtraComponents() != null) {
 				MaterialExtraComponents me = mh.getExtraComponents();
 
-				forItem(me.CASING);
-				forItem(me.COIL);
-				forItem(me.COIN);
-				forItem(me.DUST);
-				forItem(me.GEAR);
-				forItem(me.PLATE);
-				forItem(me.ROD);
+				forItem(me.CASING, mh.name);
+				forItem(me.COIL, mh.name);
+				forItem(me.COIN, mh.name);
+				forItem(me.DUST, mh.name);
+				forItem(me.GEAR, mh.name);
+				forItem(me.PLATE, mh.name);
+				forItem(me.ROD, mh.name);
 				// forItem(me.SHARDS);
-				forItem(me.SPRING);
-				forItem(me.WIRE);
+				forItem(me.SPRING, mh.name);
+				forItem(me.WIRE, mh.name);
+				forItem(me.CLASP, mh.name);
+				forItem(me.RINGSHANK, mh.name);
+				forItem(me.RIVETS, mh.name);
+				forItem(me.SETTING, mh.name);
+				forItem(me.JUMPRINGS, mh.name);
+				forItem(me.FILIGREE, mh.name);
+				forItem(me.FOIL, mh.name);
 
 				forBlockItem(me.ITEM_BIGCHAIN);
 				forBlockItem(me.ITEM_BRAZIER);
@@ -114,23 +121,23 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				MaterialVanillaTools vt = mh.getVanillaTools();
 
 				withExistingParent(vt.AXE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + vt.AXE.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/"  + vt.AXE.getId().getPath()))
 						.texture("layer1", modLoc("item/axebase"));
 
 				withExistingParent(vt.HOE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + vt.HOE.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.HOE.getId().getPath()))
 						.texture("layer1", modLoc("item/hoebase"));
 
 				withExistingParent(vt.PICKAXE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + vt.PICKAXE.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.PICKAXE.getId().getPath()))
 						.texture("layer1", modLoc("item/pickaxebase"));
 
 				withExistingParent(vt.SHOVEL.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + vt.SHOVEL.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SHOVEL.getId().getPath()))
 						.texture("layer1", modLoc("item/shovelbase"));
 
 				withExistingParent(vt.SWORD.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + vt.SWORD.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SWORD.getId().getPath()))
 						.texture("layer1", modLoc("item/swordbase"));
 			}
 
@@ -139,7 +146,7 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				MaterialExtraTools et = mh.getExtraTools();
 
 				withExistingParent(et.HAMMER.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/" + et.HAMMER.getId().getPath()))
+						.texture("layer0", modLoc("item/material/" + mh.name + "/" + et.HAMMER.getId().getPath()))
 						.texture("layer1", modLoc("item/hammerbase"));
 			}
 
@@ -152,9 +159,9 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 		}
 	}
 
-	private void forItem(RegistryObject<? extends Item> item) {
+	private void forItem(RegistryObject<? extends Item> item, String name) {
 		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
-				modLoc("item/" + item.getId().getPath()));
+				modLoc("item/material/" + name + "/" + item.getId().getPath()));
 	}
 
 	private void forBlockItem(RegistryObject<? extends BlockItem> item) {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/rubysword",
+    "layer0": "compendium:item/material/ruby/rubysword",
     "layer1": "compendium:item/swordbase"
   }
 }

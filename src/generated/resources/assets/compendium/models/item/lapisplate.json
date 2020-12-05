@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/lapisplate"
+    "layer0": "compendium:item/material/lapis/lapisplate"
   }
 }

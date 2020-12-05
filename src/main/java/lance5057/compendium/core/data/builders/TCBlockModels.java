@@ -2,6 +2,7 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Reference;
 import lance5057.compendium.TCBlocks;
+import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
@@ -15,6 +16,7 @@ import net.minecraft.block.LanternBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
@@ -120,24 +122,27 @@ public class TCBlockModels extends BlockStateProvider {
 				// Chainlink
 				paneBlock(me.CHAINLINK_BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"),
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"));
-				simpleBlock(me.CHAINLINK_BLOCK.get(), models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(),
-						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "chainlink")));
+				simpleBlock(me.CHAINLINK_BLOCK.get(),
+						models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(),
+								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "chainlink")));
 
-				//Wall
+				// Wall
 				this.wallBlock(me.WALL.get(), modLoc("block/" + mh.name + "wall"));
-				
+
 				// Glass
-				paneBlock(me.TRIMMED_WINDOW.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"),
+				paneBlock(me.TRIMMED_WINDOW.get(),
+						new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"),
 						new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"));
-				simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(), models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
-						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "trimmedglass")));
-				
-				//Small Tiles
-				simpleBlock(me.SMALL_TILE.get(),
-						models().cubeAll(me.SMALL_TILE.get().getRegistryName().getPath(),
-								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "smalltile")));
-				
-				
+				simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(),
+						models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
+								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "trimmedglass")));
+
+				// Small Tiles
+				simpleBlock(me.SMALL_TILE.get(), models().cubeAll(me.SMALL_TILE.get().getRegistryName().getPath(),
+						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "smalltile")));
+
+				bardoorModel(mh);
+
 			}
 
 			if (mh.getOre() != null) {
@@ -164,6 +169,112 @@ public class TCBlockModels extends BlockStateProvider {
 								true));
 			}
 		}
+	}
+
+	private void bardoorModel(MaterialHelper mh) {
+		ModelFile closedModel = models()
+				.withExistingParent(mh.name + "slidingdoor_closed", modLoc("block/bases/slidingbars_closed"))
+				.texture("0", "compendium:block/" + mh.name + "bars");
+		ModelFile openModel = models()
+				.withExistingParent(mh.name + "slidingdoor_open", modLoc("block/bases/slidingbars_open"))
+				.texture("0", "compendium:block/" + mh.name + "bars");
+		ModelFile empty = models().withExistingParent(mh.name + "empty", modLoc("block/bases/bar_notches"));
+
+		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().BAR_DOOR.get());
+
+//		for (Direction dir : ComponentBarDoor.FACING.getAllowedValues()) {
+//
+//			builder.partialState().with(ComponentBarDoor.FACING, dir).modelForState().modelFile(stakeModel)
+//					.rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+//
+//					.partialState().with(ComponentBarDoor.FACING, dir).modelForState()
+////				.modelFile(stake)
+////				.rotationX(stakeXRotation(dir))
+////				.rotationY(stakeYRotation(dir))
+//					// .nextModel()
+//					.modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+//		}
+
+		builder.
+		// Bottom Open
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(empty).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(empty).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(empty).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(empty).addModel().
+
+				// Bottom Closed
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
+
+				// Top Open
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(openModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(openModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(openModel).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
+				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(openModel).addModel().
+
+				// Top Closed
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90)
+				.addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
+
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
+				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel();
+
+//		if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+//			switch (direction) {
+//			case EAST:
+//			case WEST:
+//			default:
+//				return flag ? OPEN_ROTATED_AABB : ROTATED_AABB;
+//			case SOUTH:
+//			case NORTH:
+//				return flag ? OPEN_DEFAULT_AABB : DEFAULT_AABB;
+//			}
+//		} else {
+//			switch (direction) {
+//			case EAST:
+//			case WEST:
+//			default:
+//				return flag ? OPEN_BOTTOM : ROTATED_AABB;
+//			case SOUTH:
+//			case NORTH:
+//				return flag ? OPEN_BOTTOM : DEFAULT_AABB;
+//			}
+//		}
 	}
 
 	private void stakeModel(MaterialHelper mh) {

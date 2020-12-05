@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/sinisteriumhammer",
+    "layer0": "compendium:item/material/sinisterium/sinisteriumhammer",
     "layer1": "compendium:item/hammerbase"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/orichalcumshovel",
+    "layer0": "compendium:item/material/orichalcum/orichalcumshovel",
     "layer1": "compendium:item/shovelbase"
   }
 }

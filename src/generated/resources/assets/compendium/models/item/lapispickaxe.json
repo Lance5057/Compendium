@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/lapispickaxe",
+    "layer0": "compendium:item/material/lapis/lapispickaxe",
     "layer1": "compendium:item/pickaxebase"
   }
 }

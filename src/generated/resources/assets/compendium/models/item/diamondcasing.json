@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/diamondcasing"
+    "layer0": "compendium:item/material/diamond/diamondcasing"
   }
 }

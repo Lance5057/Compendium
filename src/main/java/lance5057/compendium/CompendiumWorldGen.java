@@ -12,6 +12,7 @@ import lance5057.compendium.configs.CompendiumConfig;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import lance5057.compendium.core.util.OreRetrogenFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.RegistryKey;
@@ -38,6 +39,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 
 public class CompendiumWorldGen {
+
+	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(
+			OreFeatureConfig.field_236566_a_);
 
 	@SubscribeEvent
 	public static void biomeModification(final BiomeLoadingEvent event) {
@@ -67,7 +71,7 @@ public class CompendiumWorldGen {
 			MaterialOre ore = mh.getOre();
 			if (ore != null)
 				if (biome.getCategory() == ore.category || ore.category == null) {
-					ConfiguredFeature<?, ?> retroFeature = Feature.ORE
+					ConfiguredFeature<?, ?> retroFeature = ORE_RETROGEN
 							.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
 									ore.ORE.get().getDefaultState(), ore.oreSize))
 							.withPlacement(Placement.field_242907_l
@@ -121,10 +125,11 @@ public class CompendiumWorldGen {
 	public void chunkDataLoad(ChunkDataEvent.Load event) {
 		IWorld world = event.getWorld();
 		if (event.getChunk().getStatus() == ChunkStatus.FULL && world instanceof World) {
-			if (!event.getData().getCompound("Compendium")
-					.contains(CompendiumConfig.getInstance().worldgen.retroGenName.get())
-					&& CompendiumConfig.getInstance().worldgen.enableRetroGen.get()) {
-				TinkersCompendium.logger.log(Level.INFO, "Chunk " + event.getChunk().getPos().toString() + " has been flagged for ore retrogen by Compendium.");
+			boolean b = event.getData().getCompound("Level").getCompound("Compendium")
+					.contains(CompendiumConfig.getInstance().worldgen.retroGenName.get());
+			if (!b && CompendiumConfig.getInstance().worldgen.enableRetroGen.get()) {
+				TinkersCompendium.logger.log(Level.INFO, "Chunk " + event.getChunk().getPos().toString()
+						+ " has been flagged for ore retrogen by Compendium.");
 
 				RegistryKey<World> dimension = ((World) world).getDimensionKey();
 				synchronized (retrogenChunks) {
@@ -140,6 +145,7 @@ public class CompendiumWorldGen {
 		CompoundNBT nbt = new CompoundNBT();
 		levelTag.put("Compendium", nbt);
 		nbt.putBoolean(CompendiumConfig.getInstance().worldgen.retroGenName.get(), true);
-		TinkersCompendium.logger.log(Level.INFO, "Chunk " + event.getChunk().getPos().toString() + " has generated ore by Compendium.");
+		TinkersCompendium.logger.log(Level.INFO,
+				"Chunk " + event.getChunk().getPos().toString() + " has generated ore by Compendium.");
 	}
 }

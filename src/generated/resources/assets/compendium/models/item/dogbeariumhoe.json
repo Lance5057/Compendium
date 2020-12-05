@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/dogbeariumhoe",
+    "layer0": "compendium:item/material/dogbearium/dogbeariumhoe",
     "layer1": "compendium:item/hoebase"
   }
 }

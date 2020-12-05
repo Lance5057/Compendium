@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/sapphireaxe",
+    "layer0": "compendium:item/material/sapphire/sapphireaxe",
     "layer1": "compendium:item/axebase"
   }
 }

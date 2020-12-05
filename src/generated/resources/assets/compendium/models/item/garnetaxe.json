@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/garnetaxe",
+    "layer0": "compendium:item/material/garnet/garnetaxe",
     "layer1": "compendium:item/axebase"
   }
 }

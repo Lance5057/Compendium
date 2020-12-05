@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/rubyaxe",
+    "layer0": "compendium:item/material/ruby/rubyaxe",
     "layer1": "compendium:item/axebase"
   }
 }

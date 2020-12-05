@@ -67,6 +67,7 @@ public class BlockLoot extends BlockLootTables {
 				this.registerDropSelfLootTable(me.TRIMMED_WINDOW_BLOCK.get());
 				this.registerDropSelfLootTable(me.WALL.get());
 				this.registerDropSelfLootTable(me.SMALL_TILE.get());
+				this.registerDropSelfLootTable(me.BAR_DOOR.get());
 			}
 			if (mh.getOre() != null) {
 				MaterialOre mo = mh.getOre();

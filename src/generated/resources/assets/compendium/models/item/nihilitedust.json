@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/nihilitedust"
+    "layer0": "compendium:item/material/nihilite/nihilitedust"
   }
 }

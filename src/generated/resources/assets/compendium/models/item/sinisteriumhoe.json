@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/sinisteriumhoe",
+    "layer0": "compendium:item/material/sinisterium/sinisteriumhoe",
     "layer1": "compendium:item/hoebase"
   }
 }

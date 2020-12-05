@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/nihilitepickaxe",
+    "layer0": "compendium:item/material/nihilite/nihilitepickaxe",
     "layer1": "compendium:item/pickaxebase"
   }
 }
