@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/quartztrimmedglass",
-    "edge": "compendium:block/quartztrimmedglass"
+    "pane": "compendium:block/material/quartz/quartztrimmedglass",
+    "edge": "compendium:block/material/quartz/quartztrimmedglass"
   }
 }

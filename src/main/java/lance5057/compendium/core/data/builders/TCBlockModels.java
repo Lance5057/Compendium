@@ -46,34 +46,29 @@ public class TCBlockModels extends BlockStateProvider {
 			if (mh.getIngot() != null) {
 				MeltableMaterial mm = mh.getIngot();
 
-				this.simpleBlock(mm.STORAGE_BLOCK.get());
+				// this.simpleBlock(mm.STORAGE_BLOCK.get());
+				simpleBlock(mm.STORAGE_BLOCK.get(), models().cubeAll(mm.STORAGE_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "block")));
+
 			}
 
 			// Craftable Materials
 			if (mh.getGem() != null) {
 				CraftableMaterial cm = mh.getGem();
 
-				this.simpleBlock(cm.STORAGE_BLOCK.get());
+				simpleBlock(cm.STORAGE_BLOCK.get(), models().cubeAll(cm.STORAGE_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "block")));
 			}
 
 			// Vanilla Component Materials
 			if (mh.getVanillaComponents() != null) {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
-				doorBlock(vc.DOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_bottom"),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "_door_top"));
-				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "trapdoor"),
-						true);
-				paneBlock(vc.BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "bars"));
+				doorBlock(vc.DOOR.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "_door_bottom"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "_door_top"));
+				trapdoorBlock(vc.TRAPDOOR.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "trapdoor"), true);
+				paneBlock(vc.BARS.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "bars"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "bars"));
 
 				lanternModel(mh);
-				this.axisBlock(vc.CHAIN.get(),
-						models().withExistingParent(mh.name + "chain", mcLoc("block/chain")).texture("all",
-								modLoc("block/" + mh.name + "chain")),
-						models().withExistingParent(mh.name + "bigchain", mcLoc("block/chain")).texture("all",
-								modLoc("block/" + mh.name + "chain")));// .cross(me.BIGCHAIN.get().getRegistryName().getPath(),
-																		// modLoc("block/" + mh.name + "bigchain")));
+				this.axisBlock(vc.CHAIN.get(), models().withExistingParent(mh.name + "chain", mcLoc("block/chain")).texture("all", modLoc("block/material/" + mh.name + "/" + mh.name + "chain")), models().withExistingParent(mh.name + "bigchain", mcLoc("block/chain")).texture("all", modLoc("block/material/" + mh.name + "/" + mh.name + "chain")));// .cross(me.BIGCHAIN.get().getRegistryName().getPath(),
+				// modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")));
 
 			}
 
@@ -87,61 +82,47 @@ public class TCBlockModels extends BlockStateProvider {
 				// Shingles
 				this.shinglesModel(mh, "", me.SHINGLES.get());
 				this.shinglesModel(mh, "alt", me.SHINGLES_ALT.get());
-				simpleBlock(me.SHINGLES_BLOCK.get(),
-						models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(),
-								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "shingles")));
+				simpleBlock(me.SHINGLES_BLOCK.get(), models().cubeAll(me.SHINGLES_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "shingles")));
 
 				// Sheet
 				this.sheetModel(mh);
-				simpleBlock(me.SHEET_BLOCK.get(), models().cubeAll(me.SHEET_BLOCK.get().getRegistryName().getPath(),
-						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "sheet")));
+				simpleBlock(me.SHEET_BLOCK.get(), models().cubeAll(me.SHEET_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "sheet")));
 
 				// Big Chain
-				this.axisBlock(me.BIGCHAIN.get(),
-						models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0",
-								modLoc("block/" + mh.name + "bigchain")),
-						models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0",
-								modLoc("block/" + mh.name + "bigchain")));
+				this.axisBlock(me.BIGCHAIN.get(), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")));
 
 				// Brazier
-				simpleBlock(me.BRAZIER.get(),
-						models().withExistingParent(mh.name + "brazier", modLoc("block/bases/brazier"))
-								.texture("0", modLoc("block/" + mh.name + "topbars"))
-								.texture("2", modLoc("block/" + mh.name + "tile")).texture("3", mcLoc("block/fire_1"))
-								.texture("particle", modLoc("block/" + mh.name + "topbars")));
-				simpleBlock(me.SOUL_BRAZIER.get(), models()
-						.withExistingParent(mh.name + "soulbrazier", modLoc("block/bases/brazier"))
-						.texture("0", modLoc("block/" + mh.name + "topbars")).texture("1", mcLoc("block/soul_sand"))
-						.texture("2", modLoc("block/" + mh.name + "tile")).texture("3", mcLoc("block/soul_fire_1"))
-						.texture("particle", modLoc("block/" + mh.name + "topbars")));
+				simpleBlock(me.BRAZIER.get(), models().withExistingParent(mh.name + "brazier", modLoc("block/bases/brazier")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")).texture("2", modLoc("block/material/" + mh.name + "/" + mh.name + "tile")).texture("3", mcLoc("block/fire_1")).texture("particle", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")));
+				simpleBlock(me.SOUL_BRAZIER.get(), models().withExistingParent(mh.name + "soulbrazier", modLoc("block/bases/brazier")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")).texture("1", mcLoc("block/soul_sand")).texture("2", modLoc("block/material/" + mh.name + "/" + mh.name + "tile")).texture("3", mcLoc("block/soul_fire_1")).texture("particle", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")));
 
 				// Top Bars
-				paneBlock(me.TOP_BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "topbars"),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "topbars"));
+				paneBlock(me.TOP_BARS.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "topbars"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "topbars"));
 
 				// Chainlink
-				paneBlock(me.CHAINLINK_BARS.get(), new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "chainlink"));
-				simpleBlock(me.CHAINLINK_BLOCK.get(),
-						models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(),
-								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "chainlink")));
+				paneBlock(me.CHAINLINK_BARS.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "chainlink"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "chainlink"));
+				simpleBlock(me.CHAINLINK_BLOCK.get(), models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "chainlink")));
 
 				// Wall
-				this.wallBlock(me.WALL.get(), modLoc("block/" + mh.name + "wall"));
+				this.wallBlock(me.WALL.get(), modLoc("block/material/" + mh.name + "/" + mh.name + "wall"));
 
 				// Glass
-				paneBlock(me.TRIMMED_WINDOW.get(),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"),
-						new ResourceLocation(mh.parentMod, "block/" + mh.name + "trimmedglass"));
-				simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(),
-						models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
-								new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "trimmedglass")));
+				paneBlock(me.TRIMMED_WINDOW.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "trimmedglass"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
+				simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(), models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "trimmedglass")));
 
 				// Small Tiles
-				simpleBlock(me.SMALL_TILE.get(), models().cubeAll(me.SMALL_TILE.get().getRegistryName().getPath(),
-						new ResourceLocation(Reference.MOD_ID, "block/" + mh.name + "smalltile")));
+				simpleBlock(me.SMALL_TILE.get(), models().cubeAll(me.SMALL_TILE.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "smalltile")));
 
+				// Bar Door
 				bardoorModel(mh);
+
+				// Diamond Bars
+				paneBlock(me.DIAMONDBARS.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbars"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbars"));
+				paneBlock(me.DIAMONDBARSTOP.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbar_top"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbar_top"));
+				paneBlock(me.DIAMONDBARSFLIP.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbarsflip"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "diamondbarsflip"));
+
+				// Dungeon Tile
+				// dungeontileModel(mh);
+				getVariantBuilder(me.DUNGEON_TILE.get()).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_full", modLoc("block/bases/dungeontile_full")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "tile"), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_half", modLoc("block/bases/dungeontile_half")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "halftile"), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_quarter", modLoc("block/bases/dungeontile_quarter")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "smalltile"), true));
 
 			}
 
@@ -151,33 +132,16 @@ public class TCBlockModels extends BlockStateProvider {
 //				List<ConfiguredModel> models = new ArrayList<ConfiguredModel>();
 //				models.addAll(Arrays.asList();
 //				models.addAll(Arrays.asList();
-//				models.addAll(Arrays.asList(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/"+mh.name + "ore")), true)));
+//				models.addAll(Arrays.asList(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/material/" + mh.name + "/"+mh.name + "ore")), true)));
 
-				getVariantBuilder(mo.ORE.get()).partialState()
-						.addModels(ConfiguredModel
-								.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore"))
-										.texture("1", modLoc("block/" + mh.name + "ore")), true))
-						.partialState()
-						.addModels(ConfiguredModel.allRotations(
-								models().withExistingParent(mh.name + "ore_sparse", modLoc("block/bases/ore_sparse"))
-										.texture("1", modLoc("block/" + mh.name + "ore")),
-								true))
-						.partialState()
-						.addModels(ConfiguredModel.allRotations(
-								models().withExistingParent(mh.name + "ore_corner", modLoc("block/bases/ore_corner"))
-										.texture("1", modLoc("block/" + mh.name + "ore")),
-								true));
+				getVariantBuilder(mo.ORE.get()).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore", modLoc("block/bases/ore")).texture("1", modLoc("block/material/" + mh.name + "/" + mh.name + "ore")), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_sparse", modLoc("block/bases/ore_sparse")).texture("1", modLoc("block/material/" + mh.name + "/" + mh.name + "ore")), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "ore_corner", modLoc("block/bases/ore_corner")).texture("1", modLoc("block/material/" + mh.name + "/" + mh.name + "ore")), true));
 			}
 		}
 	}
-
+	
 	private void bardoorModel(MaterialHelper mh) {
-		ModelFile closedModel = models()
-				.withExistingParent(mh.name + "slidingdoor_closed", modLoc("block/bases/slidingbars_closed"))
-				.texture("0", "compendium:block/" + mh.name + "bars");
-		ModelFile openModel = models()
-				.withExistingParent(mh.name + "slidingdoor_open", modLoc("block/bases/slidingbars_open"))
-				.texture("0", "compendium:block/" + mh.name + "bars");
+		ModelFile closedModel = models().withExistingParent(mh.name + "slidingdoor_closed", modLoc("block/bases/slidingbars_closed")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "bars");
+		ModelFile openModel = models().withExistingParent(mh.name + "slidingdoor_open", modLoc("block/bases/slidingbars_open")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "bars");
 		ModelFile empty = models().withExistingParent(mh.name + "empty", modLoc("block/bases/bar_notches"));
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().BAR_DOOR.get());
@@ -197,62 +161,40 @@ public class TCBlockModels extends BlockStateProvider {
 
 		builder.
 		// Bottom Open
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(empty).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(empty).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(empty).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(empty).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(empty).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(empty).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(empty).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(empty).addModel().
 
 				// Bottom Closed
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.LOWER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
 
 				// Top Open
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(openModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(openModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(openModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(openModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(openModel).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(openModel).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true)
-				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(openModel).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, true).with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(openModel).addModel().
 
 				// Top Closed
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.EAST).modelForState().modelFile(closedModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90)
-				.addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.WEST).modelForState().modelFile(closedModel).rotationY(90).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.SOUTH).modelForState().modelFile(closedModel).addModel().
 
-				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
-				.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel();
+				partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false).with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel();
 
 //		if (state.get(HALF) == DoubleBlockHalf.UPPER) {
 //			switch (direction) {
@@ -278,21 +220,16 @@ public class TCBlockModels extends BlockStateProvider {
 	}
 
 	private void stakeModel(MaterialHelper mh) {
-		ModelFile stakeModel = models().withExistingParent(mh.name + "stake", modLoc("block/bases/componentstake"))
-				.texture("rod", "compendium:block/" + mh.name + "stake");
-		ModelFile stakeBaseModel = models()
-				.withExistingParent(mh.name + "stake_base", modLoc("block/bases/componentstake_base"))
-				.texture("rod", "compendium:block/" + mh.name + "stake");
+		ModelFile stakeModel = models().withExistingParent(mh.name + "stake", modLoc("block/bases/componentstake")).texture("rod", "compendium:block/material/" + mh.name + "/" + mh.name + "stake");
+		ModelFile stakeBaseModel = models().withExistingParent(mh.name + "stake_base", modLoc("block/bases/componentstake_base")).texture("rod", "compendium:block/material/" + mh.name + "/" + mh.name + "stake");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().STAKE.get());
 
 		for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
 
-			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
-					.modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState().modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
 
-					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
-					.modelForState()
+					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false).modelForState()
 //				.modelFile(stake)
 //				.rotationX(stakeXRotation(dir))
 //				.rotationY(stakeYRotation(dir))
@@ -302,20 +239,9 @@ public class TCBlockModels extends BlockStateProvider {
 	}
 
 	private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
-		ModelFile shinglesModel = models()
-				.withExistingParent(mh.name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix))
-				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
-				.texture("2", "minecraft:block/oak_log");
-		ModelFile shinglesInnerModel = models()
-				.withExistingParent(mh.name + "shingles_inner" + suffix,
-						modLoc("block/bases/shingles_inner_corner" + suffix))
-				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
-				.texture("2", "minecraft:block/oak_log");
-		ModelFile shinglesOuterModel = models()
-				.withExistingParent(mh.name + "shingles_outer" + suffix,
-						modLoc("block/bases/shingles_outer_corner" + suffix))
-				.texture("0", "compendium:block/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log")
-				.texture("2", "minecraft:block/oak_log");
+		ModelFile shinglesModel = models().withExistingParent(mh.name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix)).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
+		ModelFile shinglesInnerModel = models().withExistingParent(mh.name + "shingles_inner" + suffix, modLoc("block/bases/shingles_inner_corner" + suffix)).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
+		ModelFile shinglesOuterModel = models().withExistingParent(mh.name + "shingles_outer" + suffix, modLoc("block/bases/shingles_outer_corner" + suffix)).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles").texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(b);
 
@@ -323,54 +249,34 @@ public class TCBlockModels extends BlockStateProvider {
 
 			// Bottom
 			// Straight
-			builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-					.rotationY(stakeYRotation(dir) - 180).addModel()
+			builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM).with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel).rotationY(stakeYRotation(dir) - 180).addModel()
 
 					// Inner
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-					.rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM).with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel).rotationY(stakeYRotation(dir) - 180).addModel()
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-					.rotationY(stakeYRotation(dir) - 90).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM).with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel).rotationY(stakeYRotation(dir) - 90).addModel()
 
 					// Outer
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-					.rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM).with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel).rotationY(stakeYRotation(dir) - 180).addModel()
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-					.rotationY(stakeYRotation(dir) - 90).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM).with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel).rotationY(stakeYRotation(dir) - 90).addModel()
 
 					// Top
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-					.with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP).with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel).rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
 
 					// Inner
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-					.with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP).with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel).rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-					.with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP).with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel).rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
 
 					// Outer
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-					.with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP).with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel).rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel()
 
-					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-					.with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-					.rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel();
+					.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP).with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel).rotationX(180).rotationY(stakeYRotation(dir) - 180).addModel();
 		}
 	}
 
@@ -393,34 +299,23 @@ public class TCBlockModels extends BlockStateProvider {
 	}
 
 	private void lanternModel(MaterialHelper mh) {
-		ModelFile lanternModel = models().withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern"))
-				.texture("all", "compendium:block/" + mh.name + "lantern")
-				.texture("all2", "compendium:block/lanternflame");
+		ModelFile lanternModel = models().withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern")).texture("all", "compendium:block/material/" + mh.name + "/" + mh.name + "lantern").texture("all2", "compendium:block/lanternflame");
 
-		ModelFile lanternhangingModel = models()
-				.withExistingParent(mh.name + "lanternhanging", modLoc("block/bases/hanging_lantern"))
-				.texture("all", "compendium:block/" + mh.name + "lantern")
-				.texture("all2", "compendium:block/lanternflame");
+		ModelFile lanternhangingModel = models().withExistingParent(mh.name + "lanternhanging", modLoc("block/bases/hanging_lantern")).texture("all", "compendium:block/material/" + mh.name + "/" + mh.name + "lantern").texture("all2", "compendium:block/lanternflame");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getVanillaComponents().LANTERN.get());
 
-		builder.partialState().with(LanternBlock.HANGING, false).modelForState().modelFile(lanternModel).addModel()
-				.partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel)
-				.addModel();
+		builder.partialState().with(LanternBlock.HANGING, false).modelForState().modelFile(lanternModel).addModel().partialState().with(LanternBlock.HANGING, true).modelForState().modelFile(lanternhangingModel).addModel();
 
 	}
 
 	private void sheetModel(MaterialHelper mh) {
-		ModelFile sheetBottom = models().withExistingParent(mh.name + "sheet", modLoc("block/bases/carpet"))
-				.texture("all", "compendium:block/" + mh.name + "sheet");
+		ModelFile sheetBottom = models().withExistingParent(mh.name + "sheet", modLoc("block/bases/carpet")).texture("all", "compendium:block/material/" + mh.name + "/" + mh.name + "sheet");
 
-		ModelFile sheetTop = models().withExistingParent(mh.name + "sheettop", modLoc("block/bases/carpet_top"))
-				.texture("all", "compendium:block/" + mh.name + "sheet");
+		ModelFile sheetTop = models().withExistingParent(mh.name + "sheettop", modLoc("block/bases/carpet_top")).texture("all", "compendium:block/material/" + mh.name + "/" + mh.name + "sheet");
 
 		VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().SHEET.get());
 
-		builder.partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(sheetBottom).addModel()
-				.partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(sheetTop).addModel()
-				.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(sheetTop).addModel();
+		builder.partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(sheetBottom).addModel().partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(sheetTop).addModel().partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(sheetTop).addModel();
 	}
 }

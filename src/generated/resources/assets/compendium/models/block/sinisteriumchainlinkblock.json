@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/sinisteriumchainlink"
+    "all": "compendium:block/material/sinisterium/sinisteriumchainlink"
   }
 }

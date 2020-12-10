@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside_alt",
   "textures": {
-    "pane": "compendium:block/pandoriumtopbars"
+    "pane": "compendium:block/material/pandorium/pandoriumtopbars"
   }
 }

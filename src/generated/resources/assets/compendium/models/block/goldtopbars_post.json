@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/goldtopbars",
-    "edge": "compendium:block/goldtopbars"
+    "pane": "compendium:block/material/gold/goldtopbars",
+    "edge": "compendium:block/material/gold/goldtopbars"
   }
 }

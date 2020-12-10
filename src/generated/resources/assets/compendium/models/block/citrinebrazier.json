@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/citrinetopbars",
-    "2": "compendium:block/citrinetile",
+    "0": "compendium:block/material/citrine/citrinetopbars",
+    "2": "compendium:block/material/citrine/citrinetile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/citrinetopbars"
+    "particle": "compendium:block/material/citrine/citrinetopbars"
   }
 }

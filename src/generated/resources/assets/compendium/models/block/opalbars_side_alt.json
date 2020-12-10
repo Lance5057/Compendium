@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/opalbars",
-    "edge": "compendium:block/opalbars"
+    "pane": "compendium:block/material/opal/opalbars",
+    "edge": "compendium:block/material/opal/opalbars"
   }
 }

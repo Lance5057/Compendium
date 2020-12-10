@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/pandoriumchainlink"
+    "all": "compendium:block/material/pandorium/pandoriumchainlink"
   }
 }

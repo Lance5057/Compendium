@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/emeraldchain"
+    "all": "compendium:block/material/emerald/emeraldchain"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/componentstake",
   "textures": {
-    "rod": "compendium:block/pandoriumstake"
+    "rod": "compendium:block/material/pandorium/pandoriumstake"
   }
 }

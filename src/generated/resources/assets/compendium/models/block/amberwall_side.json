@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
-    "wall": "compendium:block/amberwall"
+    "wall": "compendium:block/material/amber/amberwall"
   }
 }

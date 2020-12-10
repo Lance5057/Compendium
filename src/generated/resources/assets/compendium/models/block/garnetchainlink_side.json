@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/garnetchainlink",
-    "edge": "compendium:block/garnetchainlink"
+    "pane": "compendium:block/material/garnet/garnetchainlink",
+    "edge": "compendium:block/material/garnet/garnetchainlink"
   }
 }

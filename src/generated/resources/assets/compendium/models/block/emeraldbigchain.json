@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/emeraldchain",
-    "0": "compendium:block/emeraldbigchain"
+    "all": "compendium:block/material/emerald/emeraldchain",
+    "0": "compendium:block/material/emerald/emeraldbigchain"
   }
 }

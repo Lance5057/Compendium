@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/rosegoldsheet"
+    "all": "compendium:block/material/rosegold/rosegoldsheet"
   }
 }

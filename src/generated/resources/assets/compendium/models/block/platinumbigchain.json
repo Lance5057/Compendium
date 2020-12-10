@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/platinumchain",
-    "0": "compendium:block/platinumbigchain"
+    "all": "compendium:block/material/platinum/platinumchain",
+    "0": "compendium:block/material/platinum/platinumbigchain"
   }
 }

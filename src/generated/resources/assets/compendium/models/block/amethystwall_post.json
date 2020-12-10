@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "compendium:block/amethystwall"
+    "wall": "compendium:block/material/amethyst/amethystwall"
   }
 }

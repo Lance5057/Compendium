@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/queensgoldchainlink"
+    "all": "compendium:block/material/queensgold/queensgoldchainlink"
   }
 }

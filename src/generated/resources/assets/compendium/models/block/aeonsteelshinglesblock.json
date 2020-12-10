@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/aeonsteelshingles"
+    "all": "compendium:block/material/aeonsteel/aeonsteelshingles"
   }
 }

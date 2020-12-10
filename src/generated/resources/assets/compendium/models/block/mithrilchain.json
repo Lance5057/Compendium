@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/mithrilchain"
+    "all": "compendium:block/material/mithril/mithrilchain"
   }
 }

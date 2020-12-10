@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/rosegoldchain"
+    "all": "compendium:block/material/rosegold/rosegoldchain"
   }
 }

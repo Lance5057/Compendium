@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/dogbeariumchainlink"
+    "all": "compendium:block/material/dogbearium/dogbeariumchainlink"
   }
 }

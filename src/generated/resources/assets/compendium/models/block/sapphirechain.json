@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/sapphirechain"
+    "all": "compendium:block/material/sapphire/sapphirechain"
   }
 }

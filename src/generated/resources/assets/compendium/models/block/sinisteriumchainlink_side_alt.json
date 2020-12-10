@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/sinisteriumchainlink",
-    "edge": "compendium:block/sinisteriumchainlink"
+    "pane": "compendium:block/material/sinisterium/sinisteriumchainlink",
+    "edge": "compendium:block/material/sinisterium/sinisteriumchainlink"
   }
 }

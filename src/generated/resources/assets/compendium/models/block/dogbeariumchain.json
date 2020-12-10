@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/dogbeariumchain"
+    "all": "compendium:block/material/dogbearium/dogbeariumchain"
   }
 }

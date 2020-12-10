@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/mithrilbars",
-    "edge": "compendium:block/mithrilbars"
+    "pane": "compendium:block/material/mithril/mithrilbars",
+    "edge": "compendium:block/material/mithril/mithrilbars"
   }
 }

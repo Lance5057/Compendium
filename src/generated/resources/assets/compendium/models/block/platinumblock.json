@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/platinumblock"
+    "all": "compendium:block/material/platinum/platinumblock"
   }
 }

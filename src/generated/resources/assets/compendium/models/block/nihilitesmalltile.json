@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/nihilitesmalltile"
+    "all": "compendium:block/material/nihilite/nihilitesmalltile"
   }
 }

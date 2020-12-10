@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/citrinesheet"
+    "all": "compendium:block/material/citrine/citrinesheet"
   }
 }

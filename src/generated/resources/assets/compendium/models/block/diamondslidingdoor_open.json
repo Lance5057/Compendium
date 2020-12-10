@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/slidingbars_open",
   "textures": {
-    "0": "compendium:block/diamondbars"
+    "0": "compendium:block/material/diamond/diamondbars"
   }
 }

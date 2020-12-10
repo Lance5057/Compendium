@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/queensgoldchain"
+    "all": "compendium:block/material/queensgold/queensgoldchain"
   }
 }

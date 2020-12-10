@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_open",
   "textures": {
-    "texture": "compendium:block/rosegoldtrapdoor"
+    "texture": "compendium:block/material/rosegold/rosegoldtrapdoor"
   }
 }

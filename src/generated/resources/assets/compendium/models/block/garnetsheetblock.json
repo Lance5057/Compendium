@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/garnetsheet"
+    "all": "compendium:block/material/garnet/garnetsheet"
   }
 }

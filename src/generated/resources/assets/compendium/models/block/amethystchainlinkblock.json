@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/amethystchainlink"
+    "all": "compendium:block/material/amethyst/amethystchainlink"
   }
 }

@@ -50,8 +50,7 @@ public class HammeringStationBlock extends Block {
 
 	@Nonnull
 	@Override
-	public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos,
-			@Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
+	public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos, @Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
 		if (hand == Hand.MAIN_HAND) {
 			TileEntity entity = world.getTileEntity(blockPos);
 			if (entity instanceof HammeringStationTE) {
@@ -84,7 +83,7 @@ public class HammeringStationBlock extends Block {
 						success = true;
 					}
 
-					if(success)
+					if (success)
 						return ActionResultType.SUCCESS;
 				} else // If crouching, take item off table
 				{
@@ -94,18 +93,15 @@ public class HammeringStationBlock extends Block {
 			}
 		}
 		return super.onBlockActivated(blockState, world, blockPos, playerEntity, hand, blockRayTraceResult);
-		
+
 	}
 
 	@Override
-	public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState,
-			boolean isMoving) {
+	public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState, boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 			if (tileentity instanceof HammeringStationTE) {
-				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-						.ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots())
-								.forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
+				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots()).forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
 
 				worldIn.updateComparatorOutputLevel(pos, this);
 			}

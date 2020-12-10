@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/icesheet"
+    "all": "compendium:block/material/ice/icesheet"
   }
 }

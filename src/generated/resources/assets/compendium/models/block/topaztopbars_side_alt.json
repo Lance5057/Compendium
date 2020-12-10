@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/topaztopbars",
-    "edge": "compendium:block/topaztopbars"
+    "pane": "compendium:block/material/topaz/topaztopbars",
+    "edge": "compendium:block/material/topaz/topaztopbars"
   }
 }

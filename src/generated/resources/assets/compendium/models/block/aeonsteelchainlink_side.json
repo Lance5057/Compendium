@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/aeonsteelchainlink",
-    "edge": "compendium:block/aeonsteelchainlink"
+    "pane": "compendium:block/material/aeonsteel/aeonsteelchainlink",
+    "edge": "compendium:block/material/aeonsteel/aeonsteelchainlink"
   }
 }

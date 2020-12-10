@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "compendium:block/sinisteriumwall"
+    "wall": "compendium:block/material/sinisterium/sinisteriumwall"
   }
 }

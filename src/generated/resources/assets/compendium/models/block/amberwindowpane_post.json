@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/ambertrimmedglass",
-    "edge": "compendium:block/ambertrimmedglass"
+    "pane": "compendium:block/material/amber/ambertrimmedglass",
+    "edge": "compendium:block/material/amber/ambertrimmedglass"
   }
 }

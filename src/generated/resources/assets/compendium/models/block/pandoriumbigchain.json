@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/pandoriumchain",
-    "0": "compendium:block/pandoriumbigchain"
+    "all": "compendium:block/material/pandorium/pandoriumchain",
+    "0": "compendium:block/material/pandorium/pandoriumbigchain"
   }
 }

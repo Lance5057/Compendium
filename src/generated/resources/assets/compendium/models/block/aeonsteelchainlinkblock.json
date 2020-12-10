@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/aeonsteelchainlink"
+    "all": "compendium:block/material/aeonsteel/aeonsteelchainlink"
   }
 }

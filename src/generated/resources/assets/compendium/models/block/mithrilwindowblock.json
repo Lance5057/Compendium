@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/mithriltrimmedglass"
+    "all": "compendium:block/material/mithril/mithriltrimmedglass"
   }
 }

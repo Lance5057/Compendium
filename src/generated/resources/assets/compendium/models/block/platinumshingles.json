@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/shingles",
   "textures": {
-    "0": "compendium:block/platinumshingles",
+    "0": "compendium:block/material/platinum/platinumshingles",
     "1": "compendium:block/shingles_log",
     "2": "minecraft:block/oak_log"
   }

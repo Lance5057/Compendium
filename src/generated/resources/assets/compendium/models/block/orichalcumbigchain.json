@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/orichalcumchain",
-    "0": "compendium:block/orichalcumbigchain"
+    "all": "compendium:block/material/orichalcum/orichalcumchain",
+    "0": "compendium:block/material/orichalcum/orichalcumbigchain"
   }
 }

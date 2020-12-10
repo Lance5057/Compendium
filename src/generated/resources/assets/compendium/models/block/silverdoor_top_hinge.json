@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top_rh",
   "textures": {
-    "bottom": "compendium:block/silver_door_bottom",
-    "top": "compendium:block/silver_door_top"
+    "bottom": "compendium:block/material/silver/silver_door_bottom",
+    "top": "compendium:block/material/silver/silver_door_top"
   }
 }

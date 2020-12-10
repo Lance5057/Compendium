@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/topaztopbars"
+    "layer0": "compendium:block/material/topaz/topaztopbars"
   }
 }

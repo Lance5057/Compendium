@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/icechain",
-    "0": "compendium:block/icebigchain"
+    "all": "compendium:block/material/ice/icechain",
+    "0": "compendium:block/material/ice/icebigchain"
   }
 }

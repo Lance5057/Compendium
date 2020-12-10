@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/pandoriumchain"
+    "all": "compendium:block/material/pandorium/pandoriumchain"
   }
 }

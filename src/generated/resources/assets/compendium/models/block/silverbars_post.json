@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/silverbars",
-    "edge": "compendium:block/silverbars"
+    "pane": "compendium:block/material/silver/silverbars",
+    "edge": "compendium:block/material/silver/silverbars"
   }
 }

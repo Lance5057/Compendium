@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/shinglesalt",
   "textures": {
-    "0": "compendium:block/emeraldshingles",
+    "0": "compendium:block/material/emerald/emeraldshingles",
     "1": "compendium:block/shingles_log",
     "2": "minecraft:block/oak_log"
   }

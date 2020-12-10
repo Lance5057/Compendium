@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/citrinechain"
+    "all": "compendium:block/material/citrine/citrinechain"
   }
 }

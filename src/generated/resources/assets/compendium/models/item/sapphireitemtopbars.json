@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/sapphiretopbars"
+    "layer0": "compendium:block/material/sapphire/sapphiretopbars"
   }
 }

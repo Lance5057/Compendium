@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
-    "wall": "compendium:block/queensgoldwall"
+    "wall": "compendium:block/material/queensgold/queensgoldwall"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/sapphireshingles"
+    "all": "compendium:block/material/sapphire/sapphireshingles"
   }
 }

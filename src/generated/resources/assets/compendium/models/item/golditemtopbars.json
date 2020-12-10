@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/goldtopbars"
+    "layer0": "compendium:block/material/gold/goldtopbars"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/goldchainlink",
-    "edge": "compendium:block/goldchainlink"
+    "pane": "compendium:block/material/gold/goldchainlink",
+    "edge": "compendium:block/material/gold/goldchainlink"
   }
 }

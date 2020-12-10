@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "compendium:block/quartzbars"
+    "pane": "compendium:block/material/quartz/quartzbars"
   }
 }

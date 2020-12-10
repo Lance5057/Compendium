@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside_alt",
   "textures": {
-    "pane": "compendium:block/rosegoldbars"
+    "pane": "compendium:block/material/rosegold/rosegoldbars"
   }
 }

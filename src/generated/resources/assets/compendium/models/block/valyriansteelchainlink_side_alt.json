@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/valyriansteelchainlink",
-    "edge": "compendium:block/valyriansteelchainlink"
+    "pane": "compendium:block/material/valyriansteel/valyriansteelchainlink",
+    "edge": "compendium:block/material/valyriansteel/valyriansteelchainlink"
   }
 }

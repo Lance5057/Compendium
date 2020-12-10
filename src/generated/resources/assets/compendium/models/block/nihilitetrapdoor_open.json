@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_open",
   "textures": {
-    "texture": "compendium:block/nihilitetrapdoor"
+    "texture": "compendium:block/material/nihilite/nihilitetrapdoor"
   }
 }

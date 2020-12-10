@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/garnetchainlink"
+    "layer0": "compendium:block/material/garnet/garnetchainlink"
   }
 }

@@ -1,10 +1,10 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/emeraldtopbars",
+    "0": "compendium:block/material/emerald/emeraldtopbars",
     "1": "minecraft:block/soul_sand",
-    "2": "compendium:block/emeraldtile",
+    "2": "compendium:block/material/emerald/emeraldtile",
     "3": "minecraft:block/soul_fire_1",
-    "particle": "compendium:block/emeraldtopbars"
+    "particle": "compendium:block/material/emerald/emeraldtopbars"
   }
 }

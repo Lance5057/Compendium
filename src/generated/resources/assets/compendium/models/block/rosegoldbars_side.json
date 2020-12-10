@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/rosegoldbars",
-    "edge": "compendium:block/rosegoldbars"
+    "pane": "compendium:block/material/rosegold/rosegoldbars",
+    "edge": "compendium:block/material/rosegold/rosegoldbars"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/amethystbars",
-    "edge": "compendium:block/amethystbars"
+    "pane": "compendium:block/material/amethyst/amethystbars",
+    "edge": "compendium:block/material/amethyst/amethystbars"
   }
 }

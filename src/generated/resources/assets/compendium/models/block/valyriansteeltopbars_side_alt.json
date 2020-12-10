@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/valyriansteeltopbars",
-    "edge": "compendium:block/valyriansteeltopbars"
+    "pane": "compendium:block/material/valyriansteel/valyriansteeltopbars",
+    "edge": "compendium:block/material/valyriansteel/valyriansteeltopbars"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/nihilitechain"
+    "all": "compendium:block/material/nihilite/nihilitechain"
   }
 }

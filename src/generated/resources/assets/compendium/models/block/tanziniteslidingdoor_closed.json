@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/slidingbars_closed",
   "textures": {
-    "0": "compendium:block/tanzinitebars"
+    "0": "compendium:block/material/tanzinite/tanzinitebars"
   }
 }

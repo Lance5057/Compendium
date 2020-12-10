@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/amberchainlink",
-    "edge": "compendium:block/amberchainlink"
+    "pane": "compendium:block/material/amber/amberchainlink",
+    "edge": "compendium:block/material/amber/amberchainlink"
   }
 }

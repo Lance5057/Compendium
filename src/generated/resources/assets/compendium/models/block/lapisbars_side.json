@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/lapisbars",
-    "edge": "compendium:block/lapisbars"
+    "pane": "compendium:block/material/lapis/lapisbars",
+    "edge": "compendium:block/material/lapis/lapisbars"
   }
 }

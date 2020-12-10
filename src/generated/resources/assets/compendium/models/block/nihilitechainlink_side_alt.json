@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/nihilitechainlink",
-    "edge": "compendium:block/nihilitechainlink"
+    "pane": "compendium:block/material/nihilite/nihilitechainlink",
+    "edge": "compendium:block/material/nihilite/nihilitechainlink"
   }
 }

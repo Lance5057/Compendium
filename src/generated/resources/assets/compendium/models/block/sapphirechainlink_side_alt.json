@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/sapphirechainlink",
-    "edge": "compendium:block/sapphirechainlink"
+    "pane": "compendium:block/material/sapphire/sapphirechainlink",
+    "edge": "compendium:block/material/sapphire/sapphirechainlink"
   }
 }

@@ -1,10 +1,10 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/rubytopbars",
+    "0": "compendium:block/material/ruby/rubytopbars",
     "1": "minecraft:block/soul_sand",
-    "2": "compendium:block/rubytile",
+    "2": "compendium:block/material/ruby/rubytile",
     "3": "minecraft:block/soul_fire_1",
-    "particle": "compendium:block/rubytopbars"
+    "particle": "compendium:block/material/ruby/rubytopbars"
   }
 }

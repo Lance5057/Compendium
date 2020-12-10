@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/dogbeariumbars",
-    "edge": "compendium:block/dogbeariumbars"
+    "pane": "compendium:block/material/dogbearium/dogbeariumbars",
+    "edge": "compendium:block/material/dogbearium/dogbeariumbars"
   }
 }

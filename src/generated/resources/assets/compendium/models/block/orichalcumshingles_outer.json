@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/shingles_outer_corner",
   "textures": {
-    "0": "compendium:block/orichalcumshingles",
+    "0": "compendium:block/material/orichalcum/orichalcumshingles",
     "1": "compendium:block/shingles_log",
     "2": "minecraft:block/oak_log"
   }

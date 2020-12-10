@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/dogbeariumbars"
+    "layer0": "compendium:block/material/dogbearium/dogbeariumbars"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/componentstake",
   "textures": {
-    "rod": "compendium:block/tanzinitestake"
+    "rod": "compendium:block/material/tanzinite/tanzinitestake"
   }
 }

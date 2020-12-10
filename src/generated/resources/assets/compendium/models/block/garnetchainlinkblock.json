@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/garnetchainlink"
+    "all": "compendium:block/material/garnet/garnetchainlink"
   }
 }

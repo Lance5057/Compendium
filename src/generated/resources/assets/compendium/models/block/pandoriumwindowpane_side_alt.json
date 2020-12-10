@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/pandoriumtrimmedglass",
-    "edge": "compendium:block/pandoriumtrimmedglass"
+    "pane": "compendium:block/material/pandorium/pandoriumtrimmedglass",
+    "edge": "compendium:block/material/pandorium/pandoriumtrimmedglass"
   }
 }

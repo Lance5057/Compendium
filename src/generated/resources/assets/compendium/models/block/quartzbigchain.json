@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/quartzchain",
-    "0": "compendium:block/quartzbigchain"
+    "all": "compendium:block/material/quartz/quartzchain",
+    "0": "compendium:block/material/quartz/quartzbigchain"
   }
 }

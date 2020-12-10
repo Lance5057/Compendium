@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "compendium:block/orichalcumbars"
+    "pane": "compendium:block/material/orichalcum/orichalcumbars"
   }
 }

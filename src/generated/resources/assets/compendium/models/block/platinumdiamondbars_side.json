@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "pane": "compendium:block/material/platinum/platinumdiamondbars",
+    "edge": "compendium:block/material/platinum/platinumdiamondbars"
+  }
+}

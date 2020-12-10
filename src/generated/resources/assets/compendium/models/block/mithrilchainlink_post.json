@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/mithrilchainlink",
-    "edge": "compendium:block/mithrilchainlink"
+    "pane": "compendium:block/material/mithril/mithrilchainlink",
+    "edge": "compendium:block/material/mithril/mithrilchainlink"
   }
 }

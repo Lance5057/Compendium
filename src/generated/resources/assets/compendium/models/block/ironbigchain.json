@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "0": "compendium:block/ironbigchain"
+    "0": "compendium:block/material/iron/ironbigchain"
   }
 }

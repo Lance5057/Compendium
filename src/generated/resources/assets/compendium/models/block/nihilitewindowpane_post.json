@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/nihilitetrimmedglass",
-    "edge": "compendium:block/nihilitetrimmedglass"
+    "pane": "compendium:block/material/nihilite/nihilitetrimmedglass",
+    "edge": "compendium:block/material/nihilite/nihilitetrimmedglass"
   }
 }

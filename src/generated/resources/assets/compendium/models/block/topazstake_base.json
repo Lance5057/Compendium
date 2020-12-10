@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/componentstake_base",
   "textures": {
-    "rod": "compendium:block/topazstake"
+    "rod": "compendium:block/material/topaz/topazstake"
   }
 }

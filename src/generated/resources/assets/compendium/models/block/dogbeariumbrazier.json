@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/dogbeariumtopbars",
-    "2": "compendium:block/dogbeariumtile",
+    "0": "compendium:block/material/dogbearium/dogbeariumtopbars",
+    "2": "compendium:block/material/dogbearium/dogbeariumtile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/dogbeariumtopbars"
+    "particle": "compendium:block/material/dogbearium/dogbeariumtopbars"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/orichalcumsheet"
+    "all": "compendium:block/material/orichalcum/orichalcumsheet"
   }
 }

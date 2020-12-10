@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/icechain"
+    "all": "compendium:block/material/ice/icechain"
   }
 }

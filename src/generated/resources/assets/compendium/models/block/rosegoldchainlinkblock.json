@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/rosegoldchainlink"
+    "all": "compendium:block/material/rosegold/rosegoldchainlink"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/garnetchain",
-    "0": "compendium:block/garnetbigchain"
+    "all": "compendium:block/material/garnet/garnetchain",
+    "0": "compendium:block/material/garnet/garnetbigchain"
   }
 }

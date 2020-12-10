@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/sinisteriumchain",
-    "0": "compendium:block/sinisteriumbigchain"
+    "all": "compendium:block/material/sinisterium/sinisteriumchain",
+    "0": "compendium:block/material/sinisterium/sinisteriumbigchain"
   }
 }

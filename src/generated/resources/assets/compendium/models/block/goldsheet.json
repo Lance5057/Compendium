@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/goldsheet"
+    "all": "compendium:block/material/gold/goldsheet"
   }
 }

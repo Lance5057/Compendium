@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/rubytopbars",
-    "edge": "compendium:block/rubytopbars"
+    "pane": "compendium:block/material/ruby/rubytopbars",
+    "edge": "compendium:block/material/ruby/rubytopbars"
   }
 }

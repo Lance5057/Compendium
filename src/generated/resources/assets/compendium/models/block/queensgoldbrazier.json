@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/queensgoldtopbars",
-    "2": "compendium:block/queensgoldtile",
+    "0": "compendium:block/material/queensgold/queensgoldtopbars",
+    "2": "compendium:block/material/queensgold/queensgoldtile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/queensgoldtopbars"
+    "particle": "compendium:block/material/queensgold/queensgoldtopbars"
   }
 }

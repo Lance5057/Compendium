@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "compendium:block/valyriansteelbars"
+    "pane": "compendium:block/material/valyriansteel/valyriansteelbars"
   }
 }

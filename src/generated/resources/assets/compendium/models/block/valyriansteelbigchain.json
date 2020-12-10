@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/valyriansteelchain",
-    "0": "compendium:block/valyriansteelbigchain"
+    "all": "compendium:block/material/valyriansteel/valyriansteelchain",
+    "0": "compendium:block/material/valyriansteel/valyriansteelbigchain"
   }
 }

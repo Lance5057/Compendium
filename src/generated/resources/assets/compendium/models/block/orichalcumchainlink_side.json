@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/orichalcumchainlink",
-    "edge": "compendium:block/orichalcumchainlink"
+    "pane": "compendium:block/material/orichalcum/orichalcumchainlink",
+    "edge": "compendium:block/material/orichalcum/orichalcumchainlink"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/valyriansteeltrimmedglass",
-    "edge": "compendium:block/valyriansteeltrimmedglass"
+    "pane": "compendium:block/material/valyriansteel/valyriansteeltrimmedglass",
+    "edge": "compendium:block/material/valyriansteel/valyriansteeltrimmedglass"
   }
 }

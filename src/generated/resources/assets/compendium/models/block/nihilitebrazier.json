@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/nihilitetopbars",
-    "2": "compendium:block/nihilitetile",
+    "0": "compendium:block/material/nihilite/nihilitetopbars",
+    "2": "compendium:block/material/nihilite/nihilitetile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/nihilitetopbars"
+    "particle": "compendium:block/material/nihilite/nihilitetopbars"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/queensgoldtopbars",
-    "edge": "compendium:block/queensgoldtopbars"
+    "pane": "compendium:block/material/queensgold/queensgoldtopbars",
+    "edge": "compendium:block/material/queensgold/queensgoldtopbars"
   }
 }

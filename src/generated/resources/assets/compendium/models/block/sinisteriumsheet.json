@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/sinisteriumsheet"
+    "all": "compendium:block/material/sinisterium/sinisteriumsheet"
   }
 }

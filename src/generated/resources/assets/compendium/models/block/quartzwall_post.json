@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "compendium:block/quartzwall"
+    "wall": "compendium:block/material/quartz/quartzwall"
   }
 }

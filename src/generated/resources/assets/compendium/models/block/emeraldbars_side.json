@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/emeraldbars",
-    "edge": "compendium:block/emeraldbars"
+    "pane": "compendium:block/material/emerald/emeraldbars",
+    "edge": "compendium:block/material/emerald/emeraldbars"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/ironsheet"
+    "all": "compendium:block/material/iron/ironsheet"
   }
 }

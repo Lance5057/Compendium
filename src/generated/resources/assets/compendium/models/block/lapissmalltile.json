@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/lapissmalltile"
+    "all": "compendium:block/material/lapis/lapissmalltile"
   }
 }

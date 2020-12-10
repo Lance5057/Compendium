@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/sinisteriumtrimmedglass"
+    "all": "compendium:block/material/sinisterium/sinisteriumtrimmedglass"
   }
 }

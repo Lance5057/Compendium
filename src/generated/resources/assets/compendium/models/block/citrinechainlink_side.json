@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/citrinechainlink",
-    "edge": "compendium:block/citrinechainlink"
+    "pane": "compendium:block/material/citrine/citrinechainlink",
+    "edge": "compendium:block/material/citrine/citrinechainlink"
   }
 }

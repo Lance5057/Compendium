@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/tanzinitetopbars",
-    "2": "compendium:block/tanzinitetile",
+    "0": "compendium:block/material/tanzinite/tanzinitetopbars",
+    "2": "compendium:block/material/tanzinite/tanzinitetile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/tanzinitetopbars"
+    "particle": "compendium:block/material/tanzinite/tanzinitetopbars"
   }
 }

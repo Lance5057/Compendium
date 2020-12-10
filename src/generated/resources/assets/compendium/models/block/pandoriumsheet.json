@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/pandoriumsheet"
+    "all": "compendium:block/material/pandorium/pandoriumsheet"
   }
 }

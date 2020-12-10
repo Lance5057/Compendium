@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/quartzsmalltile"
+    "all": "compendium:block/material/quartz/quartzsmalltile"
   }
 }

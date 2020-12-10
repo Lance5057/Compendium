@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/aeonsteelchain",
-    "0": "compendium:block/aeonsteelbigchain"
+    "all": "compendium:block/material/aeonsteel/aeonsteelchain",
+    "0": "compendium:block/material/aeonsteel/aeonsteelbigchain"
   }
 }

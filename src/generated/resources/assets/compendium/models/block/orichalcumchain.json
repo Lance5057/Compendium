@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/orichalcumchain"
+    "all": "compendium:block/material/orichalcum/orichalcumchain"
   }
 }

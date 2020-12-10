@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/citrinechainlink"
+    "all": "compendium:block/material/citrine/citrinechainlink"
   }
 }

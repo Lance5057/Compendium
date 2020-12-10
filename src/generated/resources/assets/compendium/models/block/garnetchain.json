@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/garnetchain"
+    "all": "compendium:block/material/garnet/garnetchain"
   }
 }

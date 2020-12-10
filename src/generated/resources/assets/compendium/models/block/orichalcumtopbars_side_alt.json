@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/orichalcumtopbars",
-    "edge": "compendium:block/orichalcumtopbars"
+    "pane": "compendium:block/material/orichalcum/orichalcumtopbars",
+    "edge": "compendium:block/material/orichalcum/orichalcumtopbars"
   }
 }

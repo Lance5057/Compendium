@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/mithriltopbars",
-    "edge": "compendium:block/mithriltopbars"
+    "pane": "compendium:block/material/mithril/mithriltopbars",
+    "edge": "compendium:block/material/mithril/mithriltopbars"
   }
 }

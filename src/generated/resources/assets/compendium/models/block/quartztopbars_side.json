@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/quartztopbars",
-    "edge": "compendium:block/quartztopbars"
+    "pane": "compendium:block/material/quartz/quartztopbars",
+    "edge": "compendium:block/material/quartz/quartztopbars"
   }
 }

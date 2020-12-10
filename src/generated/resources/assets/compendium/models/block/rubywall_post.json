@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "compendium:block/rubywall"
+    "wall": "compendium:block/material/ruby/rubywall"
   }
 }

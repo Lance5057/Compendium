@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/amethystshingles"
+    "all": "compendium:block/material/amethyst/amethystshingles"
   }
 }

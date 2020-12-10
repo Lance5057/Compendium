@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
-    "wall": "compendium:block/aeonsteelwall"
+    "wall": "compendium:block/material/aeonsteel/aeonsteelwall"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/orichalcumchainlink"
+    "all": "compendium:block/material/orichalcum/orichalcumchainlink"
   }
 }

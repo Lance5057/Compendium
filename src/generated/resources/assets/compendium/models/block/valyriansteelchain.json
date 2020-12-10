@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/chain",
   "textures": {
-    "all": "compendium:block/valyriansteelchain"
+    "all": "compendium:block/material/valyriansteel/valyriansteelchain"
   }
 }

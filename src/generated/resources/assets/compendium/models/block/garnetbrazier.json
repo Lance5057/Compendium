@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/brazier",
   "textures": {
-    "0": "compendium:block/garnettopbars",
-    "2": "compendium:block/garnettile",
+    "0": "compendium:block/material/garnet/garnettopbars",
+    "2": "compendium:block/material/garnet/garnettile",
     "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/garnettopbars"
+    "particle": "compendium:block/material/garnet/garnettopbars"
   }
 }

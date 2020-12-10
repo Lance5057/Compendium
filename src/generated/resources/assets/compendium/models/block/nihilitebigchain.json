@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/nihilitechain",
-    "0": "compendium:block/nihilitebigchain"
+    "all": "compendium:block/material/nihilite/nihilitechain",
+    "0": "compendium:block/material/nihilite/nihilitebigchain"
   }
 }

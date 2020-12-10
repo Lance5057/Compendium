@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/amethystchainlink",
-    "edge": "compendium:block/amethystchainlink"
+    "pane": "compendium:block/material/amethyst/amethystchainlink",
+    "edge": "compendium:block/material/amethyst/amethystchainlink"
   }
 }

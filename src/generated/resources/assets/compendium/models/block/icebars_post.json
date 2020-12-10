@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/icebars",
-    "edge": "compendium:block/icebars"
+    "pane": "compendium:block/material/ice/icebars",
+    "edge": "compendium:block/material/ice/icebars"
   }
 }

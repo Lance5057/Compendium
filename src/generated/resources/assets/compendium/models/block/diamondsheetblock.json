@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/diamondsheet"
+    "all": "compendium:block/material/diamond/diamondsheet"
   }
 }

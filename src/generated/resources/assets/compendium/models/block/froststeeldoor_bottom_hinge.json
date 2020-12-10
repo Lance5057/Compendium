@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_bottom_rh",
   "textures": {
-    "bottom": "compendium:block/froststeel_door_bottom",
-    "top": "compendium:block/froststeel_door_top"
+    "bottom": "compendium:block/material/froststeel/froststeel_door_bottom",
+    "top": "compendium:block/material/froststeel/froststeel_door_top"
   }
 }

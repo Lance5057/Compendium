@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/lantern",
   "textures": {
-    "all": "compendium:block/queensgoldlantern",
+    "all": "compendium:block/material/queensgold/queensgoldlantern",
     "all2": "compendium:block/lanternflame"
   }
 }

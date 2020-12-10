@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/rosegoldchain",
-    "0": "compendium:block/rosegoldbigchain"
+    "all": "compendium:block/material/rosegold/rosegoldchain",
+    "0": "compendium:block/material/rosegold/rosegoldbigchain"
   }
 }

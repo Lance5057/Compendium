@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_top",
   "textures": {
-    "texture": "compendium:block/queensgoldtrapdoor"
+    "texture": "compendium:block/material/queensgold/queensgoldtrapdoor"
   }
 }

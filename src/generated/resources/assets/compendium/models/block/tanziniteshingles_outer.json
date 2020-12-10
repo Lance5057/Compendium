@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/shingles_outer_corner",
   "textures": {
-    "0": "compendium:block/tanziniteshingles",
+    "0": "compendium:block/material/tanzinite/tanziniteshingles",
     "1": "compendium:block/shingles_log",
     "2": "minecraft:block/oak_log"
   }

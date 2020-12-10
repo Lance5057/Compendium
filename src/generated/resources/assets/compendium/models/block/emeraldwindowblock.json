@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/emeraldtrimmedglass"
+    "all": "compendium:block/material/emerald/emeraldtrimmedglass"
   }
 }

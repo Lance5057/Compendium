@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/ironshingles"
+    "all": "compendium:block/material/iron/ironshingles"
   }
 }

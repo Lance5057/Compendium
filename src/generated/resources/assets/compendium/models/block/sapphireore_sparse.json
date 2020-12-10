@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/ore_sparse",
   "textures": {
-    "1": "compendium:block/sapphireore"
+    "1": "compendium:block/material/sapphire/sapphireore"
   }
 }

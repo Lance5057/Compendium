@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/sinisteriumbars"
+    "layer0": "compendium:block/material/sinisterium/sinisteriumbars"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/froststeelshingles"
+    "all": "compendium:block/material/froststeel/froststeelshingles"
   }
 }

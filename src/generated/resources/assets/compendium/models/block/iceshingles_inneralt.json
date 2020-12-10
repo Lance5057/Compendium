@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/shingles_inner_corneralt",
   "textures": {
-    "0": "compendium:block/iceshingles",
+    "0": "compendium:block/material/ice/iceshingles",
     "1": "compendium:block/shingles_log",
     "2": "minecraft:block/oak_log"
   }

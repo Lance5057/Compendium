@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "compendium:block/froststeelwall"
+    "wall": "compendium:block/material/froststeel/froststeelwall"
   }
 }

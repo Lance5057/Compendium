@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/slidingbars_closed",
   "textures": {
-    "0": "compendium:block/sapphirebars"
+    "0": "compendium:block/material/sapphire/sapphirebars"
   }
 }
