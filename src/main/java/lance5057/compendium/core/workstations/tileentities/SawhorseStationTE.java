@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.TCTileEntities;
-import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
+import lance5057.compendium.core.workstations.recipes.SawhorseStationRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
@@ -25,13 +25,13 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class HammeringStationTE extends TileEntity {
+public class SawhorseStationTE extends TileEntity {
 	private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
 	private ItemStack lastStack = ItemStack.EMPTY;
 	private int progress = 0;
 
-	public HammeringStationTE() {
-		super(TCTileEntities.HAMMERING_STATION_TE.get());
+	public SawhorseStationTE() {
+		super(TCTileEntities.SAWHORSE_STATION_TE.get());
 	}
 
 	@Nonnull
@@ -44,11 +44,11 @@ public class HammeringStationTE extends TileEntity {
 		return super.getCapability(cap, side);
 	}
 
-	private HammeringStationRecipe matchRecipe(ItemStack stackInSlot) {
+	private SawhorseStationRecipe matchRecipe(ItemStack stackInSlot) {
 		if (world != null) {
 			return world.getRecipeManager().getRecipes().stream()
-					.filter(recipe -> recipe instanceof HammeringStationRecipe)
-					.map(recipe -> (HammeringStationRecipe) recipe).filter(recipe -> recipe.matches(stackInSlot))
+					.filter(recipe -> recipe instanceof SawhorseStationRecipe)
+					.map(recipe -> (SawhorseStationRecipe) recipe).filter(recipe -> recipe.matches(stackInSlot))
 					.findFirst().orElse(null);
 		}
 		return null;
@@ -68,7 +68,7 @@ public class HammeringStationTE extends TileEntity {
 
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				HammeringStationRecipe r = matchRecipe(stack);
+				SawhorseStationRecipe r = matchRecipe(stack);
 				return r != null && super.isItemValid(slot, stack);
 			}
 		};
@@ -139,7 +139,7 @@ public class HammeringStationTE extends TileEntity {
 				world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS,
 						world.rand.nextFloat() + 0.5f, 0);
 			}
-			HammeringStationRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
+			SawhorseStationRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
 			if (recipe != null) {
 				if (this.progress >= recipe.getStrikes()) {
 

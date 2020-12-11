@@ -24,15 +24,15 @@ public class MaterialVanillaTools implements MaterialBase {
 
 	public MaterialVanillaTools(MaterialHelper mh) {
 		SWORD = mh.ITEMS.register(mh.name + "sword",
-				() -> new SwordItem(mh.tier, 3, -2.4f, new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new SwordItem(mh.tier, 3, -2.4f, new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		PICKAXE = mh.ITEMS.register(mh.name + "pickaxe",
-				() -> new PickaxeItem(mh.tier, 1, -2.8F, (new Item.Properties()).group(TCItems.TCITEMS)));
+				() -> new PickaxeItem(mh.tier, 1, -2.8F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
 		SHOVEL = mh.ITEMS.register(mh.name + "shovel",
-				() -> new ShovelItem(mh.tier, 1.5F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
+				() -> new ShovelItem(mh.tier, 1.5F, -3.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
 		AXE = mh.ITEMS.register(mh.name + "axe",
-				() -> new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
+				() -> new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
 		HOE = mh.ITEMS.register(mh.name + "hoe",
-				() -> new HoeItem(mh.tier, -3, 0.0F, (new Item.Properties()).group(TCItems.TCITEMS)));
+				() -> new HoeItem(mh.tier, -3, 0.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
 //		bow;
 //		crossbow;
 //		shield;

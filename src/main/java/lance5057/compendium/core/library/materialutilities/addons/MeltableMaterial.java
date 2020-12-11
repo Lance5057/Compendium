@@ -34,14 +34,14 @@ public class MeltableMaterial implements MaterialBase {
 		name = matName;
 
 		INGOT = mh.ITEMS.register(mh.name + "ingot",
-				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		NUGGET = mh.ITEMS.register(mh.name + "nugget",
-				() -> new Item(new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 
 		STORAGE_BLOCK = mh.BLOCKS.register(mh.name + "block", () -> new Block(Block.Properties
 				.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
 		STORAGE_ITEMBLOCK = mh.ITEMS.register(mh.name + "itemblock",
-				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 
 //		MATERIAL_INGOT = ItemTags.getCollection()
 //				.getOrCreate(new ResourceLocation(Reference.MOD_ID, "ingots/" + matName));

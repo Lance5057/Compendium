@@ -57,15 +57,15 @@ public class MaterialVanillaComponents implements MaterialBase {
 						.hardnessAndResistance(5.0F).sound(SoundType.METAL).notSolid()));
 
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
-				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		ITEM_TRAPDOOR = mh.ITEMS.register(mh.name + "itemtrapdoor",
-				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		ITEM_BARS = mh.ITEMS.register(mh.name + "itembars",
-				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		ITEM_LANTERN = mh.ITEMS.register(mh.name + "itemlantern",
-				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 		ITEM_CHAIN = mh.ITEMS.register(mh.name + "itemchain",
-				() -> new BlockItem(CHAIN.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(CHAIN.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 
 //		TCBlocks.BLOCKS.add(door);
 //		TCBlocks.BLOCKS.add(trapdoor);

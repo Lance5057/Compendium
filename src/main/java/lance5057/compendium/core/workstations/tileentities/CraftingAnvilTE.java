@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.TCTileEntities;
-import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
+import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
@@ -25,12 +25,12 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class HammeringStationTE extends TileEntity {
+public class CraftingAnvilTE extends TileEntity {
 	private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
 	private ItemStack lastStack = ItemStack.EMPTY;
 	private int progress = 0;
 
-	public HammeringStationTE() {
+	public CraftingAnvilTE() {
 		super(TCTileEntities.HAMMERING_STATION_TE.get());
 	}
 
@@ -44,11 +44,11 @@ public class HammeringStationTE extends TileEntity {
 		return super.getCapability(cap, side);
 	}
 
-	private HammeringStationRecipe matchRecipe(ItemStack stackInSlot) {
+	private CraftingAnvilRecipe matchRecipe(ItemStack stackInSlot) {
 		if (world != null) {
 			return world.getRecipeManager().getRecipes().stream()
-					.filter(recipe -> recipe instanceof HammeringStationRecipe)
-					.map(recipe -> (HammeringStationRecipe) recipe).filter(recipe -> recipe.matches(stackInSlot))
+					.filter(recipe -> recipe instanceof CraftingAnvilRecipe)
+					.map(recipe -> (CraftingAnvilRecipe) recipe).filter(recipe -> recipe.matches(stackInSlot))
 					.findFirst().orElse(null);
 		}
 		return null;
@@ -68,7 +68,7 @@ public class HammeringStationTE extends TileEntity {
 
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				HammeringStationRecipe r = matchRecipe(stack);
+				CraftingAnvilRecipe r = matchRecipe(stack);
 				return r != null && super.isItemValid(slot, stack);
 			}
 		};
@@ -139,7 +139,7 @@ public class HammeringStationTE extends TileEntity {
 				world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS,
 						world.rand.nextFloat() + 0.5f, 0);
 			}
-			HammeringStationRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
+			CraftingAnvilRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
 			if (recipe != null) {
 				if (this.progress >= recipe.getStrikes()) {
 

@@ -21,7 +21,7 @@ public class MaterialExtraTools implements MaterialBase {
 	
 	public MaterialExtraTools(MaterialHelper mh) {
 		HAMMER = mh.ITEMS.register(mh.name + "hammer",
-				() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 	}
 	
 	@Override

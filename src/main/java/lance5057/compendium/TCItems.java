@@ -13,23 +13,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class TCItems {
 
-	public static final ItemGroup TCITEMS = new ItemGroup("compendium") {
+	public static final ItemGroup GROUP_MATERIALS=new ItemGroup("compendium.materials"){@Override public ItemStack createIcon(){return new ItemStack(Items.SHIELD);}};
+
+	public static final ItemGroup GROUP_WORKSTATIONS = new ItemGroup("compendium.workstations") {
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(Items.SHIELD);
+			return new ItemStack(CRAFTING_ANVIL_ITEMBLOCK.get());
 		}
 	};
 
-	public static Item book = new Item(new Item.Properties().group(TCITEMS));
+	public static Item book = new Item(new Item.Properties().group(GROUP_MATERIALS));
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-	public static final RegistryObject<BlockNamedItem> HAMMERING_STATION_ITEMBLOCK = ITEMS.register(
-			"hammering_station_itemblock",
-			() -> new BlockNamedItem(TCBlocks.HAMMERING_STATION.get(), new Item.Properties().group(TCItems.TCITEMS)));
+	public static final RegistryObject<BlockNamedItem> HAMMERING_STATION_ITEMBLOCK = ITEMS.register("hammering_station_itemblock", () -> new BlockNamedItem(TCBlocks.HAMMERING_STATION.get(), new Item.Properties().group(TCItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockNamedItem> SAWHORSE_STATION_ITEMBLOCK = ITEMS.register("sawhorse_station_itemblock", () -> new BlockNamedItem(TCBlocks.SAWHORSE_STATION.get(), new Item.Properties().group(TCItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockNamedItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS.register("crafting_anvil_itemblock", () -> new BlockNamedItem(TCBlocks.CRAFTING_ANVIL.get(), new Item.Properties().group(TCItems.GROUP_WORKSTATIONS)));
 
-	public static final RegistryObject<MegalithStoneItem> MEGALITH_STONE = ITEMS.register("megalith_stone",
-			() -> new MegalithStoneItem(new Item.Properties().group(TCItems.TCITEMS)));
+	public static final RegistryObject<MegalithStoneItem> MEGALITH_STONE = ITEMS.register("megalith_stone", () -> new MegalithStoneItem(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 
 	public static void register(IEventBus modBus) {
 		ITEMS.register(modBus);

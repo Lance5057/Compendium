@@ -18,6 +18,8 @@ import net.minecraft.loot.functions.SetCount;
 public class BlockLoot extends BlockLootTables {
 	{
 		this.registerDropSelfLootTable(TCBlocks.HAMMERING_STATION.get());
+		this.registerDropSelfLootTable(TCBlocks.CRAFTING_ANVIL.get());
+		this.registerDropSelfLootTable(TCBlocks.SAWHORSE_STATION.get());
 		
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
 

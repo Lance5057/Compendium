@@ -110,7 +110,7 @@ public class MaterialOre implements MaterialBase {
 				() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(level).harvestTool(tool)
 						.hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
 		ITEM_ORE = mh.ITEMS.register(mh.name + "itemore",
-				() -> new BlockItem(ORE.get(), new Item.Properties().group(TCItems.TCITEMS)));
+				() -> new BlockItem(ORE.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
 
 //		ORE_FEATURE = Feature.ORE
 //				.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
