@@ -3,7 +3,7 @@ package lance5057.compendium.core.workstations.tileentities;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.TCTileEntities;
+import lance5057.compendium.CompendiumTileEntities;
 import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,7 +31,7 @@ public class HammeringStationTE extends TileEntity {
 	private int progress = 0;
 
 	public HammeringStationTE() {
-		super(TCTileEntities.HAMMERING_STATION_TE.get());
+		super(CompendiumTileEntities.HAMMERING_STATION_TE.get());
 	}
 
 	@Nonnull

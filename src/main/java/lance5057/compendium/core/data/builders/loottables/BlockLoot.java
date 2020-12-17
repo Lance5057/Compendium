@@ -1,6 +1,6 @@
 package lance5057.compendium.core.data.builders.loottables;
 
-import lance5057.compendium.TCBlocks;
+import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
@@ -17,9 +17,9 @@ import net.minecraft.loot.functions.SetCount;
 
 public class BlockLoot extends BlockLootTables {
 	{
-		this.registerDropSelfLootTable(TCBlocks.HAMMERING_STATION.get());
-		this.registerDropSelfLootTable(TCBlocks.CRAFTING_ANVIL.get());
-		this.registerDropSelfLootTable(TCBlocks.SAWHORSE_STATION.get());
+		this.registerDropSelfLootTable(CompendiumBlocks.HAMMERING_STATION.get());
+		this.registerDropSelfLootTable(CompendiumBlocks.CRAFTING_ANVIL.get());
+		this.registerDropSelfLootTable(CompendiumBlocks.SAWHORSE_STATION.get());
 		
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
 

@@ -1,7 +1,7 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.TCItems;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.item.AxeItem;
@@ -24,15 +24,15 @@ public class MaterialVanillaTools implements MaterialBase {
 
 	public MaterialVanillaTools(MaterialHelper mh) {
 		SWORD = mh.ITEMS.register(mh.name + "sword",
-				() -> new SwordItem(mh.tier, 3, -2.4f, new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new SwordItem(mh.tier, 3, -2.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		PICKAXE = mh.ITEMS.register(mh.name + "pickaxe",
-				() -> new PickaxeItem(mh.tier, 1, -2.8F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
+				() -> new PickaxeItem(mh.tier, 1, -2.8F, (new Item.Properties()).group(CompendiumItems.GROUP_MATERIALS)));
 		SHOVEL = mh.ITEMS.register(mh.name + "shovel",
-				() -> new ShovelItem(mh.tier, 1.5F, -3.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
+				() -> new ShovelItem(mh.tier, 1.5F, -3.0F, (new Item.Properties()).group(CompendiumItems.GROUP_MATERIALS)));
 		AXE = mh.ITEMS.register(mh.name + "axe",
-				() -> new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
+				() -> new AxeItem(mh.tier, 5.0F, -3.0F, (new Item.Properties()).group(CompendiumItems.GROUP_MATERIALS)));
 		HOE = mh.ITEMS.register(mh.name + "hoe",
-				() -> new HoeItem(mh.tier, -3, 0.0F, (new Item.Properties()).group(TCItems.GROUP_MATERIALS)));
+				() -> new HoeItem(mh.tier, -3, 0.0F, (new Item.Properties()).group(CompendiumItems.GROUP_MATERIALS)));
 //		bow;
 //		crossbow;
 //		shield;

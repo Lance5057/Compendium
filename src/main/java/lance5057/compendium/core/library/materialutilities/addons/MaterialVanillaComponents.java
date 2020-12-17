@@ -1,6 +1,6 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.TCItems;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.blocks.ComponentDoor;
 import lance5057.compendium.core.blocks.ComponentPane;
 import lance5057.compendium.core.blocks.ComponentTrapDoor;
@@ -57,15 +57,15 @@ public class MaterialVanillaComponents implements MaterialBase {
 						.hardnessAndResistance(5.0F).sound(SoundType.METAL).notSolid()));
 
 		ITEM_DOOR = mh.ITEMS.register(mh.name + "itemdoor",
-				() -> new BlockItem(DOOR.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockItem(DOOR.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		ITEM_TRAPDOOR = mh.ITEMS.register(mh.name + "itemtrapdoor",
-				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockItem(TRAPDOOR.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		ITEM_BARS = mh.ITEMS.register(mh.name + "itembars",
-				() -> new BlockItem(BARS.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockItem(BARS.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		ITEM_LANTERN = mh.ITEMS.register(mh.name + "itemlantern",
-				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockItem(LANTERN.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		ITEM_CHAIN = mh.ITEMS.register(mh.name + "itemchain",
-				() -> new BlockItem(CHAIN.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockItem(CHAIN.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
 //		TCBlocks.BLOCKS.add(door);
 //		TCBlocks.BLOCKS.add(trapdoor);

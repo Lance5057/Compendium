@@ -8,6 +8,7 @@ import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
+import lance5057.compendium.core.data.builders.workstationrecipes.CraftingAnvilRecipeProvider;
 import lance5057.compendium.core.data.builders.workstationrecipes.HammeringStationRecipeProvider;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -31,5 +32,6 @@ public class DataGen {
 		generator.addProvider(new TCEnglishLoc(generator));
 		
 		generator.addProvider(new HammeringStationRecipeProvider(generator));
+		generator.addProvider(new CraftingAnvilRecipeProvider(generator));
 	}
 }

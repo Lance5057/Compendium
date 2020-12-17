@@ -1,199 +1,253 @@
 package lance5057.compendium.core.workstations.containers;
 
+import java.util.Collection;
 import java.util.Optional;
 
-import net.minecraft.block.Blocks;
+import javax.annotation.Nonnull;
+
+import lance5057.compendium.CompendiumContainers;
+import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.CraftResultInventory;
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.CraftingResultSlot;
-import net.minecraft.inventory.container.RecipeBookContainer;
+import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ICraftingRecipe;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.RecipeBookCategory;
-import net.minecraft.item.crafting.RecipeItemHelper;
-import net.minecraft.network.play.server.SSetSlotPacket;
-import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class CraftingAnvilContainer extends RecipeBookContainer<CraftingInventory> {
-   private final CraftingInventory craftMatrix = new CraftingInventory(this, 5, 5);
-   private final CraftResultInventory craftResult = new CraftResultInventory();
-   private final IWorldPosCallable worldPosCallable;
-   private final PlayerEntity player;
+public class CraftingAnvilContainer extends Container {
+	// private final CraftingInventory craftMatrix = new CraftingInventory(this, 5,
+	// 5);
+	// private final CraftResultInventory craftResult = new CraftResultInventory();
+	private final World world;
+	private final PlayerEntity player;
+	private ItemStackHandler inv;
 
-   public CraftingAnvilContainer(int id, PlayerInventory playerInventory) {
-      this(id, playerInventory, IWorldPosCallable.DUMMY);
-   }
+	private Slot output;
 
-   public CraftingAnvilContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
-      super(ContainerType.CRAFTING, id);
-      this.worldPosCallable = p_i50090_3_;
-      this.player = playerInventory.player;
-      this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+	public static CraftingAnvilContainer createContainerServerSide(int windowID, PlayerInventory playerInventory, ItemStackHandler inv) {
+		return new CraftingAnvilContainer(windowID, playerInventory, inv);
+	}
 
-      for(int i = 0; i < 3; ++i) {
-         for(int j = 0; j < 3; ++j) {
-            this.addSlot(new Slot(this.craftMatrix, j + i * 3, 30 + j * 18, 17 + i * 18));
-         }
-      }
+	public static CraftingAnvilContainer createContainerClientSide(int windowID, PlayerInventory playerInventory, net.minecraft.network.PacketBuffer extraData) {
 
-      for(int k = 0; k < 3; ++k) {
-         for(int i1 = 0; i1 < 9; ++i1) {
-            this.addSlot(new Slot(playerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
-         }
-      }
+		return new CraftingAnvilContainer(windowID, playerInventory, new ItemStackHandler(26));
+	}
 
-      for(int l = 0; l < 9; ++l) {
-         this.addSlot(new Slot(playerInventory, l, 8 + l * 18, 142));
-      }
+	private CraftingAnvilContainer(int id, PlayerInventory playerInventory, ItemStackHandler inv) {
+		super(CompendiumContainers.CRAFTING_ANVIL_CONTAINER.get(), id);
+		this.player = playerInventory.player;
+		this.world = playerInventory.player.world;
+		this.inv = inv;
+		output = this.addSlot(new SlotItemHandler(this.inv, 25, 143, 44) {
+			@Override
+			public ItemStack onTake(PlayerEntity thePlayer, ItemStack stack) {
+				this.onCrafting(stack);
+				net.minecraftforge.common.ForgeHooks.setCraftingPlayer(thePlayer);
+				NonNullList<ItemStack> nonnulllist = thePlayer.world.getRecipeManager().getRecipeNonNull(IRecipeType.CRAFTING, this.inventory, thePlayer.world);
+				net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
+				for (int i = 0; i < nonnulllist.size(); ++i) {
+					ItemStack itemstack = this.inventory.getStackInSlot(i);
+					ItemStack itemstack1 = nonnulllist.get(i);
+					if (!itemstack.isEmpty()) {
+						this.inventory.decrStackSize(i, 1);
+						itemstack = this.inventory.getStackInSlot(i);
+					}
 
-   }
+					if (!itemstack1.isEmpty()) {
+						if (itemstack.isEmpty()) {
+							this.inventory.setInventorySlotContents(i, itemstack1);
+						} else if (ItemStack.areItemsEqual(itemstack, itemstack1) && ItemStack.areItemStackTagsEqual(itemstack, itemstack1)) {
+							itemstack1.grow(itemstack.getCount());
+							this.inventory.setInventorySlotContents(i, itemstack1);
+						} else if (!thePlayer.inventory.addItemStackToInventory(itemstack1)) {
+							thePlayer.dropItem(itemstack1, false);
+						}
+					}
+				}
 
-   protected static void updateCraftingResult(int id, World world, PlayerEntity player, CraftingInventory inventory, CraftResultInventory inventoryResult) {
-      if (!world.isRemote) {
-         ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)player;
-         ItemStack itemstack = ItemStack.EMPTY;
-         Optional<ICraftingRecipe> optional = world.getServer().getRecipeManager().getRecipe(IRecipeType.CRAFTING, inventory, world);
-         if (optional.isPresent()) {
-            ICraftingRecipe icraftingrecipe = optional.get();
-            if (inventoryResult.canUseRecipe(world, serverplayerentity, icraftingrecipe)) {
-               itemstack = icraftingrecipe.getCraftingResult(inventory);
-            }
-         }
+				return stack;
+			}
 
-         inventoryResult.setInventorySlotContents(0, itemstack);
-         serverplayerentity.connection.sendPacket(new SSetSlotPacket(id, 0, itemstack));
-      }
-   }
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return false;
+			}
+		});
 
-   /**
-    * Callback for when the crafting matrix is changed.
-    */
-   public void onCraftMatrixChanged(IInventory inventoryIn) {
-      this.worldPosCallable.consume((p_217069_1_, p_217069_2_) -> {
-         updateCraftingResult(this.windowId, p_217069_1_, this.player, this.craftMatrix, this.craftResult);
-      });
-   }
+		for (int i = 0; i < 5; ++i) {
+			for (int j = 0; j < 5; ++j) {
+				this.addSlot(new SlotItemHandler(this.inv, j + i * 5, 13 + j * 18, 8 + i * 18) {
 
-   public void fillStackedContents(RecipeItemHelper itemHelperIn) {
-      this.craftMatrix.fillStackedContents(itemHelperIn);
-   }
+					@Override
+					public void onSlotChanged() {
+						super.onSlotChanged();
+						CraftingAnvilContainer.this.onCraftMatrixChanged(new RecipeWrapper(inv));
+					}
+				});
+			}
+		}
 
-   public void clear() {
-      this.craftMatrix.clear();
-      this.craftResult.clear();
-   }
+		for (int k = 0; k < 3; ++k) {
+			for (int i1 = 0; i1 < 9; ++i1) {
+				this.addSlot(new Slot(playerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 111 + k * 18));
+			}
+		}
 
-   public boolean matches(IRecipe<? super CraftingInventory> recipeIn) {
-      return recipeIn.matches(this.craftMatrix, this.player.world);
-   }
+		for (int l = 0; l < 9; ++l) {
+			this.addSlot(new Slot(playerInventory, l, 8 + l * 18, 169));
+		}
 
-   /**
-    * Called when the container is closed.
-    */
-   public void onContainerClosed(PlayerEntity playerIn) {
-      super.onContainerClosed(playerIn);
-      this.worldPosCallable.consume((p_217068_2_, p_217068_3_) -> {
-         this.clearContainer(playerIn, p_217068_2_, this.craftMatrix);
-      });
-   }
+	}
 
-   /**
-    * Determines whether supplied player can use this container
-    */
-   public boolean canInteractWith(PlayerEntity playerIn) {
-      return isWithinUsableDistance(this.worldPosCallable, playerIn, Blocks.CRAFTING_TABLE);
-   }
+//	protected static void updateCraftingResult(int id, World world, PlayerEntity player, ItemStackHandler inventory, CraftResultInventory inventoryResult) {
+//		if (!world.isRemote) {
+//			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
+//			ItemStack itemstack = ItemStack.EMPTY;
+//			Optional<ICraftingRecipe> optional = world.getServer().getRecipeManager().getRecipe(IRecipeType.CRAFTING, new RecipeWrapper(inventory), world);
+//			if (optional.isPresent()) {
+//				ICraftingRecipe icraftingrecipe = optional.get();
+//				if (inventoryResult.canUseRecipe(world, serverplayerentity, icraftingrecipe)) {
+//					itemstack = icraftingrecipe.getCraftingResult(inventory);
+//				}
+//			}
+//
+//			inventoryResult.setInventorySlotContents(0, itemstack);
+//			serverplayerentity.connection.sendPacket(new SSetSlotPacket(id, 0, itemstack));
+//		}
+//	}
 
-   /**
-    * Handle when the stack in slot {@code index} is shift-clicked. Normally this moves the stack between the player
-    * inventory and the other inventory(s).
-    */
-   public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
-      ItemStack itemstack = ItemStack.EMPTY;
-      Slot slot = this.inventorySlots.get(index);
-      if (slot != null && slot.getHasStack()) {
-         ItemStack itemstack1 = slot.getStack();
-         itemstack = itemstack1.copy();
-         if (index == 0) {
-            this.worldPosCallable.consume((p_217067_2_, p_217067_3_) -> {
-               itemstack1.getItem().onCreated(itemstack1, p_217067_2_, playerIn);
-            });
-            if (!this.mergeItemStack(itemstack1, 10, 46, true)) {
-               return ItemStack.EMPTY;
-            }
+	@Override
+	public boolean canInteractWith(PlayerEntity playerIn) {
+		return true;
+	}
 
-            slot.onSlotChange(itemstack1, itemstack);
-         } else if (index >= 10 && index < 46) {
-            if (!this.mergeItemStack(itemstack1, 1, 10, false)) {
-               if (index < 37) {
-                  if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
-                     return ItemStack.EMPTY;
-                  }
-               } else if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
-                  return ItemStack.EMPTY;
-               }
-            }
-         } else if (!this.mergeItemStack(itemstack1, 10, 46, false)) {
-            return ItemStack.EMPTY;
-         }
+	/**
+	 * Callback for when the crafting matrix is changed.
+	 */
+	@Override
+	public void onCraftMatrixChanged(IInventory inventoryIn) {
+		Optional<CraftingAnvilRecipe> recipe = this.world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, (RecipeWrapper) inventoryIn, this.world);
+		if (recipe.isPresent()) {
+			ItemStack result = recipe.get().getCraftingResult((RecipeWrapper) inventoryIn);
+			this.output.putStack(result);
+		} else {
+			this.output.putStack(ItemStack.EMPTY);
+		}
 
-         if (itemstack1.isEmpty()) {
-            slot.putStack(ItemStack.EMPTY);
-         } else {
-            slot.onSlotChanged();
-         }
+		Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager().getRecipesForType(WorkstationRecipes.CRAFTING_ANVIL_RECIPE);
+		CraftingAnvilRecipe r2 = matchRecipe((RecipeWrapper) inventoryIn);
+		super.onCraftMatrixChanged(inventoryIn);
+	}
 
-         if (itemstack1.getCount() == itemstack.getCount()) {
-            return ItemStack.EMPTY;
-         }
+	private CraftingAnvilRecipe matchRecipe(RecipeWrapper inventoryIn) {
+		if (world != null) {
+			return world.getRecipeManager().getRecipes().stream().filter(recipe -> recipe instanceof CraftingAnvilRecipe).map(recipe -> (CraftingAnvilRecipe) recipe).filter(recipe -> recipe.matches(inventoryIn, this.world)).findFirst().orElse(null);
+		}
+		return null;
+	}
 
-         ItemStack itemstack2 = slot.onTake(playerIn, itemstack1);
-         if (index == 0) {
-            playerIn.dropItem(itemstack2, false);
-         }
-      }
+//	public void fillStackedContents(RecipeItemHelper itemHelperIn) {
+//		this.craftMatrix.fillStackedContents(itemHelperIn);
+//	}
+//
+//	public boolean matches(IRecipe<? super CraftingInventory> recipeIn) {
+//		return recipeIn.matches(this.craftMatrix, this.player.world);
+//	}
 
-      return itemstack;
-   }
+//	/**
+//	 * Called when the container is closed.
+//	 */
+//	public void onContainerClosed(PlayerEntity playerIn) {
+//		super.onContainerClosed(playerIn);
+//	}
+//
+//	/**
+//	 * Determines whether supplied player can use this container
+//	 */
+//	public boolean canInteractWith(PlayerEntity playerIn) {
+//		return true;
+//	}
+//
+	/**
+	 * Handle when the stack in slot {@code index} is shift-clicked. Normally this
+	 * moves the stack between the player inventory and the other inventory(s).
+	 */
+	@Override
+	public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+		ItemStack itemstack = ItemStack.EMPTY;
+		Slot slot = this.inventorySlots.get(index);
+		if (slot != null && slot.getHasStack()) {
+			ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
+			if (index == 0) {
+				if (!this.mergeItemStack(itemstack1, 10, 46, true)) {
+					return ItemStack.EMPTY;
+				}
 
-   /**
-    * Called to determine if the current slot is valid for the stack merging (double-click) code. The stack passed in is
-    * null for the initial slot that was double-clicked.
-    */
-   public boolean canMergeSlot(ItemStack stack, Slot slotIn) {
-      return slotIn.inventory != this.craftResult && super.canMergeSlot(stack, slotIn);
-   }
+				slot.onSlotChange(itemstack1, itemstack);
+			} else if (index >= 10 && index < 46) {
+				if (!this.mergeItemStack(itemstack1, 1, 10, false)) {
+					if (index < 37) {
+						if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
+							return ItemStack.EMPTY;
+						}
+					} else if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
+						return ItemStack.EMPTY;
+					}
+				}
+			} else if (!this.mergeItemStack(itemstack1, 10, 46, false)) {
+				return ItemStack.EMPTY;
+			}
 
-   public int getOutputSlot() {
-      return 0;
-   }
+			if (itemstack1.isEmpty()) {
+				slot.putStack(ItemStack.EMPTY);
+			} else {
+				slot.onSlotChanged();
+			}
 
-   public int getWidth() {
-      return this.craftMatrix.getWidth();
-   }
+			if (itemstack1.getCount() == itemstack.getCount()) {
+				return ItemStack.EMPTY;
+			}
 
-   public int getHeight() {
-      return this.craftMatrix.getHeight();
-   }
+			ItemStack itemstack2 = slot.onTake(playerIn, itemstack1);
+			if (index == 0) {
+				playerIn.dropItem(itemstack2, false);
+			}
+		}
 
-   @OnlyIn(Dist.CLIENT)
-   public int getSize() {
-      return 10;
-   }
+		return itemstack;
+	}
 
-   @OnlyIn(Dist.CLIENT)
-   public RecipeBookCategory func_241850_m() {
-      return RecipeBookCategory.CRAFTING;
-   }
+////	/**
+////	 * Called to determine if the current slot is valid for the stack merging
+////	 * (double-click) code. The stack passed in is null for the initial slot that
+////	 * was double-clicked.
+////	 */
+////	public boolean canMergeSlot(ItemStack stack, Slot slotIn) {
+////		return slotIn.inventory != this.craftResult && super.canMergeSlot(stack, slotIn);
+////	}
+//
+//	public int getOutputSlot() {
+//		return 0;
+//	}
+//
+//	public int getWidth() {
+//		return 5;
+//	}
+//
+//	public int getHeight() {
+//		return 5;
+//	}
+//
+//	@OnlyIn(Dist.CLIENT)
+//	public int getSize() {
+//		return 10;
+//	}
 }

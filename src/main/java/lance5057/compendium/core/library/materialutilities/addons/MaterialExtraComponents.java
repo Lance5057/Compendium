@@ -1,6 +1,6 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.TCItems;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.blocks.BlockClimbable;
 import lance5057.compendium.core.blocks.BlockShingles;
 import lance5057.compendium.core.blocks.ComponentBarDoor;
@@ -133,56 +133,56 @@ public class MaterialExtraComponents implements MaterialBase {
 		DIAMONDBARSFLIP = mh.BLOCKS.register(mh.name + "diamondbarsflip", () -> new ComponentPane(Block.Properties.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL)));
 
 
-		ITEM_STAKE = mh.ITEMS.register(mh.name + "itemstake", () -> new BlockItem(STAKE.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SHINGLES_BLOCK = mh.ITEMS.register(mh.name + "itemshinglesblock", () -> new BlockItem(SHINGLES_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SHINGLES = mh.ITEMS.register(mh.name + "itemshingles", () -> new BlockItem(SHINGLES.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SHINGLES_ALT = mh.ITEMS.register(mh.name + "itemshinglesalt", () -> new BlockItem(SHINGLES_ALT.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SHEET = mh.ITEMS.register(mh.name + "itemsheet", () -> new BlockItem(SHEET.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SHEET_BLOCK = mh.ITEMS.register(mh.name + "itemsheetblock", () -> new BlockItem(SHEET_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_BIGCHAIN = mh.ITEMS.register(mh.name + "itembigchain", () -> new BlockItem(BIGCHAIN.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_TOP_BARS = mh.ITEMS.register(mh.name + "itemtopbars", () -> new BlockItem(TOP_BARS.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_CHAINLINK_BARS = mh.ITEMS.register(mh.name + "itemchainlink", () -> new BlockItem(CHAINLINK_BARS.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_CHAINLINK_BLOCK = mh.ITEMS.register(mh.name + "itemchainlinkblock", () -> new BlockItem(CHAINLINK_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_BRAZIER = mh.ITEMS.register(mh.name + "itembrazier", () -> new BlockItem(BRAZIER.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SOUL_BRAZIER = mh.ITEMS.register(mh.name + "itemsoulbrazier", () -> new BlockItem(SOUL_BRAZIER.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_WALL = mh.ITEMS.register(mh.name + "itemwall", () -> new BlockItem(WALL.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_TRIMMED_WINDOW = mh.ITEMS.register(mh.name + "itemwindowpane", () -> new BlockItem(TRIMMED_WINDOW.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_TRIMMED_WINDOW_BLOCK = mh.ITEMS.register(mh.name + "itemwindow", () -> new BlockItem(TRIMMED_WINDOW_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_LADDER = mh.ITEMS.register(mh.name + "itemladder", () -> new BlockItem(LADDER.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_SMALL_TILE = mh.ITEMS.register(mh.name + "itemsmalltile", () -> new BlockItem(SMALL_TILE.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_BAR_DOOR = mh.ITEMS.register(mh.name + "itembardoor", () -> new BlockItem(BAR_DOOR.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_DUNGEON_TILE = mh.ITEMS.register(mh.name + "itemdungeontile", () -> new BlockItem(DUNGEON_TILE.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_ENCASED_GLOWSTONE = mh.ITEMS.register(mh.name + "itemencasedglowstone", () -> new BlockItem(ENCASED_GLOWSTONE.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_DIAMONDBARS = mh.ITEMS.register(mh.name + "itemdiamondbars", () -> new BlockItem(DIAMONDBARS.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_DIAMONDBARSTOP = mh.ITEMS.register(mh.name + "itemdiamondbarstop", () -> new BlockItem(DIAMONDBARSTOP.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		ITEM_DIAMONDBARSFLIP = mh.ITEMS.register(mh.name + "itemdiamondbarsflip", () -> new BlockItem(DIAMONDBARSFLIP.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		ITEM_STAKE = mh.ITEMS.register(mh.name + "itemstake", () -> new BlockItem(STAKE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SHINGLES_BLOCK = mh.ITEMS.register(mh.name + "itemshinglesblock", () -> new BlockItem(SHINGLES_BLOCK.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SHINGLES = mh.ITEMS.register(mh.name + "itemshingles", () -> new BlockItem(SHINGLES.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SHINGLES_ALT = mh.ITEMS.register(mh.name + "itemshinglesalt", () -> new BlockItem(SHINGLES_ALT.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SHEET = mh.ITEMS.register(mh.name + "itemsheet", () -> new BlockItem(SHEET.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SHEET_BLOCK = mh.ITEMS.register(mh.name + "itemsheetblock", () -> new BlockItem(SHEET_BLOCK.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_BIGCHAIN = mh.ITEMS.register(mh.name + "itembigchain", () -> new BlockItem(BIGCHAIN.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_TOP_BARS = mh.ITEMS.register(mh.name + "itemtopbars", () -> new BlockItem(TOP_BARS.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_CHAINLINK_BARS = mh.ITEMS.register(mh.name + "itemchainlink", () -> new BlockItem(CHAINLINK_BARS.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_CHAINLINK_BLOCK = mh.ITEMS.register(mh.name + "itemchainlinkblock", () -> new BlockItem(CHAINLINK_BLOCK.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_BRAZIER = mh.ITEMS.register(mh.name + "itembrazier", () -> new BlockItem(BRAZIER.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SOUL_BRAZIER = mh.ITEMS.register(mh.name + "itemsoulbrazier", () -> new BlockItem(SOUL_BRAZIER.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_WALL = mh.ITEMS.register(mh.name + "itemwall", () -> new BlockItem(WALL.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_TRIMMED_WINDOW = mh.ITEMS.register(mh.name + "itemwindowpane", () -> new BlockItem(TRIMMED_WINDOW.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_TRIMMED_WINDOW_BLOCK = mh.ITEMS.register(mh.name + "itemwindow", () -> new BlockItem(TRIMMED_WINDOW_BLOCK.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_LADDER = mh.ITEMS.register(mh.name + "itemladder", () -> new BlockItem(LADDER.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_SMALL_TILE = mh.ITEMS.register(mh.name + "itemsmalltile", () -> new BlockItem(SMALL_TILE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_BAR_DOOR = mh.ITEMS.register(mh.name + "itembardoor", () -> new BlockItem(BAR_DOOR.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_DUNGEON_TILE = mh.ITEMS.register(mh.name + "itemdungeontile", () -> new BlockItem(DUNGEON_TILE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_ENCASED_GLOWSTONE = mh.ITEMS.register(mh.name + "itemencasedglowstone", () -> new BlockItem(ENCASED_GLOWSTONE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_DIAMONDBARS = mh.ITEMS.register(mh.name + "itemdiamondbars", () -> new BlockItem(DIAMONDBARS.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_DIAMONDBARSTOP = mh.ITEMS.register(mh.name + "itemdiamondbarstop", () -> new BlockItem(DIAMONDBARSTOP.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		ITEM_DIAMONDBARSFLIP = mh.ITEMS.register(mh.name + "itemdiamondbarsflip", () -> new BlockItem(DIAMONDBARSFLIP.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		DUST = mh.ITEMS.register(mh.name + "dust", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		// SHARDS = mh.ITEMS.register(mh.name + "shards", () -> new Item(new
 		// Item.Properties().group(TCItems.TCITEMS)));;
-		PLATE = mh.ITEMS.register(mh.name + "plate", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		PLATE = mh.ITEMS.register(mh.name + "plate", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		COIN = mh.ITEMS.register(mh.name + "coin", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		COIN = mh.ITEMS.register(mh.name + "coin", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		GEAR = mh.ITEMS.register(mh.name + "gear", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		GEAR = mh.ITEMS.register(mh.name + "gear", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		ROD = mh.ITEMS.register(mh.name + "rod", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		ROD = mh.ITEMS.register(mh.name + "rod", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		COIL = mh.ITEMS.register(mh.name + "coil", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		COIL = mh.ITEMS.register(mh.name + "coil", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		SPRING = mh.ITEMS.register(mh.name + "spring", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		SPRING = mh.ITEMS.register(mh.name + "spring", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		CASING = mh.ITEMS.register(mh.name + "casing", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		CASING = mh.ITEMS.register(mh.name + "casing", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		WIRE = mh.ITEMS.register(mh.name + "wire", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		WIRE = mh.ITEMS.register(mh.name + "wire", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-		CLASP = mh.ITEMS.register(mh.name + "clasp", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		RINGSHANK = mh.ITEMS.register(mh.name + "ringshank", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		RIVETS = mh.ITEMS.register(mh.name + "rivets", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		SETTING = mh.ITEMS.register(mh.name + "setting", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		JUMPRINGS = mh.ITEMS.register(mh.name + "jumprings", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		FILIGREE = mh.ITEMS.register(mh.name + "filigree", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
-		FOIL = mh.ITEMS.register(mh.name + "foil", () -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+		CLASP = mh.ITEMS.register(mh.name + "clasp", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		RINGSHANK = mh.ITEMS.register(mh.name + "ringshank", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		RIVETS = mh.ITEMS.register(mh.name + "rivets", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		SETTING = mh.ITEMS.register(mh.name + "setting", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		JUMPRINGS = mh.ITEMS.register(mh.name + "jumprings", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		FILIGREE = mh.ITEMS.register(mh.name + "filigree", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		FOIL = mh.ITEMS.register(mh.name + "foil", () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	}
 
 	@Override

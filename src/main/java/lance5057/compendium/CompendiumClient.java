@@ -8,7 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class TCClient {
+public class CompendiumClient {
 	public static void setRenderLayers() {
 		for(MaterialHelper mh : CompendiumMaterials.materials)
 		{
@@ -16,6 +16,7 @@ public class TCClient {
 		}
 		
 		RenderType cutout = RenderType.getCutout();
-		RenderTypeLookup.setRenderLayer(TCBlocks.HAMMERING_STATION.get(), cutout);
+		RenderTypeLookup.setRenderLayer(CompendiumBlocks.HAMMERING_STATION.get(), cutout);
+		RenderTypeLookup.setRenderLayer(CompendiumBlocks.CRAFTING_ANVIL.get(), RenderType.getTranslucent());
 	}
 }

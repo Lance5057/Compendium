@@ -40,8 +40,7 @@ import net.minecraftforge.fml.LogicalSide;
 
 public class CompendiumWorldGen {
 
-	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(
-			OreFeatureConfig.field_236566_a_);
+	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(OreFeatureConfig.field_236566_a_);
 
 	@SubscribeEvent
 	public static void biomeModification(final BiomeLoadingEvent event) {
@@ -52,13 +51,8 @@ public class CompendiumWorldGen {
 			if (ore != null)
 				if (event.getCategory() == ore.category || ore.category == null) {
 
-					generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-							Feature.ORE
-									.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
-											ore.ORE.get().getDefaultState(), ore.oreSize))
-									.withPlacement(Placement.field_242907_l
-											.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax)))
-									.func_242728_a().func_242731_b(ore.oreChance));
+					generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax))).func_242728_a().func_242731_b(ore.oreChance));
+
 				}
 		}
 
@@ -71,13 +65,8 @@ public class CompendiumWorldGen {
 			MaterialOre ore = mh.getOre();
 			if (ore != null)
 				if (biome.getCategory() == ore.category || ore.category == null) {
-					ConfiguredFeature<?, ?> retroFeature = ORE_RETROGEN
-							.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
-									ore.ORE.get().getDefaultState(), ore.oreSize))
-							.withPlacement(Placement.field_242907_l
-									.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax)));
-					retroFeature.func_242765_a(world, world.getChunkProvider().getChunkGenerator(), random,
-							new BlockPos(16 * chunkX, 0, 16 * chunkZ));
+					ConfiguredFeature<?, ?> retroFeature = ORE_RETROGEN.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax)));
+					retroFeature.func_242765_a(world, world.getChunkProvider().getChunkGenerator(), random, new BlockPos(16 * chunkX, 0, 16 * chunkZ));
 				}
 		}
 	}
@@ -88,8 +77,7 @@ public class CompendiumWorldGen {
 
 	@SubscribeEvent
 	public void serverWorldTick(TickEvent.WorldTickEvent event) {
-		if (event.side == LogicalSide.CLIENT || event.phase == TickEvent.Phase.START
-				|| !(event.world instanceof ServerWorld))
+		if (event.side == LogicalSide.CLIENT || event.phase == TickEvent.Phase.START || !(event.world instanceof ServerWorld))
 			return;
 		RegistryKey<World> dimension = event.world.getDimensionKey();
 		int counter = 0;
@@ -125,11 +113,9 @@ public class CompendiumWorldGen {
 	public void chunkDataLoad(ChunkDataEvent.Load event) {
 		IWorld world = event.getWorld();
 		if (event.getChunk().getStatus() == ChunkStatus.FULL && world instanceof World) {
-			boolean b = event.getData().getCompound("Level").getCompound("Compendium")
-					.contains(CompendiumConfig.getInstance().worldgen.retroGenName.get());
+			boolean b = event.getData().getCompound("Level").getCompound("Compendium").contains(CompendiumConfig.getInstance().worldgen.retroGenName.get());
 			if (!b && CompendiumConfig.getInstance().worldgen.enableRetroGen.get()) {
-				TinkersCompendium.logger.log(Level.INFO, "Chunk " + event.getChunk().getPos().toString()
-						+ " has been flagged for ore retrogen by Compendium.");
+				Compendium.logger.log(Level.INFO, "Chunk " + event.getChunk().getPos().toString() + " has been flagged for ore retrogen by Compendium.");
 
 				RegistryKey<World> dimension = ((World) world).getDimensionKey();
 				synchronized (retrogenChunks) {
@@ -145,7 +131,6 @@ public class CompendiumWorldGen {
 		CompoundNBT nbt = new CompoundNBT();
 		levelTag.put("Compendium", nbt);
 		nbt.putBoolean(CompendiumConfig.getInstance().worldgen.retroGenName.get(), true);
-		TinkersCompendium.logger.log(Level.INFO,
-				"Chunk " + event.getChunk().getPos().toString() + " has generated ore by Compendium.");
+
 	}
 }

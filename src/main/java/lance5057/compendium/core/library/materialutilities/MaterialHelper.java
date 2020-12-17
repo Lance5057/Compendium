@@ -1,7 +1,7 @@
 package lance5057.compendium.core.library.materialutilities;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.TCItemTier;
+import lance5057.compendium.core.library.CompendiumItemTier;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
@@ -21,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class MaterialHelper {
 	public String name;
 	public String parentMod;
-	public TCItemTier tier;
+	public CompendiumItemTier tier;
 
 	public final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 	public final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
@@ -42,11 +42,11 @@ public class MaterialHelper {
 		this(name, Reference.MOD_ID, null);
 	}
 
-	public MaterialHelper(String name, TCItemTier tier) {
+	public MaterialHelper(String name, CompendiumItemTier tier) {
 		this(name, Reference.MOD_ID, tier);
 	}
 
-	public MaterialHelper(String name, String parentMod, TCItemTier tier) {
+	public MaterialHelper(String name, String parentMod, CompendiumItemTier tier) {
 		this.name = name;
 		this.parentMod = parentMod;
 		this.tier = tier;

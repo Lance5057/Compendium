@@ -1,6 +1,6 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.TCItems;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
@@ -32,14 +32,14 @@ public class CraftableMaterial implements MaterialBase {
 	public CraftableMaterial(MaterialHelper mh) {
 
 		GEM = mh.ITEMS.register(mh.name + "gem",
-				() -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 		NUGGET = mh.ITEMS.register(mh.name + "nugget",
-				() -> new Item(new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
 		STORAGE_BLOCK = mh.BLOCKS.register(mh.name + "block", () -> new Block(Block.Properties
 				.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
 		STORAGE_ITEMBLOCK = mh.ITEMS.register(mh.name + "itemblock",
-				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new BlockNamedItem(STORAGE_BLOCK.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
 //		MATERIAL_GEM = ItemTags.getCollection().getOrCreate(new ResourceLocation(Reference.MOD_ID, "gems/" + mh.name));
 //		MATERIAL_NUGGET = ItemTags.getCollection()

@@ -1,7 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.TCBlocks;
+import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
@@ -38,7 +38,9 @@ public class TCBlockModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		this.simpleBlock(TCBlocks.HAMMERING_STATION.get(), models().getExistingFile(modLoc("block/hammeringtable")));
+		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(), models().getExistingFile(modLoc("block/workstations/hammeringtable")));
+		this.simpleBlock(CompendiumBlocks.SAWHORSE_STATION.get(), models().getExistingFile(modLoc("block/workstations/sawhorse")));
+		this.simpleBlock(CompendiumBlocks.CRAFTING_ANVIL.get(), models().getExistingFile(modLoc("block/workstations/anvil")));
 
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
 

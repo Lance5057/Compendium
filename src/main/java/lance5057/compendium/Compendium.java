@@ -19,32 +19,35 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod(Reference.MOD_ID)
-public class TinkersCompendium {
+public class Compendium {
 	public static Logger logger = LogManager.getLogger();
 
-	public static TCItems items;
-	public static TCBlocks blocks;
+	public static CompendiumItems items;
+	public static CompendiumBlocks blocks;
 	public static CompendiumMaterials mats;
 	public static CompendiumWorldGen worldgen;
 
-	public TinkersCompendium() {
+	public Compendium() {
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::modSetup);
-		modEventBus.addListener(this::setRenderLayers);
+		modEventBus.addListener(this::setupClient);
 		
 		ModLoadingContext modLoadingContext = ModLoadingContext.get();
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.initialize());
         CompendiumConfig.loadConfig(CompendiumConfig.getInstance().getSpec(), FMLPaths.CONFIGDIR.get().resolve("compendium-common.toml"));
 
-		blocks = new TCBlocks();
-		items = new TCItems();
+		blocks = new CompendiumBlocks();
+		items = new CompendiumItems();
 		mats = new CompendiumMaterials();
 		worldgen = new CompendiumWorldGen();
 		
-		TCItems.register(modEventBus);
-		TCBlocks.register(modEventBus);
-		TCTileEntities.register(modEventBus);
+		CompendiumItems.register(modEventBus);
+		CompendiumBlocks.register(modEventBus);
+		CompendiumTileEntities.register(modEventBus);
+		CompendiumContainers.register(modEventBus);
+		
 		WorkstationRecipes.register(modEventBus);
+		
 		MinecraftForge.EVENT_BUS.register(worldgen);
 	}
 
@@ -52,9 +55,11 @@ public class TinkersCompendium {
 		mats.setup(event);
 	}
 
-	public void setRenderLayers(FMLClientSetupEvent event) {
-		TCClient.setRenderLayers();
+	public void setupClient(FMLClientSetupEvent event) {
+		CompendiumClient.setRenderLayers();
 		
-		ClientRegistry.bindTileEntityRenderer(TCTileEntities.HAMMERING_STATION_TE.get(), HammeringStationRenderer::new);
+		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(), HammeringStationRenderer::new);
+		
+		CompendiumContainers.registerClient(event);
 	}
 }

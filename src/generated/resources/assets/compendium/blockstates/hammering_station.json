@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/hammeringtable"
+      "model": "compendium:block/workstations/hammeringtable"
     }
   }
 }

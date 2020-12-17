@@ -1,6 +1,6 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
-import lance5057.compendium.TCItems;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.items.HammerItem;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
@@ -21,7 +21,7 @@ public class MaterialExtraTools implements MaterialBase {
 	
 	public MaterialExtraTools(MaterialHelper mh) {
 		HAMMER = mh.ITEMS.register(mh.name + "hammer",
-				() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(TCItems.GROUP_MATERIALS)));
+				() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	}
 	
 	@Override

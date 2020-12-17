@@ -6,7 +6,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 
-public class TCItemTier implements IItemTier {
+public class CompendiumItemTier implements IItemTier {
 
 	private final int harvestLevel;
 	private final int maxUses;
@@ -15,7 +15,7 @@ public class TCItemTier implements IItemTier {
 	private final int enchantability;
 	private final LazyValue<Ingredient> repairMaterial;
 
-	public TCItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
+	public CompendiumItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
 		this.harvestLevel = harvestLevelIn;
 		this.maxUses = maxUsesIn;
 		this.efficiency = efficiencyIn;

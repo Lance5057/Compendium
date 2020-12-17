@@ -1,13 +1,20 @@
 package lance5057.compendium.core.workstations.tileentities;
 
+import java.util.Optional;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.TCTileEntities;
+import lance5057.compendium.CompendiumTileEntities;
+import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -19,19 +26,34 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class CraftingAnvilTE extends TileEntity {
-	private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
+public class CraftingAnvilTE extends TileEntity implements INamedContainerProvider {
+	private final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createHandler);
 	private ItemStack lastStack = ItemStack.EMPTY;
 	private int progress = 0;
 
 	public CraftingAnvilTE() {
-		super(TCTileEntities.HAMMERING_STATION_TE.get());
+		super(CompendiumTileEntities.CRAFTING_ANVIL_TE.get());
+	}
+
+	@Nullable
+	@Override
+	public Container createMenu(int windowID, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+
+		CraftingAnvilContainer c =  handler.map(i -> {
+			return CraftingAnvilContainer.createContainerServerSide(windowID, playerInventory, (ItemStackHandler)i);
+		}).get();
+		
+		return c;
 	}
 
 	@Nonnull
@@ -44,18 +66,19 @@ public class CraftingAnvilTE extends TileEntity {
 		return super.getCapability(cap, side);
 	}
 
-	private CraftingAnvilRecipe matchRecipe(ItemStack stackInSlot) {
+	private Optional<CraftingAnvilRecipe> matchRecipe() {
+
 		if (world != null) {
-			return world.getRecipeManager().getRecipes().stream()
-					.filter(recipe -> recipe instanceof CraftingAnvilRecipe)
-					.map(recipe -> (CraftingAnvilRecipe) recipe).filter(recipe -> recipe.matches(stackInSlot))
-					.findFirst().orElse(null);
+			Optional<CraftingAnvilRecipe> recipe = handler.map(i -> {
+				return world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, new RecipeWrapper(i), world);
+			}).get();
+			return recipe;
 		}
 		return null;
 	}
 
-	private IItemHandler createHandler() {
-		return new ItemStackHandler(1) {
+	private IItemHandlerModifiable createHandler() {
+		return new ItemStackHandler(26) {
 			@Override
 			protected int getStackLimit(int slot, @Nonnull ItemStack stack) {
 				return stack.getMaxStackSize();
@@ -66,56 +89,56 @@ public class CraftingAnvilTE extends TileEntity {
 				updateInventory();
 			}
 
-			@Override
-			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				CraftingAnvilRecipe r = matchRecipe(stack);
-				return r != null && super.isItemValid(slot, stack);
-			}
+//			@Override
+//			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+//				//Optional<CraftingAnvilRecipe> r = matchRecipe();
+//				return r.isPresent() && super.isItemValid(slot, stack);
+//			}
 		};
 	}
 
-	public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
-		handler.ifPresent(inventory -> {
-			ItemStack held = playerEntity.getHeldItem(hand);
-			if (!held.isEmpty()) {
-				insertItem(inventory, held);
-			} else {
-				extractItem(playerEntity, inventory);
-			}
-		});
-		updateInventory();
-	}
-
-	public void extractItem(PlayerEntity playerEntity, IItemHandler inventory) {
-		if (!inventory.getStackInSlot(0).isEmpty()) {
-			ItemStack itemStack = inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false);
-			playerEntity.addItemStackToInventory(itemStack);
-		}
-		updateInventory();
-	}
-
-	public void insertItem(IItemHandler inventory, ItemStack heldItem) {
-		if (inventory.isItemValid(0, heldItem))
-			if (!inventory.insertItem(0, heldItem, true).isItemEqual(heldItem)) {
-				final int leftover = inventory.insertItem(0, heldItem.copy(), false).getCount();
-				heldItem.setCount(leftover);
-			}
-		updateInventory();
-	}
-
-	// External extract handler
-	public void extractItem(PlayerEntity playerEntity) {
-		handler.ifPresent(inventory -> {
-			this.extractItem(playerEntity, inventory);
-		});
-	}
-
-	// External insert handler
-	public void insertItem(ItemStack heldItem) {
-		handler.ifPresent(inventory -> {
-			this.insertItem(inventory, heldItem);
-		});
-	}
+//	public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
+//		handler.ifPresent(inventory -> {
+//			ItemStack held = playerEntity.getHeldItem(hand);
+//			if (!held.isEmpty()) {
+//				insertItem(inventory, held);
+//			} else {
+//				extractItem(playerEntity, inventory);
+//			}
+//		});
+//		updateInventory();
+//	}
+//
+//	public void extractItem(PlayerEntity playerEntity, IItemHandler inventory) {
+//		if (!inventory.getStackInSlot(0).isEmpty()) {
+//			ItemStack itemStack = inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false);
+//			playerEntity.addItemStackToInventory(itemStack);
+//		}
+//		updateInventory();
+//	}
+//
+//	public void insertItem(IItemHandler inventory, ItemStack heldItem) {
+//		if (inventory.isItemValid(0, heldItem))
+//			if (!inventory.insertItem(0, heldItem, true).isItemEqual(heldItem)) {
+//				final int leftover = inventory.insertItem(0, heldItem.copy(), false).getCount();
+//				heldItem.setCount(leftover);
+//			}
+//		updateInventory();
+//	}
+//
+//	// External extract handler
+//	public void extractItem(PlayerEntity playerEntity) {
+//		handler.ifPresent(inventory -> {
+//			this.extractItem(playerEntity, inventory);
+//		});
+//	}
+//
+//	// External insert handler
+//	public void insertItem(ItemStack heldItem) {
+//		handler.ifPresent(inventory -> {
+//			this.insertItem(inventory, heldItem);
+//		});
+//	}
 
 	public void updateInventory() {
 		requestModelDataUpdate();
@@ -126,63 +149,58 @@ public class CraftingAnvilTE extends TileEntity {
 	}
 
 	public void hammer(PlayerEntity playerEntity, ItemStack hammer) {
-		handler.ifPresent(inventory -> {
-			if (lastStack != inventory.getStackInSlot(0)) {
-				progress = 0;
-				lastStack = inventory.getStackInSlot(0);
-			} else if (lastStack != ItemStack.EMPTY && lastStack.getItem() != Items.AIR) {
-				this.progress++;
-				hammer.damageItem(1, playerEntity, null);
-				world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f,
-						pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2,
-						(world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-				world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS,
-						world.rand.nextFloat() + 0.5f, 0);
-			}
-			CraftingAnvilRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
-			if (recipe != null) {
-				if (this.progress >= recipe.getStrikes()) {
+//		handler.ifPresent(inventory -> {
+//			if (lastStack != inventory.getStackInSlot(0)) {
+//				progress = 0;
+//				lastStack = inventory.getStackInSlot(0);
+//			} else if (lastStack != ItemStack.EMPTY && lastStack.getItem() != Items.AIR) {
+//				this.progress++;
+//				hammer.damageItem(1, playerEntity, null);
+//				world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
+//				world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS, world.rand.nextFloat() + 0.5f, 0);
+//			}
+//			Optional<CraftingAnvilRecipe> recipe = matchRecipe();
+//			recipe.ifPresent(r -> {
+//				if (this.progress >= r.getStrikes()) {
+//
+//					for (int i = 0; i < 5; i++) {
+//						world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
+//					}
+//					world.playSound(playerEntity, pos, SoundEvents.BLOCK_BASALT_BREAK, SoundCategory.BLOCKS, 1, 0);
+//
+//					progress = 0;
+//
+//					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
+//					ItemStack item = r.getRecipeOutput().copy();
+//					if (te != null) {
+//						LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
+//
+//						item = ih.map(h -> dropItemBelow(h, r.getRecipeOutput().copy())).get();
+//					}
+//
+//					InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), item);
+//					// this.lastStack.shrink(1);
+//					inventory.getStackInSlot(0).shrink(1);
+//
+//				}
+//			});
+//
+//		});
+//		this.updateInventory();
 
-					for (int i = 0; i < 5; i++) {
-						world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f,
-								pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2,
-								(world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-					}
-					world.playSound(playerEntity, pos, SoundEvents.BLOCK_BASALT_BREAK, SoundCategory.BLOCKS,
-							1, 0);
-
-					progress = 0;
-
-					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
-					ItemStack item = recipe.getRecipeOutput().copy();
-					if (te != null) {
-						LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
-								Direction.UP);
-
-						item = ih.map(h -> dropItemBelow(h, recipe.getRecipeOutput().copy())).get();
-					}
-
-					InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), item);
-					// this.lastStack.shrink(1);
-					inventory.getStackInSlot(0).shrink(1);
-
-				}
-			}
-		});
-		this.updateInventory();
 	}
-
-	ItemStack dropItemBelow(IItemHandler handler, ItemStack insert) {
-		for (int i = 0; i < handler.getSlots(); i++) {
-			insert = handler.insertItem(i, insert, false);
-
-			if (insert.isEmpty()) {
-				return ItemStack.EMPTY;
-			}
-		}
-
-		return insert;
-	}
+//
+//	ItemStack dropItemBelow(IItemHandler handler, ItemStack insert) {
+//		for (int i = 0; i < handler.getSlots(); i++) {
+//			insert = handler.insertItem(i, insert, false);
+//
+//			if (insert.isEmpty()) {
+//				return ItemStack.EMPTY;
+//			}
+//		}
+//
+//		return insert;
+//	}
 
 	@Nullable
 	@Override
@@ -199,8 +217,7 @@ public class CraftingAnvilTE extends TileEntity {
 	@Nonnull
 	public CompoundNBT getUpdateTag() {
 		CompoundNBT updateTag = new CompoundNBT();
-		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-				.orElseGet(this::createHandler);
+		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
 		CompoundNBT itemSlot = new CompoundNBT();
 		itemHandler.getStackInSlot(0).write(itemSlot);
 		updateTag.put("item", itemSlot);
@@ -237,5 +254,13 @@ public class CraftingAnvilTE extends TileEntity {
 			}
 		});
 		return nbt;
+	}
+
+	private static final ITextComponent CONTAINER_NAME = new TranslationTextComponent("compendium.workstations.crafting_anvil");
+	
+	@Override
+	public ITextComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return CONTAINER_NAME;
 	}
 }
