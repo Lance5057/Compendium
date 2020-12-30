@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/material/emerald/emeraldwall"
+  "parent": "minecraft:block/cobblestone_wall_inventory",
+  "textures": {
+    "wall": "compendium:block/material/emerald/emeraldwall"
+  }
 }

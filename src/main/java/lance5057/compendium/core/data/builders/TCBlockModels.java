@@ -91,7 +91,7 @@ public class TCBlockModels extends BlockStateProvider {
 				simpleBlock(me.SHEET_BLOCK.get(), models().cubeAll(me.SHEET_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "sheet")));
 
 				// Big Chain
-				this.axisBlock(me.BIGCHAIN.get(), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")));
+				this.axisBlock(me.BIGCHAIN.get(), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("all", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")), models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("all", modLoc("block/material/" + mh.name + "/" + mh.name + "bigchain")));
 
 				// Brazier
 				simpleBlock(me.BRAZIER.get(), models().withExistingParent(mh.name + "brazier", modLoc("block/bases/brazier")).texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")).texture("2", modLoc("block/material/" + mh.name + "/" + mh.name + "tile")).texture("3", mcLoc("block/fire_1")).texture("particle", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars")));
@@ -105,7 +105,10 @@ public class TCBlockModels extends BlockStateProvider {
 				simpleBlock(me.CHAINLINK_BLOCK.get(), models().cubeAll(me.CHAINLINK_BLOCK.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "chainlink")));
 
 				// Wall
-				this.wallBlock(me.WALL.get(), modLoc("block/material/" + mh.name + "/" + mh.name + "wall"));
+				//this.wallBlock(me.WALL.get(), modLoc("block/material/" + mh.name + "/" + mh.name + "wall"));
+				this.wallBlock(me.WALL.get(), models().singleTexture(mh.name + "wall_post", modLoc("block/bases/wall_post"), "wall", modLoc("block/material/" + mh.name + "/" + mh.name + "wall")),
+						models().singleTexture(mh.name + "wall_side", modLoc("block/bases/wall_side"), "wall", modLoc("block/material/" + mh.name + "/" + mh.name + "wall")),
+						models().singleTexture(mh.name + "wall_side_tall", modLoc("block/bases/wall_side_tall"), "wall", modLoc("block/material/" + mh.name + "/" + mh.name + "wall")));
 
 				// Glass
 				paneBlock(me.TRIMMED_WINDOW.get(), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "trimmedglass"), new ResourceLocation(mh.parentMod, "block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
@@ -126,6 +129,11 @@ public class TCBlockModels extends BlockStateProvider {
 				// dungeontileModel(mh);
 				getVariantBuilder(me.DUNGEON_TILE.get()).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_full", modLoc("block/bases/dungeontile_full")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "tile"), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_half", modLoc("block/bases/dungeontile_half")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "halftile"), true)).partialState().addModels(ConfiguredModel.allRotations(models().withExistingParent(mh.name + "dungeontile_quarter", modLoc("block/bases/dungeontile_quarter")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "smalltile"), true));
 
+				//Ladder
+				simpleBlock(me.LADDER.get(), models().cubeAll(me.LADDER.get().getRegistryName().getPath(), new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "ladder")));
+
+				//Encased Glowstone
+				simpleBlock(me.ENCASED_GLOWSTONE.get(), models().withExistingParent(mh.name + "encasedglowstone", modLoc("block/bases/encased_glowstone")).texture("1", "compendium:block/material/" + mh.name + "/" + mh.name + "lamp_cover"));
 			}
 
 			if (mh.getOre() != null) {
@@ -140,7 +148,7 @@ public class TCBlockModels extends BlockStateProvider {
 			}
 		}
 	}
-	
+
 	private void bardoorModel(MaterialHelper mh) {
 		ModelFile closedModel = models().withExistingParent(mh.name + "slidingdoor_closed", modLoc("block/bases/slidingbars_closed")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "bars");
 		ModelFile openModel = models().withExistingParent(mh.name + "slidingdoor_open", modLoc("block/bases/slidingbars_open")).texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "bars");

@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/material/mithril/mithrilwall"
+  "parent": "minecraft:block/cobblestone_wall_inventory",
+  "textures": {
+    "wall": "compendium:block/material/mithril/mithrilwall"
+  }
 }

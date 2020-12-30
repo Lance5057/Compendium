@@ -11,12 +11,13 @@ import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
@@ -30,47 +31,48 @@ public class CraftingAnvilContainer extends Container {
 	private ItemStackHandler inv;
 
 	private Slot output;
+	private Slot view;
 
-	public static CraftingAnvilContainer createContainerServerSide(int windowID, PlayerInventory playerInventory, ItemStackHandler inv) {
-		return new CraftingAnvilContainer(windowID, playerInventory, inv);
+	public int strikes = 0;
+	public int maxStrikes = 0;
+
+	public static CraftingAnvilContainer createContainerServerSide(int windowID, PlayerInventory playerInventory, ItemStackHandler inv, int strikes) {
+		return new CraftingAnvilContainer(windowID, playerInventory, inv, strikes);
 	}
 
 	public static CraftingAnvilContainer createContainerClientSide(int windowID, PlayerInventory playerInventory, net.minecraft.network.PacketBuffer extraData) {
 
-		return new CraftingAnvilContainer(windowID, playerInventory, new ItemStackHandler(26));
+		return new CraftingAnvilContainer(windowID, playerInventory, new ItemStackHandler(26), extraData.readInt());
 	}
 
-	private CraftingAnvilContainer(int id, PlayerInventory playerInventory, ItemStackHandler inv) {
+	private CraftingAnvilContainer(int id, PlayerInventory playerInventory, ItemStackHandler inv, int strikes) {
 		super(CompendiumContainers.CRAFTING_ANVIL_CONTAINER.get(), id);
 		this.player = playerInventory.player;
 		this.world = playerInventory.player.world;
 		this.inv = inv;
-		output = this.addSlot(new SlotItemHandler(this.inv, 25, 143, 44) {
+		this.strikes = strikes;
+		view = this.addSlot(new Slot(new Inventory(1), 0, 143, 44) {
+			@Override
+			public boolean canTakeStack(PlayerEntity playerIn) {
+				return false;
+			}
+
+			@Override
+			@OnlyIn(Dist.CLIENT)
+			public boolean isEnabled() {
+				return true;
+			}
+
+			@Override
+			public boolean isItemValid(@Nonnull ItemStack stack) {
+				return false;
+			}
+		});
+
+		output = this.addSlot(new SlotItemHandler(this.inv, 25, 143, 70) {
 			@Override
 			public ItemStack onTake(PlayerEntity thePlayer, ItemStack stack) {
-				this.onCrafting(stack);
-				net.minecraftforge.common.ForgeHooks.setCraftingPlayer(thePlayer);
-				NonNullList<ItemStack> nonnulllist = thePlayer.world.getRecipeManager().getRecipeNonNull(IRecipeType.CRAFTING, this.inventory, thePlayer.world);
-				net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
-				for (int i = 0; i < nonnulllist.size(); ++i) {
-					ItemStack itemstack = this.inventory.getStackInSlot(i);
-					ItemStack itemstack1 = nonnulllist.get(i);
-					if (!itemstack.isEmpty()) {
-						this.inventory.decrStackSize(i, 1);
-						itemstack = this.inventory.getStackInSlot(i);
-					}
-
-					if (!itemstack1.isEmpty()) {
-						if (itemstack.isEmpty()) {
-							this.inventory.setInventorySlotContents(i, itemstack1);
-						} else if (ItemStack.areItemsEqual(itemstack, itemstack1) && ItemStack.areItemStackTagsEqual(itemstack, itemstack1)) {
-							itemstack1.grow(itemstack.getCount());
-							this.inventory.setInventorySlotContents(i, itemstack1);
-						} else if (!thePlayer.inventory.addItemStackToInventory(itemstack1)) {
-							thePlayer.dropItem(itemstack1, false);
-						}
-					}
-				}
+				CraftingAnvilContainer.this.clear();
 
 				return stack;
 			}
@@ -106,6 +108,16 @@ public class CraftingAnvilContainer extends Container {
 
 	}
 
+	public void clear() {
+//		for (int i = 0; i < 25; i++) {
+//			if (this.getSlot(i).getStack() != ItemStack.EMPTY) {
+//				ItemStack item = this.getSlot(i).getStack();
+//				item.setCount(item.getCount() - 1);
+//				this.getSlot(i).putStack(item);
+//			}
+//		}
+	}
+
 //	protected static void updateCraftingResult(int id, World world, PlayerEntity player, ItemStackHandler inventory, CraftResultInventory inventoryResult) {
 //		if (!world.isRemote) {
 //			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) player;
@@ -136,9 +148,11 @@ public class CraftingAnvilContainer extends Container {
 		Optional<CraftingAnvilRecipe> recipe = this.world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, (RecipeWrapper) inventoryIn, this.world);
 		if (recipe.isPresent()) {
 			ItemStack result = recipe.get().getCraftingResult((RecipeWrapper) inventoryIn);
-			this.output.putStack(result);
+			this.view.putStack(result);
+			this.maxStrikes = recipe.get().getStrikes();
 		} else {
 			this.output.putStack(ItemStack.EMPTY);
+			this.maxStrikes = 0;
 		}
 
 		Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager().getRecipesForType(WorkstationRecipes.CRAFTING_ANVIL_RECIPE);

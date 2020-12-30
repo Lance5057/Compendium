@@ -60,13 +60,11 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			if (mh.getVanillaComponents() != null) {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
-				this.singleTexture(vc.ITEM_DOOR.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("item/material/" + mh.name + "/" + mh.name + "door"));
-				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/material/" + mh.name + "/" + mh.name + "trapdoor_bottom"));
+				this.singleTexture(vc.ITEM_DOOR.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/material/" + mh.name + "/" + mh.name + "door"));
+				forBlockItem(vc.ITEM_TRAPDOOR, modLoc("block/" + mh.name + "trapdoor_bottom"));
 
 				// Bars
-				this.singleTexture(vc.ITEM_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("block/material/" + mh.name + "/" + mh.name + "bars"));
+				this.singleTexture(vc.ITEM_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "bars"));
 
 				forBlockItem(vc.ITEM_LANTERN, mh.name);
 				forBlockItem(vc.ITEM_CHAIN, mh.name);
@@ -96,8 +94,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
 				forBlockItem(me.ITEM_BIGCHAIN, mh.name);
 				forBlockItem(me.ITEM_BRAZIER, mh.name);
-				this.singleTexture(me.ITEM_CHAINLINK_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("block/material/" + mh.name + "/" + mh.name + "chainlink"));
+				forBlockItem(me.ITEM_BAR_DOOR, modLoc("block/" + mh.name + "slidingdoor_closed"));
+				this.singleTexture(me.ITEM_CHAINLINK_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "chainlink"));
 
 				forBlockItem(me.ITEM_CHAINLINK_BLOCK, mh.name);
 				forBlockItem(me.ITEM_SHEET, mh.name);
@@ -107,47 +105,40 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				forBlockItem(me.ITEM_SHINGLES_BLOCK, mh.name);
 				forBlockItem(me.ITEM_SOUL_BRAZIER, mh.name);
 				forBlockItem(me.ITEM_STAKE, mh.name);
-				this.singleTexture(me.ITEM_TOP_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("block/material/" + mh.name + "/" + mh.name + "topbars"));
-				this.singleTexture(me.ITEM_TRIMMED_WINDOW.getId().getPath(), mcLoc("item/handheld"), "layer0",
-						modLoc("block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
+				this.singleTexture(me.ITEM_TOP_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "topbars"));
+				this.singleTexture(me.ITEM_TRIMMED_WINDOW.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
 				forBlockItem(me.ITEM_TRIMMED_WINDOW_BLOCK, mh.name);
-				forBlockItem(me.ITEM_WALL, mh.name);
+				forBlockItem(me.ITEM_WALL, mcLoc("block/cobblestone_wall_inventory"), "wall", modLoc("block/material/" + mh.name + "/" + mh.name + "wall"));
 				forBlockItem(me.ITEM_SMALL_TILE, mh.name);
+				
+				forBlockItem(me.ITEM_ENCASED_GLOWSTONE, mh.name);
+
+				// Bars
+				this.singleTexture(me.ITEM_DIAMONDBARS.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "diamondbars"));
+				this.singleTexture(me.ITEM_DIAMONDBARSFLIP.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "diamondbarsflip"));
+				this.singleTexture(me.ITEM_DIAMONDBARSTOP.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("block/material/" + mh.name + "/" + mh.name + "diamondbar_top"));
 			}
 
 			// Vanilla Tools Materials
 			if (mh.getVanillaTools() != null) {
 				MaterialVanillaTools vt = mh.getVanillaTools();
 
-				withExistingParent(vt.AXE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/"  + vt.AXE.getId().getPath()))
-						.texture("layer1", modLoc("item/axebase"));
+				withExistingParent(vt.AXE.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.AXE.getId().getPath())).texture("layer1", modLoc("item/axebase"));
 
-				withExistingParent(vt.HOE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.HOE.getId().getPath()))
-						.texture("layer1", modLoc("item/hoebase"));
+				withExistingParent(vt.HOE.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.HOE.getId().getPath())).texture("layer1", modLoc("item/hoebase"));
 
-				withExistingParent(vt.PICKAXE.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.PICKAXE.getId().getPath()))
-						.texture("layer1", modLoc("item/pickaxebase"));
+				withExistingParent(vt.PICKAXE.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.PICKAXE.getId().getPath())).texture("layer1", modLoc("item/pickaxebase"));
 
-				withExistingParent(vt.SHOVEL.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SHOVEL.getId().getPath()))
-						.texture("layer1", modLoc("item/shovelbase"));
+				withExistingParent(vt.SHOVEL.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SHOVEL.getId().getPath())).texture("layer1", modLoc("item/shovelbase"));
 
-				withExistingParent(vt.SWORD.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SWORD.getId().getPath()))
-						.texture("layer1", modLoc("item/swordbase"));
+				withExistingParent(vt.SWORD.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + vt.SWORD.getId().getPath())).texture("layer1", modLoc("item/swordbase"));
 			}
 
 			// Vanilla Tools Materials
 			if (mh.getExtraTools() != null) {
 				MaterialExtraTools et = mh.getExtraTools();
 
-				withExistingParent(et.HAMMER.getId().getPath(), mcLoc("item/handheld"))
-						.texture("layer0", modLoc("item/material/" + mh.name + "/" + et.HAMMER.getId().getPath()))
-						.texture("layer1", modLoc("item/hammerbase"));
+				withExistingParent(et.HAMMER.getId().getPath(), mcLoc("item/handheld")).texture("layer0", modLoc("item/material/" + mh.name + "/" + et.HAMMER.getId().getPath())).texture("layer1", modLoc("item/hammerbase"));
 			}
 
 			// Ore
@@ -160,17 +151,19 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 	}
 
 	private void forItem(RegistryObject<? extends Item> item, String name) {
-		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
-				modLoc("item/material/" + name + "/" + item.getId().getPath()));
+		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/material/" + name + "/" + item.getId().getPath()));
 	}
 
 	private void forBlockItem(RegistryObject<? extends BlockItem> item, String name) {
-		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-				new ResourceLocation(Reference.MOD_ID, "block/material/" + name + "/" + item.get().getBlock().getRegistryName().getPath())));
+		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Reference.MOD_ID, "block/" + item.get().getBlock().getRegistryName().getPath())));
 	}
 
 	private void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation) {
 		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
+	}
+
+	private void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation, String key, ResourceLocation texture) {
+		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation)).texture(key, texture);
 	}
 
 }

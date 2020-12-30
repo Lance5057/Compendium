@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/template_wall_side_tall",
+  "parent": "compendium:block/bases/wall_side_tall",
   "textures": {
     "wall": "compendium:block/material/platinum/platinumwall"
   }

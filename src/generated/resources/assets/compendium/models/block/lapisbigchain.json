@@ -1,7 +1,6 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/material/lapis/lapischain",
-    "0": "compendium:block/material/lapis/lapisbigchain"
+    "all": "compendium:block/material/lapis/lapisbigchain"
   }
 }

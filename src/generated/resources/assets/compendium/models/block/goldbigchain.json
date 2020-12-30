@@ -1,7 +1,6 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/material/gold/goldchain",
-    "0": "compendium:block/material/gold/goldbigchain"
+    "all": "compendium:block/material/gold/goldbigchain"
   }
 }

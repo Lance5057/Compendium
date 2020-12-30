@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/material/opal/opalwall"
+  "parent": "minecraft:block/cobblestone_wall_inventory",
+  "textures": {
+    "wall": "compendium:block/material/opal/opalwall"
+  }
 }

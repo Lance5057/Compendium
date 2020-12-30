@@ -34,7 +34,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 
 public class CraftingAnvilBlock extends ContainerBlock {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	private static final ITextComponent containerName = new TranslationTextComponent("compendium.container.anvilcraft");
 
 	public CraftingAnvilBlock() {
 		super(Block.Properties.create(Material.ROCK).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE).notSolid());
@@ -85,6 +84,7 @@ public class CraftingAnvilBlock extends ContainerBlock {
 					return ActionResultType.FAIL;
 				ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
 				NetworkHooks.openGui(serverPlayerEntity, namedContainerProvider, (packetBuffer) -> {
+					packetBuffer.writeInt(te.progress);
 				});
 			}
 		}

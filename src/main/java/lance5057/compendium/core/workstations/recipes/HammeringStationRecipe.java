@@ -12,14 +12,12 @@ import net.minecraft.world.World;
 
 public class HammeringStationRecipe implements IRecipe<IInventory>{
 
-	private final IRecipeType<?> type;
     private final ResourceLocation id;
     private final Ingredient ingredient;
     private final ItemStack output;
     private final int strikes;
     
-    public HammeringStationRecipe(IRecipeType<?> type, ResourceLocation id, int strike, ItemStack result, Ingredient ingredient) {
-        this.type = type;
+    public HammeringStationRecipe(ResourceLocation id, int strike, ItemStack result, Ingredient ingredient) {
         this.id = id;
         this.ingredient = ingredient;
         this.output = result;
@@ -53,7 +51,7 @@ public class HammeringStationRecipe implements IRecipe<IInventory>{
 
 	@Override
 	public IRecipeType<?> getType() {
-		return type;
+		return WorkstationRecipes.HAMMERING_STATION_RECIPE;
 	}
 
 	@Override

@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/material/topaz/topazwall"
+  "parent": "minecraft:block/cobblestone_wall_inventory",
+  "textures": {
+    "wall": "compendium:block/material/topaz/topazwall"
+  }
 }

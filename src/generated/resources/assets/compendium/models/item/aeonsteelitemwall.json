@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/material/aeonsteel/aeonsteelwall"
+  "parent": "minecraft:block/cobblestone_wall_inventory",
+  "textures": {
+    "wall": "compendium:block/material/aeonsteel/aeonsteelwall"
+  }
 }

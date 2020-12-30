@@ -1,7 +1,6 @@
 {
   "parent": "compendium:block/bases/bigchain",
   "textures": {
-    "all": "compendium:block/material/froststeel/froststeelchain",
-    "0": "compendium:block/material/froststeel/froststeelbigchain"
+    "all": "compendium:block/material/froststeel/froststeelbigchain"
   }
 }
