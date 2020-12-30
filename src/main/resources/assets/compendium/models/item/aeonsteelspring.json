@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/aeonsteelspring"
+    "layer0": "compendium:item/material/aeonsteel/aeonsteelspring"
   }
 }

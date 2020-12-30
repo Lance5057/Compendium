@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/amethystbars"
+    "layer0": "compendium:block/material/amethyst/amethystbars"
   }
 }

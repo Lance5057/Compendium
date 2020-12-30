@@ -15,16 +15,14 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class HammeringStationRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-		implements IRecipeSerializer<HammeringStationRecipe> {
+public class HammeringStationRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<HammeringStationRecipe> {
 	@Nonnull
 	@Override
 	public HammeringStationRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
 		final int strikes = json.get("strikes").getAsInt();
 		final Ingredient input = Ingredient.deserialize(json.get("input"));
 		final ItemStack result = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
-		return new HammeringStationRecipe(WorkstationRecipes.HAMMERING_STATION_RECIPE, recipeId, strikes,
-				result, input);
+		return new HammeringStationRecipe(recipeId, strikes, result, input);
 	}
 
 	@Nullable
@@ -34,8 +32,7 @@ public class HammeringStationRecipeSerializer extends ForgeRegistryEntry<IRecipe
 		ItemStack result = buffer.readItemStack();
 		Ingredient input = Ingredient.read(buffer);
 
-		return new HammeringStationRecipe(WorkstationRecipes.HAMMERING_STATION_RECIPE, recipeId, strikes,
-				result, input);
+		return new HammeringStationRecipe(recipeId, strikes, result, input);
 	}
 
 	@Override

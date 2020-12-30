@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/orichalcumsword",
+    "layer0": "compendium:item/material/orichalcum/orichalcumsword",
     "layer1": "compendium:item/swordbase"
   }
 }

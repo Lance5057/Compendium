@@ -1,7 +1,7 @@
 {
-  "parent": "block/template_glass_pane_post",
+  "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/diamondbars",
-    "edge": "compendium:block/diamondbars"
+    "pane": "compendium:block/material/diamond/diamondbars",
+    "edge": "compendium:block/material/diamond/diamondbars"
   }
 }

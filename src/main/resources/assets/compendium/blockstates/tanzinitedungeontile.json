@@ -1,0 +1,270 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_full",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_half",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/tanzinitedungeontile_quarter",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

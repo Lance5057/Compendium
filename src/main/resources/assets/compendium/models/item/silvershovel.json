@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/silvershovel",
+    "layer0": "compendium:item/material/silver/silvershovel",
     "layer1": "compendium:item/shovelbase"
   }
 }

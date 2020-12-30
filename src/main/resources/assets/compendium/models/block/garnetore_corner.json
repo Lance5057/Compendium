@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/ore_corner",
   "textures": {
-    "1": "compendium:block/garnetore"
+    "1": "compendium:block/material/garnet/garnetore"
   }
 }

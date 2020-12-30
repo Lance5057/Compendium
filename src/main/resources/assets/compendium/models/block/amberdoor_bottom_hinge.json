@@ -1,7 +1,7 @@
 {
-  "parent": "block/door_bottom_rh",
+  "parent": "minecraft:block/door_bottom_rh",
   "textures": {
-    "bottom": "compendium:block/amber_door_bottom",
-    "top": "compendium:block/amber_door_top"
+    "bottom": "compendium:block/material/amber/amber_door_bottom",
+    "top": "compendium:block/material/amber/amber_door_top"
   }
 }

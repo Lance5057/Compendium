@@ -12,18 +12,15 @@ import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -39,7 +36,7 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 public class CraftingAnvilTE extends TileEntity implements INamedContainerProvider {
 	private final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createHandler);
 	private ItemStack lastStack = ItemStack.EMPTY;
-	private int progress = 0;
+	public int progress = 0;
 
 	public CraftingAnvilTE() {
 		super(CompendiumTileEntities.CRAFTING_ANVIL_TE.get());
@@ -49,10 +46,10 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	@Override
 	public Container createMenu(int windowID, PlayerInventory playerInventory, PlayerEntity playerEntity) {
 
-		CraftingAnvilContainer c =  handler.map(i -> {
-			return CraftingAnvilContainer.createContainerServerSide(windowID, playerInventory, (ItemStackHandler)i);
+		CraftingAnvilContainer c = handler.map(i -> {
+			return CraftingAnvilContainer.createContainerServerSide(windowID, playerInventory, (ItemStackHandler) i, this.progress);
 		}).get();
-		
+
 		return c;
 	}
 
@@ -149,58 +146,57 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	}
 
 	public void hammer(PlayerEntity playerEntity, ItemStack hammer) {
-//		handler.ifPresent(inventory -> {
-//			if (lastStack != inventory.getStackInSlot(0)) {
-//				progress = 0;
-//				lastStack = inventory.getStackInSlot(0);
-//			} else if (lastStack != ItemStack.EMPTY && lastStack.getItem() != Items.AIR) {
-//				this.progress++;
-//				hammer.damageItem(1, playerEntity, null);
-//				world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-//				world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS, world.rand.nextFloat() + 0.5f, 0);
-//			}
-//			Optional<CraftingAnvilRecipe> recipe = matchRecipe();
-//			recipe.ifPresent(r -> {
-//				if (this.progress >= r.getStrikes()) {
-//
-//					for (int i = 0; i < 5; i++) {
-//						world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-//					}
-//					world.playSound(playerEntity, pos, SoundEvents.BLOCK_BASALT_BREAK, SoundCategory.BLOCKS, 1, 0);
-//
-//					progress = 0;
-//
-//					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
-//					ItemStack item = r.getRecipeOutput().copy();
-//					if (te != null) {
-//						LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
-//
-//						item = ih.map(h -> dropItemBelow(h, r.getRecipeOutput().copy())).get();
-//					}
-//
-//					InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), item);
-//					// this.lastStack.shrink(1);
-//					inventory.getStackInSlot(0).shrink(1);
-//
-//				}
-//			});
-//
-//		});
-//		this.updateInventory();
+		Optional<CraftingAnvilRecipe> recipe = matchRecipe();
+		recipe.ifPresent(r -> {
+			if (this.progress >= r.getStrikes()) {
+
+				craft();
+				for (int i = 0; i < 5; i++) {
+					world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
+				}
+				world.playSound(playerEntity, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1, 0);
+
+				progress = 0;
+				handler.ifPresent(h -> {
+					ItemStack item = r.getRecipeOutput().copy();
+					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
+					if (te != null) {
+						LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
+
+						item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
+					}
+
+					if (h.getStackInSlot(25) == ItemStack.EMPTY)
+						h.setStackInSlot(25, item);
+				});
+			} else
+				progress++;
+		});
+		this.updateInventory();
 
 	}
-//
-//	ItemStack dropItemBelow(IItemHandler handler, ItemStack insert) {
-//		for (int i = 0; i < handler.getSlots(); i++) {
-//			insert = handler.insertItem(i, insert, false);
-//
-//			if (insert.isEmpty()) {
-//				return ItemStack.EMPTY;
-//			}
-//		}
-//
-//		return insert;
-//	}
+
+	void craft() {
+		this.handler.ifPresent(it -> {
+			for (int i = 0; i < 25; i++) {
+				ItemStack stack = it.getStackInSlot(i);
+				stack.setCount(stack.getCount() - 1);
+				it.setStackInSlot(i, stack);
+			}
+		});
+	}
+
+	ItemStack dropItemBelow(IItemHandler handler, ItemStack insert) {
+		for (int i = 0; i < handler.getSlots(); i++) {
+			insert = handler.insertItem(i, insert, false);
+
+			if (insert.isEmpty()) {
+				return ItemStack.EMPTY;
+			}
+		}
+
+		return insert;
+	}
 
 	@Nullable
 	@Override
@@ -257,7 +253,7 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	}
 
 	private static final ITextComponent CONTAINER_NAME = new TranslationTextComponent("compendium.workstations.crafting_anvil");
-	
+
 	@Override
 	public ITextComponent getDisplayName() {
 		// TODO Auto-generated method stub

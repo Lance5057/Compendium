@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/topazsheet"
+    "all": "compendium:block/material/topaz/topazsheet"
   }
 }

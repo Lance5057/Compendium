@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/shingles_inner_corneralt",
   "textures": {
-    "0": "compendium:block/dogbeariumshingles",
+    "0": "compendium:block/material/dogbearium/dogbeariumshingles",
     "1": "compendium:block/shingles_log",
-    "2": "block/oak_log"
+    "2": "minecraft:block/oak_log"
   }
 }

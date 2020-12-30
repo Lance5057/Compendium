@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:tanzinitedust"
-  },
-  "result": "compendium:tanzinitegem",
-  "experience": 1.0,
-  "cookingtime": 100
-}

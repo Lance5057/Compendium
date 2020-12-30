@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:amethystitemore"
-  },
-  "result": "compendium:amethystgem",
-  "experience": 1.0,
-  "cookingtime": 100
-}

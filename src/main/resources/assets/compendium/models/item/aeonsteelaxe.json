@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/aeonsteelaxe",
+    "layer0": "compendium:item/material/aeonsteel/aeonsteelaxe",
     "layer1": "compendium:item/axebase"
   }
 }

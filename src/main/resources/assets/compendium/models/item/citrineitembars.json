@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/citrinebars"
+    "layer0": "compendium:block/material/citrine/citrinebars"
   }
 }

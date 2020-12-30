@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/lantern",
   "textures": {
-    "all": "compendium:block/valyriansteellantern",
+    "all": "compendium:block/material/valyriansteel/valyriansteellantern",
     "all2": "compendium:block/lanternflame"
   }
 }

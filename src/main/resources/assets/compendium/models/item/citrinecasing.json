@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/citrinecasing"
+    "layer0": "compendium:item/material/citrine/citrinecasing"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/carpet",
   "textures": {
-    "all": "compendium:block/aeonsteelsheet"
+    "all": "compendium:block/material/aeonsteel/aeonsteelsheet"
   }
 }

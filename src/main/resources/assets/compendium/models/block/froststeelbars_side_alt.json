@@ -1,7 +1,7 @@
 {
-  "parent": "block/template_glass_pane_side_alt",
+  "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/froststeelbars",
-    "edge": "compendium:block/froststeelbars"
+    "pane": "compendium:block/material/froststeel/froststeelbars",
+    "edge": "compendium:block/material/froststeel/froststeelbars"
   }
 }

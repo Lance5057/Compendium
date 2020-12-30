@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/icebigchain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/icechain"
+    },
+    "axis=z": {
+      "model": "compendium:block/icebigchain",
+      "x": 90
+    }
+  }
+}

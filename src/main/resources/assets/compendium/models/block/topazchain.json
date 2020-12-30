@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/chain",
+  "textures": {
+    "all": "compendium:block/material/topaz/topazchain"
+  }
+}

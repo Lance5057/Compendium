@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/shingles_inner_corneralt",
   "textures": {
-    "0": "compendium:block/sapphireshingles",
+    "0": "compendium:block/material/sapphire/sapphireshingles",
     "1": "compendium:block/shingles_log",
-    "2": "block/oak_log"
+    "2": "minecraft:block/oak_log"
   }
 }

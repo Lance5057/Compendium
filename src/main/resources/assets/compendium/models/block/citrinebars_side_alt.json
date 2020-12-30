@@ -1,7 +1,7 @@
 {
-  "parent": "block/template_glass_pane_side_alt",
+  "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "compendium:block/citrinebars",
-    "edge": "compendium:block/citrinebars"
+    "pane": "compendium:block/material/citrine/citrinebars",
+    "edge": "compendium:block/material/citrine/citrinebars"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "block/template_glass_pane_noside_alt",
+  "parent": "minecraft:block/template_glass_pane_noside_alt",
   "textures": {
-    "pane": "compendium:block/platinumbars"
+    "pane": "compendium:block/material/platinum/platinumbars"
   }
 }

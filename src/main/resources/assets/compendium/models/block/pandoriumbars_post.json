@@ -1,7 +1,7 @@
 {
-  "parent": "block/template_glass_pane_post",
+  "parent": "minecraft:block/template_glass_pane_post",
   "textures": {
-    "pane": "compendium:block/pandoriumbars",
-    "edge": "compendium:block/pandoriumbars"
+    "pane": "compendium:block/material/pandorium/pandoriumbars",
+    "edge": "compendium:block/material/pandorium/pandoriumbars"
   }
 }

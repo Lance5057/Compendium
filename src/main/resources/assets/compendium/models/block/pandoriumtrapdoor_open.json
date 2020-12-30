@@ -1,6 +1,6 @@
 {
-  "parent": "block/template_orientable_trapdoor_open",
+  "parent": "minecraft:block/template_orientable_trapdoor_open",
   "textures": {
-    "texture": "compendium:block/pandoriumtrapdoor"
+    "texture": "compendium:block/material/pandorium/pandoriumtrapdoor"
   }
 }

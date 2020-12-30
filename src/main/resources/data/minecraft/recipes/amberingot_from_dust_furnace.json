@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:amberdust"
-  },
-  "result": "compendium:ambergem",
-  "experience": 1.0,
-  "cookingtime": 100
-}

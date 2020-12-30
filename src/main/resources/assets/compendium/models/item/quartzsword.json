@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/quartzsword",
+    "layer0": "compendium:item/material/quartz/quartzsword",
     "layer1": "compendium:item/swordbase"
   }
 }

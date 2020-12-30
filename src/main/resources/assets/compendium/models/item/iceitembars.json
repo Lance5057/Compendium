@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:block/icebars"
+    "layer0": "compendium:block/material/ice/icebars"
   }
 }

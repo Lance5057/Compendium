@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/tanzinitehoe",
+    "layer0": "compendium:item/material/tanzinite/tanzinitehoe",
     "layer1": "compendium:item/hoebase"
   }
 }

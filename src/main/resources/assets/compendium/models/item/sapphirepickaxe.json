@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/sapphirepickaxe",
+    "layer0": "compendium:item/material/sapphire/sapphirepickaxe",
     "layer1": "compendium:item/pickaxebase"
   }
 }

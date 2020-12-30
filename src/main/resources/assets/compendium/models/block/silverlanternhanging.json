@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/hanging_lantern",
   "textures": {
-    "all": "compendium:block/silverlantern",
+    "all": "compendium:block/material/silver/silverlantern",
     "all2": "compendium:block/lanternflame"
   }
 }

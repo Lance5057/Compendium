@@ -1,7 +1,7 @@
 {
-  "parent": "block/door_top_rh",
+  "parent": "minecraft:block/door_top_rh",
   "textures": {
-    "bottom": "compendium:block/topaz_door_bottom",
-    "top": "compendium:block/topaz_door_top"
+    "bottom": "compendium:block/material/topaz/topaz_door_bottom",
+    "top": "compendium:block/material/topaz/topaz_door_top"
   }
 }

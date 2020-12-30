@@ -1,6 +1,6 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/topazgear"
+    "layer0": "compendium:item/material/topaz/topazgear"
   }
 }

@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/pandoriumsword",
+    "layer0": "compendium:item/material/pandorium/pandoriumsword",
     "layer1": "compendium:item/swordbase"
   }
 }

@@ -8,7 +8,9 @@ import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.Color;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 public class CraftingAnvilScreen extends ContainerScreen<CraftingAnvilContainer> {
 
@@ -32,6 +34,13 @@ public class CraftingAnvilScreen extends ContainerScreen<CraftingAnvilContainer>
 		int edgeSpacingX = (this.width - this.xSize) / 2;
 		int edgeSpacingY = (this.height - this.ySize) / 2;
 		this.blit(matrixStack, edgeSpacingX, edgeSpacingY, 0, 0, this.xSize, this.ySize);
+	}
+
+	@Override
+	protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
+		super.drawGuiContainerForegroundLayer(matrixStack, x, y);
+		
+		this.font.drawString(matrixStack, ""+this.container.strikes + "/" +this.container.maxStrikes, 128, 34, TextFormatting.BLACK.getColor());
 	}
 
 	@Override

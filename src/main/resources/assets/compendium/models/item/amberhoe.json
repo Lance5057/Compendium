@@ -1,7 +1,7 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/amberhoe",
+    "layer0": "compendium:item/material/amber/amberhoe",
     "layer1": "compendium:item/hoebase"
   }
 }

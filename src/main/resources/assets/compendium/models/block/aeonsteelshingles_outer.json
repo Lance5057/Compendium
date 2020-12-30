@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/shingles_outer_corner",
   "textures": {
-    "0": "compendium:block/aeonsteelshingles",
+    "0": "compendium:block/material/aeonsteel/aeonsteelshingles",
     "1": "compendium:block/shingles_log",
-    "2": "block/oak_log"
+    "2": "minecraft:block/oak_log"
   }
 }

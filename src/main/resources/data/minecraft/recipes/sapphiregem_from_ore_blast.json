@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "compendium:sapphireitemore"
-  },
-  "result": "compendium:sapphiregem",
-  "experience": 1.0,
-  "cookingtime": 100
-}

@@ -1,7 +1,7 @@
 {
-  "parent": "block/template_glass_pane_side",
+  "parent": "minecraft:block/template_glass_pane_side",
   "textures": {
-    "pane": "compendium:block/tanzinitebars",
-    "edge": "compendium:block/tanzinitebars"
+    "pane": "compendium:block/material/tanzinite/tanzinitebars",
+    "edge": "compendium:block/material/tanzinite/tanzinitebars"
   }
 }

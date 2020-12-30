@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "textures": {
+    "pane": "compendium:block/material/gold/golddiamondbar_top",
+    "edge": "compendium:block/material/gold/golddiamondbar_top"
+  }
+}

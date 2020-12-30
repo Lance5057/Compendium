@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "facing=north,half=upper,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed"
+    },
+    "facing=south,half=upper,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed"
+    },
+    "facing=west,half=upper,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed",
+      "y": 90
+    },
+    "facing=east,half=upper,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed",
+      "y": 90
+    },
+    "facing=north,half=lower,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed"
+    },
+    "facing=south,half=lower,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed"
+    },
+    "facing=west,half=lower,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed",
+      "y": 90
+    },
+    "facing=east,half=lower,open=false": {
+      "model": "compendium:block/mithrilslidingdoor_closed",
+      "y": 90
+    },
+    "facing=north,half=upper,open=true": {
+      "model": "compendium:block/mithrilslidingdoor_open"
+    },
+    "facing=south,half=upper,open=true": {
+      "model": "compendium:block/mithrilslidingdoor_open"
+    },
+    "facing=west,half=upper,open=true": {
+      "model": "compendium:block/mithrilslidingdoor_open",
+      "y": 90
+    },
+    "facing=east,half=upper,open=true": {
+      "model": "compendium:block/mithrilslidingdoor_open",
+      "y": 90
+    },
+    "facing=north,half=lower,open=true": {
+      "model": "compendium:block/mithrilempty"
+    },
+    "facing=south,half=lower,open=true": {
+      "model": "compendium:block/mithrilempty"
+    },
+    "facing=west,half=lower,open=true": {
+      "model": "compendium:block/mithrilempty"
+    },
+    "facing=east,half=lower,open=true": {
+      "model": "compendium:block/mithrilempty"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "parent": "block/door_bottom",
+  "parent": "minecraft:block/door_bottom",
   "textures": {
-    "bottom": "compendium:block/diamond_door_bottom",
-    "top": "compendium:block/diamond_door_top"
+    "bottom": "compendium:block/material/diamond/diamond_door_bottom",
+    "top": "compendium:block/material/diamond/diamond_door_top"
   }
 }
