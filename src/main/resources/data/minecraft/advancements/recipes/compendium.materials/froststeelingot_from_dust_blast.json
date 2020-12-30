@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:froststeelingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "froststeeldust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:froststeeldust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:froststeelingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "froststeeldust",
+      "has_the_recipe"
+    ]
+  ]
+}

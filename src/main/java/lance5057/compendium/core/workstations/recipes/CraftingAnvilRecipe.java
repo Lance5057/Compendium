@@ -77,7 +77,7 @@ public class CraftingAnvilRecipe implements IShapedRecipe<RecipeWrapper> {
 	}
 
 	public IRecipeSerializer<?> getSerializer() {
-		return IRecipeSerializer.CRAFTING_SHAPED;
+		return WorkstationRecipes.CRAFTING_ANVIL_SERIALIZER.get();
 	}
 
 	/**

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:platinumingot_from_ore_blast"
+    ]
+  },
+  "criteria": {
+    "platinumore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:platinumingot_from_ore_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumore",
+      "has_the_recipe"
+    ]
+  ]
+}

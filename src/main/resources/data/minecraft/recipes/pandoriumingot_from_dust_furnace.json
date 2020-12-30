@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:pandoriumdust"
+  },
+  "result": "compendium:pandoriumingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

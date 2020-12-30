@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.vector.Quaternion;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -22,25 +23,26 @@ public class HammeringStationRenderer extends TileEntityRenderer<HammeringStatio
 	}
 
 	@Override
-	public void render(HammeringStationTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
-			IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+	public void render(HammeringStationTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
 		if (!tileEntityIn.hasWorld()) {
-            return;
-        }
+			return;
+		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-		
-		final IItemHandler itemHandler = tileEntityIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(ItemStackHandler::new);
-		
-		ItemStack item = itemHandler.getStackInSlot(0);
-		
-		if (!item.isEmpty()) {
-            matrixStackIn.push();
-            matrixStackIn.translate(0.7, 0.9, 0.5);
-            matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
-            itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
-            matrixStackIn.pop();
-        }
+
+		LazyOptional<IItemHandler> itemHandler = tileEntityIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+
+		itemHandler.ifPresent(r -> {
+			ItemStack item = r.getStackInSlot(0);
+
+			if (!item.isEmpty()) {
+				matrixStackIn.push();
+				matrixStackIn.translate(0.7, 0.9, 0.5);
+				matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
+				itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
+				matrixStackIn.pop();
+			}
+		});
 	}
 
 }

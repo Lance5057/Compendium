@@ -198,13 +198,13 @@ public class HammeringStationTE extends TileEntity {
 	@Override
 	@Nonnull
 	public CompoundNBT getUpdateTag() {
-		CompoundNBT updateTag = new CompoundNBT();
-		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-				.orElseGet(this::createHandler);
-		CompoundNBT itemSlot = new CompoundNBT();
-		itemHandler.getStackInSlot(0).write(itemSlot);
-		updateTag.put("item", itemSlot);
-		return updateTag;
+//		CompoundNBT updateTag = new CompoundNBT();
+//		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+//				.orElseGet(this::createHandler);
+//		CompoundNBT itemSlot = new CompoundNBT();
+//		itemHandler.getStackInSlot(0).write(itemSlot);
+//		updateTag.put("item", itemSlot);
+		return this.write(new CompoundNBT());
 	}
 
 //    @Override

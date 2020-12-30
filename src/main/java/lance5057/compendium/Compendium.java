@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import lance5057.compendium.configs.CompendiumConfig;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
 import lance5057.compendium.core.workstations.client.HammeringStationRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -59,6 +60,7 @@ public class Compendium {
 		CompendiumClient.setRenderLayers();
 		
 		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(), HammeringStationRenderer::new);
+		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), CraftingAnvilRenderer::new);
 		
 		CompendiumContainers.registerClient(event);
 	}

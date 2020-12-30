@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:tanziniteitemore"
+  },
+  "result": "compendium:tanzinitegem",
+  "experience": 1.0,
+  "cookingtime": 100
+}

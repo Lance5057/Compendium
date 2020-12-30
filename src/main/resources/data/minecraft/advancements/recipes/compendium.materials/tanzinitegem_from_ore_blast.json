@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:tanzinitegem_from_ore_blast"
+    ]
+  },
+  "criteria": {
+    "tanziniteore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tanziniteitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:tanzinitegem_from_ore_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tanziniteore",
+      "has_the_recipe"
+    ]
+  ]
+}

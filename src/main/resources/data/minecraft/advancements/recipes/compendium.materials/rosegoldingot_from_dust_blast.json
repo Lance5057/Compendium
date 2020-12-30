@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:rosegoldingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "rosegolddust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegolddust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:rosegoldingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegolddust",
+      "has_the_recipe"
+    ]
+  ]
+}

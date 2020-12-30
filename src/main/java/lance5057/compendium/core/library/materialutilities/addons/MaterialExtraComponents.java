@@ -202,7 +202,7 @@ public class MaterialExtraComponents implements MaterialBase {
 		RenderTypeLookup.setRenderLayer(this.DIAMONDBARS.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.DIAMONDBARSTOP.get(), cutout);
 		RenderTypeLookup.setRenderLayer(this.DIAMONDBARSFLIP.get(), cutout);
-		//RenderTypeLookup.setRenderLayer(this.ENCASED_GLOWSTONE.get(), cutout);
+		RenderTypeLookup.setRenderLayer(this.ENCASED_GLOWSTONE.get(), cutout);
 	}
 
 	@Override

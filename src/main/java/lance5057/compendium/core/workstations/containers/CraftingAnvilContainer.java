@@ -107,6 +107,11 @@ public class CraftingAnvilContainer extends Container {
 		}
 
 	}
+	
+	public void zeroStrikes()
+	{
+		this.strikes = 0;
+	}
 
 	public void clear() {
 //		for (int i = 0; i < 25; i++) {
@@ -151,12 +156,13 @@ public class CraftingAnvilContainer extends Container {
 			this.view.putStack(result);
 			this.maxStrikes = recipe.get().getStrikes();
 		} else {
-			this.output.putStack(ItemStack.EMPTY);
+			//this.output.putStack(ItemStack.EMPTY);
 			this.maxStrikes = 0;
 		}
 
 		Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager().getRecipesForType(WorkstationRecipes.CRAFTING_ANVIL_RECIPE);
 		CraftingAnvilRecipe r2 = matchRecipe((RecipeWrapper) inventoryIn);
+		//zeroStrikes();
 		super.onCraftMatrixChanged(inventoryIn);
 	}
 

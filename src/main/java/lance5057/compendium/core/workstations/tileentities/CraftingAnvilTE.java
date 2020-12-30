@@ -84,6 +84,7 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 			@Override
 			protected void onContentsChanged(int slot) {
 				updateInventory();
+				zeroProgress();
 			}
 
 //			@Override
@@ -94,50 +95,12 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 		};
 	}
 
-//	public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
-//		handler.ifPresent(inventory -> {
-//			ItemStack held = playerEntity.getHeldItem(hand);
-//			if (!held.isEmpty()) {
-//				insertItem(inventory, held);
-//			} else {
-//				extractItem(playerEntity, inventory);
-//			}
-//		});
-//		updateInventory();
-//	}
-//
-//	public void extractItem(PlayerEntity playerEntity, IItemHandler inventory) {
-//		if (!inventory.getStackInSlot(0).isEmpty()) {
-//			ItemStack itemStack = inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false);
-//			playerEntity.addItemStackToInventory(itemStack);
-//		}
-//		updateInventory();
-//	}
-//
-//	public void insertItem(IItemHandler inventory, ItemStack heldItem) {
-//		if (inventory.isItemValid(0, heldItem))
-//			if (!inventory.insertItem(0, heldItem, true).isItemEqual(heldItem)) {
-//				final int leftover = inventory.insertItem(0, heldItem.copy(), false).getCount();
-//				heldItem.setCount(leftover);
-//			}
-//		updateInventory();
-//	}
-//
-//	// External extract handler
-//	public void extractItem(PlayerEntity playerEntity) {
-//		handler.ifPresent(inventory -> {
-//			this.extractItem(playerEntity, inventory);
-//		});
-//	}
-//
-//	// External insert handler
-//	public void insertItem(ItemStack heldItem) {
-//		handler.ifPresent(inventory -> {
-//			this.insertItem(inventory, heldItem);
-//		});
-//	}
+	public void zeroProgress() {
+		this.progress = 0;
+	}
 
 	public void updateInventory() {
+
 		requestModelDataUpdate();
 		this.markDirty();
 		if (this.getWorld() != null) {
@@ -150,24 +113,32 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 		recipe.ifPresent(r -> {
 			if (this.progress >= r.getStrikes()) {
 
-				craft();
+				// craft();
 				for (int i = 0; i < 5; i++) {
 					world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
 				}
 				world.playSound(playerEntity, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1, 0);
 
-				progress = 0;
+				
 				handler.ifPresent(h -> {
 					ItemStack item = r.getRecipeOutput().copy();
 					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
 					if (te != null) {
 						LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
 
-						item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
+						if (h.getStackInSlot(25) == ItemStack.EMPTY) {
+
+							item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
+							if (item == null)
+								craft();
+
+						}
 					}
 
-					if (h.getStackInSlot(25) == ItemStack.EMPTY)
+					if (h.getStackInSlot(25) == ItemStack.EMPTY) {
 						h.setStackInSlot(25, item);
+						craft();
+					}
 				});
 			} else
 				progress++;
@@ -177,6 +148,7 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	}
 
 	void craft() {
+		progress = 0;
 		this.handler.ifPresent(it -> {
 			for (int i = 0; i < 25; i++) {
 				ItemStack stack = it.getStackInSlot(i);
@@ -201,7 +173,8 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	@Nullable
 	@Override
 	public SUpdateTileEntityPacket getUpdatePacket() {
-		return new SUpdateTileEntityPacket(this.getPos(), -1, this.getUpdateTag());
+		CompoundNBT nbt = this.getUpdateTag();
+		return new SUpdateTileEntityPacket(this.getPos(), -1, nbt);
 	}
 
 //    @Override
@@ -212,12 +185,12 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	@Override
 	@Nonnull
 	public CompoundNBT getUpdateTag() {
-		CompoundNBT updateTag = new CompoundNBT();
-		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
-		CompoundNBT itemSlot = new CompoundNBT();
-		itemHandler.getStackInSlot(0).write(itemSlot);
-		updateTag.put("item", itemSlot);
-		return updateTag;
+//		CompoundNBT updateTag = new CompoundNBT();
+//		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
+//		CompoundNBT itemSlot = new CompoundNBT();
+//		itemHandler.getStackInSlot(0).write(itemSlot);
+//		updateTag.put("item", itemSlot);
+		return this.write(new CompoundNBT());
 	}
 
 //    @Override

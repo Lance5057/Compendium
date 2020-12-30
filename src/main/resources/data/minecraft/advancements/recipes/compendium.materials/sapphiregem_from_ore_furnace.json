@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:sapphiregem_from_ore_furnace"
+    ]
+  },
+  "criteria": {
+    "sapphireore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphireitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:sapphiregem_from_ore_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphireore",
+      "has_the_recipe"
+    ]
+  ]
+}

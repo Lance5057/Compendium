@@ -3,13 +3,14 @@ package lance5057.compendium.core.workstations.blocks;
 import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import lance5057.compendium.core.items.HammerItem;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ContainerBlock;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -24,8 +25,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
@@ -78,15 +77,15 @@ public class CraftingAnvilBlock extends Block {
 				if (success)
 					return ActionResultType.SUCCESS;
 			}
-			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
-			if (namedContainerProvider != null) {
+//			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
+//			if (this.hasTileEntity(getDefaultState())) {
 				if (!(player instanceof ServerPlayerEntity))
 					return ActionResultType.FAIL;
 				ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
-				NetworkHooks.openGui(serverPlayerEntity, namedContainerProvider, (packetBuffer) -> {
+				NetworkHooks.openGui(serverPlayerEntity, te, (packetBuffer) -> {
 					packetBuffer.writeInt(te.progress);
 				});
-			}
+//			}
 		}
 
 		return ActionResultType.SUCCESS;
@@ -144,7 +143,24 @@ public class CraftingAnvilBlock extends Block {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(IBlockReader worldIn) {
+	public boolean hasTileEntity(BlockState state) {
+		return true;
+	}
+
+	/**
+	 * Called throughout the code as a replacement for
+	 * ITileEntityProvider.createNewTileEntity Return the same thing you would from
+	 * that function. This will fall back to
+	 * ITileEntityProvider.createNewTileEntity(World) if this block is a
+	 * ITileEntityProvider
+	 *
+	 * @param state The state of the current block
+	 * @param world The world to create the TE in
+	 * @return A instance of a class extending TileEntity
+	 */
+	@Override
+	@Nullable
+	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		return new CraftingAnvilTE();
 	}
 }

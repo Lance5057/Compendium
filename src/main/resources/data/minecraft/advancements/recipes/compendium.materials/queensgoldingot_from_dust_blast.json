@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:queensgoldingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "queensgolddust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:queensgolddust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:queensgoldingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "queensgolddust",
+      "has_the_recipe"
+    ]
+  ]
+}
