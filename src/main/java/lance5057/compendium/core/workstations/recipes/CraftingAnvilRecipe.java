@@ -14,8 +14,8 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.core.util.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.IShapedRecipe;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class CraftingAnvilRecipe implements IShapedRecipe<RecipeWrapper> {
+public class CraftingAnvilRecipe implements IShapedRecipe<WorkstationRecipeWrapper> {
 	static int MAX_WIDTH = 5;
 	static int MAX_HEIGHT = 5;
 
@@ -110,7 +110,7 @@ public class CraftingAnvilRecipe implements IShapedRecipe<RecipeWrapper> {
 	/**
 	 * Used to check if a recipe matches current crafting inventory
 	 */
-	public boolean matches(RecipeWrapper inv, World worldIn) {
+	public boolean matches(WorkstationRecipeWrapper inv, World worldIn) {
 	      for(int i = 0; i <= 5 - this.recipeWidth; ++i) {
 	         for(int j = 0; j <= 5 - this.recipeHeight; ++j) {
 	            if (this.checkMatch(inv, i, j, true)) {
@@ -129,7 +129,7 @@ public class CraftingAnvilRecipe implements IShapedRecipe<RecipeWrapper> {
 	/**
 	 * Checks if the region of a crafting inventory is match for the recipe.
 	 */
-	private boolean checkMatch(RecipeWrapper craftingInventory, int width, int height, boolean p_77573_4_) {
+	private boolean checkMatch(WorkstationRecipeWrapper craftingInventory, int width, int height, boolean p_77573_4_) {
 		for (int i = 0; i < 5; ++i) {
 			for (int j = 0; j < 5; ++j) {
 				int k = i - width;
@@ -155,7 +155,7 @@ public class CraftingAnvilRecipe implements IShapedRecipe<RecipeWrapper> {
 	/**
 	 * Returns an Item that is the result of this recipe
 	 */
-	public ItemStack getCraftingResult(RecipeWrapper inv) {
+	public ItemStack getCraftingResult(WorkstationRecipeWrapper inv) {
 		return this.getRecipeOutput().copy();
 	}
 

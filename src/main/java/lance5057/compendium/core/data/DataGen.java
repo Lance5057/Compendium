@@ -10,6 +10,7 @@ import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.workstationrecipes.CraftingAnvilRecipeProvider;
 import lance5057.compendium.core.data.builders.workstationrecipes.HammeringStationRecipeProvider;
+import lance5057.compendium.core.data.builders.workstationrecipes.loottables.WorkstationLoottableProvider;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,8 +29,10 @@ public class DataGen {
 		generator.addProvider(new TCItemModels(generator, event.getExistingFileHelper()));
 		generator.addProvider(new TCRecipes(generator));
 		generator.addProvider(new TCBlockModels(generator, Reference.MOD_ID, event.getExistingFileHelper()));
-		generator.addProvider(new TCLootTables(generator));
 		generator.addProvider(new TCEnglishLoc(generator));
+		
+		generator.addProvider(new TCLootTables(generator));
+		generator.addProvider(new WorkstationLoottableProvider(generator));
 		
 		generator.addProvider(new HammeringStationRecipeProvider(generator));
 		generator.addProvider(new CraftingAnvilRecipeProvider(generator));

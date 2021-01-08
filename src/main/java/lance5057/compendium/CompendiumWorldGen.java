@@ -40,7 +40,7 @@ import net.minecraftforge.fml.LogicalSide;
 
 public class CompendiumWorldGen {
 
-	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(OreFeatureConfig.field_236566_a_);
+	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(OreFeatureConfig.CODEC);
 
 	@SubscribeEvent
 	public static void biomeModification(final BiomeLoadingEvent event) {
@@ -51,7 +51,7 @@ public class CompendiumWorldGen {
 			if (ore != null)
 				if (event.getCategory() == ore.category || ore.category == null) {
 
-					generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax))).func_242728_a().func_242731_b(ore.oreChance));
+					generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax))).square().func_242731_b(ore.oreChance));
 
 				}
 		}
@@ -65,8 +65,8 @@ public class CompendiumWorldGen {
 			MaterialOre ore = mh.getOre();
 			if (ore != null)
 				if (biome.getCategory() == ore.category || ore.category == null) {
-					ConfiguredFeature<?, ?> retroFeature = ORE_RETROGEN.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax)));
-					retroFeature.func_242765_a(world, world.getChunkProvider().getChunkGenerator(), random, new BlockPos(16 * chunkX, 0, 16 * chunkZ));
+					ConfiguredFeature<?, ?> retroFeature = ORE_RETROGEN.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE), ore.ORE.get().getDefaultState(), ore.oreSize)).withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(ore.oreYMin, 0, ore.oreYMax)));
+					retroFeature.generate(world, world.getChunkProvider().getChunkGenerator(), random, new BlockPos(16 * chunkX, 0, 16 * chunkZ));
 				}
 		}
 	}

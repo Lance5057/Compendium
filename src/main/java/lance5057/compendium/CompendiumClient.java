@@ -17,6 +17,6 @@ public class CompendiumClient {
 		
 		RenderType cutout = RenderType.getCutout();
 		RenderTypeLookup.setRenderLayer(CompendiumBlocks.HAMMERING_STATION.get(), cutout);
-		RenderTypeLookup.setRenderLayer(CompendiumBlocks.CRAFTING_ANVIL.get(), RenderType.getTranslucent());
+		//RenderTypeLookup.setRenderLayer(CompendiumBlocks.CRAFTING_ANVIL.get(), RenderType.getTranslucent());
 	}
 }

@@ -8,6 +8,7 @@ import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.loot.ItemLootEntry;
@@ -20,7 +21,7 @@ public class BlockLoot extends BlockLootTables {
 		this.registerDropSelfLootTable(CompendiumBlocks.HAMMERING_STATION.get());
 		this.registerDropSelfLootTable(CompendiumBlocks.CRAFTING_ANVIL.get());
 		this.registerDropSelfLootTable(CompendiumBlocks.SAWHORSE_STATION.get());
-		
+
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
 
 			// Meltable Materials
@@ -42,7 +43,7 @@ public class BlockLoot extends BlockLootTables {
 				MaterialVanillaComponents vc = mh.getVanillaComponents();
 
 				this.registerDropSelfLootTable(vc.BARS.get());
-				this.registerDropSelfLootTable(vc.DOOR.get());
+				this.registerLootTable(vc.DOOR.get(), BlockLootTables::registerDoor);
 				this.registerDropSelfLootTable(vc.LANTERN.get());
 				this.registerDropSelfLootTable(vc.TRAPDOOR.get());
 				this.registerDropSelfLootTable(vc.CHAIN.get());
@@ -69,7 +70,7 @@ public class BlockLoot extends BlockLootTables {
 				this.registerDropSelfLootTable(me.TRIMMED_WINDOW_BLOCK.get());
 				this.registerDropSelfLootTable(me.WALL.get());
 				this.registerDropSelfLootTable(me.SMALL_TILE.get());
-				this.registerDropSelfLootTable(me.BAR_DOOR.get());
+				this.registerLootTable(me.BAR_DOOR.get(), BlockLootTables::registerDoor);
 				this.registerDropSelfLootTable(me.DIAMONDBARS.get());
 				this.registerDropSelfLootTable(me.DIAMONDBARSFLIP.get());
 				this.registerDropSelfLootTable(me.DIAMONDBARSTOP.get());
@@ -82,11 +83,7 @@ public class BlockLoot extends BlockLootTables {
 					this.registerDropSelfLootTable(mo.ORE.get());
 				}
 				if (mh.getGem() != null) {
-					this.registerLootTable(mo.ORE.get(),
-							BlockLootTables.droppingWithSilkTouch(mo.ORE.get(),
-									ItemLootEntry.builder(mh.getGem().GEM.get())
-											.acceptFunction(SetCount.builder(RandomValueRange.of(1, 3)))
-											.acceptFunction(ApplyBonus.oreDrops(Enchantments.FORTUNE))));
+					this.registerLootTable(mo.ORE.get(), BlockLootTables.droppingWithSilkTouch(mo.ORE.get(), ItemLootEntry.builder(mh.getGem().GEM.get()).acceptFunction(SetCount.builder(RandomValueRange.of(1, 3))).acceptFunction(ApplyBonus.oreDrops(Enchantments.FORTUNE))));
 				}
 			}
 		}

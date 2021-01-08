@@ -2,8 +2,10 @@ package lance5057.compendium.core.workstations.client;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 
+import lance5057.compendium.core.util.rendering.RenderUtil;
+import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
+import lance5057.compendium.core.util.rendering.animation.integers.AnimatedIntVector3;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
-import lance5057.compendium.core.workstations.tileentities.HammeringStationTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -15,15 +17,20 @@ import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 
 public class CraftingAnvilRenderer extends TileEntityRenderer<CraftingAnvilTE> {
+	int timer = 0;
+	AnimatedFloatVector3 ghost;
+
 	public CraftingAnvilRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
 		super(rendererDispatcherIn);
+
+		ghost = new AnimatedFloatVector3(10, 10, 0, 0.1f);
 	}
 
 	@Override
 	public void render(CraftingAnvilTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+
 		if (!tileEntityIn.hasWorld()) {
 			return;
 		}
@@ -33,15 +40,66 @@ public class CraftingAnvilRenderer extends TileEntityRenderer<CraftingAnvilTE> {
 		LazyOptional<IItemHandler> itemHandler = tileEntityIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
 
 		itemHandler.ifPresent(r -> {
-			ItemStack item = r.getStackInSlot(0);
+
+			float xoff = 0;
+			float yoff = 0;
+			for (int i = 0; i < 25; i++) {
+				xoff = (i % 5) * 0.12f;
+				if (i % 5 == 0)
+					yoff += 0.12f;
+				ItemStack item = r.getStackInSlot(i);
+
+				if (!item.isEmpty()) {
+					matrixStackIn.push();
+					matrixStackIn.translate(xoff + 0.26f, 1, yoff + 0.16);
+					matrixStackIn.rotate(new Quaternion(-90, 0, 0, true));
+					float uniscale = 0.2f;
+					matrixStackIn.scale(uniscale, uniscale, uniscale);
+					itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
+					matrixStackIn.pop();
+				}
+			}
+
+			ItemStack item = r.getStackInSlot(25);
 
 			if (!item.isEmpty()) {
 				matrixStackIn.push();
-				matrixStackIn.translate(0.7, 0.9, 0.5);
-				matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
+				matrixStackIn.translate(1, 0.6, 0.5);
+				matrixStackIn.rotate(new Quaternion(150, -60, 30, true));
+				float uniscale = 1.7f;
+				matrixStackIn.scale(uniscale, uniscale, uniscale);
 				itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
+
 				matrixStackIn.pop();
 			}
 		});
+
+		// Render Recipe Output
+		ItemStack item = tileEntityIn.getGhostStack();
+
+		if (!item.isEmpty()) {
+			matrixStackIn.push();
+			matrixStackIn.translate(0.5f, 1.1, 0.5f);
+			matrixStackIn.rotate(new Quaternion(-90 + ghost.getX().getFloat(), 0 + ghost.getY().getFloat(), 45 + ghost.getZ().getFloat(), true));
+			float uniscale = 0.7f;
+			matrixStackIn.scale(uniscale, uniscale, uniscale);
+			if (tileEntityIn.maxProgress > 0) {
+				float transparency = (float) tileEntityIn.progress / (float) tileEntityIn.maxProgress;
+				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
+				RenderUtil.renderItemCustomColor(tileEntityIn, item, color, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, null);
+			}
+			matrixStackIn.pop();
+		}
+
+		timer++;
+		if (timer > 100)
+			timer = 0;
+
+		ghost.animate();
+
+		// For hotswapping, remove later!
+		ghost.setMax(10, 0, 10);
+		ghost.setMin(-10, 0, -10);
+		ghost.setSpeed(0.1f);
 	}
 }

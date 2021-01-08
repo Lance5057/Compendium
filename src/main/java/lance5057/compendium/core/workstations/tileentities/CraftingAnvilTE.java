@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.CompendiumTileEntities;
+import lance5057.compendium.core.util.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
@@ -16,6 +17,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
@@ -31,12 +33,12 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class CraftingAnvilTE extends TileEntity implements INamedContainerProvider {
 	private final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createHandler);
-	private ItemStack lastStack = ItemStack.EMPTY;
+	private ItemStack ghostStack = ItemStack.EMPTY;
 	public int progress = 0;
+	public int maxProgress = 0;
 
 	public CraftingAnvilTE() {
 		super(CompendiumTileEntities.CRAFTING_ANVIL_TE.get());
@@ -67,7 +69,7 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 
 		if (world != null) {
 			Optional<CraftingAnvilRecipe> recipe = handler.map(i -> {
-				return world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, new RecipeWrapper(i), world);
+				return world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, new WorkstationRecipeWrapper(5, 5, i), world);
 			}).get();
 			return recipe;
 		}
@@ -84,19 +86,31 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 			@Override
 			protected void onContentsChanged(int slot) {
 				updateInventory();
-				zeroProgress();
-			}
+				if (slot != 25) {
 
-//			@Override
-//			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-//				//Optional<CraftingAnvilRecipe> r = matchRecipe();
-//				return r.isPresent() && super.isItemValid(slot, stack);
-//			}
+					zeroProgress();
+					Optional<CraftingAnvilRecipe> recipe = matchRecipe();
+
+					setGhostStack(ItemStack.EMPTY);
+					recipe.ifPresent(r -> {
+						setGhostStack(r.getRecipeOutput().copy());
+					});
+				}
+			}
 		};
 	}
 
 	public void zeroProgress() {
 		this.progress = 0;
+		this.maxProgress = 0;
+	}
+
+	public void setGhostStack(ItemStack i) {
+		this.ghostStack = i;
+	}
+
+	public ItemStack getGhostStack() {
+		return this.ghostStack;
 	}
 
 	public void updateInventory() {
@@ -111,15 +125,15 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 	public void hammer(PlayerEntity playerEntity, ItemStack hammer) {
 		Optional<CraftingAnvilRecipe> recipe = matchRecipe();
 		recipe.ifPresent(r -> {
+			this.maxProgress = r.getStrikes();
 			if (this.progress >= r.getStrikes()) {
 
 				// craft();
 				for (int i = 0; i < 5; i++) {
-					world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
+					world.addParticle(new ItemParticleData(ParticleTypes.ITEM, ghostStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
 				}
 				world.playSound(playerEntity, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1, 0);
 
-				
 				handler.ifPresent(h -> {
 					ItemStack item = r.getRecipeOutput().copy();
 					TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
@@ -170,58 +184,103 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 		return insert;
 	}
 
-	@Nullable
-	@Override
-	public SUpdateTileEntityPacket getUpdatePacket() {
-		CompoundNBT nbt = this.getUpdateTag();
-		return new SUpdateTileEntityPacket(this.getPos(), -1, nbt);
-	}
+//	@Nullable
+//	@Override
+//	public SUpdateTileEntityPacket getUpdatePacket() {
+//		CompoundNBT nbt = this.getUpdateTag();
+//		return new SUpdateTileEntityPacket(this.getPos(), -1, nbt);
+//	}
 
 //    @Override
 //    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
 //        handleUpdateTag(pkt.getNbtCompound());
 //    }
 
-	@Override
-	@Nonnull
-	public CompoundNBT getUpdateTag() {
+//	@Override
+//	@Nonnull
+//	public CompoundNBT getUpdateTag() {
 //		CompoundNBT updateTag = new CompoundNBT();
+//		updateTag.putInt("progress", progress);
 //		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
-//		CompoundNBT itemSlot = new CompoundNBT();
-//		itemHandler.getStackInSlot(0).write(itemSlot);
-//		updateTag.put("item", itemSlot);
-		return this.write(new CompoundNBT());
+//		// CompoundNBT inv = new CompoundNBT();
+//
+//		updateTag.put("items", ((ItemStackHandler) itemHandler).serializeNBT());
+//		return updateTag;
+//	}
+//
+//	@Override
+//	public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+//		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
+//		((ItemStackHandler) itemHandler).deserializeNBT(tag.getCompound("items"));
+//		
+//		this.progress = tag.getInt("progress");
+//	}
+	@Override
+	public CompoundNBT getUpdateTag() {
+		CompoundNBT nbt = super.getUpdateTag();
+
+		writeNBT(nbt);
+
+		return nbt;
 	}
 
-//    @Override
-//    public void handleUpdateTag(CompoundNBT tag) {
-//        final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
-//        ((ItemStackHandler) itemHandler).setStackInSlot(1, ItemStack.read(tag.getCompound("item")));
-//    }
+	@Override
+	public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+		readNBT(tag);
+	}
+
+	@Override
+	public SUpdateTileEntityPacket getUpdatePacket() {
+		CompoundNBT tag = new CompoundNBT();
+
+		writeNBT(tag);
+
+		return new SUpdateTileEntityPacket(getPos(), 1, tag);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+		CompoundNBT tag = pkt.getNbtCompound();
+		// Handle your Data
+		readNBT(tag);
+	}
+
+	void readNBT(CompoundNBT nbt) {
+		final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
+		((ItemStackHandler) itemHandler).deserializeNBT(nbt.getCompound("inventory"));
+
+		this.progress = nbt.getInt("progress");
+		this.maxProgress = nbt.getInt("maxProgress");
+
+		this.ghostStack = ItemStack.read(nbt.getCompound("ghost"));
+	}
+
+	CompoundNBT writeNBT(CompoundNBT tag) {
+		// CompoundNBT tag = new CompoundNBT();
+		// Write your data into the nbtTag
+
+		IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
+		tag.put("inventory", ((ItemStackHandler) itemHandler).serializeNBT());
+
+		tag.putInt("progress", progress);
+		tag.putInt("maxProgress", maxProgress);
+
+		tag.put("ghost", this.ghostStack.serializeNBT());
+
+		return tag;
+	}
 
 	@Override
 	public void read(BlockState state, @Nonnull CompoundNBT nbt) {
 		super.read(state, nbt);
-		progress = nbt.getInt("progress");
-		lastStack.deserializeNBT(nbt.getCompound("lastStack"));
-		handler.ifPresent(iItemHandler -> {
-			if (iItemHandler instanceof ItemStackHandler) {
-				((ItemStackHandler) iItemHandler).deserializeNBT(nbt.getCompound("inventory"));
-			}
-		});
+		readNBT(nbt);
 	}
 
 	@Override
 	@Nonnull
 	public CompoundNBT write(@Nonnull CompoundNBT nbt) {
 		super.write(nbt);
-		nbt.putInt("progress", progress);
-		nbt.put("lastStack", lastStack.serializeNBT());
-		handler.ifPresent(iItemHandler -> {
-			if (iItemHandler instanceof ItemStackHandler) {
-				nbt.put("inventory", ((ItemStackHandler) iItemHandler).serializeNBT());
-			}
-		});
+		writeNBT(nbt);
 		return nbt;
 	}
 

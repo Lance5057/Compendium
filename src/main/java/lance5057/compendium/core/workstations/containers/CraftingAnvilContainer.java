@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.CompendiumContainers;
+import lance5057.compendium.core.util.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,9 +21,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class CraftingAnvilContainer extends Container {
+public class CraftingAnvilContainer extends Container implements IInventory {
 	// private final CraftingInventory craftMatrix = new CraftingInventory(this, 5,
 	// 5);
 	// private final CraftResultInventory craftResult = new CraftResultInventory();
@@ -90,7 +90,8 @@ public class CraftingAnvilContainer extends Container {
 					@Override
 					public void onSlotChanged() {
 						super.onSlotChanged();
-						CraftingAnvilContainer.this.onCraftMatrixChanged(new RecipeWrapper(inv));
+						
+						CraftingAnvilContainer.this.onCraftMatrixChanged(new WorkstationRecipeWrapper(5, 5, inv));
 					}
 				});
 			}
@@ -107,9 +108,8 @@ public class CraftingAnvilContainer extends Container {
 		}
 
 	}
-	
-	public void zeroStrikes()
-	{
+
+	public void zeroStrikes() {
 		this.strikes = 0;
 	}
 
@@ -121,6 +121,7 @@ public class CraftingAnvilContainer extends Container {
 //				this.getSlot(i).putStack(item);
 //			}
 //		}
+		zeroStrikes();
 	}
 
 //	protected static void updateCraftingResult(int id, World world, PlayerEntity player, ItemStackHandler inventory, CraftResultInventory inventoryResult) {
@@ -150,23 +151,23 @@ public class CraftingAnvilContainer extends Container {
 	 */
 	@Override
 	public void onCraftMatrixChanged(IInventory inventoryIn) {
-		Optional<CraftingAnvilRecipe> recipe = this.world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, (RecipeWrapper) inventoryIn, this.world);
+		Optional<CraftingAnvilRecipe> recipe = this.world.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE, (WorkstationRecipeWrapper) inventoryIn, this.world);
 		if (recipe.isPresent()) {
-			ItemStack result = recipe.get().getCraftingResult((RecipeWrapper) inventoryIn);
+			ItemStack result = recipe.get().getCraftingResult((WorkstationRecipeWrapper) inventoryIn);
 			this.view.putStack(result);
 			this.maxStrikes = recipe.get().getStrikes();
 		} else {
-			//this.output.putStack(ItemStack.EMPTY);
+			// this.output.putStack(ItemStack.EMPTY);
 			this.maxStrikes = 0;
 		}
 
 		Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager().getRecipesForType(WorkstationRecipes.CRAFTING_ANVIL_RECIPE);
-		CraftingAnvilRecipe r2 = matchRecipe((RecipeWrapper) inventoryIn);
-		//zeroStrikes();
+		CraftingAnvilRecipe r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
+		// zeroStrikes();
 		super.onCraftMatrixChanged(inventoryIn);
 	}
 
-	private CraftingAnvilRecipe matchRecipe(RecipeWrapper inventoryIn) {
+	private CraftingAnvilRecipe matchRecipe(WorkstationRecipeWrapper inventoryIn) {
 		if (world != null) {
 			return world.getRecipeManager().getRecipes().stream().filter(recipe -> recipe instanceof CraftingAnvilRecipe).map(recipe -> (CraftingAnvilRecipe) recipe).filter(recipe -> recipe.matches(inventoryIn, this.world)).findFirst().orElse(null);
 		}
@@ -243,6 +244,54 @@ public class CraftingAnvilContainer extends Container {
 		}
 
 		return itemstack;
+	}
+
+	@Override
+	public int getSizeInventory() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ItemStack getStackInSlot(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ItemStack decrStackSize(int index, int count) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ItemStack removeStackFromSlot(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setInventorySlotContents(int index, ItemStack stack) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void markDirty() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean isUsableByPlayer(PlayerEntity player) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 ////	/**
