@@ -13,6 +13,8 @@ import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.util.OreRetrogenFeature;
+import lance5057.compendium.core.world.CompendiumConfiguredStructures;
+import lance5057.compendium.core.world.CompendiumStructures;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.RegistryKey;
@@ -23,27 +25,35 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkStatus;
+import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraft.world.gen.settings.DimensionStructuresSettings;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.ChunkDataEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
+import net.minecraftforge.fml.common.Mod;
 
+//@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CompendiumWorldGen {
 
 	public static final Feature<OreFeatureConfig> ORE_RETROGEN = new OreRetrogenFeature(OreFeatureConfig.CODEC);
 
 	@SubscribeEvent
-	public static void biomeModification(final BiomeLoadingEvent event) {
+	public void biomeModification(final BiomeLoadingEvent event) {
+		// Ore
 		BiomeGenerationSettingsBuilder generation = event.getGeneration();
 
 		for (MaterialHelper mh : CompendiumMaterials.materials) {
@@ -56,6 +66,9 @@ public class CompendiumWorldGen {
 				}
 		}
 
+		// Structures
+		event.getGeneration().getStructures().add(() -> CompendiumConfiguredStructures.CONFIGURED_DUNGEON.get());
+		int i = 0;
 	}
 
 	private void generateOres(Random random, int chunkX, int chunkZ, ServerWorld world) {
@@ -132,5 +145,16 @@ public class CompendiumWorldGen {
 		levelTag.put("Compendium", nbt);
 		nbt.putBoolean(CompendiumConfig.getInstance().worldgen.retroGenName.get(), true);
 
+	}
+
+	@SubscribeEvent
+	public void addDimensionalSpacing(final WorldEvent.Load event) {
+		if (event.getWorld() instanceof ServerWorld) {
+			ServerWorld serverWorld = (ServerWorld) event.getWorld();
+
+			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
+			tempMap.put(CompendiumStructures.DUNGEON.get(), DimensionStructuresSettings.field_236191_b_.get(CompendiumStructures.DUNGEON.get()));
+			serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+		}
 	}
 }

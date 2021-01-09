@@ -5,7 +5,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "compendium:dungeon/comma",
+        "location": "compendium:dungeon/dungeon",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

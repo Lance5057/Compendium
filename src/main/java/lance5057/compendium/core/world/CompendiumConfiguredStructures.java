@@ -1,13 +1,13 @@
 package lance5057.compendium.core.world;
 
+import java.util.function.Supplier;
+
 import lance5057.compendium.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.FlatGenerationSettings;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
-import java.util.function.Supplier;
 
 public class CompendiumConfiguredStructures {
 
@@ -17,6 +17,6 @@ public class CompendiumConfiguredStructures {
 
 		final Registry<StructureFeature<?, ?>> structureRegistry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
-		Registry.register(structureRegistry, new ResourceLocation(Reference.MOD_ID, "dungeon"), CONFIGURED_DUNGEON.get());
+		Registry.register(structureRegistry, new ResourceLocation(Reference.MOD_ID, "configured_dungeon"), CONFIGURED_DUNGEON.get());
 	}
 }

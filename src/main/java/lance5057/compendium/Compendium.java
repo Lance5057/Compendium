@@ -35,42 +35,43 @@ public class Compendium {
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::modSetup);
 		modEventBus.addListener(this::setupClient);
-		
+
 		ModLoadingContext modLoadingContext = ModLoadingContext.get();
-        modLoadingContext.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.initialize());
-        CompendiumConfig.loadConfig(CompendiumConfig.getInstance().getSpec(), FMLPaths.CONFIGDIR.get().resolve("compendium-common.toml"));
+		modLoadingContext.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.initialize());
+		CompendiumConfig.loadConfig(CompendiumConfig.getInstance().getSpec(), FMLPaths.CONFIGDIR.get().resolve("compendium-common.toml"));
 
 		blocks = new CompendiumBlocks();
 		items = new CompendiumItems();
 		mats = new CompendiumMaterials();
 		worldgen = new CompendiumWorldGen();
-		
+
 		CompendiumItems.register(modEventBus);
 		CompendiumBlocks.register(modEventBus);
 		CompendiumTileEntities.register(modEventBus);
 		CompendiumContainers.register(modEventBus);
-		
+		CompendiumStructures.register(modEventBus);
+
 		WorkstationRecipes.register(modEventBus);
-		
+
 		MinecraftForge.EVENT_BUS.register(worldgen);
 	}
 
 	private void modSetup(final FMLCommonSetupEvent event) {
 		mats.setup(event);
-		
+
 		event.enqueueWork(() -> {
-            CompendiumStructures.setupStructures();
-            CompendiumConfiguredStructures.registerConfiguredStructures();
-        });
+			CompendiumStructures.setupStructures();
+			CompendiumConfiguredStructures.registerConfiguredStructures();
+		});
 	}
 
 	public void setupClient(FMLClientSetupEvent event) {
 		CompendiumClient.setRenderLayers();
-		
+
 		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(), HammeringStationRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), CraftingAnvilRenderer::new);
 		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SAWHORSE_STATION_TE.get(), SawhorseStationRenderer::new);
-		
+
 		CompendiumContainers.registerClient(event);
 	}
 }
