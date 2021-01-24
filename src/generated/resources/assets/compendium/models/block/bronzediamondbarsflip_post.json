@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "textures": {
+    "pane": "compendium:block/material/bronze/bronzediamondbarsflip",
+    "edge": "compendium:block/material/bronze/bronzediamondbarsflip"
+  }
+}

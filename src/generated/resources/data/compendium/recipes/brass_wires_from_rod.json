@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:brassrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:brasswire",
+    "count": 4
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "compendium:item/material/ruby/rubysaw",
+    "layer1": "compendium:item/sawbase"
+  }
+}

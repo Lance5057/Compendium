@@ -8,9 +8,6 @@
     "compendium:nihiliteplate",
     "compendium:orichalcumplate",
     "compendium:pandoriumplate",
-    "compendium:rosegoldplate",
-    "compendium:platinumplate",
-    "compendium:silverplate",
     "compendium:valyriansteelplate",
     "compendium:iceplate",
     "compendium:froststeelplate",
@@ -21,6 +18,8 @@
     "compendium:diamondplate",
     "compendium:lapisplate",
     "compendium:quartzplate",
+    "compendium:boneplate",
+    "compendium:obsidianplate",
     "compendium:sapphireplate",
     "compendium:rubyplate",
     "compendium:citrineplate",
@@ -29,6 +28,17 @@
     "compendium:garnetplate",
     "compendium:opalplate",
     "compendium:tanziniteplate",
-    "compendium:amberplate"
+    "compendium:amberplate",
+    "compendium:brassplate",
+    "compendium:bronzeplate",
+    "compendium:copperplate",
+    "compendium:electrumplate",
+    "compendium:nickelplate",
+    "compendium:steelplate",
+    "compendium:tinplate",
+    "compendium:zincplate",
+    "compendium:rosegoldplate",
+    "compendium:platinumplate",
+    "compendium:silverplate"
   ]
 }

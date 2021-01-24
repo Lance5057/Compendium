@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  p",
+    " pl",
+    "pls"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:nickelplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:nickelitemshinglesalt",
+    "count": 4
+  }
+}

@@ -8,9 +8,6 @@
     "compendium:nihilitecoin",
     "compendium:orichalcumcoin",
     "compendium:pandoriumcoin",
-    "compendium:rosegoldcoin",
-    "compendium:platinumcoin",
-    "compendium:silvercoin",
     "compendium:valyriansteelcoin",
     "compendium:icecoin",
     "compendium:froststeelcoin",
@@ -21,6 +18,8 @@
     "compendium:diamondcoin",
     "compendium:lapiscoin",
     "compendium:quartzcoin",
+    "compendium:bonecoin",
+    "compendium:obsidiancoin",
     "compendium:sapphirecoin",
     "compendium:rubycoin",
     "compendium:citrinecoin",
@@ -29,6 +28,17 @@
     "compendium:garnetcoin",
     "compendium:opalcoin",
     "compendium:tanzinitecoin",
-    "compendium:ambercoin"
+    "compendium:ambercoin",
+    "compendium:brasscoin",
+    "compendium:bronzecoin",
+    "compendium:coppercoin",
+    "compendium:electrumcoin",
+    "compendium:nickelcoin",
+    "compendium:steelcoin",
+    "compendium:tincoin",
+    "compendium:zinccoin",
+    "compendium:rosegoldcoin",
+    "compendium:platinumcoin",
+    "compendium:silvercoin"
   ]
 }

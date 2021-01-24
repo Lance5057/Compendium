@@ -9,8 +9,11 @@ import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import net.minecraft.block.Block;
+import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,113 +22,124 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MaterialHelper {
-	public String name;
-	public String parentMod;
-	public CompendiumItemTier tier;
+    public String name;
+    public String parentMod;
+    public IItemTier tier;
 
-	public final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
-	public final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
+    public final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
+    public final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
-	private CraftableMaterial craftable;
-	private MeltableMaterial meltable;
-	private MaterialVanillaComponents vcomponents;
-	private MaterialExtraComponents ecomponents;
-	private MaterialVanillaTools vtools;
-	private MaterialExtraTools etools;
+    private PremadeMaterial premade;
+    private CraftableMaterial craftable;
+    private MeltableMaterial meltable;
+    private MaterialVanillaComponents vcomponents;
+    private MaterialExtraComponents ecomponents;
+    private MaterialVanillaTools vtools;
+    private MaterialExtraTools etools;
 
-	// TODO add dense and sparse
-	private MaterialOre ore;
+    // TODO add dense and sparse
+    private MaterialOre ore;
 
-	boolean preset = false;
+    boolean preset = false;
 
-	public MaterialHelper(String name) {
-		this(name, Reference.MOD_ID, null);
-	}
+    public MaterialHelper(String name) {
+	this(name, Reference.MOD_ID, null);
+    }
 
-	public MaterialHelper(String name, CompendiumItemTier tier) {
-		this(name, Reference.MOD_ID, tier);
-	}
+    public MaterialHelper(String name, IItemTier tier) {
+	this(name, Reference.MOD_ID, tier);
+    }
 
-	public MaterialHelper(String name, String parentMod, CompendiumItemTier tier) {
-		this.name = name;
-		this.parentMod = parentMod;
-		this.tier = tier;
+    public MaterialHelper(String name, String parentMod, IItemTier tier) {
+	this.name = name;
+	this.parentMod = parentMod;
+	this.tier = tier;
 
-		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		ITEMS.register(modEventBus);
-		BLOCKS.register(modEventBus);
-	}
+	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	ITEMS.register(modEventBus);
+	BLOCKS.register(modEventBus);
+    }
 
-	// Meltable
-	public MaterialHelper withIngot() {
-		meltable = new MeltableMaterial(this);
-		return this;
-	}
+    // Premade
+    public MaterialHelper withPremade(Ingredient ingot, Ingredient nugget, Ingredient storageblock) {
+	premade = new PremadeMaterial(this, ingot, nugget, storageblock);
+	return this;
+    }
 
-	public MeltableMaterial getIngot() {
-		return meltable;
-	}
+    public PremadeMaterial getPremade() {
+	return premade;
+    }
 
-	// Craftable
-	public MaterialHelper withGem() {
-		craftable = new CraftableMaterial(this);
-		return this;
-	}
+    // Meltable
+    public MaterialHelper withIngot() {
+	meltable = new MeltableMaterial(this);
+	return this;
+    }
 
-	public CraftableMaterial getGem() {
-		return craftable;
-	}
+    public MeltableMaterial getIngot() {
+	return meltable;
+    }
 
-	// Vanilla Components
-	public MaterialHelper withVanillaComponents() {
-		vcomponents = new MaterialVanillaComponents(this);
-		return this;
-	}
+    // Craftable
+    public MaterialHelper withGem() {
+	craftable = new CraftableMaterial(this);
+	return this;
+    }
 
-	public MaterialVanillaComponents getVanillaComponents() {
-		return vcomponents;
-	}
+    public CraftableMaterial getGem() {
+	return craftable;
+    }
 
-	// Extra Components
-	public MaterialHelper withExtraComponents() {
-		ecomponents = new MaterialExtraComponents(this);
-		return this;
-	}
+    // Vanilla Components
+    public MaterialHelper withVanillaComponents() {
+	vcomponents = new MaterialVanillaComponents(this);
+	return this;
+    }
 
-	public MaterialExtraComponents getExtraComponents() {
-		return ecomponents;
-	}
+    public MaterialVanillaComponents getVanillaComponents() {
+	return vcomponents;
+    }
 
-	// Vanilla Tools
-	public MaterialHelper withVanillaTools() {
-		this.vtools = new MaterialVanillaTools(this);
-		return this;
-	}
+    // Extra Components
+    public MaterialHelper withExtraComponents() {
+	ecomponents = new MaterialExtraComponents(this);
+	return this;
+    }
 
-	public MaterialVanillaTools getVanillaTools() {
-		return vtools;
-	}
+    public MaterialExtraComponents getExtraComponents() {
+	return ecomponents;
+    }
 
-	// Extra Tools
-	public MaterialHelper withExtraTools() {
-		this.etools = new MaterialExtraTools(this);
-		return this;
-	}
+    // Vanilla Tools
+    public MaterialHelper withVanillaTools() {
+	this.vtools = new MaterialVanillaTools(this);
+	return this;
+    }
 
-	public MaterialExtraTools getExtraTools() {
-		return etools;
-	}
+    public MaterialVanillaTools getVanillaTools() {
+	return vtools;
+    }
 
-	public MaterialHelper withOre(float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
-			int veinSize, int veinChance, Category biomeCategory) {
-		this.ore = new MaterialOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
-				biomeCategory);
-		return this;
-	}
+    // Extra Tools
+    public MaterialHelper withExtraTools() {
+	this.etools = new MaterialExtraTools(this);
+	return this;
+    }
 
-	public MaterialOre getOre() {
-		return this.ore;
-	}
+    public MaterialExtraTools getExtraTools() {
+	return etools;
+    }
+
+    public MaterialHelper withOre(float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
+	    int veinSize, int veinChance, Category biomeCategory) {
+	this.ore = new MaterialOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
+		biomeCategory);
+	return this;
+    }
+
+    public MaterialOre getOre() {
+	return this.ore;
+    }
 
 //	public MaterialHelper components() {
 //		addons.add(new MaterialVanillaComponents(name, parentMod));
@@ -157,14 +171,14 @@ public class MaterialHelper {
 //		return this;
 //	}
 //
-	public void client() {
-		if (this.getVanillaComponents() != null) {
-			this.getVanillaComponents().setupClient(this);
-		}
-		if (this.getExtraComponents() != null) {
-			this.getExtraComponents().setupClient(this);
-		}
+    public void client() {
+	if (this.getVanillaComponents() != null) {
+	    this.getVanillaComponents().setupClient(this);
 	}
+	if (this.getExtraComponents() != null) {
+	    this.getExtraComponents().setupClient(this);
+	}
+    }
 //
 //	public void models() {
 //		for (MaterialBase mb : addons) {

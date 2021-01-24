@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:steel_shingles_block_from_plates"
+    ]
+  },
+  "criteria": {
+    "steelplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:steelplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:steel_shingles_block_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steelplate",
+      "has_the_recipe"
+    ]
+  ]
+}

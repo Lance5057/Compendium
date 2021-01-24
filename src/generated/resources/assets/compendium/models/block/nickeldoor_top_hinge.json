@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "bottom": "compendium:block/material/nickel/nickel_door_bottom",
+    "top": "compendium:block/material/nickel/nickel_door_top"
+  }
+}

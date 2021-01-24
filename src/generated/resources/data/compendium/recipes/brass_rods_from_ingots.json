@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:brassingot"
+    }
+  },
+  "result": {
+    "item": "compendium:brassrod",
+    "count": 6
+  }
+}

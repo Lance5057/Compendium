@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.core.items.HammerItem;
+import lance5057.compendium.core.items.tools.HammerItem;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

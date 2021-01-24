@@ -8,9 +8,6 @@
     "compendium:nihilitecasing",
     "compendium:orichalcumcasing",
     "compendium:pandoriumcasing",
-    "compendium:rosegoldcasing",
-    "compendium:platinumcasing",
-    "compendium:silvercasing",
     "compendium:valyriansteelcasing",
     "compendium:icecasing",
     "compendium:froststeelcasing",
@@ -21,6 +18,8 @@
     "compendium:diamondcasing",
     "compendium:lapiscasing",
     "compendium:quartzcasing",
+    "compendium:bonecasing",
+    "compendium:obsidiancasing",
     "compendium:sapphirecasing",
     "compendium:rubycasing",
     "compendium:citrinecasing",
@@ -29,6 +28,17 @@
     "compendium:garnetcasing",
     "compendium:opalcasing",
     "compendium:tanzinitecasing",
-    "compendium:ambercasing"
+    "compendium:ambercasing",
+    "compendium:brasscasing",
+    "compendium:bronzecasing",
+    "compendium:coppercasing",
+    "compendium:electrumcasing",
+    "compendium:nickelcasing",
+    "compendium:steelcasing",
+    "compendium:tincasing",
+    "compendium:zinccasing",
+    "compendium:rosegoldcasing",
+    "compendium:platinumcasing",
+    "compendium:silvercasing"
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:nickelingot_from_ore_blast"
+    ]
+  },
+  "criteria": {
+    "nickelore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nickelitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:nickelingot_from_ore_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nickelore",
+      "has_the_recipe"
+    ]
+  ]
+}

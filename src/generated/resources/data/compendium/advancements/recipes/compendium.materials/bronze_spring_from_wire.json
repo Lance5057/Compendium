@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "bronzewire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:bronzewire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzewire",
+      "has_the_recipe"
+    ]
+  ]
+}

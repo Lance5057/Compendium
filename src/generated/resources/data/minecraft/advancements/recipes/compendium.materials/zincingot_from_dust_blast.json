@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:zincingot_from_dust_blast"
+    ]
+  },
+  "criteria": {
+    "zincdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:zincdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:zincingot_from_dust_blast"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "zincdust",
+      "has_the_recipe"
+    ]
+  ]
+}

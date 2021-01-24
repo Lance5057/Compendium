@@ -8,9 +8,6 @@
     "compendium:nihilitegear",
     "compendium:orichalcumgear",
     "compendium:pandoriumgear",
-    "compendium:rosegoldgear",
-    "compendium:platinumgear",
-    "compendium:silvergear",
     "compendium:valyriansteelgear",
     "compendium:icegear",
     "compendium:froststeelgear",
@@ -21,6 +18,8 @@
     "compendium:diamondgear",
     "compendium:lapisgear",
     "compendium:quartzgear",
+    "compendium:bonegear",
+    "compendium:obsidiangear",
     "compendium:sapphiregear",
     "compendium:rubygear",
     "compendium:citrinegear",
@@ -29,6 +28,17 @@
     "compendium:garnetgear",
     "compendium:opalgear",
     "compendium:tanzinitegear",
-    "compendium:ambergear"
+    "compendium:ambergear",
+    "compendium:brassgear",
+    "compendium:bronzegear",
+    "compendium:coppergear",
+    "compendium:electrumgear",
+    "compendium:nickelgear",
+    "compendium:steelgear",
+    "compendium:tingear",
+    "compendium:zincgear",
+    "compendium:rosegoldgear",
+    "compendium:platinumgear",
+    "compendium:silvergear"
   ]
 }

@@ -67,8 +67,8 @@ public class CompendiumWorldGen {
 		}
 
 		// Structures
-		event.getGeneration().getStructures().add(() -> CompendiumConfiguredStructures.CONFIGURED_DUNGEON.get());
-		int i = 0;
+//		event.getGeneration().getStructures().add(() -> CompendiumConfiguredStructures.CONFIGURED_DUNGEON.get());
+//		int i = 0;
 	}
 
 	private void generateOres(Random random, int chunkX, int chunkZ, ServerWorld world) {
@@ -149,12 +149,12 @@ public class CompendiumWorldGen {
 
 	@SubscribeEvent
 	public void addDimensionalSpacing(final WorldEvent.Load event) {
-		if (event.getWorld() instanceof ServerWorld) {
-			ServerWorld serverWorld = (ServerWorld) event.getWorld();
-
-			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
-			tempMap.put(CompendiumStructures.DUNGEON.get(), DimensionStructuresSettings.field_236191_b_.get(CompendiumStructures.DUNGEON.get()));
-			serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
-		}
+//		if (event.getWorld() instanceof ServerWorld) {
+//			ServerWorld serverWorld = (ServerWorld) event.getWorld();
+//
+//			Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
+//			tempMap.put(CompendiumStructures.DUNGEON.get(), DimensionStructuresSettings.field_236191_b_.get(CompendiumStructures.DUNGEON.get()));
+//			serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+//		}
 	}
 }

@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.data.builders.TCItemTags;
+import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawhorseRecipeLoottables;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.materials.CompendiumMaterials;
@@ -21,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -33,7 +35,9 @@ public class SawhorseStationRecipeProvider extends RecipeProvider {
 	@Override
 	protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
 		// From Tag
-		this.createRecipe("plank_to_sticks_oak", new ResourceLocation(Reference.MOD_ID, "recipe/sawhorse"), Ingredient.fromStacks(new ItemStack(Items.OAK_PLANKS)), consumer, 2);
+		this.createRecipe("plank_to_sticks", SawhorseRecipeLoottables.allplanks, Ingredient.fromTag(ItemTags.PLANKS), consumer, 2);
+		
+		this.createRecipe("log_to_plank", new ResourceLocation(Reference.MOD_ID, "recipese/sawhorse/oak_log"), Ingredient.fromItems(Items.OAK_LOG), consumer, 2);
 	}
 
 	private void createRecipe(String name, ResourceLocation output, Ingredient input, Consumer<IFinishedRecipe> consumer) {

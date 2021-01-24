@@ -8,9 +8,6 @@
     "compendium:nihilitewire",
     "compendium:orichalcumwire",
     "compendium:pandoriumwire",
-    "compendium:rosegoldwire",
-    "compendium:platinumwire",
-    "compendium:silverwire",
     "compendium:valyriansteelwire",
     "compendium:icewire",
     "compendium:froststeelwire",
@@ -21,6 +18,8 @@
     "compendium:diamondwire",
     "compendium:lapiswire",
     "compendium:quartzwire",
+    "compendium:bonewire",
+    "compendium:obsidianwire",
     "compendium:sapphirewire",
     "compendium:rubywire",
     "compendium:citrinewire",
@@ -29,6 +28,17 @@
     "compendium:garnetwire",
     "compendium:opalwire",
     "compendium:tanzinitewire",
-    "compendium:amberwire"
+    "compendium:amberwire",
+    "compendium:brasswire",
+    "compendium:bronzewire",
+    "compendium:copperwire",
+    "compendium:electrumwire",
+    "compendium:nickelwire",
+    "compendium:steelwire",
+    "compendium:tinwire",
+    "compendium:zincwire",
+    "compendium:rosegoldwire",
+    "compendium:platinumwire",
+    "compendium:silverwire"
   ]
 }

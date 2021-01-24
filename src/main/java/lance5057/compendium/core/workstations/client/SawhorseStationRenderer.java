@@ -36,8 +36,10 @@ public class SawhorseStationRenderer extends TileEntityRenderer<SawhorseStationT
 
 			if (!item.isEmpty()) {
 				matrixStackIn.push();
-				matrixStackIn.translate(0.7, 0.9, 0.5);
-				matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
+				matrixStackIn.translate(1.25, 1.155, 0.485);
+				matrixStackIn.rotate(new Quaternion(45, 0, 90, true));
+				float scale = 4.0f;
+				matrixStackIn.scale(scale, scale, scale);
 				itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
 				matrixStackIn.pop();
 			}

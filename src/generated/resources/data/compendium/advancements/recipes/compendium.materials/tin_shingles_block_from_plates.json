@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tin_shingles_block_from_plates"
+    ]
+  },
+  "criteria": {
+    "tinplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tinplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tin_shingles_block_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tinplate",
+      "has_the_recipe"
+    ]
+  ]
+}

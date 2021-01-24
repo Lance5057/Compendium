@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "compendium:electrumdust"
+  },
+  "result": "compendium:electrumingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

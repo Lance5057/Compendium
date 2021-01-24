@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:copperplate"
+    }
+  },
+  "result": {
+    "item": "compendium:copperitemsheet",
+    "count": 3
+  }
+}

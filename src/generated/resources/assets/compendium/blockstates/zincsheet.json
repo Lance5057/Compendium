@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/zincsheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/zincsheet"
+    },
+    "type=double": {
+      "model": "compendium:block/zincsheettop"
+    }
+  }
+}

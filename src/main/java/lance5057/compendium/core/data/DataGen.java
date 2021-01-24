@@ -10,6 +10,7 @@ import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.workstationrecipes.CraftingAnvilRecipeProvider;
 import lance5057.compendium.core.data.builders.workstationrecipes.HammeringStationRecipeProvider;
+import lance5057.compendium.core.data.builders.workstationrecipes.SawhorseStationRecipeProvider;
 import lance5057.compendium.core.data.builders.workstationrecipes.loottables.WorkstationLoottableProvider;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -36,5 +37,6 @@ public class DataGen {
 		
 		generator.addProvider(new HammeringStationRecipeProvider(generator));
 		generator.addProvider(new CraftingAnvilRecipeProvider(generator));
+		generator.addProvider(new SawhorseStationRecipeProvider(generator));
 	}
 }

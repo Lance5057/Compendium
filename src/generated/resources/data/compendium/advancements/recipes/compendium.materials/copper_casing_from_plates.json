@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:copper_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "coppercasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:copperplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:copper_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "coppercasing",
+      "has_the_recipe"
+    ]
+  ]
+}

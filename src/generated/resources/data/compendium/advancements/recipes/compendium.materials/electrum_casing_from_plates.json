@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "electrumcasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:electrumplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumcasing",
+      "has_the_recipe"
+    ]
+  ]
+}

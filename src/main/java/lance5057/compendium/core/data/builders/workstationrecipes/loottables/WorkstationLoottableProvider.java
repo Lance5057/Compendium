@@ -29,7 +29,7 @@ public class WorkstationLoottableProvider extends LootTableProvider {
 	@Override
 	@Nonnull
 	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-		return ImmutableList.of(Pair.of(SawhorseRecipeLoottables::new, LootParameterSets.EMPTY));
+		return ImmutableList.of(Pair.of(SawhorseRecipeLoottables::new, LootParameterSets.GENERIC));
 	}
 	
 	@Override

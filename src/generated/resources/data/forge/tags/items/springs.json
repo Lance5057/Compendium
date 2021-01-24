@@ -8,9 +8,6 @@
     "compendium:nihilitespring",
     "compendium:orichalcumspring",
     "compendium:pandoriumspring",
-    "compendium:rosegoldspring",
-    "compendium:platinumspring",
-    "compendium:silverspring",
     "compendium:valyriansteelspring",
     "compendium:icespring",
     "compendium:froststeelspring",
@@ -21,6 +18,8 @@
     "compendium:diamondspring",
     "compendium:lapisspring",
     "compendium:quartzspring",
+    "compendium:bonespring",
+    "compendium:obsidianspring",
     "compendium:sapphirespring",
     "compendium:rubyspring",
     "compendium:citrinespring",
@@ -29,6 +28,17 @@
     "compendium:garnetspring",
     "compendium:opalspring",
     "compendium:tanzinitespring",
-    "compendium:amberspring"
+    "compendium:amberspring",
+    "compendium:brassspring",
+    "compendium:bronzespring",
+    "compendium:copperspring",
+    "compendium:electrumspring",
+    "compendium:nickelspring",
+    "compendium:steelspring",
+    "compendium:tinspring",
+    "compendium:zincspring",
+    "compendium:rosegoldspring",
+    "compendium:platinumspring",
+    "compendium:silverspring"
   ]
 }

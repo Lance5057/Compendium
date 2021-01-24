@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/lantern",
+  "textures": {
+    "all": "compendium:block/material/brass/brasslantern",
+    "all2": "compendium:block/lanternflame"
+  }
+}

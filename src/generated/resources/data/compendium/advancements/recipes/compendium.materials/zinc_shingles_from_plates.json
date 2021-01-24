@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:zinc_shingles_from_plates"
+    ]
+  },
+  "criteria": {
+    "zincplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:zincplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:zinc_shingles_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "zincplate",
+      "has_the_recipe"
+    ]
+  ]
+}

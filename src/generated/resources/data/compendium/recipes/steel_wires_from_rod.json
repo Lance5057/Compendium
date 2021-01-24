@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:steelrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:steelwire",
+    "count": 4
+  }
+}

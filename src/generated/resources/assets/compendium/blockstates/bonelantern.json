@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/bonelantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/bonelanternhanging"
+    }
+  }
+}

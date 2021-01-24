@@ -8,12 +8,21 @@
     "compendium:nihiliteingot",
     "compendium:orichalcumingot",
     "compendium:pandoriumingot",
-    "compendium:rosegoldingot",
-    "compendium:platinumingot",
-    "compendium:silveringot",
     "compendium:valyriansteelingot",
     "compendium:iceingot",
     "compendium:froststeelingot",
-    "compendium:mithrilingot"
+    "compendium:mithrilingot",
+    "compendium:obsidianingot",
+    "compendium:brassingot",
+    "compendium:bronzeingot",
+    "compendium:copperingot",
+    "compendium:electrumingot",
+    "compendium:nickelingot",
+    "compendium:steelingot",
+    "compendium:tiningot",
+    "compendium:zincingot",
+    "compendium:rosegoldingot",
+    "compendium:platinumingot",
+    "compendium:silveringot"
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:brassingot_from_dust_furnace"
+    ]
+  },
+  "criteria": {
+    "brassdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brassdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:brassingot_from_dust_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassdust",
+      "has_the_recipe"
+    ]
+  ]
+}

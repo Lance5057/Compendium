@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:tiningot_from_ore_furnace"
+    ]
+  },
+  "criteria": {
+    "tinore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tinitemore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:tiningot_from_ore_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tinore",
+      "has_the_recipe"
+    ]
+  ]
+}

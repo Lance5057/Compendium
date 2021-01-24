@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:steelrod"
+    }
+  },
+  "result": {
+    "item": "compendium:steelitembars",
+    "count": 8
+  }
+}

@@ -6,7 +6,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.CompendiumContainers;
-import lance5057.compendium.core.util.WorkstationRecipeWrapper;
+import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/nickellantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/nickellanternhanging"
+    }
+  }
+}

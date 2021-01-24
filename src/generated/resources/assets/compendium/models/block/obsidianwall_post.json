@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/wall_post",
+  "textures": {
+    "wall": "compendium:block/material/obsidian/obsidianwall"
+  }
+}

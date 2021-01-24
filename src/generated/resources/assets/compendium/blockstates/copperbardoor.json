@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "facing=north,half=upper,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed"
+    },
+    "facing=south,half=upper,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed"
+    },
+    "facing=west,half=upper,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed",
+      "y": 90
+    },
+    "facing=east,half=upper,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed",
+      "y": 90
+    },
+    "facing=north,half=lower,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed"
+    },
+    "facing=south,half=lower,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed"
+    },
+    "facing=west,half=lower,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed",
+      "y": 90
+    },
+    "facing=east,half=lower,open=false": {
+      "model": "compendium:block/copperslidingdoor_closed",
+      "y": 90
+    },
+    "facing=north,half=upper,open=true": {
+      "model": "compendium:block/copperslidingdoor_open"
+    },
+    "facing=south,half=upper,open=true": {
+      "model": "compendium:block/copperslidingdoor_open"
+    },
+    "facing=west,half=upper,open=true": {
+      "model": "compendium:block/copperslidingdoor_open",
+      "y": 90
+    },
+    "facing=east,half=upper,open=true": {
+      "model": "compendium:block/copperslidingdoor_open",
+      "y": 90
+    },
+    "facing=north,half=lower,open=true": {
+      "model": "compendium:block/copperempty"
+    },
+    "facing=south,half=lower,open=true": {
+      "model": "compendium:block/copperempty"
+    },
+    "facing=west,half=lower,open=true": {
+      "model": "compendium:block/copperempty"
+    },
+    "facing=east,half=lower,open=true": {
+      "model": "compendium:block/copperempty"
+    }
+  }
+}

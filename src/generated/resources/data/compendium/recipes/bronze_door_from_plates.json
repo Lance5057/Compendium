@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pp",
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:bronzeplate"
+    }
+  },
+  "result": {
+    "item": "compendium:bronzeitemdoor",
+    "count": 3
+  }
+}

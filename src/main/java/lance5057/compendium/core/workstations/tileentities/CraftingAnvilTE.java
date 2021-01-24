@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.CompendiumTileEntities;
-import lance5057.compendium.core.util.WorkstationRecipeWrapper;
+import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;

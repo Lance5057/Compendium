@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/obsidianlantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/obsidianlanternhanging"
+    }
+  }
+}

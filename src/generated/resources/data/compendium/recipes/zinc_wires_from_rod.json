@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:zincrod"
+    }
+  ],
+  "result": {
+    "item": "compendium:zincwire",
+    "count": 4
+  }
+}

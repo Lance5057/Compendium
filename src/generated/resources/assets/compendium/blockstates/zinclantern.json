@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/zinclantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/zinclanternhanging"
+    }
+  }
+}

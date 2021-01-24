@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nickel_shingles_from_plates"
+    ]
+  },
+  "criteria": {
+    "nickelplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nickelplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nickel_shingles_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nickelplate",
+      "has_the_recipe"
+    ]
+  ]
+}

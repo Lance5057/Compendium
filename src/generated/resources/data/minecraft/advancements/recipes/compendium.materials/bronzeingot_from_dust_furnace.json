@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:bronzeingot_from_dust_furnace"
+    ]
+  },
+  "criteria": {
+    "bronzedust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:bronzedust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:bronzeingot_from_dust_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzedust",
+      "has_the_recipe"
+    ]
+  ]
+}

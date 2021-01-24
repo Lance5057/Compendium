@@ -8,9 +8,6 @@
     "compendium:nihilitedust",
     "compendium:orichalcumdust",
     "compendium:pandoriumdust",
-    "compendium:rosegolddust",
-    "compendium:platinumdust",
-    "compendium:silverdust",
     "compendium:valyriansteeldust",
     "compendium:icedust",
     "compendium:froststeeldust",
@@ -21,6 +18,8 @@
     "compendium:diamonddust",
     "compendium:lapisdust",
     "compendium:quartzdust",
+    "compendium:bonedust",
+    "compendium:obsidiandust",
     "compendium:sapphiredust",
     "compendium:rubydust",
     "compendium:citrinedust",
@@ -29,6 +28,17 @@
     "compendium:garnetdust",
     "compendium:opaldust",
     "compendium:tanzinitedust",
-    "compendium:amberdust"
+    "compendium:amberdust",
+    "compendium:brassdust",
+    "compendium:bronzedust",
+    "compendium:copperdust",
+    "compendium:electrumdust",
+    "compendium:nickeldust",
+    "compendium:steeldust",
+    "compendium:tindust",
+    "compendium:zincdust",
+    "compendium:rosegolddust",
+    "compendium:platinumdust",
+    "compendium:silverdust"
   ]
 }

@@ -8,9 +8,6 @@
     "compendium:nihilitewall",
     "compendium:orichalcumwall",
     "compendium:pandoriumwall",
-    "compendium:rosegoldwall",
-    "compendium:platinumwall",
-    "compendium:silverwall",
     "compendium:valyriansteelwall",
     "compendium:icewall",
     "compendium:froststeelwall",
@@ -21,6 +18,8 @@
     "compendium:diamondwall",
     "compendium:lapiswall",
     "compendium:quartzwall",
+    "compendium:bonewall",
+    "compendium:obsidianwall",
     "compendium:sapphirewall",
     "compendium:rubywall",
     "compendium:citrinewall",
@@ -29,6 +28,17 @@
     "compendium:garnetwall",
     "compendium:opalwall",
     "compendium:tanzinitewall",
-    "compendium:amberwall"
+    "compendium:amberwall",
+    "compendium:brasswall",
+    "compendium:bronzewall",
+    "compendium:copperwall",
+    "compendium:electrumwall",
+    "compendium:nickelwall",
+    "compendium:steelwall",
+    "compendium:tinwall",
+    "compendium:zincwall",
+    "compendium:rosegoldwall",
+    "compendium:platinumwall",
+    "compendium:silverwall"
   ]
 }

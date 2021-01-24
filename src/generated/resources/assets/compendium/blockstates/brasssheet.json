@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/brasssheettop"
+    },
+    "type=bottom": {
+      "model": "compendium:block/brasssheet"
+    },
+    "type=double": {
+      "model": "compendium:block/brasssheettop"
+    }
+  }
+}

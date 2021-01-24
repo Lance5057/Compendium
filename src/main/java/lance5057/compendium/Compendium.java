@@ -1,5 +1,6 @@
 package lance5057.compendium;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -49,7 +50,7 @@ public class Compendium {
 		CompendiumBlocks.register(modEventBus);
 		CompendiumTileEntities.register(modEventBus);
 		CompendiumContainers.register(modEventBus);
-		CompendiumStructures.register(modEventBus);
+		//CompendiumStructures.register(modEventBus);
 
 		WorkstationRecipes.register(modEventBus);
 
@@ -57,7 +58,7 @@ public class Compendium {
 	}
 
 	private void modSetup(final FMLCommonSetupEvent event) {
-		mats.setup(event);
+		//mats.setup(event);
 
 		event.enqueueWork(() -> {
 			CompendiumStructures.setupStructures();

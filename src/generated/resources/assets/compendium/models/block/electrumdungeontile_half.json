@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/dungeontile_half",
+  "textures": {
+    "0": "compendium:block/material/electrum/electrumhalftile"
+  }
+}

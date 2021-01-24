@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:bronzeingot"
+    }
+  },
+  "result": {
+    "item": "compendium:bronzeplate",
+    "count": 2
+  }
+}

@@ -27,7 +27,7 @@ public class CompendiumStructures {
 	}
 
 	public static void setupStructures() {
-		setupMapSpacingAndLand(DUNGEON.get(), new StructureSeparationSettings(5, 3, 2057103), true);
+		setupMapSpacingAndLand(DUNGEON.get(), new StructureSeparationSettings(50, 30, 2057103), true);
 
 		// Add more structures here and so on
 	}

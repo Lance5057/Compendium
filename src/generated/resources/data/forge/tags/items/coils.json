@@ -8,9 +8,6 @@
     "compendium:nihilitecoil",
     "compendium:orichalcumcoil",
     "compendium:pandoriumcoil",
-    "compendium:rosegoldcoil",
-    "compendium:platinumcoil",
-    "compendium:silvercoil",
     "compendium:valyriansteelcoil",
     "compendium:icecoil",
     "compendium:froststeelcoil",
@@ -21,6 +18,8 @@
     "compendium:diamondcoil",
     "compendium:lapiscoil",
     "compendium:quartzcoil",
+    "compendium:bonecoil",
+    "compendium:obsidiancoil",
     "compendium:sapphirecoil",
     "compendium:rubycoil",
     "compendium:citrinecoil",
@@ -29,6 +28,17 @@
     "compendium:garnetcoil",
     "compendium:opalcoil",
     "compendium:tanzinitecoil",
-    "compendium:ambercoil"
+    "compendium:ambercoil",
+    "compendium:brasscoil",
+    "compendium:bronzecoil",
+    "compendium:coppercoil",
+    "compendium:electrumcoil",
+    "compendium:nickelcoil",
+    "compendium:steelcoil",
+    "compendium:tincoil",
+    "compendium:zinccoil",
+    "compendium:rosegoldcoil",
+    "compendium:platinumcoil",
+    "compendium:silvercoil"
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "ptp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:steelnugget"
+    },
+    "t": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "compendium:steelitemlantern"
+  }
+}

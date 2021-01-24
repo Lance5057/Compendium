@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.core.items.HammerItem;
+import lance5057.compendium.core.items.tools.SawItem;
 import lance5057.compendium.core.workstations.tileentities.SawhorseStationTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,8 +26,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
@@ -41,7 +39,7 @@ public class SawhorseStationBlock extends Block {
 	private static final ITextComponent containerName = new TranslationTextComponent("compendium.container.anvilcraft");
 
 	public SawhorseStationBlock() {
-		super(Block.Properties.create(Material.ROCK).harvestLevel(0).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE).notSolid());
+		super(Block.Properties.create(Material.WOOD).harvestLevel(0).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE).notSolid());
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 	}
 
@@ -89,22 +87,22 @@ public class SawhorseStationBlock extends Block {
 					ItemStack heldoff = playerEntity.getHeldItem(Hand.OFF_HAND);
 
 					// Try inserting main hand item
-					if (!(heldmain.getItem() instanceof HammerItem)) {
+					if (!(heldmain.getItem() instanceof SawItem)) {
 						te.insertItem(heldmain);
 						success = true;
 					}
 					// Try inserting off hand item
-					if (!(heldoff.getItem() instanceof HammerItem)) {
+					if (!(heldoff.getItem() instanceof SawItem)) {
 						te.insertItem(heldoff);
 						success = true;
 					}
 
 					// Hit it!
 					// Try main hand, only try off hand if that fails
-					if (heldmain.getItem() instanceof HammerItem) {
+					if (heldmain.getItem() instanceof SawItem) {
 						te.hammer(playerEntity, heldmain);
 						success = true;
-					} else if (heldoff.getItem() instanceof HammerItem) {
+					} else if (heldoff.getItem() instanceof SawItem) {
 						te.hammer(playerEntity, heldoff);
 						success = true;
 					}

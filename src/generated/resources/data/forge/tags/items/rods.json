@@ -8,9 +8,6 @@
     "compendium:nihiliterod",
     "compendium:orichalcumrod",
     "compendium:pandoriumrod",
-    "compendium:rosegoldrod",
-    "compendium:platinumrod",
-    "compendium:silverrod",
     "compendium:valyriansteelrod",
     "compendium:icerod",
     "compendium:froststeelrod",
@@ -21,6 +18,8 @@
     "compendium:diamondrod",
     "compendium:lapisrod",
     "compendium:quartzrod",
+    "compendium:bonerod",
+    "compendium:obsidianrod",
     "compendium:sapphirerod",
     "compendium:rubyrod",
     "compendium:citrinerod",
@@ -29,6 +28,17 @@
     "compendium:garnetrod",
     "compendium:opalrod",
     "compendium:tanziniterod",
-    "compendium:amberrod"
+    "compendium:amberrod",
+    "compendium:brassrod",
+    "compendium:bronzerod",
+    "compendium:copperrod",
+    "compendium:electrumrod",
+    "compendium:nickelrod",
+    "compendium:steelrod",
+    "compendium:tinrod",
+    "compendium:zincrod",
+    "compendium:rosegoldrod",
+    "compendium:platinumrod",
+    "compendium:silverrod"
   ]
 }

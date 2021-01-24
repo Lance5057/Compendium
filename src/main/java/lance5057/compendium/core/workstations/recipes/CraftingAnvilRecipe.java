@@ -14,7 +14,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.util.WorkstationRecipeWrapper;
+import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -111,20 +111,20 @@ public class CraftingAnvilRecipe implements IShapedRecipe<WorkstationRecipeWrapp
 	 * Used to check if a recipe matches current crafting inventory
 	 */
 	public boolean matches(WorkstationRecipeWrapper inv, World worldIn) {
-	      for(int i = 0; i <= 5 - this.recipeWidth; ++i) {
-	         for(int j = 0; j <= 5 - this.recipeHeight; ++j) {
-	            if (this.checkMatch(inv, i, j, true)) {
-	               return true;
-	            }
+		for (int i = 0; i <= 5 - this.recipeWidth; ++i) {
+			for (int j = 0; j <= 5 - this.recipeHeight; ++j) {
+				if (this.checkMatch(inv, i, j, true)) {
+					return true;
+				}
 
-	            if (this.checkMatch(inv, i, j, false)) {
-	               return true;
-	            }
-	         }
-	      }
+				if (this.checkMatch(inv, i, j, false)) {
+					return true;
+				}
+			}
+		}
 
-	      return false;
-	   }
+		return false;
+	}
 
 	/**
 	 * Checks if the region of a crafting inventory is match for the recipe.
@@ -333,13 +333,15 @@ public class CraftingAnvilRecipe implements IShapedRecipe<WorkstationRecipeWrapp
 			int j = buffer.readVarInt();
 			String s = buffer.readString(32767);
 			NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i * j, Ingredient.EMPTY);
-			int strikes = buffer.readInt();
 
 			for (int k = 0; k < nonnulllist.size(); ++k) {
 				nonnulllist.set(k, Ingredient.read(buffer));
 			}
 
 			ItemStack itemstack = buffer.readItemStack();
+
+			int strikes = buffer.readInt();
+
 			return new CraftingAnvilRecipe(recipeId, s, i, j, nonnulllist, itemstack, strikes);
 		}
 
@@ -357,7 +359,6 @@ public class CraftingAnvilRecipe implements IShapedRecipe<WorkstationRecipeWrapp
 		}
 	}
 
-	
 	@Override
 	public IRecipeType<?> getType() {
 		return WorkstationRecipes.CRAFTING_ANVIL_RECIPE;

@@ -1,7 +1,8 @@
 package lance5057.compendium.core.library.materialutilities.addons;
 
 import lance5057.compendium.CompendiumItems;
-import lance5057.compendium.core.items.HammerItem;
+import lance5057.compendium.core.items.tools.HammerItem;
+import lance5057.compendium.core.items.tools.SawItem;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.item.Item;
@@ -14,6 +15,7 @@ public class MaterialExtraTools implements MaterialBase {
 //	public Item crossbow;
 //	public Item shield;
 	public RegistryObject<Item> HAMMER;
+	public RegistryObject<Item> SAW;
 //	public Item shears;
 //	public Item fishingrod;
 //	public Item trident;
@@ -21,7 +23,9 @@ public class MaterialExtraTools implements MaterialBase {
 	
 	public MaterialExtraTools(MaterialHelper mh) {
 		HAMMER = mh.ITEMS.register(mh.name + "hammer",
-				() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+				() -> new HammerItem(mh.tier, 5, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		SAW = mh.ITEMS.register(mh.name + "saw",
+				() -> new SawItem(mh.tier, 6, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	}
 	
 	@Override

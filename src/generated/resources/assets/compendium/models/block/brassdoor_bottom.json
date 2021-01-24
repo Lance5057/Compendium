@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "bottom": "compendium:block/material/brass/brass_door_bottom",
+    "top": "compendium:block/material/brass/brass_door_top"
+  }
+}

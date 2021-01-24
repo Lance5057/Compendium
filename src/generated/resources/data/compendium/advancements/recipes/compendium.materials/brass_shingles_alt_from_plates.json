@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_shingles_alt_from_plates"
+    ]
+  },
+  "criteria": {
+    "brassplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brassplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_shingles_alt_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassplate",
+      "has_the_recipe"
+    ]
+  ]
+}
