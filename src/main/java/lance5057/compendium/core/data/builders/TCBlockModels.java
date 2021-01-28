@@ -1,7 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
-import lance5057.compendium.Reference;
 import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
@@ -45,6 +45,10 @@ public class TCBlockModels extends BlockStateProvider {
 		models().getExistingFile(modLoc("block/workstations/sawhorse")));
 	this.simpleBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
 		models().getExistingFile(modLoc("block/workstations/anvil")));
+
+	// Shingles
+	this.shinglesModel("empty_", "bases/", "", CompendiumBlocks.SHINGLES.get());
+	this.shinglesModel("empty_", "bases/", "alt", CompendiumBlocks.SHINGLES_ALT.get());
 
 	for (MaterialHelper mh : CompendiumMaterials.materials) {
 	    // Premade Materials
@@ -389,19 +393,23 @@ public class TCBlockModels extends BlockStateProvider {
     }
 
     private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
+	shinglesModel("material/" + mh.name, "material/" + mh.name, suffix, b);
+    }
+
+    private void shinglesModel(String name, String folder, String suffix, Block b) {
 	ModelFile shinglesModel = models()
-		.withExistingParent(mh.name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix))
-		.texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles")
+		.withExistingParent(name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix))
+		.texture("0", "compendium:block/" + folder + name + "shingles")
 		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
 	ModelFile shinglesInnerModel = models()
-		.withExistingParent(mh.name + "shingles_inner" + suffix,
+		.withExistingParent(name + "shingles_inner" + suffix,
 			modLoc("block/bases/shingles_inner_corner" + suffix))
-		.texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles")
+		.texture("0", "compendium:block/" + folder + "/" + name + "shingles")
 		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
 	ModelFile shinglesOuterModel = models()
-		.withExistingParent(mh.name + "shingles_outer" + suffix,
+		.withExistingParent(name + "shingles_outer" + suffix,
 			modLoc("block/bases/shingles_outer_corner" + suffix))
-		.texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "shingles")
+		.texture("0", "compendium:block/" + folder + "/" + name + "shingles")
 		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
 
 	VariantBlockStateBuilder builder = getVariantBuilder(b);

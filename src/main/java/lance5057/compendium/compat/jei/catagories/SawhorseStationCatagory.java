@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.google.gson.JsonObject;
+
 import lance5057.compendium.CompendiumItems;
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.util.recipes.RecipeUtil;
 import lance5057.compendium.core.workstations.recipes.SawhorseStationRecipe;
 import mezz.jei.api.constants.VanillaTypes;
@@ -18,8 +21,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTableManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 
 public class SawhorseStationCatagory implements IRecipeCategory<SawhorseStationRecipe> {
 
@@ -67,13 +72,16 @@ public class SawhorseStationCatagory implements IRecipeCategory<SawhorseStationR
     @Override
     public void setIngredients(SawhorseStationRecipe recipe, IIngredients ingredients) {
 	List<ItemStack> items = new ArrayList<ItemStack>();
-	
+
 	World world = Minecraft.getInstance().world;
-	LootTable loottable = world.getServer().getLootTableManager().getLootTableFromLocation(recipe.getOutput());
-	
-	items.addAll(RecipeUtil.getStacksFromLootPool(loottable.getPool("main")));
-	items.addAll(RecipeUtil.getStacksFromLootPool(loottable.getPool("extra")));
-	
+	if (!world.isRemote) {
+	    LootTable loottable = world.getServer().getLootTableManager().getLootTableFromLocation(recipe.getOutput());
+	    
+	    //ForgeHooks.loadLootTable(LootTableManager.GSON_INSTANCE, new ResourceLocation(Reference.MOD_ID, "dummy"), (JsonObject) json, true, null));
+
+//	    items.addAll(RecipeUtil.getStacksFromLootPool(loottable.getPool("main")));
+//	    items.addAll(RecipeUtil.getStacksFromLootPool(loottable.getPool("extra")));
+	}
 	ingredients.setInputs(VanillaTypes.ITEM, Arrays.asList(recipe.getIngredient().getMatchingStacks()));
 	ingredients.setOutputs(VanillaTypes.ITEM, items);
     }

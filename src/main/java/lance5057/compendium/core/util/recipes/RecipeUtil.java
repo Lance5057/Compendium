@@ -24,18 +24,18 @@ public class RecipeUtil {
 	return matchingStacks;
     }
 
-    public static List<ItemStack> getStacksFromLootPool(LootPool pool) {
-	List<LootEntry> entries = pool.lootEntries;
-	List<ItemStack> items = new ArrayList<ItemStack>();
-
-	for (LootEntry e : entries) {
-	    if (e instanceof ItemLootEntry) {
-		ItemLootEntry i = (ItemLootEntry) e;
-
-		items.add(new ItemStack(i.item));
-	    }
-	}
-	return items;
-
-    }
+//    public static List<ItemStack> getStacksFromLootPool(LootPool pool) {
+//	List<LootEntry> entries = pool.lootEntries;
+//	List<ItemStack> items = new ArrayList<ItemStack>();
+//
+//	for (LootEntry e : entries) {
+//	    if (e instanceof ItemLootEntry) {
+//		ItemLootEntry i = (ItemLootEntry) e;
+//
+//		items.add(new ItemStack(i.item));
+//	    }
+//	}
+//	return items;
+//
+//    }
 }
