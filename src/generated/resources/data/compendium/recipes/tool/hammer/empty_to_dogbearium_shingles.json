@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/dogbearium"
+  },
+  "block": {
+    "item": "compendium:item_empty_shingles"
+  },
+  "result": {
+    "item": "compendium:dogbeariumitemshingles"
+  }
+}

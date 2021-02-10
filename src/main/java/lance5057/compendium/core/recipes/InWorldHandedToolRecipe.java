@@ -28,17 +28,21 @@ import net.minecraft.world.World;
 public abstract class InWorldHandedToolRecipe implements IRecipe<HandedToolWrapper> {
     private final ResourceLocation id;
     private final Ingredient offhand;
+    private final ItemStack block;
     private final ItemStack output;
 
-    public InWorldHandedToolRecipe(ResourceLocation id, Ingredient offhand, ItemStack output) {
+    public InWorldHandedToolRecipe(ResourceLocation id, ItemStack block, Ingredient offhand, ItemStack output) {
 	this.id = id;
 	this.offhand = offhand;
+	this.block = block;
 	this.output = output;
-
     }
 
     @Override
     public boolean matches(HandedToolWrapper inv, World worldIn) {
+	if(inv.block.equals(block, true))
+	    if(this.offhand.test(inv.offhand))
+		return true;
 	return false;
     }
 
@@ -61,38 +65,14 @@ public abstract class InWorldHandedToolRecipe implements IRecipe<HandedToolWrapp
     public ResourceLocation getId() {
 	return id;
     }
-
-    @Override
-    public IRecipeSerializer<?> getSerializer() {
-	// TODO Auto-generated method stub
-	return null;
+    
+    public Ingredient getIngredient()
+    {
+	return this.offhand;
     }
-
-    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<IRecipeSerializer<?>>
-	    implements IRecipeSerializer<InWorldHandedToolRecipe> {
-	@Nonnull
-	@Override
-	public InWorldHandedToolRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
-	    final Ingredient input = Ingredient.deserialize(json.get("offhand"));
-	    final ItemStack result = ShapedRecipe.deserializeItem(json.getAsJsonObject("output"));
-	    return new InWorldHandedToolRecipe(recipeId, input, result);
-	}
-
-	@Nullable
-	@Override
-	public InWorldHandedToolRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
-	    int strikes = buffer.readInt();
-	    BlockState result = buffer.
-	    Ingredient input = Ingredient.read(buffer);
-
-	    return new InWorldHandedToolRecipe(recipeId, result, input);
-	}
-
-	@Override
-	public void write(PacketBuffer buffer, InWorldHandedToolRecipe recipe) {
-	    buffer.writeItemStack(recipe.getRecipeOutput());
-	    recipe.getIngredient().write(buffer);
-
-	}
+    
+    public ItemStack getBlock()
+    {
+	return this.block;
     }
 }

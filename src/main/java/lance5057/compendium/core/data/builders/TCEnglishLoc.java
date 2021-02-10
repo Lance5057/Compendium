@@ -4,6 +4,7 @@ import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
@@ -39,11 +40,11 @@ public class TCEnglishLoc extends LanguageProvider {
 		PremadeMaterial pm = mh.getPremade();
 
 		if (pm.INGOT != null)
-		this.add(pm.INGOT.get(), name + " Ingot");
+		    this.add(pm.INGOT.get(), name + " Ingot");
 		if (pm.NUGGET != null)
-		this.add(pm.NUGGET.get(), name + " Nugget");
+		    this.add(pm.NUGGET.get(), name + " Nugget");
 		if (pm.STORAGE_ITEMBLOCK != null)
-		this.add(pm.STORAGE_ITEMBLOCK.get(), name + " Block");
+		    this.add(pm.STORAGE_ITEMBLOCK.get(), name + " Block");
 	    }
 
 	    // Meltable Materials
@@ -79,12 +80,32 @@ public class TCEnglishLoc extends LanguageProvider {
 	    if (mh.getExtraComponents() != null) {
 		MaterialExtraComponents me = mh.getExtraComponents();
 
-		this.add(me.CASING.get(), name + " Casing");
-		this.add(me.CLASP.get(), name + " Clasp");
-		this.add(me.COIL.get(), name + " Coil");
 		this.add(me.COIN.get(), name + " Coin");
 		this.add(me.DUST.get(), name + " Dust");
 		this.add(me.GEAR.get(), name + " Gear");
+
+		this.add(me.ITEM_SHEET.get(), name + " Sheet");
+		this.add(me.ITEM_SHEET_BLOCK.get(), name + " Sheet Block");
+		this.add(me.ITEM_SHINGLES.get(), name + " Shingles");
+		this.add(me.ITEM_SHINGLES_ALT.get(), name + " Joisted Shingles");
+		this.add(me.ITEM_SHINGLES_BLOCK.get(), name + " Shingles Block");
+		this.add(me.ITEM_STAKE.get(), name + " Stake");
+
+		this.add(me.PLATE.get(), name + " Plate");
+
+		this.add(me.ROD.get(), name + " Rod");
+
+		this.add(me.ITEM_TRIMMED_WINDOW.get(), name + " Trimmed Window Pane");
+		this.add(me.ITEM_TRIMMED_WINDOW_BLOCK.get(), name + " Trimmed Window Block");
+	    }
+
+	    // Advanced Extra Component Materials
+	    if (mh.getAdvancedComponents() != null) {
+		MaterialAdvancedExtraComponents me = mh.getAdvancedComponents();
+
+		this.add(me.CASING.get(), name + " Casing");
+		this.add(me.CLASP.get(), name + " Clasp");
+		this.add(me.COIL.get(), name + " Coil");
 		this.add(me.FILIGREE.get(), name + " Filigree");
 		this.add(me.FOIL.get(), name + " Foil");
 		this.add(me.JUMPRINGS.get(), name + " Jump Rings");
@@ -97,27 +118,19 @@ public class TCEnglishLoc extends LanguageProvider {
 		this.add(me.ITEM_DIAMONDBARSFLIP.get(), name + " Arrow Patterned Bars");
 		this.add(me.ITEM_DIAMONDBARSTOP.get(), name + " Diamond Patterned Bars Top");
 		this.add(me.ITEM_ENCASED_GLOWSTONE.get(), name + " Encased Glowstone");
-		this.add(me.ITEM_LADDER.get(), name + " Ladder");
 		this.add(me.ITEM_CHAINLINK_BARS.get(), name + " Chainlink Fence");
 		this.add(me.ITEM_CHAINLINK_BLOCK.get(), name + " Chainlink Block");
 		this.add(me.ITEM_SMALL_TILE.get(), name + " Small Tiles");
+		this.add(me.VAULT_ITEMBLOCK.get(), name + " Vault");
 		this.add(me.RINGSHANK.get(), name + " Ring Shank");
-		this.add(me.ITEM_SHEET.get(), name + " Sheet");
-		this.add(me.ITEM_SHEET_BLOCK.get(), name + " Sheet Block");
-		this.add(me.ITEM_SHINGLES.get(), name + " Shingles");
-		this.add(me.ITEM_SHINGLES_ALT.get(), name + " Joisted Shingles");
-		this.add(me.ITEM_SHINGLES_BLOCK.get(), name + " Shingles Block");
-		this.add(me.ITEM_STAKE.get(), name + " Stake");
-		this.add(me.ITEM_TOP_BARS.get(), name + " Bar Spikes");
-		this.add(me.PLATE.get(), name + " Plate");
-		this.add(me.RIVETS.get(), name + " Casing");
-		this.add(me.ROD.get(), name + " Rod");
 		this.add(me.SETTING.get(), name + " Setting");
 		this.add(me.SPRING.get(), name + " Spring");
 		this.add(me.WIRE.get(), name + " Wire");
 		this.add(me.ITEM_WALL.get(), name + " Wall");
-		this.add(me.ITEM_TRIMMED_WINDOW.get(), name + " Trimmed Window Pane");
-		this.add(me.ITEM_TRIMMED_WINDOW_BLOCK.get(), name + " Trimmed Window Block");
+		this.add(me.RIVETS.get(), name + " Casing");
+		this.add(me.ITEM_TOP_BARS.get(), name + " Bar Spikes");
+		this.add(me.ITEM_LADDER.get(), name + " Ladder");
+		this.add(me.VAULT.get(), name + " Vault");
 	    }
 
 	    // Vanilla Tools Materials

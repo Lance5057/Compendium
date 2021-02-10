@@ -18,31 +18,34 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class HammeringStationRenderer extends TileEntityRenderer<HammeringStationTE> {
 
-	public HammeringStationRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
-		super(rendererDispatcherIn);
+    public HammeringStationRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
+	super(rendererDispatcherIn);
+    }
+
+    @Override
+    public void render(HammeringStationTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
+	    IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+	if (!tileEntityIn.hasWorld()) {
+	    return;
 	}
 
-	@Override
-	public void render(HammeringStationTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-		if (!tileEntityIn.hasWorld()) {
-			return;
-		}
+	ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
-		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+	LazyOptional<IItemHandler> itemHandler = tileEntityIn
+		.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
 
-		LazyOptional<IItemHandler> itemHandler = tileEntityIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+	itemHandler.ifPresent(r -> {
+	    ItemStack item = r.getStackInSlot(0);
 
-		itemHandler.ifPresent(r -> {
-			ItemStack item = r.getStackInSlot(0);
-
-			if (!item.isEmpty()) {
-				matrixStackIn.push();
-				matrixStackIn.translate(0.7, 0.9, 0.5);
-				matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
-				itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
-				matrixStackIn.pop();
-			}
-		});
-	}
+	    if (!item.isEmpty()) {
+		matrixStackIn.push();
+		matrixStackIn.translate(0.7, 0.9, 0.5);
+		matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
+		itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn,
+			combinedOverlayIn, matrixStackIn, bufferIn);
+		matrixStackIn.pop();
+	    }
+	});
+    }
 
 }

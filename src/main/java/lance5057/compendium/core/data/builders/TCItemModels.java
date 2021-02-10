@@ -1,8 +1,10 @@
 package lance5057.compendium.core.data.builders;
 
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
@@ -37,6 +39,18 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
     @Override
     protected void registerModels() {
+	getBuilder(CompendiumItems.MEGALITH_STONE.getId().getPath())
+		.parent(new ModelFile.UncheckedModelFile("block/bases/megalith_stone"));
+
+	forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK, "workstations/anvil");
+	forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK, "workstations/hammeringtable");
+	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK, "workstations/sawhorse");
+
+	forBlockItem(CompendiumItems.ITEM_SHINGLES, "bases/empty_shingles");
+	forBlockItem(CompendiumItems.ITEM_SHINGLES_ALT, "bases/empty_shinglesalt");
+
+	
+
 	for (MaterialHelper mh : CompendiumMaterials.materials) {
 	    // Premade Materials
 	    if (mh.getPremade() != null) {
@@ -88,14 +102,33 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 	    if (mh.getExtraComponents() != null) {
 		MaterialExtraComponents me = mh.getExtraComponents();
 
-		forItem(me.CASING, mh.name);
-		forItem(me.COIL, mh.name);
 		forItem(me.COIN, mh.name);
 		forItem(me.DUST, mh.name);
 		forItem(me.GEAR, mh.name);
 		forItem(me.PLATE, mh.name);
 		forItem(me.ROD, mh.name);
 		// forItem(me.SHARDS);
+
+		forBlockItem(me.ITEM_SHEET, mh.name);
+		forBlockItem(me.ITEM_SHEET_BLOCK, mh.name);
+		forBlockItem(me.ITEM_SHINGLES, mh.name);
+		forBlockItem(me.ITEM_SHINGLES_ALT, mh.name);
+		forBlockItem(me.ITEM_SHINGLES_BLOCK, mh.name);
+
+		forBlockItem(me.ITEM_STAKE, mh.name);
+
+		this.singleTexture(me.ITEM_TRIMMED_WINDOW.getId().getPath(), mcLoc("item/handheld"), "layer0",
+			modLoc("block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
+		forBlockItem(me.ITEM_TRIMMED_WINDOW_BLOCK, mh.name);
+
+	    }
+
+	    // Advanced Extra Component Materials
+	    if (mh.getAdvancedComponents() != null) {
+		MaterialAdvancedExtraComponents me = mh.getAdvancedComponents();
+
+		forItem(me.CASING, mh.name);
+		forItem(me.COIL, mh.name);
 		forItem(me.SPRING, mh.name);
 		forItem(me.WIRE, mh.name);
 		forItem(me.CLASP, mh.name);
@@ -111,25 +144,16 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 		forBlockItem(me.ITEM_BAR_DOOR, modLoc("block/" + mh.name + "slidingdoor_closed"));
 		this.singleTexture(me.ITEM_CHAINLINK_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
 			modLoc("block/material/" + mh.name + "/" + mh.name + "chainlink"));
-
 		forBlockItem(me.ITEM_CHAINLINK_BLOCK, mh.name);
-		forBlockItem(me.ITEM_SHEET, mh.name);
-		forBlockItem(me.ITEM_SHEET_BLOCK, mh.name);
-		forBlockItem(me.ITEM_SHINGLES, mh.name);
-		forBlockItem(me.ITEM_SHINGLES_ALT, mh.name);
-		forBlockItem(me.ITEM_SHINGLES_BLOCK, mh.name);
 		forBlockItem(me.ITEM_SOUL_BRAZIER, mh.name);
-		forBlockItem(me.ITEM_STAKE, mh.name);
-		this.singleTexture(me.ITEM_TOP_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
-			modLoc("block/material/" + mh.name + "/" + mh.name + "topbars"));
-		this.singleTexture(me.ITEM_TRIMMED_WINDOW.getId().getPath(), mcLoc("item/handheld"), "layer0",
-			modLoc("block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
-		forBlockItem(me.ITEM_TRIMMED_WINDOW_BLOCK, mh.name);
+
 		forBlockItem(me.ITEM_WALL, mcLoc("block/cobblestone_wall_inventory"), "wall",
 			modLoc("block/material/" + mh.name + "/" + mh.name + "wall"));
 		forBlockItem(me.ITEM_SMALL_TILE, mh.name);
 
 		forBlockItem(me.ITEM_ENCASED_GLOWSTONE, mh.name);
+		this.singleTexture(me.ITEM_TOP_BARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
+			modLoc("block/material/" + mh.name + "/" + mh.name + "topbars"));
 
 		// Bars
 		this.singleTexture(me.ITEM_DIAMONDBARS.getId().getPath(), mcLoc("item/handheld"), "layer0",
@@ -138,6 +162,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 			modLoc("block/material/" + mh.name + "/" + mh.name + "diamondbarsflip"));
 		this.singleTexture(me.ITEM_DIAMONDBARSTOP.getId().getPath(), mcLoc("item/handheld"), "layer0",
 			modLoc("block/material/" + mh.name + "/" + mh.name + "diamondbar_top"));
+		
+		 forBlockItem(me.VAULT_ITEMBLOCK, "bases/vault");
 	    }
 
 	    // Vanilla Tools Materials

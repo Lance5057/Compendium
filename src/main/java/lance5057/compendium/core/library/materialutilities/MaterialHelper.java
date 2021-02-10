@@ -1,8 +1,8 @@
 package lance5057.compendium.core.library.materialutilities;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.CompendiumItemTier;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
@@ -34,6 +34,7 @@ public class MaterialHelper {
     private MeltableMaterial meltable;
     private MaterialVanillaComponents vcomponents;
     private MaterialExtraComponents ecomponents;
+    private MaterialAdvancedExtraComponents acomponents;
     private MaterialVanillaTools vtools;
     private MaterialExtraTools etools;
 
@@ -140,37 +141,18 @@ public class MaterialHelper {
     public MaterialOre getOre() {
 	return this.ore;
     }
+    
+    public MaterialHelper withAdvancedComponents()
+    {
+	this.acomponents = new MaterialAdvancedExtraComponents(this);
+	return this;
+    }
+    
+    public MaterialAdvancedExtraComponents getAdvancedComponents()
+    {
+	return this.acomponents;
+    }
 
-//	public MaterialHelper components() {
-//		addons.add(new MaterialVanillaComponents(name, parentMod));
-//		addons.add(new MaterialExtraComponents(name, parentMod));
-//		return this;
-//	}
-//
-//	public MaterialHelper extracomponents() {
-//		addons.add(new MaterialExtraComponents(name, parentMod));
-//		return this;
-//	}
-//
-//	public MaterialHelper tool(TCItemTier tier) {
-//		addons.add(new MaterialTools(name, tier));
-//		return this;
-//	}
-//
-//	public MaterialHelper ore(float hardness, int level, String tool, float resistance, int ymax, int ymin,
-//			int veinSize, int veinChance, Category biomeCategory) {
-//		addons.add(new MaterialOre(name, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
-//				biomeCategory));
-//		return this;
-//	}
-
-//	public MaterialHelper finish() {
-//		tags();
-//		recipes();
-//		loot();
-//		return this;
-//	}
-//
     public void client() {
 	if (this.getVanillaComponents() != null) {
 	    this.getVanillaComponents().setupClient(this);
@@ -179,35 +161,4 @@ public class MaterialHelper {
 	    this.getExtraComponents().setupClient(this);
 	}
     }
-//
-//	public void models() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupModels(this);
-//		}
-//	}
-//
-//	public void tags() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupBlockTags();
-//			mb.setupItemTags();
-//		}
-//	}
-//
-//	public void recipes() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupRecipes();
-//		}
-//	}
-//
-//	public void loot() {
-//		for (MaterialBase mb : addons) {
-//			mb.setupLoot();
-//		}
-//	}
-//
-//	public void setup(final FMLCommonSetupEvent event) {
-//		for (MaterialBase mb : addons) {
-//			mb.setup(event);
-//		}
-//	}
 }

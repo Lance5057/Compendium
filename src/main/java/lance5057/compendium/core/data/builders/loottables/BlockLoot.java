@@ -3,6 +3,7 @@ package lance5057.compendium.core.data.builders.loottables;
 import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
@@ -22,6 +23,12 @@ public class BlockLoot extends BlockLootTables {
 	this.registerDropSelfLootTable(CompendiumBlocks.HAMMERING_STATION.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.CRAFTING_ANVIL.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.SAWHORSE_STATION.get());
+
+	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES.get());
+	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_ALT.get());
+	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_BLOCK.get());
+
+	// this.registerDropSelfLootTable(CompendiumBlocks.VAULT.get());
 
 	for (MaterialHelper mh : CompendiumMaterials.materials) {
 	    // Meltable Materials
@@ -66,16 +73,22 @@ public class BlockLoot extends BlockLootTables {
 		this.registerDropSelfLootTable(me.SHINGLES_ALT.get());
 		this.registerDropSelfLootTable(me.SHINGLES_BLOCK.get());
 		this.registerDropSelfLootTable(me.STAKE.get());
+		this.registerDropSelfLootTable(me.SHEET_BLOCK.get());
+		this.registerDropSelfLootTable(me.TRIMMED_WINDOW.get());
+		this.registerDropSelfLootTable(me.TRIMMED_WINDOW_BLOCK.get());
+	    }
+
+	    // Advanced Extra Component Materials
+	    if (mh.getAdvancedComponents() != null) {
+		MaterialAdvancedExtraComponents me = mh.getAdvancedComponents();
+
 		this.registerDropSelfLootTable(me.BIGCHAIN.get());
 		this.registerDropSelfLootTable(me.BRAZIER.get());
 		this.registerDropSelfLootTable(me.SOUL_BRAZIER.get());
 		this.registerDropSelfLootTable(me.CHAINLINK_BARS.get());
 		this.registerDropSelfLootTable(me.CHAINLINK_BLOCK.get());
 		this.registerDropSelfLootTable(me.LADDER.get());
-		this.registerDropSelfLootTable(me.SHEET_BLOCK.get());
 		this.registerDropSelfLootTable(me.TOP_BARS.get());
-		this.registerDropSelfLootTable(me.TRIMMED_WINDOW.get());
-		this.registerDropSelfLootTable(me.TRIMMED_WINDOW_BLOCK.get());
 		this.registerDropSelfLootTable(me.WALL.get());
 		this.registerDropSelfLootTable(me.SMALL_TILE.get());
 		this.registerLootTable(me.BAR_DOOR.get(), BlockLootTables::registerDoor);
@@ -84,7 +97,9 @@ public class BlockLoot extends BlockLootTables {
 		this.registerDropSelfLootTable(me.DIAMONDBARSTOP.get());
 		this.registerDropSelfLootTable(me.DUNGEON_TILE.get());
 		this.registerDropSelfLootTable(me.ENCASED_GLOWSTONE.get());
+		this.registerDropSelfLootTable(me.VAULT.get());
 	    }
+
 	    if (mh.getOre() != null) {
 		MaterialOre mo = mh.getOre();
 		if (mh.getIngot() != null) {

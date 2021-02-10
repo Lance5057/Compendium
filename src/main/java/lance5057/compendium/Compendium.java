@@ -51,6 +51,7 @@ public class Compendium {
 		CompendiumTileEntities.register(modEventBus);
 		CompendiumContainers.register(modEventBus);
 		//CompendiumStructures.register(modEventBus);
+		CompendiumRecipes.register(modEventBus);
 
 		WorkstationRecipes.register(modEventBus);
 
@@ -68,10 +69,7 @@ public class Compendium {
 
 	public void setupClient(FMLClientSetupEvent event) {
 		CompendiumClient.setRenderLayers();
-
-		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(), HammeringStationRenderer::new);
-		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), CraftingAnvilRenderer::new);
-		ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SAWHORSE_STATION_TE.get(), SawhorseStationRenderer::new);
+		CompendiumClient.setTERenderers();
 
 		CompendiumContainers.registerClient(event);
 	}

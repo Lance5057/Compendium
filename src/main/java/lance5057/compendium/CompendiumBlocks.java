@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.blocks.BlockShingles;
+import lance5057.compendium.core.blocks.VaultBlock;
 import lance5057.compendium.core.workstations.blocks.CraftingAnvilBlock;
 import lance5057.compendium.core.workstations.blocks.HammeringStationBlock;
 import lance5057.compendium.core.workstations.blocks.SawhorseStationBlock;

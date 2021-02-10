@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/nihilite"
+  },
+  "block": {
+    "item": "compendium:item_empty_shinglesalt"
+  },
+  "result": {
+    "item": "compendium:nihiliteitemshinglesalt"
+  }
+}

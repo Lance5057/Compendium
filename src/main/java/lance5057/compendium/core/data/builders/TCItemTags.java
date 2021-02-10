@@ -6,6 +6,7 @@ import java.util.function.Function;
 import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
@@ -90,33 +91,43 @@ public class TCItemTags extends ItemTagsProvider {
 	    // Extra Components
 	    if (mh.getExtraComponents() != null) {
 		MaterialExtraComponents ec = mh.getExtraComponents();
-		getOrCreateBuilder(CompendiumTags.CASING).add(ec.CASING.get());
-		getOrCreateBuilder(CompendiumTags.COIL).add(ec.COIL.get());
+
 		getOrCreateBuilder(CompendiumTags.COIN).add(ec.COIN.get());
 		getOrCreateBuilder(CompendiumTags.DUST).add(ec.DUST.get());
 		getOrCreateBuilder(CompendiumTags.GEAR).add(ec.GEAR.get());
 		getOrCreateBuilder(CompendiumTags.PLATE).add(ec.PLATE.get());
 		getOrCreateBuilder(CompendiumTags.ROD).add(ec.ROD.get());
-		getOrCreateBuilder(CompendiumTags.SPRING).add(ec.SPRING.get());
-		getOrCreateBuilder(CompendiumTags.WIRE).add(ec.WIRE.get());
 
-		INamedTag<Item> CASING_MATERIAL = ItemTag("casings/" + mh.name);
-		INamedTag<Item> COIL_MATERIAL = ItemTag("coils/" + mh.name);
 		INamedTag<Item> COIN_MATERIAL = ItemTag("coins/" + mh.name);
 		INamedTag<Item> DUST_MATERIAL = ItemTag("dusts/" + mh.name);
 		INamedTag<Item> GEAR_MATERIAL = ItemTag("gears/" + mh.name);
 		INamedTag<Item> PLATE_MATERIAL = ItemTag("plates/" + mh.name);
 		INamedTag<Item> ROD_MATERIAL = ItemTag("rods/" + mh.name);
-		INamedTag<Item> SPRING_MATERIAL = ItemTag("springs/" + mh.name);
-		INamedTag<Item> WIRE_MATERIAL = ItemTag("wires/" + mh.name);
 
-		getOrCreateBuilder(CASING_MATERIAL).add(ec.CASING.get());
-		getOrCreateBuilder(COIL_MATERIAL).add(ec.COIL.get());
 		getOrCreateBuilder(COIN_MATERIAL).add(ec.COIN.get());
 		getOrCreateBuilder(DUST_MATERIAL).add(ec.DUST.get());
 		getOrCreateBuilder(GEAR_MATERIAL).add(ec.GEAR.get());
 		getOrCreateBuilder(PLATE_MATERIAL).add(ec.PLATE.get());
 		getOrCreateBuilder(ROD_MATERIAL).add(ec.ROD.get());
+
+	    }
+
+	    // Advanced Extra Component Materials
+	    if (mh.getAdvancedComponents() != null) {
+		MaterialAdvancedExtraComponents ec = mh.getAdvancedComponents();
+
+		getOrCreateBuilder(CompendiumTags.CASING).add(ec.CASING.get());
+		getOrCreateBuilder(CompendiumTags.COIL).add(ec.COIL.get());
+		getOrCreateBuilder(CompendiumTags.SPRING).add(ec.SPRING.get());
+		getOrCreateBuilder(CompendiumTags.WIRE).add(ec.WIRE.get());
+
+		INamedTag<Item> CASING_MATERIAL = ItemTag("casings/" + mh.name);
+		INamedTag<Item> COIL_MATERIAL = ItemTag("coils/" + mh.name);
+		INamedTag<Item> SPRING_MATERIAL = ItemTag("springs/" + mh.name);
+		INamedTag<Item> WIRE_MATERIAL = ItemTag("wires/" + mh.name);
+
+		getOrCreateBuilder(CASING_MATERIAL).add(ec.CASING.get());
+		getOrCreateBuilder(COIL_MATERIAL).add(ec.COIL.get());
 		getOrCreateBuilder(SPRING_MATERIAL).add(ec.SPRING.get());
 		getOrCreateBuilder(WIRE_MATERIAL).add(ec.WIRE.get());
 	    }

@@ -11,6 +11,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
@@ -189,39 +190,43 @@ public class HammeringStationTE extends TileEntity {
 	return new SUpdateTileEntityPacket(this.getPos(), -1, this.getUpdateTag());
     }
 
-//    @Override
-//    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-//        handleUpdateTag(pkt.getNbtCompound());
-//    }
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+	handleUpdateTag(this.getBlockState(), pkt.getNbtCompound());
+    }
 
     @Override
     @Nonnull
     public CompoundNBT getUpdateTag() {
 	CompoundNBT updateTag = new CompoundNBT();
-	final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-		.orElseGet(this::createHandler);
-	CompoundNBT itemSlot = new CompoundNBT();
-	itemHandler.getStackInSlot(0).write(itemSlot);
-	updateTag.put("item", itemSlot);
+	handler.ifPresent(iItemHandler -> {
+	    updateTag.put("items", ((ItemStackHandler) iItemHandler).serializeNBT());
+	});
 	return updateTag;
     }
 
-//    @Override
-//    public void handleUpdateTag(CompoundNBT tag) {
-//        final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElseGet(this::createHandler);
-//        ((ItemStackHandler) itemHandler).setStackInSlot(1, ItemStack.read(tag.getCompound("item")));
-//    }
+    @Override
+    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+	CompoundNBT n = tag.getCompound("item");
+	//ItemStack teststack = ItemStack.read(n);
+	handler.ifPresent(iItemHandler -> {
+	    ((ItemStackHandler) iItemHandler).deserializeNBT(tag.getCompound("items"));
+	});
+	updateInventory();
+    }
 
     @Override
     public void read(BlockState state, @Nonnull CompoundNBT nbt) {
 	super.read(state, nbt);
 	progress = nbt.getInt("progress");
 	lastStack.deserializeNBT(nbt.getCompound("lastStack"));
+	
+//	CompoundNBT n = nbt.getCompound("item");
+//	ItemStack teststack = ItemStack.read(n);
 	handler.ifPresent(iItemHandler -> {
-	    if (iItemHandler instanceof ItemStackHandler) {
-		((ItemStackHandler) iItemHandler).deserializeNBT(nbt.getCompound("inventory"));
-	    }
+	    ((ItemStackHandler) iItemHandler).deserializeNBT(nbt.getCompound("items"));
 	});
+	updateInventory();
     }
 
     @Override
@@ -231,9 +236,7 @@ public class HammeringStationTE extends TileEntity {
 	nbt.putInt("progress", progress);
 	nbt.put("lastStack", lastStack.serializeNBT());
 	handler.ifPresent(iItemHandler -> {
-	    if (iItemHandler instanceof ItemStackHandler) {
-		nbt.put("inventory", ((ItemStackHandler) iItemHandler).serializeNBT());
-	    }
+	    nbt.put("items", ((ItemStackHandler) iItemHandler).serializeNBT());
 	});
 	return nbt;
     }

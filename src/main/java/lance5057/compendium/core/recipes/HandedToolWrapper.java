@@ -7,11 +7,13 @@ import net.minecraft.item.ItemStack;
 public class HandedToolWrapper implements IInventory {
 
     protected ItemStack tool;
+    protected ItemStack block;
     protected ItemStack offhand; //Optional
     
-    public HandedToolWrapper(ItemStack tool, ItemStack offhand)
+    public HandedToolWrapper(ItemStack tool, ItemStack block, ItemStack offhand)
 	{
 		this.tool = tool;
+		this.block = block;
 		this.offhand = offhand;
 	}
     

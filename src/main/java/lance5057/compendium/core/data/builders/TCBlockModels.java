@@ -6,6 +6,7 @@ import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
@@ -39,16 +40,28 @@ public class TCBlockModels extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-	this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(),
-		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
-	this.simpleBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
-		models().getExistingFile(modLoc("block/workstations/sawhorse")));
-	this.simpleBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
-		models().getExistingFile(modLoc("block/workstations/anvil")));
 
+	getVariantBuilder(CompendiumBlocks.HAMMERING_STATION.get()).partialState().addModels(ConfiguredModel
+		.allYRotations(models().getExistingFile(modLoc("block/workstations/hammeringtable")), 0, false));
+//	getVariantBuilder(CompendiumBlocks.SAWHORSE_STATION.get()).partialState().addModels(ConfiguredModel
+//		.allYRotations(models().getExistingFile(modLoc("block/workstations/sawhorse")), 0, false));
+//	getVariantBuilder(CompendiumBlocks.CRAFTING_ANVIL.get()).partialState().addModels(
+//		ConfiguredModel.allYRotations(models().getExistingFile(modLoc("block/workstations/anvil")), 0, false));
+
+//	this.directionalBlock(CompendiumBlocks.HAMMERING_STATION.get(),
+//		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
+	this.horizontalBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
+		models().getExistingFile(modLoc("block/workstations/sawhorse")));
+	this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
+		models().getExistingFile(modLoc("block/workstations/anvil")));
+	
+	
+	
 	// Shingles
-	this.shinglesModel("empty_", "bases/", "", CompendiumBlocks.SHINGLES.get());
-	this.shinglesModel("empty_", "bases/", "alt", CompendiumBlocks.SHINGLES_ALT.get());
+	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "", "block/bases/empty_shingles",
+		CompendiumBlocks.SHINGLES.get());
+	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "alt", "block/bases/empty_shingles",
+		CompendiumBlocks.SHINGLES_ALT.get());
 
 	for (MaterialHelper mh : CompendiumMaterials.materials) {
 	    // Premade Materials
@@ -123,6 +136,28 @@ public class TCBlockModels extends BlockStateProvider {
 		simpleBlock(me.SHEET_BLOCK.get(), models().cubeAll(me.SHEET_BLOCK.get().getRegistryName().getPath(),
 			new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "sheet")));
 
+		// Glass
+		paneBlock(me.TRIMMED_WINDOW.get(),
+			new ResourceLocation(mh.parentMod,
+				"block/material/" + mh.name + "/" + mh.name + "trimmedglass"),
+			new ResourceLocation(mh.parentMod,
+				"block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
+		simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(),
+			models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
+				new ResourceLocation(Reference.MOD_ID,
+					"block/material/" + mh.name + "/" + mh.name + "trimmedglass")));
+
+	    }
+
+	    // Advanced Extra Component Materials
+	    if (mh.getAdvancedComponents() != null) {
+		MaterialAdvancedExtraComponents me = mh.getAdvancedComponents();
+
+		this.horizontalBlock(me.VAULT.get(),
+			models().withExistingParent(mh.name + "vault", modLoc("block/bases/vault"))
+				.texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "vault_door"))
+				.texture("1", modLoc("block/material/" + mh.name + "/" + mh.name + "vault_sides")));
+
 		// Big Chain
 		this.axisBlock(me.BIGCHAIN.get(),
 			models().withExistingParent(mh.name + "bigchain", modLoc("block/bases/bigchain")).texture("all",
@@ -168,17 +203,6 @@ public class TCBlockModels extends BlockStateProvider {
 				modLoc("block/material/" + mh.name + "/" + mh.name + "wall")),
 			models().singleTexture(mh.name + "wall_side_tall", modLoc("block/bases/wall_side_tall"), "wall",
 				modLoc("block/material/" + mh.name + "/" + mh.name + "wall")));
-
-		// Glass
-		paneBlock(me.TRIMMED_WINDOW.get(),
-			new ResourceLocation(mh.parentMod,
-				"block/material/" + mh.name + "/" + mh.name + "trimmedglass"),
-			new ResourceLocation(mh.parentMod,
-				"block/material/" + mh.name + "/" + mh.name + "trimmedglass"));
-		simpleBlock(me.TRIMMED_WINDOW_BLOCK.get(),
-			models().cubeAll(me.TRIMMED_WINDOW_BLOCK.get().getRegistryName().getPath(),
-				new ResourceLocation(Reference.MOD_ID,
-					"block/material/" + mh.name + "/" + mh.name + "trimmedglass")));
 
 		// Small Tiles
 		simpleBlock(me.SMALL_TILE.get(),
@@ -271,7 +295,7 @@ public class TCBlockModels extends BlockStateProvider {
 		.texture("0", "compendium:block/material/" + mh.name + "/" + mh.name + "bars");
 	ModelFile empty = models().withExistingParent(mh.name + "empty", modLoc("block/bases/bar_notches"));
 
-	VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().BAR_DOOR.get());
+	VariantBlockStateBuilder builder = getVariantBuilder(mh.getAdvancedComponents().BAR_DOOR.get());
 
 //		for (Direction dir : ComponentBarDoor.FACING.getAllowedValues()) {
 //
@@ -393,24 +417,23 @@ public class TCBlockModels extends BlockStateProvider {
     }
 
     private void shinglesModel(MaterialHelper mh, String suffix, Block b) {
-	shinglesModel("material/" + mh.name, "material/" + mh.name, suffix, b);
+	shinglesModel("material/" + mh.name + "/", "material/" + mh.name + "/",
+		"compendium:block/" + "material/" + mh.name + "/" + mh.name + "shingles", suffix,
+		"block/bases/shingles", b);
     }
 
-    private void shinglesModel(String name, String folder, String suffix, Block b) {
-	ModelFile shinglesModel = models()
-		.withExistingParent(name + "shingles" + suffix, modLoc("block/bases/shingles" + suffix))
-		.texture("0", "compendium:block/" + folder + name + "shingles")
-		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
+    private void shinglesModel(String name, String folder, String tex, String suffix, String parent, Block b) {
+	ModelFile shinglesModel = models().withExistingParent(name + "shingles" + suffix, modLoc(parent + suffix))
+		.texture("0", tex).texture("1", "compendium:block/shingles_log")
+		.texture("2", "minecraft:block/oak_log");
 	ModelFile shinglesInnerModel = models()
-		.withExistingParent(name + "shingles_inner" + suffix,
-			modLoc("block/bases/shingles_inner_corner" + suffix))
-		.texture("0", "compendium:block/" + folder + "/" + name + "shingles")
-		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
+		.withExistingParent(name + "shingles_inner" + suffix, modLoc(parent + "_inner_corner" + suffix))
+		.texture("0", tex).texture("1", "compendium:block/shingles_log")
+		.texture("2", "minecraft:block/oak_log");
 	ModelFile shinglesOuterModel = models()
-		.withExistingParent(name + "shingles_outer" + suffix,
-			modLoc("block/bases/shingles_outer_corner" + suffix))
-		.texture("0", "compendium:block/" + folder + "/" + name + "shingles")
-		.texture("1", "compendium:block/shingles_log").texture("2", "minecraft:block/oak_log");
+		.withExistingParent(name + "shingles_outer" + suffix, modLoc(parent + "_outer_corner" + suffix))
+		.texture("0", tex).texture("1", "compendium:block/shingles_log")
+		.texture("2", "minecraft:block/oak_log");
 
 	VariantBlockStateBuilder builder = getVariantBuilder(b);
 

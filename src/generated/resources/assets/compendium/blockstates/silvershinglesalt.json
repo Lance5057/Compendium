@@ -1,174 +1,174 @@
 {
   "variants": {
     "facing=north,half=top,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "x": 180,
       "y": -180
     },
     "facing=south,half=top,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "x": 180
     },
     "facing=west,half=top,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "x": 180,
       "y": -90
     },
     "facing=north,half=bottom,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "y": -180
     },
     "facing=south,half=bottom,shape=straight": {
-      "model": "compendium:block/silvershinglesalt"
+      "model": "compendium:material/silver/shinglesalt"
     },
     "facing=west,half=bottom,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "y": 90
     },
     "facing=east,half=bottom,shape=straight": {
-      "model": "compendium:block/silvershinglesalt",
+      "model": "compendium:material/silver/shinglesalt",
       "y": -90
     },
     "facing=north,half=top,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": -180
     },
     "facing=south,half=top,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180
     },
     "facing=west,half=top,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": -90
     },
     "facing=north,half=bottom,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": -180
     },
     "facing=south,half=bottom,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt"
+      "model": "compendium:material/silver/shingles_inneralt"
     },
     "facing=west,half=bottom,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": 90
     },
     "facing=east,half=bottom,shape=inner_left": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": -90
     },
     "facing=north,half=top,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": -180
     },
     "facing=south,half=top,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180
     },
     "facing=west,half=top,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "x": 180,
       "y": -90
     },
     "facing=north,half=bottom,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": -90
     },
     "facing=south,half=bottom,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": 90
     },
     "facing=west,half=bottom,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt",
+      "model": "compendium:material/silver/shingles_inneralt",
       "y": 180
     },
     "facing=east,half=bottom,shape=inner_right": {
-      "model": "compendium:block/silvershingles_inneralt"
+      "model": "compendium:material/silver/shingles_inneralt"
     },
     "facing=north,half=top,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": -180
     },
     "facing=south,half=top,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180
     },
     "facing=west,half=top,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": -90
     },
     "facing=north,half=bottom,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": -180
     },
     "facing=south,half=bottom,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt"
+      "model": "compendium:material/silver/shingles_outeralt"
     },
     "facing=west,half=bottom,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": 90
     },
     "facing=east,half=bottom,shape=outer_left": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": -90
     },
     "facing=north,half=top,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": -180
     },
     "facing=south,half=top,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180
     },
     "facing=west,half=top,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "x": 180,
       "y": -90
     },
     "facing=north,half=bottom,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": -90
     },
     "facing=south,half=bottom,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": 90
     },
     "facing=west,half=bottom,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt",
+      "model": "compendium:material/silver/shingles_outeralt",
       "y": 180
     },
     "facing=east,half=bottom,shape=outer_right": {
-      "model": "compendium:block/silvershingles_outeralt"
+      "model": "compendium:material/silver/shingles_outeralt"
     }
   }
 }

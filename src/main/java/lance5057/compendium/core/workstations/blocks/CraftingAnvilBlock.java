@@ -32,64 +32,61 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 public class CraftingAnvilBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
-	public CraftingAnvilBlock() {
-		super(Block.Properties.create(Material.ROCK).harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE).notSolid());
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
-	}
+    public CraftingAnvilBlock() {
+	super(Block.Properties.create(Material.ROCK).harvestLevel(1).hardnessAndResistance(3, 4)
+		.harvestTool(ToolType.PICKAXE).notSolid());
+	this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+    }
 
-	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().rotateY());
-	}
+    @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	builder.add(FACING);
+    }
 
-	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(FACING);
-	}
+    @Override
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
+	    Hand handIn, BlockRayTraceResult hit) {
+	if (worldIn.isRemote)
+	    return ActionResultType.SUCCESS; // on client side, don't do anything
 
-	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		if (worldIn.isRemote)
-			return ActionResultType.SUCCESS; // on client side, don't do anything
+	TileEntity entity = worldIn.getTileEntity(pos);
+	if (entity instanceof CraftingAnvilTE) {
 
-		TileEntity entity = worldIn.getTileEntity(pos);
-		if (entity instanceof CraftingAnvilTE) {
+	    CraftingAnvilTE te = ((CraftingAnvilTE) entity);
+	    if (!player.isCrouching()) {
+		boolean success = false;
+		// Get item in both hands
+		ItemStack heldmain = player.getHeldItem(Hand.MAIN_HAND);
+		ItemStack heldoff = player.getHeldItem(Hand.OFF_HAND);
 
-			CraftingAnvilTE te = ((CraftingAnvilTE) entity);
-			if (!player.isCrouching()) {
-				boolean success = false;
-				// Get item in both hands
-				ItemStack heldmain = player.getHeldItem(Hand.MAIN_HAND);
-				ItemStack heldoff = player.getHeldItem(Hand.OFF_HAND);
-
-				// Hit it!
-				// Try main hand, only try off hand if that fails
-				if (heldmain.getItem() instanceof HammerItem) {
-					te.hammer(player, heldmain);
-					success = true;
-				} else if (heldoff.getItem() instanceof HammerItem) {
-					te.hammer(player, heldoff);
-					success = true;
-				}
-
-				if (success)
-					return ActionResultType.SUCCESS;
-			}
-//			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
-//			if (this.hasTileEntity(getDefaultState())) {
-				if (!(player instanceof ServerPlayerEntity))
-					return ActionResultType.FAIL;
-				ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
-				NetworkHooks.openGui(serverPlayerEntity, te, (packetBuffer) -> {
-					packetBuffer.writeInt(te.progress);
-				});
-//			}
+		// Hit it!
+		// Try main hand, only try off hand if that fails
+		if (heldmain.getItem() instanceof HammerItem) {
+		    te.hammer(player, heldmain);
+		    success = true;
+		} else if (heldoff.getItem() instanceof HammerItem) {
+		    te.hammer(player, heldoff);
+		    success = true;
 		}
 
-		return ActionResultType.SUCCESS;
+		if (success)
+		    return ActionResultType.SUCCESS;
+	    }
+//			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
+//			if (this.hasTileEntity(getDefaultState())) {
+	    if (!(player instanceof ServerPlayerEntity))
+		return ActionResultType.FAIL;
+	    ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
+	    NetworkHooks.openGui(serverPlayerEntity, te, (packetBuffer) -> {
+		packetBuffer.writeInt(te.progress);
+	    });
+//			}
 	}
+
+	return ActionResultType.SUCCESS;
+    }
 
 //	@Nonnull
 //	@Override
@@ -128,39 +125,49 @@ public class CraftingAnvilBlock extends Block {
 //
 //	}
 
-	@Override
-	public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState, boolean isMoving) {
-		if (state.getBlock() != newState.getBlock()) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if (tileentity instanceof CraftingAnvilTE) {
-				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots()).forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
+    @Override
+    public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState,
+	    boolean isMoving) {
+	if (state.getBlock() != newState.getBlock()) {
+	    TileEntity tileentity = worldIn.getTileEntity(pos);
+	    if (tileentity instanceof CraftingAnvilTE) {
+		tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			.ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots())
+				.forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
 
-				worldIn.updateComparatorOutputLevel(pos, this);
-			}
+		worldIn.updateComparatorOutputLevel(pos, this);
+	    }
 
-			super.onReplaced(state, worldIn, pos, newState, isMoving);
-		}
+	    super.onReplaced(state, worldIn, pos, newState, isMoving);
 	}
+    }
 
-	@Override
-	public boolean hasTileEntity(BlockState state) {
-		return true;
-	}
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+	return true;
+    }
 
-	/**
-	 * Called throughout the code as a replacement for
-	 * ITileEntityProvider.createNewTileEntity Return the same thing you would from
-	 * that function. This will fall back to
-	 * ITileEntityProvider.createNewTileEntity(World) if this block is a
-	 * ITileEntityProvider
-	 *
-	 * @param state The state of the current block
-	 * @param world The world to create the TE in
-	 * @return A instance of a class extending TileEntity
-	 */
-	@Override
-	@Nullable
-	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return new CraftingAnvilTE();
-	}
+    /**
+     * Called throughout the code as a replacement for
+     * ITileEntityProvider.createNewTileEntity Return the same thing you would from
+     * that function. This will fall back to
+     * ITileEntityProvider.createNewTileEntity(World) if this block is a
+     * ITileEntityProvider
+     *
+     * @param state The state of the current block
+     * @param world The world to create the TE in
+     * @return A instance of a class extending TileEntity
+     */
+    @Override
+    @Nullable
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+	return new CraftingAnvilTE();
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+	BlockState blockstate = this.getDefaultState().with(FACING,
+		context.getPlacementHorizontalFacing().getOpposite());
+	return blockstate;
+    }
 }

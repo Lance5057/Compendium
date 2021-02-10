@@ -3,8 +3,8 @@
 	"parent": "block/block",
 	"textures": {
 		"1": "compendium:block/shingles_log",
-		"2": "1.15.2:block/oak_log",
-		"3": "1.15.2:block/oak_planks",
+		"2": "1.minecraft.2:block/oak_log",
+		"3": "minecraft:block/oak_planks",
 		"particle": "compendium:block/aeonsteelshingles"
 	},
 	"elements": [

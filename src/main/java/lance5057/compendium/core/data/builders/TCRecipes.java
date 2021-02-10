@@ -1,18 +1,14 @@
 package lance5057.compendium.core.data.builders;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
@@ -26,14 +22,10 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.Tags;
 
 public class TCRecipes extends RecipeProvider {
 
@@ -46,6 +38,7 @@ public class TCRecipes extends RecipeProvider {
 
 	workstations(consumer);
 	alloys(consumer);
+	hammer(consumer);
 
 	for (MaterialHelper mh : CompendiumMaterials.materials) {
 
@@ -58,8 +51,13 @@ public class TCRecipes extends RecipeProvider {
 	}
     }
 
+    private void hammer(Consumer<IFinishedRecipe> consumer) {
+	// TODO Auto-generated method stub
+
+    }
+
     private void neither(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
-	
+
     }
 
     private void gem(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
@@ -108,16 +106,6 @@ public class TCRecipes extends RecipeProvider {
 	if (mh.getExtraComponents() != null) {
 	    MaterialExtraComponents ec = mh.getExtraComponents();
 
-	    ShapedRecipeBuilder.shapedRecipe(ec.CASING.get(), 1).key('p', mh.getExtraComponents().PLATE.get())
-		    .patternLine("ppp").patternLine("p p")
-		    .addCriterion(mh.name + "casing", hasItem(mh.getExtraComponents().PLATE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_casing_from_plates"));
-
-	    ShapedRecipeBuilder.shapedRecipe(ec.COIL.get(), 1).key('p', mh.getExtraComponents().WIRE.get())
-		    .key('s', Items.STICK).patternLine(" p ").patternLine("psp").patternLine(" p ")
-		    .addCriterion(mh.name + "wire", hasItem(mh.getExtraComponents().WIRE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_coil_from_wire"));
-
 	    ShapedRecipeBuilder.shapedRecipe(ec.COIN.get(), 4).key('p', mh.getGem().NUGGET.get()).patternLine("pp")
 		    .patternLine("pp").addCriterion(mh.name + "nugget", hasItem(mh.getGem().NUGGET.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_coin_from_nuggets"));
@@ -133,15 +121,6 @@ public class TCRecipes extends RecipeProvider {
 	    ShapedRecipeBuilder.shapedRecipe(ec.ROD.get(), 6).key('p', mh.getGem().GEM.get()).patternLine("p")
 		    .patternLine("p").patternLine("p").addCriterion(mh.name + "gem", hasItem(mh.getGem().GEM.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_rods_from_gemss"));
-
-	    ShapedRecipeBuilder.shapedRecipe(ec.SPRING.get(), 1).key('p', mh.getExtraComponents().WIRE.get())
-		    .key('s', Items.STICK).patternLine("p").patternLine("s")
-		    .addCriterion(mh.name + "wire", hasItem(mh.getExtraComponents().WIRE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_spring_from_wire"));
-
-	    ShapelessRecipeBuilder.shapelessRecipe(ec.WIRE.get(), 4).addIngredient(ec.ROD.get())
-		    .addCriterion(mh.name + "rod", hasItem(mh.getExtraComponents().ROD.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_wires_from_rod"));
 
 	    ShapedRecipeBuilder.shapedRecipe(ec.ITEM_SHEET.get(), 3).key('p', mh.getExtraComponents().PLATE.get())
 		    .patternLine("ppp").addCriterion(mh.name + "plate", hasItem(mh.getExtraComponents().PLATE.get()))
@@ -182,6 +161,29 @@ public class TCRecipes extends RecipeProvider {
 		    .addCriterion(mh.name + "dust", hasItem(ec.DUST.get()))
 		    .build(consumer, mh.name + "ingot_from_dust_blast");
 
+	}
+
+	// Advanced Extra Component Materials
+	if (mh.getAdvancedComponents() != null) {
+	    MaterialAdvancedExtraComponents ec = mh.getAdvancedComponents();
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.CASING.get(), 1).key('p', mh.getExtraComponents().PLATE.get())
+		    .patternLine("ppp").patternLine("p p")
+		    .addCriterion(mh.name + "casing", hasItem(mh.getExtraComponents().PLATE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_casing_from_plates"));
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.COIL.get(), 1).key('p', ec.WIRE.get()).key('s', Items.STICK)
+		    .patternLine(" p ").patternLine("psp").patternLine(" p ")
+		    .addCriterion(mh.name + "wire", hasItem(ec.WIRE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_coil_from_wire"));
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.SPRING.get(), 1).key('p', ec.WIRE.get()).key('s', Items.STICK)
+		    .patternLine("p").patternLine("s").addCriterion(mh.name + "wire", hasItem(ec.WIRE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_spring_from_wire"));
+
+	    ShapelessRecipeBuilder.shapelessRecipe(ec.WIRE.get(), 4).addIngredient(mh.getExtraComponents().ROD.get())
+		    .addCriterion(mh.name + "rod", hasItem(mh.getExtraComponents().ROD.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_wires_from_rod"));
 	}
 
 	// Vanilla Tools
@@ -274,16 +276,6 @@ public class TCRecipes extends RecipeProvider {
 	if (mh.getExtraComponents() != null) {
 	    MaterialExtraComponents ec = mh.getExtraComponents();
 
-	    ShapedRecipeBuilder.shapedRecipe(ec.CASING.get(), 1).key('p', mh.getExtraComponents().PLATE.get())
-		    .patternLine("ppp").patternLine("p p")
-		    .addCriterion(mh.name + "casing", hasItem(mh.getExtraComponents().PLATE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_casing_from_plates"));
-
-	    ShapedRecipeBuilder.shapedRecipe(ec.COIL.get(), 1).key('p', mh.getExtraComponents().WIRE.get())
-		    .key('s', Items.STICK).patternLine(" p ").patternLine("psp").patternLine(" p ")
-		    .addCriterion(mh.name + "wire", hasItem(mh.getExtraComponents().WIRE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_coil_from_wire"));
-
 	    // Coins
 	    ShapedRecipeBuilder.shapedRecipe(ec.COIN.get(), 4).key('p', mh.getIngot().NUGGET.get()).patternLine("pp")
 		    .patternLine("pp").addCriterion(mh.name + "nugget", hasItem(mh.getIngot().NUGGET.get()))
@@ -305,15 +297,6 @@ public class TCRecipes extends RecipeProvider {
 		    .patternLine("p").patternLine("p")
 		    .addCriterion(mh.name + "ingot", hasItem(mh.getIngot().INGOT.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_rods_from_ingots"));
-
-	    ShapedRecipeBuilder.shapedRecipe(ec.SPRING.get(), 1).key('p', mh.getExtraComponents().WIRE.get())
-		    .key('s', Items.STICK).patternLine("p").patternLine("s")
-		    .addCriterion(mh.name + "wire", hasItem(mh.getExtraComponents().WIRE.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_spring_from_wire"));
-
-	    ShapelessRecipeBuilder.shapelessRecipe(ec.WIRE.get(), 4).addIngredient(ec.ROD.get())
-		    .addCriterion(mh.name + "rod", hasItem(mh.getExtraComponents().ROD.get()))
-		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_wires_from_rod"));
 
 	    ShapedRecipeBuilder.shapedRecipe(ec.ITEM_SHEET.get(), 3).key('p', mh.getExtraComponents().PLATE.get())
 		    .patternLine("ppp").addCriterion(mh.name + "plate", hasItem(mh.getExtraComponents().PLATE.get()))
@@ -356,6 +339,30 @@ public class TCRecipes extends RecipeProvider {
 
 	}
 
+	// Advanced Extra Component Materials
+	if (mh.getAdvancedComponents() != null) {
+	    MaterialAdvancedExtraComponents ec = mh.getAdvancedComponents();
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.SPRING.get(), 1).key('p', ec.WIRE.get())
+		    .key('s', Items.STICK).patternLine("p").patternLine("s")
+		    .addCriterion(mh.name + "wire", hasItem(ec.WIRE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_spring_from_wire"));
+
+	    ShapelessRecipeBuilder.shapelessRecipe(ec.WIRE.get(), 4).addIngredient(mh.getExtraComponents().ROD.get())
+		    .addCriterion(mh.name + "rod", hasItem(mh.getExtraComponents().ROD.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_wires_from_rod"));
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.CASING.get(), 1).key('p', mh.getExtraComponents().PLATE.get())
+		    .patternLine("ppp").patternLine("p p")
+		    .addCriterion(mh.name + "casing", hasItem(mh.getExtraComponents().PLATE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_casing_from_plates"));
+
+	    ShapedRecipeBuilder.shapedRecipe(ec.COIL.get(), 1).key('p', ec.WIRE.get())
+		    .key('s', Items.STICK).patternLine(" p ").patternLine("psp").patternLine(" p ")
+		    .addCriterion(mh.name + "wire", hasItem(ec.WIRE.get()))
+		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_coil_from_wire"));
+	}
+
 	// Vanilla Tools
 	if (mh.getVanillaTools() != null) {
 	    MaterialVanillaTools vt = mh.getVanillaTools();
@@ -370,18 +377,18 @@ public class TCRecipes extends RecipeProvider {
 		    .addCriterion(mh.name + "ingot", hasItem(mh.getIngot().INGOT.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_hoe_from_ingots"));
 
-	    ShapedRecipeBuilder.shapedRecipe(vt.PICKAXE.get(), 1).key('i', mh.getIngot().INGOT.get()).key('s', Items.STICK)
-		    .patternLine("iii").patternLine(" s ").patternLine(" s ")
+	    ShapedRecipeBuilder.shapedRecipe(vt.PICKAXE.get(), 1).key('i', mh.getIngot().INGOT.get())
+		    .key('s', Items.STICK).patternLine("iii").patternLine(" s ").patternLine(" s ")
 		    .addCriterion(mh.name + "ingot", hasItem(mh.getIngot().INGOT.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_pickaxe_from_ingots"));
 
-	    ShapedRecipeBuilder.shapedRecipe(vt.SHOVEL.get(), 1).key('i', mh.getIngot().INGOT.get()).key('s', Items.STICK)
-		    .patternLine("i").patternLine("s").patternLine("s")
+	    ShapedRecipeBuilder.shapedRecipe(vt.SHOVEL.get(), 1).key('i', mh.getIngot().INGOT.get())
+		    .key('s', Items.STICK).patternLine("i").patternLine("s").patternLine("s")
 		    .addCriterion(mh.name + "ingot", hasItem(mh.getIngot().INGOT.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_shovel_from_ingots"));
 
-	    ShapedRecipeBuilder.shapedRecipe(vt.SWORD.get(), 1).key('i', mh.getIngot().INGOT.get()).key('s', Items.STICK)
-		    .patternLine("i").patternLine("i").patternLine("s")
+	    ShapedRecipeBuilder.shapedRecipe(vt.SWORD.get(), 1).key('i', mh.getIngot().INGOT.get())
+		    .key('s', Items.STICK).patternLine("i").patternLine("i").patternLine("s")
 		    .addCriterion(mh.name + "ingot", hasItem(mh.getIngot().INGOT.get()))
 		    .build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_sword_from_ingots"));
 
@@ -389,10 +396,12 @@ public class TCRecipes extends RecipeProvider {
 
 	if (mh.getOre() != null) {
 	    MaterialOre mo = mh.getOre();
-	    CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
+	    CookingRecipeBuilder
+		    .smeltingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
 		    .addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
 		    .build(consumer, mh.name + "ingot_from_ore_furnace");
-	    CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
+	    CookingRecipeBuilder
+		    .blastingRecipe(Ingredient.fromItems(mo.ITEM_ORE.get()), mh.getIngot().INGOT.get(), 1f, 100)
 		    .addCriterion(mh.name + "ore", hasItem(mo.ITEM_ORE.get()))
 		    .build(consumer, mh.name + "ingot_from_ore_blast");
 

@@ -35,102 +35,109 @@ import net.minecraftforge.items.CapabilityItemHandler;
 
 public class SawhorseStationBlock extends Block {
 
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	private static final ITextComponent containerName = new TranslationTextComponent("compendium.container.anvilcraft");
+    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    private static final ITextComponent containerName = new TranslationTextComponent("compendium.container.anvilcraft");
 
-	public SawhorseStationBlock() {
-		super(Block.Properties.create(Material.WOOD).harvestLevel(0).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE).notSolid());
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
-	}
+    public SawhorseStationBlock() {
+	super(Block.Properties.create(Material.WOOD).harvestLevel(0).hardnessAndResistance(3, 4)
+		.harvestTool(ToolType.AXE).notSolid());
+	this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+    }
 
-	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().rotateY());
-	}
-	
-	@Nullable
-	@Override
-	public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
-		return new SimpleNamedContainerProvider((id, inventory, player) -> {
-			return new RepairContainer(id, inventory, IWorldPosCallable.of(worldIn, pos));
-		}, containerName);
-	}
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+	BlockState blockstate = this.getDefaultState().with(FACING,
+		context.getPlacementHorizontalFacing().getOpposite());
+	return blockstate;
+    }
 
-	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(FACING);
-	}
+    @Nullable
+    @Override
+    public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
+	return new SimpleNamedContainerProvider((id, inventory, player) -> {
+	    return new RepairContainer(id, inventory, IWorldPosCallable.of(worldIn, pos));
+	}, containerName);
+    }
 
-	@Override
-	public boolean hasTileEntity(BlockState state) {
-		return true;
-	}
+    @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	builder.add(FACING);
+    }
 
-	@Nullable
-	@Override
-	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return new SawhorseStationTE();
-	}
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+	return true;
+    }
 
-	@Nonnull
-	@Override
-	public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos, @Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
-		if (hand == Hand.MAIN_HAND) {
-			TileEntity entity = world.getTileEntity(blockPos);
-			if (entity instanceof SawhorseStationTE) {
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+	return new SawhorseStationTE();
+    }
 
-				SawhorseStationTE te = ((SawhorseStationTE) entity);
-				if (!playerEntity.isCrouching()) {
-					boolean success = false;
-					// Get item in both hands, ignore sent hand
-					ItemStack heldmain = playerEntity.getHeldItem(Hand.MAIN_HAND);
-					ItemStack heldoff = playerEntity.getHeldItem(Hand.OFF_HAND);
+    @Nonnull
+    @Override
+    public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos,
+	    @Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
+	if (hand == Hand.MAIN_HAND) {
+	    TileEntity entity = world.getTileEntity(blockPos);
+	    if (entity instanceof SawhorseStationTE) {
 
-					// Try inserting main hand item
-					if (!(heldmain.getItem() instanceof SawItem)) {
-						te.insertItem(heldmain);
-						success = true;
-					}
-					// Try inserting off hand item
-					if (!(heldoff.getItem() instanceof SawItem)) {
-						te.insertItem(heldoff);
-						success = true;
-					}
+		SawhorseStationTE te = ((SawhorseStationTE) entity);
+		if (!playerEntity.isCrouching()) {
+		    boolean success = false;
+		    // Get item in both hands, ignore sent hand
+		    ItemStack heldmain = playerEntity.getHeldItem(Hand.MAIN_HAND);
+		    ItemStack heldoff = playerEntity.getHeldItem(Hand.OFF_HAND);
 
-					// Hit it!
-					// Try main hand, only try off hand if that fails
-					if (heldmain.getItem() instanceof SawItem) {
-						te.hammer(playerEntity, heldmain);
-						success = true;
-					} else if (heldoff.getItem() instanceof SawItem) {
-						te.hammer(playerEntity, heldoff);
-						success = true;
-					}
+		    // Try inserting main hand item
+		    if (!(heldmain.getItem() instanceof SawItem)) {
+			te.insertItem(heldmain);
+			success = true;
+		    }
+		    // Try inserting off hand item
+		    if (!(heldoff.getItem() instanceof SawItem)) {
+			te.insertItem(heldoff);
+			success = true;
+		    }
 
-					if (success)
-						return ActionResultType.SUCCESS;
-				} else // If crouching, take item off table
-				{
-					te.extractItem(playerEntity);
-					return ActionResultType.SUCCESS;
-				}
-			}
+		    // Hit it!
+		    // Try main hand, only try off hand if that fails
+		    if (heldmain.getItem() instanceof SawItem) {
+			te.hammer(playerEntity, heldmain);
+			success = true;
+		    } else if (heldoff.getItem() instanceof SawItem) {
+			te.hammer(playerEntity, heldoff);
+			success = true;
+		    }
+
+		    if (success)
+			return ActionResultType.SUCCESS;
+		} else // If crouching, take item off table
+		{
+		    te.extractItem(playerEntity);
+		    return ActionResultType.SUCCESS;
 		}
-		return super.onBlockActivated(blockState, world, blockPos, playerEntity, hand, blockRayTraceResult);
-
+	    }
 	}
+	return super.onBlockActivated(blockState, world, blockPos, playerEntity, hand, blockRayTraceResult);
 
-	@Override
-	public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState, boolean isMoving) {
-		if (state.getBlock() != newState.getBlock()) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if (tileentity instanceof SawhorseStationTE) {
-				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots()).forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
+    }
 
-				worldIn.updateComparatorOutputLevel(pos, this);
-			}
+    @Override
+    public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState,
+	    boolean isMoving) {
+	if (state.getBlock() != newState.getBlock()) {
+	    TileEntity tileentity = worldIn.getTileEntity(pos);
+	    if (tileentity instanceof SawhorseStationTE) {
+		tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+			.ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots())
+				.forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
 
-			super.onReplaced(state, worldIn, pos, newState, isMoving);
-		}
+		worldIn.updateComparatorOutputLevel(pos, this);
+	    }
+
+	    super.onReplaced(state, worldIn, pos, newState, isMoving);
 	}
+    }
 }

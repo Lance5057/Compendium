@@ -1,8 +1,0 @@
-{
-  "type": "compendium:sawhorse_station",
-  "strikes": 2,
-  "input": {
-    "item": "minecraft:oak_planks"
-  },
-  "output": "compendium:recipe/sawhorse/oak_planks"
-}
