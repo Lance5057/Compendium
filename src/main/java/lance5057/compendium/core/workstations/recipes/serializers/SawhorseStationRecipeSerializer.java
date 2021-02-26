@@ -14,35 +14,36 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class SawhorseStationRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-		implements IRecipeSerializer<SawhorseStationRecipe> {
-	@Nonnull
-	@Override
-	public SawhorseStationRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
-		final int strikes = json.get("strikes").getAsInt();
-		final Ingredient input = Ingredient.deserialize(json.get("input"));
-		String s = json.get("output").getAsString();
-		final ResourceLocation result = new ResourceLocation(s);
-		
-		return new SawhorseStationRecipe(WorkstationRecipes.SAWHORSE_STATION_RECIPE, recipeId, strikes,
-				result, input);
-	}
+	implements IRecipeSerializer<SawhorseStationRecipe> {
+    @Nonnull
+    @Override
+    public SawhorseStationRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
+	final int strikes = json.get("strikes").getAsInt();
+	final Ingredient input = Ingredient.deserialize(json.get("input"));
+	
+	String s = json.get("output").getAsString();
+	final ResourceLocation result = new ResourceLocation(s);
 
-	@Nullable
-	@Override
-	public SawhorseStationRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
-		int strikes = buffer.readInt();
-		Ingredient input = Ingredient.read(buffer);
-		ResourceLocation loottable = buffer.readResourceLocation();
-		
-		return new SawhorseStationRecipe(WorkstationRecipes.SAWHORSE_STATION_RECIPE, recipeId, strikes,
-				loottable, input);
-	}
+	return new SawhorseStationRecipe(WorkstationRecipes.SAWHORSE_STATION_RECIPE, recipeId, strikes, result, input);
+    }
 
-	@Override
-	public void write(PacketBuffer buffer, SawhorseStationRecipe recipe) {
-		buffer.writeInt(recipe.getStrikes());
-		buffer.writeItemStack(recipe.getRecipeOutput());
-		recipe.getIngredient().write(buffer);
+    @Nullable
+    @Override
+    public SawhorseStationRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
+	int strikes = buffer.readInt();
+	Ingredient input = Ingredient.read(buffer);
+	
+	String s = buffer.readString();
+	final ResourceLocation result = new ResourceLocation(s);
 
-	}
+	return new SawhorseStationRecipe(WorkstationRecipes.SAWHORSE_STATION_RECIPE, recipeId, strikes, result, input);
+    }
+
+    @Override
+    public void write(PacketBuffer buffer, SawhorseStationRecipe recipe) {
+	buffer.writeInt(recipe.getStrikes());
+	recipe.getIngredient().write(buffer);
+	buffer.writeString(recipe.getOutput().toString());
+
+    }
 }

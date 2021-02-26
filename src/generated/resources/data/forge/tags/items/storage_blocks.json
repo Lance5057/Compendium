@@ -20,17 +20,6 @@
     "compendium:garnetitemblock",
     "compendium:opalitemblock",
     "compendium:tanziniteitemblock",
-    "compendium:amberitemblock",
-    "compendium:brassitemblock",
-    "compendium:bronzeitemblock",
-    "compendium:copperitemblock",
-    "compendium:electrumitemblock",
-    "compendium:nickelitemblock",
-    "compendium:steelitemblock",
-    "compendium:tinitemblock",
-    "compendium:zincitemblock",
-    "compendium:rosegolditemblock",
-    "compendium:platinumitemblock",
-    "compendium:silveritemblock"
+    "compendium:amberitemblock"
   ]
 }

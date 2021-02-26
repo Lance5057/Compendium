@@ -25,17 +25,6 @@
     "compendium:garnetnugget",
     "compendium:opalnugget",
     "compendium:tanzinitenugget",
-    "compendium:ambernugget",
-    "compendium:brassnugget",
-    "compendium:bronzenugget",
-    "compendium:coppernugget",
-    "compendium:electrumnugget",
-    "compendium:nickelnugget",
-    "compendium:steelnugget",
-    "compendium:tinnugget",
-    "compendium:zincnugget",
-    "compendium:rosegoldnugget",
-    "compendium:platinumnugget",
-    "compendium:silvernugget"
+    "compendium:ambernugget"
   ]
 }

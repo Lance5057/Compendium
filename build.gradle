@@ -17,7 +17,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '2.3.1a'
+version = '2.4.3a'
 group = 'com.lance5057.compendium' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'compendium'
 

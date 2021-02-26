@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/bonevault"
+    },
+    "facing=south": {
+      "model": "compendium:block/bonevault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/bonevault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/bonevault",
+      "y": 90
+    }
+  }
+}

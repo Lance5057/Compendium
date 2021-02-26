@@ -28,17 +28,6 @@
     "compendium:garnetspring",
     "compendium:opalspring",
     "compendium:tanzinitespring",
-    "compendium:amberspring",
-    "compendium:brassspring",
-    "compendium:bronzespring",
-    "compendium:copperspring",
-    "compendium:electrumspring",
-    "compendium:nickelspring",
-    "compendium:steelspring",
-    "compendium:tinspring",
-    "compendium:zincspring",
-    "compendium:rosegoldspring",
-    "compendium:platinumspring",
-    "compendium:silverspring"
+    "compendium:amberspring"
   ]
 }

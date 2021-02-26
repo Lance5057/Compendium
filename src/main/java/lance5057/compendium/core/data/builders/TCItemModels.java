@@ -2,15 +2,15 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
@@ -66,7 +66,7 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
 	    // Meltable Materials
 	    if (mh.getIngot() != null) {
-		MeltableMaterial mm = mh.getIngot();
+		BasicMetalMaterial mm = mh.getIngot();
 
 		forItem(mm.INGOT, mh.name);
 		forItem(mm.NUGGET, mh.name);
@@ -75,10 +75,10 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
 	    // Craftable Materials
 	    if (mh.getGem() != null) {
-		CraftableMaterial cm = mh.getGem();
+		BasicGemMaterial cm = mh.getGem();
 
 		forItem(cm.GEM, mh.name);
-		forItem(cm.NUGGET, mh.name);
+		forItem(cm.SHARD, mh.name);
 		forBlockItem(cm.STORAGE_ITEMBLOCK, mh.name);
 	    }
 

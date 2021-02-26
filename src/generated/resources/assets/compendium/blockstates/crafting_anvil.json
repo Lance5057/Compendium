@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "compendium:block/workstations/anvil"
+    },
+    "facing=south": {
+      "model": "compendium:block/workstations/anvil",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/workstations/anvil",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/workstations/anvil",
+      "y": 90
     }
   }
 }

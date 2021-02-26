@@ -1,5 +1,6 @@
 package lance5057.compendium;
 
+import lance5057.compendium.core.client.ItemDisplayRenderer;
 import lance5057.compendium.core.client.VaultRenderer;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.materials.CompendiumMaterials;
@@ -34,5 +35,6 @@ public class CompendiumClient {
 		SawhorseStationRenderer::new);
 
 	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.VAULT_TE.get(), VaultRenderer::new);
+	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
     }
 }

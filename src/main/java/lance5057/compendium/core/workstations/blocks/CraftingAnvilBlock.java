@@ -10,15 +10,18 @@ import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -31,8 +34,9 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class CraftingAnvilBlock extends Block {
+public class CraftingAnvilBlock extends Block implements IWaterLoggable {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public CraftingAnvilBlock() {
 	super(Block.Properties.create(Material.ROCK).harvestLevel(1).hardnessAndResistance(3, 4)
@@ -42,7 +46,18 @@ public class CraftingAnvilBlock extends Block {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-	builder.add(FACING);
+	builder.add(FACING, WATERLOGGED);
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public FluidState getFluidState(BlockState state) {
+	return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+	return !state.get(WATERLOGGED);
     }
 
     @Override
@@ -166,8 +181,11 @@ public class CraftingAnvilBlock extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-	BlockState blockstate = this.getDefaultState().with(FACING,
-		context.getPlacementHorizontalFacing().getOpposite());
+	FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+
+	BlockState blockstate = this.getDefaultState()
+		.with(FACING, context.getPlacementHorizontalFacing().getOpposite())
+		.with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
 	return blockstate;
     }
 }

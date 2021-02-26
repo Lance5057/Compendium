@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/aeonsteelvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/aeonsteelvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/aeonsteelvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/aeonsteelvault",
+      "y": 90
+    }
+  }
+}

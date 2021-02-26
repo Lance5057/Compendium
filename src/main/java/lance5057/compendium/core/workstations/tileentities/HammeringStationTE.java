@@ -27,12 +27,15 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class HammeringStationTE extends TileEntity {
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
+    private final LazyOptional<IItemHandler> optional;
+    ItemStackHandler handler;
     private ItemStack lastStack = ItemStack.EMPTY;
     private int progress = 0;
 
     public HammeringStationTE() {
 	super(CompendiumTileEntities.HAMMERING_STATION_TE.get());
+	handler = createHandler();
+	optional = LazyOptional.of(() -> handler);
     }
 
     @Nonnull
@@ -40,7 +43,7 @@ public class HammeringStationTE extends TileEntity {
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
 	if (side != Direction.DOWN)
 	    if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-		return handler.cast();
+		return optional.cast();
 	    }
 	return super.getCapability(cap, side);
     }
@@ -55,7 +58,7 @@ public class HammeringStationTE extends TileEntity {
 	return null;
     }
 
-    private IItemHandler createHandler() {
+    private ItemStackHandler createHandler() {
 	return new ItemStackHandler(1) {
 	    @Override
 	    protected int getStackLimit(int slot, @Nonnull ItemStack stack) {
@@ -76,15 +79,16 @@ public class HammeringStationTE extends TileEntity {
     }
 
     public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
-	handler.ifPresent(inventory -> {
-	    ItemStack held = playerEntity.getHeldItem(hand);
-	    if (!held.isEmpty()) {
-		insertItem(inventory, held);
-	    } else {
-		extractItem(playerEntity, inventory);
-	    }
-	});
+
+	ItemStack held = playerEntity.getHeldItem(hand);
+	if (!held.isEmpty()) {
+	    insertItem(handler, held);
+	} else {
+	    extractItem(playerEntity, handler);
+	}
+
 	updateInventory();
+
     }
 
     public void extractItem(PlayerEntity playerEntity, IItemHandler inventory) {
@@ -106,16 +110,12 @@ public class HammeringStationTE extends TileEntity {
 
     // External extract handler
     public void extractItem(PlayerEntity playerEntity) {
-	handler.ifPresent(inventory -> {
-	    this.extractItem(playerEntity, inventory);
-	});
+	this.extractItem(playerEntity, handler);
     }
 
     // External insert handler
     public void insertItem(ItemStack heldItem) {
-	handler.ifPresent(inventory -> {
-	    this.insertItem(inventory, heldItem);
-	});
+	this.insertItem(handler, heldItem);
     }
 
     public void updateInventory() {
@@ -127,48 +127,46 @@ public class HammeringStationTE extends TileEntity {
     }
 
     public void hammer(PlayerEntity playerEntity, ItemStack hammer) {
-	handler.ifPresent(inventory -> {
-	    if (lastStack != inventory.getStackInSlot(0)) {
-		progress = 0;
-		lastStack = inventory.getStackInSlot(0);
-	    } else if (lastStack != ItemStack.EMPTY && lastStack.getItem() != Items.AIR) {
-		this.progress++;
-		hammer.damageItem(1, playerEntity, null);
-		world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f,
-			pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2,
-			(world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-		world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS,
-			world.rand.nextFloat() + 0.5f, 0);
-	    }
-	    HammeringStationRecipe recipe = matchRecipe(inventory.getStackInSlot(0));
-	    if (recipe != null) {
-		if (this.progress >= recipe.getStrikes()) {
+	if (lastStack != handler.getStackInSlot(0)) {
+	    progress = 0;
+	    lastStack = handler.getStackInSlot(0);
+	} else if (lastStack != ItemStack.EMPTY && lastStack.getItem() != Items.AIR) {
+	    this.progress++;
+	    hammer.damageItem(1, playerEntity, null);
+	    world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f, pos.getY() + 1,
+		    pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2,
+		    (world.rand.nextFloat() - 0.5f) / 2);
+	    world.playSound(playerEntity, pos, SoundEvents.BLOCK_STONE_HIT, SoundCategory.BLOCKS,
+		    world.rand.nextFloat() + 0.5f, 0);
+	}
+	HammeringStationRecipe recipe = matchRecipe(handler.getStackInSlot(0));
+	if (recipe != null) {
+	    if (this.progress >= recipe.getStrikes()) {
 
-		    for (int i = 0; i < 5; i++) {
-			world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f,
-				pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2,
-				(world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
-		    }
-		    world.playSound(playerEntity, pos, SoundEvents.BLOCK_BASALT_BREAK, SoundCategory.BLOCKS, 1, 0);
-
-		    progress = 0;
-
-		    TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
-		    ItemStack item = recipe.getRecipeOutput().copy();
-		    if (te != null) {
-			LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
-				Direction.UP);
-
-			item = ih.map(h -> dropItemBelow(h, recipe.getRecipeOutput().copy())).get();
-		    }
-
-		    InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), item);
-		    // this.lastStack.shrink(1);
-		    inventory.getStackInSlot(0).shrink(1);
-
+		for (int i = 0; i < 5; i++) {
+		    world.addParticle(new ItemParticleData(ParticleTypes.ITEM, lastStack), pos.getX() + 0.5f,
+			    pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2,
+			    (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
 		}
+		world.playSound(playerEntity, pos, SoundEvents.BLOCK_BASALT_BREAK, SoundCategory.BLOCKS, 1, 0);
+
+		progress = 0;
+
+		TileEntity te = world.getTileEntity(this.getPos().add(0, -1, 0));
+		ItemStack item = recipe.getRecipeOutput().copy();
+		if (te != null) {
+		    LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
+			    Direction.UP);
+
+		    item = ih.map(h -> dropItemBelow(h, recipe.getRecipeOutput().copy())).get();
+		}
+
+		InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), item);
+		// this.lastStack.shrink(1);
+		handler.getStackInSlot(0).shrink(1);
+
 	    }
-	});
+	}
 	this.updateInventory();
     }
 
@@ -198,21 +196,14 @@ public class HammeringStationTE extends TileEntity {
     @Override
     @Nonnull
     public CompoundNBT getUpdateTag() {
-	CompoundNBT updateTag = new CompoundNBT();
-	handler.ifPresent(iItemHandler -> {
-	    updateTag.put("items", ((ItemStackHandler) iItemHandler).serializeNBT());
-	});
+	CompoundNBT updateTag = super.getUpdateTag();
+	updateTag.put("items", handler.serializeNBT());
 	return updateTag;
     }
 
     @Override
     public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-	CompoundNBT n = tag.getCompound("item");
-	//ItemStack teststack = ItemStack.read(n);
-	handler.ifPresent(iItemHandler -> {
-	    ((ItemStackHandler) iItemHandler).deserializeNBT(tag.getCompound("items"));
-	});
-	updateInventory();
+	handler.deserializeNBT(tag.getCompound("items"));
     }
 
     @Override
@@ -220,24 +211,18 @@ public class HammeringStationTE extends TileEntity {
 	super.read(state, nbt);
 	progress = nbt.getInt("progress");
 	lastStack.deserializeNBT(nbt.getCompound("lastStack"));
-	
-//	CompoundNBT n = nbt.getCompound("item");
-//	ItemStack teststack = ItemStack.read(n);
-	handler.ifPresent(iItemHandler -> {
-	    ((ItemStackHandler) iItemHandler).deserializeNBT(nbt.getCompound("items"));
-	});
-	updateInventory();
+
+	handler.deserializeNBT(nbt.getCompound("items"));
     }
 
     @Override
     @Nonnull
     public CompoundNBT write(@Nonnull CompoundNBT nbt) {
-	super.write(nbt);
-	nbt.putInt("progress", progress);
-	nbt.put("lastStack", lastStack.serializeNBT());
-	handler.ifPresent(iItemHandler -> {
-	    nbt.put("items", ((ItemStackHandler) iItemHandler).serializeNBT());
-	});
-	return nbt;
+	CompoundNBT n = super.write(nbt);
+	n.putInt("progress", progress);
+	n.put("lastStack", lastStack.serializeNBT());
+
+	n.put("items", handler.serializeNBT());
+	return n;
     }
 }

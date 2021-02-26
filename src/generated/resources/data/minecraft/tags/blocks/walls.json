@@ -28,17 +28,6 @@
     "compendium:garnetwall",
     "compendium:opalwall",
     "compendium:tanzinitewall",
-    "compendium:amberwall",
-    "compendium:brasswall",
-    "compendium:bronzewall",
-    "compendium:copperwall",
-    "compendium:electrumwall",
-    "compendium:nickelwall",
-    "compendium:steelwall",
-    "compendium:tinwall",
-    "compendium:zincwall",
-    "compendium:rosegoldwall",
-    "compendium:platinumwall",
-    "compendium:silverwall"
+    "compendium:amberwall"
   ]
 }

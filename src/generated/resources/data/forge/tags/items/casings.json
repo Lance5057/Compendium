@@ -28,17 +28,6 @@
     "compendium:garnetcasing",
     "compendium:opalcasing",
     "compendium:tanzinitecasing",
-    "compendium:ambercasing",
-    "compendium:brasscasing",
-    "compendium:bronzecasing",
-    "compendium:coppercasing",
-    "compendium:electrumcasing",
-    "compendium:nickelcasing",
-    "compendium:steelcasing",
-    "compendium:tincasing",
-    "compendium:zinccasing",
-    "compendium:rosegoldcasing",
-    "compendium:platinumcasing",
-    "compendium:silvercasing"
+    "compendium:ambercasing"
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/sinisteriumvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/sinisteriumvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/sinisteriumvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/sinisteriumvault",
+      "y": 90
+    }
+  }
+}

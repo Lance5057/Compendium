@@ -113,7 +113,6 @@ public class MaterialExtraComponents implements MaterialBase {
 	ROD = mh.ITEMS.register(mh.name + "rod",
 		() -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
-	
     }
 
     @Override
@@ -125,26 +124,9 @@ public class MaterialExtraComponents implements MaterialBase {
     }
 
     @Override
-    public void setupModels(MaterialHelper mat) {
-
-    }
-
-    @Override
     public void setup(FMLCommonSetupEvent event) {
 	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupItems(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupBlocks(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
+	
     }
 
 }

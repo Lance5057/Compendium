@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/vault",
+  "textures": {
+    "0": "compendium:block/material/dogbearium/dogbeariumvault_door",
+    "1": "compendium:block/material/dogbearium/dogbeariumvault_sides"
+  }
+}

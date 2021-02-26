@@ -27,35 +27,17 @@ public class MaterialExtraTools implements MaterialBase {
 		SAW = mh.ITEMS.register(mh.name + "saw",
 				() -> new SawItem(mh.tier, 6, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	}
-	
+
 	@Override
 	public void setupClient(MaterialHelper mat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setupModels(MaterialHelper mat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setupItems(MaterialHelper mat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setupBlocks(MaterialHelper mat) {
-		// TODO Auto-generated method stub
-		
+	    // TODO Auto-generated method stub
+	    
 	}
 
 	@Override
 	public void setup(FMLCommonSetupEvent event) {
-		// TODO Auto-generated method stub
-		
+	    // TODO Auto-generated method stub
+	    
 	}
 
 }

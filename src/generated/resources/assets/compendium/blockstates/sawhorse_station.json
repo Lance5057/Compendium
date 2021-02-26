@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "compendium:block/workstations/sawhorse"
+    },
+    "facing=south": {
+      "model": "compendium:block/workstations/sawhorse",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/workstations/sawhorse",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/workstations/sawhorse",
+      "y": 90
     }
   }
 }

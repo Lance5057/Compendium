@@ -22,14 +22,17 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class VaultTileEntity extends TileEntity {
 
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
+    private final LazyOptional<IItemHandler> optional;
+    ItemStackHandler handler;
     private final int maxSize = 64;
 
     public VaultTileEntity() {
 	super(CompendiumTileEntities.VAULT_TE.get());
+	handler = createHandler();
+	optional = LazyOptional.of(() -> handler);
     }
 
-    private IItemHandler createHandler() {
+    private ItemStackHandler createHandler() {
 	return new ItemStackHandler(1) {
 	    @Override
 	    protected int getStackLimit(int slot, @Nonnull ItemStack stack) {
@@ -54,20 +57,19 @@ public class VaultTileEntity extends TileEntity {
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
 	if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-	    return handler.cast();
+	    return optional.cast();
 	}
 	return super.getCapability(cap, side);
     }
 
     public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
-	handler.ifPresent(inventory -> {
-	    ItemStack held = playerEntity.getHeldItem(hand);
-	    if (!held.isEmpty()) {
-		insertItem(inventory, held);
-	    } else {
-		extractItem(playerEntity, inventory);
-	    }
-	});
+	ItemStack held = playerEntity.getHeldItem(hand);
+	if (!held.isEmpty()) {
+	    insertItem(handler, held);
+	} else {
+	    extractItem(playerEntity, handler);
+	}
+
 	updateInventory();
     }
 
@@ -94,16 +96,12 @@ public class VaultTileEntity extends TileEntity {
 
     // External extract handler
     public void extractItem(PlayerEntity playerEntity) {
-	handler.ifPresent(inventory -> {
-	    this.extractItem(playerEntity, inventory);
-	});
+	this.extractItem(playerEntity, handler);
     }
 
     // External insert handler
     public void insertItem(ItemStack heldItem) {
-	handler.ifPresent(inventory -> {
-	    this.insertItem(inventory, heldItem);
-	});
+	this.insertItem(handler, heldItem);
     }
 
     public void updateInventory() {
@@ -128,42 +126,29 @@ public class VaultTileEntity extends TileEntity {
     @Override
     @Nonnull
     public CompoundNBT getUpdateTag() {
-	CompoundNBT updateTag = new CompoundNBT();
-	final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-		.orElseGet(this::createHandler);
-	CompoundNBT itemSlot = new CompoundNBT();
-	itemHandler.getStackInSlot(0).write(itemSlot);
-	updateTag.put("item", itemSlot);
+	CompoundNBT updateTag = super.getUpdateTag();
+	updateTag.put("items", handler.serializeNBT());
 	return updateTag;
     }
 
     @Override
     public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-	final IItemHandler itemHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-		.orElseGet(this::createHandler);
-	((ItemStackHandler) itemHandler).setStackInSlot(0, ItemStack.read(tag.getCompound("item")));
-
+	handler.deserializeNBT(tag.getCompound("items"));
     }
 
     @Override
     public void read(BlockState state, @Nonnull CompoundNBT nbt) {
 	super.read(state, nbt);
-	handler.ifPresent(iItemHandler -> {
-	    if (iItemHandler instanceof ItemStackHandler) {
-		((ItemStackHandler) iItemHandler).deserializeNBT(nbt.getCompound("inventory"));
-	    }
-	});
+
+	handler.deserializeNBT(nbt.getCompound("items"));
     }
 
     @Override
     @Nonnull
     public CompoundNBT write(@Nonnull CompoundNBT nbt) {
-	super.write(nbt);
-	handler.ifPresent(iItemHandler -> {
-	    if (iItemHandler instanceof ItemStackHandler) {
-		nbt.put("inventory", ((ItemStackHandler) iItemHandler).serializeNBT());
-	    }
-	});
-	return nbt;
+	CompoundNBT n = super.write(nbt);
+
+	n.put("items", handler.serializeNBT());
+	return n;
     }
 }

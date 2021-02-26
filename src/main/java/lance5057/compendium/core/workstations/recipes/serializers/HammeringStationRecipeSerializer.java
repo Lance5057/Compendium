@@ -15,31 +15,34 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class HammeringStationRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<HammeringStationRecipe> {
-	@Nonnull
-	@Override
-	public HammeringStationRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
-		final int strikes = json.get("strikes").getAsInt();
-		final Ingredient input = Ingredient.deserialize(json.get("input"));
-		final ItemStack result = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
-		return new HammeringStationRecipe(recipeId, strikes, result, input);
-	}
+public class HammeringStationRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
+	implements IRecipeSerializer<HammeringStationRecipe> {
+    @Nonnull
+    @Override
+    public HammeringStationRecipe read(@Nonnull ResourceLocation recipeId, JsonObject json) {
+	final int strikes = json.get("strikes").getAsInt();
+	final Ingredient input = Ingredient.deserialize(json.get("input"));
+	final ItemStack result = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
+	return new HammeringStationRecipe(recipeId, strikes, result, input);
+    }
 
-	@Nullable
-	@Override
-	public HammeringStationRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
-		int strikes = buffer.readInt();
-		ItemStack result = buffer.readItemStack();
-		Ingredient input = Ingredient.read(buffer);
+    @Nullable
+    @Override
+    public HammeringStationRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
+	int strikes = buffer.readInt();
 
-		return new HammeringStationRecipe(recipeId, strikes, result, input);
-	}
+	Ingredient input = Ingredient.read(buffer);
+	ItemStack result = buffer.readItemStack();
 
-	@Override
-	public void write(PacketBuffer buffer, HammeringStationRecipe recipe) {
-		buffer.writeInt(recipe.getStrikes());
-		buffer.writeItemStack(recipe.getRecipeOutput());
-		recipe.getIngredient().write(buffer);
+	return new HammeringStationRecipe(recipeId, strikes, result, input);
+    }
 
-	}
+    @Override
+    public void write(PacketBuffer buffer, HammeringStationRecipe recipe) {
+	buffer.writeInt(recipe.getStrikes());
+
+	recipe.getIngredient().write(buffer);
+	buffer.writeItemStack(recipe.getRecipeOutput());
+
+    }
 }

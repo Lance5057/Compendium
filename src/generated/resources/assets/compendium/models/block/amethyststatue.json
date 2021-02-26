@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/statue",
+  "textures": {
+    "0": "compendium:block/material/amethyst/amethystgemblock"
+  }
+}

@@ -1,14 +1,14 @@
 package lance5057.compendium.core.library.materialutilities;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.IItemTier;
@@ -21,17 +21,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class MaterialHelper {
-    public String name;
-    public String parentMod;
-    public IItemTier tier;
-
-    public final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
-    public final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
-
+public class MaterialHelper extends MaterialHelperBase {
     private PremadeMaterial premade;
-    private CraftableMaterial craftable;
-    private MeltableMaterial meltable;
+    private BasicGemMaterial craftable;
+    private BasicMetalMaterial meltable;
     private MaterialVanillaComponents vcomponents;
     private MaterialExtraComponents ecomponents;
     private MaterialAdvancedExtraComponents acomponents;
@@ -73,21 +66,21 @@ public class MaterialHelper {
 
     // Meltable
     public MaterialHelper withIngot() {
-	meltable = new MeltableMaterial(this);
+	meltable = new BasicMetalMaterial(this);
 	return this;
     }
 
-    public MeltableMaterial getIngot() {
+    public BasicMetalMaterial getIngot() {
 	return meltable;
     }
 
     // Craftable
     public MaterialHelper withGem() {
-	craftable = new CraftableMaterial(this);
+	craftable = new BasicGemMaterial(this);
 	return this;
     }
 
-    public CraftableMaterial getGem() {
+    public BasicGemMaterial getGem() {
 	return craftable;
     }
 

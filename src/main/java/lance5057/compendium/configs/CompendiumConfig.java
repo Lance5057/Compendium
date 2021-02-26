@@ -49,10 +49,13 @@ public class CompendiumConfig {
 	
 	public static class General {
 		public final ForgeConfigSpec.ConfigValue<Boolean> debug;
+		public final ForgeConfigSpec.ConfigValue<Boolean> animated_displays;
 		
 		General(ForgeConfigSpec.Builder builder) {
 			debug = builder.comment("Disable/Enable Developer Debugging.")
 					.translation("compendium.config.common.general.debug").define("debug", false);
+			animated_displays = builder.comment("Disable/Enable Animated Displays (IE Statues).")
+				.translation("compendium.config.common.general.animated_displays").define("animated_displays", true);
 		}
 	}
 

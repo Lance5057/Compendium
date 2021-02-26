@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "compendium:opalgem"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "minecraft:iron_sword"
+  }
+}

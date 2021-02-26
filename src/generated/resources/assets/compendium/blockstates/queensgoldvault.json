@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/queensgoldvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/queensgoldvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/queensgoldvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/queensgoldvault",
+      "y": 90
+    }
+  }
+}

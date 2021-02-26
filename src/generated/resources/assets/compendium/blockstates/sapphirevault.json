@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/sapphirevault"
+    },
+    "facing=south": {
+      "model": "compendium:block/sapphirevault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/sapphirevault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/sapphirevault",
+      "y": 90
+    }
+  }
+}

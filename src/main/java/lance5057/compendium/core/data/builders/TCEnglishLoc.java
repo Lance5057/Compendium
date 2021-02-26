@@ -2,14 +2,14 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
@@ -49,7 +49,7 @@ public class TCEnglishLoc extends LanguageProvider {
 
 	    // Meltable Materials
 	    if (mh.getIngot() != null) {
-		MeltableMaterial mm = mh.getIngot();
+		BasicMetalMaterial mm = mh.getIngot();
 
 		this.add(mm.INGOT.get(), name + " Ingot");
 		this.add(mm.NUGGET.get(), name + " Nugget");
@@ -58,10 +58,10 @@ public class TCEnglishLoc extends LanguageProvider {
 
 	    // Craftable Materials
 	    if (mh.getGem() != null) {
-		CraftableMaterial cm = mh.getGem();
+		BasicGemMaterial cm = mh.getGem();
 
 		this.add(cm.GEM.get(), name + " Gem");
-		this.add(cm.NUGGET.get(), name + " Nugget");
+		this.add(cm.SHARD.get(), name + " Nugget");
 		this.add(cm.STORAGE_ITEMBLOCK.get(), name + " Block");
 	    }
 

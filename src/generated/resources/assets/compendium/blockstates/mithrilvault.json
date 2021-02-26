@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/mithrilvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/mithrilvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/mithrilvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/mithrilvault",
+      "y": 90
+    }
+  }
+}

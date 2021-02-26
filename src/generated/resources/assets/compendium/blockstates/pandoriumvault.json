@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/pandoriumvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/pandoriumvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/pandoriumvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/pandoriumvault",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:sapphire_vault"
+    ]
+  },
+  "criteria": {
+    "sapphirevault": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:sapphirecasing"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:sapphire_vault"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sapphirevault",
+      "has_the_recipe"
+    ]
+  ]
+}

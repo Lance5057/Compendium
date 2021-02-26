@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pandorium_vault"
+    ]
+  },
+  "criteria": {
+    "pandoriumvault": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pandoriumcasing"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pandorium_vault"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pandoriumvault",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -28,17 +28,6 @@
     "compendium:garnetgear",
     "compendium:opalgear",
     "compendium:tanzinitegear",
-    "compendium:ambergear",
-    "compendium:brassgear",
-    "compendium:bronzegear",
-    "compendium:coppergear",
-    "compendium:electrumgear",
-    "compendium:nickelgear",
-    "compendium:steelgear",
-    "compendium:tingear",
-    "compendium:zincgear",
-    "compendium:rosegoldgear",
-    "compendium:platinumgear",
-    "compendium:silvergear"
+    "compendium:ambergear"
   ]
 }

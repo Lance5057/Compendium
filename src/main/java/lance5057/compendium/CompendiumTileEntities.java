@@ -5,6 +5,7 @@ import java.util.List;
 
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.materials.CompendiumMaterials;
+import lance5057.compendium.core.tileentities.ItemDisplayTileEntity;
 import lance5057.compendium.core.tileentities.VaultTileEntity;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import lance5057.compendium.core.workstations.tileentities.HammeringStationTE;
@@ -32,6 +33,8 @@ public class CompendiumTileEntities {
 
     public static final RegistryObject<TileEntityType<VaultTileEntity>> VAULT_TE = TILE_ENTITIES.register("vault_tile",
 	    () -> TileEntityType.Builder.create(VaultTileEntity::new, getAllVaults()).build(null));
+    public static final RegistryObject<TileEntityType<ItemDisplayTileEntity>> ITEM_DISPLAY_TE = TILE_ENTITIES.register("item_display_tile",
+	    () -> TileEntityType.Builder.create(ItemDisplayTileEntity::new, getAllItemDisplays()).build(null));
 
     public static void register(IEventBus modBus) {
 	TILE_ENTITIES.register(modBus);
@@ -44,6 +47,18 @@ public class CompendiumTileEntities {
 	{
 	    if(mh.getAdvancedComponents() != null)
 		blocks.add(mh.getAdvancedComponents().VAULT.get());
+	}
+	Block[] b = {};
+	return  blocks.toArray(b);
+    }
+    
+    static Block[] getAllItemDisplays()
+    {
+	List<Block> blocks = new ArrayList<Block>();
+	for(MaterialHelper mh: CompendiumMaterials.materials)
+	{
+	    if(mh.getAdvancedComponents() != null)
+		blocks.add(mh.getAdvancedComponents().STATUE.get());
 	}
 	Block[] b = {};
 	return  blocks.toArray(b);

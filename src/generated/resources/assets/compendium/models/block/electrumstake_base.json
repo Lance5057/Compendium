@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/componentstake_base",
-  "textures": {
-    "rod": "compendium:block/material/electrum/electrumstake"
-  }
-}

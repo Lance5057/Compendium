@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/vault",
+  "textures": {
+    "0": "compendium:block/material/iron/ironvault_door",
+    "1": "compendium:block/material/iron/ironvault_sides"
+  }
+}

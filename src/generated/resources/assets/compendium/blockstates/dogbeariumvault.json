@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/dogbeariumvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/dogbeariumvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/dogbeariumvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/dogbeariumvault",
+      "y": 90
+    }
+  }
+}

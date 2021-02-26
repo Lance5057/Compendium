@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " c ",
+    "ebe",
+    " c "
+  ],
+  "key": {
+    "c": {
+      "item": "compendium:citrinecasing"
+    },
+    "e": {
+      "item": "minecraft:ender_pearl"
+    },
+    "b": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "result": {
+    "item": "compendium:citrinevault_itemblock"
+  }
+}

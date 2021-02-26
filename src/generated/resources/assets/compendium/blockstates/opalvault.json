@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/opalvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/opalvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/opalvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/opalvault",
+      "y": 90
+    }
+  }
+}

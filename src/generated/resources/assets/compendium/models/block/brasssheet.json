@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/carpet",
-  "textures": {
-    "all": "compendium:block/material/brass/brasssheet"
-  }
-}

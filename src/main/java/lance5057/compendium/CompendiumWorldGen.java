@@ -8,9 +8,9 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.configs.CompendiumConfig;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.util.OreRetrogenFeature;
 import lance5057.compendium.core.world.CompendiumConfiguredStructures;

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:bronzedust"
-  },
-  "result": "compendium:bronzeingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

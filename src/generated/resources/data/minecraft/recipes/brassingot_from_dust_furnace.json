@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:brassdust"
-  },
-  "result": "compendium:brassingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}

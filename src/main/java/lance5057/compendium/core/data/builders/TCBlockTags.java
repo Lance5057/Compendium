@@ -1,8 +1,8 @@
 package lance5057.compendium.core.data.builders;
 
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;

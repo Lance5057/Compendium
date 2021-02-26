@@ -1,13 +1,13 @@
 package lance5057.compendium.core.data.builders.loottables;
 
 import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.block.Blocks;
@@ -41,14 +41,14 @@ public class BlockLoot extends BlockLootTables {
 
 	    // Meltable Materials
 	    if (mh.getIngot() != null) {
-		MeltableMaterial mm = mh.getIngot();
+		BasicMetalMaterial mm = mh.getIngot();
 
 		this.registerDropSelfLootTable(mm.STORAGE_BLOCK.get());
 	    }
 
 	    // Craftable Materials
 	    if (mh.getGem() != null) {
-		CraftableMaterial cm = mh.getGem();
+		BasicGemMaterial cm = mh.getGem();
 
 		this.registerDropSelfLootTable(cm.STORAGE_BLOCK.get());
 	    }
@@ -98,6 +98,7 @@ public class BlockLoot extends BlockLootTables {
 		this.registerDropSelfLootTable(me.DUNGEON_TILE.get());
 		this.registerDropSelfLootTable(me.ENCASED_GLOWSTONE.get());
 		this.registerDropSelfLootTable(me.VAULT.get());
+		this.registerDropSelfLootTable(me.STATUE.get());
 	    }
 
 	    if (mh.getOre() != null) {

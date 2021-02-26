@@ -3,12 +3,12 @@ package lance5057.compendium.core.data.builders;
 import java.util.List;
 import java.util.function.Function;
 
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
 import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.block.Block;
@@ -58,7 +58,7 @@ public class TCItemTags extends ItemTagsProvider {
 
 	    // Meltable Materials
 	    if (mh.getIngot() != null) {
-		MeltableMaterial mm = mh.getIngot();
+		BasicMetalMaterial mm = mh.getIngot();
 		getOrCreateBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
 		getOrCreateBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
 		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
@@ -74,9 +74,9 @@ public class TCItemTags extends ItemTagsProvider {
 
 	    // Craftable Materials
 	    if (mh.getGem() != null) {
-		CraftableMaterial cm = mh.getGem();
+		BasicGemMaterial cm = mh.getGem();
 		getOrCreateBuilder(Tags.Items.GEMS).add(cm.GEM.get());
-		getOrCreateBuilder(Tags.Items.NUGGETS).add(cm.NUGGET.get());
+		getOrCreateBuilder(Tags.Items.NUGGETS).add(cm.SHARD.get());
 		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
 
 		INamedTag<Item> INGOT_MATERIAL = ItemTag("gems/" + mh.name);
@@ -84,7 +84,7 @@ public class TCItemTags extends ItemTagsProvider {
 		INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
 
 		getOrCreateBuilder(INGOT_MATERIAL).add(cm.GEM.get());
-		getOrCreateBuilder(NUGGET_MATERIAL).add(cm.NUGGET.get());
+		getOrCreateBuilder(NUGGET_MATERIAL).add(cm.SHARD.get());
 		getOrCreateBuilder(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
 	    }
 

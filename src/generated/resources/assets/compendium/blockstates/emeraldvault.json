@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/emeraldvault"
+    },
+    "facing=south": {
+      "model": "compendium:block/emeraldvault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/emeraldvault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/emeraldvault",
+      "y": 90
+    }
+  }
+}

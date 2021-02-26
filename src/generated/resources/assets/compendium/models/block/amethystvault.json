@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/vault",
+  "textures": {
+    "0": "compendium:block/material/amethyst/amethystvault_door",
+    "1": "compendium:block/material/amethyst/amethystvault_sides"
+  }
+}

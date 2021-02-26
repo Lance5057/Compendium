@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/vault",
+  "textures": {
+    "0": "compendium:block/material/queensgold/queensgoldvault_door",
+    "1": "compendium:block/material/queensgold/queensgoldvault_sides"
+  }
+}

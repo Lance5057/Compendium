@@ -2,15 +2,15 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
+import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
 import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.CraftableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
-import lance5057.compendium.core.library.materialutilities.addons.MeltableMaterial;
 import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
 import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.block.Block;
@@ -76,7 +76,7 @@ public class TCBlockModels extends BlockStateProvider {
 
 	    // Meltable Materials
 	    if (mh.getIngot() != null) {
-		MeltableMaterial mm = mh.getIngot();
+		BasicMetalMaterial mm = mh.getIngot();
 
 		// this.simpleBlock(mm.STORAGE_BLOCK.get());
 		simpleBlock(mm.STORAGE_BLOCK.get(), models().cubeAll(mm.STORAGE_BLOCK.get().getRegistryName().getPath(),
@@ -86,7 +86,7 @@ public class TCBlockModels extends BlockStateProvider {
 
 	    // Craftable Materials
 	    if (mh.getGem() != null) {
-		CraftableMaterial cm = mh.getGem();
+		BasicGemMaterial cm = mh.getGem();
 
 		simpleBlock(cm.STORAGE_BLOCK.get(), models().cubeAll(cm.STORAGE_BLOCK.get().getRegistryName().getPath(),
 			new ResourceLocation(Reference.MOD_ID, "block/material/" + mh.name + "/" + mh.name + "block")));
@@ -153,10 +153,16 @@ public class TCBlockModels extends BlockStateProvider {
 	    if (mh.getAdvancedComponents() != null) {
 		MaterialAdvancedExtraComponents me = mh.getAdvancedComponents();
 
+		//Vault
 		this.horizontalBlock(me.VAULT.get(),
 			models().withExistingParent(mh.name + "vault", modLoc("block/bases/vault"))
 				.texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "vault_door"))
 				.texture("1", modLoc("block/material/" + mh.name + "/" + mh.name + "vault_sides")));
+		
+		//Statue
+		this.horizontalBlock(me.STATUE.get(),
+			models().withExistingParent(mh.name + "statue", modLoc("block/bases/statue"))
+				.texture("0", modLoc("block/material/" + mh.name + "/" + mh.name + "gemblock")));
 
 		// Big Chain
 		this.axisBlock(me.BIGCHAIN.get(),

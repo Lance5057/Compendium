@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/brazier",
-  "textures": {
-    "0": "compendium:block/material/electrum/electrumtopbars",
-    "2": "compendium:block/material/electrum/electrumtile",
-    "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/material/electrum/electrumtopbars"
-  }
-}

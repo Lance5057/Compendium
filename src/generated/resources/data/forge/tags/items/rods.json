@@ -28,17 +28,6 @@
     "compendium:garnetrod",
     "compendium:opalrod",
     "compendium:tanziniterod",
-    "compendium:amberrod",
-    "compendium:brassrod",
-    "compendium:bronzerod",
-    "compendium:copperrod",
-    "compendium:electrumrod",
-    "compendium:nickelrod",
-    "compendium:steelrod",
-    "compendium:tinrod",
-    "compendium:zincrod",
-    "compendium:rosegoldrod",
-    "compendium:platinumrod",
-    "compendium:silverrod"
+    "compendium:amberrod"
   ]
 }

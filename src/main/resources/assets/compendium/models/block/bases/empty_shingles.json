@@ -3,16 +3,15 @@
 	"parent": "block/block",
 	"textures": {
 		"1": "compendium:block/shingles_log",
-		"2": "1.minecraft.2:block/oak_log",
-		"3": "minecraft:block/oak_planks",
-		"particle": "compendium:block/aeonsteelshingles"
+		"2": "block/oak_log",
+		"3": "block/oak_planks"
 	},
 	"elements": [
 		{
 			"name": "shingle",
-			"from": [0, 4.0606, 14.74621],
-			"to": [16, 7.0606, 18.74621],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 3.68192, 2.0391]},
+			"from": [0, -4, 16],
+			"to": [16, -1, 20],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 3], "rotation": 180, "texture": "#3"},
 				"east": {"uv": [3, 4, 6, 8], "rotation": 270, "texture": "#3"},
@@ -24,23 +23,9 @@
 		},
 		{
 			"name": "shingle",
-			"from": [6, -0.32209, -2.17767],
-			"to": [10, 2.67791, 18.82233],
-			"rotation": {"angle": -45, "axis": "x", "origin": [8, 3.29923, 1.11522]},
-			"faces": {
-				"north": {"uv": [0, 2, 4, 5], "rotation": 180, "texture": "#3"},
-				"east": {"uv": [3, 4, 19, 7], "rotation": 180, "texture": "#3"},
-				"south": {"uv": [0, 0, 4, 3], "texture": "#3"},
-				"west": {"uv": [1, 4, 17, 7], "texture": "#3"},
-				"up": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#3"},
-				"down": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#3"}
-			}
-		},
-		{
-			"name": "shingle",
-			"from": [0, -2.58243, 0.8826],
-			"to": [16, 0.41757, 4.8826],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 3.01757, 0.49092]},
+			"from": [0, -4, 3],
+			"to": [16, -1, 7],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 3], "rotation": 180, "texture": "#3"},
 				"east": {"uv": [3, 4, 6, 8], "rotation": 270, "texture": "#3"},
@@ -63,12 +48,26 @@
 				"up": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#2"},
 				"down": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#2"}
 			}
+		},
+		{
+			"name": "shingle",
+			"from": [6, -3, 0],
+			"to": [10, 0, 22.6],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "rotation": 180, "texture": "#3"},
+				"east": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#3"},
+				"south": {"uv": [0, 0, 4, 4], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 4], "texture": "#3"},
+				"up": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#3"},
+				"down": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#3"}
+			}
 		}
 	],
 	"groups": [
 		{
 			"name": "group",
 			"origin": [8, 3, 0.5],
-			"children": [0, 1, 2]
-		}, 3]
+			"children": [0, 1]
+		}, 2, 3]
 }

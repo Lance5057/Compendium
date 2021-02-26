@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "compendium:block/ambervault"
+    },
+    "facing=south": {
+      "model": "compendium:block/ambervault",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/ambervault",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "compendium:block/ambervault",
+      "y": 90
+    }
+  }
+}

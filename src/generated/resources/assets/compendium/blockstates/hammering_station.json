@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "compendium:block/workstations/hammeringtable"
-    }
+    "": [
+      {
+        "model": "compendium:block/workstations/hammeringtable"
+      },
+      {
+        "model": "compendium:block/workstations/hammeringtable",
+        "y": 90
+      },
+      {
+        "model": "compendium:block/workstations/hammeringtable",
+        "y": 180
+      },
+      {
+        "model": "compendium:block/workstations/hammeringtable",
+        "y": 270
+      }
+    ]
   }
 }

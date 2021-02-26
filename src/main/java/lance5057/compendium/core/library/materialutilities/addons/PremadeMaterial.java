@@ -49,31 +49,13 @@ public class PremadeMaterial implements MaterialBase {
     @Override
     public void setupClient(MaterialHelper mat) {
 	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupModels(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupItems(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupBlocks(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
+	
     }
 
     @Override
     public void setup(FMLCommonSetupEvent event) {
 	// TODO Auto-generated method stub
-
+	
     }
 
 }

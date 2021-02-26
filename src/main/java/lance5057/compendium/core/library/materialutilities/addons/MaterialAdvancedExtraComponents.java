@@ -4,6 +4,7 @@ import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.blocks.BlockClimbable;
 import lance5057.compendium.core.blocks.ComponentBarDoor;
 import lance5057.compendium.core.blocks.ComponentPane;
+import lance5057.compendium.core.blocks.ItemDisplayBlock;
 import lance5057.compendium.core.blocks.VaultBlock;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
@@ -28,6 +29,8 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
     String parentMod;
 
     public RegistryObject<VaultBlock> VAULT;
+    public RegistryObject<ItemDisplayBlock> STATUE;
+    
     public RegistryObject<BlockClimbable> BIGCHAIN;
     public RegistryObject<ComponentPane> TOP_BARS;
     public RegistryObject<ComponentPane> CHAINLINK_BARS;
@@ -47,6 +50,7 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
     public RegistryObject<StairsBlock> TILE_STAIRS;
 
     public RegistryObject<BlockNamedItem> VAULT_ITEMBLOCK;
+    public RegistryObject<BlockNamedItem> STATUE_ITEMBLOCK;
 
     public RegistryObject<Item> SETTING;
     public RegistryObject<Item> JUMPRINGS;
@@ -81,6 +85,7 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
 	this.parentMod = mh.parentMod;
 
 	VAULT = mh.BLOCKS.register(mh.name + "vault", () -> new VaultBlock());
+	STATUE = mh.BLOCKS.register(mh.name + "statue", () -> new ItemDisplayBlock());
 
 	BIGCHAIN = mh.BLOCKS.register(mh.name + "bigchain", () -> new BlockClimbable(Block.Properties
 		.create(Material.IRON).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
@@ -121,6 +126,9 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
 
 	VAULT_ITEMBLOCK = mh.ITEMS.register(mh.name + "vault_itemblock",
 		() -> new BlockNamedItem(VAULT.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	STATUE_ITEMBLOCK = mh.ITEMS.register(mh.name + "statue_itemblock",
+		() -> new BlockNamedItem(STATUE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	
 	ITEM_BIGCHAIN = mh.ITEMS.register(mh.name + "itembigchain",
 		() -> new BlockItem(BIGCHAIN.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	ITEM_TOP_BARS = mh.ITEMS.register(mh.name + "itemtopbars",
@@ -153,8 +161,8 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
 	ITEM_DIAMONDBARSFLIP = mh.ITEMS.register(mh.name + "itemdiamondbarsflip",
 		() -> new BlockItem(DIAMONDBARSFLIP.get(),
 			new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
-	ITEM_LADDER = mh.ITEMS.register(mh.name + "itemladder", () -> new BlockItem(LADDER.get(),
-		new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	ITEM_LADDER = mh.ITEMS.register(mh.name + "itemladder",
+		() -> new BlockItem(LADDER.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
 	COIL = mh.ITEMS.register(mh.name + "coil",
 		() -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
@@ -199,24 +207,6 @@ public class MaterialAdvancedExtraComponents implements MaterialBase {
 	RenderTypeLookup.setRenderLayer(this.DIAMONDBARSTOP.get(), cutout);
 	RenderTypeLookup.setRenderLayer(this.DIAMONDBARSFLIP.get(), cutout);
 	RenderTypeLookup.setRenderLayer(this.ENCASED_GLOWSTONE.get(), cutout);
-    }
-
-    @Override
-    public void setupModels(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupItems(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setupBlocks(MaterialHelper mat) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
