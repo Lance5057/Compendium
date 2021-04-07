@@ -1,0 +1,28 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ii ",
+    "is ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:nickelingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "compendium:nickelrivets"
+    },
+    "n": {
+      "item": "compendium:nickelnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:nickelaxe"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:rosegoldwire"
+    },
+    "s": {
+      "item": "compendium:rosegoldnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:rosegoldclasp",
+    "count": 4
+  }
+}

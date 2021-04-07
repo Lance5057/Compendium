@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:rosegoldfiligree"
+    },
+    "p": {
+      "item": "compendium:rosegoldnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:rosegoldsetting",
+    "count": 4
+  }
+}

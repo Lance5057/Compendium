@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:leaditemblock"
+    }
+  ],
+  "result": {
+    "item": "compendium:leadingot",
+    "count": 9
+  }
+}

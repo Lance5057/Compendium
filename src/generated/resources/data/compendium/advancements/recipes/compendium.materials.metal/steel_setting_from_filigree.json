@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:steel_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "steelrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:steelfiligree"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:steel_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steelrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/wall_side",
-  "textures": {
-    "wall": "compendium:block/material/tanzinite/tanzinitewall"
-  }
-}

@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:tinplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:tinrod"
+    },
+    "o": {
+      "item": "compendium:tinrivets"
+    },
+    "n": {
+      "item": "compendium:tinnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:tinhoe"
+  }
+}

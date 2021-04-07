@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/ore",
+  "textures": {
+    "1": "compendium:block/material/zinc/zincore"
+  }
+}

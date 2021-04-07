@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:zincplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:zincrod"
+    },
+    "o": {
+      "item": "compendium:zincrivets"
+    },
+    "n": {
+      "item": "compendium:zincnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:zinchoe"
+  }
+}

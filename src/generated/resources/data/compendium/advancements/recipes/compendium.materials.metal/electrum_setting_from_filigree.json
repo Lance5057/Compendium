@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "electrumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:electrumfiligree"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -8,24 +8,16 @@ import javax.annotation.Nullable;
 import com.google.gson.JsonObject;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawhorseRecipeLoottables;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class SawhorseStationRecipeProvider extends RecipeProvider {
 	public SawhorseStationRecipeProvider(DataGenerator generatorIn) {

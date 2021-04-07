@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:brassplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:brassrod"
+    },
+    "o": {
+      "item": "compendium:brassrivets"
+    },
+    "n": {
+      "item": "compendium:brassnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:brasshoe"
+  }
+}

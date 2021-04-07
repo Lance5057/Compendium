@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/brazier",
-  "textures": {
-    "0": "compendium:block/material/sapphire/sapphiretopbars",
-    "2": "compendium:block/material/sapphire/sapphiretile",
-    "3": "minecraft:block/fire_1",
-    "particle": "compendium:block/material/sapphire/sapphiretopbars"
-  }
-}

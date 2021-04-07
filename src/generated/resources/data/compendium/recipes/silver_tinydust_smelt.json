@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:silvertinydust"
+  },
+  "result": {
+    "item": "compendium:silvernugget"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

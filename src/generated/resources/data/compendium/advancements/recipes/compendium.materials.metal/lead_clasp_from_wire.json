@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lead_clasp_from_wire"
+    ]
+  },
+  "criteria": {
+    "leadwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:leadwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lead_clasp_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "leadwire",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " p ",
+    "psp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:bronzewire"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:bronzecoil"
+  }
+}

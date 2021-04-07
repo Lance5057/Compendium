@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:platinumrod"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:platinumrivets",
+    "count": 4
+  }
+}

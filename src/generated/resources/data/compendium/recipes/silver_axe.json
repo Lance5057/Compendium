@@ -1,0 +1,28 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ii ",
+    "is ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:silveringot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "compendium:silverrivets"
+    },
+    "n": {
+      "item": "compendium:silvernugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:silveraxe"
+  }
+}

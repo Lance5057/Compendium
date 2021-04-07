@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/silverore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

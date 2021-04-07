@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/bigchain",
-  "textures": {
-    "all": "compendium:block/material/amber/amberbigchain"
-  }
-}

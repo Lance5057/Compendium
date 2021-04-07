@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:platinum_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "platinumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:platinumfiligree"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:platinum_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "platinumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

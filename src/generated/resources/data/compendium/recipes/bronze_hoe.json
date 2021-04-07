@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:bronzeplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:bronzerod"
+    },
+    "o": {
+      "item": "compendium:bronzerivets"
+    },
+    "n": {
+      "item": "compendium:bronzenugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:bronzehoe"
+  }
+}

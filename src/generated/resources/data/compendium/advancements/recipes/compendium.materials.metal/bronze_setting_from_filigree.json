@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "bronzerod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:bronzefiligree"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzerod",
+      "has_the_recipe"
+    ]
+  ]
+}

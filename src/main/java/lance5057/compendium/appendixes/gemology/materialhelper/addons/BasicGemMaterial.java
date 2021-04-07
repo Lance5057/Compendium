@@ -1,13 +1,13 @@
 package lance5057.compendium.appendixes.gemology.materialhelper.addons;
 
 import lance5057.compendium.CompendiumItems;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.appendixes.gemology.materialhelper.GemologyMaterialHelper;
+import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.tags.Tag;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -19,7 +19,7 @@ public class BasicGemMaterial implements MaterialBase {
     public RegistryObject<Block> STORAGE_BLOCK;
     public RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
 
-    public BasicGemMaterial(MaterialHelper mh) {
+    public BasicGemMaterial(GemologyMaterialHelper mh) {
 
 	GEM = mh.ITEMS.register(mh.name + "gem",
 		() -> new Item(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
@@ -33,7 +33,7 @@ public class BasicGemMaterial implements MaterialBase {
     }
 
     @Override
-    public void setupClient(MaterialHelper mat) {
+    public void setupClient(MaterialHelperBase mat) {
 	// TODO Auto-generated method stub
 
     }

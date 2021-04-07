@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:platinumdenseitemore"
+  },
+  "result": {
+    "item": "compendium:platinumingot",
+    "count": 3
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

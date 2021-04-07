@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nickel_tinydust_from_dust"
+    ]
+  },
+  "criteria": {
+    "nickeldust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:nickeldust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nickel_tinydust_from_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nickeldust",
+      "has_the_recipe"
+    ]
+  ]
+}

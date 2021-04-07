@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:electrumwire"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:electrumjumprings",
+    "count": 8
+  }
+}

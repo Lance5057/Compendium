@@ -7,19 +7,14 @@ import javax.annotation.Nullable;
 
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumRecipes;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-import lance5057.compendium.core.materials.CompendiumMaterials;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -31,18 +26,18 @@ public class HammerMainHandRecipes extends RecipeProvider {
 
     @Override
     protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
-	for (MaterialHelper mh : CompendiumMaterials.materials) {
-	    if (mh.getExtraComponents() != null) {
-		MaterialExtraComponents ec = mh.getExtraComponents();
-
-		this.createRecipe("empty_to_" + mh.name + "_shingles", new ItemStack(ec.SHINGLES.get()),
-			new ItemStack(CompendiumBlocks.SHINGLES.get()),
-			Ingredient.fromTag(ItemTags.makeWrapperTag("forge:plates/" + mh.name)), consumer);
-		this.createRecipe("empty_to_" + mh.name + "_shingles_alt", new ItemStack(ec.SHINGLES_ALT.get()),
-			new ItemStack(CompendiumBlocks.SHINGLES_ALT.get()),
-			Ingredient.fromTag(ItemTags.makeWrapperTag("forge:plates/" + mh.name)), consumer);
-	    }
-	}
+//	for (MaterialHelper mh : CompendiumMaterials.materials) {
+//	    if (mh.getExtraComponents() != null) {
+//		MaterialExtraComponents ec = mh.getExtraComponents();
+//
+//		this.createRecipe("empty_to_" + mh.name + "_shingles", new ItemStack(ec.SHINGLES.get()),
+//			new ItemStack(CompendiumBlocks.SHINGLES.get()),
+//			Ingredient.fromTag(ItemTags.makeWrapperTag("forge:plates/" + mh.name)), consumer);
+//		this.createRecipe("empty_to_" + mh.name + "_shingles_alt", new ItemStack(ec.SHINGLES_ALT.get()),
+//			new ItemStack(CompendiumBlocks.SHINGLES_ALT.get()),
+//			Ingredient.fromTag(ItemTags.makeWrapperTag("forge:plates/" + mh.name)), consumer);
+//	    }
+//	}
     }
 
     private void createRecipe(String name, ItemStack output, ItemStack block, Ingredient input,

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/dungeontile_quarter",
-  "textures": {
-    "0": "compendium:block/material/amber/ambersmalltile"
-  }
-}

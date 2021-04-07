@@ -11,18 +11,12 @@ import javax.annotation.Nullable;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
-import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
-import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
@@ -36,32 +30,32 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
     @Override
     protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
 
-	for (MaterialHelper mh : CompendiumMaterials.materials) {
-	    if (mh.getIngot() != null)
-		ingot(mh, consumer);
-	    else if (mh.getGem() != null)
-		gem(mh, consumer);
-	}
+//	for (MaterialHelper mh : CompendiumMaterials.materials) {
+//	    if (mh.getIngot() != null)
+//		ingot(mh, consumer);
+//	    else if (mh.getGem() != null)
+//		gem(mh, consumer);
+//	}
 
     }
 
-    private void gem(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
-	BasicGemMaterial cm = mh.getGem();
-
-	// Vanilla Tools
-	if (mh.getVanillaTools() != null) {
-	    MaterialVanillaTools vt = mh.getVanillaTools();
-
-	    AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_SWORD, 8).key('#', Items.STICK).key('X', cm.GEM.get())
-		    .patternLine("X").patternLine("X").patternLine("#").addCriterion("has_gem", hasItem(cm.GEM.get()))
-		    .build(consumer, "anvil/" + mh.name + "_sword");
-	}
-    }
-
-    private void ingot(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
-	BasicMetalMaterial mm = mh.getIngot();
-
-    }
+//    private void gem(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
+//	BasicGemMaterial cm = mh.getGem();
+//
+//	// Vanilla Tools
+//	if (mh.getVanillaTools() != null) {
+//	    MaterialVanillaTools vt = mh.getVanillaTools();
+//
+//	    AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_SWORD, 8).key('#', Items.STICK).key('X', cm.GEM.get())
+//		    .patternLine("X").patternLine("X").patternLine("#").addCriterion("has_gem", hasItem(cm.GEM.get()))
+//		    .build(consumer, "anvil/" + mh.name + "_sword");
+//	}
+//    }
+//
+//    private void ingot(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
+//	BasicMetalMaterial mm = mh.getIngot();
+//
+//    }
 
     @Override
     @Nonnull

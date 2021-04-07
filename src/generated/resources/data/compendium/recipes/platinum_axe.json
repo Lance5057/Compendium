@@ -1,0 +1,28 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ii ",
+    "is ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:platinumingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "compendium:platinumrivets"
+    },
+    "n": {
+      "item": "compendium:platinumnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:platinumaxe"
+  }
+}

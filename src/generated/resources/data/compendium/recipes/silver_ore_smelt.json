@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:silveritemore"
+  },
+  "result": {
+    "item": "compendium:silveringot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

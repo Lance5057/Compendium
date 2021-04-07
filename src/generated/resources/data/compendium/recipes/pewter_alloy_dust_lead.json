@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:tindust"
+    },
+    {
+      "item": "compendium:tindust"
+    },
+    {
+      "item": "compendium:tindust"
+    },
+    {
+      "item": "compendium:tindust"
+    },
+    {
+      "item": "compendium:leadtinydust"
+    }
+  ],
+  "result": {
+    "item": "compendium:pewterdust",
+    "count": 4
+  }
+}

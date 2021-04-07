@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:platinumtinydust"
+  },
+  "result": {
+    "item": "compendium:platinumnugget"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:steel_dust_from_tinydust"
+    ]
+  },
+  "criteria": {
+    "steeltinydust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:steeltinydust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:steel_dust_from_tinydust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steeltinydust",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:pewterfiligree"
+    },
+    "p": {
+      "item": "compendium:pewternugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:pewtersetting",
+    "count": 4
+  }
+}

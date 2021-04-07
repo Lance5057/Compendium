@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pewter_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "pewterrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pewterfiligree"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pewter_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pewterrod",
+      "has_the_recipe"
+    ]
+  ]
+}

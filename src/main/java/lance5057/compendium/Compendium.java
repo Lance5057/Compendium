@@ -1,21 +1,17 @@
 package lance5057.compendium;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.configs.CompendiumConfig;
-import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
-import lance5057.compendium.core.workstations.client.HammeringStationRenderer;
-import lance5057.compendium.core.workstations.client.SawhorseStationRenderer;
 import lance5057.compendium.core.world.CompendiumConfiguredStructures;
 import lance5057.compendium.core.world.CompendiumStructures;
+import lance5057.compendium.indexes.CompendiumIndexes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -25,52 +21,60 @@ import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod(Reference.MOD_ID)
 public class Compendium {
-	public static Logger logger = LogManager.getLogger();
+    public static Logger logger = LogManager.getLogger();
 
-	public static CompendiumItems items;
-	public static CompendiumBlocks blocks;
-	public static CompendiumMaterials mats;
-	public static CompendiumWorldGen worldgen;
+    public static CompendiumItems items;
+    public static CompendiumBlocks blocks;
+    public static CompendiumIndexes indexes;
+    public static CompendiumWorldGen worldgen;
 
-	public Compendium() {
-		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		modEventBus.addListener(this::modSetup);
-		modEventBus.addListener(this::setupClient);
+    public static AppendixMetallurgy metal;
 
-		ModLoadingContext modLoadingContext = ModLoadingContext.get();
-		modLoadingContext.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.initialize());
-		CompendiumConfig.loadConfig(CompendiumConfig.getInstance().getSpec(), FMLPaths.CONFIGDIR.get().resolve("compendium-common.toml"));
+    public Compendium() {
+	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	modEventBus.addListener(this::modSetup);
+	modEventBus.addListener(this::setupClient);
 
-		blocks = new CompendiumBlocks();
-		items = new CompendiumItems();
-		mats = new CompendiumMaterials();
-		worldgen = new CompendiumWorldGen();
+	ModLoadingContext modLoadingContext = ModLoadingContext.get();
+	modLoadingContext.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.initialize());
+	CompendiumConfig.loadConfig(CompendiumConfig.getInstance().getSpec(),
+		FMLPaths.CONFIGDIR.get().resolve("compendium-common.toml"));
 
-		CompendiumItems.register(modEventBus);
-		CompendiumBlocks.register(modEventBus);
-		CompendiumTileEntities.register(modEventBus);
-		CompendiumContainers.register(modEventBus);
-		//CompendiumStructures.register(modEventBus);
-		CompendiumRecipes.register(modEventBus);
+	blocks = new CompendiumBlocks();
+	items = new CompendiumItems();
+	indexes = new CompendiumIndexes();
+	worldgen = new CompendiumWorldGen();
 
-		WorkstationRecipes.register(modEventBus);
+	CompendiumItems.register(modEventBus);
+	CompendiumBlocks.register(modEventBus);
+	CompendiumTileEntities.register(modEventBus);
+	CompendiumContainers.register(modEventBus);
+	// CompendiumStructures.register(modEventBus);
+	CompendiumRecipes.register(modEventBus);
 
-		MinecraftForge.EVENT_BUS.register(worldgen);
-	}
+	WorkstationRecipes.register(modEventBus);
 
-	private void modSetup(final FMLCommonSetupEvent event) {
-		//mats.setup(event);
+	MinecraftForge.EVENT_BUS.register(worldgen);
+    }
 
-		event.enqueueWork(() -> {
-			CompendiumStructures.setupStructures();
-			CompendiumConfiguredStructures.registerConfiguredStructures();
-		});
-	}
+    private void modSetup(final FMLCommonSetupEvent event) {
+	// mats.setup(event);
 
-	public void setupClient(FMLClientSetupEvent event) {
-		CompendiumClient.setRenderLayers();
-		CompendiumClient.setTERenderers();
+	event.enqueueWork(() -> {
+	    CompendiumStructures.setupStructures();
+	    CompendiumConfiguredStructures.registerConfiguredStructures();
+	});
+    }
 
-		CompendiumContainers.registerClient(event);
-	}
+    public void setupClient(FMLClientSetupEvent event) {
+	CompendiumClient.setRenderLayers();
+	CompendiumClient.setTERenderers();
+
+	CompendiumContainers.registerClient(event);
+
+	event.enqueueWork(() -> {
+	    AppendixMetallurgy.client(event);
+	});
+
+    }
 }

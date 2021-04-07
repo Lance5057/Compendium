@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    },
+    {
+      "item": "compendium:brasstinydust"
+    }
+  ],
+  "result": {
+    "item": "compendium:brassdust"
+  }
+}

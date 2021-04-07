@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top",
-  "textures": {
-    "bottom": "compendium:block/material/sapphire/sapphire_door_bottom",
-    "top": "compendium:block/material/sapphire/sapphire_door_top"
-  }
-}

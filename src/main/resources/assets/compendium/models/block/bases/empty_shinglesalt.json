@@ -3,8 +3,8 @@
 	"parent": "block/block",
 	"textures": {
 		"1": "compendium:block/shingles_log",
-		"2": "compendium:block/oak_log",
-		"3": "compendium:block/oak_planks"
+		"2": "block/oak_log",
+		"3": "block/oak_planks"
 	},
 	"elements": [
 		{

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_post",
-  "textures": {
-    "pane": "compendium:block/material/dogbearium/dogbeariumtrimmedglass",
-    "edge": "compendium:block/material/dogbearium/dogbeariumtrimmedglass"
-  }
-}

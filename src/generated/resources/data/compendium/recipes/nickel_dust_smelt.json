@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:nickeldust"
+  },
+  "result": {
+    "item": "compendium:nickelingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

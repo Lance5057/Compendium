@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:platinumplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:platinumrod"
+    },
+    "o": {
+      "item": "compendium:platinumrivets"
+    },
+    "n": {
+      "item": "compendium:platinumnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:platinumhoe"
+  }
+}

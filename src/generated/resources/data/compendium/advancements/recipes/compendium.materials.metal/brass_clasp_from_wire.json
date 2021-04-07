@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_clasp_from_wire"
+    ]
+  },
+  "criteria": {
+    "brasswire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brasswire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_clasp_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brasswire",
+      "has_the_recipe"
+    ]
+  ]
+}

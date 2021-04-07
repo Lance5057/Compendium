@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "compendium:rubyitemore"
-  },
-  "result": "compendium:rubygem",
-  "experience": 1.0,
-  "cookingtime": 100
-}

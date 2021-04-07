@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "brassstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brassingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

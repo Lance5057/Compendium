@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/encased_glowstone",
-  "textures": {
-    "1": "compendium:block/material/amber/amberlamp_cover"
-  }
-}

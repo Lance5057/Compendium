@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cobblestone_wall_inventory",
-  "textures": {
-    "wall": "compendium:block/material/froststeel/froststeelwall"
-  }
-}

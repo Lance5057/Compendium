@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " p ",
+    "p p",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:pewteringot"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:pewtergear"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pewter_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "pewtercasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pewterplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pewter_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pewtercasing",
+      "has_the_recipe"
+    ]
+  ]
+}

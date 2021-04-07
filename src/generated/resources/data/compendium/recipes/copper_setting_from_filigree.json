@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:copperfiligree"
+    },
+    "p": {
+      "item": "compendium:coppernugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:coppersetting",
+    "count": 4
+  }
+}

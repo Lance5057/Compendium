@@ -161,8 +161,8 @@ public class AnvilShapedRecipeBuilder {
 
 			if (!set.isEmpty()) {
 				throw new IllegalStateException("Ingredients are defined but not used in pattern for recipe " + id);
-			} else if (this.pattern.size() == 1 && this.pattern.get(0).length() == 1) {
-				throw new IllegalStateException("Shaped recipe " + id + " only takes in a single item - should it be a shapeless recipe instead?");
+//			} else if (this.pattern.size() == 1 && this.pattern.get(0).length() == 1) {
+//				throw new IllegalStateException("Shaped recipe " + id + " only takes in a single item - should it be a shapeless recipe instead?");
 			} else if (this.advancementBuilder.getCriteria().isEmpty()) {
 				throw new IllegalStateException("No way of obtaining recipe " + id);
 			}

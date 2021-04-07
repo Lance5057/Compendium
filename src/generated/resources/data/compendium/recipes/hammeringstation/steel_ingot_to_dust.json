@@ -1,0 +1,10 @@
+{
+  "type": "compendium:hammering_station",
+  "strikes": 1,
+  "input": {
+    "item": "compendium:steelingot"
+  },
+  "result": {
+    "item": "compendium:steeldust"
+  }
+}

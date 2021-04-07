@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_inner_corner",
-  "textures": {
-    "0": "compendium:block/material/amethyst/amethystshingles",
-    "1": "compendium:block/shingles_log",
-    "2": "minecraft:block/oak_log"
-  }
-}

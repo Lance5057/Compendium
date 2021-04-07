@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:platinumwire"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:platinumfiligree",
+    "count": 6
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lead_tinydust_from_dust"
+    ]
+  },
+  "criteria": {
+    "leaddust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:leaddust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lead_tinydust_from_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "leaddust",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:zincdenseitemore"
+  },
+  "result": {
+    "item": "compendium:zincingot",
+    "count": 3
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

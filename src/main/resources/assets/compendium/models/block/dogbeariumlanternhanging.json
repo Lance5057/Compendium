@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/hanging_lantern",
-  "textures": {
-    "all": "compendium:block/material/dogbearium/dogbeariumlantern",
-    "all2": "compendium:block/lanternflame"
-  }
-}

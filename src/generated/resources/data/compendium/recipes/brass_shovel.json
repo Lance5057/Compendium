@@ -1,0 +1,27 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " i ",
+    " so",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:brassplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "compendium:brassrivets"
+    },
+    "n": {
+      "item": "compendium:brassnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:brassshovel"
+  }
+}

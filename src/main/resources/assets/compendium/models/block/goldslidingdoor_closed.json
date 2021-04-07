@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/slidingbars_closed",
-  "textures": {
-    "0": "compendium:block/material/gold/goldbars"
-  }
-}

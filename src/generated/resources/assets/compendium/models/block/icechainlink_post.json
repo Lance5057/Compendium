@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_post",
-  "textures": {
-    "pane": "compendium:block/material/ice/icechainlink",
-    "edge": "compendium:block/material/ice/icechainlink"
-  }
-}

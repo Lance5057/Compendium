@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:rosegoldplate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:rosegoldrod"
+    },
+    "o": {
+      "item": "compendium:rosegoldrivets"
+    },
+    "n": {
+      "item": "compendium:rosegoldnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:rosegoldhoe"
+  }
+}

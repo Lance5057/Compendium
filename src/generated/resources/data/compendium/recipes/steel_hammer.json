@@ -1,0 +1,30 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ioi",
+    "iri",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:steelingot"
+    },
+    "r": {
+      "item": "compendium:steelrod"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "compendium:steelrivets"
+    },
+    "n": {
+      "item": "compendium:steelnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:steelhammer"
+  }
+}

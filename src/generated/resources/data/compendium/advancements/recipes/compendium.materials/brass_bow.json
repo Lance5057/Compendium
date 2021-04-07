@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_bow"
+    ]
+  },
+  "criteria": {
+    "brassingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brassingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_bow"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassingot",
+      "has_the_recipe"
+    ]
+  ]
+}

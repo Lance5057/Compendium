@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "rosegoldplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegoldplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldplate",
+      "has_the_recipe"
+    ]
+  ]
+}

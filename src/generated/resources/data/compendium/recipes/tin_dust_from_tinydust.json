@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    },
+    {
+      "item": "compendium:tintinydust"
+    }
+  ],
+  "result": {
+    "item": "compendium:tindust"
+  }
+}

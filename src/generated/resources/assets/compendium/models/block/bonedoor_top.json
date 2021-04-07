@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top",
-  "textures": {
-    "bottom": "compendium:block/material/bone/bone_door_bottom",
-    "top": "compendium:block/material/bone/bone_door_top"
-  }
-}

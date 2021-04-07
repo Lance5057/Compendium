@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:nickelfiligree"
+    },
+    "p": {
+      "item": "compendium:nickelnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:nickelsetting",
+    "count": 4
+  }
+}

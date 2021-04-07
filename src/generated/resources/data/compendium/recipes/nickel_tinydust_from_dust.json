@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:nickeldust"
+    }
+  ],
+  "result": {
+    "item": "compendium:nickeltinydust",
+    "count": 9
+  }
+}

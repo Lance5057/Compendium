@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:leaditemore"
+  },
+  "result": {
+    "item": "compendium:leadingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

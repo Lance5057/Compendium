@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_dust_from_tinydust"
+    ]
+  },
+  "criteria": {
+    "brasstinydust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:brasstinydust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_dust_from_tinydust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brasstinydust",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/vault",
-  "textures": {
-    "0": "compendium:block/material/obsidian/obsidianvault_door",
-    "1": "compendium:block/material/obsidian/obsidianvault_sides"
-  }
-}

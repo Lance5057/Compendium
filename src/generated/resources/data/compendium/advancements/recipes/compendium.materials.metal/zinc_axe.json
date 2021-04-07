@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:zinc_axe"
+    ]
+  },
+  "criteria": {
+    "zincingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:zincingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:zinc_axe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "zincingot",
+      "has_the_recipe"
+    ]
+  ]
+}

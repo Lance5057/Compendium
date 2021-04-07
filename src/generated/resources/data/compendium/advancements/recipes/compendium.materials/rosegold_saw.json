@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_saw"
+    ]
+  },
+  "criteria": {
+    "rosegoldingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:rosegoldingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_saw"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldingot",
+      "has_the_recipe"
+    ]
+  ]
+}

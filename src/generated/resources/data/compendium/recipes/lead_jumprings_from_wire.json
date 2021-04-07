@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:leadwire"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:leadjumprings",
+    "count": 8
+  }
+}

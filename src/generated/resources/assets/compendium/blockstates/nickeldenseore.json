@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/nickeldenseore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/nickeldenseore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

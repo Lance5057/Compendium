@@ -74,9 +74,10 @@ public class CraftingAnvilCatagory implements IRecipeCategory<CraftingAnvilRecip
     public void setRecipe(IRecipeLayout recipeLayout, CraftingAnvilRecipe recipe, IIngredients ingredients) {
 	IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-	for (int i = 0; i < 5; ++i) {
-	    for (int j = 0; j < 5; ++j) {
-		guiItemStacks.init(i + j * 5, true, 8 + j * 18, 3 + i * 18);
+	for (int i = 0; i < recipe.getRecipeHeight(); ++i) {
+	    for (int j = 0; j < recipe.getRecipeWidth(); ++j) {
+		int x = i * recipe.getRecipeWidth() + j;
+		guiItemStacks.init(x, true, 8 + j * 18, 3 + i * 18);
 	    }
 	}
 

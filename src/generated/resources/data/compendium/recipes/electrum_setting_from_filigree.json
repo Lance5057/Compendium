@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:electrumfiligree"
+    },
+    "p": {
+      "item": "compendium:electrumnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:electrumsetting",
+    "count": 4
+  }
+}

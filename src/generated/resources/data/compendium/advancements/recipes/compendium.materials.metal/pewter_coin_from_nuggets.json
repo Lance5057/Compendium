@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pewter_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "pewternugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pewternugget"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pewter_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pewternugget",
+      "has_the_recipe"
+    ]
+  ]
+}

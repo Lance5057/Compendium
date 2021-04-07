@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    },
+    {
+      "item": "compendium:nickelingot"
+    }
+  ],
+  "result": {
+    "item": "compendium:nickelitemblock"
+  }
+}

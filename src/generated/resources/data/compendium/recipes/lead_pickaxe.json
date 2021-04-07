@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:leadingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:leadrod"
+    },
+    "o": {
+      "item": "compendium:leadrivets"
+    },
+    "n": {
+      "item": "compendium:leadnugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:leadpickaxe"
+  }
+}

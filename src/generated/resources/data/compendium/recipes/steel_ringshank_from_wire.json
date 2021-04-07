@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "s s",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:steelwire"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:steelringshank",
+    "count": 4
+  }
+}

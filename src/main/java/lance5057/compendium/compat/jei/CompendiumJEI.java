@@ -48,6 +48,6 @@ public class CompendiumJEI implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
 	registration.addRecipeCatalyst(new ItemStack(CompendiumBlocks.CRAFTING_ANVIL.get()), CraftingAnvilCatagory.UID);
 	
-	registration.addRecipeCatalyst(new ItemStack(CompendiumBlocks.SAWHORSE_STATION.get()), CraftingAnvilCatagory.UID);
+	registration.addRecipeCatalyst(new ItemStack(CompendiumBlocks.SAWHORSE_STATION.get()), SawhorseStationCatagory.UID);
     }
 }

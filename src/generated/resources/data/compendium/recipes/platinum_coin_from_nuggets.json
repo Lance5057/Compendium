@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:platinumnugget"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:platinumcoin",
+    "count": 4
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:steeldust"
+  },
+  "result": {
+    "item": "compendium:steelingot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

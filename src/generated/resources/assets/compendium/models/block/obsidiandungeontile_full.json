@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/dungeontile_full",
-  "textures": {
-    "0": "compendium:block/material/obsidian/obsidiantile"
-  }
-}

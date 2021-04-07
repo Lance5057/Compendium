@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:steel_shovel"
+    ]
+  },
+  "criteria": {
+    "steelingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:steelingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:steel_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steelingot",
+      "has_the_recipe"
+    ]
+  ]
+}

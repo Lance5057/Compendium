@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pewter_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "pewterrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:pewterwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pewter_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pewterrod",
+      "has_the_recipe"
+    ]
+  ]
+}

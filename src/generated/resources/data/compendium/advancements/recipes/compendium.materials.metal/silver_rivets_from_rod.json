@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:silver_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "silverrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:silverwire"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:silver_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silverrod",
+      "has_the_recipe"
+    ]
+  ]
+}

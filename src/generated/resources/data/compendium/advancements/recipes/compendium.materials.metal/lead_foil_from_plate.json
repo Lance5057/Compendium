@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lead_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "leadplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:leadplate"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lead_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "leadplate",
+      "has_the_recipe"
+    ]
+  ]
+}

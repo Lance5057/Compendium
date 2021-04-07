@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tin_dust_from_tinydust"
+    ]
+  },
+  "criteria": {
+    "tintinydust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:tintinydust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tin_dust_from_tinydust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tintinydust",
+      "has_the_recipe"
+    ]
+  ]
+}

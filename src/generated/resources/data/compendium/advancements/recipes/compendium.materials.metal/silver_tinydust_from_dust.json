@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:silver_tinydust_from_dust"
+    ]
+  },
+  "criteria": {
+    "silverdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:silverdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:silver_tinydust_from_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silverdust",
+      "has_the_recipe"
+    ]
+  ]
+}

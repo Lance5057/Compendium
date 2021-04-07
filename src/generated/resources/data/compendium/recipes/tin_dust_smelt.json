@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:tindust"
+  },
+  "result": {
+    "item": "compendium:tiningot"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

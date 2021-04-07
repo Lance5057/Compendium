@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/vault",
-  "textures": {
-    "0": "compendium:block/material/gold/goldvault_door",
-    "1": "compendium:block/material/gold/goldvault_sides"
-  }
-}

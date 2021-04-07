@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:nickelplate"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:nickelfoil",
+    "count": 4
+  }
+}

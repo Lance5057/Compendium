@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:platinumfiligree"
+    },
+    "p": {
+      "item": "compendium:platinumnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:platinumsetting",
+    "count": 4
+  }
+}

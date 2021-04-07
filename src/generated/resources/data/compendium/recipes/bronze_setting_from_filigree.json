@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:bronzefiligree"
+    },
+    "p": {
+      "item": "compendium:bronzenugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:bronzesetting",
+    "count": 4
+  }
+}

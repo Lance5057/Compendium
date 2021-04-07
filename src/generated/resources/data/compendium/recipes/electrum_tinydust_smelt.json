@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:electrumtinydust"
+  },
+  "result": {
+    "item": "compendium:electrumnugget"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

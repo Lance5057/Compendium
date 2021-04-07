@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "item": "compendium:electrumingot"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:electrumrod",
+    "count": 6
+  }
+}

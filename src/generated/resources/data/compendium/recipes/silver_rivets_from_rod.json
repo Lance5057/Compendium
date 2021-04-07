@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:silverrod"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:silverrivets",
+    "count": 4
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_side_alt",
-  "textures": {
-    "pane": "compendium:block/material/iron/irondiamondbars",
-    "edge": "compendium:block/material/iron/irondiamondbars"
-  }
-}

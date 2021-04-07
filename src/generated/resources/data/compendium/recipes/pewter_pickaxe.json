@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:pewteringot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "item": "compendium:pewterrod"
+    },
+    "o": {
+      "item": "compendium:pewterrivets"
+    },
+    "n": {
+      "item": "compendium:pewternugget"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:pewterpickaxe"
+  }
+}

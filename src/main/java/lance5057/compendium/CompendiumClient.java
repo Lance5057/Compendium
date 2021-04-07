@@ -1,9 +1,5 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.client.ItemDisplayRenderer;
-import lance5057.compendium.core.client.VaultRenderer;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import lance5057.compendium.core.materials.CompendiumMaterials;
 import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
 import lance5057.compendium.core.workstations.client.HammeringStationRenderer;
 import lance5057.compendium.core.workstations.client.SawhorseStationRenderer;
@@ -16,9 +12,9 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 @OnlyIn(Dist.CLIENT)
 public class CompendiumClient {
     public static void setRenderLayers() {
-	for (MaterialHelper mh : CompendiumMaterials.materials) {
-	    mh.client();
-	}
+//	for (MaterialHelper mh : CompendiumMaterials.materials) {
+//	    mh.client();
+//	}
 
 	RenderType cutout = RenderType.getCutout();
 	RenderTypeLookup.setRenderLayer(CompendiumBlocks.HAMMERING_STATION.get(), cutout);
@@ -34,7 +30,7 @@ public class CompendiumClient {
 	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SAWHORSE_STATION_TE.get(),
 		SawhorseStationRenderer::new);
 
-	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.VAULT_TE.get(), VaultRenderer::new);
-	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
+//	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.VAULT_TE.get(), VaultRenderer::new);
+//	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
     }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "compendium:zincfiligree"
+    },
+    "p": {
+      "item": "compendium:zincnugget"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:zincsetting",
+    "count": 4
+  }
+}

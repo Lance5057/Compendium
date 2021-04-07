@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lead_hoe"
+    ]
+  },
+  "criteria": {
+    "leadingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:leadingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lead_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "leadingot",
+      "has_the_recipe"
+    ]
+  ]
+}
