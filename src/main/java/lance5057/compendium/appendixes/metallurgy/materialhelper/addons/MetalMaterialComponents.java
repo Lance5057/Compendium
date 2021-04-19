@@ -25,6 +25,7 @@ public class MetalMaterialComponents implements MaterialBase {
     public RegistryObject<Item> ROD;
     public RegistryObject<Item> DUST;
     public RegistryObject<Item> TINYDUST;
+    public RegistryObject<Item> KEY;
 
     public MetalMaterialComponents(MetallurgyMaterialHelper mh) {
 	PLATE = mh.ITEMS.register(mh.name + "plate",
@@ -68,6 +69,8 @@ public class MetalMaterialComponents implements MaterialBase {
 	DUST = mh.ITEMS.register(mh.name + "dust",
 		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 	TINYDUST = mh.ITEMS.register(mh.name + "tinydust",
+		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
+	KEY = mh.ITEMS.register(mh.name + "key",
 		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
     }
 

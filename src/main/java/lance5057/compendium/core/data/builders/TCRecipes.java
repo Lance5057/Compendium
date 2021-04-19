@@ -93,7 +93,7 @@ public class TCRecipes extends RecipeProvider {
 	
 	// Electrum
 		ShapelessRecipeBuilder.shapelessRecipe(electrum.getComponents().DUST.get(), 2)
-			.addIngredient(Items.GOLD_INGOT, 1).addIngredient(copper.getComponents().DUST.get(), 1)
+			.addIngredient(Items.GOLD_INGOT, 1).addIngredient(silver.getComponents().DUST.get(), 1)
 			.addCriterion("electrum_dust_alloy", RecipeProvider.hasItem(silver.getComponents().DUST.get()))
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, "electrum_alloy_dust"));
 

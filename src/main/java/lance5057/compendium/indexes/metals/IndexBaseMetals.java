@@ -16,7 +16,7 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.common.ToolType;
 
 public class IndexBaseMetals {
-    List<List<MaterialHelperBase>> ALL = new ArrayList<List<MaterialHelperBase>>();
+    //List<List<MaterialHelperBase>> ALL = new ArrayList<List<MaterialHelperBase>>();
 
     public static List<MaterialHelperBase> BRASS = new ArrayList<MaterialHelperBase>();
     public static IItemTier BRASS_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
