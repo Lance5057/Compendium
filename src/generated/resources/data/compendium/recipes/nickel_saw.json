@@ -10,13 +10,13 @@
       "item": "compendium:nickelplate"
     },
     "r": {
-      "item": "compendium:nickelrod"
+      "tag": "forge:rods/nickel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:nickelrivets"
+      "tag": "forge:rivets/nickel"
     }
   },
   "strikes": 16,

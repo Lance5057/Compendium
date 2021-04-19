@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:nickelplate"
+      "tag": "forge:plates/nickel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:nickelrod"
+      "tag": "forge:rods/nickel"
     },
     "o": {
-      "item": "compendium:nickelrivets"
+      "tag": "forge:rivets/nickel"
     },
     "n": {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nuggets/nickel"
     }
   },
   "strikes": 16,

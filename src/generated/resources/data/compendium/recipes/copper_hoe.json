@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:copperplate"
+      "tag": "forge:plates/copper"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:copperrod"
+      "tag": "forge:rods/copper"
     },
     "o": {
-      "item": "compendium:copperrivets"
+      "tag": "forge:rivets/copper"
     },
     "n": {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nuggets/copper"
     }
   },
   "strikes": 16,

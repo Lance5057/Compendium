@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:steelingot"
+            "tag": "forge:ingots/steel"
           }
         ]
       }

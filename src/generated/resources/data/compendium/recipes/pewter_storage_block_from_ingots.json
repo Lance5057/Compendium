@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     }
   ],
   "result": {
-    "item": "compendium:pewteritemblock"
+    "item": "compendium:pewter_itemblock"
   }
 }

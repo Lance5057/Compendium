@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:tindust"
+            "tag": "forge:dusts/tin"
           }
         ]
       }

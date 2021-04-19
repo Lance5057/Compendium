@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:electrumitemblock"
+            "tag": "forge:storage_blocks/electrum"
           }
         ]
       }

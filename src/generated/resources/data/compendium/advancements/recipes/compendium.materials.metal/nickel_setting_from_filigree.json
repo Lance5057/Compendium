@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:nickelfiligree"
+            "tag": "forge:filigree/nickel"
           }
         ]
       }

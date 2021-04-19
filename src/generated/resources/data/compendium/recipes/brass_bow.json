@@ -12,7 +12,7 @@
       "item": "compendium:brassplate"
     },
     "r": {
-      "item": "compendium:brassrod"
+      "tag": "forge:rods/brass"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nuggetss/brass"
     }
   },
   "strikes": 16,

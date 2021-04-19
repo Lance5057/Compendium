@@ -12,7 +12,7 @@
       "item": "compendium:rosegoldplate"
     },
     "r": {
-      "item": "compendium:rosegoldrod"
+      "tag": "forge:rods/rosegold"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nuggetss/rosegold"
     }
   },
   "strikes": 16,

@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:platinumwire"
+      "tag": "forge:wires/platinum"
     },
     "s": {
-      "item": "compendium:platinumnugget"
+      "tag": "forge:nuggets/platinum"
     }
   },
   "strikes": 8,

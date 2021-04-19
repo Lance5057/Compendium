@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:rosegoldwire"
+      "tag": "forge:wires/rosegold"
     },
     "s": {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nuggets/rosegold"
     }
   },
   "strikes": 8,

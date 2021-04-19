@@ -12,7 +12,7 @@
       "item": "compendium:copperplate"
     },
     "r": {
-      "item": "compendium:copperrod"
+      "tag": "forge:rods/copper"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nuggetss/copper"
     }
   },
   "strikes": 16,

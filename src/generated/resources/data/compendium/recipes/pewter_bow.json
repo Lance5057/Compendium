@@ -12,7 +12,7 @@
       "item": "compendium:pewterplate"
     },
     "r": {
-      "item": "compendium:pewterrod"
+      "tag": "forge:rods/pewter"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:pewternugget"
+      "tag": "forge:nuggetss/pewter"
     }
   },
   "strikes": 16,

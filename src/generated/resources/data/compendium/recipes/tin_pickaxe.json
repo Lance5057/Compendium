@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:tiningot"
+      "tag": "forge:ingots/tin"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:tinrod"
+      "tag": "forge:rods/tin"
     },
     "o": {
-      "item": "compendium:tinrivets"
+      "tag": "forge:rivets/tin"
     },
     "n": {
-      "item": "compendium:tinnugget"
+      "tag": "forge:nuggets/tin"
     }
   },
   "strikes": 16,

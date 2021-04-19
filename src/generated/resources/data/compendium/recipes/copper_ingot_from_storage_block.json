@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:copperitemblock"
+      "tag": "forge:storage_blocks/copper"
     }
   ],
   "result": {
-    "item": "compendium:copperingot",
+    "item": "compendium:copper_ingot",
     "count": 9
   }
 }

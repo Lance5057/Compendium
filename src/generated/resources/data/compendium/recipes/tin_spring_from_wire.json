@@ -6,7 +6,7 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:tinwire"
+      "tag": "forge:wires/tin"
     },
     "s": {
       "item": "minecraft:stick"

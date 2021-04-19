@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer1": "compendium:item/material/netherite/netheritebow_pulling_0",
+    "layer0": "minecraft:item/bow_pulling_0"
+  }
+}

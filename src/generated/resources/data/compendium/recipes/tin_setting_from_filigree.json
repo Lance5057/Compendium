@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:tinfiligree"
+      "tag": "forge:filigree/tin"
     },
     "p": {
-      "item": "compendium:tinnugget"
+      "tag": "forge:nuggets/tin"
     }
   },
   "strikes": 8,

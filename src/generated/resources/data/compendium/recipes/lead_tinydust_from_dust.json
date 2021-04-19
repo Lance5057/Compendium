@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:leaddust"
+      "tag": "forge:dusts/lead"
     }
   ],
   "result": {

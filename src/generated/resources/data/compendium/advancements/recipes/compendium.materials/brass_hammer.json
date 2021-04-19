@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:brassingot"
+            "tag": "forge:ingots/brass"
           }
         ]
       }

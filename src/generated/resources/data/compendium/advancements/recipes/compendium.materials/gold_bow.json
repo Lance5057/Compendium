@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:gold_bow"
+    ]
+  },
+  "criteria": {
+    "goldingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:gold_bow"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goldingot",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -10,13 +10,13 @@
       "item": "compendium:rosegoldplate"
     },
     "r": {
-      "item": "compendium:rosegoldrod"
+      "tag": "forge:rods/rosegold"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:rosegoldrivets"
+      "tag": "forge:rivets/rosegold"
     }
   },
   "strikes": 16,

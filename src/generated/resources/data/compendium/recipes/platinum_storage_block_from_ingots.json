@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     }
   ],
   "result": {
-    "item": "compendium:platinumitemblock"
+    "item": "compendium:platinum_itemblock"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigree/gold"
+    },
+    "p": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:goldsetting",
+    "count": 4
+  }
+}

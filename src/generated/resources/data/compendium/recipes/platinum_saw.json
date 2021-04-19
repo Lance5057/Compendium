@@ -10,13 +10,13 @@
       "item": "compendium:platinumplate"
     },
     "r": {
-      "item": "compendium:platinumrod"
+      "tag": "forge:rods/platinum"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:platinumrivets"
+      "tag": "forge:rivets/platinum"
     }
   },
   "strikes": 16,

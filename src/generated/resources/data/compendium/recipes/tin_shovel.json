@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:tinplate"
+      "tag": "forge:plates/tin"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:tinrivets"
+      "tag": "forge:rivets/tin"
     },
     "n": {
-      "item": "compendium:tinnugget"
+      "tag": "forge:nuggets/tin"
     }
   },
   "strikes": 16,

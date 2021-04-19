@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:bronzewire"
+      "tag": "forge:wires/bronze"
     },
     "s": {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nuggets/bronze"
     }
   },
   "strikes": 8,

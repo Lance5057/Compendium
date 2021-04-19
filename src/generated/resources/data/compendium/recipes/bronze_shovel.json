@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:bronzeplate"
+      "tag": "forge:plates/bronze"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:bronzerivets"
+      "tag": "forge:rivets/bronze"
     },
     "n": {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nuggets/bronze"
     }
   },
   "strikes": 16,

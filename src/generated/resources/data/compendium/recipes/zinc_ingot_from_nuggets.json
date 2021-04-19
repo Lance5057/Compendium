@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     },
     {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nugget/zinc"
     }
   ],
   "result": {
-    "item": "compendium:zincingot"
+    "item": "compendium:zinc_ingot"
   }
 }

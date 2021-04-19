@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:zincitemblock"
+      "tag": "forge:storage_blocks/zinc"
     }
   ],
   "result": {
-    "item": "compendium:zincingot",
+    "item": "compendium:zinc_ingot",
     "count": 9
   }
 }

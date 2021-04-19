@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:brassingot"
+      "tag": "forge:ingots/brass"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:brassrod"
+      "tag": "forge:rods/brass"
     },
     "o": {
-      "item": "compendium:brassrivets"
+      "tag": "forge:rivets/brass"
     },
     "n": {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nuggets/brass"
     }
   },
   "strikes": 16,

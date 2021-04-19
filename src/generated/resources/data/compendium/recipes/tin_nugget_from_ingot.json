@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:tiningot"
+      "tag": "forge:ingots/tin"
     }
   ],
   "result": {
-    "item": "compendium:tinnugget",
+    "item": "compendium:tin_nugget",
     "count": 9
   }
 }

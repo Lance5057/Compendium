@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     },
     {
-      "item": "compendium:coppernugget"
+      "tag": "forge:nugget/copper"
     }
   ],
   "result": {
-    "item": "compendium:copperingot"
+    "item": "compendium:copper_ingot"
   }
 }

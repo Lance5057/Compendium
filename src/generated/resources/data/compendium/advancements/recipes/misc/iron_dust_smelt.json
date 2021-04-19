@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:iron_dust_smelt"
+    ]
+  },
+  "criteria": {
+    "has_tinydust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dusts/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:iron_dust_smelt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tinydust",
+      "has_the_recipe"
+    ]
+  ]
+}

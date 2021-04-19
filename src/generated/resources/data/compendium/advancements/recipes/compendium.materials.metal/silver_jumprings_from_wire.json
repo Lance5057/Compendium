@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:silverjumprings"
+            "tag": "forge:wires/silver"
           }
         ]
       }

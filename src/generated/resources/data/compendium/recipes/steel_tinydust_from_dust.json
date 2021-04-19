@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:steeldust"
+      "tag": "forge:dusts/steel"
     }
   ],
   "result": {

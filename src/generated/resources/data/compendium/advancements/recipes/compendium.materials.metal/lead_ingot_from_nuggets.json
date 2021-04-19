@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:leadnugget"
+            "tag": "forge:nuggets/lead"
           }
         ]
       }

@@ -12,7 +12,7 @@
       "item": "compendium:bronzeplate"
     },
     "r": {
-      "item": "compendium:bronzerod"
+      "tag": "forge:rods/bronze"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nuggetss/bronze"
     }
   },
   "strikes": 16,

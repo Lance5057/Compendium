@@ -10,13 +10,13 @@
       "item": "compendium:bronzeplate"
     },
     "r": {
-      "item": "compendium:bronzerod"
+      "tag": "forge:rods/bronze"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:bronzerivets"
+      "tag": "forge:rivets/bronze"
     }
   },
   "strikes": 16,

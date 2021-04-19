@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:tinwire"
+      "tag": "forge:wires/tin"
     },
     "s": {
-      "item": "compendium:tinnugget"
+      "tag": "forge:nuggets/tin"
     }
   },
   "strikes": 8,

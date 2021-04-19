@@ -8,19 +8,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:nickelingot"
+      "tag": "forge:ingots/nickel"
     },
     "r": {
-      "item": "compendium:nickelrod"
+      "tag": "forge:rods/nickel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:nickelrivets"
+      "tag": "forge:rivets/nickel"
     },
     "n": {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nuggetss/nickel"
     }
   },
   "strikes": 16,

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:gold_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "goldrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:gold_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goldrod",
+      "has_the_recipe"
+    ]
+  ]
+}

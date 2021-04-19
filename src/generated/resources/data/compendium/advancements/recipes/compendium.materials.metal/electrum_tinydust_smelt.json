@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:electrumtinydust"
+            "tag": "forge:tiny_dusts/electrum"
           }
         ]
       }

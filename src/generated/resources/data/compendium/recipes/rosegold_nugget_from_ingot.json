@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:rosegoldingot"
+      "tag": "forge:ingots/rosegold"
     }
   ],
   "result": {
-    "item": "compendium:rosegoldnugget",
+    "item": "compendium:rosegold_nugget",
     "count": 9
   }
 }

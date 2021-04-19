@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:pewterrod"
+      "tag": "forge:rods/pewter"
     },
     "o": {
-      "item": "compendium:pewterrivets"
+      "tag": "forge:rivets/pewter"
     },
     "n": {
-      "item": "compendium:pewternugget"
+      "tag": "forge:nuggets/pewter"
     }
   },
   "strikes": 16,

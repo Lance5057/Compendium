@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:electrumingot"
+      "tag": "forge:ingots/electrum"
     }
   ],
   "result": {
-    "item": "compendium:electrumnugget",
+    "item": "compendium:electrum_nugget",
     "count": 9
   }
 }

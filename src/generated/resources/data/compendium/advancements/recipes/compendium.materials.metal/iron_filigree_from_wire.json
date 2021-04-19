@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:iron_filigree_from_wire"
+    ]
+  },
+  "criteria": {
+    "ironwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:iron_filigree_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ironwire",
+      "has_the_recipe"
+    ]
+  ]
+}

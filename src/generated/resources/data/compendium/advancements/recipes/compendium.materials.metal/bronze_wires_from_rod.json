@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:bronzerod"
+            "tag": "forge:ingots/bronze"
           }
         ]
       }

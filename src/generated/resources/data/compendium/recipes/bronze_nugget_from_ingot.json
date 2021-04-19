@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:bronzeingot"
+      "tag": "forge:ingots/bronze"
     }
   ],
   "result": {
-    "item": "compendium:bronzenugget",
+    "item": "compendium:bronze_nugget",
     "count": 9
   }
 }

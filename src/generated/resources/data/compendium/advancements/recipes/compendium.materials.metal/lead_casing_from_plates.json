@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:leadplate"
+            "tag": "forge:plates/lead"
           }
         ]
       }

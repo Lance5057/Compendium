@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:steelitemblock"
+      "tag": "forge:storage_blocks/steel"
     }
   ],
   "result": {
-    "item": "compendium:steelingot",
+    "item": "compendium:steel_ingot",
     "count": 9
   }
 }

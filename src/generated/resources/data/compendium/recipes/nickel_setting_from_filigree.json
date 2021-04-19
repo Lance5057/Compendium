@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:nickelfiligree"
+      "tag": "forge:filigree/nickel"
     },
     "p": {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nuggets/nickel"
     }
   },
   "strikes": 8,

@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:electrumfiligree"
+      "tag": "forge:filigree/electrum"
     },
     "p": {
-      "item": "compendium:electrumnugget"
+      "tag": "forge:nuggets/electrum"
     }
   },
   "strikes": 8,

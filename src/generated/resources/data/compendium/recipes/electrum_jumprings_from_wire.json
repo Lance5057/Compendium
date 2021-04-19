@@ -6,7 +6,7 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:electrumwire"
+      "tag": "forge:wires/electrum"
     }
   },
   "strikes": 2,

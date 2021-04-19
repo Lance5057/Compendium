@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:steelwire"
+      "tag": "forge:wires/steel"
     },
     "s": {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nuggets/steel"
     }
   },
   "strikes": 8,

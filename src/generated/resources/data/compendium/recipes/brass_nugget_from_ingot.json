@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:brassingot"
+      "tag": "forge:ingots/brass"
     }
   ],
   "result": {
-    "item": "compendium:brassnugget",
+    "item": "compendium:brass_nugget",
     "count": 9
   }
 }

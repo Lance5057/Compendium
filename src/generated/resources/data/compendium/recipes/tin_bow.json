@@ -12,7 +12,7 @@
       "item": "compendium:tinplate"
     },
     "r": {
-      "item": "compendium:tinrod"
+      "tag": "forge:rods/tin"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:tinnugget"
+      "tag": "forge:nuggetss/tin"
     }
   },
   "strikes": 16,

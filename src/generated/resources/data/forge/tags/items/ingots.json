@@ -1,18 +1,18 @@
 {
   "replace": false,
   "values": [
-    "compendium:brassingot",
-    "compendium:bronzeingot",
-    "compendium:copperingot",
-    "compendium:electrumingot",
-    "compendium:nickelingot",
-    "compendium:steelingot",
-    "compendium:tiningot",
-    "compendium:zincingot",
-    "compendium:rosegoldingot",
-    "compendium:platinumingot",
-    "compendium:silveringot",
-    "compendium:pewteringot",
-    "compendium:leadingot"
+    "compendium:brass_ingot",
+    "compendium:bronze_ingot",
+    "compendium:copper_ingot",
+    "compendium:electrum_ingot",
+    "compendium:nickel_ingot",
+    "compendium:steel_ingot",
+    "compendium:tin_ingot",
+    "compendium:zinc_ingot",
+    "compendium:rosegold_ingot",
+    "compendium:platinum_ingot",
+    "compendium:silver_ingot",
+    "compendium:pewter_ingot",
+    "compendium:lead_ingot"
   ]
 }

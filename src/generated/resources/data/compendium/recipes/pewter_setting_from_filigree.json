@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:pewterfiligree"
+      "tag": "forge:filigree/pewter"
     },
     "p": {
-      "item": "compendium:pewternugget"
+      "tag": "forge:nuggets/pewter"
     }
   },
   "strikes": 8,

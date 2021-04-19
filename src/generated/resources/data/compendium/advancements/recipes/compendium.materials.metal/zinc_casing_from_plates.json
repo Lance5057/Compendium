@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:zincplate"
+            "tag": "forge:plates/zinc"
           }
         ]
       }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:netherite_jumprings_from_wire"
+    ]
+  },
+  "criteria": {
+    "netheritewire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/netherite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:netherite_jumprings_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "netheritewire",
+      "has_the_recipe"
+    ]
+  ]
+}

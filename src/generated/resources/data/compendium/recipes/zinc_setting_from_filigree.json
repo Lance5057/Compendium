@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:zincfiligree"
+      "tag": "forge:filigree/zinc"
     },
     "p": {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nuggets/zinc"
     }
   },
   "strikes": 8,

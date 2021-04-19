@@ -12,7 +12,7 @@
       "item": "compendium:leadplate"
     },
     "r": {
-      "item": "compendium:leadrod"
+      "tag": "forge:rods/lead"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:leadnugget"
+      "tag": "forge:nuggetss/lead"
     }
   },
   "strikes": 16,

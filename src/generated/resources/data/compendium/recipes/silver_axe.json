@@ -9,16 +9,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:silveringot"
+      "tag": "forge:ingots/silver"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:silverrivets"
+      "tag": "forge:rivets/silver"
     },
     "n": {
-      "item": "compendium:silvernugget"
+      "tag": "forge:nuggets/silver"
     }
   },
   "strikes": 16,

@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:rosegoldplate"
+      "tag": "forge:plates/rosegold"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:rosegoldrivets"
+      "tag": "forge:rivets/rosegold"
     },
     "n": {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nuggets/rosegold"
     }
   },
   "strikes": 16,

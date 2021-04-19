@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:netherite_rods_from_ingots"
+    ]
+  },
+  "criteria": {
+    "netheriteingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/netherite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:netherite_rods_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "netheriteingot",
+      "has_the_recipe"
+    ]
+  ]
+}

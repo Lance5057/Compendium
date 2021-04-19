@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     },
     {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nugget/brass"
     }
   ],
   "result": {
-    "item": "compendium:brassingot"
+    "item": "compendium:brass_ingot"
   }
 }

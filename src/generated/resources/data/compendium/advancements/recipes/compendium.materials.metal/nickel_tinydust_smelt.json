@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:nickeltinydust"
+            "tag": "forge:tiny_dusts/nickel"
           }
         ]
       }

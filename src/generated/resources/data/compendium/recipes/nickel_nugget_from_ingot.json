@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:nickelingot"
+      "tag": "forge:ingots/nickel"
     }
   ],
   "result": {
-    "item": "compendium:nickelnugget",
+    "item": "compendium:nickel_nugget",
     "count": 9
   }
 }

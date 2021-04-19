@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:leaditemblock"
+      "tag": "forge:storage_blocks/lead"
     }
   ],
   "result": {
-    "item": "compendium:leadingot",
+    "item": "compendium:lead_ingot",
     "count": 9
   }
 }

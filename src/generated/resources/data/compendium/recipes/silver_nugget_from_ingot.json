@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:silveringot"
+      "tag": "forge:ingots/silver"
     }
   ],
   "result": {
-    "item": "compendium:silvernugget",
+    "item": "compendium:silver_nugget",
     "count": 9
   }
 }

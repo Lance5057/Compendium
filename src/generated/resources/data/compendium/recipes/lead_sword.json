@@ -8,19 +8,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:leadingot"
+      "tag": "forge:ingots/lead"
     },
     "r": {
-      "item": "compendium:leadrod"
+      "tag": "forge:rods/lead"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:leadrivets"
+      "tag": "forge:rivets/lead"
     },
     "n": {
-      "item": "compendium:leadnugget"
+      "tag": "forge:nuggets/lead"
     }
   },
   "strikes": 16,

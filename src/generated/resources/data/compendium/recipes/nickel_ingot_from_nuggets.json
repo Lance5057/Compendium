@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     },
     {
-      "item": "compendium:nickelnugget"
+      "tag": "forge:nugget/nickel"
     }
   ],
   "result": {
-    "item": "compendium:nickelingot"
+    "item": "compendium:nickel_ingot"
   }
 }

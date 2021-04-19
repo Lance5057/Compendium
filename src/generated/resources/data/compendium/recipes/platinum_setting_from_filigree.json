@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:platinumfiligree"
+      "tag": "forge:filigree/platinum"
     },
     "p": {
-      "item": "compendium:platinumnugget"
+      "tag": "forge:nuggets/platinum"
     }
   },
   "strikes": 8,

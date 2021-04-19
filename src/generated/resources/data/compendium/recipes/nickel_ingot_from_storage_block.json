@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:nickelitemblock"
+      "tag": "forge:storage_blocks/nickel"
     }
   ],
   "result": {
-    "item": "compendium:nickelingot",
+    "item": "compendium:nickel_ingot",
     "count": 9
   }
 }

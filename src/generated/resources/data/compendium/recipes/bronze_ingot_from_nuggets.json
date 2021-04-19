@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     },
     {
-      "item": "compendium:bronzenugget"
+      "tag": "forge:nugget/bronze"
     }
   ],
   "result": {
-    "item": "compendium:bronzeingot"
+    "item": "compendium:bronze_ingot"
   }
 }

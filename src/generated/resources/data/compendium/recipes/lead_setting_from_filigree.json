@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:leadfiligree"
+      "tag": "forge:filigree/lead"
     },
     "p": {
-      "item": "compendium:leadnugget"
+      "tag": "forge:nuggets/lead"
     }
   },
   "strikes": 8,

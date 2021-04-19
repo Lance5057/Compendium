@@ -9,16 +9,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:zincingot"
+      "tag": "forge:ingots/zinc"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:zincrivets"
+      "tag": "forge:rivets/zinc"
     },
     "n": {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nuggets/zinc"
     }
   },
   "strikes": 16,

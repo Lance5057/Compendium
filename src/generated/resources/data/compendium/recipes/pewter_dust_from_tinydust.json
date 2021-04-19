@@ -2,31 +2,31 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     },
     {
-      "item": "compendium:pewtertinydust"
+      "tag": "forge:tiny_dusts/pewter"
     }
   ],
   "result": {

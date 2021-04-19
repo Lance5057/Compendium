@@ -8,19 +8,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:platinumingot"
+      "tag": "forge:ingots/platinum"
     },
     "r": {
-      "item": "compendium:platinumrod"
+      "tag": "forge:rods/platinum"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:platinumrivets"
+      "tag": "forge:rivets/platinum"
     },
     "n": {
-      "item": "compendium:platinumnugget"
+      "tag": "forge:nuggets/platinum"
     }
   },
   "strikes": 16,

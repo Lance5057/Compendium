@@ -12,7 +12,7 @@
       "item": "compendium:platinumplate"
     },
     "r": {
-      "item": "compendium:platinumrod"
+      "tag": "forge:rods/platinum"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:platinumnugget"
+      "tag": "forge:nuggetss/platinum"
     }
   },
   "strikes": 16,

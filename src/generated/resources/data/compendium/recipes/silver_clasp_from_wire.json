@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:silverwire"
+      "tag": "forge:wires/silver"
     },
     "s": {
-      "item": "compendium:silvernugget"
+      "tag": "forge:nuggets/silver"
     }
   },
   "strikes": 8,

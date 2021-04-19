@@ -7,7 +7,7 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:leadwire"
+      "tag": "forge:wires/lead"
     }
   },
   "strikes": 8,

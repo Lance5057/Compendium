@@ -12,7 +12,7 @@
       "item": "compendium:electrumplate"
     },
     "r": {
-      "item": "compendium:electrumrod"
+      "tag": "forge:rods/electrum"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:electrumnugget"
+      "tag": "forge:nuggetss/electrum"
     }
   },
   "strikes": 16,

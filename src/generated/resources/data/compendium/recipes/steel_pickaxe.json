@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:steelingot"
+      "tag": "forge:ingots/steel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:steelrod"
+      "tag": "forge:rods/steel"
     },
     "o": {
-      "item": "compendium:steelrivets"
+      "tag": "forge:rivets/steel"
     },
     "n": {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nuggets/steel"
     }
   },
   "strikes": 16,

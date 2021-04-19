@@ -12,7 +12,7 @@
       "item": "compendium:silverplate"
     },
     "r": {
-      "item": "compendium:silverrod"
+      "tag": "forge:rods/silver"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:silvernugget"
+      "tag": "forge:nuggetss/silver"
     }
   },
   "strikes": 16,

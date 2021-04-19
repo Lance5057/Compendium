@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:brassplate"
+      "tag": "forge:plates/brass"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:brassrivets"
+      "tag": "forge:rivets/brass"
     },
     "n": {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nuggets/brass"
     }
   },
   "strikes": 16,

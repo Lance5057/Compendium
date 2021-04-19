@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:rosegoldtinydust"
+            "tag": "forge:tiny_dusts/rosegold"
           }
         ]
       }

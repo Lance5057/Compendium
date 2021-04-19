@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:pewteringot"
+      "tag": "forge:ingots/pewter"
     }
   ],
   "result": {
-    "item": "compendium:pewternugget",
+    "item": "compendium:pewter_nugget",
     "count": 9
   }
 }

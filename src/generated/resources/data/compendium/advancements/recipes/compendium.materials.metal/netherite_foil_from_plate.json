@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:netherite_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "netheriteplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/netherite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:netherite_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "netheriteplate",
+      "has_the_recipe"
+    ]
+  ]
+}

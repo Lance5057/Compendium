@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:steelrod"
+            "tag": "forge:ingots/steel"
           }
         ]
       }

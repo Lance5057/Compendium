@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:pewtertinydust"
+            "tag": "forge:tiny_dusts/pewter"
           }
         ]
       }

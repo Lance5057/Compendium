@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:electrumplate"
+      "tag": "forge:plates/electrum"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:electrumrivets"
+      "tag": "forge:rivets/electrum"
     },
     "n": {
-      "item": "compendium:electrumnugget"
+      "tag": "forge:nuggets/electrum"
     }
   },
   "strikes": 16,

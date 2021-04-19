@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:leadingot"
+      "tag": "forge:ingots/lead"
     }
   ],
   "result": {
-    "item": "compendium:leadnugget",
+    "item": "compendium:lead_nugget",
     "count": 9
   }
 }

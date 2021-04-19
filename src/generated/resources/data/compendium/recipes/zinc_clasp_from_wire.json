@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:zincwire"
+      "tag": "forge:wires/zinc"
     },
     "s": {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nuggets/zinc"
     }
   },
   "strikes": 8,

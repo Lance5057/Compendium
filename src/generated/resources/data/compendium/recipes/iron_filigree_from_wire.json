@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/iron"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:ironfiligree",
+    "count": 6
+  }
+}

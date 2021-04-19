@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:brassfiligree"
+      "tag": "forge:filigree/brass"
     },
     "p": {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nuggets/brass"
     }
   },
   "strikes": 8,

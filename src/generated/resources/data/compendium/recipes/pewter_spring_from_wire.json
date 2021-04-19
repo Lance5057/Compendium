@@ -6,7 +6,7 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:pewterwire"
+      "tag": "forge:wires/pewter"
     },
     "s": {
       "item": "minecraft:stick"

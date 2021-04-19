@@ -1,0 +1,15 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/netherite"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:netheriteplate"
+  }
+}

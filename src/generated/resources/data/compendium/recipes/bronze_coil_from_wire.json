@@ -7,7 +7,7 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:bronzewire"
+      "tag": "forge:wires/bronze"
     },
     "s": {
       "item": "minecraft:stick"

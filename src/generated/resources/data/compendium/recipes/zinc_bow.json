@@ -12,7 +12,7 @@
       "item": "compendium:zincplate"
     },
     "r": {
-      "item": "compendium:zincrod"
+      "tag": "forge:rods/zinc"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:zincnugget"
+      "tag": "forge:nuggetss/zinc"
     }
   },
   "strikes": 16,

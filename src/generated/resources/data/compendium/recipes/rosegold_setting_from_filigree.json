@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:rosegoldfiligree"
+      "tag": "forge:filigree/rosegold"
     },
     "p": {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nuggets/rosegold"
     }
   },
   "strikes": 8,

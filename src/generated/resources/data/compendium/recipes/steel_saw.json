@@ -10,13 +10,13 @@
       "item": "compendium:steelplate"
     },
     "r": {
-      "item": "compendium:steelrod"
+      "tag": "forge:rods/steel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:steelrivets"
+      "tag": "forge:rivets/steel"
     }
   },
   "strikes": 16,

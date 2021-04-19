@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:brasswire"
+      "tag": "forge:wires/brass"
     },
     "s": {
-      "item": "compendium:brassnugget"
+      "tag": "forge:nuggets/brass"
     }
   },
   "strikes": 8,

@@ -8,16 +8,16 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:steelplate"
+      "tag": "forge:plates/steel"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:steelrivets"
+      "tag": "forge:rivets/steel"
     },
     "n": {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nuggets/steel"
     }
   },
   "strikes": 16,

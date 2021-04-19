@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     },
     {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nugget/rosegold"
     }
   ],
   "result": {
-    "item": "compendium:rosegoldingot"
+    "item": "compendium:rosegold_ingot"
   }
 }

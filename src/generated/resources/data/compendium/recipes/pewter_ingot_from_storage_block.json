@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:pewteritemblock"
+      "tag": "forge:storage_blocks/pewter"
     }
   ],
   "result": {
-    "item": "compendium:pewteringot",
+    "item": "compendium:pewter_ingot",
     "count": 9
   }
 }

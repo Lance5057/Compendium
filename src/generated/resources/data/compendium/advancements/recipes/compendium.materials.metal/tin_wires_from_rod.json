@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:tinrod"
+            "tag": "forge:ingots/tin"
           }
         ]
       }

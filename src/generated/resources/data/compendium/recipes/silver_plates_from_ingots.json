@@ -5,7 +5,7 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:silveringot"
+      "tag": "forge:ingots/silver"
     }
   },
   "strikes": 8,

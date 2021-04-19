@@ -12,7 +12,7 @@
       "item": "compendium:steelplate"
     },
     "r": {
-      "item": "compendium:steelrod"
+      "tag": "forge:rods/steel"
     },
     "s": {
       "item": "minecraft:stick"
@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nuggetss/steel"
     }
   },
   "strikes": 16,

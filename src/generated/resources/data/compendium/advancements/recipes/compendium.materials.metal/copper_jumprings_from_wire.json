@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:copperjumprings"
+            "tag": "forge:wires/copper"
           }
         ]
       }

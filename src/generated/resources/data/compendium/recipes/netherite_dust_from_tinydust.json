@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    },
+    {
+      "tag": "forge:tiny_dusts/netherite"
+    }
+  ],
+  "result": {
+    "item": "compendium:netheritedust"
+  }
+}

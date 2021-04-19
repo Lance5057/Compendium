@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "compendium:rosegoldjumprings"
+            "tag": "forge:wires/rosegold"
           }
         ]
       }

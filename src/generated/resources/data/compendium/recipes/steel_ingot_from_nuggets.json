@@ -2,34 +2,34 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     },
     {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nugget/steel"
     }
   ],
   "result": {
-    "item": "compendium:steelingot"
+    "item": "compendium:steel_ingot"
   }
 }

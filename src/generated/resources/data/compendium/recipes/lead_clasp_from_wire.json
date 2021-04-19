@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:leadwire"
+      "tag": "forge:wires/lead"
     },
     "s": {
-      "item": "compendium:leadnugget"
+      "tag": "forge:nuggets/lead"
     }
   },
   "strikes": 8,

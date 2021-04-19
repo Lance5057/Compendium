@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "compendium:steelfiligree"
+      "tag": "forge:filigree/steel"
     },
     "p": {
-      "item": "compendium:steelnugget"
+      "tag": "forge:nuggets/steel"
     }
   },
   "strikes": 8,

@@ -9,19 +9,19 @@
   ],
   "key": {
     "i": {
-      "item": "compendium:rosegoldingot"
+      "tag": "forge:ingots/rosegold"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "r": {
-      "item": "compendium:rosegoldrod"
+      "tag": "forge:rods/rosegold"
     },
     "o": {
-      "item": "compendium:rosegoldrivets"
+      "tag": "forge:rivets/rosegold"
     },
     "n": {
-      "item": "compendium:rosegoldnugget"
+      "tag": "forge:nuggets/rosegold"
     }
   },
   "strikes": 16,

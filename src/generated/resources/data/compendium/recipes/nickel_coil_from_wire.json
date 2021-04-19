@@ -7,7 +7,7 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:nickelwire"
+      "tag": "forge:wires/nickel"
     },
     "s": {
       "item": "minecraft:stick"

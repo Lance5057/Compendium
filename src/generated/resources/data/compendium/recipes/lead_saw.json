@@ -10,13 +10,13 @@
       "item": "compendium:leadplate"
     },
     "r": {
-      "item": "compendium:leadrod"
+      "tag": "forge:rods/lead"
     },
     "s": {
       "item": "minecraft:stick"
     },
     "o": {
-      "item": "compendium:leadrivets"
+      "tag": "forge:rivets/lead"
     }
   },
   "strikes": 16,

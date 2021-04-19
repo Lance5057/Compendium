@@ -6,10 +6,10 @@
   ],
   "key": {
     "p": {
-      "item": "compendium:electrumwire"
+      "tag": "forge:wires/electrum"
     },
     "s": {
-      "item": "compendium:electrumnugget"
+      "tag": "forge:nuggets/electrum"
     }
   },
   "strikes": 8,
