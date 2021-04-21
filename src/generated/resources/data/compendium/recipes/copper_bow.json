@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "tag": "forge:nuggetss/copper"
+      "tag": "forge:nuggets/copper"
     }
   },
   "strikes": 16,

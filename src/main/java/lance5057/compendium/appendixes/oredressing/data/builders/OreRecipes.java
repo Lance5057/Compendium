@@ -28,7 +28,7 @@ public class OreRecipes {
 //		if (i != null)
 		CustomCookingRecipeBuilder
 			.smeltingRecipe(Ingredient.fromItems(mh.getOre().ITEM_ORE.get()),
-				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "ingot")),
+				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "_ingot")),
 				1, 0.7F, 200)
 			.addCriterion("has_ore", recipes.hasItem(mh.getOre().ITEM_ORE.get())).build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_ore_smelt"));
 		
@@ -38,7 +38,7 @@ public class OreRecipes {
 
 		CustomCookingRecipeBuilder
 			.smeltingRecipe(Ingredient.fromItems(mh.getDenseOre().ITEM_ORE.get()),
-				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "ingot")),
+				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "_ingot")),
 				3, 0.7F, 200)
 			.addCriterion("has_ore", recipes.hasItem(mh.getOre().ITEM_ORE.get())).build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_dense_ore_smelt"));
 	    }
@@ -46,7 +46,7 @@ public class OreRecipes {
 
 		CustomCookingRecipeBuilder
 			.smeltingRecipe(Ingredient.fromItems(mh.getSparseOre().ITEM_ORE.get()),
-				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "nugget")),
+				Registry.ITEM.getOrDefault(new ResourceLocation(Reference.MOD_ID, mh.name + "_nugget")),
 				3, 0.7F, 200)
 			.addCriterion("has_ore", recipes.hasItem(mh.getOre().ITEM_ORE.get())).build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_sparse_ore_smelt"));
 	    }

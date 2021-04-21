@@ -72,6 +72,12 @@ public class TCRecipes extends RecipeProvider {
 		.findFirst().orElse(null);
 	MetallurgyMaterialHelper silver = AppendixMetallurgy.metals.stream().filter(i -> i.name == "silver").findFirst()
 		.orElse(null);
+	MetallurgyMaterialHelper gold = AppendixMetallurgy.metals.stream().filter(i -> i.name == "gold").findFirst()
+		.orElse(null);
+	MetallurgyMaterialHelper iron = AppendixMetallurgy.metals.stream().filter(i -> i.name == "iron").findFirst()
+		.orElse(null);
+	MetallurgyMaterialHelper steel = AppendixMetallurgy.metals.stream().filter(i -> i.name == "steel").findFirst()
+		.orElse(null);
 
 	// Brass
 	ShapelessRecipeBuilder.shapelessRecipe(brass.getComponents().DUST.get(), 3)
@@ -87,27 +93,28 @@ public class TCRecipes extends RecipeProvider {
 
 	// Rosegold
 	ShapelessRecipeBuilder.shapelessRecipe(rosegold.getComponents().DUST.get(), 4)
-		.addIngredient(Items.GOLD_INGOT, 3).addIngredient(copper.getComponents().DUST.get(), 1)
+		.addIngredient(gold.getComponents().DUST.get(), 3).addIngredient(copper.getComponents().DUST.get(), 1)
 		.addCriterion("rosegold_dust_alloy", RecipeProvider.hasItem(copper.getComponents().DUST.get()))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, "rosegold_alloy_dust"));
-	
+
 	// Electrum
-		ShapelessRecipeBuilder.shapelessRecipe(electrum.getComponents().DUST.get(), 2)
-			.addIngredient(Items.GOLD_INGOT, 1).addIngredient(silver.getComponents().DUST.get(), 1)
-			.addCriterion("electrum_dust_alloy", RecipeProvider.hasItem(silver.getComponents().DUST.get()))
-			.build(consumer, new ResourceLocation(Reference.MOD_ID, "electrum_alloy_dust"));
+	ShapelessRecipeBuilder.shapelessRecipe(electrum.getComponents().DUST.get(), 2)
+		.addIngredient(gold.getComponents().DUST.get(), 1).addIngredient(silver.getComponents().DUST.get(), 1)
+		.addCriterion("electrum_dust_alloy", RecipeProvider.hasItem(silver.getComponents().DUST.get()))
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, "electrum_alloy_dust"));
 
 	// Pewter
-	ShapelessRecipeBuilder.shapelessRecipe(pewter.getComponents().DUST.get(), 4)
-		.addIngredient(tin.getComponents().DUST.get(), 4).addIngredient(lead.getComponents().TINYDUST.get(), 1)
+	ShapelessRecipeBuilder.shapelessRecipe(pewter.getComponents().DUST.get(), 3)
+		.addIngredient(tin.getComponents().DUST.get(), 1).addIngredient(lead.getComponents().DUST.get(), 1)
+		.addIngredient(zinc.getComponents().DUST.get(), 1)
 		.addCriterion("pewter_dust_alloy", RecipeProvider.hasItem(tin.getComponents().DUST.get()))
-		.build(consumer, new ResourceLocation(Reference.MOD_ID, "pewter_alloy_dust_lead"));
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, "pewter_alloy_dust"));
 
-	ShapelessRecipeBuilder.shapelessRecipe(pewter.getComponents().DUST.get(), 4)
-		.addIngredient(tin.getComponents().DUST.get(), 4)
-		.addIngredient(copper.getComponents().TINYDUST.get(), 1)
-		.addCriterion("pewter_dust_alloy", RecipeProvider.hasItem(zinc.getComponents().DUST.get()))
-		.build(consumer, new ResourceLocation(Reference.MOD_ID, "pewter_alloy_dust_zinc"));
+	// Steel
+	ShapelessRecipeBuilder.shapelessRecipe(steel.getComponents().DUST.get(), 1)
+		.addIngredient(iron.getComponents().DUST.get(), 1).addIngredient(Ingredient.fromTag(ItemTags.COALS))
+		.addCriterion("electrum_dust_alloy", RecipeProvider.hasItem(silver.getComponents().DUST.get()))
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, "steel_alloy_dust"));
     }
 
     private void hammer(Consumer<IFinishedRecipe> consumer) {

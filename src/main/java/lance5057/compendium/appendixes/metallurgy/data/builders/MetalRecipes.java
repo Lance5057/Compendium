@@ -205,7 +205,7 @@ public class MetalRecipes {
 
 //		SETTING
 		AnvilShapedRecipeBuilder.shapedRecipe(b.SETTING.get(), 8, 4)
-			.key('s', Ingredient.fromTag(TCItemTags.ItemTag("filigree/" + mh.name)))
+			.key('s', Ingredient.fromTag(TCItemTags.ItemTag("filigrees/" + mh.name)))
 			.key('p', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + mh.name))).patternLine(" s ")
 			.patternLine("sps").patternLine(" s ")
 			.addCriterion(mh.name + "rod",
@@ -253,8 +253,10 @@ public class MetalRecipes {
 				RecipeProvider.hasItem(TCItemTags.ItemTag("tiny_dusts/" + mh.name)))
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_tinydust_smelt"));
 
-		CustomCookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(b.DUST.get()),
-			Registry.ITEM.getOrDefault(new ResourceLocation(mh.parentMod, mh.name + "_ingot")), 1, 0.7F, 200)
+		CustomCookingRecipeBuilder
+			.smeltingRecipe(Ingredient.fromItems(b.DUST.get()),
+				Registry.ITEM.getOrDefault(new ResourceLocation(mh.parentMod, mh.name + "_ingot")), 1,
+				0.7F, 200)
 			.addCriterion("has_tinydust", RecipeProvider.hasItem(TCItemTags.ItemTag("dusts/" + mh.name)))
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_dust_smelt"));
 	    }
@@ -266,7 +268,7 @@ public class MetalRecipes {
 			.key('i', Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + mh.name)))
 			.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + mh.name))).key('s', Items.STICK)
 			.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + mh.name)))
-			.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggetss/" + mh.name))).patternLine("ioi")
+			.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + mh.name))).patternLine("ioi")
 			.patternLine("iri").patternLine(" s ").patternLine(" n ")
 			.addCriterion(mh.name + "ingot",
 				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
@@ -276,7 +278,7 @@ public class MetalRecipes {
 		// Bow
 		AnvilShapedRecipeBuilder.shapedRecipe(b.BOW.get(), 16, 1).key('i', mh.getComponents().PLATE.get())
 			.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + mh.name))).key('s', Items.STICK)
-			.key('o', Items.STRING).key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggetss/" + mh.name)))
+			.key('o', Items.STRING).key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + mh.name)))
 			.patternLine("  n").patternLine("iso").patternLine("r o").patternLine("iso").patternLine("  n")
 			.addCriterion(mh.name + "ingot",
 				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))

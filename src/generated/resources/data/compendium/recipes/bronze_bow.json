@@ -21,7 +21,7 @@
       "item": "minecraft:string"
     },
     "n": {
-      "tag": "forge:nuggetss/bronze"
+      "tag": "forge:nuggets/bronze"
     }
   },
   "strikes": 16,

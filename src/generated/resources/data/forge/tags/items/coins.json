@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumcoin",
+    "compendium:brasscoin",
+    "compendium:bronzecoin",
+    "compendium:coppercoin",
+    "compendium:electrumcoin",
+    "compendium:nickelcoin",
+    "compendium:steelcoin",
+    "compendium:tincoin",
+    "compendium:zinccoin",
+    "compendium:rosegoldcoin",
+    "compendium:platinumcoin",
+    "compendium:silvercoin",
+    "compendium:pewtercoin",
+    "compendium:leadcoin",
+    "compendium:ironcoin",
+    "compendium:goldcoin"
+  ]
+}

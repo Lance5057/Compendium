@@ -2,7 +2,7 @@
   "type": "compendium:hammering_station",
   "strikes": 1,
   "input": {
-    "item": "compendium:zincingot"
+    "tag": "forge:ingots/zinc"
   },
   "result": {
     "item": "compendium:zincdust"

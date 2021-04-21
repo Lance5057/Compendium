@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aluminium_ingot_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "aluminiumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/aluminium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aluminium_ingot_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aluminiumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminium_itemblock",
+    "compendium:brass_itemblock",
+    "compendium:bronze_itemblock",
+    "compendium:copper_itemblock",
+    "compendium:electrum_itemblock",
+    "compendium:nickel_itemblock",
+    "compendium:steel_itemblock",
+    "compendium:tin_itemblock",
+    "compendium:zinc_itemblock",
+    "compendium:rosegold_itemblock",
+    "compendium:platinum_itemblock",
+    "compendium:silver_itemblock",
+    "compendium:pewter_itemblock",
+    "compendium:lead_itemblock"
+  ]
+}

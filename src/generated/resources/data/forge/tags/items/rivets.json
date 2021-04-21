@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumrivets",
+    "compendium:brassrivets",
+    "compendium:bronzerivets",
+    "compendium:copperrivets",
+    "compendium:electrumrivets",
+    "compendium:nickelrivets",
+    "compendium:steelrivets",
+    "compendium:tinrivets",
+    "compendium:zincrivets",
+    "compendium:rosegoldrivets",
+    "compendium:platinumrivets",
+    "compendium:silverrivets",
+    "compendium:pewterrivets",
+    "compendium:leadrivets",
+    "compendium:ironrivets",
+    "compendium:goldrivets"
+  ]
+}

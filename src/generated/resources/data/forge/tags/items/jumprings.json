@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumjumprings",
+    "compendium:brassjumprings",
+    "compendium:bronzejumprings",
+    "compendium:copperjumprings",
+    "compendium:electrumjumprings",
+    "compendium:nickeljumprings",
+    "compendium:steeljumprings",
+    "compendium:tinjumprings",
+    "compendium:zincjumprings",
+    "compendium:rosegoldjumprings",
+    "compendium:platinumjumprings",
+    "compendium:silverjumprings",
+    "compendium:pewterjumprings",
+    "compendium:leadjumprings",
+    "compendium:ironjumprings",
+    "compendium:goldjumprings"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumrod",
+    "compendium:brassrod",
+    "compendium:bronzerod",
+    "compendium:copperrod",
+    "compendium:electrumrod",
+    "compendium:nickelrod",
+    "compendium:steelrod",
+    "compendium:tinrod",
+    "compendium:zincrod",
+    "compendium:rosegoldrod",
+    "compendium:platinumrod",
+    "compendium:silverrod",
+    "compendium:pewterrod",
+    "compendium:leadrod",
+    "compendium:ironrod",
+    "compendium:goldrod"
+  ]
+}

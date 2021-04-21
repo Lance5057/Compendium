@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " p ",
+    "p p",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/aluminium"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:aluminiumgear"
+  }
+}

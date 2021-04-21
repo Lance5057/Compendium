@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumspring",
+    "compendium:brassspring",
+    "compendium:bronzespring",
+    "compendium:copperspring",
+    "compendium:electrumspring",
+    "compendium:nickelspring",
+    "compendium:steelspring",
+    "compendium:tinspring",
+    "compendium:zincspring",
+    "compendium:rosegoldspring",
+    "compendium:platinumspring",
+    "compendium:silverspring",
+    "compendium:pewterspring",
+    "compendium:leadspring",
+    "compendium:ironspring",
+    "compendium:goldspring"
+  ]
+}

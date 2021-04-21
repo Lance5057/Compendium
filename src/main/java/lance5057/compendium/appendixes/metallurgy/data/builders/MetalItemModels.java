@@ -62,6 +62,7 @@ public class MetalItemModels {
 		model.forItem(b.ROD, mh.name);
 		model.forItem(b.DUST, mh.name);
 		model.forItem(b.TINYDUST, mh.name);
+		model.forItem(b.KEY, mh.name);
 	    }
 	    if (mh.hasAdvancedTools()) {
 		MetalAdvancedTools b = mh.getAdvancedTools();

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "compendium:aluminium_ingot",
     "compendium:brass_ingot",
     "compendium:bronze_ingot",
     "compendium:copper_ingot",

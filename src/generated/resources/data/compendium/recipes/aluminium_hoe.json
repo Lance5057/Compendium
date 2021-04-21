@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/aluminium"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/aluminium"
+    },
+    "o": {
+      "tag": "forge:rivets/aluminium"
+    },
+    "n": {
+      "tag": "forge:nuggets/aluminium"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:aluminiumhoe"
+  }
+}

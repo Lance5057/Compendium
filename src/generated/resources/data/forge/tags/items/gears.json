@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumgear",
+    "compendium:brassgear",
+    "compendium:bronzegear",
+    "compendium:coppergear",
+    "compendium:electrumgear",
+    "compendium:nickelgear",
+    "compendium:steelgear",
+    "compendium:tingear",
+    "compendium:zincgear",
+    "compendium:rosegoldgear",
+    "compendium:platinumgear",
+    "compendium:silvergear",
+    "compendium:pewtergear",
+    "compendium:leadgear",
+    "compendium:irongear",
+    "compendium:goldgear"
+  ]
+}

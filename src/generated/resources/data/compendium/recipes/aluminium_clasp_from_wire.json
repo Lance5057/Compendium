@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/aluminium"
+    },
+    "s": {
+      "tag": "forge:nuggets/aluminium"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:aluminiumclasp",
+    "count": 4
+  }
+}

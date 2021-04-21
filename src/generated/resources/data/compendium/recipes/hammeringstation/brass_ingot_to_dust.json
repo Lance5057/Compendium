@@ -2,7 +2,7 @@
   "type": "compendium:hammering_station",
   "strikes": 1,
   "input": {
-    "item": "compendium:brassingot"
+    "tag": "forge:ingots/brass"
   },
   "result": {
     "item": "compendium:brassdust"

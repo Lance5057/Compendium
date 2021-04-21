@@ -4,6 +4,7 @@ import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalEnglishLoc;
+import lance5057.compendium.appendixes.oredressing.data.builders.OreEnglishLoc;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -25,6 +26,7 @@ public class TCEnglishLoc extends LanguageProvider {
 	this.add(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK.get(), "Sawbuck");
 	
 	MetalEnglishLoc.addTranslations(this);
+	OreEnglishLoc.addTranslations(this);
 
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //

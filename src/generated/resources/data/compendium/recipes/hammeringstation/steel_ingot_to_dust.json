@@ -2,7 +2,7 @@
   "type": "compendium:hammering_station",
   "strikes": 1,
   "input": {
-    "item": "compendium:steelingot"
+    "tag": "forge:ingots/steel"
   },
   "result": {
     "item": "compendium:steeldust"

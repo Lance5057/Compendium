@@ -16,74 +16,92 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.common.ToolType;
 
 public class IndexBaseMetals {
-    //List<List<MaterialHelperBase>> ALL = new ArrayList<List<MaterialHelperBase>>();
+    // List<List<MaterialHelperBase>> ALL = new
+    // ArrayList<List<MaterialHelperBase>>();
+
+    public static List<MaterialHelperBase> ALUMINIUM = new ArrayList<MaterialHelperBase>();
+    public static IItemTier ALUMINIUM_TIER = new CompendiumItemTier(1, 80, 10, 1, 15, () -> {
+	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/brass"));
+    });
 
     public static List<MaterialHelperBase> BRASS = new ArrayList<MaterialHelperBase>();
-    public static IItemTier BRASS_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier BRASS_TIER = new CompendiumItemTier(1, 300, 5, 1.5f, 16, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/brass"));
     });
 
     public static List<MaterialHelperBase> BRONZE = new ArrayList<MaterialHelperBase>();
-    public static IItemTier BRONZE_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier BRONZE_TIER = new CompendiumItemTier(2, 260, 7, 2.5f, 18, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/bronze"));
     });
 
     public static List<MaterialHelperBase> COPPER = new ArrayList<MaterialHelperBase>();
-    public static IItemTier COPPER_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier COPPER_TIER = new CompendiumItemTier(2, 180, 8, 1, 16, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/copper"));
     });
 
     public static List<MaterialHelperBase> ELECTRUM = new ArrayList<MaterialHelperBase>();
-    public static IItemTier ELECTRUM_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier ELECTRUM_TIER = new CompendiumItemTier(1, 180, 13f, 1, 31, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/electrum"));
     });
 
     public static List<MaterialHelperBase> NICKEL = new ArrayList<MaterialHelperBase>();
-    public static IItemTier NICKEL_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier NICKEL_TIER = new CompendiumItemTier(2, 250, 2, 0.5f, 15, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/nickel"));
     });
 
     public static List<MaterialHelperBase> STEEL = new ArrayList<MaterialHelperBase>();
-    public static IItemTier STEEL_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier STEEL_TIER = new CompendiumItemTier(3, 500, 11, 2, 30, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/steel"));
     });
 
     public static List<MaterialHelperBase> TIN = new ArrayList<MaterialHelperBase>();
-    public static IItemTier TIN_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier TIN_TIER = new CompendiumItemTier(1, 60, 1, 0, 10, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/tin"));
     });
 
     public static List<MaterialHelperBase> PEWTER = new ArrayList<MaterialHelperBase>();
-    public static IItemTier PEWTER_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier PEWTER_TIER = new CompendiumItemTier(2, 220, 6, 2, 16, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/pewter"));
     });
 
     public static List<MaterialHelperBase> ZINC = new ArrayList<MaterialHelperBase>();
-    public static IItemTier ZINC_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier ZINC_TIER = new CompendiumItemTier(1, 120, 1.5f, 0.5f, 18, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/zinc"));
     });
 
     public static List<MaterialHelperBase> ROSEGOLD = new ArrayList<MaterialHelperBase>();
-    public static IItemTier ROSEGOLD_TIER = new CompendiumItemTier(0, 99, 4f, 1f, 22, () -> {
+    public static IItemTier ROSEGOLD_TIER = new CompendiumItemTier(1, 190, 11, 2, 30, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/rosegold"));
     });
 
     public static List<MaterialHelperBase> PLATINUM = new ArrayList<MaterialHelperBase>();
-    public static IItemTier PLATINUM_TIER = new CompendiumItemTier(1, 99, 3.7f, 4f, 22, () -> {
+    public static IItemTier PLATINUM_TIER = new CompendiumItemTier(2, 113, 12, 1, 28, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/platinum"));
     });
 
     public static List<MaterialHelperBase> SILVER = new ArrayList<MaterialHelperBase>();
-    public static IItemTier SILVER_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier SILVER_TIER = new CompendiumItemTier(2, 141, 6, 1, 18, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/silver"));
     });
 
     public static List<MaterialHelperBase> LEAD = new ArrayList<MaterialHelperBase>();
-    public static IItemTier LEAD_TIER = new CompendiumItemTier(3, 150, 5.00f, 9.00f, 22, () -> {
+    public static IItemTier LEAD_TIER = new CompendiumItemTier(2, 100, 1, 2, 3, () -> {
 	return Ingredient.fromTag(TCItemTags.ItemTag("ingots/lead"));
     });
 
     public IndexBaseMetals() {
+	// ALUMINIUM ------------------------------------------------------//
+	MetallurgyMaterialHelper aluminium = new MetallurgyMaterialHelper("aluminium", IndexBaseMetals.ALUMINIUM_TIER).withBase()
+		.withVanillaTools().withComponents().withAdvancedTools();
+	ALUMINIUM.add(aluminium);
+	AppendixMetallurgy.metals.add(aluminium);
+	OreDressingMaterialHelper oreAluminium = new OreDressingMaterialHelper("aluminium")
+		.withOre(4, 1, ToolType.PICKAXE, 3, 64, 32, 4, 50, Category.NONE)
+		.withDenseOre(5, 1, ToolType.PICKAXE, 4, 64, 32, 4, 25, Category.NONE)
+		.withSparseOre(3, 1, ToolType.PICKAXE, 2, 64, 32, 8, 4, Category.NONE);
+	ALUMINIUM.add(oreAluminium);
+	AppendixOreDressing.ores.add(oreAluminium);
+
 	// BRASS ------------------------------------------------------//
 	MetallurgyMaterialHelper brass = new MetallurgyMaterialHelper("brass", IndexBaseMetals.BRASS_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
@@ -168,7 +186,7 @@ public class IndexBaseMetals {
 	PLATINUM.add(platinum);
 	AppendixMetallurgy.metals.add(platinum);
 	OreDressingMaterialHelper orePlatinum = new OreDressingMaterialHelper("platinum")
-		.withOre(4, 2, ToolType.PICKAXE, 3, 16, 4, 8, 50, Category.NONE)
+		.withOre(4, 2, ToolType.PICKAXE, 3, 16, 4, 4, 50, Category.NONE)
 		.withDenseOre(5, 2, ToolType.PICKAXE, 4, 16, 4, 4, 25, Category.NONE)
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 16, 4, 4, 4, Category.NONE);
 	PLATINUM.add(orePlatinum);
