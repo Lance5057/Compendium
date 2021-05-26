@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/platinum"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/platinum"
+    },
+    "o": {
+      "tag": "forge:rivets/platinum"
+    },
+    "n": {
+      "tag": "forge:nuggets/platinum"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:platinumpickaxe"
+  }
+}

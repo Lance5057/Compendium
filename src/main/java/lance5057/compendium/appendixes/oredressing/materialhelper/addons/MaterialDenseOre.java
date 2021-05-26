@@ -3,6 +3,8 @@ package lance5057.compendium.appendixes.oredressing.materialhelper.addons;
 import lance5057.compendium.appendixes.oredressing.materialhelper.OreDressingMaterialHelper;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraftforge.common.ToolType;
 
 public class MaterialDenseOre extends MaterialOre {
@@ -14,8 +16,8 @@ public class MaterialDenseOre extends MaterialOre {
     }
 
     @Override
-    public Block replace(OreDressingMaterialHelper mh) {
-	return mh.getOre().ORE.get();
+    public RuleTest replace(OreDressingMaterialHelper mh) {
+	return new BlockMatchRuleTest(mh.getOre().ORE.get());
     }
 
 }

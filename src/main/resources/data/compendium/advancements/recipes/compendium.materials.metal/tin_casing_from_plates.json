@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tin_casing_from_plates"
+    ]
+  },
+  "criteria": {
+    "tincasing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:plates/tin"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tin_casing_from_plates"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tincasing",
+      "has_the_recipe"
+    ]
+  ]
+}

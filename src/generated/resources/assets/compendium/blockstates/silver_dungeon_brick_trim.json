@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "half=top": [
+      {
+        "model": "compendium:block/silverdungeon_trim_flip_1",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_flip_2",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_flip_3",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_flip_4",
+        "uvlock": true
+      }
+    ],
+    "half=bottom": [
+      {
+        "model": "compendium:block/silverdungeon_trim_1"
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_2"
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_3"
+      },
+      {
+        "model": "compendium:block/silverdungeon_trim_4"
+      }
+    ]
+  }
+}

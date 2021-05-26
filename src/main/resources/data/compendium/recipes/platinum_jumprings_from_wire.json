@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/platinum"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:platinumjumprings",
+    "count": 8
+  }
+}

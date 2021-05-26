@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:lead_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "leadrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/lead"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:lead_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "leadrod",
+      "has_the_recipe"
+    ]
+  ]
+}

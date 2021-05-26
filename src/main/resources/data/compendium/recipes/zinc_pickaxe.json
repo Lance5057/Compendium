@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/zinc"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/zinc"
+    },
+    "o": {
+      "tag": "forge:rivets/zinc"
+    },
+    "n": {
+      "tag": "forge:nuggets/zinc"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:zincpickaxe"
+  }
+}

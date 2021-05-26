@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/dungeon_trim_flip_4",
+  "textures": {
+    "0": "compendium:block/material/pewter/pewterdungeon_bricks"
+  }
+}

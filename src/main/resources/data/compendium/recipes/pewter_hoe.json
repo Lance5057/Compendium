@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/pewter"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/pewter"
+    },
+    "o": {
+      "tag": "forge:rivets/pewter"
+    },
+    "n": {
+      "tag": "forge:nuggets/pewter"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:pewterhoe"
+  }
+}

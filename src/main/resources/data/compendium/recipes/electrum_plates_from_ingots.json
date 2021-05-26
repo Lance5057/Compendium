@@ -1,0 +1,15 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/electrum"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:electrumplate"
+  }
+}

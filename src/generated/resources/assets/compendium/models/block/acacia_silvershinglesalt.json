@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shinglesalt",
+  "textures": {
+    "0": "compendium:block/material/silver/silvershingles",
+    "1": "minecraft:block/acacia_log_top",
+    "2": "minecraft:block/acacia_log"
+  }
+}

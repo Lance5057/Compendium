@@ -3,6 +3,7 @@ package lance5057.compendium.indexes.metals;
 import java.util.ArrayList;
 import java.util.List;
 
+import lance5057.compendium.appendixes.construction.AppendixConstruction;
 import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;

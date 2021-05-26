@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:plates/platinum"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:platinumfoil",
+    "count": 4
+  }
+}

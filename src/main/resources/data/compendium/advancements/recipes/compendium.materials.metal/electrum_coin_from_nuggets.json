@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_coin_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "electrumnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/electrum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_coin_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

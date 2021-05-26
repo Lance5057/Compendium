@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nickel_jumprings_from_wire"
+    ]
+  },
+  "criteria": {
+    "nickelwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/nickel"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nickel_jumprings_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nickelwire",
+      "has_the_recipe"
+    ]
+  ]
+}

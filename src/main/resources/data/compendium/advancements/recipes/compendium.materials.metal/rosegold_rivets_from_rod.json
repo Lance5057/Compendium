@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "rosegoldrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/rosegold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/gold/goldshingles",
+		"particle": "compendium:block/material/gold/goldshingles"
+	},
+	"elements": [
+		{
+			"name": "top",
+			"from": [3.99, 7.99, 3.99],
+			"to": [12.01, 16.01, 12.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 4]},
+			"faces": {
+				"north": {"uv": [4, 5, 12.02, 13.01], "texture": "#0"},
+				"east": {"uv": [7, 5, 15.02, 13.01], "texture": "#0"},
+				"south": {"uv": [3.99, 0, 12.01, 8.01], "texture": "#0"},
+				"west": {"uv": [4, 0, 12.02, 8.01], "texture": "#0"},
+				"up": {"uv": [4, 2, 12.02, 10.02], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [3.99, 3.99, 12.01, 12.01], "texture": "#0"}
+			}
+		}
+	]
+}

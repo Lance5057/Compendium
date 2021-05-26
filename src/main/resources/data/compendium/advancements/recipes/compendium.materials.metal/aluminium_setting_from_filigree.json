@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aluminium_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "aluminiumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:filigree/aluminium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aluminium_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aluminiumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

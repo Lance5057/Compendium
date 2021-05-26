@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:plates/iron"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:ironfoil",
+    "count": 4
+  }
+}

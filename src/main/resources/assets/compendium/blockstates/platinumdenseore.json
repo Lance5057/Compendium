@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/platinumdenseore",
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 90,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 90,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 90,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 180,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 180,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 180,
+        "y": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 270,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 270,
+        "y": 90,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 270,
+        "y": 180,
+        "uvlock": true
+      },
+      {
+        "model": "compendium:block/platinumdenseore",
+        "x": 270,
+        "y": 270,
+        "uvlock": true
+      }
+    ]
+  }
+}

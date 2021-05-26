@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/rosegold"
+    }
+  ],
+  "result": {
+    "item": "compendium:rosegoldtinydust",
+    "count": 9
+  }
+}

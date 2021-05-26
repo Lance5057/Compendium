@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/pewter"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:pewterrod",
+    "count": 6
+  }
+}

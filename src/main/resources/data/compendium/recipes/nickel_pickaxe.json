@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/nickel"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/nickel"
+    },
+    "o": {
+      "tag": "forge:rivets/nickel"
+    },
+    "n": {
+      "tag": "forge:nuggets/nickel"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:nickelpickaxe"
+  }
+}

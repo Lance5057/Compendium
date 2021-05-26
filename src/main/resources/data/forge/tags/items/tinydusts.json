@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumtinydust",
+    "compendium:brasstinydust",
+    "compendium:bronzetinydust",
+    "compendium:coppertinydust",
+    "compendium:electrumtinydust",
+    "compendium:nickeltinydust",
+    "compendium:steeltinydust",
+    "compendium:tintinydust",
+    "compendium:zinctinydust",
+    "compendium:rosegoldtinydust",
+    "compendium:platinumtinydust",
+    "compendium:silvertinydust",
+    "compendium:pewtertinydust",
+    "compendium:leadtinydust",
+    "compendium:irontinydust",
+    "compendium:goldtinydust"
+  ]
+}

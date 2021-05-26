@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/silver"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/silver"
+    },
+    "o": {
+      "tag": "forge:rivets/silver"
+    },
+    "n": {
+      "tag": "forge:nuggets/silver"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:silverhoe"
+  }
+}

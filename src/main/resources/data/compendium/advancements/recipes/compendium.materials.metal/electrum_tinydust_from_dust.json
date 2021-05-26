@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_tinydust_from_dust"
+    ]
+  },
+  "criteria": {
+    "electrumdust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dusts/electrum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_tinydust_from_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumdust",
+      "has_the_recipe"
+    ]
+  ]
+}

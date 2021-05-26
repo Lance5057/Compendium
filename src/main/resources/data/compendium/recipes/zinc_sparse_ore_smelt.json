@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:zincsparseitemore"
+  },
+  "result": {
+    "item": "compendium:zinc_nugget",
+    "count": 3
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/aluminiumdungeon_bricks_broken"
+      },
+      {
+        "model": "compendium:block/aluminiumdungeon_bricks_broken_2"
+      },
+      {
+        "model": "compendium:block/aluminiumdungeon_bricks_broken_3"
+      }
+    ]
+  }
+}

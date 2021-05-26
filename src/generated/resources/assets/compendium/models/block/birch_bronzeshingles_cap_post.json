@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_post",
+  "textures": {
+    "0": "compendium:block/material/bronze/bronzeshingles",
+    "1": "compendium:block/material/bronze/bronzeshingles",
+    "2": "compendium:block/material/bronze/bronzeshingles"
+  }
+}

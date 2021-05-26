@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/electrum"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/electrum"
+    },
+    "o": {
+      "tag": "forge:rivets/electrum"
+    },
+    "n": {
+      "tag": "forge:nuggets/electrum"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:electrumpickaxe"
+  }
+}

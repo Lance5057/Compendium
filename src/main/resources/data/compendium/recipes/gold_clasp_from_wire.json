@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/gold"
+    },
+    "s": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:goldclasp",
+    "count": 4
+  }
+}

@@ -10,6 +10,8 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -45,6 +47,7 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
 	BLOCKS.register(modEventBus);
     }
     
+    @OnlyIn(Dist.CLIENT)
     public void client(FMLClientSetupEvent event)
     {
 	basic.setupClient(this);

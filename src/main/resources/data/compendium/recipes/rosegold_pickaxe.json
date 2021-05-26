@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "rir",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/rosegold"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/rosegold"
+    },
+    "o": {
+      "tag": "forge:rivets/rosegold"
+    },
+    "n": {
+      "tag": "forge:nuggets/rosegold"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:rosegoldpickaxe"
+  }
+}

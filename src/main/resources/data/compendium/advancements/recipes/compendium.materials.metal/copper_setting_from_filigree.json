@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:copper_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "copperrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:filigree/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:copper_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "copperrod",
+      "has_the_recipe"
+    ]
+  ]
+}

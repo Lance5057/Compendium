@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/silver"
+    },
+    "p": {
+      "tag": "forge:nuggets/silver"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:silversetting",
+    "count": 4
+  }
+}

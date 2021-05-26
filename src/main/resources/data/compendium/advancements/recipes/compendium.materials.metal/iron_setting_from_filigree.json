@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:iron_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "ironrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:filigree/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:iron_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ironrod",
+      "has_the_recipe"
+    ]
+  ]
+}

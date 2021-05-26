@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/silver"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:silverrod",
+    "count": 6
+  }
+}

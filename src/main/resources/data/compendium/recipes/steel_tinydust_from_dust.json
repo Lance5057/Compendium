@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/steel"
+    }
+  ],
+  "result": {
+    "item": "compendium:steeltinydust",
+    "count": 9
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:steeltinydust"
+  },
+  "result": {
+    "item": "compendium:steel_nugget"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

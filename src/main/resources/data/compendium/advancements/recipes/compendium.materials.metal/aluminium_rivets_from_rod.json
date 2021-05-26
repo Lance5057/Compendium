@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:aluminium_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "aluminiumrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/aluminium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:aluminium_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aluminiumrod",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,11 +1,9 @@
 package lance5057.compendium.core.library;
 
 import lance5057.compendium.core.data.builders.TCItemTags;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.ITag.INamedTag;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.RegistryObject;
 
 public class CompendiumTags {
     public static final INamedTag<Item> DUST = TCItemTags.ItemTag("dusts");
@@ -26,4 +24,10 @@ public class CompendiumTags {
     public static final INamedTag<Item> RIVETS = TCItemTags.ItemTag("rivets");
     public static final INamedTag<Item> TINYDUST = TCItemTags.ItemTag("tinydusts");
     public static final INamedTag<Item> KEY = TCItemTags.ItemTag("keys");
+
+    public static final INamedTag<Item> HAMMER = TCItemTags.ItemTag("tools/hammers");
+
+    // Blocks
+    public static final INamedTag<Block> SHINGLESCAP = TCItemTags.BlockTag("shinglescap");
+    public static final INamedTag<Block> SHINGLES = TCItemTags.BlockTag("shinglescap");
 }

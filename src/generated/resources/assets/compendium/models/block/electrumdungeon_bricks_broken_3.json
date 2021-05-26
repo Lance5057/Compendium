@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compendium:block/material/electrum/electrumdungeon_bricks_broken_3"
+  }
+}

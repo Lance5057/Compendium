@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_wires_from_rod"
+    ]
+  },
+  "criteria": {
+    "bronzerod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/bronze"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_wires_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzerod",
+      "has_the_recipe"
+    ]
+  ]
+}

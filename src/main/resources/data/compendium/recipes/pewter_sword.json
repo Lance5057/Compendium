@@ -1,0 +1,30 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " i ",
+    " i ",
+    "rso",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/pewter"
+    },
+    "r": {
+      "tag": "forge:rods/pewter"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "tag": "forge:rivets/pewter"
+    },
+    "n": {
+      "tag": "forge:nuggets/pewter"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:pewtersword"
+  }
+}

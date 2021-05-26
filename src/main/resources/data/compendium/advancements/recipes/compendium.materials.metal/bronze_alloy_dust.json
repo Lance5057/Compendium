@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_alloy_dust"
+    ]
+  },
+  "criteria": {
+    "bronze_dust_alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "compendium:copperdust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_alloy_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronze_dust_alloy",
+      "has_the_recipe"
+    ]
+  ]
+}

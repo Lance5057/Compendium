@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_side",
+  "textures": {
+    "0": "compendium:block/material/steel/steelshingles",
+    "1": "compendium:block/material/steel/steelshingles",
+    "2": "compendium:block/material/steel/steelshingles"
+  }
+}

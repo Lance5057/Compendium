@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "brassplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/brass"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassplate",
+      "has_the_recipe"
+    ]
+  ]
+}

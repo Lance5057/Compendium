@@ -3,6 +3,8 @@ package lance5057.compendium.indexes.metals;
 import java.util.ArrayList;
 import java.util.List;
 
+import lance5057.compendium.appendixes.construction.AppendixConstruction;
+import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
 import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
 import lance5057.compendium.appendixes.oredressing.AppendixOreDressing;
@@ -91,10 +93,11 @@ public class IndexBaseMetals {
 
     public IndexBaseMetals() {
 	// ALUMINIUM ------------------------------------------------------//
-	MetallurgyMaterialHelper aluminium = new MetallurgyMaterialHelper("aluminium", IndexBaseMetals.ALUMINIUM_TIER).withBase()
-		.withVanillaTools().withComponents().withAdvancedTools();
+	MetallurgyMaterialHelper aluminium = new MetallurgyMaterialHelper("aluminium", IndexBaseMetals.ALUMINIUM_TIER)
+		.withBase().withVanillaTools().withComponents().withAdvancedTools();
 	ALUMINIUM.add(aluminium);
 	AppendixMetallurgy.metals.add(aluminium);
+
 	OreDressingMaterialHelper oreAluminium = new OreDressingMaterialHelper("aluminium")
 		.withOre(4, 1, ToolType.PICKAXE, 3, 64, 32, 4, 50, Category.NONE)
 		.withDenseOre(5, 1, ToolType.PICKAXE, 4, 64, 32, 4, 25, Category.NONE)
@@ -102,17 +105,29 @@ public class IndexBaseMetals {
 	ALUMINIUM.add(oreAluminium);
 	AppendixOreDressing.ores.add(oreAluminium);
 
+	ConstructionMaterialHelper constructionAluminium = new ConstructionMaterialHelper("aluminium").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionAluminium);
+
 	// BRASS ------------------------------------------------------//
 	MetallurgyMaterialHelper brass = new MetallurgyMaterialHelper("brass", IndexBaseMetals.BRASS_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
 	BRASS.add(brass);
 	AppendixMetallurgy.metals.add(brass);
+	
+	ConstructionMaterialHelper constructionBrass = new ConstructionMaterialHelper("brass").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionBrass);
 
 	// BRONZE ------------------------------------------------------//
 	MetallurgyMaterialHelper bronze = new MetallurgyMaterialHelper("bronze", IndexBaseMetals.BRONZE_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
 	BRONZE.add(bronze);
 	AppendixMetallurgy.metals.add(bronze);
+	
+	ConstructionMaterialHelper constructionBronze = new ConstructionMaterialHelper("bronze").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionBronze);
 
 	// COPPER ------------------------------------------------------//
 	MetallurgyMaterialHelper copper = new MetallurgyMaterialHelper("copper", IndexBaseMetals.COPPER_TIER).withBase()
@@ -125,6 +140,10 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 64, 32, 8, 4, Category.NONE);
 	COPPER.add(oreCopper);
 	AppendixOreDressing.ores.add(oreCopper);
+	
+	ConstructionMaterialHelper constructionCopper = new ConstructionMaterialHelper("copper").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionCopper);
 
 	// ELECTRUM ------------------------------------------------------//
 	MetallurgyMaterialHelper electrum = new MetallurgyMaterialHelper("electrum", IndexBaseMetals.ELECTRUM_TIER)
@@ -132,6 +151,10 @@ public class IndexBaseMetals {
 	ELECTRUM.add(electrum);
 	AppendixMetallurgy.metals.add(electrum);
 
+	ConstructionMaterialHelper constructionElectrum = new ConstructionMaterialHelper("electrum").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionElectrum);
+	
 	// NICKEL ------------------------------------------------------//
 	MetallurgyMaterialHelper nickel = new MetallurgyMaterialHelper("nickel", IndexBaseMetals.NICKEL_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
@@ -143,12 +166,20 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 3, ToolType.PICKAXE, 2, 32, 16, 4, 4, Category.NONE);
 	NICKEL.add(oreNickel);
 	AppendixOreDressing.ores.add(oreNickel);
+	
+	ConstructionMaterialHelper constructionNickel = new ConstructionMaterialHelper("nickel").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionNickel);
 
 	// STEEL ------------------------------------------------------//
 	MetallurgyMaterialHelper steel = new MetallurgyMaterialHelper("steel", IndexBaseMetals.STEEL_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
 	STEEL.add(steel);
 	AppendixMetallurgy.metals.add(steel);
+	
+	ConstructionMaterialHelper constructionSteel = new ConstructionMaterialHelper("steel").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionSteel);
 
 	// TIN ------------------------------------------------------//
 	MetallurgyMaterialHelper tin = new MetallurgyMaterialHelper("tin", IndexBaseMetals.TIN_TIER).withBase()
@@ -161,6 +192,10 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 64, 32, 8, 4, Category.NONE);
 	TIN.add(oreTin);
 	AppendixOreDressing.ores.add(oreTin);
+	
+	ConstructionMaterialHelper constructionTin = new ConstructionMaterialHelper("tin").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionTin);
 
 	// ZINC ------------------------------------------------------//
 	MetallurgyMaterialHelper zinc = new MetallurgyMaterialHelper("zinc", IndexBaseMetals.ZINC_TIER).withBase()
@@ -173,12 +208,20 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 48, 32, 8, 4, Category.NONE);
 	ZINC.add(oreZinc);
 	AppendixOreDressing.ores.add(oreZinc);
+	
+	ConstructionMaterialHelper constructionZinc = new ConstructionMaterialHelper("zinc").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionZinc);
 
 	// ROSEGOLD ------------------------------------------------------//
 	MetallurgyMaterialHelper rosegold = new MetallurgyMaterialHelper("rosegold", IndexBaseMetals.ROSEGOLD_TIER)
 		.withBase().withVanillaTools().withComponents().withAdvancedTools();
 	ROSEGOLD.add(rosegold);
 	AppendixMetallurgy.metals.add(rosegold);
+	
+	ConstructionMaterialHelper constructionRosegold = new ConstructionMaterialHelper("rosegold").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionRosegold);
 
 	// PLATINUM ------------------------------------------------------//
 	MetallurgyMaterialHelper platinum = new MetallurgyMaterialHelper("platinum", IndexBaseMetals.PLATINUM_TIER)
@@ -191,6 +234,10 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 16, 4, 4, 4, Category.NONE);
 	PLATINUM.add(orePlatinum);
 	AppendixOreDressing.ores.add(orePlatinum);
+	
+	ConstructionMaterialHelper constructionPlatinum = new ConstructionMaterialHelper("platinum").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionPlatinum);
 
 	// SILVER ------------------------------------------------------//
 	MetallurgyMaterialHelper silver = new MetallurgyMaterialHelper("silver", IndexBaseMetals.SILVER_TIER).withBase()
@@ -203,12 +250,20 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 48, 16, 8, 4, Category.NONE);
 	SILVER.add(oreSilver);
 	AppendixOreDressing.ores.add(oreSilver);
+	
+	ConstructionMaterialHelper constructionSilver = new ConstructionMaterialHelper("silver").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionSilver);
 
 	// PEWTER ------------------------------------------------------//
 	MetallurgyMaterialHelper pewter = new MetallurgyMaterialHelper("pewter", IndexBaseMetals.PEWTER_TIER).withBase()
 		.withVanillaTools().withComponents().withAdvancedTools();
 	PEWTER.add(pewter);
 	AppendixMetallurgy.metals.add(pewter);
+	
+	ConstructionMaterialHelper constructionPewter = new ConstructionMaterialHelper("pewter").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionPewter);
 
 	// LEAD ------------------------------------------------------//
 	MetallurgyMaterialHelper lead = new MetallurgyMaterialHelper("lead", IndexBaseMetals.LEAD_TIER).withBase()
@@ -221,5 +276,9 @@ public class IndexBaseMetals {
 		.withSparseOre(3, 2, ToolType.PICKAXE, 2, 48, 16, 8, 4, Category.NONE);
 	LEAD.add(oreLead);
 	AppendixOreDressing.ores.add(oreLead);
+	
+	ConstructionMaterialHelper constructionLead = new ConstructionMaterialHelper("lead").withBase()
+		.withDungeon().withShingles();
+	AppendixConstruction.constructs.add(constructionLead);
     }
 }

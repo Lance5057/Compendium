@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/platinum"
+    },
+    "p": {
+      "tag": "forge:nuggets/platinum"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:platinumsetting",
+    "count": 4
+  }
+}

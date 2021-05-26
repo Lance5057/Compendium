@@ -1,0 +1,30 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ioi",
+    "iri",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/silver"
+    },
+    "r": {
+      "tag": "forge:rods/silver"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "tag": "forge:rivets/silver"
+    },
+    "n": {
+      "tag": "forge:nuggets/silver"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:silverhammer"
+  }
+}

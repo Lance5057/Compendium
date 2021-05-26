@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:rods/aluminium"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:aluminiumrivets",
+    "count": 4
+  }
+}

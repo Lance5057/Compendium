@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/bronze"
+    },
+    "p": {
+      "tag": "forge:nuggets/bronze"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:bronzesetting",
+    "count": 4
+  }
+}

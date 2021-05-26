@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " p ",
+    "psp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/nickel"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:nickelcoil"
+  }
+}

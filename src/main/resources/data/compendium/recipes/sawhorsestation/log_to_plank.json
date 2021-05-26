@@ -1,0 +1,8 @@
+{
+  "type": "compendium:sawhorse_station",
+  "strikes": 2,
+  "input": {
+    "item": "minecraft:oak_log"
+  },
+  "output": "compendium:recipese/sawhorse/oak_log"
+}

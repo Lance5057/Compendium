@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.function.Function;
 
 import lance5057.compendium.Compendium;
+import lance5057.compendium.CompendiumItems;
+import lance5057.compendium.appendixes.carpentry.data.CarpentryItemTags;
+import lance5057.compendium.appendixes.construction.data.ConstructionItemTags;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalItemTags;
+import lance5057.compendium.core.library.CompendiumTags;
 import net.minecraft.block.Block;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -13,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public class TCItemTags extends ItemTagsProvider {
@@ -24,7 +29,15 @@ public class TCItemTags extends ItemTagsProvider {
 
     @Override
     protected void registerTags() {
+	
+	this.getOrCreateBuilder(CompendiumTags.HAMMER).add(CompendiumItems.CRUDE_HAMMER.get());
+	INamedTag<Item> HAMMER_MATERIAL = TCItemTags.ItemTag("tools/hammers/crude");
+	this.getOrCreateBuilder(HAMMER_MATERIAL).add(CompendiumItems.CRUDE_HAMMER.get());
+	
 	MetalItemTags.registerTags(this);
+	ConstructionItemTags.registerTags(this);
+	CarpentryItemTags.registerTags(this);
+	
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //
 //	    // Premade Materials

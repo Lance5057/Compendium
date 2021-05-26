@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/brass"
+    },
+    "s": {
+      "tag": "forge:nuggets/brass"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:brassclasp",
+    "count": 4
+  }
+}

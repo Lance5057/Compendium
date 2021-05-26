@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer1": "compendium:item/material/aluminium/aluminiumbow",
+    "layer0": "minecraft:item/bow"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:pulling": 1.0
+      },
+      "model": "compendium:item/aluminiumbow_0"
+    },
+    {
+      "predicate": {
+        "minecraft:pulling": 1.0,
+        "minecraft:pull": 0.65
+      },
+      "model": "compendium:item/aluminiumbow_1"
+    },
+    {
+      "predicate": {
+        "minecraft:pulling": 1.0,
+        "minecraft:pull": 0.9
+      },
+      "model": "compendium:item/aluminiumbow_2"
+    }
+  ]
+}

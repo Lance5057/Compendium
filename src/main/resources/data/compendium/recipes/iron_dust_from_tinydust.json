@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    },
+    {
+      "tag": "forge:tiny_dusts/iron"
+    }
+  ],
+  "result": {
+    "item": "compendium:irondust"
+  }
+}

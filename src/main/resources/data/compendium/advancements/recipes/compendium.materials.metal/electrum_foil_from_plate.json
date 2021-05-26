@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "electrumplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/electrum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumplate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "s s",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/tin"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:tinringshank",
+    "count": 4
+  }
+}

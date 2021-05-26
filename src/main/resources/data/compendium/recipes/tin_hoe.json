@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/tin"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/tin"
+    },
+    "o": {
+      "tag": "forge:rivets/tin"
+    },
+    "n": {
+      "tag": "forge:nuggets/tin"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:tinhoe"
+  }
+}

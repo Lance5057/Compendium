@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/rosegold"
+    },
+    "p": {
+      "tag": "forge:nuggets/rosegold"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:rosegoldsetting",
+    "count": 4
+  }
+}

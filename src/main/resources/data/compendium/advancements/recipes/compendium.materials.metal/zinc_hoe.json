@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:zinc_hoe"
+    ]
+  },
+  "criteria": {
+    "zincingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/zinc"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:zinc_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "zincingot",
+      "has_the_recipe"
+    ]
+  ]
+}

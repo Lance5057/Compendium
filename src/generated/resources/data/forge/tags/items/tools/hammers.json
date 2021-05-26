@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:crude_hammer",
+    "compendium:aluminiumhammer",
+    "compendium:brasshammer",
+    "compendium:bronzehammer",
+    "compendium:copperhammer",
+    "compendium:electrumhammer",
+    "compendium:nickelhammer",
+    "compendium:steelhammer",
+    "compendium:tinhammer",
+    "compendium:zinchammer",
+    "compendium:rosegoldhammer",
+    "compendium:platinumhammer",
+    "compendium:silverhammer",
+    "compendium:pewterhammer",
+    "compendium:leadhammer",
+    "compendium:ironhammer",
+    "compendium:goldhammer"
+  ]
+}

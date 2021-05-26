@@ -1,11 +1,13 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.items.MegalithStoneItem;
-import net.minecraft.item.BlockItem;
+import lance5057.compendium.core.items.projectiles.GrenadeItem;
+import lance5057.compendium.core.items.tools.HammerItem;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTier;
 import net.minecraft.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -54,16 +56,22 @@ public class CompendiumItems {
 	    () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
     public static final RegistryObject<Item> BARK = ITEMS.register("bark",
 	    () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+    
+    public static final RegistryObject<Item> CRUDE_HAMMER = ITEMS.register("crude_hammer",
+	    () -> new HammerItem(ItemTier.STONE, 0, 0, new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+    
+    public static final RegistryObject<GrenadeItem> MINER_GRENADE = ITEMS.register("grenade",
+	    () -> new GrenadeItem(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
 
-    public static RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK = ITEMS.register("item_empty_shinglesblock",
-	    () -> new BlockItem(CompendiumBlocks.SHINGLES_BLOCK.get(),
-		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
-    public static RegistryObject<BlockItem> ITEM_SHINGLES = ITEMS.register("item_empty_shingles",
-	    () -> new BlockItem(CompendiumBlocks.SHINGLES.get(),
-		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
-    public static RegistryObject<BlockItem> ITEM_SHINGLES_ALT = ITEMS.register("item_empty_shinglesalt",
-	    () -> new BlockItem(CompendiumBlocks.SHINGLES_ALT.get(),
-		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+//    public static RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK = ITEMS.register("item_empty_shinglesblock",
+//	    () -> new BlockItem(CompendiumBlocks.SHINGLES_BLOCK.get(),
+//		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+//    public static RegistryObject<BlockItem> ITEM_SHINGLES = ITEMS.register("item_empty_shingles",
+//	    () -> new BlockItem(CompendiumBlocks.SHINGLES.get(),
+//		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+//    public static RegistryObject<BlockItem> ITEM_SHINGLES_ALT = ITEMS.register("item_empty_shinglesalt",
+//	    () -> new BlockItem(CompendiumBlocks.SHINGLES_ALT.get(),
+//		    new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
 
     public static void register(IEventBus modBus) {
 	ITEMS.register(modBus);

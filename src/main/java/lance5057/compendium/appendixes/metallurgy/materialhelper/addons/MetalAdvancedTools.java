@@ -4,8 +4,13 @@ import javax.annotation.Nullable;
 
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.core.data.builders.TCBlockModels;
+import lance5057.compendium.core.data.builders.TCEnglishLoc;
+import lance5057.compendium.core.data.builders.TCItemModels;
+import lance5057.compendium.core.data.builders.loottables.BlockLoot;
 import lance5057.compendium.core.items.tools.HammerItem;
 import lance5057.compendium.core.items.tools.SawItem;
+import lance5057.compendium.core.items.weapons.ZweihanderItem;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.client.world.ClientWorld;
@@ -16,12 +21,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.model.generators.ModelBuilder.Perspective;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MetalAdvancedTools implements MaterialBase {
 
     public RegistryObject<Item> BOW;
+    public RegistryObject<Item> ZWEIHANDER;
 //	public Item crossbow;
 //	public Item shield;
     public RegistryObject<Item> HAMMER;
@@ -35,11 +44,14 @@ public class MetalAdvancedTools implements MaterialBase {
 	BOW = mh.ITEMS.register(mh.name + "bow",
 		() -> new BowItem(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	HAMMER = mh.ITEMS.register(mh.name + "hammer",
-		() -> new HammerItem(mh.tier, 5, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	SAW = mh.ITEMS.register(mh.name + "saw",
-		() -> new SawItem(mh.tier, 6, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+		() -> new SawItem(mh.tier, 0, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	ZWEIHANDER = mh.ITEMS.register(mh.name + "zweihander", () -> new ZweihanderItem(mh.tier, 5, -2.6F,
+		new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void setupClient(MaterialHelperBase mat) {
 	// TODO Auto-generated method stub
@@ -69,6 +81,60 @@ public class MetalAdvancedTools implements MaterialBase {
     @Override
     public void setup(FMLCommonSetupEvent event) {
 	// TODO Auto-generated method stub
+
+    }
+
+    public static void registerBlockModels(MetalAdvancedTools m, TCBlockModels model, String name) {
+
+    }
+
+    public static void registerItemModels(MetalAdvancedTools m, TCItemModels model, String name) {
+	model.withExistingParent(m.HAMMER.getId().getPath(), model.mcLoc("item/handheld"))
+		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.HAMMER.getId().getPath()))
+		.texture("layer1", model.modLoc("item/hammerbase"));
+	model.withExistingParent(m.SAW.getId().getPath(), model.mcLoc("item/handheld"))
+		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.SAW.getId().getPath()))
+		.texture("layer1", model.modLoc("item/sawbase"));
+	model.withExistingParent(m.ZWEIHANDER.getId().getPath(), model.mcLoc("item/handheld")).transforms()
+		.transform(Perspective.FIRSTPERSON_LEFT).scale(1.5f).rotation(90, 0, 0).translation(1, 0, 0).end()
+		.transform(Perspective.FIRSTPERSON_RIGHT).scale(1.5f).rotation(90, 0, 0).translation(1, 0, 0).end()
+		.transform(Perspective.THIRDPERSON_LEFT).scale(1.5f).rotation(0, 90, -45).translation(0, 8, 0).end()
+		.transform(Perspective.THIRDPERSON_RIGHT).scale(1.5f).rotation(0, 90, 45).translation(0, 8, 0).end().end()
+		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.ZWEIHANDER.getId().getPath()))
+		.texture("layer1", model.modLoc("item/zweihander_base"));
+
+	model.withExistingParent(m.BOW.getId().getPath(), model.mcLoc("item/handheld"))
+		.texture("layer1", model.modLoc("item/material/" + name + "/" + m.BOW.getId().getPath()))
+		.texture("layer0", model.mcLoc("item/bow")).override().predicate(model.mcLoc("pulling"), 1)
+
+		.model(model.withExistingParent(m.BOW.getId().getPath() + "_0", model.mcLoc("item/handheld"))
+			.texture("layer1",
+				model.modLoc("item/material/" + name + "/" + m.BOW.getId().getPath() + "_pulling_0"))
+			.texture("layer0", model.mcLoc("item/bow_pulling_0")))
+		.end()
+
+		.override().predicate(model.mcLoc("pulling"), 1).predicate(model.mcLoc("pull"), 0.65f)
+		.model(model.withExistingParent(m.BOW.getId().getPath() + "_1", model.mcLoc("item/handheld"))
+			.texture("layer1",
+				model.modLoc("item/material/" + name + "/" + m.BOW.getId().getPath() + "_pulling_1"))
+			.texture("layer0", model.mcLoc("item/bow_pulling_1")))
+		.end()
+
+		.override().predicate(model.mcLoc("pulling"), 1).predicate(model.mcLoc("pull"), 0.9f)
+		.model(model.withExistingParent(m.BOW.getId().getPath() + "_2", model.mcLoc("item/handheld"))
+			.texture("layer1",
+				model.modLoc("item/material/" + name + "/" + m.BOW.getId().getPath() + "_pulling_2"))
+			.texture("layer0", model.mcLoc("item/bow_pulling_2")));
+    }
+
+    public static void addTranslations(MetalAdvancedTools m, TCEnglishLoc loc, String capName) {
+	loc.add(m.BOW.get(), capName + " Bow");
+	loc.add(m.HAMMER.get(), capName + " Hammer");
+	loc.add(m.SAW.get(), capName + " Saw");
+	loc.add(m.ZWEIHANDER.get(), capName + " Zweihander");
+    }
+
+    public static void build(MetalAdvancedTools m, BlockLoot table) {
 
     }
 

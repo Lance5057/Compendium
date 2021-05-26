@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "compendium:block/material/tin/tindungeon_pillar",
+    "end": "compendium:block/material/tin/tindungeon_square"
+  }
+}

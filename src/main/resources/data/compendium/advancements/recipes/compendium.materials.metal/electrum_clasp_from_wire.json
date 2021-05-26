@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:electrum_clasp_from_wire"
+    ]
+  },
+  "criteria": {
+    "electrumwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/electrum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:electrum_clasp_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrumwire",
+      "has_the_recipe"
+    ]
+  ]
+}

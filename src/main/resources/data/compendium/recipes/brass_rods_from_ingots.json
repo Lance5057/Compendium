@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "p",
+    "p"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:ingots/brass"
+    }
+  },
+  "strikes": 12,
+  "result": {
+    "item": "compendium:brassrod",
+    "count": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "ili"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "compendium:hammering_station_itemblock"
+  }
+}

@@ -6,16 +6,12 @@ import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMat
 import lance5057.compendium.core.data.builders.loottables.BlockLoot;
 
 public class MetalBlockLoot {
-    public static void build(BlockLoot table)
-    {
+    public static void build(BlockLoot table) {
 	for (MetallurgyMaterialHelper mh : AppendixMetallurgy.metals) {
-	    if(mh.hasBase())
-	    {
-		MetalMaterialBasic b = mh.getBase();
-		
-		table.registerDropSelfLootTable(b.STORAGE_BLOCK.get());
+	    if (mh.hasBase()) {
+		MetalMaterialBasic.buildLootTable(mh.getBase(), table, mh.name);
 	    }
-	
+
 	}
     }
 }

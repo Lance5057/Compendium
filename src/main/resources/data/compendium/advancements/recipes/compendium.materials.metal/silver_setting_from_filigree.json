@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:silver_setting_from_filigree"
+    ]
+  },
+  "criteria": {
+    "silverrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:filigree/silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:silver_setting_from_filigree"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silverrod",
+      "has_the_recipe"
+    ]
+  ]
+}

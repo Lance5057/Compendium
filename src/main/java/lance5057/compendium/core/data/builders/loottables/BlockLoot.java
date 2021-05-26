@@ -1,6 +1,8 @@
 package lance5057.compendium.core.data.builders.loottables;
 
 import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.appendixes.carpentry.data.loottables.CarpentryBlockLoot;
+import lance5057.compendium.appendixes.construction.data.loottables.ConstructionBlockLoot;
 import lance5057.compendium.appendixes.metallurgy.data.builders.loottables.MetalBlockLoot;
 import lance5057.compendium.appendixes.oredressing.data.builders.loottables.OreBlockLoot;
 import net.minecraft.data.loot.BlockLootTables;
@@ -11,12 +13,15 @@ public class BlockLoot extends BlockLootTables {
 	this.registerDropSelfLootTable(CompendiumBlocks.CRAFTING_ANVIL.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.SAWHORSE_STATION.get());
 
-	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES.get());
-	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_ALT.get());
-	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_BLOCK.get());
+//	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES.get());
+//	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_ALT.get());
+//	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES_BLOCK.get());
 
 	MetalBlockLoot.build(this);
 	OreBlockLoot.build(this);
+	ConstructionBlockLoot.build(this);
+	CarpentryBlockLoot.build(this);
+	
 	// this.registerDropSelfLootTable(CompendiumBlocks.VAULT.get());
 
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {

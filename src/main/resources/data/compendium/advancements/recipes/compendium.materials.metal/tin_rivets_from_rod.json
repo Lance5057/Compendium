@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:tin_rivets_from_rod"
+    ]
+  },
+  "criteria": {
+    "tinrod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wires/tin"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:tin_rivets_from_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tinrod",
+      "has_the_recipe"
+    ]
+  ]
+}

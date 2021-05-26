@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:copper_dust_from_tinydust"
+    ]
+  },
+  "criteria": {
+    "coppertinydust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:tiny_dusts/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:copper_dust_from_tinydust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "coppertinydust",
+      "has_the_recipe"
+    ]
+  ]
+}

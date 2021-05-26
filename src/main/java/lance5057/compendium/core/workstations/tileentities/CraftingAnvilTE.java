@@ -133,6 +133,7 @@ public class CraftingAnvilTE extends TileEntity implements INamedContainerProvid
 					world.addParticle(new ItemParticleData(ParticleTypes.ITEM, ghostStack), pos.getX() + 0.5f, pos.getY() + 1, pos.getZ() + 0.5f, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2, (world.rand.nextFloat() - 0.5f) / 2);
 				}
 				world.playSound(playerEntity, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1, 0);
+				hammer.damageItem(1, playerEntity, null);
 
 				handler.ifPresent(h -> {
 					ItemStack item = r.getRecipeOutput().copy();

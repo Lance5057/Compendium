@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:silver_plates_from_ingots"
+    ]
+  },
+  "criteria": {
+    "silveringot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:silver_plates_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silveringot",
+      "has_the_recipe"
+    ]
+  ]
+}

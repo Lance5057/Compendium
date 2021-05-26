@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "  n",
+    "iso",
+    "r o",
+    "iso",
+    "  n"
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:rosegoldplate"
+    },
+    "r": {
+      "tag": "forge:rods/rosegold"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "minecraft:string"
+    },
+    "n": {
+      "tag": "forge:nuggets/rosegold"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:rosegoldbow"
+  }
+}

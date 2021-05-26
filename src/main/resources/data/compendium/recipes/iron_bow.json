@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "  n",
+    "iso",
+    "r o",
+    "iso",
+    "  n"
+  ],
+  "key": {
+    "i": {
+      "item": "compendium:ironplate"
+    },
+    "r": {
+      "tag": "forge:rods/iron"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "minecraft:string"
+    },
+    "n": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:ironbow"
+  }
+}

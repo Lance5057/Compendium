@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/iron"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:ironjumprings",
+    "count": 8
+  }
+}

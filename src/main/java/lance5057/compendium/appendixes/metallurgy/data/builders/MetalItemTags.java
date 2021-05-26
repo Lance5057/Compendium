@@ -3,6 +3,7 @@ package lance5057.compendium.appendixes.metallurgy.data.builders;
 import lance5057.compendium.Compendium;
 import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalAdvancedTools;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialBasic;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialComponents;
 import lance5057.compendium.core.data.builders.TCItemTags;
@@ -18,23 +19,15 @@ public class MetalItemTags {
 
 	for (MetallurgyMaterialHelper mh : AppendixMetallurgy.metals) {
 
-	    if (mh.hasBase()) {
-		MetalMaterialBasic b = mh.getBase();
+	    if (mh.hasBase())
+		MetalMaterialBasic.registerTags(mh.getBase(), itp, mh.name);
 
-		// Ingot
-		itp.getOrCreateBuilder(Tags.Items.INGOTS).add(b.INGOT.get());
-		INamedTag<Item> INGOT_MATERIAL = TCItemTags.ItemTag("ingots/" + mh.name);
-		itp.getOrCreateBuilder(INGOT_MATERIAL).add(b.INGOT.get());
+	    if (mh.hasAdvancedTools()) {
+		MetalAdvancedTools b = mh.getAdvancedTools();
 
-		// Nugget
-		itp.getOrCreateBuilder(Tags.Items.NUGGETS).add(b.NUGGET.get());
-		INamedTag<Item> NUGGET_MATERIAL = TCItemTags.ItemTag("nuggets/" + mh.name);
-		itp.getOrCreateBuilder(NUGGET_MATERIAL).add(b.NUGGET.get());
-
-		// Storage Block
-		itp.getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(b.STORAGE_ITEMBLOCK.get());
-		INamedTag<Item> BLOCK_MATERIAL = TCItemTags.ItemTag("storage_blocks/" + mh.name);
-		itp.getOrCreateBuilder(BLOCK_MATERIAL).add(b.STORAGE_ITEMBLOCK.get());
+		itp.getOrCreateBuilder(CompendiumTags.HAMMER).add(b.HAMMER.get());
+		INamedTag<Item> HAMMER_MATERIAL = TCItemTags.ItemTag("hammers/" + mh.name);
+		itp.getOrCreateBuilder(HAMMER_MATERIAL).add(b.HAMMER.get());
 	    }
 
 	    if (mh.hasComponents()) {

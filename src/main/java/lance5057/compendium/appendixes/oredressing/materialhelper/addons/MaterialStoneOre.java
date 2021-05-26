@@ -1,9 +1,11 @@
 package lance5057.compendium.appendixes.oredressing.materialhelper.addons;
 
 import lance5057.compendium.appendixes.oredressing.materialhelper.OreDressingMaterialHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.feature.template.RuleTest;
+import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 
 public class MaterialStoneOre extends MaterialOre {
@@ -14,10 +16,10 @@ public class MaterialStoneOre extends MaterialOre {
     }
 
     @Override
-    public Block replace(OreDressingMaterialHelper mh) {
+    public RuleTest replace(OreDressingMaterialHelper mh) {
 	if(mh.hasSparseOre())
-	    return mh.getSparseOre().ORE.get();
-	return Blocks.STONE;
+	    return new BlockMatchRuleTest(mh.getSparseOre().ORE.get());
+	return new TagMatchRuleTest(Tags.Blocks.STONE);
     }
 
 }

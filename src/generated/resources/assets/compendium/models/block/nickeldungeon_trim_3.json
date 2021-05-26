@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/dungeon_trim_3",
+  "textures": {
+    "0": "compendium:block/material/nickel/nickeldungeon_bricks"
+  }
+}

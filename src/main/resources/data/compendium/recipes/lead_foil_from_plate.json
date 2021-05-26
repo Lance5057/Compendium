@@ -1,0 +1,16 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:plates/lead"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:leadfoil",
+    "count": 4
+  }
+}

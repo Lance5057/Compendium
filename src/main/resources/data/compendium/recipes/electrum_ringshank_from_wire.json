@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "s s",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/electrum"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:electrumringshank",
+    "count": 4
+  }
+}

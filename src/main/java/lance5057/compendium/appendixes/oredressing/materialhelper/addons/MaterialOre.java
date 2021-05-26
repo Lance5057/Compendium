@@ -22,9 +22,12 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
+import net.minecraft.world.gen.feature.template.RuleTest;
+import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -120,7 +123,7 @@ public abstract class MaterialOre implements MaterialBase {
 
 	    generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 		    Feature.ORE
-			    .withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(replace(mh)),
+			    .withConfiguration(new OreFeatureConfig(replace(mh),
 				    ORE.get().getDefaultState(), oreSize))
 			    .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(oreYMin, 0, oreYMax)))
 			    .square().func_242731_b(oreChance));
@@ -140,5 +143,5 @@ public abstract class MaterialOre implements MaterialBase {
 	}
     }
 
-    public abstract Block replace(OreDressingMaterialHelper mh);
+    public abstract RuleTest replace(OreDressingMaterialHelper mh);
 }

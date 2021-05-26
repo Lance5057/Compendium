@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/zincdungeon_bricks_broken"
+      },
+      {
+        "model": "compendium:block/zincdungeon_bricks_broken_2"
+      },
+      {
+        "model": "compendium:block/zincdungeon_bricks_broken_3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    },
+    {
+      "tag": "forge:tiny_dusts/gold"
+    }
+  ],
+  "result": {
+    "item": "compendium:golddust"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/copper"
+    },
+    "s": {
+      "tag": "forge:nuggets/copper"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:copperclasp",
+    "count": 4
+  }
+}

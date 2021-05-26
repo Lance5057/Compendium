@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/bronze"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/bronze"
+    },
+    "o": {
+      "tag": "forge:rivets/bronze"
+    },
+    "n": {
+      "tag": "forge:nuggets/bronze"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:bronzehoe"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/pewter"
+    },
+    "s": {
+      "tag": "forge:nuggets/pewter"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:pewterclasp",
+    "count": 4
+  }
+}

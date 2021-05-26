@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/brass"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:brassjumprings",
+    "count": 8
+  }
+}

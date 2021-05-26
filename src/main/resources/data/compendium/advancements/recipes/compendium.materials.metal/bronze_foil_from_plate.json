@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_foil_from_plate"
+    ]
+  },
+  "criteria": {
+    "bronzeplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/bronze"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_foil_from_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzeplate",
+      "has_the_recipe"
+    ]
+  ]
+}

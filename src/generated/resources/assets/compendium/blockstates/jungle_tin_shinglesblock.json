@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "compendium:block/tin_shingle_block"
+    }
+  }
+}

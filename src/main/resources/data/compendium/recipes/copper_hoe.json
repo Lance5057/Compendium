@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/copper"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/copper"
+    },
+    "o": {
+      "tag": "forge:rivets/copper"
+    },
+    "n": {
+      "tag": "forge:nuggets/copper"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:copperhoe"
+  }
+}

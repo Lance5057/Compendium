@@ -1,0 +1,8 @@
+{
+  "type": "compendium:sawhorse_station",
+  "strikes": 2,
+  "input": {
+    "tag": "minecraft:planks"
+  },
+  "output": "minecraft:recipes/sawhorse/planks"
+}

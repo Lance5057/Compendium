@@ -3,6 +3,8 @@ package lance5057.compendium.core.data.builders;
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.carpentry.data.CarpentryEnglishLoc;
+import lance5057.compendium.appendixes.construction.data.ConstructionEnglishLoc;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalEnglishLoc;
 import lance5057.compendium.appendixes.oredressing.data.builders.OreEnglishLoc;
 import net.minecraft.data.DataGenerator;
@@ -25,8 +27,13 @@ public class TCEnglishLoc extends LanguageProvider {
 	this.add(CompendiumItems.HAMMERING_STATION_ITEMBLOCK.get(), "Hammering Station");
 	this.add(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK.get(), "Sawbuck");
 	
+	this.add(CompendiumItems.CRUDE_HAMMER.get(), "Crude Hammer");
+	this.add(CompendiumItems.MINER_GRENADE.get(), "Mining Grenade");
+	
 	MetalEnglishLoc.addTranslations(this);
 	OreEnglishLoc.addTranslations(this);
+	ConstructionEnglishLoc.addTranslations(this);
+	CarpentryEnglishLoc.addTranslations(this);
 
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //

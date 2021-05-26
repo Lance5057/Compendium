@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/aluminium"
+    },
+    "p": {
+      "tag": "forge:nuggets/aluminium"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:aluminiumsetting",
+    "count": 4
+  }
+}

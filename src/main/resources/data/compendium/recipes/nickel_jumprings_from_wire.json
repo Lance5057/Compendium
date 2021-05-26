@@ -1,0 +1,17 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/nickel"
+    }
+  },
+  "strikes": 2,
+  "result": {
+    "item": "compendium:nickeljumprings",
+    "count": 8
+  }
+}

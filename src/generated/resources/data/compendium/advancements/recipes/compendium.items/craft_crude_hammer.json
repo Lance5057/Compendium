@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:craft_crude_hammer"
+    ]
+  },
+  "criteria": {
+    "stick_get": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:craft_crude_hammer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "stick_get",
+      "has_the_recipe"
+    ]
+  ]
+}

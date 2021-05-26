@@ -1,11 +1,13 @@
 package lance5057.compendium.core.workstations.blocks;
 
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.core.items.tools.HammerItem;
+import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,6 +28,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
@@ -78,10 +81,10 @@ public class CraftingAnvilBlock extends Block implements IWaterLoggable {
 
 		// Hit it!
 		// Try main hand, only try off hand if that fails
-		if (heldmain.getItem() instanceof HammerItem) {
+		if (CompendiumTags.HAMMER.contains(heldmain.getItem())) {
 		    te.hammer(player, heldmain);
 		    success = true;
-		} else if (heldoff.getItem() instanceof HammerItem) {
+		} else if (CompendiumTags.HAMMER.contains(heldoff.getItem())) {
 		    te.hammer(player, heldoff);
 		    success = true;
 		}

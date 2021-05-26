@@ -1,6 +1,9 @@
 package lance5057.compendium.appendixes.metallurgy.materialhelper.addons;
 
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.core.data.builders.TCBlockModels;
+import lance5057.compendium.core.data.builders.TCEnglishLoc;
+import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import net.minecraft.item.Item;
@@ -83,5 +86,51 @@ public class MetalMaterialComponents implements MaterialBase {
     public void setup(FMLCommonSetupEvent event) {
 	// TODO Auto-generated method stub
 
+    }
+
+    public static void registerBlockModels(MetalMaterialComponents m, TCBlockModels model, String name) {
+
+    }
+
+    public static void registerItemModels(MetalMaterialComponents m, TCItemModels model, String name) {
+	model.forMaterialItem(m.SETTING, name);
+	model.forMaterialItem(m.JUMPRINGS, name);
+	model.forMaterialItem(m.FILIGREE, name);
+	model.forMaterialItem(m.FOIL, name);
+	model.forMaterialItem(m.COIL, name);
+	model.forMaterialItem(m.SPRING, name);
+	model.forMaterialItem(m.CASING, name);
+	model.forMaterialItem(m.WIRE, name);
+	model.forMaterialItem(m.CLASP, name);
+	model.forMaterialItem(m.RINGSHANK, name);
+	model.forMaterialItem(m.RIVETS, name);
+	model.forMaterialItem(m.PLATE, name);
+	model.forMaterialItem(m.COIN, name);
+	model.forMaterialItem(m.GEAR, name);
+	model.forMaterialItem(m.ROD, name);
+	model.forMaterialItem(m.DUST, name);
+	model.forMaterialItem(m.TINYDUST, name);
+	model.forMaterialItem(m.KEY, name);
+    }
+
+    public static void addTranslations(MetalMaterialComponents m, TCEnglishLoc loc, String capName) {
+	loc.add(m.SETTING.get(), capName + " Setting");
+	loc.add(m.JUMPRINGS.get(), capName + " Jumprings");
+	loc.add(m.FILIGREE.get(), capName + " Filigrees");
+	loc.add(m.FOIL.get(), capName + " Foil");
+	loc.add(m.COIL.get(), capName + " Coil");
+	loc.add(m.SPRING.get(), capName + " Spring");
+	loc.add(m.CASING.get(), capName + " Casing");
+	loc.add(m.WIRE.get(), capName + " Wire");
+	loc.add(m.CLASP.get(), capName + " Clasp");
+	loc.add(m.RINGSHANK.get(), capName + " Ring Shank");
+	loc.add(m.RIVETS.get(), capName + " Rivets");
+	loc.add(m.PLATE.get(), capName + " Plate");
+	loc.add(m.COIN.get(), capName + " Coin");
+	loc.add(m.GEAR.get(), capName + " Gear");
+	loc.add(m.ROD.get(), capName + " Rod");
+	loc.add(m.DUST.get(), capName + " Dust");
+	loc.add(m.TINYDUST.get(), capName + " Tiny Dust");
+	loc.add(m.KEY.get(), capName + " Key");
     }
 }

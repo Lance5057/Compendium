@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/dungeon_trim_2",
+  "textures": {
+    "0": "compendium:block/material/rosegold/rosegolddungeon_bricks"
+  }
+}

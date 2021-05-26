@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:nickel_plates_from_ingots"
+    ]
+  },
+  "criteria": {
+    "nickelingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/nickel"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:nickel_plates_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nickelingot",
+      "has_the_recipe"
+    ]
+  ]
+}

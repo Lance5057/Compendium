@@ -1,0 +1,31 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " o ",
+    "ir ",
+    " s ",
+    " s ",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:plates/lead"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "r": {
+      "tag": "forge:rods/lead"
+    },
+    "o": {
+      "tag": "forge:rivets/lead"
+    },
+    "n": {
+      "tag": "forge:nuggets/lead"
+    }
+  },
+  "strikes": 16,
+  "result": {
+    "item": "compendium:leadhoe"
+  }
+}

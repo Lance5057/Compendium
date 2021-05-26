@@ -1,0 +1,20 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "p",
+    "s"
+  ],
+  "key": {
+    "p": {
+      "tag": "forge:wires/steel"
+    },
+    "s": {
+      "tag": "forge:nuggets/steel"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:steelclasp",
+    "count": 4
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    " s ",
+    "sps",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:filigrees/iron"
+    },
+    "p": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "strikes": 8,
+  "result": {
+    "item": "compendium:ironsetting",
+    "count": 4
+  }
+}

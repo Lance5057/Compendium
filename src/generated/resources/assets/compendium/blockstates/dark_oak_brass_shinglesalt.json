@@ -1,0 +1,174 @@
+{
+  "variants": {
+    "facing=north,half=top,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "x": 180,
+      "y": -180
+    },
+    "facing=south,half=top,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "x": 180
+    },
+    "facing=west,half=top,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,half=top,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "x": 180,
+      "y": -90
+    },
+    "facing=north,half=bottom,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "y": -180
+    },
+    "facing=south,half=bottom,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt"
+    },
+    "facing=west,half=bottom,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "y": 90
+    },
+    "facing=east,half=bottom,shape=straight": {
+      "model": "compendium:block/dark_oak_brassshinglesalt",
+      "y": -90
+    },
+    "facing=north,half=top,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": -180
+    },
+    "facing=south,half=top,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180
+    },
+    "facing=west,half=top,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,half=top,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": -90
+    },
+    "facing=north,half=bottom,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": -180
+    },
+    "facing=south,half=bottom,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt"
+    },
+    "facing=west,half=bottom,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": 90
+    },
+    "facing=east,half=bottom,shape=inner_left": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": -90
+    },
+    "facing=north,half=top,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": -180
+    },
+    "facing=south,half=top,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180
+    },
+    "facing=west,half=top,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,half=top,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "x": 180,
+      "y": -90
+    },
+    "facing=north,half=bottom,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": -90
+    },
+    "facing=south,half=bottom,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": 90
+    },
+    "facing=west,half=bottom,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt",
+      "y": 180
+    },
+    "facing=east,half=bottom,shape=inner_right": {
+      "model": "compendium:block/dark_oak_brassshingles_inneralt"
+    },
+    "facing=north,half=top,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": -180
+    },
+    "facing=south,half=top,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180
+    },
+    "facing=west,half=top,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,half=top,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": -90
+    },
+    "facing=north,half=bottom,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": -180
+    },
+    "facing=south,half=bottom,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt"
+    },
+    "facing=west,half=bottom,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": 90
+    },
+    "facing=east,half=bottom,shape=outer_left": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": -90
+    },
+    "facing=north,half=top,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": -180
+    },
+    "facing=south,half=top,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180
+    },
+    "facing=west,half=top,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": 90
+    },
+    "facing=east,half=top,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "x": 180,
+      "y": -90
+    },
+    "facing=north,half=bottom,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": -90
+    },
+    "facing=south,half=bottom,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": 90
+    },
+    "facing=west,half=bottom,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt",
+      "y": 180
+    },
+    "facing=east,half=bottom,shape=outer_right": {
+      "model": "compendium:block/dark_oak_brassshingles_outeralt"
+    }
+  }
+}

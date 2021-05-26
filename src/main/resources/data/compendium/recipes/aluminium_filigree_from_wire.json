@@ -1,0 +1,18 @@
+{
+  "type": "compendium:crafting_anvil",
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:wires/aluminium"
+    }
+  },
+  "strikes": 4,
+  "result": {
+    "item": "compendium:aluminiumfiligree",
+    "count": 6
+  }
+}

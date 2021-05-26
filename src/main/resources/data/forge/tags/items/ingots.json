@@ -1,19 +1,19 @@
 {
   "replace": false,
   "values": [
-    "compendium:aeonsteelingot",
-    "compendium:queensgoldingot",
-    "compendium:dogbeariumingot",
-    "compendium:sinisteriumingot",
-    "compendium:nihiliteingot",
-    "compendium:orichalcumingot",
-    "compendium:pandoriumingot",
-    "compendium:rosegoldingot",
-    "compendium:platinumingot",
-    "compendium:silveringot",
-    "compendium:valyriansteelingot",
-    "compendium:iceingot",
-    "compendium:froststeelingot",
-    "compendium:mithrilingot"
+    "compendium:aluminium_ingot",
+    "compendium:brass_ingot",
+    "compendium:bronze_ingot",
+    "compendium:copper_ingot",
+    "compendium:electrum_ingot",
+    "compendium:nickel_ingot",
+    "compendium:steel_ingot",
+    "compendium:tin_ingot",
+    "compendium:zinc_ingot",
+    "compendium:rosegold_ingot",
+    "compendium:platinum_ingot",
+    "compendium:silver_ingot",
+    "compendium:pewter_ingot",
+    "compendium:lead_ingot"
   ]
 }

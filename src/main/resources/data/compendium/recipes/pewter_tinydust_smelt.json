@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "compendium:pewtertinydust"
+  },
+  "result": {
+    "item": "compendium:pewter_nugget"
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

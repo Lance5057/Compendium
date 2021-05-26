@@ -30,30 +30,7 @@ public class MetalRecipes {
 	    if (mh.hasBase()) {
 		MetalMaterialBasic b = mh.getBase();
 
-		ShapelessRecipeBuilder.shapelessRecipe(b.NUGGET.get(), 9)
-			.addIngredient(Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + mh.name)), 1)
-			.addCriterion(mh.name + "ingot",
-				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
-			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_nugget_from_ingot"));
-
-		ShapelessRecipeBuilder.shapelessRecipe(b.INGOT.get(), 9)
-			.addIngredient(Ingredient.fromTag(TCItemTags.ItemTag("storage_blocks/" + mh.name)), 1)
-			.addCriterion(mh.name + "storage_block",
-				RecipeProvider.hasItem(TCItemTags.ItemTag("storage_blocks/" + mh.name)))
-			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_ingot_from_storage_block"));
-
-		ShapelessRecipeBuilder.shapelessRecipe(b.INGOT.get(), 1)
-			.addIngredient(Ingredient.fromTag(TCItemTags.ItemTag("nugget/" + mh.name)), 9)
-			.addCriterion(mh.name + "nugget",
-				RecipeProvider.hasItem(TCItemTags.ItemTag("nuggets/" + mh.name)))
-			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_ingot_from_nuggets"));
-
-		ShapelessRecipeBuilder.shapelessRecipe(b.STORAGE_ITEMBLOCK.get(), 1)
-			.addIngredient(Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + mh.name)), 9)
-			.addCriterion(mh.name + "storage_block",
-				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
-			.build(consumer,
-				new ResourceLocation(Reference.MOD_ID, mh.name + "_storage_block_from_ingots"));
+		
 
 	    }
 	    if (mh.hasVanillaTools()) {
@@ -199,8 +176,8 @@ public class MetalRecipes {
 
 //		RIVETS
 		AnvilShapedRecipeBuilder.shapedRecipe(b.RIVETS.get(), 8, 4)
-			.key('s', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + mh.name))).patternLine("s")
-			.addCriterion(mh.name + "rod", RecipeProvider.hasItem(TCItemTags.ItemTag("wires/" + mh.name)))
+			.key('s', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + mh.name))).patternLine("s")
+			.addCriterion(mh.name + "rod", RecipeProvider.hasItem(TCItemTags.ItemTag("nuggets/" + mh.name)))
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_rivets_from_rod"));
 
 //		SETTING

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:gold_spring_from_wire"
+    ]
+  },
+  "criteria": {
+    "goldwire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:gold_spring_from_wire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goldwire",
+      "has_the_recipe"
+    ]
+  ]
+}

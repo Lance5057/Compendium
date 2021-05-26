@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/dungeon_trim_4",
+  "textures": {
+    "0": "compendium:block/material/zinc/zincdungeon_bricks"
+  }
+}
