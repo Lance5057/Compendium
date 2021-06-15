@@ -29,19 +29,19 @@ public class HammeringStationRecipeProvider extends RecipeProvider {
 	@Override
 	protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
 		// From Tag
-		this.createRecipe("stone_to_cobble", new ItemStack(Blocks.COBBLESTONE), Ingredient.fromTag(Items.STONE), consumer, 2);
-		this.createRecipe("cobble_to_gravel", new ItemStack(Blocks.GRAVEL), Ingredient.fromItems(Blocks.COBBLESTONE), consumer, 2);
-		this.createRecipe("gravel_to_sand", new ItemStack(Blocks.SAND), Ingredient.fromTag(Items.GRAVEL), consumer, 2);
-		this.createRecipe("deadcoral_to_soulsand", new ItemStack(Blocks.SOUL_SAND), Ingredient.fromItems(Blocks.DEAD_BRAIN_CORAL_BLOCK, Blocks.DEAD_BUBBLE_CORAL_BLOCK, Blocks.DEAD_FIRE_CORAL_BLOCK, Blocks.DEAD_HORN_CORAL_BLOCK, Blocks.DEAD_TUBE_CORAL_BLOCK), consumer);
+		HammeringStationRecipeProvider.createRecipe("stone_to_cobble", new ItemStack(Blocks.COBBLESTONE), Ingredient.fromTag(Items.STONE), consumer, 2);
+		HammeringStationRecipeProvider.createRecipe("cobble_to_gravel", new ItemStack(Blocks.GRAVEL), Ingredient.fromItems(Blocks.COBBLESTONE), consumer, 2);
+		HammeringStationRecipeProvider.createRecipe("gravel_to_sand", new ItemStack(Blocks.SAND), Ingredient.fromTag(Items.GRAVEL), consumer, 2);
+		HammeringStationRecipeProvider.createRecipe("deadcoral_to_soulsand", new ItemStack(Blocks.SOUL_SAND), Ingredient.fromItems(Blocks.DEAD_BRAIN_CORAL_BLOCK, Blocks.DEAD_BUBBLE_CORAL_BLOCK, Blocks.DEAD_FIRE_CORAL_BLOCK, Blocks.DEAD_HORN_CORAL_BLOCK, Blocks.DEAD_TUBE_CORAL_BLOCK), consumer);
 
 		MetalRecipes.hammeringBuild(this, consumer);
 	}
 
-	public void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer) {
+	public static void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer) {
 		consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output, input));
 	}
 
-	public void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer, int strike) {
+	public static void createRecipe(String name, ItemStack output, Ingredient input, Consumer<IFinishedRecipe> consumer, int strike) {
 		consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "hammeringstation/" + name), output, input, strike));
 	}
 

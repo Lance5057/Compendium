@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class MaterialHelperBase {
+public abstract class MaterialHelperBase {
     public String name;
     public String parentMod;
     public IItemTier tier;
@@ -20,4 +20,6 @@ public class MaterialHelperBase {
     public final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
     public final List<MaterialBase> addons = new ArrayList<MaterialBase>();
+    
+    public abstract void setup();
 }

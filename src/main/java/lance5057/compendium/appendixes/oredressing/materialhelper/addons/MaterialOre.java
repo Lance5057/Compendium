@@ -23,16 +23,13 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.feature.template.RuleTest;
-import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public abstract class MaterialOre implements MaterialBase {
 
@@ -42,7 +39,7 @@ public abstract class MaterialOre implements MaterialBase {
     public RegistryObject<Block> ORE;
     public RegistryObject<BlockItem> ITEM_ORE;
 
-    String tool;
+    ToolType tool;
 
     public float hardness;
     public int mininglevel;
@@ -60,6 +57,8 @@ public abstract class MaterialOre implements MaterialBase {
     public Biome[] oreBiomeBlack;
 
     public Category category;
+    
+    String prefix;
 
     public MaterialOre(OreDressingMaterialHelper mh, String prefix, float hardness, int level, ToolType tool,
 	    float resistance, int ymax, int ymin, int veinSize, int veinChance, Category biomeCategory) {
@@ -75,12 +74,13 @@ public abstract class MaterialOre implements MaterialBase {
 	this.oreSize = veinSize;
 	this.oreChance = veinChance;
 	this.category = biomeCategory;
-
-	ORE = mh.BLOCKS.register(mh.name + prefix + "ore",
-		() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(level).harvestTool(tool)
-			.hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
-	ITEM_ORE = mh.ITEMS.register(mh.name + prefix + "itemore",
-		() -> new BlockItem(ORE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	this.prefix = prefix;
+	this.mininglevel = level;
+	this.tool = tool;
+	this.hardness = hardness;
+	this.resistance = resistance;
+	this.parentMod = parentMod;
+	
 
 //		ORE_FEATURE = Feature.ORE
 //				.withConfiguration(new OreFeatureConfig(new BlockMatchRuleTest(Blocks.STONE),
@@ -106,9 +106,12 @@ public abstract class MaterialOre implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
-
+    public void setup(MaterialHelperBase mat) {
+	ORE = mat.BLOCKS.register(mat.name + prefix + "ore",
+		() -> new Block(Block.Properties.create(Material.IRON).setRequiresTool().harvestLevel(mininglevel).harvestTool(tool)
+			.hardnessAndResistance(hardness, resistance).sound(SoundType.STONE)));
+	ITEM_ORE = mat.ITEMS.register(mat.name + prefix + "itemore",
+		() -> new BlockItem(ORE.get(), new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
     }
 
     @Override

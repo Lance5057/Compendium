@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/rosegold"
+  },
+  "block": {
+    "item": "compendium:spruce_shinglesitem_cap"
+  },
+  "result": {
+    "item": "compendium:rosegold_spruce_shinglesitem_cap"
+  }
+}

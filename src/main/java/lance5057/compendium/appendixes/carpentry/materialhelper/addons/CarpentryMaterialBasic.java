@@ -29,15 +29,7 @@ public class CarpentryMaterialBasic implements MaterialBase {
     public RegistryObject<BlockNamedItem> PLANK_ITEMBLOCK;
 
     public CarpentryMaterialBasic(CarpentryMaterialHelper cmh) {
-	LOG = cmh.BLOCKS.register(cmh.name + "_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD)
-		.harvestLevel(3).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE)));
-	LOG_ITEMBLOCK = cmh.ITEMS.register(cmh.name + "_log_itemblock",
-		() -> new BlockNamedItem(LOG.get(), new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	PLANK = cmh.BLOCKS.register(cmh.name + "_plank", () -> new Block(Block.Properties.create(Material.WOOD)
-		.harvestLevel(3).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE)));
-	PLANK_ITEMBLOCK = cmh.ITEMS.register(cmh.name + "_plank_itemblock",
-		() -> new BlockNamedItem(PLANK.get(), new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
     }
 
     @Override
@@ -47,9 +39,16 @@ public class CarpentryMaterialBasic implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
+    public void setup(MaterialHelperBase mat) {
+	LOG = mat.BLOCKS.register(mat.name + "_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD)
+		.harvestLevel(3).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE)));
+	LOG_ITEMBLOCK = mat.ITEMS.register(mat.name + "_log_itemblock",
+		() -> new BlockNamedItem(LOG.get(), new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
+	PLANK = mat.BLOCKS.register(mat.name + "_plank", () -> new Block(Block.Properties.create(Material.WOOD)
+		.harvestLevel(3).hardnessAndResistance(3, 4).harvestTool(ToolType.AXE)));
+	PLANK_ITEMBLOCK = mat.ITEMS.register(mat.name + "_plank_itemblock",
+		() -> new BlockNamedItem(PLANK.get(), new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
     }
 
     public static void registerBlockModels(CarpentryMaterialBasic m, TCBlockModels model, String name) {

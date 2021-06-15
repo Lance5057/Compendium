@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/tin"
+  },
+  "block": {
+    "item": "compendium:spruce_shinglesitem_alt"
+  },
+  "result": {
+    "item": "compendium:tin_spruce_shinglesitem_alt"
+  }
+}

@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_post_alt"
+        "model": "compendium:block/dark_oak_empty_shingles_cap_post_alt"
       }
     },
     {
@@ -10,7 +10,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_top_alt"
+        "model": "compendium:block/dark_oak_empty_shingles_cap_top_alt"
       }
     },
     {
@@ -18,7 +18,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_side_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_side_alt",
         "uvlock": true
       }
     },
@@ -27,7 +27,7 @@
         "north": "false"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_brace_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_brace_alt",
         "uvlock": true
       }
     },
@@ -36,7 +36,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_side_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_side_alt",
         "y": 180,
         "uvlock": true
       }
@@ -46,7 +46,7 @@
         "south": "false"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_brace_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_brace_alt",
         "y": 180,
         "uvlock": true
       }
@@ -56,7 +56,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_side_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_side_alt",
         "y": 270,
         "uvlock": true
       }
@@ -66,7 +66,7 @@
         "west": "false"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_brace_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_brace_alt",
         "y": 270,
         "uvlock": true
       }
@@ -76,7 +76,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_side_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_side_alt",
         "y": 90,
         "uvlock": true
       }
@@ -86,7 +86,7 @@
         "east": "false"
       },
       "apply": {
-        "model": "compendium:block/dark_oakempty_shingles_cap_brace_alt",
+        "model": "compendium:block/dark_oak_empty_shingles_cap_brace_alt",
         "y": 90,
         "uvlock": true
       }

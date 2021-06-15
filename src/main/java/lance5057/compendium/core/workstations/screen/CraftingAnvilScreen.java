@@ -40,7 +40,7 @@ public class CraftingAnvilScreen extends ContainerScreen<CraftingAnvilContainer>
 	protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
 		super.drawGuiContainerForegroundLayer(matrixStack, x, y);
 		
-		this.font.drawString(matrixStack, ""+this.container.strikes + "/" +this.container.maxStrikes, 128, 34, TextFormatting.BLACK.getColor());
+		//this.font.drawString(matrixStack, ""+this.container.strikes + "/" +this.container.maxStrikes, 118, 34, TextFormatting.BLACK.getColor());
 	}
 
 	@Override

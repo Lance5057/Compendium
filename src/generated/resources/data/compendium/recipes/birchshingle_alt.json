@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sl",
+    "slp"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:birch_planks"
+    },
+    "l": {
+      "item": "minecraft:birch_log"
+    }
+  },
+  "result": {
+    "item": "compendium:birch_shinglesitem_alt",
+    "count": 4
+  }
+}

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/tindungeon_lamp"
+      "model": "compendium:block/tin_dungeon_brick_light"
     }
   }
 }

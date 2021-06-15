@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/brassdungeon_lamp"
+      "model": "compendium:block/brass_dungeon_brick_light"
     }
   }
 }

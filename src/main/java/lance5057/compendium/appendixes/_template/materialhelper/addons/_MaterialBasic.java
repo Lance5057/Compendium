@@ -27,7 +27,7 @@ public class _MaterialBasic implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
+    public void setup(MaterialHelperBase mat) {
 	// TODO Auto-generated method stub
 
     }
@@ -44,11 +44,11 @@ public class _MaterialBasic implements MaterialBase {
     public static void registerTags(_MaterialBasic m, TCItemTags itp, String name) {
     }
 
-    public static void buildLootTable(_MaterialBasic b, _BlockLoot table,
-	    String name) {
+    public static void buildLootTable(_MaterialBasic b, _BlockLoot table, String name) {
     }
 
     public static void buildRecipes(_MaterialBasic m, TCRecipes recipes, Consumer<IFinishedRecipe> consumer,
 	    String name) {
     }
+
 }

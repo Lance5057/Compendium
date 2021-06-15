@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/platinum"
+  },
+  "block": {
+    "item": "compendium:birch_shinglesitem"
+  },
+  "result": {
+    "item": "compendium:platinum_birch_shinglesitem"
+  }
+}

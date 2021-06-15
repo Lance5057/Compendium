@@ -7,6 +7,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.EggEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.network.IPacket;
+import net.minecraft.network.play.server.SSpawnObjectPacket;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.EntityRayTraceResult;
@@ -15,6 +17,7 @@ import net.minecraft.world.Explosion.Mode;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 public class GrenadeEntity extends ProjectileItemEntity {
     public GrenadeEntity(EntityType<? extends ProjectileItemEntity> p_i50154_1_, World p_i50154_2_) {
@@ -74,7 +77,12 @@ public class GrenadeEntity extends ProjectileItemEntity {
     private void explode(RayTraceResult result) {
 	this.world.createExplosion(this, result.getHitVec().x, result.getHitVec().y, result.getHitVec().z, power,
 		Mode.BREAK);
-	this.world.setEntityState(this, (byte)3);
-        this.remove();
+	this.world.setEntityState(this, (byte) 3);
+	this.remove();
+    }
+
+    @Override
+    public IPacket<?> createSpawnPacket() {
+	return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

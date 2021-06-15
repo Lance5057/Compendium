@@ -36,11 +36,17 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
 	ITEMS.register(modEventBus);
 	BLOCKS.register(modEventBus);
     }
-    
+
+    @Override
+    public void setup() {
+	if(this.hasBase()) basic.setup(this);
+	if(this.hasComponents()) comp.setup(this);
+    }
+
     @OnlyIn(Dist.CLIENT)
-    public void client(FMLClientSetupEvent event)
-    {
-	basic.setupClient(this);
+    public void client(FMLClientSetupEvent event) {
+	if(this.hasBase()) basic.setupClient(this);
+	if(this.hasComponents()) comp.setupClient(this);
     }
 
     // Base
@@ -70,4 +76,5 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     public CarpentryMaterialComponents getComponents() {
 	return comp;
     }
+
 }

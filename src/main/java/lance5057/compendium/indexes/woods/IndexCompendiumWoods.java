@@ -11,9 +11,9 @@ public class IndexCompendiumWoods {
     public static List<MaterialHelperBase> EBONY = new ArrayList<MaterialHelperBase>();
 
     public IndexCompendiumWoods() {
-	CarpentryMaterialHelper ebony = new CarpentryMaterialHelper("ebony").withBase();
-	EBONY.add(ebony);
-	AppendixCarpentry.woods.add(ebony);
+//	CarpentryMaterialHelper ebony = new CarpentryMaterialHelper("ebony").withBase();
+//	EBONY.add(ebony);
+//	AppendixCarpentry.woods.add(ebony);
     }
 
 }

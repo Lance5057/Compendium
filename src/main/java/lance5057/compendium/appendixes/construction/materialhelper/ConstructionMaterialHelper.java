@@ -39,10 +39,24 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	BLOCKS.register(modEventBus);
     }
 
+    @Override
+    public void setup() {
+	if (this.hasBase())
+	    basic.setup(this);
+	if (this.hasShingles())
+	    shingles.setup(this);
+	if (this.hasDungeon())
+	    dungeon.setup(this);
+    }
+
     @OnlyIn(Dist.CLIENT)
     public void client(FMLClientSetupEvent event) {
-	basic.setupClient(this);
-	dungeon.setupClient(this);
+	if (this.hasBase())
+	    basic.setupClient(this);
+	if (this.hasShingles())
+	    shingles.setupClient(this);
+	if (this.hasDungeon())
+	    dungeon.setupClient(this);
     }
 
     // Base
@@ -86,4 +100,5 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
     public ConstructionMaterialShingles getShingles() {
 	return shingles;
     }
+
 }

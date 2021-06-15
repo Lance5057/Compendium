@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/iron"
+  },
+  "block": {
+    "item": "compendium:jungle_shinglesitem_cap_alt"
+  },
+  "result": {
+    "item": "compendium:iron_jungle_shinglesitem_cap_alt"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "sls"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "item": "minecraft:dark_oak_log"
+    }
+  },
+  "result": {
+    "item": "compendium:dark_oak_shinglesitem_cap_alt",
+    "count": 4
+  }
+}

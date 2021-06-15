@@ -28,7 +28,7 @@ public abstract class HandedAbilityTool extends ToolItem {
 	else if (context.getHand() == Hand.OFF_HAND)
 	    offHandAbility(context);
 
-	return ActionResultType.PASS;
+	return ActionResultType.SUCCESS;
     }
 
     protected abstract ActionResultType mainHandAbility(ItemUseContext context);

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/rosegolddungeon_lamp"
+      "model": "compendium:block/rosegold_dungeon_brick_light"
     }
   }
 }

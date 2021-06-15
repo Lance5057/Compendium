@@ -39,8 +39,8 @@ public class BasicGemMaterial implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
+    public void setup(MaterialHelperBase mat) {
 	// TODO Auto-generated method stub
-
+	
     }
 }

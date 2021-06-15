@@ -34,10 +34,15 @@ public class _MaterialHelper extends MaterialHelperBase {
 	ITEMS.register(modEventBus);
 	BLOCKS.register(modEventBus);
     }
-    
+
+    @Override
+    public void setup() {
+	// TODO Auto-generated method stub
+
+    }
+
     @OnlyIn(Dist.CLIENT)
-    public void client(FMLClientSetupEvent event)
-    {
+    public void client(FMLClientSetupEvent event) {
 	basic.setupClient(this);
     }
 

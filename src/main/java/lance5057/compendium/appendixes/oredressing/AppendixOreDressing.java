@@ -15,4 +15,11 @@ public class AppendixOreDressing {
 	    mh.client(event);
 	}
     }
+    
+    public static void setup()
+    {
+	for (OreDressingMaterialHelper mh : AppendixOreDressing.ores) {
+	    mh.setup();
+	}
+    }
 }

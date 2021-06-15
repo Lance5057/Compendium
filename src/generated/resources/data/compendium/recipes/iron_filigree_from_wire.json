@@ -10,7 +10,19 @@
       "tag": "forge:wires/iron"
     }
   },
-  "strikes": 4,
+  "tools": {
+    "Step_0": {
+      "Uses": 4,
+      "Tool": {
+        "tag": "forge:tools/hammers"
+      },
+      "Count": 1,
+      "Damage": true
+    }
+  },
+  "schematic": {
+    "item": "minecraft:air"
+  },
   "result": {
     "item": "compendium:ironfiligree",
     "count": 6

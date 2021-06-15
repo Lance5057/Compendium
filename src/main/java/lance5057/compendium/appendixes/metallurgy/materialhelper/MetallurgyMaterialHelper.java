@@ -47,13 +47,21 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
 	BLOCKS.register(modEventBus);
     }
     
+    @Override
+    public void setup() {
+	if(this.hasBase()) basic.setup(this);
+	if(this.hasVanillaTools()) vtools.setup(this);
+	if(this.hasComponents()) comp.setup(this);
+	if(this.hasAdvancedTools()) atools.setup(this);
+    }
+    
     @OnlyIn(Dist.CLIENT)
     public void client(FMLClientSetupEvent event)
     {
-	basic.setupClient(this);
-	vtools.setupClient(this);
-	comp.setupClient(this);
-	atools.setupClient(this);
+	if(this.hasBase()) basic.setupClient(this);
+	if(this.hasVanillaTools()) vtools.setupClient(this);
+	if(this.hasComponents()) comp.setupClient(this);
+	if(this.hasAdvancedTools()) atools.setupClient(this);
     }
 
     // Base

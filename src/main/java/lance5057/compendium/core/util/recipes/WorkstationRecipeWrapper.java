@@ -67,4 +67,8 @@ public class WorkstationRecipeWrapper implements IInventory {
 		return false;
 	}
 
+	public ItemStack getSchematic()
+	{
+	    return this.getStackInSlot(26);
+	}
 }

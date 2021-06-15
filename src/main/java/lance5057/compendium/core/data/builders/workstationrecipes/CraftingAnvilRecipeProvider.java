@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.DataGenerator;
@@ -39,24 +40,6 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 
     }
 
-//    private void gem(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
-//	BasicGemMaterial cm = mh.getGem();
-//
-//	// Vanilla Tools
-//	if (mh.getVanillaTools() != null) {
-//	    MaterialVanillaTools vt = mh.getVanillaTools();
-//
-//	    AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_SWORD, 8).key('#', Items.STICK).key('X', cm.GEM.get())
-//		    .patternLine("X").patternLine("X").patternLine("#").addCriterion("has_gem", hasItem(cm.GEM.get()))
-//		    .build(consumer, "anvil/" + mh.name + "_sword");
-//	}
-//    }
-//
-//    private void ingot(MaterialHelper mh, Consumer<IFinishedRecipe> consumer) {
-//	BasicMetalMaterial mm = mh.getIngot();
-//
-//    }
-
     @Override
     @Nonnull
     public String getName() {
@@ -67,25 +50,27 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 	private final ResourceLocation id;
 	private final Item result;
 	private final int count;
-	private final int strikes;
+	private final Item schematic;
 	private final String group;
 	private final List<String> pattern;
 	private final Map<Character, Ingredient> key;
+	private final List<RecipeItemUse> tools;
 	private final Advancement.Builder advancementBuilder;
 	private final ResourceLocation advancementId;
 
-	public AnvilResult(ResourceLocation idIn, Item resultIn, int strikesIn, int countIn, String groupIn,
-		List<String> patternIn, Map<Character, Ingredient> keyIn, Advancement.Builder advancementBuilderIn,
-		ResourceLocation advancementIdIn) {
+	public AnvilResult(ResourceLocation idIn, Item resultIn, int countIn, Item schematicIn, String groupIn,
+		List<String> patternIn, Map<Character, Ingredient> keyIn, List<RecipeItemUse> toolsIn,
+		Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
 	    this.id = idIn;
 	    this.result = resultIn;
 	    this.count = countIn;
-	    this.strikes = strikesIn;
 	    this.group = groupIn;
 	    this.pattern = patternIn;
 	    this.key = keyIn;
 	    this.advancementBuilder = advancementBuilderIn;
 	    this.advancementId = advancementIdIn;
+	    this.tools = toolsIn;
+	    this.schematic = schematicIn;
 	}
 
 	public void serialize(JsonObject json) {
@@ -107,13 +92,24 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 	    }
 
 	    json.add("key", jsonobject);
+
+	    JsonObject jsonobjectTools = new JsonObject();
+
+	    for (int i = 0; i < this.tools.size(); i++) {// entry : this.tools) {
+		jsonobjectTools.add("Step_" + i, RecipeItemUse.addProperty(tools.get(i)));
+	    }
+	    json.add("tools", jsonobjectTools);
+
+	    JsonObject schematic = new JsonObject();
+	    schematic.addProperty("item", Registry.ITEM.getKey(this.schematic).toString());
+	    json.add("schematic", schematic);
+
 	    JsonObject jsonobject1 = new JsonObject();
 	    jsonobject1.addProperty("item", Registry.ITEM.getKey(this.result).toString());
 	    if (this.count > 1) {
 		jsonobject1.addProperty("count", this.count);
 	    }
 
-	    json.addProperty("strikes", strikes);
 	    json.add("result", jsonobject1);
 	}
 

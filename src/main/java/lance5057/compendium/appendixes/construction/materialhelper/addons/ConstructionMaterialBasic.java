@@ -31,9 +31,9 @@ public class ConstructionMaterialBasic implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
+    public void setup(MaterialHelperBase mat) {
 	// TODO Auto-generated method stub
-
+	
     }
 
     public static void registerBlockModels(ConstructionMaterialBasic m, TCBlockModels model, String name) {

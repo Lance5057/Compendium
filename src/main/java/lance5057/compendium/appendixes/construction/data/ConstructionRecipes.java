@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 import lance5057.compendium.appendixes.construction.AppendixConstruction;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialBasic;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialDungeon;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialShingles;
 import lance5057.compendium.core.data.builders.TCRecipes;
 import net.minecraft.data.IFinishedRecipe;
 
@@ -14,6 +16,12 @@ public class ConstructionRecipes {
 
 	    if (mh.hasBase()) {
 		ConstructionMaterialBasic.buildRecipes(mh.getBase(), recipes, consumer, mh.name);
+	    }
+	    if (mh.hasDungeon()) {
+		ConstructionMaterialDungeon.buildRecipes(mh.getDungeon(), recipes, consumer, mh.name);
+	    }
+	    if (mh.hasShingles()) {
+		ConstructionMaterialShingles.buildRecipes(mh.getShingles(), recipes, consumer, mh.name);
 	    }
 	}
     }

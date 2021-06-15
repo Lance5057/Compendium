@@ -24,4 +24,10 @@ public class GemologyMaterialHelper extends MaterialHelperBase {
 	ITEMS.register(modEventBus);
 	BLOCKS.register(modEventBus);
     }
+    
+    @Override
+    public void setup() {
+	// TODO Auto-generated method stub
+	
+    }
 }

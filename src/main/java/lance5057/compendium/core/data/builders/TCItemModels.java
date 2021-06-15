@@ -34,16 +34,21 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
     @Override
     protected void registerModels() {
-	getBuilder(CompendiumItems.MEGALITH_STONE.getId().getPath())
-		.parent(new ModelFile.UncheckedModelFile("block/bases/megalith_stone"));
+//	getBuilder(CompendiumItems.MEGALITH_STONE.getId().getPath())
+//		.parent(new ModelFile.UncheckedModelFile("block/bases/megalith_stone"));
+	this.withExistingParent(CompendiumItems.MEGALITH_STONE.getId().getPath(),
+		"compendium:block/bases/megalith_stone");
 
-	forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK, new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
-	forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK, new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
-	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK, new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
+	forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK,
+		new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
+	forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK,
+		new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
+	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK,
+		new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
 
 //	forBlockItem(CompendiumItems.ITEM_SHINGLES, "bases/empty_shingles");
 //	forBlockItem(CompendiumItems.ITEM_SHINGLES_ALT, "bases/empty_shinglesalt");
-	
+
 	forItem(CompendiumItems.CRUDE_HAMMER, "crudehammer");
 	forItem(CompendiumItems.MINER_GRENADE, "grenade");
 
@@ -214,10 +219,9 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
     }
 
     public void forItem(RegistryObject<? extends Item> item, String name) {
-	this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
-		modLoc("item/" + name));
+	this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + name));
     }
-    
+
     public void forMaterialItem(RegistryObject<? extends Item> item, String name) {
 	this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
 		modLoc("item/material/" + name + "/" + item.getId().getPath()));

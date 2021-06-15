@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sl",
+    "slp"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:spruce_planks"
+    },
+    "l": {
+      "item": "minecraft:spruce_log"
+    }
+  },
+  "result": {
+    "item": "compendium:spruce_shinglesitem_alt",
+    "count": 4
+  }
+}

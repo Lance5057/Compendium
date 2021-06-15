@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/nickeldungeon_lamp"
+      "model": "compendium:block/nickel_dungeon_brick_light"
     }
   }
 }

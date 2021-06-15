@@ -77,33 +77,27 @@ public class CraftingAnvilBlock extends Block implements IWaterLoggable {
 		boolean success = false;
 		// Get item in both hands
 		ItemStack heldmain = player.getHeldItem(Hand.MAIN_HAND);
-		ItemStack heldoff = player.getHeldItem(Hand.OFF_HAND);
+		// ItemStack heldoff = player.getHeldItem(Hand.OFF_HAND);
 
-		// Hit it!
-		// Try main hand, only try off hand if that fails
-		if (CompendiumTags.HAMMER.contains(heldmain.getItem())) {
+		if (heldmain != ItemStack.EMPTY)
 		    te.hammer(player, heldmain);
-		    success = true;
-		} else if (CompendiumTags.HAMMER.contains(heldoff.getItem())) {
-		    te.hammer(player, heldoff);
-		    success = true;
-		}
-
-		if (success)
-		    return ActionResultType.SUCCESS;
+//		if (heldoff != ItemStack.EMPTY)
+//		    te.hammer(player, heldoff);
 	    }
 //			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
 //			if (this.hasTileEntity(getDefaultState())) {
-	    if (!(player instanceof ServerPlayerEntity))
-		return ActionResultType.FAIL;
-	    ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
-	    NetworkHooks.openGui(serverPlayerEntity, te, (packetBuffer) -> {
-		packetBuffer.writeInt(te.progress);
-	    });
+	    else {
+		if (!(player instanceof ServerPlayerEntity))
+		    return ActionResultType.FAIL;
+		ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) player;
+		NetworkHooks.openGui(serverPlayerEntity, te, (packetBuffer) -> {
+		    // packetBuffer.writeInt(te.progress);
+		});
+	    }
 //			}
 	}
 
-	return ActionResultType.SUCCESS;
+	return ActionResultType.PASS;
     }
 
 //	@Nonnull

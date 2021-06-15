@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "compendium:block/gold_dungeon_brick_broken"
+      },
+      {
+        "model": "compendium:block/gold_dungeon_brick_broken_2"
+      },
+      {
+        "model": "compendium:block/gold_dungeon_brick_broken_3"
+      }
+    ]
+  }
+}

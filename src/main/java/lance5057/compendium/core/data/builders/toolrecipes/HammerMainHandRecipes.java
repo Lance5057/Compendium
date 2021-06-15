@@ -40,7 +40,7 @@ public class HammerMainHandRecipes extends RecipeProvider {
 //	}
     }
 
-    private void createRecipe(String name, ItemStack output, ItemStack block, Ingredient input,
+    public static void createRecipe(String name, ItemStack output, Ingredient block, Ingredient input,
 	    Consumer<IFinishedRecipe> consumer) {
 	consumer.accept(new FinishedRecipe(new ResourceLocation(Reference.MOD_ID, "tool/hammer/" + name), output, input,
 		block));
@@ -50,10 +50,10 @@ public class HammerMainHandRecipes extends RecipeProvider {
     private static class FinishedRecipe implements IFinishedRecipe {
 	private final ResourceLocation id;
 	private final ItemStack result;
-	private final ItemStack block;
+	private final Ingredient block;
 	private final Ingredient input;
 
-	private FinishedRecipe(ResourceLocation id, ItemStack result, Ingredient input, ItemStack block) {
+	private FinishedRecipe(ResourceLocation id, ItemStack result, Ingredient input, Ingredient block) {
 	    this.id = id;
 	    this.result = result;
 	    this.input = input;
@@ -64,8 +64,8 @@ public class HammerMainHandRecipes extends RecipeProvider {
 	public void serialize(JsonObject json) {
 	    json.add("input", input.serialize());
 
-	    JsonObject blockObject = serializeItemStack(block);
-	    json.add("block", blockObject);
+	    //JsonObject blockObject = serializeItemStack(block);
+	    json.add("block", block.serialize());
 
 	    JsonObject resultObject = serializeItemStack(result);
 	    json.add("result", resultObject);

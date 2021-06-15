@@ -35,17 +35,6 @@ public class MetalMaterialBasic implements MaterialBase {
     public RegistryObject<BlockNamedItem> STORAGE_ITEMBLOCK;
 
     public MetalMaterialBasic(MetallurgyMaterialHelper metallurgyMaterialHelper) {
-	INGOT = metallurgyMaterialHelper.ITEMS.register(metallurgyMaterialHelper.name + "_ingot",
-		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
-	NUGGET = metallurgyMaterialHelper.ITEMS.register(metallurgyMaterialHelper.name + "_nugget",
-		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
-
-	STORAGE_BLOCK = metallurgyMaterialHelper.BLOCKS.register(metallurgyMaterialHelper.name + "_block",
-		() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(1).hardnessAndResistance(3, 4)
-			.harvestTool(ToolType.PICKAXE)));
-	STORAGE_ITEMBLOCK = metallurgyMaterialHelper.ITEMS.register(metallurgyMaterialHelper.name + "_itemblock",
-		() -> new BlockNamedItem(STORAGE_BLOCK.get(),
-			new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 
     }
 
@@ -56,8 +45,16 @@ public class MetalMaterialBasic implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
+    public void setup(MaterialHelperBase mat) {
+	INGOT = mat.ITEMS.register(mat.name + "_ingot",
+		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
+	NUGGET = mat.ITEMS.register(mat.name + "_nugget",
+		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
+
+	STORAGE_BLOCK = mat.BLOCKS.register(mat.name + "_block", () -> new Block(Block.Properties.create(Material.IRON)
+		.harvestLevel(1).hardnessAndResistance(3, 4).harvestTool(ToolType.PICKAXE)));
+	STORAGE_ITEMBLOCK = mat.ITEMS.register(mat.name + "_itemblock", () -> new BlockNamedItem(STORAGE_BLOCK.get(),
+		new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 
     }
 

@@ -24,7 +24,19 @@
       "tag": "forge:nuggets/electrum"
     }
   },
-  "strikes": 16,
+  "tools": {
+    "Step_0": {
+      "Uses": 16,
+      "Tool": {
+        "tag": "forge:tools/hammers"
+      },
+      "Count": 1,
+      "Damage": true
+    }
+  },
+  "schematic": {
+    "item": "minecraft:air"
+  },
   "result": {
     "item": "compendium:electrumbow"
   }

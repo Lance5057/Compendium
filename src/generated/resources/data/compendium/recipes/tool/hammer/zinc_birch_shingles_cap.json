@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/zinc"
+  },
+  "block": {
+    "item": "compendium:birch_shinglesitem_cap"
+  },
+  "result": {
+    "item": "compendium:zinc_birch_shinglesitem_cap"
+  }
+}

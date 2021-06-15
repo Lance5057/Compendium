@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/pewter"
+  },
+  "block": {
+    "item": "compendium:acacia_shinglesitem_cap_alt"
+  },
+  "result": {
+    "item": "compendium:pewter_acacia_shinglesitem_cap_alt"
+  }
+}

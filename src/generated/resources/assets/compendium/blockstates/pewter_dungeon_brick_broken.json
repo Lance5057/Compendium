@@ -2,13 +2,13 @@
   "variants": {
     "": [
       {
-        "model": "compendium:block/pewterdungeon_bricks_broken"
+        "model": "compendium:block/pewter_dungeon_brick_broken"
       },
       {
-        "model": "compendium:block/pewterdungeon_bricks_broken_2"
+        "model": "compendium:block/pewter_dungeon_brick_broken_2"
       },
       {
-        "model": "compendium:block/pewterdungeon_bricks_broken_3"
+        "model": "compendium:block/pewter_dungeon_brick_broken_3"
       }
     ]
   }

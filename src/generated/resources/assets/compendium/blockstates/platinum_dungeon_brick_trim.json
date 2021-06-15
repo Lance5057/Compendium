@@ -2,34 +2,34 @@
   "variants": {
     "half=top": [
       {
-        "model": "compendium:block/platinumdungeon_trim_flip_1",
+        "model": "compendium:block/platinum_dungeon_brick_trim_flip",
         "uvlock": true
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_flip_2",
+        "model": "compendium:block/platinum_dungeon_brick_trim_flip_2",
         "uvlock": true
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_flip_3",
+        "model": "compendium:block/platinum_dungeon_brick_trim_flip_3",
         "uvlock": true
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_flip_4",
+        "model": "compendium:block/platinum_dungeon_brick_trim_flip_4",
         "uvlock": true
       }
     ],
     "half=bottom": [
       {
-        "model": "compendium:block/platinumdungeon_trim_1"
+        "model": "compendium:block/platinum_dungeon_brick_trim"
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_2"
+        "model": "compendium:block/platinum_dungeon_brick_trim_2"
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_3"
+        "model": "compendium:block/platinum_dungeon_brick_trim_3"
       },
       {
-        "model": "compendium:block/platinumdungeon_trim_4"
+        "model": "compendium:block/platinum_dungeon_brick_trim_4"
       }
     ]
   }

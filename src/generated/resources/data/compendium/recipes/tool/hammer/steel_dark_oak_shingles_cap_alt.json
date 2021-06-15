@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/steel"
+  },
+  "block": {
+    "item": "compendium:dark_oak_shinglesitem_cap_alt"
+  },
+  "result": {
+    "item": "compendium:steel_dark_oak_shinglesitem_cap_alt"
+  }
+}

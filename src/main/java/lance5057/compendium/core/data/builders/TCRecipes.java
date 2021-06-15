@@ -8,6 +8,7 @@ import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryRecipes;
+import lance5057.compendium.appendixes.construction.data.ConstructionRecipes;
 import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalRecipes;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
@@ -17,6 +18,7 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.BlockTags;
@@ -36,12 +38,21 @@ public class TCRecipes extends RecipeProvider {
 
 	ShapedRecipeBuilder.shapedRecipe(CompendiumItems.CRUDE_HAMMER.get(), 1)
 		.key('s', Ingredient.fromTag(Tags.Items.STONE)).key('a', Ingredient.fromTag(Tags.Items.STRING))
-		.key('w', Ingredient.fromTag(Tags.Items.RODS_WOODEN))
-		.patternLine(" s ")
-		.patternLine("awa")
-		.patternLine(" w ")
-		.addCriterion("stick_get", hasItem(Items.STICK))
+		.key('w', Ingredient.fromTag(Tags.Items.RODS_WOODEN)).patternLine(" s ").patternLine("awa")
+		.patternLine(" w ").addCriterion("stick_get", hasItem(Items.STICK))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, "craft_crude_hammer"));
+
+	ShapedRecipeBuilder.shapedRecipe(CompendiumItems.MINER_GRENADE.get(), 1)
+		.key('t', Ingredient.fromItems(Items.TNT)).key('p', Ingredient.fromItems(Items.IRON_INGOT))
+		.key('f', Ingredient.fromItems(Items.FLINT)).patternLine("tft").patternLine("fpf").patternLine("tft")
+		.addCriterion("iron_ingot_aquired", hasItem(Items.IRON_INGOT))
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, "craft_grenade"));
+
+	SingleItemRecipeBuilder
+		.stonecuttingRecipe(Ingredient.fromItems(CompendiumItems.MEGALITH_STONE.get()), Items.STONE, 9)
+		.addCriterion("has_megalith_stone", hasItem(CompendiumItems.MEGALITH_STONE.get()))
+		.build(consumer, new ResourceLocation(Reference.MOD_ID,"crack_megalith"));
+	;
 
 	workstations(consumer);
 	hammer(consumer);
@@ -50,6 +61,7 @@ public class TCRecipes extends RecipeProvider {
 	MetalRecipes.build(this, consumer);
 	OreRecipes.build(this, consumer);
 	CarpentryRecipes.build(this, consumer);
+	ConstructionRecipes.build(this, consumer);
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //
 //	    if (mh.getIngot() != null)

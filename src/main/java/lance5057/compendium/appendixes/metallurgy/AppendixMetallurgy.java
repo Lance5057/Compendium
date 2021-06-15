@@ -15,4 +15,10 @@ public class AppendixMetallurgy {
 	    mh.client(event);
 	}
     }
+
+    public static void setup() {
+	for (MetallurgyMaterialHelper mh : AppendixMetallurgy.metals) {
+	    mh.setup();
+	}
+    }
 }

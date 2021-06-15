@@ -6,6 +6,8 @@ import lance5057.compendium.appendixes.oredressing.materialhelper.addons.Materia
 import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialStoneOre;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,8 +31,24 @@ public class OreDressingMaterialHelper extends MaterialHelperBase {
 	BLOCKS.register(modEventBus);
     }
 
-    public void client(FMLClientSetupEvent event) {
+    @Override
+    public void setup() {
+	if (this.hasOre())
+	    ore.setup(this);
+	if (this.hasDenseOre())
+	    denseore.setup(this);
+	if (this.hasSparseOre())
+	    sparseore.setup(this);
+    }
 
+    @OnlyIn(Dist.CLIENT)
+    public void client(FMLClientSetupEvent event) {
+	if (this.hasOre())
+	    ore.setupClient(this);
+	if (this.hasDenseOre())
+	    denseore.setupClient(this);
+	if (this.hasSparseOre())
+	    sparseore.setupClient(this);
     }
 
     // Base
@@ -55,7 +73,7 @@ public class OreDressingMaterialHelper extends MaterialHelperBase {
 		biomeCategory);
 	return this;
     }
-    
+
     public boolean hasDenseOre() {
 	return denseore != null;
     }
@@ -63,11 +81,11 @@ public class OreDressingMaterialHelper extends MaterialHelperBase {
     public MaterialDenseOre getDenseOre() {
 	return denseore;
     }
-    
+
     public OreDressingMaterialHelper withSparseOre(float hardness, int level, ToolType tool, float resistance, int ymax,
 	    int ymin, int veinSize, int veinChance, Category biomeCategory) {
-	sparseore = new MaterialSparseStoneOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
-		biomeCategory);
+	sparseore = new MaterialSparseStoneOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize,
+		veinChance, biomeCategory);
 	return this;
     }
 

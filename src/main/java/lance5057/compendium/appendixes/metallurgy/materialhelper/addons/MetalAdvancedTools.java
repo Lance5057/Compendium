@@ -41,14 +41,7 @@ public class MetalAdvancedTools implements MaterialBase {
 //	public Item sickle;
 
     public MetalAdvancedTools(MetallurgyMaterialHelper mh) {
-	BOW = mh.ITEMS.register(mh.name + "bow",
-		() -> new BowItem(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
-	HAMMER = mh.ITEMS.register(mh.name + "hammer",
-		() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
-	SAW = mh.ITEMS.register(mh.name + "saw",
-		() -> new SawItem(mh.tier, 0, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
-	ZWEIHANDER = mh.ITEMS.register(mh.name + "zweihander", () -> new ZweihanderItem(mh.tier, 5, -2.6F,
-		new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -79,9 +72,15 @@ public class MetalAdvancedTools implements MaterialBase {
     }
 
     @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
-
+    public void setup(MaterialHelperBase mh) {
+	BOW = mh.ITEMS.register(mh.name + "bow",
+		() -> new BowItem(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	HAMMER = mh.ITEMS.register(mh.name + "hammer",
+		() -> new HammerItem(mh.tier, 2, -3.4f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	SAW = mh.ITEMS.register(mh.name + "saw",
+		() -> new SawItem(mh.tier, 0, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+	ZWEIHANDER = mh.ITEMS.register(mh.name + "zweihander", () -> new ZweihanderItem(mh.tier, 5, -2.6F,
+		new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
     }
 
     public static void registerBlockModels(MetalAdvancedTools m, TCBlockModels model, String name) {

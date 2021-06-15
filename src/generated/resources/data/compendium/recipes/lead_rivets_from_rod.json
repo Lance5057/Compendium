@@ -8,7 +8,19 @@
       "tag": "forge:nuggets/lead"
     }
   },
-  "strikes": 8,
+  "tools": {
+    "Step_0": {
+      "Uses": 8,
+      "Tool": {
+        "tag": "forge:tools/hammers"
+      },
+      "Count": 1,
+      "Damage": true
+    }
+  },
+  "schematic": {
+    "item": "minecraft:air"
+  },
   "result": {
     "item": "compendium:leadrivets",
     "count": 4

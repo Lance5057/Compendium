@@ -9,7 +9,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class AppendixConstruction {
     public static List<ConstructionMaterialHelper> constructs = new ArrayList<>();    
-    public static List<MaterialHelperBase> bases = new ArrayList<>();
+    //public static List<MaterialHelperBase> bases = new ArrayList<>();
+    
+    public static void setup()
+    {
+	for (ConstructionMaterialHelper mh : AppendixConstruction.constructs) {
+	    mh.setup();
+	}
+    }
     
     public static void client(FMLClientSetupEvent event)
     {

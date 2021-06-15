@@ -2,13 +2,13 @@
   "variants": {
     "": [
       {
-        "model": "compendium:block/aluminiumdungeon_bricks_broken"
+        "model": "compendium:block/aluminium_dungeon_brick_broken"
       },
       {
-        "model": "compendium:block/aluminiumdungeon_bricks_broken_2"
+        "model": "compendium:block/aluminium_dungeon_brick_broken_2"
       },
       {
-        "model": "compendium:block/aluminiumdungeon_bricks_broken_3"
+        "model": "compendium:block/aluminium_dungeon_brick_broken_3"
       }
     ]
   }

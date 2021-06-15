@@ -15,4 +15,10 @@ public class AppendixCarpentry {
 	    mh.client(event);
 	}
     }
+
+    public static void setup() {
+	for (CarpentryMaterialHelper mh : AppendixCarpentry.woods) {
+	    mh.setup();
+	}
+    }
 }

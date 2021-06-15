@@ -86,10 +86,10 @@ public class CraftingAnvilCatagory implements IRecipeCategory<CraftingAnvilRecip
 	guiItemStacks.set(ingredients);
     }
 
-    @Override
-    public void draw(CraftingAnvilRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
-	FontRenderer fontRenderer = Minecraft.getInstance().fontRenderer;
-	fontRenderer.drawString(matrixStack, "" + recipe.getStrikes(), 118f, 80f, 0x0000000);
-    }
+//    @Override
+//    public void draw(CraftingAnvilRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
+//	FontRenderer fontRenderer = Minecraft.getInstance().fontRenderer;
+//	fontRenderer.drawString(matrixStack, "" + recipe.getStrikes(), 118f, 80f, 0x0000000);
+//    }
 
 }

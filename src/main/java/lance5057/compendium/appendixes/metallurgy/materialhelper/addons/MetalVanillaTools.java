@@ -23,6 +23,17 @@ public class MetalVanillaTools implements MaterialBase {
     public RegistryObject<Item> HOE;
 
     public MetalVanillaTools(MetallurgyMaterialHelper mm) {
+	
+    }
+
+    @Override
+    public void setupClient(MaterialHelperBase mat) {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void setup(MaterialHelperBase mm) {
 	SWORD = mm.ITEMS.register(mm.name + "sword", () -> new SwordItem(mm.tier, 3, -2.4f,
 		new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 	PICKAXE = mm.ITEMS.register(mm.name + "pickaxe", () -> new PickaxeItem(mm.tier, 1, -2.8F,
@@ -33,18 +44,6 @@ public class MetalVanillaTools implements MaterialBase {
 		(new Item.Properties()).group(MetallurgyMaterialHelper.GROUP_METAL)));
 	HOE = mm.ITEMS.register(mm.name + "hoe", () -> new HoeItem(mm.tier, -3, 0.0F,
 		(new Item.Properties()).group(MetallurgyMaterialHelper.GROUP_METAL)));
-    }
-
-    @Override
-    public void setupClient(MaterialHelperBase mat) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
-
     }
 
     public static void registerBlockModels(TCBlockModels model, String name) {

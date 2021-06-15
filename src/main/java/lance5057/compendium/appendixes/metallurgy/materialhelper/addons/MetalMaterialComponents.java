@@ -31,6 +31,16 @@ public class MetalMaterialComponents implements MaterialBase {
     public RegistryObject<Item> KEY;
 
     public MetalMaterialComponents(MetallurgyMaterialHelper mh) {
+
+    }
+
+    @Override
+    public void setupClient(MaterialHelperBase mat) {
+
+    }
+
+    @Override
+    public void setup(MaterialHelperBase mh) {
 	PLATE = mh.ITEMS.register(mh.name + "plate",
 		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 
@@ -75,17 +85,6 @@ public class MetalMaterialComponents implements MaterialBase {
 		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 	KEY = mh.ITEMS.register(mh.name + "key",
 		() -> new Item(new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
-    }
-
-    @Override
-    public void setupClient(MaterialHelperBase mat) {
-
-    }
-
-    @Override
-    public void setup(FMLCommonSetupEvent event) {
-	// TODO Auto-generated method stub
-
     }
 
     public static void registerBlockModels(MetalMaterialComponents m, TCBlockModels model, String name) {
