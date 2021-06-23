@@ -4,8 +4,10 @@ import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalAdvancedTools;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialBasic;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialComponents;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialDefense;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalVanillaTools;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
+import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -28,6 +30,7 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
     private MetalVanillaTools vtools;
     private MetalMaterialComponents comp;
     private MetalAdvancedTools atools;
+    private MetalMaterialDefense defense;
 
     public MetallurgyMaterialHelper(String name) {
 	this(name, Reference.MOD_ID, null);
@@ -53,6 +56,7 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
 	if(this.hasVanillaTools()) vtools.setup(this);
 	if(this.hasComponents()) comp.setup(this);
 	if(this.hasAdvancedTools()) atools.setup(this);
+	if(this.hasDefense()) defense.setup(this);
     }
     
     @OnlyIn(Dist.CLIENT)
@@ -62,6 +66,7 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
 	if(this.hasVanillaTools()) vtools.setupClient(this);
 	if(this.hasComponents()) comp.setupClient(this);
 	if(this.hasAdvancedTools()) atools.setupClient(this);
+	if(this.hasDefense()) defense.setupClient(this);
     }
 
     // Base
@@ -118,5 +123,19 @@ public class MetallurgyMaterialHelper extends MaterialHelperBase {
 
     public MetalMaterialComponents getComponents() {
 	return comp;
+    }
+    
+ // Defense
+    public MetallurgyMaterialHelper withDefense(IArmorMaterial iam) {
+	defense = new MetalMaterialDefense(this, iam);
+	return this;
+    }
+
+    public boolean hasDefense() {
+	return defense != null;
+    }
+
+    public MetalMaterialDefense getDefense() {
+	return defense;
     }
 }

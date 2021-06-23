@@ -2,6 +2,7 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryBlockModels;
 import lance5057.compendium.appendixes.construction.data.ConstructionBlockModels;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalBlockModels;
@@ -14,6 +15,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.StairsShape;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -46,6 +48,11 @@ public class TCBlockModels extends BlockStateProvider {
 		models().getExistingFile(modLoc("block/workstations/sawhorse")));
 	this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
 		models().getExistingFile(modLoc("block/workstations/anvil")));
+	
+	//this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get());
+	this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
+		this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
+			new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
 
 	// Shingles
 //	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "", "block/bases/empty_shingles",

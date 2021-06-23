@@ -12,15 +12,18 @@ import lance5057.compendium.appendixes.oredressing.AppendixOreDressing;
 import lance5057.compendium.appendixes.oredressing.materialhelper.OreDressingMaterialHelper;
 import lance5057.compendium.configs.CompendiumConfig;
 import lance5057.compendium.core.util.OreRetrogenFeature;
+import lance5057.compendium.core.world.features.CompendiumConfiguredFeatures;
+import lance5057.compendium.core.world.features.feature.DryLakeFeature;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.chunk.ChunkStatus;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.server.ServerWorld;
@@ -44,22 +47,26 @@ public class CompendiumWorldGen {
 
 	for (OreDressingMaterialHelper mh : AppendixOreDressing.ores) {
 	    // MaterialOre ore = mh.getOre();
-	    if (mh.hasSparseOre())
+	    if (mh.hasSparseOre()) 
 		mh.getSparseOre().generate(mh, event, generation);
 	    if (mh.hasOre())
 		mh.getOre().generate(mh, event, generation);
 	    if (mh.hasDenseOre())
 		mh.getDenseOre().generate(mh, event, generation);
-	    
+
 	}
 
 	// Structures
 //		event.getGeneration().getStructures().add(() -> CompendiumConfiguredStructures.CONFIGURED_DUNGEON.get());
 //		int i = 0;
+
+	// Features
+	if(event.getCategory() == Category.DESERT)
+	    event.getGeneration().withFeature(Decoration.LAKES, CompendiumConfiguredFeatures.CONFIGURED_DRY_LAKE.get());
     }
 
     private void generateOres(Random random, int chunkX, int chunkZ, ServerWorld world) {
-	
+
 	for (OreDressingMaterialHelper mh : AppendixOreDressing.ores) {
 	    if (mh.hasSparseOre())
 		mh.getSparseOre().retrogen(mh, random, chunkX, chunkZ, world);

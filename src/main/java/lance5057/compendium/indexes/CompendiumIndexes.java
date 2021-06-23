@@ -1,5 +1,7 @@
 package lance5057.compendium.indexes;
 
+import lance5057.compendium.indexes.gems.IndexBaseGems;
+import lance5057.compendium.indexes.gems.IndexUtilityGems;
 import lance5057.compendium.indexes.metals.IndexBaseMetals;
 import lance5057.compendium.indexes.metals.IndexVanillaMetals;
 import lance5057.compendium.indexes.woods.IndexCompendiumWoods;
@@ -11,6 +13,9 @@ public class CompendiumIndexes {
     
     public static IndexCompendiumWoods compWood;
     public static  IndexVanillaWoods vanillaWood;
+    
+    public static IndexBaseGems baseGems;
+    public static IndexUtilityGems utilGems;
  
     public CompendiumIndexes()
     {
@@ -19,5 +24,8 @@ public class CompendiumIndexes {
 	
 	baseMetals= new IndexBaseMetals();
 	vanillaMetals = new IndexVanillaMetals();
+	
+	baseGems = new IndexBaseGems();
+	utilGems = new IndexUtilityGems();
     }
 }

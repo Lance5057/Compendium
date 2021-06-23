@@ -9,8 +9,10 @@ import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.oredressing.AppendixOreDressing;
 import lance5057.compendium.configs.CompendiumConfig;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.world.CompendiumConfiguredStructures;
-import lance5057.compendium.core.world.CompendiumStructures;
+import lance5057.compendium.core.world.features.CompendiumConfiguredFeatures;
+import lance5057.compendium.core.world.features.CompendiumFeatures;
+import lance5057.compendium.core.world.structures.CompendiumConfiguredStructures;
+import lance5057.compendium.core.world.structures.CompendiumStructures;
 import lance5057.compendium.indexes.CompendiumIndexes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -55,11 +57,12 @@ public class Compendium {
 	CompendiumContainers.register(modEventBus);
 	// CompendiumStructures.register(modEventBus);
 	CompendiumRecipes.register(modEventBus);
+	CompendiumFeatures.register(modEventBus);
 
 	WorkstationRecipes.register(modEventBus);
 
 	MinecraftForge.EVENT_BUS.register(worldgen);
-	
+
 	AppendixMetallurgy.setup();
 	AppendixCarpentry.setup();
 	AppendixConstruction.setup();
@@ -68,13 +71,15 @@ public class Compendium {
 
     private void modSetup(final FMLCommonSetupEvent event) {
 	// mats.setup(event);
-	
 
 	event.enqueueWork(() -> {
 	    CompendiumStructures.setupStructures();
 	    CompendiumConfiguredStructures.registerConfiguredStructures();
 	});
 
+	event.enqueueWork(() -> {
+	    CompendiumConfiguredFeatures.registerFeatures();
+	});
     }
 
     public void setupClient(FMLClientSetupEvent event) {

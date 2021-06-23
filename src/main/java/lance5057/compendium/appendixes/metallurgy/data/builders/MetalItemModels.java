@@ -5,6 +5,7 @@ import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMater
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalAdvancedTools;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialBasic;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialComponents;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialDefense;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalVanillaTools;
 import lance5057.compendium.core.data.builders.TCItemModels;
 
@@ -24,6 +25,9 @@ public class MetalItemModels {
 	    if (mh.hasAdvancedTools())
 		MetalAdvancedTools.registerItemModels(mh.getAdvancedTools(), model, mh.name);
 
+	    if (mh.hasDefense()) {
+		MetalMaterialDefense.registerItemModels(mh.getDefense(), model, mh.name);
+	    }
 	}
     }
 }

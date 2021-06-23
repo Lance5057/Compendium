@@ -46,6 +46,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK,
 		new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
 
+	forBlockItem(CompendiumItems.DRYLAKEBED_ITEMBLOCK, "drylakebed");
+
 //	forBlockItem(CompendiumItems.ITEM_SHINGLES, "bases/empty_shingles");
 //	forBlockItem(CompendiumItems.ITEM_SHINGLES_ALT, "bases/empty_shinglesalt");
 

@@ -1,4 +1,4 @@
-package lance5057.compendium.core.world;
+package lance5057.compendium.core.world.structures;
 
 import java.util.function.Supplier;
 

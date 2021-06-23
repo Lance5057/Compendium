@@ -29,7 +29,7 @@ public class MetalRecipes {
 	for (MetallurgyMaterialHelper mh : AppendixMetallurgy.metals) {
 
 	    if (mh.hasBase()) {
-		MetalMaterialBasic b = mh.getBase();
+		MetalMaterialBasic.buildRecipes(mh.getBase(), recipes, consumer, mh.name);
 
 	    }
 	    if (mh.hasVanillaTools()) {

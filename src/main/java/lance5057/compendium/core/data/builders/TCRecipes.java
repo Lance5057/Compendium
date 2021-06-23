@@ -13,6 +13,7 @@ import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalRecipes;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
 import lance5057.compendium.appendixes.oredressing.data.builders.OreRecipes;
+import net.minecraft.data.CustomRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -20,6 +21,7 @@ import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -36,6 +38,9 @@ public class TCRecipes extends RecipeProvider {
     @Override
     protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
 
+	CustomRecipeBuilder.customRecipe(IRecipeSerializer.CRAFTING_SPECIAL_SHIELD).build(consumer,
+		"shield_decoration");
+
 	ShapedRecipeBuilder.shapedRecipe(CompendiumItems.CRUDE_HAMMER.get(), 1)
 		.key('s', Ingredient.fromTag(Tags.Items.STONE)).key('a', Ingredient.fromTag(Tags.Items.STRING))
 		.key('w', Ingredient.fromTag(Tags.Items.RODS_WOODEN)).patternLine(" s ").patternLine("awa")
@@ -51,8 +56,7 @@ public class TCRecipes extends RecipeProvider {
 	SingleItemRecipeBuilder
 		.stonecuttingRecipe(Ingredient.fromItems(CompendiumItems.MEGALITH_STONE.get()), Items.STONE, 9)
 		.addCriterion("has_megalith_stone", hasItem(CompendiumItems.MEGALITH_STONE.get()))
-		.build(consumer, new ResourceLocation(Reference.MOD_ID,"crack_megalith"));
-	;
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, "crack_megalith"));
 
 	workstations(consumer);
 	hammer(consumer);

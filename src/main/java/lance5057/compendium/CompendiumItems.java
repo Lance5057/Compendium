@@ -62,6 +62,10 @@ public class CompendiumItems {
     
     public static final RegistryObject<GrenadeItem> MINER_GRENADE = ITEMS.register("grenade",
 	    () -> new GrenadeItem(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+    
+    public static final RegistryObject<BlockNamedItem> DRYLAKEBED_ITEMBLOCK = ITEMS
+	    .register("drylakebed_itemblock", () -> new BlockNamedItem(CompendiumBlocks.DRYLAKEBED.get(),
+		    new Item.Properties().group(CompendiumItems.GROUP_WORKSTATIONS)));
 
 //    public static RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK = ITEMS.register("item_empty_shinglesblock",
 //	    () -> new BlockItem(CompendiumBlocks.SHINGLES_BLOCK.get(),

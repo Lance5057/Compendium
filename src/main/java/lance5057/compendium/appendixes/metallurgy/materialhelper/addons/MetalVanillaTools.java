@@ -13,7 +13,6 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MetalVanillaTools implements MaterialBase {
     public RegistryObject<Item> SWORD;

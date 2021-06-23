@@ -18,30 +18,34 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShearsItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.generators.ModelBuilder.Perspective;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class MetalAdvancedTools implements MaterialBase {
 
-    public RegistryObject<Item> BOW;
-    public RegistryObject<Item> ZWEIHANDER;
+    public RegistryObject<BowItem> BOW;
+    public RegistryObject<ZweihanderItem> ZWEIHANDER;
 //	public Item crossbow;
 //	public Item shield;
-    public RegistryObject<Item> HAMMER;
-    public RegistryObject<Item> SAW;
-//	public Item shears;
+    public RegistryObject<HammerItem> HAMMER;
+    public RegistryObject<SawItem> SAW;
+    public RegistryObject<ShearsItem> SHEARS;
+    public RegistryObject<Item> PRYBAR;
+    public RegistryObject<Item> PLIERS;
+    public RegistryObject<Item> WRENCH;
 //	public Item fishingrod;
 //	public Item trident;
 //	public Item sickle;
 
     public MetalAdvancedTools(MetallurgyMaterialHelper mh) {
-	
+
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -81,6 +85,15 @@ public class MetalAdvancedTools implements MaterialBase {
 		() -> new SawItem(mh.tier, 0, -3.0f, new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 	ZWEIHANDER = mh.ITEMS.register(mh.name + "zweihander", () -> new ZweihanderItem(mh.tier, 5, -2.6F,
 		new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
+
+	SHEARS = mh.ITEMS.register(mh.name + "shears", () -> new ShearsItem(
+		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
+	PRYBAR = mh.ITEMS.register(mh.name + "prybar", () -> new Item(
+		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
+	PLIERS = mh.ITEMS.register(mh.name + "pliers", () -> new Item(
+		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
+	WRENCH = mh.ITEMS.register(mh.name + "wrench", () -> new Item(
+		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
     }
 
     public static void registerBlockModels(MetalAdvancedTools m, TCBlockModels model, String name) {
@@ -98,8 +111,8 @@ public class MetalAdvancedTools implements MaterialBase {
 		.transform(Perspective.FIRSTPERSON_LEFT).scale(1.5f).rotation(90, 0, 0).translation(1, 0, 0).end()
 		.transform(Perspective.FIRSTPERSON_RIGHT).scale(1.5f).rotation(90, 0, 0).translation(1, 0, 0).end()
 		.transform(Perspective.THIRDPERSON_LEFT).scale(1.5f).rotation(0, 90, -45).translation(0, 8, 0).end()
-		.transform(Perspective.THIRDPERSON_RIGHT).scale(1.5f).rotation(0, 90, 45).translation(0, 8, 0).end().end()
-		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.ZWEIHANDER.getId().getPath()))
+		.transform(Perspective.THIRDPERSON_RIGHT).scale(1.5f).rotation(0, 90, 45).translation(0, 8, 0).end()
+		.end().texture("layer0", model.modLoc("item/material/" + name + "/" + m.ZWEIHANDER.getId().getPath()))
 		.texture("layer1", model.modLoc("item/zweihander_base"));
 
 	model.withExistingParent(m.BOW.getId().getPath(), model.mcLoc("item/handheld"))
@@ -124,6 +137,18 @@ public class MetalAdvancedTools implements MaterialBase {
 			.texture("layer1",
 				model.modLoc("item/material/" + name + "/" + m.BOW.getId().getPath() + "_pulling_2"))
 			.texture("layer0", model.mcLoc("item/bow_pulling_2")));
+	
+	model.withExistingParent(m.PLIERS.getId().getPath(), model.mcLoc("item/handheld"))
+	.texture("layer0", model.modLoc("item/material/" + name + "/" + m.PLIERS.getId().getPath()))
+	.texture("layer1", model.modLoc("item/pliersbase"));
+	
+	model.withExistingParent(m.PRYBAR.getId().getPath(), model.mcLoc("item/handheld"))
+	.texture("layer0", model.modLoc("item/material/" + name + "/" + m.PRYBAR.getId().getPath()))
+	.texture("layer1", model.modLoc("item/prybarbase"));
+	
+	model.withExistingParent(m.WRENCH.getId().getPath(), model.mcLoc("item/handheld"))
+	.texture("layer0", model.modLoc("item/material/" + name + "/" + m.WRENCH.getId().getPath()))
+	.texture("layer1", model.modLoc("item/wrenchbase"));
     }
 
     public static void addTranslations(MetalAdvancedTools m, TCEnglishLoc loc, String capName) {
