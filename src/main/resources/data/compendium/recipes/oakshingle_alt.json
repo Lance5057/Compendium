@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sl",
+    "slp"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:oak_planks"
+    },
+    "l": {
+      "item": "minecraft:oak_log"
+    }
+  },
+  "result": {
+    "item": "compendium:oak_shinglesitem_alt",
+    "count": 4
+  }
+}

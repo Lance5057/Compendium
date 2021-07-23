@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "sls"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": []
+  },
+  "result": {
+    "item": "compendium:oak_shinglesitem_cap",
+    "count": 4
+  }
+}

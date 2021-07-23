@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "sls"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": {
+      "item": "minecraft:jungle_log"
+    }
+  },
+  "result": {
+    "item": "compendium:jungle_shinglesitem_cap_alt",
+    "count": 4
+  }
+}

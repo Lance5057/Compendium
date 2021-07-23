@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sp",
+    "spl"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:jungle_planks"
+    },
+    "l": {
+      "item": "minecraft:jungle_log"
+    }
+  },
+  "result": {
+    "item": "compendium:jungle_shinglesitem",
+    "count": 4
+  }
+}

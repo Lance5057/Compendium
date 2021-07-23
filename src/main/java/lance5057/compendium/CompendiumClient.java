@@ -1,5 +1,7 @@
 package lance5057.compendium;
 
+import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
 import lance5057.compendium.core.entities.GrenadeEntity;
 import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
 import lance5057.compendium.core.workstations.client.HammeringStationRenderer;
@@ -11,9 +13,12 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
+import net.minecraft.client.renderer.texture.AtlasTexture;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -61,6 +66,20 @@ public class CompendiumClient {
 			return new SpriteRenderer<>(manager, itemRenderer);
 		    }
 		});
+    }
+
+    @SubscribeEvent
+    public static void onTextureStitchEvent(TextureStitchEvent.Pre event) {
+	if (event.getMap().getTextureLocation() == AtlasTexture.LOCATION_BLOCKS_TEXTURE) {
+	    for (MetallurgyMaterialHelper m : AppendixMetallurgy.metals) {
+		if (m.hasDefense()) {
+		    event.addSprite(new ResourceLocation(Reference.MOD_ID,
+			    "entity/material/" + m.name + "/" + m.name + "shield_base"));
+		    event.addSprite(new ResourceLocation(Reference.MOD_ID,
+			    "entity/material/" + m.name + "/" + m.name + "shield_base_nopattern"));
+		}
+	    }
+	}
     }
 
     public static class GrenadeRenderFactory implements IRenderFactory<GrenadeEntity> {

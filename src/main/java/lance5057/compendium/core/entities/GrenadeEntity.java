@@ -37,7 +37,7 @@ public class GrenadeEntity extends ProjectileItemEntity {
 	return CompendiumItems.MINER_GRENADE.get();
     }
 
-    int power = 16;
+    int power = 4;
 
     public void setPower(int power) {
 	this.power = power;
@@ -75,7 +75,7 @@ public class GrenadeEntity extends ProjectileItemEntity {
     }
 
     private void explode(RayTraceResult result) {
-	this.world.createExplosion(this, result.getHitVec().x, result.getHitVec().y, result.getHitVec().z, power,
+	this.world.createExplosion(this, result.getHitVec().x, result.getHitVec().y, result.getHitVec().z, 8,
 		Mode.BREAK);
 	this.world.setEntityState(this, (byte) 3);
 	this.remove();

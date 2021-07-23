@@ -41,24 +41,24 @@ public class ConstructionMaterialShingles implements MaterialBase {
     public List<RegistryObject<BlockShingles>> SHINGLES;
     public List<RegistryObject<BlockShingles>> SHINGLES_ALT;
     public List<RegistryObject<BlockShinglesCap>> SHINGLES_CAPS;
-    public List<RegistryObject<BlockShinglesCap>> SHINGLES_CAPS_ALT;
+//    public List<RegistryObject<BlockShinglesCap>> SHINGLES_CAPS_ALT;
 
     RegistryObject<BlockNamedItem> SHINGLES_ITEMBLOCK;
     public List<RegistryObject<BlockNamedItem>> SHINGLESITEM;
     public List<RegistryObject<BlockNamedItem>> SHINGLESITEM_ALT;
     public List<RegistryObject<BlockNamedItem>> SHINGLESITEM_CAPS;
-    public List<RegistryObject<BlockNamedItem>> SHINGLESITEM_CAPS_ALT;
+//    public List<RegistryObject<BlockNamedItem>> SHINGLESITEM_CAPS_ALT;
 
     public ConstructionMaterialShingles(ConstructionMaterialHelper cmh) {
 	SHINGLES = new ArrayList<RegistryObject<BlockShingles>>();
 	SHINGLES_ALT = new ArrayList<RegistryObject<BlockShingles>>();
 	SHINGLES_CAPS = new ArrayList<RegistryObject<BlockShinglesCap>>();
-	SHINGLES_CAPS_ALT = new ArrayList<RegistryObject<BlockShinglesCap>>();
+//	SHINGLES_CAPS_ALT = new ArrayList<RegistryObject<BlockShinglesCap>>();
 
 	SHINGLESITEM = new ArrayList<RegistryObject<BlockNamedItem>>();
 	SHINGLESITEM_ALT = new ArrayList<RegistryObject<BlockNamedItem>>();
 	SHINGLESITEM_CAPS = new ArrayList<RegistryObject<BlockNamedItem>>();
-	SHINGLESITEM_CAPS_ALT = new ArrayList<RegistryObject<BlockNamedItem>>();
+//	SHINGLESITEM_CAPS_ALT = new ArrayList<RegistryObject<BlockNamedItem>>();
     }
 
     @Override
@@ -97,21 +97,21 @@ public class ConstructionMaterialShingles implements MaterialBase {
 		    .register(cmh.name + "_" + m.name + "_shinglesitem_cap", () -> new BlockNamedItem(SHINGLE_CAP.get(),
 			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	    RegistryObject<BlockShinglesCap> SHINGLE_CAP_ALT = cmh.BLOCKS
-		    .register(cmh.name + "_" + m.name + "_shingles_cap_alt", () -> new BlockShinglesCap(Block.Properties
-			    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
-
-	    RegistryObject<BlockNamedItem> SHINGLEITEM_CAP_ALT = cmh.ITEMS.register(
-		    cmh.name + "_" + m.name + "_shinglesitem_cap_alt", () -> new BlockNamedItem(SHINGLE_CAP_ALT.get(),
-			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+//	    RegistryObject<BlockShinglesCap> SHINGLE_CAP_ALT = cmh.BLOCKS
+//		    .register(cmh.name + "_" + m.name + "_shingles_cap_alt", () -> new BlockShinglesCap(Block.Properties
+//			    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+//
+//	    RegistryObject<BlockNamedItem> SHINGLEITEM_CAP_ALT = cmh.ITEMS.register(
+//		    cmh.name + "_" + m.name + "_shinglesitem_cap_alt", () -> new BlockNamedItem(SHINGLE_CAP_ALT.get(),
+//			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
 	    SHINGLES.add(SHINGLE);
 	    SHINGLES_ALT.add(SHINGLE_ALT);
 	    SHINGLES_CAPS.add(SHINGLE_CAP);
-	    SHINGLES_CAPS_ALT.add(SHINGLE_CAP_ALT);
+//	    SHINGLES_CAPS_ALT.add(SHINGLE_CAP_ALT);
 
 	    SHINGLESITEM_CAPS.add(SHINGLEITEM_CAP);
-	    SHINGLESITEM_CAPS_ALT.add(SHINGLEITEM_CAP_ALT);
+//	    SHINGLESITEM_CAPS_ALT.add(SHINGLEITEM_CAP_ALT);
 	    SHINGLESITEM.add(SHINGLEITEM);
 	    SHINGLESITEM_ALT.add(SHINGLEITEM_ALT);
 	}
@@ -155,7 +155,7 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	    model.forBlockItem(m.SHINGLESITEM.get(i), name);
 	    model.forBlockItem(m.SHINGLESITEM_ALT.get(i), name);
 	    model.forBlockItem(m.SHINGLESITEM_CAPS.get(i), name);
-	    model.forBlockItem(m.SHINGLESITEM_CAPS_ALT.get(i), name);
+//	    model.forBlockItem(m.SHINGLESITEM_CAPS_ALT.get(i), name);
 	}
     }
 
@@ -173,7 +173,7 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	    table.registerDropSelfLootTable(b.SHINGLES_ALT.get(i).get());
 
 	    table.registerDropSelfLootTable(b.SHINGLES_CAPS.get(i).get());
-	    table.registerDropSelfLootTable(b.SHINGLES_CAPS_ALT.get(i).get());
+//	    table.registerDropSelfLootTable(b.SHINGLES_CAPS_ALT.get(i).get());
 	}
     }
 
@@ -197,9 +197,9 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap",
 		    new ItemStack(m.SHINGLES_CAPS.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP.get()),
 		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
-	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap_alt",
-		    new ItemStack(m.SHINGLES_CAPS_ALT.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP_ALT.get()),
-		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
+//	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap_alt",
+//		    new ItemStack(m.SHINGLES_CAPS_ALT.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP_ALT.get()),
+//		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
 
 	}
     }
@@ -207,7 +207,7 @@ public class ConstructionMaterialShingles implements MaterialBase {
     public static void registerBlockTags(ConstructionMaterialShingles base, TCBlockTags btp, String name) {
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
 	    btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS.get(i).get());
-	    btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS_ALT.get(i).get());
+//	    btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS_ALT.get(i).get());
 	}
     }
 

@@ -1,6 +1,7 @@
 package lance5057.compendium.appendixes.construction.materialhelper;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionLighting;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialBasic;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialDungeon;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialShingles;
@@ -25,6 +26,7 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
     private ConstructionMaterialBasic basic;
     private ConstructionMaterialDungeon dungeon;
     private ConstructionMaterialShingles shingles;
+    private ConstructionLighting lighting;
 
     public ConstructionMaterialHelper(String name) {
 	this(name, Reference.MOD_ID);
@@ -47,6 +49,8 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	    shingles.setup(this);
 	if (this.hasDungeon())
 	    dungeon.setup(this);
+	if (this.hasLighting())
+	    lighting.setup(this);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -57,6 +61,8 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	    shingles.setupClient(this);
 	if (this.hasDungeon())
 	    dungeon.setupClient(this);
+	if (this.hasLighting())
+	    lighting.setupClient(this);
     }
 
     // Base
@@ -99,6 +105,20 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 
     public ConstructionMaterialShingles getShingles() {
 	return shingles;
+    }
+
+    // Lighting
+    public ConstructionMaterialHelper withLighting() {
+	lighting = new ConstructionLighting(this);
+	return this;
+    }
+
+    public boolean hasLighting() {
+	return lighting != null;
+    }
+
+    public ConstructionLighting getLighting() {
+	return lighting;
     }
 
 }

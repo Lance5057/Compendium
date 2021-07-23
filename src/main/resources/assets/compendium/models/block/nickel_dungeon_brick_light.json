@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/2layerblock",
+  "textures": {
+    "0": "minecraft:block/redstone_lamp_on",
+    "1": "compendium:block/material/nickel/nickeldungeon_square_light"
+  }
+}

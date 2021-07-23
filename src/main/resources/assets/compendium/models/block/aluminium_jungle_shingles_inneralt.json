@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shingles_inner_corneralt",
+  "textures": {
+    "0": "compendium:block/material/aluminium/aluminiumshingles",
+    "1": "minecraft:block/jungle_log_top",
+    "2": "minecraft:block/jungle_log"
+  }
+}

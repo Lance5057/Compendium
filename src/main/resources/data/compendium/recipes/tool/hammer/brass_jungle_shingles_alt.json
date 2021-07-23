@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/brass"
+  },
+  "block": {
+    "item": "compendium:jungle_shinglesitem_alt"
+  },
+  "result": {
+    "item": "compendium:brass_jungle_shinglesitem_alt"
+  }
+}

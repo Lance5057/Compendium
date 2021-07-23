@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:steel_ingot_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "steelnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/steel"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:steel_ingot_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steelnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

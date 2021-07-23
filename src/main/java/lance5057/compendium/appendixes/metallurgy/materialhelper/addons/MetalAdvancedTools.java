@@ -149,6 +149,10 @@ public class MetalAdvancedTools implements MaterialBase {
 	model.withExistingParent(m.WRENCH.getId().getPath(), model.mcLoc("item/handheld"))
 	.texture("layer0", model.modLoc("item/material/" + name + "/" + m.WRENCH.getId().getPath()))
 	.texture("layer1", model.modLoc("item/wrenchbase"));
+	
+	model.withExistingParent(m.SHEARS.getId().getPath(), model.mcLoc("item/handheld"))
+	.texture("layer0", model.modLoc("item/material/" + name + "/" + m.SHEARS.getId().getPath()))
+	.texture("layer1", model.modLoc("item/shearsbase"));
     }
 
     public static void addTranslations(MetalAdvancedTools m, TCEnglishLoc loc, String capName) {

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:oakshingle_cap"
+    ]
+  },
+  "criteria": {
+    "oakshingle_cap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:air"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:oakshingle_cap"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oakshingle_cap",
+      "has_the_recipe"
+    ]
+  ]
+}

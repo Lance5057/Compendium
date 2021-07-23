@@ -4,7 +4,8 @@ import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 
 public abstract interface MaterialBase {
 
-	public abstract void setupClient(MaterialHelperBase mat);
+    public abstract void setupClient(MaterialHelperBase mat);
 
-	public abstract void setup(MaterialHelperBase mat);
+    public abstract void setup(MaterialHelperBase mat);
+
 }

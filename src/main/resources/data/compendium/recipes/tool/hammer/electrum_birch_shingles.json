@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/electrum"
+  },
+  "block": {
+    "item": "compendium:birch_shinglesitem"
+  },
+  "result": {
+    "item": "compendium:electrum_birch_shinglesitem"
+  }
+}

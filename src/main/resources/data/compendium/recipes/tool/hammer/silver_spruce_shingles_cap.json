@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/silver"
+  },
+  "block": {
+    "item": "compendium:spruce_shinglesitem_cap"
+  },
+  "result": {
+    "item": "compendium:silver_spruce_shinglesitem_cap"
+  }
+}

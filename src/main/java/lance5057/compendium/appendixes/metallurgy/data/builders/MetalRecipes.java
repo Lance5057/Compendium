@@ -8,6 +8,7 @@ import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMater
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalAdvancedTools;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialBasic;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialComponents;
+import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalMaterialDefense;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.MetalVanillaTools;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCRecipes;
@@ -92,6 +93,7 @@ public class MetalRecipes {
 				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
 			.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_hoe"));
+
 	    }
 	    if (mh.hasComponents()) {
 		MetalMaterialComponents b = mh.getComponents();
@@ -284,6 +286,36 @@ public class MetalRecipes {
 				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
 			.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
 			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_saw"));
+
+		AnvilShapedRecipeBuilder.shapedRecipe(b.WRENCH.get(), 1).key('s', Items.STICK)
+			.key('r', Ingredient.fromTag(TCItemTags.ItemTag("gears/" + mh.name)))
+			.key('o', Ingredient.fromTag(TCItemTags.ItemTag("ringshanks/" + mh.name))).patternLine("r  ")
+			.patternLine(" s ").patternLine("  o")
+			.addCriterion(mh.name + "ingot",
+				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
+			.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_wrench"));
+
+		AnvilShapedRecipeBuilder.shapedRecipe(b.PLIERS.get(), 1).key('s', Items.STICK)
+			.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + mh.name)))
+			.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + mh.name))).patternLine("r r")
+			.patternLine(" o ").patternLine("s s")
+			.addCriterion(mh.name + "ingot",
+				RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
+			.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+			.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_pliers"));
+		
+		AnvilShapedRecipeBuilder.shapedRecipe(b.PLIERS.get(), 1).key('s', Items.STICK)
+		.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + mh.name))).patternLine("  r")
+		.patternLine(" s ").patternLine("r  ")
+		.addCriterion(mh.name + "ingot",
+			RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + mh.name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, mh.name + "_prybar"));
+	    }
+	    
+	    if (mh.hasDefense()) {
+		MetalMaterialDefense.buildRecipes(mh.getDefense(), recipes, consumer, mh.name);
 	    }
 	}
     }

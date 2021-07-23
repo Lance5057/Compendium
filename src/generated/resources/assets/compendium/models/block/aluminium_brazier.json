@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/brazier",
+  "textures": {
+    "0": "compendium:block/material/aluminium/aluminiumtopbars"
+  }
+}

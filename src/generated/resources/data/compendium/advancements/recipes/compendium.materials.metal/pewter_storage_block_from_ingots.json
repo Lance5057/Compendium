@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:pewter_storage_block_from_ingots"
+    ]
+  },
+  "criteria": {
+    "pewterstorage_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/pewter"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:pewter_storage_block_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pewterstorage_block",
+      "has_the_recipe"
+    ]
+  ]
+}

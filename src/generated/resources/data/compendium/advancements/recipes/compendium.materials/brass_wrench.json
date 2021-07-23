@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:brass_wrench"
+    ]
+  },
+  "criteria": {
+    "brassingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/brass"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:brass_wrench"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brassingot",
+      "has_the_recipe"
+    ]
+  ]
+}

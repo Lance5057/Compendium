@@ -5,10 +5,22 @@
   ],
   "key": {
     "s": {
-      "tag": "forge:rods/brass"
+      "tag": "forge:nuggets/brass"
     }
   },
-  "strikes": 8,
+  "tools": {
+    "Step_0": {
+      "Uses": 8,
+      "Tool": {
+        "tag": "forge:tools/hammers"
+      },
+      "Count": 1,
+      "Damage": true
+    }
+  },
+  "schematic": {
+    "item": "minecraft:air"
+  },
   "result": {
     "item": "compendium:brassrivets",
     "count": 4

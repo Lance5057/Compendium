@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:bronze_nugget_from_ingot"
+    ]
+  },
+  "criteria": {
+    "bronzeingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/bronze"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:bronze_nugget_from_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronzeingot",
+      "has_the_recipe"
+    ]
+  ]
+}

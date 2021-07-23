@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "compendium:block/material/pewter/pewterdungeon_pillar",
+    "end": "compendium:block/material/pewter/pewterdungeon_square"
+  }
+}

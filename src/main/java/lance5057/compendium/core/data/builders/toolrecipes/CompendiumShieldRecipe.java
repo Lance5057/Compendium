@@ -1,10 +1,9 @@
 package lance5057.compendium.core.data.builders.toolrecipes;
 
-import lance5057.compendium.Reference;
+
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.BannerItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.ShieldItem;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.SpecialRecipe;
@@ -14,7 +13,7 @@ import net.minecraft.world.World;
 
 public class CompendiumShieldRecipe extends SpecialRecipe {
    public CompendiumShieldRecipe(ResourceLocation id) {
-      super(new ResourceLocation(Reference.MOD_ID, "compendium_shield_recipe"));
+      super(id);
    }
 
    /**
@@ -66,7 +65,7 @@ public class CompendiumShieldRecipe extends SpecialRecipe {
          if (!itemstack2.isEmpty()) {
             if (itemstack2.getItem() instanceof BannerItem) {
                itemstack = itemstack2;
-            } else if (itemstack2.getItem() == Items.SHIELD) {
+            } else if (itemstack2.getItem() instanceof ShieldItem) {
                itemstack1 = itemstack2.copy();
             }
          }

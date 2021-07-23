@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/zinc"
+  },
+  "block": {
+    "item": "compendium:jungle_shinglesitem"
+  },
+  "result": {
+    "item": "compendium:zinc_jungle_shinglesitem"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:rosegold_ingot_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "rosegoldnugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/rosegold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:rosegold_ingot_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rosegoldnugget",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sp",
+    "spl"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:acacia_planks"
+    },
+    "l": {
+      "item": "minecraft:acacia_log"
+    }
+  },
+  "result": {
+    "item": "compendium:acacia_shinglesitem",
+    "count": 4
+  }
+}

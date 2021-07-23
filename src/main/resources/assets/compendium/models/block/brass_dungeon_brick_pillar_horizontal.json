@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "compendium:block/material/brass/brassdungeon_pillar",
+    "end": "compendium:block/material/brass/brassdungeon_square"
+  }
+}
