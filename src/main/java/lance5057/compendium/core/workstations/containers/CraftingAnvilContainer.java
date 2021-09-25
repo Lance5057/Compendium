@@ -5,13 +5,12 @@ import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
-import com.google.common.collect.ImmutableList;
-
 import lance5057.compendium.CompendiumContainers;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -179,15 +178,15 @@ public class CraftingAnvilContainer extends Container implements IInventory {
 
 	Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager()
 		.getRecipesForType(WorkstationRecipes.CRAFTING_ANVIL_RECIPE);
-	CraftingAnvilRecipe r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
+	MultiToolRecipe r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
 	// zeroStrikes();
 	super.onCraftMatrixChanged(inventoryIn);
     }
 
-    private CraftingAnvilRecipe matchRecipe(WorkstationRecipeWrapper inventoryIn) {
+    private MultiToolRecipe matchRecipe(WorkstationRecipeWrapper inventoryIn) {
 	if (world != null) {
 	    return world.getRecipeManager().getRecipes().stream()
-		    .filter(recipe -> recipe instanceof CraftingAnvilRecipe).map(recipe -> (CraftingAnvilRecipe) recipe)
+		    .filter(recipe -> recipe instanceof MultiToolRecipe).map(recipe -> (MultiToolRecipe) recipe)
 		    .filter(recipe -> recipe.matches(inventoryIn, this.world)).findFirst().orElse(null);
 	}
 	return null;

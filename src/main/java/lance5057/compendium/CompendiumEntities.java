@@ -3,6 +3,7 @@ package lance5057.compendium;
 import java.util.function.Supplier;
 
 import lance5057.compendium.core.entities.GrenadeEntity;
+import lance5057.compendium.core.entities.SeatEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -17,6 +18,8 @@ public class CompendiumEntities {
 
     public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = register("grenade",
 	    CompendiumEntities::grenade);
+    public static final RegistryObject<EntityType<SeatEntity>> SEAT_ENTITY = register("seat",
+	    CompendiumEntities::seat);
 
     private static <E extends Entity> RegistryObject<EntityType<E>> register(final String name,
 	    final Supplier<EntityType.Builder<E>> sup) {
@@ -25,6 +28,10 @@ public class CompendiumEntities {
 
     private static EntityType.Builder<GrenadeEntity> grenade() {
 	return EntityType.Builder.<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC);
+    }
+    
+    private static EntityType.Builder<SeatEntity> seat() {
+	return EntityType.Builder.<SeatEntity>create(SeatEntity::new, EntityClassification.MISC);
     }
 
     public static void register(IEventBus modBus) {

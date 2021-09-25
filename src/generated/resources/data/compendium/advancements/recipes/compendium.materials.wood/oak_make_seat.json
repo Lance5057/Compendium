@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:oak_make_seat"
+    ]
+  },
+  "criteria": {
+    "oakseat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:oak_make_seat"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oakseat",
+      "has_the_recipe"
+    ]
+  ]
+}

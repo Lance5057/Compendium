@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/empty_shingles_inner_corneralt",
+  "textures": {
+    "0": "minecraft:block/crimson_planks",
+    "1": "minecraft:block/crimson_stem_top",
+    "2": "minecraft:block/crimson_stem"
+  }
+}

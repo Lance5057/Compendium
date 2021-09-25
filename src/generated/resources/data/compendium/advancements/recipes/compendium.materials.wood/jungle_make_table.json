@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:jungle_make_table"
+    ]
+  },
+  "criteria": {
+    "jungletable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:jungle_make_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "jungletable",
+      "has_the_recipe"
+    ]
+  ]
+}

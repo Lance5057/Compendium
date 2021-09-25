@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "sls"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "l": []
+  },
+  "result": {
+    "item": "compendium:warped_shinglesitem_cap_alt",
+    "count": 4
+  }
+}

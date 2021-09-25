@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sp",
+    "spl"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:crimson_planks"
+    },
+    "l": []
+  },
+  "result": {
+    "item": "compendium:crimson_shinglesitem",
+    "count": 4
+  }
+}

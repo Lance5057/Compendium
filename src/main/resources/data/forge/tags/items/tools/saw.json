@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:aluminiumsaw",
+    "compendium:brasssaw",
+    "compendium:bronzesaw",
+    "compendium:coppersaw",
+    "compendium:electrumsaw",
+    "compendium:nickelsaw",
+    "compendium:steelsaw",
+    "compendium:tinsaw",
+    "compendium:zincsaw",
+    "compendium:rosegoldsaw",
+    "compendium:platinumsaw",
+    "compendium:silversaw",
+    "compendium:pewtersaw",
+    "compendium:leadsaw",
+    "compendium:ironsaw",
+    "compendium:goldsaw"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/chain2",
+  "textures": {
+    "0": "compendium:block/material/aluminium/aluminiumchain"
+  }
+}

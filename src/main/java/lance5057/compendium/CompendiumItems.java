@@ -1,5 +1,6 @@
 package lance5057.compendium;
 
+import lance5057.compendium.core.items.BurnableItem;
 import lance5057.compendium.core.items.MegalithStoneItem;
 import lance5057.compendium.core.items.projectiles.GrenadeItem;
 import lance5057.compendium.core.items.tools.HammerItem;
@@ -48,23 +49,26 @@ public class CompendiumItems {
     public static final RegistryObject<BlockNamedItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS
 	    .register("crafting_anvil_itemblock", () -> new BlockNamedItem(CompendiumBlocks.CRAFTING_ANVIL.get(),
 		    new Item.Properties().group(CompendiumItems.GROUP_WORKSTATIONS)));
+    public static final RegistryObject<BlockNamedItem> SCRAPPING_TABLE_ITEMBLOCK = ITEMS
+	    .register("scrapping_table_itemblock", () -> new BlockNamedItem(CompendiumBlocks.SCRAPPING_TABLE.get(),
+		    new Item.Properties().group(CompendiumItems.GROUP_WORKSTATIONS)));
 
     public static final RegistryObject<MegalithStoneItem> MEGALITH_STONE = ITEMS.register("megalith_stone",
 	    () -> new MegalithStoneItem(new Item.Properties().group(CompendiumItems.GROUP_MATERIALS)));
 
     public static final RegistryObject<Item> SAWDUST = ITEMS.register("sawdust",
-	    () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
+	    () -> new BurnableItem(new Item.Properties().group(CompendiumItems.GROUP_ITEMS), 100));
     public static final RegistryObject<Item> BARK = ITEMS.register("bark",
-	    () -> new Item(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
-    
+	    () -> new BurnableItem(new Item.Properties().group(CompendiumItems.GROUP_ITEMS), 100));
+
     public static final RegistryObject<Item> CRUDE_HAMMER = ITEMS.register("crude_hammer",
 	    () -> new HammerItem(ItemTier.STONE, 0, 0, new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
-    
+
     public static final RegistryObject<GrenadeItem> MINER_GRENADE = ITEMS.register("grenade",
 	    () -> new GrenadeItem(new Item.Properties().group(CompendiumItems.GROUP_ITEMS)));
-    
-    public static final RegistryObject<BlockNamedItem> DRYLAKEBED_ITEMBLOCK = ITEMS
-	    .register("drylakebed_itemblock", () -> new BlockNamedItem(CompendiumBlocks.DRYLAKEBED.get(),
+
+    public static final RegistryObject<BlockNamedItem> DRYLAKEBED_ITEMBLOCK = ITEMS.register("drylakebed_itemblock",
+	    () -> new BlockNamedItem(CompendiumBlocks.DRYLAKEBED.get(),
 		    new Item.Properties().group(CompendiumItems.GROUP_WORKSTATIONS)));
 
 //    public static RegistryObject<BlockItem> ITEM_SHINGLES_BLOCK = ITEMS.register("item_empty_shinglesblock",

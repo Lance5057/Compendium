@@ -57,7 +57,7 @@ public class BlockSnuffableLantern extends BlockSnuffable implements IWaterLogga
    }
 
    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-      builder.add(HANGING, WATERLOGGED);
+      builder.add(HANGING, WATERLOGGED, LIT);
    }
 
    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {

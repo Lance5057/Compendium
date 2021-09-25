@@ -1,3 +1,8 @@
 {
-  "parent": "compendium:block/spruce_empty_shingles_cap"
+  "parent": "compendium:block/bases/empty_shingles_cap_full",
+  "textures": {
+    "0": "minecraft:block/spruce_planks",
+    "2": "minecraft:block/spruce_log",
+    "1": "minecraft:block/spruce_log_top"
+  }
 }

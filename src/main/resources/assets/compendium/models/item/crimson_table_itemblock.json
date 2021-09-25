@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/table/table_full",
+  "textures": {
+    "0": "minecraft:block/crimson_planks"
+  }
+}

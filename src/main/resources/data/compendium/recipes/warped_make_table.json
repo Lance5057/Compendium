@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "www",
+    "s s",
+    "s s"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "tag": "forge:planks/warped"
+    }
+  },
+  "result": {
+    "item": "compendium:warped_table_itemblock"
+  }
+}

@@ -5,8 +5,12 @@ import lance5057.compendium.core.data.builders.toolrecipes.CompendiumShieldRecip
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
 import lance5057.compendium.core.workstations.recipes.SawhorseStationRecipe;
+import lance5057.compendium.core.workstations.recipes.ScrappingTableRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import lance5057.compendium.core.workstations.recipes.serializers.CraftingAnvilRecipeSerializer;
 import lance5057.compendium.core.workstations.recipes.serializers.HammeringStationRecipeSerializer;
 import lance5057.compendium.core.workstations.recipes.serializers.SawhorseStationRecipeSerializer;
+import lance5057.compendium.core.workstations.recipes.serializers.ScrappingTableRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.SpecialRecipeSerializer;
@@ -22,9 +26,11 @@ public class WorkstationRecipes {
     public static final RegistryObject<IRecipeSerializer<HammeringStationRecipe>> HAMMERING_STATION_SERIALIZER = RECIPE_SERIALIZERS
 	    .register("hammering_station", HammeringStationRecipeSerializer::new);
     public static final RegistryObject<IRecipeSerializer<CraftingAnvilRecipe>> CRAFTING_ANVIL_SERIALIZER = RECIPE_SERIALIZERS
-	    .register("crafting_anvil", CraftingAnvilRecipe.Serializer::new);
+	    .register("crafting_anvil", CraftingAnvilRecipeSerializer::new);
     public static final RegistryObject<IRecipeSerializer<SawhorseStationRecipe>> SAWHORSE_STATION_SERIALIZER = RECIPE_SERIALIZERS
 	    .register("sawhorse_station", SawhorseStationRecipeSerializer::new);
+    public static final RegistryObject<IRecipeSerializer<ScrappingTableRecipe>> SCRAPPING_TABLE_SERIALIZER = RECIPE_SERIALIZERS
+	    .register("scrapping_table", ScrappingTableRecipeSerializer::new);
 
     public static final RegistryObject<SpecialRecipeSerializer<CompendiumShieldRecipe>> CRAFTING_SPECIAL_SHIELD = RECIPE_SERIALIZERS
 	    .register("crafting_special_shielddecoration", () -> new SpecialRecipeSerializer<CompendiumShieldRecipe>(CompendiumShieldRecipe::new));
@@ -35,6 +41,8 @@ public class WorkstationRecipes {
     public static final IRecipeType<CraftingAnvilRecipe> CRAFTING_ANVIL_RECIPE = IRecipeType.register("crafting_anvil");
     public static final IRecipeType<SawhorseStationRecipe> SAWHORSE_STATION_RECIPE = IRecipeType
 	    .register("sawhorse_station");
+    public static final IRecipeType<ScrappingTableRecipe> SCRAPPING_TABLE_RECIPE = IRecipeType
+	    .register("scrapping_table");
 
     public static void register(IEventBus modBus) {
 	RECIPE_SERIALIZERS.register(modBus);

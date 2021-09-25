@@ -166,7 +166,7 @@ public class IndexBaseMetals {
 	AppendixOreDressing.ores.add(oreAluminium);
 
 	ConstructionMaterialHelper constructionAluminium = new ConstructionMaterialHelper("aluminium").withBase()
-		.withDungeon().withShingles().withLighting();
+		.withDungeon().withShingles().withLighting().withBarsAndChains().withDoorsAndGates().withDecorations().withWindows();
 	AppendixConstruction.constructs.add(constructionAluminium);
 
 	// BRASS ------------------------------------------------------//

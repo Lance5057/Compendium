@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/copper"
+  },
+  "block": {
+    "item": "compendium:crimson_shinglesitem"
+  },
+  "result": {
+    "item": "compendium:copper_crimson_shinglesitem"
+  }
+}

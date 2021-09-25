@@ -13,6 +13,7 @@ public class BlockLoot extends BlockLootTables {
 	this.registerDropSelfLootTable(CompendiumBlocks.HAMMERING_STATION.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.CRAFTING_ANVIL.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.SAWHORSE_STATION.get());
+	this.registerDropSelfLootTable(CompendiumBlocks.SCRAPPING_TABLE.get());
 	this.registerDropSelfLootTable(CompendiumBlocks.DRYLAKEBED.get());
 
 //	this.registerDropSelfLootTable(CompendiumBlocks.SHINGLES.get());

@@ -3,6 +3,7 @@ package lance5057.compendium;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import lance5057.compendium.core.workstations.tileentities.HammeringStationTE;
 import lance5057.compendium.core.workstations.tileentities.SawhorseStationTE;
+import lance5057.compendium.core.workstations.tileentities.ScrappingTableTE;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -22,7 +23,10 @@ public class CompendiumTileEntities {
     public static final RegistryObject<TileEntityType<SawhorseStationTE>> SAWHORSE_STATION_TE = TILE_ENTITIES
 	    .register("sawhorse_station_tile", () -> TileEntityType.Builder
 		    .create(SawhorseStationTE::new, CompendiumBlocks.SAWHORSE_STATION.get()).build(null));
-
+    public static final RegistryObject<TileEntityType<ScrappingTableTE>> SCRAPPING_TABLE_TE = TILE_ENTITIES
+	    .register("scrapping_table_tile", () -> TileEntityType.Builder
+		    .create(ScrappingTableTE::new, CompendiumBlocks.SCRAPPING_TABLE.get()).build(null));
+    
 //    public static final RegistryObject<TileEntityType<VaultTileEntity>> VAULT_TE = TILE_ENTITIES.register("vault_tile",
 //	    () -> TileEntityType.Builder.create(VaultTileEntity::new, getAllVaults()).build(null));
 //    public static final RegistryObject<TileEntityType<ItemDisplayTileEntity>> ITEM_DISPLAY_TE = TILE_ENTITIES.register("item_display_tile",

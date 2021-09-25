@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " w ",
+    "s s"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "tag": "forge:planks/dark_oak"
+    }
+  },
+  "result": {
+    "item": "compendium:dark_oak_seat_back_itemblock"
+  }
+}

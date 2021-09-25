@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "compendium:block/aluminium_lantern"
+    },
+    "hanging=true": {
+      "model": "compendium:block/aluminium_lantern_hanging"
+    }
+  }
+}

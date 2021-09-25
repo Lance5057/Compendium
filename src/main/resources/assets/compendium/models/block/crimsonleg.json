@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/seat/stool_leg",
+  "textures": {
+    "0": "minecraft:block/crimson_planks"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:warpedshingle_alt"
+    ]
+  },
+  "criteria": {
+    "warpedshingle_alt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:warped_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:warpedshingle_alt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "warpedshingle_alt",
+      "has_the_recipe"
+    ]
+  ]
+}

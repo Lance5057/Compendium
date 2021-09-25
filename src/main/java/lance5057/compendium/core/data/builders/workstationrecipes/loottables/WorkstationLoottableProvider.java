@@ -21,19 +21,20 @@ import net.minecraft.loot.ValidationTracker;
 import net.minecraft.util.ResourceLocation;
 
 public class WorkstationLoottableProvider extends LootTableProvider {
-	
-	public WorkstationLoottableProvider(DataGenerator dataGeneratorIn) {
-		super(dataGeneratorIn);
-	}
 
-	@Override
-	@Nonnull
-	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-		return ImmutableList.of(Pair.of(SawhorseRecipeLoottables::new, LootParameterSets.GENERIC));
-	}
-	
-	@Override
+    public WorkstationLoottableProvider(DataGenerator dataGeneratorIn) {
+	super(dataGeneratorIn);
+    }
+
+    @Override
+    @Nonnull
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
+	return ImmutableList.of(Pair.of(SawhorseRecipeLoottables::new, LootParameterSets.GENERIC),
+		Pair.of(ScrappingTableLoottables::new, LootParameterSets.GENERIC));
+    }
+
+    @Override
     protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationtracker) {
-        map.forEach((name, table) -> LootTableManager.validateLootTable(validationtracker, name, table));
+	map.forEach((name, table) -> LootTableManager.validateLootTable(validationtracker, name, table));
     }
 }

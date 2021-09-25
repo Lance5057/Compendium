@@ -1,6 +1,7 @@
 package lance5057.compendium.core.blocks;
 
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneLampBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,8 +39,8 @@ public class BlockSnuffable extends RedstoneLampBlock {
 	return ActionResultType.PASS;
     }
 
-    void light(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn,
-	    BlockRayTraceResult hit) {
-
+    @Override
+    public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos,
+	    boolean isMoving) {
     }
 }

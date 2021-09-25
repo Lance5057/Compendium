@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "compendium:block/aluminium_brazier_out"
+    },
+    "lit=true": {
+      "model": "compendium:block/aluminium_brazier"
+    }
+  }
+}

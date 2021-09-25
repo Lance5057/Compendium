@@ -1,6 +1,7 @@
 package lance5057.compendium.appendixes.carpentry.materialhelper;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryFurniture;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialBasic;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialComponents;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
@@ -20,17 +21,26 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
 	    return new ItemStack(Items.OAK_LOG);
 	}
     };
+    
+    public String log = "log";
 
     private CarpentryMaterialBasic basic;
     private CarpentryMaterialComponents comp;
 
+    private CarpentryFurniture furniture;
+
     public CarpentryMaterialHelper(String name) {
-	this(name, Reference.MOD_ID);
+	this(name, Reference.MOD_ID, "log");
+    }
+    
+    public CarpentryMaterialHelper(String name, String log) {
+	this(name, Reference.MOD_ID, log);
     }
 
-    public CarpentryMaterialHelper(String name, String parentMod) {
+    public CarpentryMaterialHelper(String name, String parentMod, String log) {
 	this.name = name;
 	this.parentMod = parentMod;
+	this.log = log;
 
 	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 	ITEMS.register(modEventBus);
@@ -41,12 +51,14 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     public void setup() {
 	if(this.hasBase()) basic.setup(this);
 	if(this.hasComponents()) comp.setup(this);
+	if(this.hasFurniture()) furniture.setup(this);
     }
 
     @OnlyIn(Dist.CLIENT)
     public void client(FMLClientSetupEvent event) {
 	if(this.hasBase()) basic.setupClient(this);
 	if(this.hasComponents()) comp.setupClient(this);
+	if(this.hasFurniture()) furniture.setupClient(this);
     }
 
     // Base
@@ -64,8 +76,8 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     }
 
     // Components
-    public CarpentryMaterialHelper withComponents() {
-	comp = new CarpentryMaterialComponents(this);
+    public CarpentryMaterialHelper withComponents(String log) {
+	comp = new CarpentryMaterialComponents(this, log);
 	return this;
     }
 
@@ -75,6 +87,20 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
 
     public CarpentryMaterialComponents getComponents() {
 	return comp;
+    }
+    
+ // Components
+    public CarpentryMaterialHelper withFurniture() {
+	furniture = new CarpentryFurniture(this);
+	return this;
+    }
+
+    public boolean hasFurniture() {
+	return furniture != null;
+    }
+
+    public CarpentryFurniture getFurniture() {
+	return furniture;
     }
 
 }

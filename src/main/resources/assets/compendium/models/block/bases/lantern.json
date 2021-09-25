@@ -4,7 +4,7 @@
 	"textures": {
 		"particle": "compendium:block/lantern",
 		"all": "compendium:block/lantern",
-		"all2": "compendium:block/lantern_flame"
+		"all2": "compendium:block/lanternflame"
 	},
 	"elements": [
 		{

@@ -9,8 +9,8 @@ import com.google.gson.JsonObject;
 
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

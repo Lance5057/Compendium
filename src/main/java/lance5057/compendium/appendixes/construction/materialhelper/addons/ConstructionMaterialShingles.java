@@ -32,6 +32,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -133,12 +134,12 @@ public class ConstructionMaterialShingles implements MaterialBase {
 
 	    TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
 		    "compendium:block/material/" + name + "/" + name + "shingles",
-		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_log", "", "block/bases/shingles",
-		    m.SHINGLES.get(i).get());
+		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_" + AppendixCarpentry.woods.get(i).log,
+		    "", "block/bases/shingles", m.SHINGLES.get(i).get());
 	    TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
 		    "compendium:block/material/" + name + "/" + name + "shingles",
-		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_log", "alt", "block/bases/shingles",
-		    m.SHINGLES_ALT.get(i).get());
+		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_" + AppendixCarpentry.woods.get(i).log,
+		    "alt", "block/bases/shingles", m.SHINGLES_ALT.get(i).get());
 
 	    TCBlockModels.shinglesCapModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
 		    "compendium:block/material/" + name + "/" + name + "shingles", "", "block/bases/shingles_cap",
@@ -154,7 +155,9 @@ public class ConstructionMaterialShingles implements MaterialBase {
 
 	    model.forBlockItem(m.SHINGLESITEM.get(i), name);
 	    model.forBlockItem(m.SHINGLESITEM_ALT.get(i), name);
-	    model.forBlockItem(m.SHINGLESITEM_CAPS.get(i), name);
+	    model.getBuilder(m.SHINGLESITEM_CAPS.get(i).getId().getPath())
+		    .parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/shingles_cap_full")))
+		    .texture("0", model.modLoc("block/material/" + name + "/" + name + "shingles"));
 //	    model.forBlockItem(m.SHINGLESITEM_CAPS_ALT.get(i), name);
 	}
     }
@@ -169,7 +172,8 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	table.registerDropSelfLootTable(b.SHINGLE_BLOCK.get());
 
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-	    table.registerDropping(b.SHINGLES.get(i).get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(Reference.MOD_ID, name+"plate")));//.registerDropSelfLootTable(b.SHINGLES.get(i).get());
+	    table.registerDropping(b.SHINGLES.get(i).get(),
+		    ForgeRegistries.ITEMS.getValue(new ResourceLocation(Reference.MOD_ID, name + "plate")));// .registerDropSelfLootTable(b.SHINGLES.get(i).get());
 	    table.registerDropSelfLootTable(b.SHINGLES_ALT.get(i).get());
 
 	    table.registerDropSelfLootTable(b.SHINGLES_CAPS.get(i).get());

@@ -7,6 +7,7 @@ import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryItemTags;
 import lance5057.compendium.appendixes.construction.data.ConstructionItemTags;
+import lance5057.compendium.appendixes.gemology.data.GemItemTags;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalItemTags;
 import lance5057.compendium.core.library.CompendiumTags;
 import net.minecraft.block.Block;
@@ -14,6 +15,7 @@ import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
@@ -35,8 +37,42 @@ public class TCItemTags extends ItemTagsProvider {
 	this.getOrCreateBuilder(HAMMER_MATERIAL).add(CompendiumItems.CRUDE_HAMMER.get());
 	
 	MetalItemTags.registerTags(this);
+	GemItemTags.registerTags(this);
 	ConstructionItemTags.registerTags(this);
 	CarpentryItemTags.registerTags(this);
+	
+	//add vanilla wood
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.OAK_PLANKS);
+	INamedTag<Item> OAK_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/oak");
+	getOrCreateBuilder(OAK_PLANKS_MATERIAL).add(Items.OAK_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.ACACIA_PLANKS);
+	INamedTag<Item> ACACIA_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/acacia");
+	getOrCreateBuilder(ACACIA_PLANKS_MATERIAL).add(Items.ACACIA_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.BIRCH_PLANKS);
+	INamedTag<Item> BIRCH_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/birch");
+	getOrCreateBuilder(BIRCH_PLANKS_MATERIAL).add(Items.BIRCH_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.CRIMSON_PLANKS);
+	INamedTag<Item> CRIMSON_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/crimson");
+	getOrCreateBuilder(CRIMSON_PLANKS_MATERIAL).add(Items.CRIMSON_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.DARK_OAK_PLANKS);
+	INamedTag<Item> DARK_OAK_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/dark_oak");
+	getOrCreateBuilder(DARK_OAK_PLANKS_MATERIAL).add(Items.DARK_OAK_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.JUNGLE_PLANKS);
+	INamedTag<Item> JUNGLE_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/jungle");
+	getOrCreateBuilder(JUNGLE_PLANKS_MATERIAL).add(Items.JUNGLE_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.SPRUCE_PLANKS);
+	INamedTag<Item> SPRUCE_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/spruce");
+	getOrCreateBuilder(SPRUCE_PLANKS_MATERIAL).add(Items.SPRUCE_PLANKS);
+	
+	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.WARPED_PLANKS);
+	INamedTag<Item> WARPED_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/warped");
+	getOrCreateBuilder(WARPED_PLANKS_MATERIAL).add(Items.WARPED_PLANKS);
 	
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //

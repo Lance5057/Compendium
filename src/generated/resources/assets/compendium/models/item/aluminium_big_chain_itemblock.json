@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/aluminiumbigchain",
+  "textures": {
+    "0": "compendium:block/material/aluminium/aluminiumbigchain"
+  }
+}

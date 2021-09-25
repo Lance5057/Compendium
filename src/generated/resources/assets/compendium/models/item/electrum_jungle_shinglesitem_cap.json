@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/electrum_jungle_shingles_cap"
+  "parent": "compendium:block/bases/shingles_cap_full",
+  "textures": {
+    "0": "compendium:block/material/electrum/electrumshingles"
+  }
 }

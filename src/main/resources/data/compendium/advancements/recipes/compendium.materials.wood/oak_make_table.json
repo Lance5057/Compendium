@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:oak_make_table"
+    ]
+  },
+  "criteria": {
+    "oaktable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:oak_make_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oaktable",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,17 +1,29 @@
 package lance5057.compendium.appendixes.metallurgy.materialhelper.addons;
 
+import java.util.function.Consumer;
+
+import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCEnglishLoc;
 import lance5057.compendium.core.data.builders.TCItemModels;
+import lance5057.compendium.core.data.builders.TCItemTags;
+import lance5057.compendium.core.data.builders.TCRecipes;
+import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
+import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
+import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 
 public class MetalVanillaTools implements MaterialBase {
@@ -22,7 +34,7 @@ public class MetalVanillaTools implements MaterialBase {
     public RegistryObject<Item> HOE;
 
     public MetalVanillaTools(MetallurgyMaterialHelper mm) {
-	
+
     }
 
     @Override
@@ -57,7 +69,7 @@ public class MetalVanillaTools implements MaterialBase {
 	loc.add(m.SWORD.get(), capName + " Sword");
     }
 
-    public static void registerItemModels(MetalVanillaTools m,TCItemModels model, String name) {
+    public static void registerItemModels(MetalVanillaTools m, TCItemModels model, String name) {
 	model.withExistingParent(m.AXE.getId().getPath(), model.mcLoc("item/handheld"))
 		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.AXE.getId().getPath()))
 		.texture("layer1", model.modLoc("item/axebase"));
@@ -77,5 +89,63 @@ public class MetalVanillaTools implements MaterialBase {
 	model.withExistingParent(m.SWORD.getId().getPath(), model.mcLoc("item/handheld"))
 		.texture("layer0", model.modLoc("item/material/" + name + "/" + m.SWORD.getId().getPath()))
 		.texture("layer1", model.modLoc("item/swordbase"));
+    }
+
+    public static void buildRecipes(MetalVanillaTools b, TCRecipes recipes, Consumer<IFinishedRecipe> consumer,
+	    String name) {
+
+	// Sword
+	AnvilShapedRecipeBuilder.shapedRecipe(b.SWORD.get(), 1)
+		.key('i', Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + name)))
+		.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + name))).key('s', Items.STICK)
+		.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
+		.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + name))).patternLine(" i ")
+		.patternLine(" i ").patternLine("rso").patternLine(" n ")
+		.addCriterion(name + "ingot", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_sword"));
+
+	// Pickaxe
+	AnvilShapedRecipeBuilder.shapedRecipe(b.PICKAXE.get(), 1)
+		.key('i', Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + name))).key('s', Items.STICK)
+		.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + name)))
+		.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
+		.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + name))).patternLine(" o ")
+		.patternLine("rir").patternLine(" s ").patternLine(" s ").patternLine(" n ")
+		.addCriterion(name + "ingot", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_pickaxe"));
+
+	// Axe
+	AnvilShapedRecipeBuilder.shapedRecipe(b.AXE.get(), 1)
+		.key('i', Ingredient.fromTag(TCItemTags.ItemTag("ingots/" + name))).key('s', Items.STICK)
+		.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
+		.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + name))).patternLine(" o ")
+		.patternLine("ii ").patternLine("is ").patternLine(" s ").patternLine(" n ")
+		.addCriterion(name + "ingot", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_axe"));
+
+	// Shovel
+	AnvilShapedRecipeBuilder.shapedRecipe(b.SHOVEL.get(), 1)
+		.key('i', Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name))).key('s', Items.STICK)
+		.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
+		.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + name))).patternLine(" i ")
+		.patternLine(" so").patternLine(" s ").patternLine(" n ")
+		.addCriterion(name + "ingot", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_shovel"));
+
+	// Hoe
+	AnvilShapedRecipeBuilder.shapedRecipe(b.HOE.get(), 1)
+		.key('i', Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name))).key('s', Items.STICK)
+		.key('r', Ingredient.fromTag(TCItemTags.ItemTag("rods/" + name)))
+		.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
+		.key('n', Ingredient.fromTag(TCItemTags.ItemTag("nuggets/" + name))).patternLine(" o ")
+		.patternLine("ir ").patternLine(" s ").patternLine(" s ").patternLine(" n ")
+		.addCriterion(name + "ingot", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
+		.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
+		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_hoe"));
+
     }
 }

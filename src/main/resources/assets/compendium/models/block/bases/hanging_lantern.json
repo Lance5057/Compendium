@@ -1,9 +1,9 @@
 {
     "parent": "block/block",
     "textures": {
-        "particle": "block/lantern",
-        "all": "block/lantern",
-		"all2": "block/lantern_flame"
+        "particle": "compendium:block/lantern",
+		"all": "compendium:block/lantern",
+		"all2": "compendium:block/lanternflame"
     },
     "elements": [
         {   "from": [ 5, 1, 5 ],

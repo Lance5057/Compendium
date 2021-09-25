@@ -1,0 +1,87 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/jungleseat"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "compendium:block/jungleleg",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "compendium:block/jungleleg"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/jungleleg",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/jungleleg",
+        "y": -90
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "compendium:block/jungleseat_extension",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "compendium:block/jungleseat_extension",
+        "y": -90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "compendium:block/jungleseat_extension",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "compendium:block/jungleseat_extension",
+        "y": 90,
+        "uvlock": true
+      }
+    }
+  ]
+}

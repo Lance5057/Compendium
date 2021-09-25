@@ -2,10 +2,14 @@ package lance5057.compendium.appendixes.construction.data;
 
 import lance5057.compendium.appendixes.construction.AppendixConstruction;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionBarsAndChains;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionDecorations;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionDoorsAndGates;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionLighting;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialBasic;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialDungeon;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialShingles;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionWindows;
 import lance5057.compendium.core.data.builders.TCItemModels;
 
 public class ConstructionItemModels {
@@ -23,6 +27,15 @@ public class ConstructionItemModels {
 	    if (mh.hasLighting()) {
 		ConstructionLighting.registerItemModels(mh.getLighting(), model, mh.name);
 	    }
+	    if (mh.hasBarsAndChains()) {
+		ConstructionBarsAndChains.registerItemModels(mh.getBarsAndChains(), model, mh.name);
+	    }
+	    if (mh.hasDoorsAndGates())
+		ConstructionDoorsAndGates.registerItemModels(mh.getDoorsAndGates(), model, mh.name);
+	    if (mh.hasDecorations())
+		ConstructionDecorations.registerItemModels(mh.getDecorations(), model, mh.name);
+	    if (mh.hasWindows())
+		ConstructionWindows.registerItemModels(mh.getWindows(), model, mh.name);
 	}
     }
 }

@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/fire_floor",
+	"parent": "block/block",
 	"ambientocclusion": false,
 	"textures": {
 		"0": "compendium:block/irontopbars",

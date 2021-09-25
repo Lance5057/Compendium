@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 8,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "compendium:sawdust"
+        }
+      ]
+    }
+  ]
+}

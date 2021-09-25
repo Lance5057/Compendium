@@ -12,7 +12,7 @@ import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.loottables.BlockLoot;
-import lance5057.compendium.core.data.builders.workstationrecipes.AnvilShapedRecipeBuilder;
+import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
 import lance5057.compendium.core.items.armor.CompendiumArmorItem;
 import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
@@ -133,7 +133,7 @@ public class MetalMaterialDefense implements MaterialBase {
 	.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
 	.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_helm"));
 	
-	AnvilShapedRecipeBuilder.shapedRecipe(m.HELM.get(), 1)
+	AnvilShapedRecipeBuilder.shapedRecipe(m.BREASTPLATE.get(), 1)
 	.key('p', Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)))
 	.key('f', Ingredient.fromTag(TCItemTags.ItemTag("filigrees/" + name)))
 	.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))
@@ -146,7 +146,7 @@ public class MetalMaterialDefense implements MaterialBase {
 	.tool(Ingredient.fromTag(CompendiumTags.HAMMER), 16, true)
 	.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_breastplate"));
 	
-	AnvilShapedRecipeBuilder.shapedRecipe(m.HELM.get(), 1)
+	AnvilShapedRecipeBuilder.shapedRecipe(m.LEGGINGS.get(), 1)
 	.key('p', Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)))
 	.key('f', Ingredient.fromTag(TCItemTags.ItemTag("filigrees/" + name)))
 	.key('o', Ingredient.fromTag(TCItemTags.ItemTag("rivets/" + name)))

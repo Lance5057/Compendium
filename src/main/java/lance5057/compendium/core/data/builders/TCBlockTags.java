@@ -16,6 +16,7 @@ public class TCBlockTags extends BlockTagsProvider {
 
 	@Override
 	protected void registerTags() {
+	    
 	    OreBlockTags.registerTags(this);
 	    CarpentryBlockTags.registerTags(this);
 	    ConstructionBlockTags.registerTags(this);

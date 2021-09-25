@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/seat/back_extend",
+  "textures": {
+    "0": "minecraft:block/birch_planks"
+  }
+}

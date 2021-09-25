@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:crimson_make_table"
+    ]
+  },
+  "criteria": {
+    "crimsontable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:crimson_make_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "crimsontable",
+      "has_the_recipe"
+    ]
+  ]
+}

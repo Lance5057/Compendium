@@ -1,3 +1,6 @@
 {
-  "parent": "compendium:block/brass_acacia_shingles_cap"
+  "parent": "compendium:block/bases/shingles_cap_full",
+  "textures": {
+    "0": "compendium:block/material/brass/brassshingles"
+  }
 }

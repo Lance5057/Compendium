@@ -1,10 +1,14 @@
 package lance5057.compendium.appendixes.construction.materialhelper;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionBarsAndChains;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionDecorations;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionDoorsAndGates;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionLighting;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialBasic;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialDungeon;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialShingles;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionWindows;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -27,6 +31,10 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
     private ConstructionMaterialDungeon dungeon;
     private ConstructionMaterialShingles shingles;
     private ConstructionLighting lighting;
+    private ConstructionBarsAndChains barsandchains;
+    private ConstructionDoorsAndGates doorsandgates;
+    private ConstructionDecorations decorations;
+    private ConstructionWindows windows;
 
     public ConstructionMaterialHelper(String name) {
 	this(name, Reference.MOD_ID);
@@ -51,6 +59,14 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	    dungeon.setup(this);
 	if (this.hasLighting())
 	    lighting.setup(this);
+	if (this.hasBarsAndChains())
+	    barsandchains.setup(this);
+	if (this.hasDoorsAndGates())
+	    doorsandgates.setup(this);
+	if (this.hasDecorations())
+	    decorations.setup(this);
+	if (this.hasWindows())
+	    windows.setup(this);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -63,6 +79,14 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	    dungeon.setupClient(this);
 	if (this.hasLighting())
 	    lighting.setupClient(this);
+	if (this.hasBarsAndChains())
+	    barsandchains.setupClient(this);
+	if (this.hasDoorsAndGates())
+	    doorsandgates.setupClient(this);
+	if (this.hasDecorations())
+	    decorations.setupClient(this);
+	if (this.hasWindows())
+	    windows.setupClient(this);
     }
 
     // Base
@@ -121,4 +145,59 @@ public class ConstructionMaterialHelper extends MaterialHelperBase {
 	return lighting;
     }
 
+    // BarsAndChains
+    public ConstructionMaterialHelper withBarsAndChains() {
+	barsandchains = new ConstructionBarsAndChains(this);
+	return this;
+    }
+
+    public boolean hasBarsAndChains() {
+	return barsandchains != null;
+    }
+
+    public ConstructionBarsAndChains getBarsAndChains() {
+	return barsandchains;
+    }
+
+    // DoorsAndGates
+    public ConstructionMaterialHelper withDoorsAndGates() {
+	doorsandgates = new ConstructionDoorsAndGates(this);
+	return this;
+    }
+
+    public boolean hasDoorsAndGates() {
+	return doorsandgates != null;
+    }
+
+    public ConstructionDoorsAndGates getDoorsAndGates() {
+	return doorsandgates;
+    }
+
+    // Decorations
+    public ConstructionMaterialHelper withDecorations() {
+	decorations = new ConstructionDecorations(this);
+	return this;
+    }
+
+    public boolean hasDecorations() {
+	return decorations != null;
+    }
+
+    public ConstructionDecorations getDecorations() {
+	return decorations;
+    }
+
+    // Windows
+    public ConstructionMaterialHelper withWindows() {
+	windows = new ConstructionWindows(this);
+	return this;
+    }
+
+    public boolean hasWindows() {
+	return windows != null;
+    }
+
+    public ConstructionWindows getWindows() {
+	return windows;
+    }
 }

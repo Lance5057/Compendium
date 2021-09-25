@@ -1,10 +1,11 @@
-package lance5057.compendium.core.data.builders;
+	package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryItemModels;
 import lance5057.compendium.appendixes.construction.data.ConstructionItemModels;
+import lance5057.compendium.appendixes.gemology.data.GemItemModels;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalItemModels;
 import lance5057.compendium.appendixes.oredressing.data.builders.OreItemModels;
 import net.minecraft.data.DataGenerator;
@@ -45,6 +46,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 		new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
 	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK,
 		new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
+	forBlockItem(CompendiumItems.SCRAPPING_TABLE_ITEMBLOCK,
+		new ResourceLocation(Reference.MOD_ID, "block/workstations/dismantling_table"));
 
 	forBlockItem(CompendiumItems.DRYLAKEBED_ITEMBLOCK, "drylakebed");
 
@@ -53,8 +56,11 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 
 	forItem(CompendiumItems.CRUDE_HAMMER, "crudehammer");
 	forItem(CompendiumItems.MINER_GRENADE, "grenade");
+	forItem(CompendiumItems.SAWDUST, "sawdust");
+	forItem(CompendiumItems.BARK, "bark");
 
 	MetalItemModels.registerModels(this);
+	GemItemModels.registerModels(this);
 	OreItemModels.registerModels(this);
 	ConstructionItemModels.registerModels(this);
 	CarpentryItemModels.registerModels(this);

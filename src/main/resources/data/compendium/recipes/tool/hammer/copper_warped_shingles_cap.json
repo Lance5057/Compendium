@@ -1,0 +1,12 @@
+{
+  "type": "compendium:hammering_tool",
+  "input": {
+    "tag": "forge:plates/copper"
+  },
+  "block": {
+    "item": "compendium:warped_shinglesitem_cap"
+  },
+  "result": {
+    "item": "compendium:copper_warped_shinglesitem_cap"
+  }
+}

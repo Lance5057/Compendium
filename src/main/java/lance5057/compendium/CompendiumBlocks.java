@@ -3,10 +3,10 @@ package lance5057.compendium;
 import lance5057.compendium.core.workstations.blocks.CraftingAnvilBlock;
 import lance5057.compendium.core.workstations.blocks.HammeringStationBlock;
 import lance5057.compendium.core.workstations.blocks.SawhorseStationBlock;
+import lance5057.compendium.core.workstations.blocks.ScrappingTableBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +23,8 @@ public class CompendiumBlocks {
 	    () -> new CraftingAnvilBlock());
     public static final RegistryObject<SawhorseStationBlock> SAWHORSE_STATION = BLOCKS.register("sawhorse_station",
 	    () -> new SawhorseStationBlock());
+    public static final RegistryObject<ScrappingTableBlock> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
+	    () -> new ScrappingTableBlock());
 
     public static final RegistryObject<Block> DRYLAKEBED = BLOCKS.register("dry_lake_bed",
 	    () -> new Block(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.5F).sound(SoundType.GROUND)));

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 7,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:iron_nugget"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " w ",
+    "s s"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "tag": "forge:planks/spruce"
+    }
+  },
+  "result": {
+    "item": "compendium:spruce_seat_back_itemblock"
+  }
+}

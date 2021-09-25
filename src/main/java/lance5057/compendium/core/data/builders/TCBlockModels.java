@@ -5,8 +5,10 @@ import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryBlockModels;
 import lance5057.compendium.appendixes.construction.data.ConstructionBlockModels;
+import lance5057.compendium.appendixes.gemology.data.GemBlockModels;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalBlockModels;
 import lance5057.compendium.appendixes.oredressing.data.builders.OreBlockModels;
+import lance5057.compendium.core.blocks.ComponentStake;
 import net.minecraft.block.Block;
 import net.minecraft.block.FourWayBlock;
 import net.minecraft.block.SixWayBlock;
@@ -48,8 +50,10 @@ public class TCBlockModels extends BlockStateProvider {
 		models().getExistingFile(modLoc("block/workstations/sawhorse")));
 	this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
 		models().getExistingFile(modLoc("block/workstations/anvil")));
-	
-	//this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get());
+	this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
+		models().getExistingFile(modLoc("block/workstations/dismantling_table")));
+
+	// this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get());
 	this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
 		this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
 			new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
@@ -61,6 +65,7 @@ public class TCBlockModels extends BlockStateProvider {
 //		CompendiumBlocks.SHINGLES_ALT.get());
 
 	MetalBlockModels.registerModels(this);
+	GemBlockModels.registerModels(this);
 	OreBlockModels.registerModels(this);
 	ConstructionBlockModels.registerModels(this);
 	CarpentryBlockModels.registerModels(this);
@@ -400,30 +405,30 @@ public class TCBlockModels extends BlockStateProvider {
 ////		}
 //    }
 //
-//    private void stakeModel(MaterialHelper mh) {
-//	ModelFile stakeModel = models().withExistingParent(mh.name + "stake", modLoc("block/bases/componentstake"))
-//		.texture("rod", "compendium:block/material/" + mh.name + "/" + mh.name + "stake");
-//	ModelFile stakeBaseModel = models()
-//		.withExistingParent(mh.name + "stake_base", modLoc("block/bases/componentstake_base"))
-//		.texture("rod", "compendium:block/material/" + mh.name + "/" + mh.name + "stake");
-//
-//	VariantBlockStateBuilder builder = getVariantBuilder(mh.getExtraComponents().STAKE.get());
-//
-//	for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
-//
-//	    builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
-//		    .modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
-//
-//		    .partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
-//		    .modelForState()
-////				.modelFile(stake)
-////				.rotationX(stakeXRotation(dir))
-////				.rotationY(stakeYRotation(dir))
-//		    // .nextModel()
-//		    .modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
-//	}
-//    }
-//
+    public void stakeModel(String name, Block b) {
+	ModelFile stakeModel = models().withExistingParent(name + "stake", modLoc("block/bases/componentstake"))
+		.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
+	ModelFile stakeBaseModel = models()
+		.withExistingParent(name + "stake_base", modLoc("block/bases/componentstake_base"))
+		.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
+
+	VariantBlockStateBuilder builder = getVariantBuilder(b);
+
+	for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
+
+	    builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
+		    .modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+
+		    .partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
+		    .modelForState()
+//				.modelFile(stake)
+//				.rotationX(stakeXRotation(dir))
+//				.rotationY(stakeYRotation(dir))
+		    // .nextModel()
+		    .modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+	}
+    }
+
     public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String suffix,
 	    String parent, FourWayBlock b) {
 	shinglesCapModel(model, name, shingle_texture, shingle_texture, shingle_texture, suffix, parent, b);
@@ -438,22 +443,18 @@ public class TCBlockModels extends BlockStateProvider {
 	    String log_top_texture, String suffix, String parent, FourWayBlock b) {
 	ModelFile shinglesPostModel = model.models()
 		.withExistingParent(name + "shingles_cap_post" + suffix, model.modLoc(parent + "_post"))
-		.texture("0", shingle_texture).texture("1", log_top_texture)
-		.texture("2", log_texture);
+		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
 
 	ModelFile shinglesSideModel = model.models()
 		.withExistingParent(name + "shingles_cap_side" + suffix, model.modLoc(parent + "_side"))
-		.texture("0", shingle_texture).texture("1", log_top_texture)
-		.texture("2", log_texture);
+		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
 
 	ModelFile shinglesBraceModel = model.models()
 		.withExistingParent(name + "shingles_cap_brace" + suffix, model.modLoc(parent + "_brace" + suffix))
-		.texture("0", shingle_texture).texture("1", log_top_texture)
-		.texture("2", log_texture);
+		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
 	ModelFile shinglesTopModel = model.models()
 		.withExistingParent(name + "shingles_cap_top" + suffix, model.modLoc(parent + "_top"))
-		.texture("0", shingle_texture).texture("1", log_top_texture)
-		.texture("2", log_texture);
+		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
 
 	// model.fourWayBlock(b, shinglesPostModel, shinglesSideModel);
 

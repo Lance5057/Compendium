@@ -2,10 +2,10 @@ package lance5057.compendium.appendixes.construction.materialhelper.addons;
 
 import java.util.function.Consumer;
 
-import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.core.blocks.BlockSittable;
 import lance5057.compendium.core.blocks.BlockVerticalPlacement;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCEnglishLoc;
@@ -26,16 +26,14 @@ import net.minecraft.item.Item;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Direction.Axis;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class ConstructionMaterialDungeon implements MaterialBase {
 
-    public RegistryObject<Block> DUNGEON_BRICK;
+    public RegistryObject<BlockSittable> DUNGEON_BRICK;
     public RegistryObject<Block> DUNGEON_BRICK_BROKEN;
     public RegistryObject<Block> DUNGEON_BRICK_TRIM;
     public RegistryObject<RotatedPillarBlock> DUNGEON_PILLAR;
@@ -62,7 +60,7 @@ public class ConstructionMaterialDungeon implements MaterialBase {
     @Override
     public void setup(MaterialHelperBase mat) {
 	DUNGEON_BRICK = mat.BLOCKS.register(mat.name + "_dungeon_brick",
-		() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(4)
+		() -> new BlockSittable(Block.Properties.create(Material.IRON).harvestLevel(4)
 			.hardnessAndResistance(50.0F, 1200.0F).harvestTool(ToolType.PICKAXE)));
 	DUNGEON_BRICK_BROKEN = mat.BLOCKS.register(mat.name + "_dungeon_brick_broken",
 		() -> new Block(Block.Properties.create(Material.IRON).harvestLevel(4)

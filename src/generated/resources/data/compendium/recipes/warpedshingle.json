@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  s",
+    " sp",
+    "spl"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:warped_planks"
+    },
+    "l": []
+  },
+  "result": {
+    "item": "compendium:warped_shinglesitem",
+    "count": 4
+  }
+}

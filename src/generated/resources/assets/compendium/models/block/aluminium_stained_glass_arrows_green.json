@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/2layerblock",
+  "textures": {
+    "0": "compendium:block/green_stained_glass",
+    "1": "compendium:block/material/aluminium/aluminiumstainedglass_arrows"
+  }
+}

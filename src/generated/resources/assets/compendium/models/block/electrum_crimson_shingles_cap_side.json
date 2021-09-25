@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_side",
+  "textures": {
+    "0": "compendium:block/material/electrum/electrumshingles",
+    "1": "compendium:block/material/electrum/electrumshingles",
+    "2": "compendium:block/material/electrum/electrumshingles"
+  }
+}

@@ -5,6 +5,7 @@ import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.data.CarpentryEnglishLoc;
 import lance5057.compendium.appendixes.construction.data.ConstructionEnglishLoc;
+import lance5057.compendium.appendixes.gemology.data.GemEnglishLoc;
 import lance5057.compendium.appendixes.metallurgy.data.builders.MetalEnglishLoc;
 import lance5057.compendium.appendixes.oredressing.data.builders.OreEnglishLoc;
 import net.minecraft.data.DataGenerator;
@@ -31,6 +32,7 @@ public class TCEnglishLoc extends LanguageProvider {
 	this.add(CompendiumItems.MINER_GRENADE.get(), "Mining Grenade");
 	
 	MetalEnglishLoc.addTranslations(this);
+	GemEnglishLoc.addTranslations(this);
 	OreEnglishLoc.addTranslations(this);
 	ConstructionEnglishLoc.addTranslations(this);
 	CarpentryEnglishLoc.addTranslations(this);

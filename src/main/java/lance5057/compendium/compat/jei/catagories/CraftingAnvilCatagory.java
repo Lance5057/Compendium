@@ -4,7 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.util.recipes.RecipeUtil;
-import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -18,7 +18,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class CraftingAnvilCatagory implements IRecipeCategory<CraftingAnvilRecipe> {
+public class CraftingAnvilCatagory implements IRecipeCategory<MultiToolRecipe> {
 
     public static ResourceLocation UID = new ResourceLocation("compendium:crafting_anvil");
 
@@ -45,8 +45,8 @@ public class CraftingAnvilCatagory implements IRecipeCategory<CraftingAnvilRecip
     }
 
     @Override
-    public Class<? extends CraftingAnvilRecipe> getRecipeClass() {
-	return CraftingAnvilRecipe.class;
+    public Class<? extends MultiToolRecipe> getRecipeClass() {
+	return MultiToolRecipe.class;
     }
 
     @Override
@@ -65,13 +65,13 @@ public class CraftingAnvilCatagory implements IRecipeCategory<CraftingAnvilRecip
     }
 
     @Override
-    public void setIngredients(CraftingAnvilRecipe recipe, IIngredients ingredients) {
+    public void setIngredients(MultiToolRecipe recipe, IIngredients ingredients) {
 	ingredients.setInputLists(VanillaTypes.ITEM, RecipeUtil.getMatchingStacks(recipe.getIngredients()));
 	ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, CraftingAnvilRecipe recipe, IIngredients ingredients) {
+    public void setRecipe(IRecipeLayout recipeLayout, MultiToolRecipe recipe, IIngredients ingredients) {
 	IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
 	for (int i = 0; i < recipe.getRecipeHeight(); ++i) {

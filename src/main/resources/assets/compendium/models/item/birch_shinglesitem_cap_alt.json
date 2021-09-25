@@ -1,3 +1,8 @@
 {
-  "parent": "compendium:block/birch_empty_shingles_cap_alt"
+  "parent": "compendium:block/bases/empty_shingles_cap_alt_full",
+  "textures": {
+    "0": "minecraft:block/birch_planks",
+    "2": "minecraft:block/birch_log",
+    "1": "minecraft:block/birch_log_top"
+  }
 }

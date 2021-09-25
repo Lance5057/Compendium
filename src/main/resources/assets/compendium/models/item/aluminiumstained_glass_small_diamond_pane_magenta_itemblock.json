@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "compendium:block/magenta_stained_glass",
+    "layer1": "compendium:block/material/aluminium/aluminiumchainlink"
+  }
+}

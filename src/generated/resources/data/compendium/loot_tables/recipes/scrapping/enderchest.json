@@ -1,0 +1,28 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 8,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:obsidian"
+        }
+      ]
+    },
+    {
+      "name": "eye",
+      "rolls": {
+        "min": 0.0,
+        "max": 1.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ender_eye"
+        }
+      ]
+    }
+  ]
+}

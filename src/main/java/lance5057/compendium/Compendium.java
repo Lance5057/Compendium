@@ -33,7 +33,7 @@ public class Compendium {
     public static CompendiumIndexes indexes;
     public static CompendiumWorldGen worldgen;
 
-    public static AppendixMetallurgy metal;
+//    public static AppendixMetallurgy metal;
 
     public Compendium() {
 	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

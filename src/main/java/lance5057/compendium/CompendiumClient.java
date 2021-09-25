@@ -2,10 +2,13 @@ package lance5057.compendium;
 
 import lance5057.compendium.appendixes.metallurgy.AppendixMetallurgy;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.core.client.SeatRenderer;
 import lance5057.compendium.core.entities.GrenadeEntity;
+import lance5057.compendium.core.entities.SeatEntity;
 import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
 import lance5057.compendium.core.workstations.client.HammeringStationRenderer;
 import lance5057.compendium.core.workstations.client.SawhorseStationRenderer;
+import lance5057.compendium.core.workstations.client.ScrappingTableRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
@@ -36,6 +39,7 @@ public class CompendiumClient {
 
 	RenderType cutout = RenderType.getCutout();
 	RenderTypeLookup.setRenderLayer(CompendiumBlocks.HAMMERING_STATION.get(), cutout);
+	RenderTypeLookup.setRenderLayer(CompendiumBlocks.SCRAPPING_TABLE.get(), cutout);
 	// RenderTypeLookup.setRenderLayer(CompendiumBlocks.CRAFTING_ANVIL.get(),
 	// RenderType.getTranslucent());
     }
@@ -47,6 +51,8 @@ public class CompendiumClient {
 		CraftingAnvilRenderer::new);
 	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SAWHORSE_STATION_TE.get(),
 		SawhorseStationRenderer::new);
+	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SCRAPPING_TABLE_TE.get(),
+		ScrappingTableRenderer::new);
 
 //	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.VAULT_TE.get(), VaultRenderer::new);
 //	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
@@ -64,6 +70,14 @@ public class CompendiumClient {
 		    public EntityRenderer<GrenadeEntity> createRenderFor(EntityRendererManager manager) {
 			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 			return new SpriteRenderer<>(manager, itemRenderer);
+		    }
+		});
+	
+	RenderingRegistry.registerEntityRenderingHandler(CompendiumEntities.SEAT_ENTITY.get(),
+		new IRenderFactory<SeatEntity>() {
+		    @Override
+		    public EntityRenderer<SeatEntity> createRenderFor(EntityRendererManager manager) {
+			return new SeatRenderer(manager);
 		    }
 		});
     }

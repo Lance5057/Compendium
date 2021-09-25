@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import lance5057.compendium.appendixes.construction.AppendixConstruction;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
+import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionBarsAndChains;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionLighting;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialBasic;
 import lance5057.compendium.appendixes.construction.materialhelper.addons.ConstructionMaterialDungeon;
@@ -26,6 +27,9 @@ public class ConstructionRecipes {
 	    }
 	    if (mh.hasLighting()) {
 		ConstructionLighting.buildRecipes(mh.getLighting(), recipes, consumer, mh.name);
+	    }
+	    if (mh.hasBarsAndChains()) {
+		ConstructionBarsAndChains.buildRecipes(mh.getBarsAndChains(), recipes, consumer, mh.name);
 	    }
 	}
     }

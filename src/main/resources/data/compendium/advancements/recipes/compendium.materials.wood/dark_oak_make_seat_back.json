@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:dark_oak_make_seat_back"
+    ]
+  },
+  "criteria": {
+    "dark_oakseat_back": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:dark_oak_make_seat_back"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dark_oakseat_back",
+      "has_the_recipe"
+    ]
+  ]
+}

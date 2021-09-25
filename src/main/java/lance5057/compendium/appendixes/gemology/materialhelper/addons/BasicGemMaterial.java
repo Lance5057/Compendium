@@ -3,6 +3,7 @@ package lance5057.compendium.appendixes.gemology.materialhelper.addons;
 import java.util.function.Consumer;
 
 import lance5057.compendium.CompendiumItems;
+import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.gemology.materialhelper.GemologyMaterialHelper;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCEnglishLoc;
@@ -17,6 +18,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -57,9 +59,15 @@ public class BasicGemMaterial implements MaterialBase {
     }
     
     public static void registerBlockModels(BasicGemMaterial m, TCBlockModels model, String name) {
+	model.simpleBlock(m.STORAGE_BLOCK.get(),
+		model.models().cubeAll(m.STORAGE_BLOCK.get().getRegistryName().getPath(),
+			new ResourceLocation(Reference.MOD_ID, "block/material/" + name + "/" + name + "block")));
     }
 
     public static void registerItemModels(BasicGemMaterial m, TCItemModels model, String name) {
+	model.forMaterialItem(m.GEM, name);
+	model.forMaterialItem(m.SHARD, name);
+	model.forBlockItem(m.STORAGE_ITEMBLOCK, name);
     }
 
     public static void addTranslations(BasicGemMaterial m, TCEnglishLoc loc, String capName) {

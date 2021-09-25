@@ -1,0 +1,84 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain2"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain"
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain2",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "up": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "up": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/aluminiumchain2",
+        "x": 90
+      }
+    }
+  ]
+}

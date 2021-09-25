@@ -28,6 +28,10 @@ public class MetalItemTags {
 		itp.getOrCreateBuilder(CompendiumTags.HAMMER).add(b.HAMMER.get());
 		INamedTag<Item> HAMMER_MATERIAL = TCItemTags.ItemTag("hammers/" + mh.name);
 		itp.getOrCreateBuilder(HAMMER_MATERIAL).add(b.HAMMER.get());
+
+		itp.getOrCreateBuilder(CompendiumTags.SAW).add(b.SAW.get());
+		INamedTag<Item> SAW_MATERIAL = TCItemTags.ItemTag("saw/" + mh.name);
+		itp.getOrCreateBuilder(SAW_MATERIAL).add(b.SAW.get());
 	    }
 
 	    if (mh.hasComponents()) {

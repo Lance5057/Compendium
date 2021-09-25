@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import lance5057.compendium.appendixes.carpentry.AppendixCarpentry;
 import lance5057.compendium.appendixes.carpentry.materialhelper.CarpentryMaterialHelper;
+import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryFurniture;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialBasic;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialComponents;
 import lance5057.compendium.core.data.builders.TCRecipes;
@@ -19,6 +20,8 @@ public class CarpentryRecipes {
 	    if (mh.hasComponents()) {
 		CarpentryMaterialComponents.buildRecipes(mh.getComponents(), recipes, consumer, mh.name);
 	    }
+	    if (mh.hasFurniture())
+		CarpentryFurniture.buildRecipes(mh.getFurniture(), recipes, consumer, mh.name);
 	}
     }
 }

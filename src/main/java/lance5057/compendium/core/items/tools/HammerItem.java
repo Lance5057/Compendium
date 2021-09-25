@@ -166,7 +166,8 @@ public class HammerItem extends HandedAbilityTool {
 	BlockState bs = context.getWorld().getBlockState(context.getPos());
 
 	if (world != null) {
-	    HammerHandedToolRecipe r = world.getRecipeManager().getRecipes().stream()
+	    HammerHandedToolRecipe r = world.getRecipeManager().getRecipes()
+		    .stream()
 		    .filter(recipe -> recipe instanceof HammerHandedToolRecipe)
 		    .map(recipe -> (HammerHandedToolRecipe) recipe)
 		    .filter(recipe -> recipe.matches(new HandedToolWrapper(context.getItem(),

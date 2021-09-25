@@ -1,0 +1,38 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 4,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:obsidian"
+        }
+      ]
+    },
+    {
+      "name": "diamond",
+      "rolls": {
+        "min": 1.0,
+        "max": 2.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond"
+        }
+      ]
+    },
+    {
+      "name": "book",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book"
+        }
+      ]
+    }
+  ]
+}

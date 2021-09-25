@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/2layer_glass_pane_post",
+  "textures": {
+    "0": "compendium:block/red_stained_glass",
+    "1": "compendium:block/material/aluminium/aluminiumstainedglass_bigdiamond"
+  }
+}

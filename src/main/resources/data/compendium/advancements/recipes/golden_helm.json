@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:golden_helm"
+    ]
+  },
+  "criteria": {
+    "has_gold_helm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:golden_helmet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:golden_helm"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gold_helm",
+      "has_the_recipe"
+    ]
+  ]
+}

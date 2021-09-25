@@ -26,6 +26,10 @@ public class CompendiumTags {
     public static final INamedTag<Item> KEY = TCItemTags.ItemTag("keys");
 
     public static final INamedTag<Item> HAMMER = TCItemTags.ItemTag("tools/hammers");
+    public static final INamedTag<Item> SAW = TCItemTags.ItemTag("tools/saw");
+    
+    public static final INamedTag<Item> PLANK = TCItemTags.ItemTag("planks");
+    public static final INamedTag<Item> LOG = TCItemTags.ItemTag("log");
 
     // Blocks
     public static final INamedTag<Block> SHINGLESCAP = TCItemTags.BlockTag("shinglescap");

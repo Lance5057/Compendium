@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/shingles_inner_corner",
+  "textures": {
+    "0": "compendium:block/material/copper/coppershingles",
+    "1": "minecraft:block/warped_stem_top",
+    "2": "minecraft:block/warped_stem"
+  }
+}
