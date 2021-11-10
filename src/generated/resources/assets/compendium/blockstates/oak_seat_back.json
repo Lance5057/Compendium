@@ -20,8 +20,8 @@
     },
     {
       "when": {
-        "right": "true",
-        "facing": "south"
+        "facing": "south",
+        "right": "true"
       },
       "apply": {
         "model": "compendium:block/oakback_extension",
@@ -40,8 +40,8 @@
     },
     {
       "when": {
-        "right": "false",
-        "facing": "south"
+        "facing": "south",
+        "right": "false"
       },
       "apply": {
         "model": "compendium:block/oakbackleg_other",
@@ -70,8 +70,8 @@
     },
     {
       "when": {
-        "right": "true",
-        "facing": "west"
+        "facing": "west",
+        "right": "true"
       },
       "apply": {
         "model": "compendium:block/oakback_extension",
@@ -92,8 +92,8 @@
     },
     {
       "when": {
-        "right": "false",
-        "facing": "west"
+        "facing": "west",
+        "right": "false"
       },
       "apply": {
         "model": "compendium:block/oakbackleg_other",
@@ -123,8 +123,8 @@
     },
     {
       "when": {
-        "right": "true",
-        "facing": "north"
+        "facing": "north",
+        "right": "true"
       },
       "apply": {
         "model": "compendium:block/oakback_extension",
@@ -145,8 +145,8 @@
     },
     {
       "when": {
-        "right": "false",
-        "facing": "north"
+        "facing": "north",
+        "right": "false"
       },
       "apply": {
         "model": "compendium:block/oakbackleg_other",
@@ -176,8 +176,8 @@
     },
     {
       "when": {
-        "right": "true",
-        "facing": "east"
+        "facing": "east",
+        "right": "true"
       },
       "apply": {
         "model": "compendium:block/oakback_extension",
@@ -198,8 +198,8 @@
     },
     {
       "when": {
-        "right": "false",
-        "facing": "east"
+        "facing": "east",
+        "right": "false"
       },
       "apply": {
         "model": "compendium:block/oakbackleg_other",

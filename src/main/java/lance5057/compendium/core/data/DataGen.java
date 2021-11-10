@@ -9,6 +9,7 @@ import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
+import lance5057.compendium.core.data.builders.loottables.PrybarLootTableProvider;
 import lance5057.compendium.core.data.builders.toolrecipes.HammerMainHandRecipes;
 import lance5057.compendium.core.data.builders.workstationrecipes.CraftingAnvilRecipeProvider;
 import lance5057.compendium.core.data.builders.workstationrecipes.HammeringStationRecipeProvider;
@@ -37,6 +38,7 @@ public class DataGen {
 
 	generator.addProvider(new TCLootTables(generator));
 	generator.addProvider(new WorkstationLoottableProvider(generator));
+	generator.addProvider(new PrybarLootTableProvider(generator));
 
 	generator.addProvider(new HammeringStationRecipeProvider(generator));
 	generator.addProvider(new CraftingAnvilRecipeProvider(generator));

@@ -9,6 +9,7 @@ import lance5057.compendium.core.data.builders.TCEnglishLoc;
 import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.loottables.BlockLoot;
 import lance5057.compendium.core.items.tools.HammerItem;
+import lance5057.compendium.core.items.tools.PrybarItem;
 import lance5057.compendium.core.items.tools.SawItem;
 import lance5057.compendium.core.items.weapons.ZweihanderItem;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
@@ -18,7 +19,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
@@ -37,7 +37,7 @@ public class MetalAdvancedTools implements MaterialBase {
     public RegistryObject<HammerItem> HAMMER;
     public RegistryObject<SawItem> SAW;
     public RegistryObject<ShearsItem> SHEARS;
-    public RegistryObject<Item> PRYBAR;
+    public RegistryObject<PrybarItem> PRYBAR;
     public RegistryObject<Item> PLIERS;
     public RegistryObject<Item> WRENCH;
 //	public Item fishingrod;
@@ -88,7 +88,7 @@ public class MetalAdvancedTools implements MaterialBase {
 
 	SHEARS = mh.ITEMS.register(mh.name + "shears", () -> new ShearsItem(
 		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
-	PRYBAR = mh.ITEMS.register(mh.name + "prybar", () -> new Item(
+	PRYBAR = mh.ITEMS.register(mh.name + "prybar", () -> new PrybarItem(
 		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));
 	PLIERS = mh.ITEMS.register(mh.name + "pliers", () -> new Item(
 		new Item.Properties().maxDamage(mh.tier.getMaxUses()).group(CompendiumItems.GROUP_MATERIALS)));

@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
 import lance5057.compendium.appendixes.metallurgy.materialhelper.MetallurgyMaterialHelper;
+import lance5057.compendium.core.blocks.BlockDelapidated;
 import lance5057.compendium.core.blocks.BlockSittable;
 import lance5057.compendium.core.blocks.BlockVerticalPlacement;
 import lance5057.compendium.core.data.builders.TCBlockModels;
@@ -23,6 +24,7 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.util.ResourceLocation;
@@ -40,6 +42,8 @@ public class ConstructionMaterialDungeon implements MaterialBase {
     public RegistryObject<Block> DUNGEON_SQUARE;
     public RegistryObject<Block> DUNGEON_LAMP;
 
+    public RegistryObject<Block> DUNGEON_BROKEN_MACHINE;
+
     public RegistryObject<BlockNamedItem> DUNGEON_BRICK_ITEMBLOCK;
     public RegistryObject<BlockNamedItem> DUNGEON_BRICK_BROKEN_ITEMBLOCK;
     public RegistryObject<BlockNamedItem> DUNGEON_BRICK_TRIM_ITEMBLOCK;
@@ -47,14 +51,17 @@ public class ConstructionMaterialDungeon implements MaterialBase {
     public RegistryObject<BlockNamedItem> DUNGEON_SQUARE_ITEMBLOCK;
     public RegistryObject<BlockNamedItem> DUNGEON_LAMP_ITEMBLOCK;
 
+    public RegistryObject<BlockNamedItem> DUNGEON_BROKEN_MACHINE_ITEMBLOCK;
+
     public ConstructionMaterialDungeon(ConstructionMaterialHelper cmh) {
-	
+
     }
 
     @Override
     public void setupClient(MaterialHelperBase mat) {
 	RenderType cutout = RenderType.getCutout();
 	RenderTypeLookup.setRenderLayer(DUNGEON_LAMP.get(), cutout);
+	RenderTypeLookup.setRenderLayer(DUNGEON_BROKEN_MACHINE.get(), cutout);
     }
 
     @Override
@@ -79,6 +86,9 @@ public class ConstructionMaterialDungeon implements MaterialBase {
 			.hardnessAndResistance(50.0F, 1200.0F).harvestTool(ToolType.PICKAXE).setLightLevel(b -> {
 			    return 15;
 			})));
+	DUNGEON_BROKEN_MACHINE = mat.BLOCKS.register(mat.name + "_dungeon_machine",
+		() -> new BlockDelapidated(mat.name, Block.Properties.create(Material.IRON).harvestLevel(2)
+			.hardnessAndResistance(50.0F, 1200.0F).harvestTool(ToolType.PICKAXE)));
 
 	DUNGEON_BRICK_ITEMBLOCK = mat.ITEMS.register(mat.name + "_dungeon_brick_itemblock",
 		() -> new BlockNamedItem(DUNGEON_BRICK.get(),
@@ -97,6 +107,10 @@ public class ConstructionMaterialDungeon implements MaterialBase {
 			new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
 	DUNGEON_LAMP_ITEMBLOCK = mat.ITEMS.register(mat.name + "_dungeon_lamp_itemblock",
 		() -> new BlockNamedItem(DUNGEON_LAMP.get(),
+			new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
+
+	DUNGEON_BROKEN_MACHINE_ITEMBLOCK = mat.ITEMS.register(mat.name + "_dungeon_machine_itemblock",
+		() -> new BlockNamedItem(DUNGEON_BROKEN_MACHINE.get(),
 			new Item.Properties().group(MetallurgyMaterialHelper.GROUP_METAL)));
     }
 
@@ -129,8 +143,10 @@ public class ConstructionMaterialDungeon implements MaterialBase {
 		new ResourceLocation(Reference.MOD_ID, "block/material/" + name + "/" + name + "dungeon_square")));
 
 	model.simpleBlock(m.DUNGEON_LAMP.get(),
-		model.models().withExistingParent(name + "_dungeon_brick_light", model.modLoc("block/bases/2layerblock")).texture("0",
-			model.mcLoc("block/redstone_lamp_on")).texture("1", model.modLoc("block/material/" + name + "/" + name + "dungeon_square_light")));
+		model.models()
+			.withExistingParent(name + "_dungeon_brick_light", model.modLoc("block/bases/2layerblock"))
+			.texture("0", model.mcLoc("block/redstone_lamp_on"))
+			.texture("1", model.modLoc("block/material/" + name + "/" + name + "dungeon_square_light")));
 
 	ModelFile trim1 = model.models()
 		.withExistingParent(name + "_dungeon_brick_trim", model.modLoc("block/bases/dungeon_trim_1"))
@@ -149,13 +165,16 @@ public class ConstructionMaterialDungeon implements MaterialBase {
 		.withExistingParent(name + "_dungeon_brick_trim_flip", model.modLoc("block/bases/dungeon_trim_flip_1"))
 		.texture("0", "compendium:block/material/" + name + "/" + name + "dungeon_bricks");
 	ModelFile trim_flip2 = model.models()
-		.withExistingParent(name + "_dungeon_brick_trim_flip_2", model.modLoc("block/bases/dungeon_trim_flip_2"))
+		.withExistingParent(name + "_dungeon_brick_trim_flip_2",
+			model.modLoc("block/bases/dungeon_trim_flip_2"))
 		.texture("0", "compendium:block/material/" + name + "/" + name + "dungeon_bricks");
 	ModelFile trim_flip3 = model.models()
-		.withExistingParent(name + "_dungeon_brick_trim_flip_3", model.modLoc("block/bases/dungeon_trim_flip_3"))
+		.withExistingParent(name + "_dungeon_brick_trim_flip_3",
+			model.modLoc("block/bases/dungeon_trim_flip_3"))
 		.texture("0", "compendium:block/material/" + name + "/" + name + "dungeon_bricks");
 	ModelFile trim_flip4 = model.models()
-		.withExistingParent(name + "_dungeon_brick_trim_flip_4", model.modLoc("block/bases/dungeon_trim_flip_4"))
+		.withExistingParent(name + "_dungeon_brick_trim_flip_4",
+			model.modLoc("block/bases/dungeon_trim_flip_4"))
 		.texture("0", "compendium:block/material/" + name + "/" + name + "dungeon_bricks");
 
 	model.getVariantBuilder(m.DUNGEON_BRICK_TRIM.get()).partialState().with(BlockStateProperties.HALF, Half.BOTTOM)
@@ -199,6 +218,8 @@ public class ConstructionMaterialDungeon implements MaterialBase {
 	table.registerDropSelfLootTable(m.DUNGEON_LAMP.get());
 	table.registerDropSelfLootTable(m.DUNGEON_PILLAR.get());
 	table.registerDropSelfLootTable(m.DUNGEON_SQUARE.get());
+
+	table.registerDropping(m.DUNGEON_BROKEN_MACHINE.get(), Items.AIR);
     }
 
     public static void buildRecipes(ConstructionMaterialDungeon m, TCRecipes recipes,

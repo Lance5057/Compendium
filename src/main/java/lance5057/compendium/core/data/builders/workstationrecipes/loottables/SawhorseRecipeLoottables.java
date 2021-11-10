@@ -14,7 +14,7 @@ import net.minecraft.loot.RandomValueRange;
 import net.minecraft.util.ResourceLocation;
 
 public class SawhorseRecipeLoottables implements Consumer<BiConsumer<ResourceLocation, LootTable.Builder>> {
-    
+
     public static ResourceLocation allplanks = new ResourceLocation("recipes/sawhorse/planks");
 
     @Override
@@ -26,7 +26,7 @@ public class SawhorseRecipeLoottables implements Consumer<BiConsumer<ResourceLoc
 				.addEntry(ItemLootEntry.builder(Items.STICK).weight(1)))
 			.addLootPool(LootPool.builder().name("extra").rolls(RandomValueRange.of(1, 4))
 				.addEntry(ItemLootEntry.builder(CompendiumItems.SAWDUST.get()).weight(1))));
-	
+
 	t.accept(new ResourceLocation(Reference.MOD_ID, "recipes/sawhorse/oak_log"),
 		LootTable.builder()
 			.addLootPool(LootPool.builder().name("main").rolls(RandomValueRange.of(4, 6))
