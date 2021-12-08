@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.AppendixCarpentry;
 import lance5057.compendium.appendixes.carpentry.materialhelper.CarpentryMaterialHelper;
-import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialComponents;
+import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryEmptyShingles;
 import lance5057.compendium.appendixes.construction.materialhelper.ConstructionMaterialHelper;
 import lance5057.compendium.core.blocks.BlockShingles;
 import lance5057.compendium.core.blocks.BlockShinglesCap;
@@ -72,31 +72,36 @@ public class ConstructionMaterialShingles implements MaterialBase {
 		() -> new BlockNamedItem(SHINGLE_BLOCK.get(),
 			new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	for (MaterialHelperBase m : AppendixCarpentry.woods) {
+	for (CarpentryMaterialHelper m : AppendixCarpentry.woods) {
 
-	    RegistryObject<BlockShingles> SHINGLE = cmh.BLOCKS.register(cmh.name + "_" + m.name + "_shingles",
-		    () -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(), Block.Properties
-			    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+	    if (m.hasShingles()) {
+		RegistryObject<BlockShingles> SHINGLE = cmh.BLOCKS.register(cmh.name + "_" + m.name + "_shingles",
+			() -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(),
+				Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
+					.sound(SoundType.METAL).notSolid()));
 
-	    RegistryObject<BlockShingles> SHINGLE_ALT = cmh.BLOCKS.register(cmh.name + "_" + m.name + "_shinglesalt",
-		    () -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(), Block.Properties
-			    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		RegistryObject<BlockShingles> SHINGLE_ALT = cmh.BLOCKS.register(
+			cmh.name + "_" + m.name + "_shinglesalt",
+			() -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(),
+				Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
+					.sound(SoundType.METAL).notSolid()));
 
-	    RegistryObject<BlockNamedItem> SHINGLEITEM = cmh.ITEMS.register(cmh.name + "_" + m.name + "_shinglesitem",
-		    () -> new BlockNamedItem(SHINGLE.get(),
-			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+		RegistryObject<BlockNamedItem> SHINGLEITEM = cmh.ITEMS
+			.register(cmh.name + "_" + m.name + "_shinglesitem", () -> new BlockNamedItem(SHINGLE.get(),
+				new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	    RegistryObject<BlockNamedItem> SHINGLEITEM_ALT = cmh.ITEMS
-		    .register(cmh.name + "_" + m.name + "_shinglesitem_alt", () -> new BlockNamedItem(SHINGLE_ALT.get(),
-			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+		RegistryObject<BlockNamedItem> SHINGLEITEM_ALT = cmh.ITEMS.register(
+			cmh.name + "_" + m.name + "_shinglesitem_alt", () -> new BlockNamedItem(SHINGLE_ALT.get(),
+				new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	    RegistryObject<BlockShinglesCap> SHINGLE_CAP = cmh.BLOCKS
-		    .register(cmh.name + "_" + m.name + "_shingles_cap", () -> new BlockShinglesCap(Block.Properties
-			    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
+		RegistryObject<BlockShinglesCap> SHINGLE_CAP = cmh.BLOCKS.register(
+			cmh.name + "_" + m.name + "_shingles_cap",
+			() -> new BlockShinglesCap(Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
+				.sound(SoundType.METAL).notSolid()));
 
-	    RegistryObject<BlockNamedItem> SHINGLEITEM_CAP = cmh.ITEMS
-		    .register(cmh.name + "_" + m.name + "_shinglesitem_cap", () -> new BlockNamedItem(SHINGLE_CAP.get(),
-			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+		RegistryObject<BlockNamedItem> SHINGLEITEM_CAP = cmh.ITEMS.register(
+			cmh.name + "_" + m.name + "_shinglesitem_cap", () -> new BlockNamedItem(SHINGLE_CAP.get(),
+				new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
 //	    RegistryObject<BlockShinglesCap> SHINGLE_CAP_ALT = cmh.BLOCKS
 //		    .register(cmh.name + "_" + m.name + "_shingles_cap_alt", () -> new BlockShinglesCap(Block.Properties
@@ -106,15 +111,16 @@ public class ConstructionMaterialShingles implements MaterialBase {
 //		    cmh.name + "_" + m.name + "_shinglesitem_cap_alt", () -> new BlockNamedItem(SHINGLE_CAP_ALT.get(),
 //			    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
-	    SHINGLES.add(SHINGLE);
-	    SHINGLES_ALT.add(SHINGLE_ALT);
-	    SHINGLES_CAPS.add(SHINGLE_CAP);
+		SHINGLES.add(SHINGLE);
+		SHINGLES_ALT.add(SHINGLE_ALT);
+		SHINGLES_CAPS.add(SHINGLE_CAP);
 //	    SHINGLES_CAPS_ALT.add(SHINGLE_CAP_ALT);
 
-	    SHINGLESITEM_CAPS.add(SHINGLEITEM_CAP);
+		SHINGLESITEM_CAPS.add(SHINGLEITEM_CAP);
 //	    SHINGLESITEM_CAPS_ALT.add(SHINGLEITEM_CAP_ALT);
-	    SHINGLESITEM.add(SHINGLEITEM);
-	    SHINGLESITEM_ALT.add(SHINGLEITEM_ALT);
+		SHINGLESITEM.add(SHINGLEITEM);
+		SHINGLESITEM_ALT.add(SHINGLEITEM_ALT);
+	    }
 	}
     }
 
@@ -130,21 +136,24 @@ public class ConstructionMaterialShingles implements MaterialBase {
 			"compendium:block/material/" + name + "/" + name + "shingles"));
 
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-	    // Shingles
+	    if (AppendixCarpentry.woods.get(i).hasShingles()) {
+		// Shingles
 
-	    TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
-		    "compendium:block/material/" + name + "/" + name + "shingles",
-		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_" + AppendixCarpentry.woods.get(i).log,
-		    "", "block/bases/shingles", m.SHINGLES.get(i).get());
-	    TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
-		    "compendium:block/material/" + name + "/" + name + "shingles",
-		    "minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_" + AppendixCarpentry.woods.get(i).log,
-		    "alt", "block/bases/shingles", m.SHINGLES_ALT.get(i).get());
+		TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
+			"compendium:block/material/" + name + "/" + name + "shingles",
+			"minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_"
+				+ AppendixCarpentry.woods.get(i).log,
+			"", "block/bases/shingles", m.SHINGLES.get(i).get());
+		TCBlockModels.shinglesModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
+			"compendium:block/material/" + name + "/" + name + "shingles",
+			"minecraft:block/" + AppendixCarpentry.woods.get(i).name + "_"
+				+ AppendixCarpentry.woods.get(i).log,
+			"alt", "block/bases/shingles", m.SHINGLES_ALT.get(i).get());
 
-	    TCBlockModels.shinglesCapModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
-		    "compendium:block/material/" + name + "/" + name + "shingles", "", "block/bases/shingles_cap",
-		    m.SHINGLES_CAPS.get(i).get());
-
+		TCBlockModels.shinglesCapModel(model, name + "_" + AppendixCarpentry.woods.get(i).name + "_",
+			"compendium:block/material/" + name + "/" + name + "shingles", "", "block/bases/shingles_cap",
+			m.SHINGLES_CAPS.get(i).get());
+	    }
 	}
     }
 
@@ -152,13 +161,14 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	model.forBlockItem(m.SHINGLES_ITEMBLOCK, name);
 
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-
-	    model.forBlockItem(m.SHINGLESITEM.get(i), name);
-	    model.forBlockItem(m.SHINGLESITEM_ALT.get(i), name);
-	    model.getBuilder(m.SHINGLESITEM_CAPS.get(i).getId().getPath())
-		    .parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/shingles_cap_full")))
-		    .texture("0", model.modLoc("block/material/" + name + "/" + name + "shingles"));
+	    if (AppendixCarpentry.woods.get(i).hasShingles()) {
+		model.forBlockItem(m.SHINGLESITEM.get(i), name);
+		model.forBlockItem(m.SHINGLESITEM_ALT.get(i), name);
+		model.getBuilder(m.SHINGLESITEM_CAPS.get(i).getId().getPath())
+			.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/shingles_cap_full")))
+			.texture("0", model.modLoc("block/material/" + name + "/" + name + "shingles"));
 //	    model.forBlockItem(m.SHINGLESITEM_CAPS_ALT.get(i), name);
+	    }
 	}
     }
 
@@ -172,12 +182,14 @@ public class ConstructionMaterialShingles implements MaterialBase {
 	table.registerDropSelfLootTable(b.SHINGLE_BLOCK.get());
 
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-	    table.registerDropping(b.SHINGLES.get(i).get(),
-		    ForgeRegistries.ITEMS.getValue(new ResourceLocation(Reference.MOD_ID, name + "plate")));// .registerDropSelfLootTable(b.SHINGLES.get(i).get());
-	    table.registerDropSelfLootTable(b.SHINGLES_ALT.get(i).get());
+	    if (AppendixCarpentry.woods.get(i).hasShingles()) {
+		table.registerDropping(b.SHINGLES.get(i).get(),
+			ForgeRegistries.ITEMS.getValue(new ResourceLocation(Reference.MOD_ID, name + "plate")));// .registerDropSelfLootTable(b.SHINGLES.get(i).get());
+		table.registerDropSelfLootTable(b.SHINGLES_ALT.get(i).get());
 
-	    table.registerDropSelfLootTable(b.SHINGLES_CAPS.get(i).get());
+		table.registerDropSelfLootTable(b.SHINGLES_CAPS.get(i).get());
 //	    table.registerDropSelfLootTable(b.SHINGLES_CAPS_ALT.get(i).get());
+	    }
 	}
     }
 
@@ -189,29 +201,32 @@ public class ConstructionMaterialShingles implements MaterialBase {
 		consumer);
 
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-	    CarpentryMaterialComponents c = AppendixCarpentry.woods.get(i).getComponents();
+	    if (AppendixCarpentry.woods.get(i).hasShingles()) {
+		CarpentryEmptyShingles c = AppendixCarpentry.woods.get(i).getShingles();
 
-	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles",
-		    new ItemStack(m.SHINGLES.get(i).get()), Ingredient.fromItems(c.SHINGLES.get()),
-		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
-	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_alt",
-		    new ItemStack(m.SHINGLES_ALT.get(i).get()), Ingredient.fromItems(c.SHINGLES_ALT.get()),
-		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
+		HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles",
+			new ItemStack(m.SHINGLES.get(i).get()), Ingredient.fromItems(c.SHINGLES.get()),
+			Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
+		HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_alt",
+			new ItemStack(m.SHINGLES_ALT.get(i).get()), Ingredient.fromItems(c.SHINGLES_ALT.get()),
+			Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
 
-	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap",
-		    new ItemStack(m.SHINGLES_CAPS.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP.get()),
-		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
+		HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap",
+			new ItemStack(m.SHINGLES_CAPS.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP.get()),
+			Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
 //	    HammerMainHandRecipes.createRecipe(name + "_" + AppendixCarpentry.woods.get(i).name + "_shingles_cap_alt",
 //		    new ItemStack(m.SHINGLES_CAPS_ALT.get(i).get()), Ingredient.fromItems(c.SHINGLES_CAP_ALT.get()),
 //		    Ingredient.fromTag(TCItemTags.ItemTag("plates/" + name)), consumer);
-
+	    }
 	}
     }
 
     public static void registerBlockTags(ConstructionMaterialShingles base, TCBlockTags btp, String name) {
 	for (int i = 0; i < AppendixCarpentry.woods.size(); i++) {
-	    btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS.get(i).get());
+	    if (AppendixCarpentry.woods.get(i).hasShingles()) {
+		btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS.get(i).get());
 //	    btp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(base.SHINGLES_CAPS_ALT.get(i).get());
+	    }
 	}
     }
 

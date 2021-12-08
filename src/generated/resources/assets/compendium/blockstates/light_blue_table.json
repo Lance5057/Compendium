@@ -1,0 +1,48 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/light_bluetable_top"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "compendium:block/light_bluetable_leg",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "compendium:block/light_bluetable_leg"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/light_bluetable_leg",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "compendium:block/light_bluetable_leg",
+        "y": -90
+      }
+    }
+  ]
+}

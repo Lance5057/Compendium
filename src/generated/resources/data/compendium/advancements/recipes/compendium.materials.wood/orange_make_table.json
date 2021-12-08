@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:orange_make_table"
+    ]
+  },
+  "criteria": {
+    "orangetable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:orange_make_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orangetable",
+      "has_the_recipe"
+    ]
+  ]
+}

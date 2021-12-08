@@ -43,17 +43,17 @@ public class ScrappingTableRecipeSerializer extends ForgeRegistryEntry<IRecipeSe
     @Nullable
     @Override
     public ScrappingTableRecipe read(@Nonnull ResourceLocation recipeId, PacketBuffer buffer) {
-
+	//input
 	Ingredient input = Ingredient.read(buffer);
+	//group
 	String s = buffer.readString(32767);
-
+	//loottable
 	String q = buffer.readString();
 	final ResourceLocation loottable = new ResourceLocation(q);
-
+	//tool list length
 	int h = buffer.readVarInt();
-
 	NonNullList<RecipeItemUse> nonnulllistTool = NonNullList.withSize(h, RecipeItemUse.EMPTY);
-
+	//tool list
 	for (int k = 0; k < nonnulllistTool.size(); ++k) {
 	    nonnulllistTool.set(k, RecipeItemUse.read(buffer));
 	}
@@ -63,21 +63,17 @@ public class ScrappingTableRecipeSerializer extends ForgeRegistryEntry<IRecipeSe
 
     @Override
     public void write(PacketBuffer buffer, ScrappingTableRecipe recipe) {
-
-	buffer.writeVarInt(recipe.getRecipeWidth());
-	buffer.writeVarInt(recipe.getRecipeHeight());
+	//input
+	recipe.getIngredients().get(0).write(buffer);
+	//group
 	buffer.writeString(recipe.getGroup());
-
-	for (Ingredient ingredient : recipe.getRecipeItems()) {
-	    ingredient.write(buffer);
-	}
-
+	//loottable
+	buffer.writeResourceLocation(recipe.getLoottable());
+	//tool list length
 	buffer.writeVarInt(recipe.getToolListLength());
-
+	//tool list
 	for (RecipeItemUse riu : recipe.getRecipeTools())
 	    RecipeItemUse.write(riu, buffer);
-
-	buffer.writeItemStack(recipe.getRecipeOutput());
 
     }
 

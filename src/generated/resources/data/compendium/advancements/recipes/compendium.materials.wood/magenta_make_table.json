@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "compendium:magenta_make_table"
+    ]
+  },
+  "criteria": {
+    "magentatable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "compendium:magenta_make_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "magentatable",
+      "has_the_recipe"
+    ]
+  ]
+}

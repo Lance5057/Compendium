@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:white_pressure_plate",
+    "compendium:orange_pressure_plate",
+    "compendium:magenta_pressure_plate",
+    "compendium:light_blue_pressure_plate"
+  ]
+}

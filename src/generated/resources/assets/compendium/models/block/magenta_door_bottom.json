@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "bottom": "compendium:block/magenta_planks",
+    "top": "compendium:block/magenta_planks"
+  }
+}

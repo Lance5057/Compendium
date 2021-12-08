@@ -3,7 +3,7 @@ package lance5057.compendium.appendixes.carpentry.materialhelper;
 import lance5057.compendium.Reference;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryFurniture;
 import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialBasic;
-import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryMaterialComponents;
+import lance5057.compendium.appendixes.carpentry.materialhelper.addons.CarpentryEmptyShingles;
 import lance5057.compendium.core.library.materialutilities.MaterialHelperBase;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     public String log = "log";
 
     private CarpentryMaterialBasic basic;
-    private CarpentryMaterialComponents comp;
+    private CarpentryEmptyShingles comp;
 
     private CarpentryFurniture furniture;
 
@@ -50,14 +50,14 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     @Override
     public void setup() {
 	if(this.hasBase()) basic.setup(this);
-	if(this.hasComponents()) comp.setup(this);
+	if(this.hasShingles()) comp.setup(this);
 	if(this.hasFurniture()) furniture.setup(this);
     }
 
     @OnlyIn(Dist.CLIENT)
     public void client(FMLClientSetupEvent event) {
 	if(this.hasBase()) basic.setupClient(this);
-	if(this.hasComponents()) comp.setupClient(this);
+	if(this.hasShingles()) comp.setupClient(this);
 	if(this.hasFurniture()) furniture.setupClient(this);
     }
 
@@ -76,16 +76,16 @@ public class CarpentryMaterialHelper extends MaterialHelperBase {
     }
 
     // Components
-    public CarpentryMaterialHelper withComponents(String log) {
-	comp = new CarpentryMaterialComponents(this, log);
+    public CarpentryMaterialHelper withShingles(String log) {
+	comp = new CarpentryEmptyShingles(this, log);
 	return this;
     }
 
-    public boolean hasComponents() {
+    public boolean hasShingles() {
 	return comp != null;
     }
 
-    public CarpentryMaterialComponents getComponents() {
+    public CarpentryEmptyShingles getShingles() {
 	return comp;
     }
     

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:white_trapdoor",
+    "compendium:orange_trapdoor",
+    "compendium:magenta_trapdoor",
+    "compendium:light_blue_trapdoor"
+  ]
+}

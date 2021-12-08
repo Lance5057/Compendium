@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/seat/back_full",
+  "textures": {
+    "0": "compendium:block/magenta_planks"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ww",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "tag": "forge:planks/light_blue"
+    }
+  },
+  "result": {
+    "item": "compendium:light_blue_seat_itemblock"
+  }
+}

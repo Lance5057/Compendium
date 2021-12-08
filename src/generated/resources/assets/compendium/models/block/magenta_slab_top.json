@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "compendium:block/magenta_planks",
+    "bottom": "compendium:block/magenta_planks",
+    "top": "compendium:block/magenta_planks"
+  }
+}

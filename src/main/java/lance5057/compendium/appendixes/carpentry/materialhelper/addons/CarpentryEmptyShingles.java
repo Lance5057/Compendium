@@ -34,7 +34,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class CarpentryMaterialComponents implements MaterialBase {
+public class CarpentryEmptyShingles implements MaterialBase {
 
     String logName;
 
@@ -52,7 +52,7 @@ public class CarpentryMaterialComponents implements MaterialBase {
     public RegistryObject<BlockNamedItem> SHINGLESITEM_CAP;
     public RegistryObject<BlockNamedItem> SHINGLESITEM_CAP_ALT;
 
-    public CarpentryMaterialComponents(CarpentryMaterialHelper cmh, String log) {
+    public CarpentryEmptyShingles(CarpentryMaterialHelper cmh, String log) {
 	this.logName = log;
     }
 
@@ -98,21 +98,22 @@ public class CarpentryMaterialComponents implements MaterialBase {
 			new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
     }
 
-    public static void registerBlockModels(CarpentryMaterialComponents m, TCBlockModels model, String name) {
+    public static void registerBlockModels(CarpentryEmptyShingles m, TCBlockModels model, String name,
+	    String parentMod) {
 	// Shingles
-	TCBlockModels.shinglesModel(model, name + "_empty_", "minecraft:block/" + name + "_planks",
+	TCBlockModels.shinglesModel(model, name + "_empty_", parentMod + ":block/" + name + "_planks",
 		"minecraft:block/" + name + "_" + m.logName, "", "block/bases/empty_shingles", m.SHINGLES.get());
-	TCBlockModels.shinglesModel(model, name + "_empty_", "minecraft:block/" + name + "_planks",
+	TCBlockModels.shinglesModel(model, name + "_empty_", parentMod + ":block/" + name + "_planks",
 		"minecraft:block/" + name + "_" + m.logName, "alt", "block/bases/empty_shingles", m.SHINGLES_ALT.get());
-	TCBlockModels.shinglesCapModel(model, name + "_empty_", "minecraft:block/" + name + "_planks",
+	TCBlockModels.shinglesCapModel(model, name + "_empty_", parentMod + ":block/" + name + "_planks",
 		"minecraft:block/" + name + "_" + m.logName, "", "block/bases/empty_shingles_cap",
 		m.SHINGLES_CAP.get());
-	TCBlockModels.shinglesCapModel(model, name + "_empty_", "minecraft:block/" + name + "_planks",
+	TCBlockModels.shinglesCapModel(model, name + "_empty_", parentMod + ":block/" + name + "_planks",
 		"minecraft:block/" + name + "_" + m.logName, "_alt", "block/bases/empty_shingles_cap",
 		m.SHINGLES_CAP_ALT.get());
     }
 
-    public static void registerItemModels(CarpentryMaterialComponents m, TCItemModels model, String name) {
+    public static void registerItemModels(CarpentryEmptyShingles m, TCItemModels model, String name, String parentMod) {
 	// model.forBlockItem(m.SHINGLES_ITEMBLOCK, name);
 	model.forBlockItem(m.SHINGLESITEM, name);
 	model.forBlockItem(m.SHINGLESITEM_ALT, name);
@@ -125,23 +126,23 @@ public class CarpentryMaterialComponents implements MaterialBase {
 
 	model.getBuilder(m.SHINGLESITEM_CAP_ALT.getId().getPath())
 		.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/empty_shingles_cap_alt_full")))
-		.texture("0", model.mcLoc("block/" + name + "_planks"))
-		.texture("2", model.mcLoc("block/" + name + "_" + m.logName))
-		.texture("1", model.mcLoc("block/" + name + "_" + m.logName + "_top"));
+		.texture("0", new ResourceLocation(parentMod, "block/" + name + "_planks"))
+		.texture("2", new ResourceLocation(parentMod, "block/" + name + "_" + m.logName))
+		.texture("1", new ResourceLocation(parentMod, "block/" + name + "_" + m.logName + "_top"));
     }
 
-    public static void addTranslations(CarpentryMaterialComponents m, TCEnglishLoc loc, String capName) {
+    public static void addTranslations(CarpentryEmptyShingles m, TCEnglishLoc loc, String capName) {
     }
 
-    public static void registerTags(CarpentryMaterialComponents m, TCItemTags itp, String name) {
+    public static void registerTags(CarpentryEmptyShingles m, TCItemTags itp, String name) {
     }
 
-    public static void registerBlockTags(CarpentryMaterialComponents m, TCBlockTags itp, String name) {
+    public static void registerBlockTags(CarpentryEmptyShingles m, TCBlockTags itp, String name) {
 	itp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(m.SHINGLES_CAP.get());
 	itp.getOrCreateBuilder(CompendiumTags.SHINGLESCAP).add(m.SHINGLES_CAP_ALT.get());
     }
 
-    public static void buildLootTable(CarpentryMaterialComponents b, BlockLoot table, String name) {
+    public static void buildLootTable(CarpentryEmptyShingles b, BlockLoot table, String name) {
 	table.registerDropSelfLootTable(b.SHINGLES.get());
 	table.registerDropSelfLootTable(b.SHINGLES_ALT.get());
 	// table.registerDropSelfLootTable(b.SHINGLES_BLOCK.get());
@@ -149,40 +150,40 @@ public class CarpentryMaterialComponents implements MaterialBase {
 	table.registerDropSelfLootTable(b.SHINGLES_CAP_ALT.get());
     }
 
-    public static void buildRecipes(CarpentryMaterialComponents m, TCRecipes recipes,
-	    Consumer<IFinishedRecipe> consumer, String name) {
+    public static void buildRecipes(CarpentryEmptyShingles m, TCRecipes recipes, Consumer<IFinishedRecipe> consumer,
+	    String name, String parentMod) {
 	ShapedRecipeBuilder.shapedRecipe(m.SHINGLES.get(), 4).key('s', Items.STICK)
-		.key('p', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_planks")))
-		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_log")))
+		.key('p', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_planks")))
+		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_log")))
 		.patternLine("  s").patternLine(" sp").patternLine("spl")
 		.addCriterion(name + "shingle",
 			RecipeProvider.hasItem(
-				ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_planks"))))
+				ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_planks"))))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "shingle"));
 
 	ShapedRecipeBuilder.shapedRecipe(m.SHINGLES_ALT.get(), 4).key('s', Items.STICK)
-		.key('p', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_planks")))
-		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_log")))
+		.key('p', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_planks")))
+		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_log")))
 		.patternLine("  s").patternLine(" sl").patternLine("slp")
 		.addCriterion(name + "shingle_alt",
 			RecipeProvider.hasItem(
-				ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_planks"))))
+				ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_planks"))))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "shingle_alt"));
 
 	ShapedRecipeBuilder.shapedRecipe(m.SHINGLES_CAP.get(), 4).key('s', Items.STICK)
-		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_plank")))
+		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_plank")))
 		.patternLine(" s ").patternLine("sls")
 		.addCriterion(name + "shingle_cap",
 			RecipeProvider.hasItem(
-				ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_plank"))))
+				ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_plank"))))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "shingle_cap"));
 
 	ShapedRecipeBuilder.shapedRecipe(m.SHINGLES_CAP_ALT.get(), 4).key('s', Items.STICK)
-		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_log")))
+		.key('l', ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_log")))
 		.patternLine(" s ").patternLine("sls")
 		.addCriterion(name + "shingle_cap_alt",
 			RecipeProvider.hasItem(
-				ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:" + name + "_log"))))
+				ForgeRegistries.ITEMS.getValue(new ResourceLocation(parentMod, name + "_log"))))
 		.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "shingle_cap_alt"));
     }
 

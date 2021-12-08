@@ -39,28 +39,28 @@ public class CraftingAnvilRecipeSerializer
     }
 
     public CraftingAnvilRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-	int i = buffer.readVarInt();
-	int j = buffer.readVarInt();
-	String s = buffer.readString(32767);
+	int width = buffer.readVarInt();
+	int height = buffer.readVarInt();
+	String group = buffer.readString(32767);
 
-	NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i * j, Ingredient.EMPTY);
+	NonNullList<Ingredient> ingredients = NonNullList.withSize(width * height, Ingredient.EMPTY);
 
-	for (int k = 0; k < (i * j); ++k) {
-	    nonnulllist.set(k, Ingredient.read(buffer));
+	for (int k = 0; k < (width * height); ++k) {
+	    ingredients.set(k, Ingredient.read(buffer));
 	}
 
 	int h = buffer.readVarInt();
 
-	NonNullList<RecipeItemUse> nonnulllistTool = NonNullList.withSize(h, RecipeItemUse.EMPTY);
+	NonNullList<RecipeItemUse> tools = NonNullList.withSize(h, RecipeItemUse.EMPTY);
 
-	for (int k = 0; k < nonnulllistTool.size(); ++k) {
-	    nonnulllistTool.set(k, RecipeItemUse.read(buffer));
+	for (int k = 0; k < tools.size(); ++k) {
+	    tools.set(k, RecipeItemUse.read(buffer));
 	}
 
-	ItemStack itemstackSchem = buffer.readItemStack();
-	ItemStack itemstack = buffer.readItemStack();
+	ItemStack schematic = buffer.readItemStack();
+	ItemStack output = buffer.readItemStack();
 
-	return new CraftingAnvilRecipe(recipeId, s, i, j, nonnulllist, nonnulllistTool, itemstackSchem, itemstack);
+	return new CraftingAnvilRecipe(recipeId, group, width, height, ingredients, tools, schematic, output);
     }
 
     public void write(PacketBuffer buffer, CraftingAnvilRecipe recipe) {

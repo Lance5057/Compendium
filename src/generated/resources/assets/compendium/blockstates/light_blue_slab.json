@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "compendium:block/light_blue_slab_top"
+    },
+    "type=bottom": {
+      "model": "compendium:block/light_blue_slab"
+    },
+    "type=double": {
+      "model": "compendium:block/light_blue_plank"
+    }
+  }
+}

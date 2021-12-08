@@ -76,10 +76,6 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 	return this.id;
     }
 
-    public IRecipeSerializer<?> getSerializer() {
-	return null;
-    }
-
     /**
      * Recipes with equal group are combined into one button in the recipe book
      */
@@ -360,6 +356,11 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 
     public NonNullList<RecipeItemUse> getRecipeTools() {
 	return recipeTools;
+    }
+
+    @Override
+    public IRecipeSerializer<?> getSerializer() {
+	return null;
     }
 
 }

@@ -27,11 +27,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.RegistryObject;
 
 public class CarpentryFurniture implements MaterialBase {
@@ -73,16 +75,16 @@ public class CarpentryFurniture implements MaterialBase {
 		() -> new BlockNamedItem(TABLE.get(), new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
     }
 
-    public static void registerBlockModels(CarpentryFurniture m, TCBlockModels model, String name) {
+    public static void registerBlockModels(CarpentryFurniture m, TCBlockModels model, String name, String parent) {
 	// Seat
 
 	ModelFile leg = model.models().withExistingParent(name + "leg", model.modLoc("block/bases/seat/stool_leg"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile seat = model.models().withExistingParent(name + "seat", model.modLoc("block/bases/seat/stool_seat"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile seat_extension = model.models()
 		.withExistingParent(name + "seat_extension", model.modLoc("block/bases/seat/stool_seat_extend"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 
 	MultiPartBlockStateBuilder bld = model.getMultipartBuilder(m.SEAT.get());
 
@@ -110,10 +112,10 @@ public class CarpentryFurniture implements MaterialBase {
 
 	ModelFile table_leg = model.models()
 		.withExistingParent(name + "table_leg", model.modLoc("block/bases/table/leg"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile table_top = model.models()
 		.withExistingParent(name + "table_top", model.modLoc("block/bases/table/table_top"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 
 	MultiPartBlockStateBuilder bld_table = model.getMultipartBuilder(m.TABLE.get());
 
@@ -132,18 +134,18 @@ public class CarpentryFurniture implements MaterialBase {
 
 	ModelFile backleg = model.models()
 		.withExistingParent(name + "backleg", model.modLoc("block/bases/seat/back_leg"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile backleg2 = model.models()
 		.withExistingParent(name + "backleg_other", model.modLoc("block/bases/seat/back_leg_other"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile back = model.models().withExistingParent(name + "back", model.modLoc("block/bases/seat/back_base"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile back_extension = model.models()
 		.withExistingParent(name + "back_extension", model.modLoc("block/bases/seat/back_extend"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	ModelFile back_extension_2 = model.models()
 		.withExistingParent(name + "back_extension_other", model.modLoc("block/bases/seat/back_extend_other"))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 
 	MultiPartBlockStateBuilder bld2 = model.getMultipartBuilder(m.SEAT_BACK.get());
 
@@ -166,22 +168,23 @@ public class CarpentryFurniture implements MaterialBase {
 	}
     }
 
-    public static void registerItemModels(CarpentryFurniture m, TCItemModels model, String name) {
+    public static void registerItemModels(CarpentryFurniture m, TCItemModels model, String name, String parent) {
 	model.getBuilder(m.TABLE_ITEMBLOCK.getId().getPath())
 		.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/table/table_full")))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	model.getBuilder(m.SEAT_ITEMBLOCK.getId().getPath())
 		.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/seat/stool_full")))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
 	model.getBuilder(m.SEAT_BACK_ITEMBLOCK.getId().getPath())
 		.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/seat/back_full")))
-		.texture("0", model.mcLoc("block/" + name + "_planks"));
+		.texture("0", new ResourceLocation(parent, "block/" + name + "_planks"));
     }
 
     public static void addTranslations(CarpentryFurniture m, TCEnglishLoc loc, String capName) {
     }
 
     public static void registerBlockTags(CarpentryFurniture m, TCBlockTags btp, String name) {
+	
     }
 
     public static void buildLootTable(CarpentryFurniture b, BlockLoot table, String name) {
@@ -191,7 +194,7 @@ public class CarpentryFurniture implements MaterialBase {
     }
 
     public static void buildRecipes(CarpentryFurniture m, TCRecipes recipes, Consumer<IFinishedRecipe> consumer,
-	    String name) {
+	    String name, String parentMod) {
 	ShapedRecipeBuilder.shapedRecipe(m.SEAT_ITEMBLOCK.get(), 1).key('s', Items.STICK)
 		.key('w', Ingredient.fromTag(TCItemTags.ItemTag("planks/" + name))).patternLine("ww").patternLine("ss")
 		.addCriterion(name + "seat", TCRecipes.hasItem(Items.STICK))

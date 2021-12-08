@@ -20,8 +20,8 @@
     },
     {
       "when": {
-        "facing": "south",
-        "right": "true"
+        "right": "true",
+        "facing": "south"
       },
       "apply": {
         "model": "compendium:block/jungleback_extension",
@@ -40,8 +40,8 @@
     },
     {
       "when": {
-        "facing": "south",
-        "right": "false"
+        "right": "false",
+        "facing": "south"
       },
       "apply": {
         "model": "compendium:block/junglebackleg_other",
@@ -70,8 +70,8 @@
     },
     {
       "when": {
-        "facing": "west",
-        "right": "true"
+        "right": "true",
+        "facing": "west"
       },
       "apply": {
         "model": "compendium:block/jungleback_extension",
@@ -92,8 +92,8 @@
     },
     {
       "when": {
-        "facing": "west",
-        "right": "false"
+        "right": "false",
+        "facing": "west"
       },
       "apply": {
         "model": "compendium:block/junglebackleg_other",
@@ -123,8 +123,8 @@
     },
     {
       "when": {
-        "facing": "north",
-        "right": "true"
+        "right": "true",
+        "facing": "north"
       },
       "apply": {
         "model": "compendium:block/jungleback_extension",
@@ -145,8 +145,8 @@
     },
     {
       "when": {
-        "facing": "north",
-        "right": "false"
+        "right": "false",
+        "facing": "north"
       },
       "apply": {
         "model": "compendium:block/junglebackleg_other",
@@ -176,8 +176,8 @@
     },
     {
       "when": {
-        "facing": "east",
-        "right": "true"
+        "right": "true",
+        "facing": "east"
       },
       "apply": {
         "model": "compendium:block/jungleback_extension",
@@ -198,8 +198,8 @@
     },
     {
       "when": {
-        "facing": "east",
-        "right": "false"
+        "right": "false",
+        "facing": "east"
       },
       "apply": {
         "model": "compendium:block/junglebackleg_other",

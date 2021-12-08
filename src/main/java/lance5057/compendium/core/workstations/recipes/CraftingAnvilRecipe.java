@@ -5,6 +5,8 @@ import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -70,5 +72,15 @@ public class CraftingAnvilRecipe extends MultiToolRecipe {
 	}
 
 	return true;
+    }
+
+    @Override
+    public IRecipeType<?> getType() {
+	return WorkstationRecipes.CRAFTING_ANVIL_RECIPE;
+    }
+
+    @Override
+    public IRecipeSerializer<?> getSerializer() {
+	return WorkstationRecipes.CRAFTING_ANVIL_SERIALIZER.get();
     }
 }

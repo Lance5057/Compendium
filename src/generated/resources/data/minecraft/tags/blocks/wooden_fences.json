@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "compendium:white_fence",
+    "compendium:orange_fence",
+    "compendium:magenta_fence",
+    "compendium:light_blue_fence"
+  ]
+}

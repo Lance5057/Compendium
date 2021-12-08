@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/table/leg",
+  "textures": {
+    "0": "compendium:block/orange_planks"
+  }
+}
