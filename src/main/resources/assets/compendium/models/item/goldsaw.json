@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/InteractionHandheld",
   "textures": {
     "layer0": "compendium:item/material/gold/goldsaw",
     "layer1": "compendium:item/sawbase"

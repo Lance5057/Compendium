@@ -2,41 +2,40 @@ package lance5057.compendium.core.blocks;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.properties.Half;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Half;
 
 public class BlockVerticalPlacement extends Block {
     public static final EnumProperty<Half> TYPE = BlockStateProperties.HALF;
 
-    public BlockVerticalPlacement(AbstractBlock.Properties properties) {
+    public BlockVerticalPlacement(Properties properties) {
 	super(properties);
-	this.setDefaultState(this.getDefaultState().with(TYPE, Half.BOTTOM));
+	this.registerDefaultState(this.defaultBlockState().setValue(TYPE, Half.BOTTOM));
     }
 
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-	BlockPos blockpos = context.getPos();
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+	BlockPos blockpos = context.getClickedPos();
 
-	BlockState blockstate1 = this.getDefaultState().with(TYPE, Half.BOTTOM);
+	BlockState blockstate1 = this.defaultBlockState().setValue(TYPE, Half.BOTTOM);
 
-	Direction direction = context.getFace();
+	Direction direction = context.getClickedFace();
 	return direction != Direction.DOWN
-		&& (direction == Direction.UP || !(context.getHitVec().y - (double) blockpos.getY() > 0.5D))
+		&& (direction == Direction.UP || !(context.getClickLocation().y - (double) blockpos.getY() > 0.5D))
 			? blockstate1
-			: blockstate1.with(TYPE, Half.TOP);
+			: blockstate1.setValue(TYPE, Half.TOP);
 
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 	builder.add(TYPE);
     }
 }

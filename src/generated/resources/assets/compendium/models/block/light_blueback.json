@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/seat/back_base",
-  "textures": {
-    "0": "compendium:block/light_blue_planks"
-  }
-}

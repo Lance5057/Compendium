@@ -1,12 +1,12 @@
 package lance5057.compendium.core.blocks;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 
 public interface IPryable {
-    public void onBreak(World world, BlockPos pos, LivingEntity entityLiving);
+    public void onBreak(Level world, BlockPos pos, LivingEntity entityLiving);
     
     public ResourceLocation getPrybarLootTable();
 }

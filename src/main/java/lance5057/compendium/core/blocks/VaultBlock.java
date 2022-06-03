@@ -10,18 +10,18 @@
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.HorizontalBlock;
 //import net.minecraft.block.material.Material;
-//import net.minecraft.entity.player.PlayerEntity;
-//import net.minecraft.item.BlockItemUseContext;
+//import net.minecraft.entity.player.Player;
+//import net.minecraft.item.BlockPlaceContext;
 //import net.minecraft.state.DirectionProperty;
-//import net.minecraft.state.StateContainer;
+//import net.minecraft.state.StateDefinition;
 //import net.minecraft.tileentity.TileEntity;
-//import net.minecraft.util.ActionResultType;
+//import net.minecraft.util.InteractionResultHolder;
 //import net.minecraft.util.Direction;
-//import net.minecraft.util.Hand;
+//import net.minecraft.util.InteractionHand;
 //import net.minecraft.util.math.BlockPos;
-//import net.minecraft.util.math.BlockRayTraceResult;
-//import net.minecraft.world.IBlockReader;
-//import net.minecraft.world.World;
+//import net.minecraft.util.math.BlockHitResult;
+//import net.minecraft.world.BlockGetter;
+//import net.minecraft.world.Level;
 //import net.minecraftforge.common.ToolType;
 //import net.minecraftforge.items.CapabilityItemHandler;
 //
@@ -29,9 +29,9 @@
 //    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 //
 //    public VaultBlock() {
-//	super(Block.Properties.create(Material.IRON).harvestLevel(0).hardnessAndResistance(3, 4)
+//	super(Block.Properties.create(Material.METAL).harvestLevel(0).strength(3, 4)
 //		.harvestTool(ToolType.PICKAXE).notSolid());
-//	this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+//	this.setDefaultState(this.StateDefinition.any().setValue(FACING, Direction.NORTH));
 //    }
 //
 //    @Override
@@ -41,41 +41,41 @@
 //
 //    @Nullable
 //    @Override
-//    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+//    public TileEntity createTileEntity(BlockState state, BlockGetter world) {
 //	return new VaultTileEntity();
 //    }
 //
 //    @Override
-//    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+//    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 //	builder.add(FACING);
 //    }
 //
 //    @Nonnull
 //    @Override
-//    public ActionResultType onBlockActivated(@Nonnull BlockState blockState, World world, @Nonnull BlockPos blockPos,
-//	    @Nonnull PlayerEntity playerEntity, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
+//    public InteractionResultHolder onBlockActivated(@Nonnull BlockState blockState, Level world, @Nonnull BlockPos blockPos,
+//	    @Nonnull Player Player, @Nonnull InteractionHand InteractionHand, @Nonnull BlockHitResult BlockHitResult) {
 //
 //	TileEntity entity = world.getTileEntity(blockPos);
 //	if (entity instanceof VaultTileEntity) {
 //
 //	    VaultTileEntity te = ((VaultTileEntity) entity);
 //
-//	    if (playerEntity.getHeldItem(hand).isEmpty()) {
-//		for (int i = 0; i < playerEntity.inventory.getSizeInventory(); i++) {
-//		    te.insertItem(playerEntity.inventory.getStackInSlot(i));
+//	    if (Player.getHeldItem(InteractionHand).isEmpty()) {
+//		for (int i = 0; i < Player.inventory.getSizeInventory(); i++) {
+//		    te.insertItem(Player.inventory.getStackInSlot(i));
 //		}
 //	    } else
-//		te.insertItem(playerEntity.getHeldItem(hand));
+//		te.insertItem(Player.getHeldItem(InteractionHand));
 //
-//	    return ActionResultType.SUCCESS;
+//	    return InteractionResultHolder.SUCCESS;
 //	}
 //
-//	return super.onBlockActivated(blockState, world, blockPos, playerEntity, hand, blockRayTraceResult);
+//	return super.onBlockActivated(blockState, world, blockPos, Player, InteractionHand, BlockHitResult);
 //
 //    }
 //
 //    @Override
-//    public void onBlockClicked(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
+//    public void onBlockClicked(BlockState state, Level worldIn, BlockPos pos, Player player) {
 //	TileEntity entity = worldIn.getTileEntity(pos);
 //	if (entity instanceof VaultTileEntity) {
 //
@@ -86,14 +86,14 @@
 //    }
 //
 //    @Override
-//    public void onReplaced(BlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, BlockState newState,
+//    public void onReplaced(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
 //	    boolean isMoving) {
 //	if (state.getBlock() != newState.getBlock()) {
 //	    TileEntity tileentity = worldIn.getTileEntity(pos);
 //	    if (tileentity instanceof VaultTileEntity) {
-//		tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-//			.ifPresent(itemHandler -> IntStream.range(0, itemHandler.getSlots())
-//				.forEach(i -> Block.spawnAsEntity(worldIn, pos, itemHandler.getStackInSlot(i))));
+//		tileentity.getCapability(CapabilityItemHandler.ITEM_InteractionHandLER_CAPABILITY)
+//			.ifPresent(itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots())
+//				.forEach(i -> Block.spawnAsEntity(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
 //
 //		worldIn.updateComparatorOutputLevel(pos, this);
 //	    }
@@ -103,8 +103,8 @@
 //    }
 //
 //    @Override
-//    public BlockState getStateForPlacement(BlockItemUseContext context) {
-//	BlockState blockstate = this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+//    public BlockState getStateForPlacement(BlockPlaceContext context) {
+//	BlockState blockstate = this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 //	return blockstate;
 //    }
 //}

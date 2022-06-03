@@ -1,78 +1,58 @@
-package lance5057.compendium.core.recipes;
-
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.google.gson.JsonObject;
-
-import lance5057.compendium.Reference;
-import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations.recipes.HammeringStationRecipe;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-
-public abstract class InWorldHandedToolRecipe implements IRecipe<HandedToolWrapper> {
-    private final ResourceLocation id;
-    private final Ingredient offhand;
-    private final ItemStack block;
-    private final ItemStack output;
-
-    public InWorldHandedToolRecipe(ResourceLocation id, ItemStack block, Ingredient offhand, ItemStack output) {
-	this.id = id;
-	this.offhand = offhand;
-	this.block = block;
-	this.output = output;
-    }
-
-    @Override
-    public boolean matches(HandedToolWrapper inv, World worldIn) {
-	if(inv.block.equals(block, true))
-	    if(this.offhand.test(inv.offhand))
-		return true;
-	return false;
-    }
-
-    @Override
-    public ItemStack getCraftingResult(HandedToolWrapper inv) {
-	return this.getRecipeOutput();
-    }
-
-    @Override
-    public boolean canFit(int width, int height) {
-	return false;
-    }
-
-    @Override
-    public ItemStack getRecipeOutput() {
-	return output.copy();
-    }
-
-    @Override
-    public ResourceLocation getId() {
-	return id;
-    }
-    
-    public Ingredient getIngredient()
-    {
-	return this.offhand;
-    }
-    
-    public ItemStack getBlock()
-    {
-	return this.block;
-    }
-}
+//package lance5057.compendium.core.recipes;
+//
+//import net.minecraft.resources.ResourceLocation;
+//import net.minecraft.world.item.ItemStack;
+//import net.minecraft.world.item.crafting.Ingredient;
+//import net.minecraft.world.item.crafting.Recipe;
+//import net.minecraft.world.level.Level;
+//
+//public abstract class InWorldHandedToolRecipe implements Recipe<HandedToolWrapper> {
+//	private final ResourceLocation id;
+//	private final Ingredient offInteractionHand;
+//	private final ItemStack block;
+//	private final ItemStack output;
+//
+//	public InWorldHandedToolRecipe(ResourceLocation id, ItemStack block, Ingredient offInteractionHand,
+//			ItemStack output) {
+//		this.id = id;
+//		this.offInteractionHand = offInteractionHand;
+//		this.block = block;
+//		this.output = output;
+//	}
+//
+//	@Override
+//	public boolean matches(HandedToolWrapper inv, Level worldIn) {
+//		if (inv.block.equals(block, true))
+//			if (this.offInteractionHand.test(inv.offInteractionHand))
+//				return true;
+//		return false;
+//	}
+//
+//	@Override
+//	public ItemStack assemble(HandedToolWrapper inv) {
+//		return this.getResultItem();
+//	}
+//
+//	@Override
+//	public boolean canCraftInDimensions(int width, int height) {
+//		return false;
+//	}
+//
+//	@Override
+//	public ItemStack getResultItem() {
+//		return output.copy();
+//	}
+//
+//	@Override
+//	public ResourceLocation getId() {
+//		return id;
+//	}
+//
+//	public Ingredient getIngredient() {
+//		return this.offInteractionHand;
+//	}
+//
+//	public ItemStack getBlock() {
+//		return this.block;
+//	}
+//}

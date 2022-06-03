@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/sparseore",
-  "textures": {
-    "1": "compendium:block/material/platinum/platinumore"
-  }
-}

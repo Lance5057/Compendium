@@ -1,14 +1,10 @@
 buildscript {
     repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
-        jcenter()
-        maven {
-            name = "forge"
-            url = "https://maven.minecraftforge.net"
-        }
     }
     dependencies {
-        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "3.+", changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 
@@ -20,63 +16,53 @@ apply plugin: 'maven-publish'
 version = '2.6.1a'
 group = 'com.lance5057.compendium' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'compendium'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-//Print out JVM information so that we know what version is running. Extreamly useful for people to know when helping you.
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-
-
-repositories {
-	mavenLocal()
-	mavenCentral()
-	maven {
-		name = "forge"
-		url = "https://maven.minecraftforge.net"
-	}
-	maven {
-		name = "Progwml6 maven"
-		url = "https://dvs1.progwml6.com/files/maven/"
-	}
-	
-	maven {
-		name = "ModMaven"
-		url = "https://modmaven.k-4u.nl"
-	}
-	
-	maven {
-		name = "Curse"
-		url = "https://www.cursemaven.com"
-	}
-	
-	maven { // CTM
-		url "http://maven.tterrag.com/"
-	}
-}
-
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
-    
+    mappings channel: 'official', version: '1.18.2'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
-            workingDirectory project.file("run")
-            source sourceSets.main
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                compendium {
+                    source sourceSets.main
+                }
+            }
         }
 
         server {
-            workingDirectory project.file("run")
-            source sourceSets.main
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                compendium {
+                    source sourceSets.main
+                }
+            }
         }
 
         data {
-            workingDirectory project.file("run")
-            environment 'target', 'fmluserdevdata'
-            properties 'fml.earlyprogresswindow': 'false'
+            workingDirectory project.file('run')
 
-            args '--all', '--output', file('src/generated/resources/'),
-                    '--mod', 'compendium', '--reports',
-                    '--existing', sourceSets.main.resources.srcDirs[0]
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            args '--mod', 'compendium', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                compendium {
+                    source sourceSets.main
+                }
+            }
         }
     }
 }
@@ -86,42 +72,35 @@ sourceSets {
         resources {
             srcDirs = [
                     "$rootDir/src/main/resources",
-                    "$rootDir/src/generated/resources",
-					"$rootDir/bin/main/resources"
+                    "$rootDir/src/generated/resources"
             ]
         }
     }
 }
 
 dependencies {
-	minecraft 'net.minecraftforge:forge:1.16.4-35.1.4'
-
-	compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
-	runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-	
-	implementation fg.deobf("team.chisel.ctm:CTM:MC1.16.1-${ctm_version}")
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
+project.afterEvaluate {
+    minecraft.runs.data.args('--existing', configurations.minecraft.asPath.split(":").toList().find { it.contains("forge") }.split(";")[0])
+}
+
 jar {
     manifest {
         attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "compendium",
+                "Specification-Vendor"    : "Lance5057",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Lance5057",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
 jar.finalizedBy('reobfJar') 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
 
 publishing {
     publications {
@@ -135,3 +114,4 @@ publishing {
         }
     }
 }
+

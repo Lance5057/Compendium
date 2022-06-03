@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "compendium:block/material/gold/golddungeon_bricks_broken_2"
-  }
-}

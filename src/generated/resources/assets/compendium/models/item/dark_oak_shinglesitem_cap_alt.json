@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shingles_cap_alt_full",
-  "textures": {
-    "0": "minecraft:block/dark_oak_planks",
-    "2": "minecraft:block/dark_oak_log",
-    "1": "minecraft:block/dark_oak_log_top"
-  }
-}

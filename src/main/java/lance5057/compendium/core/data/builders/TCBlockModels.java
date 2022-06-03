@@ -1,74 +1,72 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumBlocks;
-import lance5057.compendium.Reference;
-import lance5057.compendium.appendixes.carpentry.data.CarpentryBlockModels;
-import lance5057.compendium.appendixes.construction.data.ConstructionBlockModels;
-import lance5057.compendium.appendixes.gemology.data.GemBlockModels;
-import lance5057.compendium.appendixes.metallurgy.data.builders.MetalBlockModels;
-import lance5057.compendium.appendixes.oredressing.data.builders.OreBlockModels;
+import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.core.blocks.ComponentStake;
-import net.minecraft.block.Block;
-import net.minecraft.block.FourWayBlock;
-import net.minecraft.block.SixWayBlock;
-import net.minecraft.block.StairsBlock;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.state.properties.Half;
-import net.minecraft.state.properties.StairsShape;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CrossCollisionBlock;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class TCBlockModels extends BlockStateProvider {
-    private final net.minecraftforge.common.data.ExistingFileHelper fh;
+	private final net.minecraftforge.common.data.ExistingFileHelper fh;
 
-    public TCBlockModels(DataGenerator gen, String modid, ExistingFileHelper fh) {
-	super(gen, modid, fh);
-	Compendium.logger.info("\t - Block Models");
-	this.fh = fh;
-    }
+	public TCBlockModels(DataGenerator gen, String modid, ExistingFileHelper fh) {
+		super(gen, modid, fh);
+		Compendium.logger.info("\t - Block Models");
+		this.fh = fh;
+	}
 
-    @Override
-    protected void registerStatesAndModels() {
+	@Override
+	protected void registerStatesAndModels() {
+		
+		for(MaterialHelper m : CompendiumMaterials.materials)
+		{
+			m.registerBlockModels(this);
+		}
 
-	getVariantBuilder(CompendiumBlocks.HAMMERING_STATION.get()).partialState().addModels(ConfiguredModel
-		.allYRotations(models().getExistingFile(modLoc("block/workstations/hammeringtable")), 0, false));
-//	getVariantBuilder(CompendiumBlocks.SAWHORSE_STATION.get()).partialState().addModels(ConfiguredModel
-//		.allYRotations(models().getExistingFile(modLoc("block/workstations/sawhorse")), 0, false));
-//	getVariantBuilder(CompendiumBlocks.CRAFTING_ANVIL.get()).partialState().addModels(
-//		ConfiguredModel.allYRotations(models().getExistingFile(modLoc("block/workstations/anvil")), 0, false));
+//		getVariantBuilder(CompendiumBlocks.HAMMERING_STATION.get()).partialState().addModels(ConfiguredModel
+//				.allYRotations(models().getExistingFile(modLoc("block/workstations/hammeringtable")), 0, false));
+////	getVariantBuilder(CompendiumBlocks.SAWHORSE_STATION.get()).partialState().addModels(ConfiguredModel
+////		.allYRotations(models().getExistingFile(modLoc("block/workstations/sawhorse")), 0, false));
+////	getVariantBuilder(CompendiumBlocks.CRAFTING_ANVIL.get()).partialState().addModels(
+////		ConfiguredModel.allYRotations(models().getExistingFile(modLoc("block/workstations/anvil")), 0, false));
+//
+////	this.directionalBlock(CompendiumBlocks.HAMMERING_STATION.get(),
+////		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
+//		this.horizontalBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
+//				models().getExistingFile(modLoc("block/workstations/sawhorse")));
+//		this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
+//				models().getExistingFile(modLoc("block/workstations/anvil")));
+//		this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
+//				models().getExistingFile(modLoc("block/workstations/dismantling_table")));
+//
+//		// this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get());
+//		this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
+//				this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
+//						new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
 
-//	this.directionalBlock(CompendiumBlocks.HAMMERING_STATION.get(),
-//		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
-	this.horizontalBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
-		models().getExistingFile(modLoc("block/workstations/sawhorse")));
-	this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
-		models().getExistingFile(modLoc("block/workstations/anvil")));
-	this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
-		models().getExistingFile(modLoc("block/workstations/dismantling_table")));
-
-	// this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get());
-	this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
-		this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
-			new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
-
-	// Shingles
+		// Shingles
 //	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "", "block/bases/empty_shingles",
 //		CompendiumBlocks.SHINGLES.get());
 //	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "alt", "block/bases/empty_shingles",
 //		CompendiumBlocks.SHINGLES_ALT.get());
 
-	MetalBlockModels.registerModels(this);
-	GemBlockModels.registerModels(this);
-	OreBlockModels.registerModels(this);
-	ConstructionBlockModels.registerModels(this);
-	CarpentryBlockModels.registerModels(this);
+//		MetalBlockModels.registerModels(this);
+//		GemBlockModels.registerModels(this);
+//		OreBlockModels.registerModels(this);
+//		ConstructionBlockModels.registerModels(this);
+//		CarpentryBlockModels.registerModels(this);
 
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //	    // Premade Materials
@@ -297,7 +295,7 @@ public class TCBlockModels extends BlockStateProvider {
 //				true));
 //	    }
 //	}
-    }
+	}
 
 //    private void bardoorModel(MaterialHelper mh) {
 //	ModelFile closedModel = models()
@@ -382,7 +380,7 @@ public class TCBlockModels extends BlockStateProvider {
 //		partialState().with(ComponentBarDoor.HALF, DoubleBlockHalf.UPPER).with(ComponentBarDoor.OPEN, false)
 //		.with(ComponentBarDoor.FACING, Direction.NORTH).modelForState().modelFile(closedModel).addModel();
 //
-////		if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+////		if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 ////			switch (direction) {
 ////			case EAST:
 ////			case WEST:
@@ -405,164 +403,163 @@ public class TCBlockModels extends BlockStateProvider {
 ////		}
 //    }
 //
-    public void stakeModel(String name, Block b) {
-	ModelFile stakeModel = models().withExistingParent(name + "stake", modLoc("block/bases/componentstake"))
-		.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
-	ModelFile stakeBaseModel = models()
-		.withExistingParent(name + "stake_base", modLoc("block/bases/componentstake_base"))
-		.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
+	public void stakeModel(String name, Block b) {
+		ModelFile stakeModel = models().withExistingParent(name + "stake", modLoc("block/bases/componentstake"))
+				.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
+		ModelFile stakeBaseModel = models()
+				.withExistingParent(name + "stake_base", modLoc("block/bases/componentstake_base"))
+				.texture("rod", "compendium:block/material/" + name + "/" + name + "stake");
 
-	VariantBlockStateBuilder builder = getVariantBuilder(b);
+		VariantBlockStateBuilder builder = getVariantBuilder(b);
 
-	for (Direction dir : ComponentStake.FACING.getAllowedValues()) {
+		for (Direction dir : ComponentStake.FACING.getPossibleValues()) {
 
-	    builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
-		    .modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
+			builder.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, true).modelForState()
+					.modelFile(stakeModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel()
 
-		    .partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
-		    .modelForState()
+					.partialState().with(ComponentStake.FACING, dir).with(ComponentStake.CONNECTED, false)
+					.modelForState()
 //				.modelFile(stake)
 //				.rotationX(stakeXRotation(dir))
 //				.rotationY(stakeYRotation(dir))
-		    // .nextModel()
-		    .modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+					// .nextModel()
+					.modelFile(stakeBaseModel).rotationX(stakeXRotation(dir)).rotationY(stakeYRotation(dir)).addModel();
+		}
 	}
-    }
 
-    public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String suffix,
-	    String parent, FourWayBlock b) {
-	shinglesCapModel(model, name, shingle_texture, shingle_texture, shingle_texture, suffix, parent, b);
-    }
-
-    public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
-	    String suffix, String parent, FourWayBlock b) {
-	shinglesCapModel(model, name, shingle_texture, log_texture, log_texture + "_top", suffix, parent, b);
-    }
-
-    public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
-	    String log_top_texture, String suffix, String parent, FourWayBlock b) {
-	ModelFile shinglesPostModel = model.models()
-		.withExistingParent(name + "shingles_cap_post" + suffix, model.modLoc(parent + "_post"))
-		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
-
-	ModelFile shinglesSideModel = model.models()
-		.withExistingParent(name + "shingles_cap_side" + suffix, model.modLoc(parent + "_side"))
-		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
-
-	ModelFile shinglesBraceModel = model.models()
-		.withExistingParent(name + "shingles_cap_brace" + suffix, model.modLoc(parent + "_brace" + suffix))
-		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
-	ModelFile shinglesTopModel = model.models()
-		.withExistingParent(name + "shingles_cap_top" + suffix, model.modLoc(parent + "_top"))
-		.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
-
-	// model.fourWayBlock(b, shinglesPostModel, shinglesSideModel);
-
-	MultiPartBlockStateBuilder builder = model.getMultipartBuilder(b).part().modelFile(shinglesPostModel).addModel()
-		.end();
-
-	SixWayBlock.FACING_TO_PROPERTY_MAP.entrySet().forEach(e -> {
-	    Direction dir = e.getKey();
-	    if (dir.getAxis().isHorizontal()) {
-		builder.part().modelFile(shinglesSideModel).rotationY((((int) dir.getHorizontalAngle()) + 180) % 360)
-			.uvLock(true).addModel().condition(e.getValue(), true);
-		builder.part().modelFile(shinglesBraceModel)
-			.rotationY((((int) dir.getOpposite().getHorizontalAngle())) % 360).uvLock(true).addModel()
-			.condition(e.getValue(), false);
-	    }
-
-	    if (dir == Direction.UP) {
-		builder.part().modelFile(shinglesTopModel).addModel().condition(e.getValue(), true);
-	    }
-	});
-    }
-
-    public static void shinglesModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
-	    String suffix, String parent, Block b) {
-	ModelFile shinglesModel = model.models()
-		.withExistingParent(name + "shingles" + suffix, model.modLoc(parent + suffix))
-		.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
-	ModelFile shinglesInnerModel = model.models()
-		.withExistingParent(name + "shingles_inner" + suffix, model.modLoc(parent + "_inner_corner" + suffix))
-		.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
-	ModelFile shinglesOuterModel = model.models()
-		.withExistingParent(name + "shingles_outer" + suffix, model.modLoc(parent + "_outer_corner" + suffix))
-		.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
-
-	VariantBlockStateBuilder builder = model.getVariantBuilder(b);
-
-	for (Direction dir : StairsBlock.FACING.getAllowedValues()) {
-
-	    // Bottom
-	    // Straight
-	    builder.partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-		    .with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-		    .rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    // Inner
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-		    .with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-		    .rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-		    .with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-		    .rotationY(TCBlockModels.stakeYRotation(dir) - 90).addModel()
-
-		    // Outer
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-		    .with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-		    .rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.BOTTOM)
-		    .with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-		    .rotationY(TCBlockModels.stakeYRotation(dir) - 90).addModel()
-
-		    // Top
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-		    .with(StairsBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
-		    .rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    // Inner
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-		    .with(StairsBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
-		    .rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-		    .with(StairsBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
-		    .rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    // Outer
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-		    .with(StairsBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
-		    .rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
-
-		    .partialState().with(StairsBlock.FACING, dir).with(StairsBlock.HALF, Half.TOP)
-		    .with(StairsBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
-		    .rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel();
+	public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String suffix,
+			String parent, CrossCollisionBlock b) {
+		shinglesCapModel(model, name, shingle_texture, shingle_texture, shingle_texture, suffix, parent, b);
 	}
-    }
 
-    public static int stakeXRotation(Direction d) {
-	if (d == Direction.UP)
-	    return 0;
-	if (d == Direction.DOWN)
-	    return 180;
-	return 90;
-    }
+	public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
+			String suffix, String parent, CrossCollisionBlock b) {
+		shinglesCapModel(model, name, shingle_texture, log_texture, log_texture + "_top", suffix, parent, b);
+	}
 
-    public static int stakeYRotation(Direction d) {
-	if (d == Direction.UP || d == Direction.DOWN || d == Direction.NORTH)
-	    return 0;
-	if (d == Direction.WEST)
-	    return 270;
-	if (d == Direction.SOUTH)
-	    return 180;
-	return 90;
-    }
+	public static void shinglesCapModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
+			String log_top_texture, String suffix, String parent, CrossCollisionBlock b) {
+		ModelFile shinglesPostModel = model.models()
+				.withExistingParent(name + "shingles_cap_post" + suffix, model.modLoc(parent + "_post"))
+				.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
+
+		ModelFile shinglesSideModel = model.models()
+				.withExistingParent(name + "shingles_cap_side" + suffix, model.modLoc(parent + "_side"))
+				.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
+
+		ModelFile shinglesBraceModel = model.models()
+				.withExistingParent(name + "shingles_cap_brace" + suffix, model.modLoc(parent + "_brace" + suffix))
+				.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
+		ModelFile shinglesTopModel = model.models()
+				.withExistingParent(name + "shingles_cap_top" + suffix, model.modLoc(parent + "_top"))
+				.texture("0", shingle_texture).texture("1", log_top_texture).texture("2", log_texture);
+
+		// model.fourWayBlock(b, shinglesPostModel, shinglesSideModel);
+
+		MultiPartBlockStateBuilder builder = model.getMultipartBuilder(b).part().modelFile(shinglesPostModel).addModel()
+				.end();
+
+		PipeBlock.PROPERTY_BY_DIRECTION.entrySet().forEach(e -> {
+			Direction dir = e.getKey();
+			if (dir.getAxis().isHorizontal()) {
+				builder.part().modelFile(shinglesSideModel).rotationY((((int) dir.toYRot()) + 180) % 360).uvLock(true)
+						.addModel().condition(e.getValue(), true);
+				builder.part().modelFile(shinglesBraceModel).rotationY((((int) dir.getOpposite().toYRot())) % 360)
+						.uvLock(true).addModel().condition(e.getValue(), false);
+			}
+
+			if (dir == Direction.UP) {
+				builder.part().modelFile(shinglesTopModel).addModel().condition(e.getValue(), true);
+			}
+		});
+	}
+
+	public static void shinglesModel(TCBlockModels model, String name, String shingle_texture, String log_texture,
+			String suffix, String parent, Block b) {
+		ModelFile shinglesModel = model.models()
+				.withExistingParent(name + "shingles" + suffix, model.modLoc(parent + suffix))
+				.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
+		ModelFile shinglesInnerModel = model.models()
+				.withExistingParent(name + "shingles_inner" + suffix, model.modLoc(parent + "_inner_corner" + suffix))
+				.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
+		ModelFile shinglesOuterModel = model.models()
+				.withExistingParent(name + "shingles_outer" + suffix, model.modLoc(parent + "_outer_corner" + suffix))
+				.texture("0", shingle_texture).texture("1", log_texture + "_top").texture("2", log_texture);
+
+		VariantBlockStateBuilder builder = model.getVariantBuilder(b);
+
+		for (Direction dir : StairBlock.FACING.getPossibleValues()) {
+
+			// Bottom
+			// Straight
+			builder.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.BOTTOM)
+					.with(StairBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+					.rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					// Inner
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.BOTTOM)
+					.with(StairBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+					.rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.BOTTOM)
+					.with(StairBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+					.rotationY(TCBlockModels.stakeYRotation(dir) - 90).addModel()
+
+					// Outer
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.BOTTOM)
+					.with(StairBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+					.rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.BOTTOM)
+					.with(StairBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+					.rotationY(TCBlockModels.stakeYRotation(dir) - 90).addModel()
+
+					// Top
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.TOP)
+					.with(StairBlock.SHAPE, StairsShape.STRAIGHT).modelForState().modelFile(shinglesModel)
+					.rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					// Inner
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.TOP)
+					.with(StairBlock.SHAPE, StairsShape.INNER_LEFT).modelForState().modelFile(shinglesInnerModel)
+					.rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.TOP)
+					.with(StairBlock.SHAPE, StairsShape.INNER_RIGHT).modelForState().modelFile(shinglesInnerModel)
+					.rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					// Outer
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.TOP)
+					.with(StairBlock.SHAPE, StairsShape.OUTER_LEFT).modelForState().modelFile(shinglesOuterModel)
+					.rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel()
+
+					.partialState().with(StairBlock.FACING, dir).with(StairBlock.HALF, Half.TOP)
+					.with(StairBlock.SHAPE, StairsShape.OUTER_RIGHT).modelForState().modelFile(shinglesOuterModel)
+					.rotationX(180).rotationY(TCBlockModels.stakeYRotation(dir) - 180).addModel();
+		}
+	}
+
+	public static int stakeXRotation(Direction d) {
+		if (d == Direction.UP)
+			return 0;
+		if (d == Direction.DOWN)
+			return 180;
+		return 90;
+	}
+
+	public static int stakeYRotation(Direction d) {
+		if (d == Direction.UP || d == Direction.DOWN || d == Direction.NORTH)
+			return 0;
+		if (d == Direction.WEST)
+			return 270;
+		if (d == Direction.SOUTH)
+			return 180;
+		return 90;
+	}
 
 //    private void lanternModel(MaterialHelper mh) {
 //	ModelFile lanternModel = models().withExistingParent(mh.name + "lantern", modLoc("block/bases/lantern"))

@@ -164,13 +164,13 @@
 		}
 	],
 	"display": {
-		"thirdperson_righthand": {
+		"thirdperson_rightInteractionHand": {
 			"scale": [0.4, 0.4, 0.4]
 		},
-		"firstperson_righthand": {
+		"firstperson_rightInteractionHand": {
 			"scale": [0.4, 0.4, 0.4]
 		},
-		"firstperson_lefthand": {
+		"firstperson_leftInteractionHand": {
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"fixed": {
@@ -179,7 +179,7 @@
 		"gui": {
 			"scale": [0.8, 0.8, 0.8]
 		},
-		"thirdperson_lefthand": {
+		"thirdperson_leftInteractionHand": {
 			"scale": [0.4, 0.4, 0.4]
 		}
 	}

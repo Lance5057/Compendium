@@ -1,37 +1,53 @@
 package lance5057.compendium.core.library;
 
-import lance5057.compendium.core.data.builders.TCItemTags;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag.INamedTag;
+import lance5057.compendium.Reference;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 public class CompendiumTags {
-    public static final INamedTag<Item> DUST = TCItemTags.ItemTag("dusts");
-    public static final INamedTag<Item> PLATE = TCItemTags.ItemTag("plates");
-    public static final INamedTag<Item> COIN = TCItemTags.ItemTag("coins");
-    public static final INamedTag<Item> GEAR = TCItemTags.ItemTag("gears");
-    public static final INamedTag<Item> ROD = TCItemTags.ItemTag("rods");
-    public static final INamedTag<Item> COIL = TCItemTags.ItemTag("coils");
-    public static final INamedTag<Item> SPRING = TCItemTags.ItemTag("springs");
-    public static final INamedTag<Item> CASING = TCItemTags.ItemTag("casings");
-    public static final INamedTag<Item> WIRE = TCItemTags.ItemTag("wires");
-    public static final INamedTag<Item> SETTING = TCItemTags.ItemTag("settings");
-    public static final INamedTag<Item> JUMPRINGS = TCItemTags.ItemTag("jumprings");
-    public static final INamedTag<Item> FILIGREE = TCItemTags.ItemTag("filigree");
-    public static final INamedTag<Item> FOIL = TCItemTags.ItemTag("foils");
-    public static final INamedTag<Item> CLASP = TCItemTags.ItemTag("clasps");
-    public static final INamedTag<Item> RINGSHANK = TCItemTags.ItemTag("ringshanks");
-    public static final INamedTag<Item> RIVETS = TCItemTags.ItemTag("rivets");
-    public static final INamedTag<Item> TINYDUST = TCItemTags.ItemTag("tinydusts");
-    public static final INamedTag<Item> KEY = TCItemTags.ItemTag("keys");
+	public static final TagKey<Item> DUST = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "dusts"));
+	public static final TagKey<Item> PLATE = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "plates"));
+	public static final TagKey<Item> COIN = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "coins"));
+	public static final TagKey<Item> GEAR = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "gears"));
+	public static final TagKey<Item> ROD = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "rods"));
+	public static final TagKey<Item> COIL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "coils"));
+	public static final TagKey<Item> SPRING = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "springs"));
+	public static final TagKey<Item> CASING = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "casings"));
+	public static final TagKey<Item> WIRE = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "wires"));
+	public static final TagKey<Item> SETTING = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "settings"));
+	public static final TagKey<Item> JUMPRINGS = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "jumprings"));
+	public static final TagKey<Item> FILIGREE = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "filigree"));
+	public static final TagKey<Item> FOIL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "foils"));
+	public static final TagKey<Item> CLASP = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "clasps"));
+	public static final TagKey<Item> RINGSHANK = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "ringshanks"));
+	public static final TagKey<Item> RIVETS = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "rivets"));
+	public static final TagKey<Item> TINYDUST = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "tinydusts"));
+	public static final TagKey<Item> KEY = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "keys"));
 
-    public static final INamedTag<Item> HAMMER = TCItemTags.ItemTag("tools/hammers");
-    public static final INamedTag<Item> SAW = TCItemTags.ItemTag("tools/saw");
-    
-    public static final INamedTag<Item> PLANK = TCItemTags.ItemTag("planks");
-    public static final INamedTag<Item> LOG = TCItemTags.ItemTag("log");
+	public static final TagKey<Item> HAMMER = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "tools/hammers"));
+	public static final TagKey<Item> SAW = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "tools/saw"));
 
-    // Blocks
-    public static final INamedTag<Block> SHINGLESCAP = TCItemTags.BlockTag("shinglescap");
-    public static final INamedTag<Block> SHINGLES = TCItemTags.BlockTag("shinglescap");
+	public static final TagKey<Item> PLANK = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks"));
+	public static final TagKey<Item> LOG = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "log"));
+
+	// Blocks
+	public static final TagKey<Block> SHINGLESCAP = BlockTags
+			.create(new ResourceLocation(Reference.MOD_ID, "shinglescap"));
+	public static final TagKey<Block> SHINGLES = BlockTags
+			.create(new ResourceLocation(Reference.MOD_ID, "shinglescap"));
+
+	public static final TagKey<Block> MINEABLE_WITH_SAW = create("mineable/saw");
+
+	private static TagKey<Block> create(String p_203847_) {
+		return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(p_203847_));
+	}
+
+	public static TagKey<Block> create(ResourceLocation name) {
+		return TagKey.create(Registry.BLOCK_REGISTRY, name);
+	}
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/seat/stool_leg",
-  "textures": {
-    "0": "compendium:block/magenta_planks"
-  }
-}

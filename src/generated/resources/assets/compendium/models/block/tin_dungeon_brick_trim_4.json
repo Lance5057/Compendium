@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/dungeon_trim_4",
-  "textures": {
-    "0": "compendium:block/material/tin/tindungeon_bricks"
-  }
-}

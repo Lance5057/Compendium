@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/InteractionHandheld",
   "textures": {
     "layer1": "compendium:item/material/rosegold/rosegoldbow",
     "layer0": "minecraft:item/bow"

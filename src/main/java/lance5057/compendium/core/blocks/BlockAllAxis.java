@@ -1,13 +1,13 @@
 package lance5057.compendium.core.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-public class BlockAllAxis extends Block implements IWaterLoggable {
+public class BlockAllAxis extends Block implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
@@ -19,13 +19,13 @@ public class BlockAllAxis extends Block implements IWaterLoggable {
 
     public BlockAllAxis(Properties properties) {
 	super(properties);
-	this.setDefaultState(this.getDefaultState().with(UP, Boolean.valueOf(false)).with(DOWN, Boolean.valueOf(false))
-		.with(NORTH, Boolean.valueOf(false)).with(EAST, Boolean.valueOf(false))
-		.with(SOUTH, Boolean.valueOf(false)).with(WEST, Boolean.valueOf(false))
-		.with(WATERLOGGED, Boolean.valueOf(false)));
+	this.registerDefaultState(this.defaultBlockState().setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false))
+		.setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false))
+		.setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false))
+		.setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 	      builder.add(UP, DOWN, NORTH, EAST, SOUTH, WEST, WATERLOGGED);
 	   }
 }

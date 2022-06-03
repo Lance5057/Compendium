@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom",
-  "textures": {
-    "bottom": "compendium:block/white_planks",
-    "top": "compendium:block/white_planks"
-  }
-}

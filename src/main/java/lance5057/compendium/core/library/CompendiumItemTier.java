@@ -1,50 +1,54 @@
 package lance5057.compendium.core.library;
 
-import java.util.function.Supplier;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
-
-public class CompendiumItemTier implements IItemTier {
+public class CompendiumItemTier implements Tier {
 
 	private final int harvestLevel;
 	private final int maxUses;
 	private final float efficiency;
 	private final float attackDamage;
 	private final int enchantability;
-	private final LazyValue<Ingredient> repairMaterial;
+	private final Ingredient repairMaterial;
 
-	public CompendiumItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
+	public CompendiumItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn,
+			int enchantabilityIn, Ingredient repairMaterialIn) {
 		this.harvestLevel = harvestLevelIn;
 		this.maxUses = maxUsesIn;
 		this.efficiency = efficiencyIn;
 		this.attackDamage = attackDamageIn;
 		this.enchantability = enchantabilityIn;
-		this.repairMaterial = new LazyValue<>(repairMaterialIn);
+		this.repairMaterial = repairMaterialIn;
 	}
 
-	public int getMaxUses() {
+	@Override
+	public int getUses() {
 		return this.maxUses;
 	}
 
-	public float getEfficiency() {
+	@Override
+	public float getSpeed() {
 		return this.efficiency;
 	}
 
-	public float getAttackDamage() {
+	@Override
+	public float getAttackDamageBonus() {
 		return this.attackDamage;
 	}
 
-	public int getHarvestLevel() {
+	@Override
+	public int getLevel() {
 		return this.harvestLevel;
 	}
 
-	public int getEnchantability() {
+	@Override
+	public int getEnchantmentValue() {
 		return this.enchantability;
 	}
 
-	public Ingredient getRepairMaterial() {
-		return this.repairMaterial.getValue();
+	@Override
+	public Ingredient getRepairIngredient() {
+		return this.repairMaterial;
 	}
 }

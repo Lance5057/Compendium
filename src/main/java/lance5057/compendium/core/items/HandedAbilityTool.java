@@ -1,48 +1,46 @@
 package lance5057.compendium.core.items;
 
-import java.util.Set;
-
 import com.google.common.collect.ImmutableMap;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.ToolItem;
-import net.minecraft.state.Property;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 
-public abstract class HandedAbilityTool extends ToolItem {
+public abstract class HandedAbilityTool extends DiggerItem {
 
-    public HandedAbilityTool(float attackDamageIn, float attackSpeedIn, IItemTier tier, Set<Block> effectiveBlocksIn,
-	    Properties builderIn) {
-	super(attackDamageIn, attackSpeedIn, tier, effectiveBlocksIn, builderIn);
-    }
-
-    @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-
-	if (context.getHand() == Hand.MAIN_HAND)
-	    mainHandAbility(context);
-	else if (context.getHand() == Hand.OFF_HAND)
-	    offHandAbility(context);
-
-	return ActionResultType.SUCCESS;
-    }
-
-    protected abstract ActionResultType mainHandAbility(ItemUseContext context);
-
-    protected abstract ActionResultType offHandAbility(ItemUseContext context);
-
-    public ImmutableMap<Property<?>, Comparable<?>> getCommonProperties(BlockState oldState,
-	    BlockState newState) {
-	ImmutableMap.Builder<Property<?>, Comparable<?>> values = ImmutableMap.builder();
-	for (Property<?> property : oldState.getProperties()) {
-	    if (newState.getProperties().contains(property)) {
-		values.put(property, oldState.get(property));
-	    }
+	public HandedAbilityTool(float attackDamageIn, float attackSpeedIn, Tier tier, TagKey<Block> effectiveBlocksIn,
+			Properties builderIn) {
+		super(attackDamageIn, attackSpeedIn, tier, effectiveBlocksIn, builderIn);
 	}
-	return values.build();
-    }
+
+	@Override
+	public InteractionResult useOn(UseOnContext context) {
+
+		if (context.getHand() == InteractionHand.MAIN_HAND)
+			mainInteractionHandAbility(context);
+		else if (context.getHand() == InteractionHand.OFF_HAND)
+			offInteractionHandAbility(context);
+
+		return InteractionResult.SUCCESS;
+	}
+
+	protected abstract InteractionResult mainInteractionHandAbility(UseOnContext context);
+
+	protected abstract InteractionResult offInteractionHandAbility(UseOnContext context);
+
+	public ImmutableMap<Property<?>, Comparable<?>> getCommonProperties(BlockState oldState, BlockState newState) {
+		ImmutableMap.Builder<Property<?>, Comparable<?>> values = ImmutableMap.builder();
+		for (Property<?> property : oldState.getProperties()) {
+			if (newState.getProperties().contains(property)) {
+				values.put(property, oldState.getValue(property));
+			}
+		}
+		return values.build();
+	}
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_outer_corner",
-  "textures": {
-    "0": "compendium:block/material/electrum/electrumshingles",
-    "1": "minecraft:block/spruce_log_top",
-    "2": "minecraft:block/spruce_log"
-  }
-}

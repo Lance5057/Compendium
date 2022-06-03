@@ -1,157 +1,109 @@
-//package lance5057.compendium.core.library.materialutilities;
+package lance5057.compendium.core.library.materialutilities;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
+import lance5057.compendium.core.data.builders.TCBlockModels;
+import lance5057.compendium.core.data.builders.TCBlockTags;
+import lance5057.compendium.core.data.builders.TCEnglishLoc;
+import lance5057.compendium.core.data.builders.TCItemModels;
+import lance5057.compendium.core.data.builders.TCItemTags;
+import lance5057.compendium.core.data.builders.TCRecipes;
+import lance5057.compendium.core.data.builders.loottables.TCBlockLoot;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.ForgeTier;
+
+public class MaterialHelper {
+
+	public String name;
+	public String type;
+
+	public ForgeTier tier;
+
+	ItemLike definingItem;
+
+	public List<MaterialBase> addons;
+
+	public MaterialHelper(String name, String type) {
+		this.name = name;
+		this.type = type;
+	}
+
+	public MaterialHelper(String name) {
+		this.name = name;
+		addons = new ArrayList<MaterialBase>();
+	}
+
+	protected void setDefiningItem(ItemLike item) {
+		definingItem = item;
+	}
+
+	public ItemLike getDefiningItem() {
+		return definingItem;
+	}
+
+	public MaterialHelper addMetalBase() {
+		addons.add(new MaterialMetal());
+		return this;
+	}
+//	public void setBase() {
+//		switch (type) {
+//		case "wood":
 //
-//import lance5057.compendium.Reference;
-//import lance5057.compendium.appendixes.gemology.materialhelper.addons.BasicGemMaterial;
-//import lance5057.compendium.appendixes.metallurgy.materialhelper.addons.BasicMetalMaterial;
-//import lance5057.compendium.appendixes.oredressing.materialhelper.addons.MaterialOre;
-//import lance5057.compendium.core.library.materialutilities.addons.MaterialAdvancedExtraComponents;
-//import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraComponents;
-//import lance5057.compendium.core.library.materialutilities.addons.MaterialExtraTools;
-//import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaComponents;
-//import lance5057.compendium.core.library.materialutilities.addons.MaterialVanillaTools;
-//import lance5057.compendium.core.library.materialutilities.addons.PremadeMaterial;
-//import net.minecraft.block.Block;
-//import net.minecraft.item.IItemTier;
-//import net.minecraft.item.Item;
-//import net.minecraft.item.crafting.Ingredient;
-//import net.minecraft.world.biome.Biome.Category;
-//import net.minecraftforge.common.ToolType;
-//import net.minecraftforge.eventbus.api.IEventBus;
-//import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-//import net.minecraftforge.registries.DeferredRegister;
-//import net.minecraftforge.registries.ForgeRegistries;
-//
-//public class MaterialHelper extends MaterialHelperBase {
-//    private PremadeMaterial premade;
-//    private BasicGemMaterial craftable;
-//    private BasicMetalMaterial meltable;
-//    private MaterialVanillaComponents vcomponents;
-//    private MaterialExtraComponents ecomponents;
-//    private MaterialAdvancedExtraComponents acomponents;
-//    private MaterialVanillaTools vtools;
-//    private MaterialExtraTools etools;
-//
-//    // TODO add dense and sparse
-//    private MaterialOre ore;
-//
-//    boolean preset = false;
-//
-//    public MaterialHelper(String name) {
-//	this(name, Reference.MOD_ID, null);
-//    }
-//
-//    public MaterialHelper(String name, IItemTier tier) {
-//	this(name, Reference.MOD_ID, tier);
-//    }
-//
-//    public MaterialHelper(String name, String parentMod, IItemTier tier) {
-//	this.name = name;
-//	this.parentMod = parentMod;
-//	this.tier = tier;
-//
-//	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-//	ITEMS.register(modEventBus);
-//	BLOCKS.register(modEventBus);
-//    }
-//
-//    // Premade
-//    public MaterialHelper withPremade(Ingredient ingot, Ingredient nugget, Ingredient storageblock) {
-//	premade = new PremadeMaterial(this, ingot, nugget, storageblock);
-//	return this;
-//    }
-//
-//    public PremadeMaterial getPremade() {
-//	return premade;
-//    }
-//
-//    // Meltable
-//    public MaterialHelper withIngot() {
-//	//meltable = new BasicMetalMaterial(this);
-//	return this;
-//    }
-//
-//    public BasicMetalMaterial getIngot() {
-//	return meltable;
-//    }
-//
-//    // Craftable
-//    public MaterialHelper withGem() {
-//	craftable = new BasicGemMaterial(this);
-//	return this;
-//    }
-//
-//    public BasicGemMaterial getGem() {
-//	return craftable;
-//    }
-//
-//    // Vanilla Components
-//    public MaterialHelper withVanillaComponents() {
-//	vcomponents = new MaterialVanillaComponents(this);
-//	return this;
-//    }
-//
-//    public MaterialVanillaComponents getVanillaComponents() {
-//	return vcomponents;
-//    }
-//
-//    // Extra Components
-//    public MaterialHelper withExtraComponents() {
-//	ecomponents = new MaterialExtraComponents(this);
-//	return this;
-//    }
-//
-//    public MaterialExtraComponents getExtraComponents() {
-//	return ecomponents;
-//    }
-//
-//    // Vanilla Tools
-//    public MaterialHelper withVanillaTools() {
-//	this.vtools = new MaterialVanillaTools(this);
-//	return this;
-//    }
-//
-//    public MaterialVanillaTools getVanillaTools() {
-//	return vtools;
-//    }
-//
-//    // Extra Tools
-//    public MaterialHelper withExtraTools() {
-//	this.etools = new MaterialExtraTools(this);
-//	return this;
-//    }
-//
-//    public MaterialExtraTools getExtraTools() {
-//	return etools;
-//    }
-//
-//    public MaterialHelper withOre(float hardness, int level, ToolType tool, float resistance, int ymax, int ymin,
-//	    int veinSize, int veinChance, Category biomeCategory) {
-//	this.ore = new MaterialOre(this, hardness, level, tool, resistance, ymax, ymin, veinSize, veinChance,
-//		biomeCategory);
-//	return this;
-//    }
-//
-//    public MaterialOre getOre() {
-//	return this.ore;
-//    }
-//    
-//    public MaterialHelper withAdvancedComponents()
-//    {
-//	this.acomponents = new MaterialAdvancedExtraComponents(this);
-//	return this;
-//    }
-//    
-//    public MaterialAdvancedExtraComponents getAdvancedComponents()
-//    {
-//	return this.acomponents;
-//    }
-//
-//    public void client() {
-//	if (this.getVanillaComponents() != null) {
-//	    this.getVanillaComponents().setupClient(this);
+//		case "gem":
+//		case "stone":
+//		case "metal":
+//			base = new MaterialMetal();
+//			break;
+//		default:
+//			break;
+//		}
 //	}
-//	if (this.getExtraComponents() != null) {
-//	    this.getExtraComponents().setupClient(this);
-//	}
-//    }
-//}
+
+	public void setupClient() {
+	}
+
+	public void setup() {
+		for (MaterialBase mb : addons)
+			mb.setup(this);
+	}
+
+	public void registerItemModels(TCItemModels model) {
+		for (MaterialBase mb : addons)
+			mb.registerItemModels(model, name);
+	}
+
+	public void registerBlockModels(TCBlockModels model) {
+		for (MaterialBase mb : addons)
+			mb.registerBlockModels(model, name);
+	}
+
+	public void addTranslations(TCEnglishLoc tcEnglishLoc) {
+		for (MaterialBase mb : addons)
+			mb.addTranslations(tcEnglishLoc, name.substring(0,1).toUpperCase() + name.substring(1));
+	}
+
+	public void addItemTags(TCItemTags tags) {
+		for (MaterialBase mb : addons)
+			mb.registerItemTags(tags, name);
+	}
+
+	public void addBlockTags(TCBlockTags tags) {
+		for (MaterialBase mb : addons)
+			mb.registerBlockTags(tags, name);
+	}
+
+	public void addBlockLoot(TCBlockLoot loot) {
+		for (MaterialBase mb : addons)
+			mb.buildLootTable(loot, name);
+	}
+
+	public void addRecipes(TCRecipes recipes, Consumer<FinishedRecipe> consumer) {
+		for (MaterialBase mb : addons)
+			mb.buildRecipes(recipes, consumer, name);
+	}
+}

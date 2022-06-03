@@ -1,87 +1,86 @@
 package lance5057.compendium.core.blocks;
 
 import lance5057.compendium.core.library.CompendiumTags;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FourWayBlock;
-import net.minecraft.block.SixWayBlock;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CrossCollisionBlock;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BlockShinglesCap extends FourWayBlock {
+public class BlockShinglesCap extends CrossCollisionBlock {
 
-    public static final BooleanProperty UP = SixWayBlock.UP;
-    private final VoxelShape renderShape;
+	public static final BooleanProperty UP = PipeBlock.UP;
+	private final VoxelShape renderShape;
 
-    public BlockShinglesCap(AbstractBlock.Properties properties) {
+	public BlockShinglesCap(Properties properties) {
 
-	super(2.0F, 2.0F, 16.0F, 16.0F, 24.0F, properties);
-	this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(false))
-		.with(EAST, Boolean.valueOf(false)).with(SOUTH, Boolean.valueOf(false))
-		.with(WEST, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false))
-		.with(UP, Boolean.valueOf(false)));
-	this.renderShape = Block.makeCuboidShape(0, 0, 0, 16, 8, 16);
-    }
-
-    @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-	builder.add(NORTH, EAST, WEST, SOUTH, WATERLOGGED, UP);
-    }
-
-    @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn,
-	    BlockPos currentPos, BlockPos facingPos) {
-	if (stateIn.get(WATERLOGGED)) {
-	    worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		super(2.0F, 2.0F, 16.0F, 16.0F, 24.0F, properties);
+		this.registerDefaultState(
+				this.defaultBlockState().setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false))
+						.setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false))
+						.setValue(WATERLOGGED, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)));
+		this.renderShape = Block.box(0, 0, 0, 16, 8, 16);
 	}
 
-	if (facing.getAxis().getPlane() == Direction.Plane.HORIZONTAL)
-	    return stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), Boolean.valueOf(this.canConnect(facingState,
-		    facingState.isSolidSide(worldIn, facingPos, facing.getOpposite()), facing.getOpposite())));
-	else if (facing == Direction.UP) {
-	    return stateIn.with(UP, Boolean.valueOf(facingState.getBlock() != Blocks.AIR));
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(NORTH, EAST, WEST, SOUTH, WATERLOGGED, UP);
 	}
 
-	return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-    }
+	@Override
+	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn,
+			BlockPos currentPos, BlockPos facingPos) {
+		if (stateIn.getValue(WATERLOGGED)) {
+			worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
+		}
 
-    public boolean canConnect(BlockState state, boolean isSideSolid, Direction direction) {
-	Block block = state.getBlock();
-	boolean flag = this.isShingle(block);
-	return flag;
-    }
-    
-    private boolean isShingle(Block block) {
-	return block.isIn(CompendiumTags.SHINGLESCAP);
-    }
+		if (facing.getAxis().getPlane() == Direction.Plane.HORIZONTAL)
+			return stateIn.setValue(PROPERTY_BY_DIRECTION.get(facing), Boolean.valueOf(this.canConnect(facingState,
+					facingState.isFaceSturdy(worldIn, facingPos, facing.getOpposite()), facing.getOpposite())));
+		else if (facing == Direction.UP) {
+			return stateIn.setValue(UP, Boolean.valueOf(facingState.getBlock() != Blocks.AIR));
+		}
 
-    @Override
-    public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
-	return this.renderShape;
-    }
+		return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	}
 
-    @Override
-    public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-	return this.renderShape;
-    }
+	public boolean canConnect(BlockState state, boolean isSideSolid, Direction direction) {
+		Block block = state.getBlock();
+		boolean flag = this.isShingle(state);
+		return flag;
+	}
 
-    @Override
-    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos,
-	    ISelectionContext context) {
-	return this.renderShape;
-    }
+	private boolean isShingle(BlockState block) {
+		return block.is(CompendiumTags.SHINGLESCAP);
+	}
 
-    @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-	return this.renderShape;
-    }
+	@Override
+	public VoxelShape getOcclusionShape(BlockState state, BlockGetter worldIn, BlockPos pos) {
+		return this.renderShape;
+	}
+
+	@Override
+	public VoxelShape getVisualShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context) {
+		return this.renderShape;
+	}
+
+	@Override
+	public VoxelShape getCollisionShape(BlockState state, BlockGetter worldIn, BlockPos pos,
+			CollisionContext context) {
+		return this.renderShape;
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+		return this.renderShape;
+	}
 }

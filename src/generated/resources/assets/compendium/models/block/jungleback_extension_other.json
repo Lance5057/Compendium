@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/seat/back_extend_other",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

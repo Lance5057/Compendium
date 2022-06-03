@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/dungeon_trim_flip_1",
-  "textures": {
-    "0": "compendium:block/material/electrum/electrumdungeon_bricks"
-  }
-}

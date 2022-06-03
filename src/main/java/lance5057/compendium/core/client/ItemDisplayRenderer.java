@@ -19,7 +19,7 @@
 //import net.minecraft.util.math.vector.Quaternion;
 //import net.minecraftforge.common.util.LazyOptional;
 //import net.minecraftforge.items.CapabilityItemHandler;
-//import net.minecraftforge.items.IItemHandler;
+//import net.minecraftforge.items.IItemInteractionHandler;
 //
 //public class ItemDisplayRenderer extends TileEntityRenderer<ItemDisplayTileEntity> {
 //
@@ -43,10 +43,10 @@
 //
 //	ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 //
-//	LazyOptional<IItemHandler> itemHandler = tileEntityIn
-//		.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+//	LazyOptional<IItemInteractionHandler> itemInteractionHandler = tileEntityIn
+//		.getCapability(CapabilityItemHandler.ITEM_InteractionHandLER_CAPABILITY);
 //
-//	itemHandler.ifPresent(r -> {
+//	itemInteractionHandler.ifPresent(r -> {
 //	    ItemStack item = r.getStackInSlot(0);
 //
 //	    if (!item.isEmpty()) {

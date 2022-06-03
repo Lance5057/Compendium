@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_post",
-  "textures": {
-    "0": "compendium:block/material/silver/silvershingles",
-    "1": "compendium:block/material/silver/silvershingles",
-    "2": "compendium:block/material/silver/silvershingles"
-  }
-}

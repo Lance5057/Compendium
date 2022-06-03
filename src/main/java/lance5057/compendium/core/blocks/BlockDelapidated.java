@@ -3,20 +3,19 @@ package lance5057.compendium.core.blocks;
 import java.util.List;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.data.builders.loottables.PrybarLoot;
-import net.minecraft.block.Block;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameterSets;
-import net.minecraft.loot.LootParameters;
-import net.minecraft.loot.LootTable;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Containers;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.Vec3;
 
 public class BlockDelapidated extends Block implements IPryable {
 
@@ -28,20 +27,20 @@ public class BlockDelapidated extends Block implements IPryable {
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, LivingEntity entityLiving) {
-	if (world instanceof ServerWorld) {
+    public void onBreak(Level world, BlockPos pos, LivingEntity entityLiving) {
+	if (world instanceof ServerLevel) {
 	    ResourceLocation rc = getPrybarLootTable();
 
-	    LootTable loottable = world.getServer().getLootTableManager().getLootTableFromLocation(rc);
-	    LootContext.Builder lootcontext$builder = new LootContext.Builder((ServerWorld) world)
-		    .withRandom(world.rand).withParameter(LootParameters.THIS_ENTITY, entityLiving)
-		    .withParameter(LootParameters.field_237457_g_, new Vector3d(pos.getX(), pos.getY(), pos.getZ()));
+	    LootTable loottable = world.getServer().getLootTables().get(rc);
+	    LootContext.Builder lootcontext$builder = new LootContext.Builder((ServerLevel) world)
+		    .withRandom(world.random).withParameter(LootContextParams.THIS_ENTITY, entityLiving)
+		    .withParameter(LootContextParams.ORIGIN, new Vec3(pos.getX(), pos.getY(), pos.getZ()));
 
-	    LootContext ctx = lootcontext$builder.build(LootParameterSets.GIFT);
-	    List<ItemStack> items = loottable.generate(ctx);
+	    LootContext ctx = lootcontext$builder.create(LootContextParamSets.GIFT);
+	    List<ItemStack> items = loottable.getRandomItems(ctx);
 
 	    items.forEach(i -> {
-		InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), i);
+		Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), i);
 
 	    });
 	}

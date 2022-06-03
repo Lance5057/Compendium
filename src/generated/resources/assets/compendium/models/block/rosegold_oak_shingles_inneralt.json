@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_inner_corneralt",
-  "textures": {
-    "0": "compendium:block/material/rosegold/rosegoldshingles",
-    "1": "minecraft:block/oak_log_top",
-    "2": "minecraft:block/oak_log"
-  }
-}

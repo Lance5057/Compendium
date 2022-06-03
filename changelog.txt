@@ -13,14 +13,14 @@ Build: 1.15.2-31.2.31 - Mon Jul 06 20:59:19 GMT 2020
 =========
 Build: 1.15.2-31.2.30 - Thu Jul 02 05:43:41 GMT 2020
 	tterrag:
-		Fix improper handling of baked lighting in forge light pipeline
+		Fix improper InteractionHandling of baked lighting in forge light pipeline
 		
 		Closes #6803
 
 =========
 Build: 1.15.2-31.2.29 - Tue Jun 30 19:45:50 GMT 2020
 	diesieben07:
-		Fix IItemHandler wrappers for chests not updating both chests (#6874)
+		Fix IItemInteractionHandler wrappers for chests not updating both chests (#6874)
 
 =========
 Build: 1.15.2-31.2.28 - Mon Jun 29 19:47:39 GMT 2020
@@ -98,7 +98,7 @@ Build: 1.15.2-31.2.15 - Fri Jun 12 22:48:51 GMT 2020
 =========
 Build: 1.15.2-31.2.13 - Fri Jun 12 22:42:58 GMT 2020
 	williewillus:
-		Supply matrixstack to IRenderHandler where possible. Closes #6439 (#6537)
+		Supply matrixstack to IRenderInteractionHandler where possible. Closes #6439 (#6537)
 
 =========
 Build: 1.15.2-31.2.12 - Fri Jun 12 22:37:06 GMT 2020
@@ -135,7 +135,7 @@ Build: 1.15.2-31.2.7 - Thu Jun 04 03:08:27 GMT 2020
 =========
 Build: 1.15.2-31.2.5 - Sun May 24 21:41:17 GMT 2020
 	cpw:
-		Improve the DistExecutor API and introduce some "almost completely" safe mechanisms to handle sided lambdas.
+		Improve the DistExecutor API and introduce some "almost completely" safe mechanisms to InteractionHandle sided lambdas.
 		
 		In general, use sided lambdas safely by embedding them in a separately loaded class. There's a whole twitch stream
 		dedicated to investigating this problem. See link in DistExecutor if you're interested.
@@ -328,7 +328,7 @@ Build: 1.15.2-31.1.70 - Sun May 03 20:27:39 GMT 2020
 		Fix vanilla loot table resource leak. (#6622)
 
 	LordMonoxide:
-		Fixed ChunkDataEvent.Save being fired with a null world if chunk isn't fully generated when unloaded. (#6628)
+		Fixed ChunkDataEvent.Save being fired with a null Level if chunk isn't fully generated when unloaded. (#6628)
 
 =========
 Build: 1.15.2-31.1.67 - Sun May 03 20:21:40 GMT 2020
@@ -367,7 +367,7 @@ Build: 1.15.2-31.1.62 - Tue Apr 28 04:02:06 GMT 2020
 =========
 Build: 1.15.2-31.1.61 - Mon Apr 27 18:06:44 GMT 2020
 	weiland:
-		Fix BackgroundScanHandler crashing on servers (#6660)
+		Fix BackgroundScanInteractionHandler crashing on servers (#6660)
 
 =========
 Build: 1.15.2-31.1.60 - Mon Apr 27 13:55:33 GMT 2020
@@ -395,13 +395,13 @@ Build: 1.15.2-31.1.57 - Mon Apr 27 03:06:13 GMT 2020
 =========
 Build: 1.15.2-31.1.55 - Mon Apr 27 01:42:42 GMT 2020
 	roguelogix:
-		move handOffWindow down near start()
+		move InteractionHandOffWindow down near start()
 
 	roguelogix:
 		Move ClientVisualization to secondary thread
 
 	cpw:
-		Handle message display a bit better, try to make the UI tick a bit better.. Still a problem with
+		InteractionHandle message display a bit better, try to make the UI tick a bit better.. Still a problem with
 		a modelbake right at the end, happening on the window flip.
 		
 		Signed-off-by: cpw <cpw+github@weeksfamily.ca>
@@ -545,9 +545,9 @@ Build: 1.15.2-31.1.29 - Fri Mar 27 23:19:42 GMT 2020
 =========
 Build: 1.15.2-31.1.28 - Fri Mar 27 23:10:32 GMT 2020
 	36975818+hnOsmium0001:
-		Fix ownership leak in ItemStackHandler (#6580)
+		Fix ownership leak in ItemStackInteractionHandler (#6580)
 		
-		- Triggered by invoking ItemStackHandler#extractItem with `simulate=true`
+		- Triggered by invoking ItemStackInteractionHandler#extractItem with `simulate=true`
 
 =========
 Build: 1.15.2-31.1.27 - Sat Mar 21 00:06:03 GMT 2020
@@ -616,9 +616,9 @@ Build: 1.15.2-31.1.17 - Wed Feb 26 03:45:24 GMT 2020
 =========
 Build: 1.15.2-31.1.16 - Mon Feb 24 03:17:00 GMT 2020
 	cpw:
-		Fix up alarming security crisis with network handling that allowed for wrong code execution on the server, resulting in CRASHED SERVERS. AWFUL stuff.
+		Fix up alarming security crisis with network InteractionHandling that allowed for wrong code execution on the server, resulting in CRASHED SERVERS. AWFUL stuff.
 		
-		Also fixed a silly log message from the login handler.
+		Also fixed a silly log message from the login InteractionHandler.
 		
 		This change introduces a mechanism to direct certain packets to only process on one side or another. Invalid sidedness will result in the connection being terminated.
 		
@@ -650,7 +650,7 @@ Build: 1.15.2-31.1.12 - Fri Feb 14 21:43:40 GMT 2020
 =========
 Build: 1.15.2-31.1.11 - Fri Feb 14 21:33:36 GMT 2020
 	williewillus:
-		Fix missed modeldata passing in BlockModelRenderer (#6442)
+		Fix missed modeldata passing in BlockModelPart (#6442)
 
 =========
 Build: 1.15.2-31.1.10 - Fri Feb 14 20:34:50 GMT 2020
@@ -668,10 +668,10 @@ Build: 1.15.2-31.1.8 - Fri Feb 14 20:09:19 GMT 2020
 		Fixed ChunkWatchEvent.(Un)Watch not firing correctly (#6453)
 
 	ewewukek:
-		Fix wrong arguments passed to ForgeHooksClient.renderSpecificFirstPersonHand() (#6496)
+		Fix wrong arguments passed to ForgeHooksClient.renderSpecificFirstPersonInteractionHand() (#6496)
 
 	12281102+Aeltumn:
-		Fix client not informing server when it attempts to interact with things, and is canceled by a client side handler.
+		Fix client not informing server when it attempts to interact with things, and is canceled by a client side InteractionHandler.
 
 =========
 Build: 1.15.2-31.1.5 - Fri Feb 14 20:02:26 GMT 2020
@@ -738,7 +738,7 @@ Build: 1.15.2-31.0.13 - Wed Jan 29 23:46:30 GMT 2020
 	williewillus:
 		Clean up a bunch of render events (#6444)
 		
-		* Delete RenderHandEvent as RenderSpecificHandEvent can do everything it does and more. Rename RenderSpecificHandEvent to RenderHandEvent as it's now the only hand rendering event.
+		* Delete RenderInteractionHandEvent as RenderSpecificInteractionHandEvent can do everything it does and more. Rename RenderSpecificInteractionHandEvent to RenderInteractionHandEvent as it's now the only InteractionHand rendering event.
 		* Pass MatrixStack and IRenderTypeBuffer into the event whenever they are available. If they're available, that means we're in a batching environment and the modder should not be using the tessellator or other buffers on their own, or they risk "Already building" crashes.
 
 =========
@@ -769,7 +769,7 @@ Build: 1.15.2-31.0.8 - Wed Jan 29 21:04:44 GMT 2020
 =========
 Build: 1.15.2-31.0.7 - Wed Jan 29 20:50:44 GMT 2020
 	lex:
-		Fix PlayerChangedDimensionEvent using incorrect from dimension argument in ServerPlayerEntity.teleport. Closes #6457
+		Fix PlayerChangedDimensionEvent using incorrect from dimension argument in ServerPlayer.teleport. Closes #6457
 
 	lex:
 		Fix incorrect keybinding modifiers patch. Closes #6478
@@ -826,7 +826,7 @@ Build: 1.15.1-30.0.48 - Wed Jan 22 19:30:35 GMT 2020
 		Use extended version of getLightValue in all places (#6433)
 
 	Bward7864:
-		Fixed RenderTypeLookup loosing mappings for registry replacements. (#6452)
+		Fixed ItemBlockRenderTypes loosing mappings for registry replacements. (#6452)
 
 	wynprice999:
 		Fixed rounding issue with entity navigation fix (#6455) (#6456)

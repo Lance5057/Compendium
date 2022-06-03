@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/lantern",
-  "textures": {
-    "all": "compendium:block/material/aluminium/aluminiumlantern"
-  }
-}

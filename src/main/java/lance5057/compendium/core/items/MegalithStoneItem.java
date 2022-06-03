@@ -3,13 +3,12 @@ package lance5057.compendium.core.items;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
 
 public class MegalithStoneItem extends Item {
 
@@ -18,20 +17,20 @@ public class MegalithStoneItem extends Item {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ActionResultType onItemUse(ItemUseContext context) {
-		AxisAlignedBB aabb = new AxisAlignedBB(
-				context.getPos().up(1).north(1).east(1).offset(context.getFace(),2),
-				context.getPos().down(1).south(1).west(1).offset(context.getFace(),2));
-		List<BlockPos> invalid = BlockPos.getAllInBox(aabb)
-				.filter(b -> context.getWorld().getBlockState(b) != Blocks.AIR.getDefaultState())
+	public InteractionResult onItemUse(UseOnContext context) {
+		AABB aabb = new AABB(
+				context.getClickedPos().above(1).north(1).east(1).relative(context.getClickedFace(),2),
+				context.getClickedPos().below(1).south(1).west(1).relative(context.getClickedFace(),2));
+		List<BlockPos> invalid = BlockPos.betweenClosedStream(aabb)
+				.filter(b -> context.getLevel().getBlockState(b) != Blocks.AIR.defaultBlockState())
 				.collect(Collectors.toList());
 
 		if (invalid.isEmpty()) {
-			BlockPos.getAllInBox(aabb)
-					.forEach(b -> context.getWorld().setBlockState(b, Blocks.STONE.getDefaultState()));
-			return ActionResultType.PASS;
+			BlockPos.betweenClosedStream(aabb)
+					.forEach(b -> context.getLevel().setBlockAndUpdate(b, Blocks.STONE.defaultBlockState()));
+			return InteractionResult.PASS;
 		}
-		return ActionResultType.FAIL;
+		return InteractionResult.FAIL;
 	}
 
 }

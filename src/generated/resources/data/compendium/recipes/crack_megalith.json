@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "compendium:megalith_stone"
-  },
-  "result": "minecraft:stone",
-  "count": 9
-}

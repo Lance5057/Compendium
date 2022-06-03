@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/InteractionHandheld",
   "textures": {
     "layer0": "compendium:block/magenta_stained_glass",
     "layer1": "compendium:block/material/aluminium/aluminiumchainlink"

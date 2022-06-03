@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/seat/stool_seat_extend",
-  "textures": {
-    "0": "compendium:block/orange_planks"
-  }
-}

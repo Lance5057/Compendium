@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles",
-  "textures": {
-    "0": "compendium:block/material/rosegold/rosegoldshingles",
-    "1": "minecraft:block/warped_stem_top",
-    "2": "minecraft:block/warped_stem"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shingles_cap_brace",
-  "textures": {
-    "0": "minecraft:block/birch_planks",
-    "1": "minecraft:block/birch_log_top",
-    "2": "minecraft:block/birch_log"
-  }
-}

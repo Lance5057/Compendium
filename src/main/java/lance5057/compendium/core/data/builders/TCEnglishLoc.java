@@ -1,41 +1,42 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumItems;
+import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
-import lance5057.compendium.appendixes.carpentry.data.CarpentryEnglishLoc;
-import lance5057.compendium.appendixes.construction.data.ConstructionEnglishLoc;
-import lance5057.compendium.appendixes.gemology.data.GemEnglishLoc;
-import lance5057.compendium.appendixes.metallurgy.data.builders.MetalEnglishLoc;
-import lance5057.compendium.appendixes.oredressing.data.builders.OreEnglishLoc;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class TCEnglishLoc extends LanguageProvider {
 
-    public TCEnglishLoc(DataGenerator gen) {
-	super(gen, Reference.MOD_ID, "en_us");
-	Compendium.logger.info("\t - EN_US Localization");
-    }
+	public TCEnglishLoc(DataGenerator gen) {
+		super(gen, Reference.MOD_ID, "en_us");
+		Compendium.logger.info("\t - EN_US Localization");
+	}
 
-    @Override
-    protected void addTranslations() {
+	@Override
+	protected void addTranslations() {
 
-	this.add("itemGroup.compendium.materials", "Compendium Materials");
-	this.add("itemGroup.compendium.workstations", "Compendium Workstations");
-
-	this.add(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK.get(), "Crafting Anvil");
-	this.add(CompendiumItems.HAMMERING_STATION_ITEMBLOCK.get(), "Hammering Station");
-	this.add(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK.get(), "Sawbuck");
-	
-	this.add(CompendiumItems.CRUDE_HAMMER.get(), "Crude Hammer");
-	this.add(CompendiumItems.MINER_GRENADE.get(), "Mining Grenade");
-	
-	MetalEnglishLoc.addTranslations(this);
-	GemEnglishLoc.addTranslations(this);
-	OreEnglishLoc.addTranslations(this);
-	ConstructionEnglishLoc.addTranslations(this);
-	CarpentryEnglishLoc.addTranslations(this);
+		for(MaterialHelper m : CompendiumMaterials.materials)
+		{
+			m.addTranslations(this);
+		}
+		
+//		this.add("CreativeModeTab.compendium.materials", "Compendium Materials");
+//		this.add("CreativeModeTab.compendium.workstations", "Compendium Workstations");
+//
+//		this.add(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK.get(), "Crafting Anvil");
+//		this.add(CompendiumItems.HAMMERING_STATION_ITEMBLOCK.get(), "Hammering Station");
+//		this.add(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK.get(), "Sawbuck");
+//
+//		this.add(CompendiumItems.CRUDE_HAMMER.get(), "Crude Hammer");
+//		this.add(CompendiumItems.MINER_GRENADE.get(), "Mining Grenade");
+//
+//		MetalEnglishLoc.addTranslations(this);
+//		GemEnglishLoc.addTranslations(this);
+//		OreEnglishLoc.addTranslations(this);
+//		ConstructionEnglishLoc.addTranslations(this);
+//		CarpentryEnglishLoc.addTranslations(this);
 
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //
@@ -158,6 +159,6 @@ public class TCEnglishLoc extends LanguageProvider {
 //		this.add(et.SAW.get(), name + " Saw");
 //	    }
 //	}
-    }
+	}
 
 }

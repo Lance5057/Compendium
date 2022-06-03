@@ -1,9 +1,9 @@
 package lance5057.compendium.core.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.PaneBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.IronBarsBlock;
 
-public class ComponentPane extends PaneBlock {
+public class ComponentPane extends IronBarsBlock {
    public ComponentPane(Block.Properties builder) {
       super(builder);
    }

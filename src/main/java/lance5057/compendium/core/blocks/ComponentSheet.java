@@ -2,50 +2,49 @@ package lance5057.compendium.core.blocks;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.properties.SlabType;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ComponentSheet extends Block {
 	public static final EnumProperty<SlabType> TYPE = BlockStateProperties.SLAB_TYPE;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	protected static final VoxelShape BOTTOM_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
-	protected static final VoxelShape TOP_SHAPE = Block.makeCuboidShape(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape BOTTOM_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+	protected static final VoxelShape TOP_SHAPE = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
 	public ComponentSheet(Block.Properties properties) {
 		super(properties);
 	}
 
 	public boolean isTransparent(BlockState state) {
-		return state.get(TYPE) != SlabType.DOUBLE;
+		return state.getValue(TYPE) != SlabType.DOUBLE;
 	}
 
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(TYPE, WATERLOGGED);
 	}
 
-	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		SlabType slabtype = state.get(TYPE);
+	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+		SlabType slabtype = state.getValue(TYPE);
 		switch (slabtype) {
 		case DOUBLE:
-			return VoxelShapes.fullCube();
+			return Shapes.block();
 		case TOP:
 			return TOP_SHAPE;
 		default:
@@ -54,26 +53,26 @@ public class ComponentSheet extends Block {
 	}
 
 	@Nullable
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		BlockPos blockpos = context.getPos();
-		BlockState blockstate = context.getWorld().getBlockState(blockpos);
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		BlockPos blockpos = context.getClickedPos();
+		BlockState blockstate = context.getLevel().getBlockState(blockpos);
 //		if (blockstate.getBlock() == this) {
-//			return blockstate.with(TYPE, SlabType.DOUBLE).with(WATERLOGGED, Boolean.valueOf(false));
+//			return blockstate.setValue(TYPE, SlabType.DOUBLE).setValue(WATERLOGGED, Boolean.valueOf(false));
 //		} else {
-			FluidState ifluidstate = context.getWorld().getFluidState(blockpos);
-			BlockState blockstate1 = this.getDefaultState().with(TYPE, SlabType.BOTTOM).with(WATERLOGGED,
-					Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
-			Direction direction = context.getFace();
+			FluidState ifluidstate = context.getLevel().getFluidState(blockpos);
+			BlockState blockstate1 = this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED,
+					Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
+			Direction direction = context.getClickedFace();
 			return direction != Direction.DOWN
-					&& (direction == Direction.UP || !(context.getHitVec().y - (double) blockpos.getY() > 0.5D))
+					&& (direction == Direction.UP || !(context.getClickedPos().getY() - (double) blockpos.getY() > 0.5D))
 							? blockstate1
-							: blockstate1.with(TYPE, SlabType.TOP);
+							: blockstate1.setValue(TYPE, SlabType.TOP);
 //		}
 	}
 
-	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
+	public boolean isReplaceable(BlockState state, BlockPlaceContext useContext) {
 //		ItemStack itemstack = useContext.getItem();
-//		SlabType slabtype = state.get(TYPE);
+//		SlabType slabtype = state.getValue(TYPE);
 //		if (slabtype != SlabType.DOUBLE && itemstack.getItem() == this.asItem()) {
 //			if (useContext.replacingClickedOnBlock()) {
 //				boolean flag = useContext.getHitVec().y - (double) useContext.getPos().getY() > 0.5D;
@@ -92,16 +91,16 @@ public class ComponentSheet extends Block {
 	}
 
 	public FluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
 
-	public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
-		return state.get(TYPE) != SlabType.DOUBLE ? this.receiveFluid(worldIn, pos, state, fluidStateIn)
+	public boolean receiveFluid(LevelAccessor worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
+		return state.getValue(TYPE) != SlabType.DOUBLE ? this.receiveFluid(worldIn, pos, state, fluidStateIn)
 				: false;
 	}
 
-	public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-		return state.get(TYPE) != SlabType.DOUBLE ? this.canContainFluid(worldIn, pos, state, fluidIn)
+	public boolean canContainFluid(BlockGetter worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
+		return state.getValue(TYPE) != SlabType.DOUBLE ? this.canContainFluid(worldIn, pos, state, fluidIn)
 				: false;
 	}
 
@@ -112,21 +111,21 @@ public class ComponentSheet extends Block {
 	 * its solidified counterpart. Note that this method should ideally consider
 	 * only the specific face passed in.
 	 */
-	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn,
+	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn,
 			BlockPos currentPos, BlockPos facingPos) {
-		if (stateIn.get(WATERLOGGED)) {
-			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+		if (stateIn.getValue(WATERLOGGED)) {
+			worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
 		}
 
-		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+		return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
 
-	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+	public boolean allowsMovement(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
 		switch (type) {
 		case LAND:
 			return false;
 		case WATER:
-			return worldIn.getFluidState(pos).isTagged(FluidTags.WATER);
+			return worldIn.getFluidState(pos).isSourceOfType(Fluids.WATER);
 		case AIR:
 			return false;
 		default:

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/InteractionHandheld",
   "textures": {
     "layer0": "compendium:item/material/pewter/pewterhammer",
     "layer1": "compendium:item/hammerbase"

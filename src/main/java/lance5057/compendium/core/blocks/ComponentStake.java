@@ -2,68 +2,68 @@ package lance5057.compendium.core.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.EndRodBlock;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer.Builder;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EndRodBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition.Builder;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ComponentStake extends EndRodBlock implements IWaterLoggable {
-	
+public class ComponentStake extends EndRodBlock implements SimpleWaterloggedBlock {
+
 	public static final BooleanProperty CONNECTED = BooleanProperty.create("connected");
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	
+
 	public ComponentStake() {
-		super(Block.Properties.create(Material.IRON)
-				.hardnessAndResistance(5F, 10F)
-				.sound(SoundType.METAL));
+		super(Block.Properties.of(Material.METAL).strength(5F, 10F).sound(SoundType.METAL));
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public FluidState getFluidState(BlockState state) {
-	      return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-	   }
-	
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+	}
+
 	@Override
-	public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
-	      return !state.get(WATERLOGGED);
-	   }
-	
+	public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {
+		return !state.getValue(WATERLOGGED);
+	}
+
 	@Override
-	protected void fillStateContainer(Builder<Block, BlockState> builder) {
-		super.fillStateContainer(builder);
+	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
+		super.createBlockStateDefinition(builder);
 		builder.add(CONNECTED);
 		builder.add(WATERLOGGED);
 	}
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
 		// no
 	}
-	
+
 	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
-	      Direction direction = context.getFace();
-	      BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(direction.getOpposite()));
-	      FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-	      
-	      if(blockstate.getBlock() == this)
-	    	  return this.getDefaultState().with(FACING, direction).with(CONNECTED, true).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
-	      return this.getDefaultState().with(FACING, direction).with(CONNECTED, false).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
-	   }
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		Direction direction = context.getClickedFace();
+		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction.getOpposite()));
+		FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
+
+		if (blockstate.getBlock() == this)
+			return this.defaultBlockState().setValue(FACING, direction).setValue(CONNECTED, true).setValue(WATERLOGGED,
+					Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
+		return this.defaultBlockState().setValue(FACING, direction).setValue(CONNECTED, false).setValue(WATERLOGGED,
+				Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
+	}
 }

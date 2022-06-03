@@ -6,35 +6,35 @@
 //import lance5057.compendium.CompendiumTileEntities;
 //import net.minecraft.block.AbstractFurnaceBlock;
 //import net.minecraft.block.BlockState;
-//import net.minecraft.entity.player.PlayerEntity;
+//import net.minecraft.entity.player.Player;
 //import net.minecraft.item.Item;
 //import net.minecraft.item.ItemStack;
 //import net.minecraft.item.Items;
-//import net.minecraft.nbt.CompoundNBT;
+//import net.minecraft.nbt.CompoundTag;
 //import net.minecraft.network.NetworkManager;
-//import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+//import net.minecraft.network.play.server.ClientboundBlockEntityDataPacket;
 //import net.minecraft.tileentity.TileEntity;
 //import net.minecraft.util.Direction;
-//import net.minecraft.util.Hand;
+//import net.minecraft.util.InteractionHand;
 //import net.minecraftforge.common.capabilities.Capability;
 //import net.minecraftforge.common.util.LazyOptional;
 //import net.minecraftforge.items.CapabilityItemHandler;
-//import net.minecraftforge.items.IItemHandler;
-//import net.minecraftforge.items.ItemStackHandler;
+//import net.minecraftforge.items.IItemInteractionHandler;
+//import net.minecraftforge.items.ItemStackInteractionHandler;
 //
 //public class ItemDisplayTileEntity extends TileEntity {
 //
-//    private final LazyOptional<IItemHandler> optional;
-//    ItemStackHandler handler;
+//    private final LazyOptional<IItemInteractionHandler> optional;
+//    ItemStackInteractionHandler InteractionHandler;
 //
 //    public ItemDisplayTileEntity() {
 ////	super(CompendiumTileEntities.ITEM_DISPLAY_TE.get());
-//	handler = createHandler();
-//	optional = LazyOptional.of(() -> handler);
+//	InteractionHandler = createInteractionHandler();
+//	optional = LazyOptional.of(() -> InteractionHandler);
 //    }
 //
-//    private ItemStackHandler createHandler() {
-//	return new ItemStackHandler(1) {
+//    private ItemStackInteractionHandler createInteractionHandler() {
+//	return new ItemStackInteractionHandler(1) {
 //	    @Override
 //	    protected int getStackLimit(int slot, @Nonnull ItemStack stack) {
 //		return 1;
@@ -57,37 +57,37 @@
 //    @Nonnull
 //    @Override
 //    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-//	if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+//	if (cap == CapabilityItemHandler.ITEM_InteractionHandLER_CAPABILITY) {
 //	    return optional.cast();
 //	}
 //	return super.getCapability(cap, side);
 //    }
 //
-//    public void extractInsertItem(PlayerEntity playerEntity, Hand hand) {
-//	ItemStack held = playerEntity.getHeldItem(hand);
+//    public void extractInsertItem(Player Player, InteractionHand InteractionHand) {
+//	ItemStack held = Player.getHeldItem(InteractionHand);
 //	if (!held.isEmpty()) {
-//	    insertItem(handler, held);
+//	    insertItem(InteractionHandler, held);
 //	} else {
-//	    extractItem(playerEntity, handler);
+//	    extractItem(Player, InteractionHandler);
 //	}
 //
 //	updateInventory();
 //    }
 //
-//    public void extractItem(PlayerEntity playerEntity, IItemHandler inventory) {
+//    public void extractItem(Player Player, IItemInteractionHandler inventory) {
 //	if (!inventory.getStackInSlot(0).isEmpty()) {
 //	    ItemStack itemStack = ItemStack.EMPTY;
-//	    if (!playerEntity.isCrouching())
+//	    if (!Player.isCrouching())
 //		itemStack = inventory.extractItem(0, 1, false);
 //	    else
 //		itemStack = inventory.extractItem(0, inventory.getStackInSlot(0).getMaxStackSize(), false);
-//	    playerEntity.addItemStackToInventory(itemStack);
+//	    Player.addItemStackToInventory(itemStack);
 //	}
 //	changeLight();
 //	updateInventory();
 //    }
 //
-//    public void insertItem(IItemHandler inventory, ItemStack heldItem) {
+//    public void insertItem(IItemInteractionHandler inventory, ItemStack heldItem) {
 //	if (inventory.isItemValid(0, heldItem))
 //	    if (!inventory.insertItem(0, heldItem, true).isItemEqual(heldItem)) {
 //		final int leftover = inventory.insertItem(0, heldItem.copy(), false).getCount();
@@ -97,72 +97,72 @@
 //	updateInventory();
 //    }
 //
-//    // External extract handler
-//    public void extractItem(PlayerEntity playerEntity) {
-//	this.extractItem(playerEntity, handler);
+//    // External extract InteractionHandler
+//    public void extractItem(Player Player) {
+//	this.extractItem(Player, InteractionHandler);
 //    }
 //
-//    // External insert handler
+//    // External insert InteractionHandler
 //    public void insertItem(ItemStack heldItem) {
-//	this.insertItem(handler, heldItem);
+//	this.insertItem(InteractionHandler, heldItem);
 //    }
 //    
 //    private void changeLight()
 //    {
-//	Item i = handler.getStackInSlot(0).getItem();
+//	Item i = InteractionHandler.getStackInSlot(0).getItem();
 //	
 //	if(i == Items.GLOWSTONE || i == Items.GLOWSTONE_DUST || i == Items.TORCH || i == Items.LANTERN)
-//            this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(AbstractFurnaceBlock.LIT, true), 3);
+//            this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).setValue(AbstractFurnaceBlock.LIT, true), 3);
 //	else
-//	    this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(AbstractFurnaceBlock.LIT, false), 3);
+//	    this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).setValue(AbstractFurnaceBlock.LIT, false), 3);
 //
 //    }
 //
 //    public void updateInventory() {
 //	requestModelDataUpdate();
 //	this.markDirty();
-//	if (this.getWorld() != null) {
-//	    this.getWorld().notifyBlockUpdate(pos, this.getBlockState(), this.getBlockState(), 3);
+//	if (this.getLevel() != null) {
+//	    this.getLevel().notifyBlockUpdate(pos, this.getBlockState(), this.getBlockState(), 3);
 //	}
 //    }
 //
 //    @Nullable
 //    @Override
-//    public SUpdateTileEntityPacket getUpdatePacket() {
-//	return new SUpdateTileEntityPacket(this.getPos(), -1, this.getUpdateTag());
+//    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+//	return new ClientboundBlockEntityDataPacket(this.getPos(), -1, this.getUpdateTag());
 //    }
 //
 //    @Override
-//    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-//	handleUpdateTag(this.getBlockState(), pkt.getNbtCompound());
+//    public void onDataPacket(NetworkManager net, ClientboundBlockEntityDataPacket pkt) {
+//	InteractionHandleUpdateTag(this.getBlockState(), pkt.getNbtCompound());
 //    }
 //
 //    @Override
 //    @Nonnull
-//    public CompoundNBT getUpdateTag() {
-//	CompoundNBT updateTag = super.getUpdateTag();
-//	updateTag.put("items", handler.serializeNBT());
+//    public CompoundTag getUpdateTag() {
+//	CompoundTag updateTag = super.getUpdateTag();
+//	updateTag.put("items", InteractionHandler.serializeNBT());
 //	return updateTag;
 //    }
 //
 //    @Override
-//    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-//	handler.deserializeNBT(tag.getCompound("items"));
+//    public void InteractionHandleUpdateTag(BlockState state, CompoundTag tag) {
+//	InteractionHandler.deserializeNBT(tag.getCompound("items"));
 //    }
 //
 //    @Override
-//    public void read(BlockState state, @Nonnull CompoundNBT nbt) {
+//    public void read(BlockState state, @Nonnull CompoundTag nbt) {
 //	super.read(state, nbt);
 //
-//	handler.deserializeNBT(nbt.getCompound("items"));
+//	InteractionHandler.deserializeNBT(nbt.getCompound("items"));
 //    }
 //
 //    @Override
 //    @Nonnull
-//    public CompoundNBT write(@Nonnull CompoundNBT nbt) {
-//	CompoundNBT n = super.write(nbt);
+//    public CompoundTag write(@Nonnull CompoundTag nbt) {
+//	CompoundTag n = super.write(nbt);
 //
-//	n.put("items", handler.serializeNBT());
+//	n.put("items", InteractionHandler.serializeNBT());
 //	return n;
 //    }
 //}

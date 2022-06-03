@@ -1,79 +1,72 @@
 package lance5057.compendium.core.data.builders;
 
-import java.util.List;
-import java.util.function.Function;
-
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumItems;
-import lance5057.compendium.appendixes.carpentry.data.CarpentryItemTags;
-import lance5057.compendium.appendixes.construction.data.ConstructionItemTags;
-import lance5057.compendium.appendixes.gemology.data.GemItemTags;
-import lance5057.compendium.appendixes.metallurgy.data.builders.MetalItemTags;
-import lance5057.compendium.core.library.CompendiumTags;
-import net.minecraft.block.Block;
-import net.minecraft.data.BlockTagsProvider;
+import lance5057.compendium.CompendiumMaterials;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.ITag.INamedTag;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class TCItemTags extends ItemTagsProvider {
 
-    public TCItemTags(DataGenerator generatorIn, BlockTagsProvider blockTagProvider) {
-	super(generatorIn, blockTagProvider);
-	Compendium.logger.info("\t - Item Tags");
-    }
+	public TCItemTags(DataGenerator generatorIn, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
+		super(generatorIn, blockTagProvider, Reference.MOD_ID, existingFileHelper);
+		Compendium.logger.info("\t - Item Tags");
+	}
 
-    @Override
-    protected void registerTags() {
-	
-	this.getOrCreateBuilder(CompendiumTags.HAMMER).add(CompendiumItems.CRUDE_HAMMER.get());
-	INamedTag<Item> HAMMER_MATERIAL = TCItemTags.ItemTag("tools/hammers/crude");
-	this.getOrCreateBuilder(HAMMER_MATERIAL).add(CompendiumItems.CRUDE_HAMMER.get());
-	
-	MetalItemTags.registerTags(this);
-	GemItemTags.registerTags(this);
-	ConstructionItemTags.registerTags(this);
-	CarpentryItemTags.registerTags(this);
-	
-	//add vanilla wood
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.OAK_PLANKS);
-	INamedTag<Item> OAK_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/oak");
-	getOrCreateBuilder(OAK_PLANKS_MATERIAL).add(Items.OAK_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.ACACIA_PLANKS);
-	INamedTag<Item> ACACIA_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/acacia");
-	getOrCreateBuilder(ACACIA_PLANKS_MATERIAL).add(Items.ACACIA_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.BIRCH_PLANKS);
-	INamedTag<Item> BIRCH_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/birch");
-	getOrCreateBuilder(BIRCH_PLANKS_MATERIAL).add(Items.BIRCH_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.CRIMSON_PLANKS);
-	INamedTag<Item> CRIMSON_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/crimson");
-	getOrCreateBuilder(CRIMSON_PLANKS_MATERIAL).add(Items.CRIMSON_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.DARK_OAK_PLANKS);
-	INamedTag<Item> DARK_OAK_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/dark_oak");
-	getOrCreateBuilder(DARK_OAK_PLANKS_MATERIAL).add(Items.DARK_OAK_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.JUNGLE_PLANKS);
-	INamedTag<Item> JUNGLE_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/jungle");
-	getOrCreateBuilder(JUNGLE_PLANKS_MATERIAL).add(Items.JUNGLE_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.SPRUCE_PLANKS);
-	INamedTag<Item> SPRUCE_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/spruce");
-	getOrCreateBuilder(SPRUCE_PLANKS_MATERIAL).add(Items.SPRUCE_PLANKS);
-	
-	getOrCreateBuilder(CompendiumTags.PLANK).add(Items.WARPED_PLANKS);
-	INamedTag<Item> WARPED_PLANKS_MATERIAL = TCItemTags.ItemTag("planks/warped");
-	getOrCreateBuilder(WARPED_PLANKS_MATERIAL).add(Items.WARPED_PLANKS);
-	
+	@Override
+	protected void addTags() {
+		for(MaterialHelper m : CompendiumMaterials.materials)
+		{
+			m.addItemTags(this);
+		}
+//
+//		this.tag(CompendiumTags.HAMMER).add(CompendiumItems.CRUDE_HAMMER.get());
+//		TagKey<Item> HAMMER_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "tools/hammers/crude"));
+//		this.tag(HAMMER_MATERIAL).add(CompendiumItems.CRUDE_HAMMER.get());
+//
+//		MetalItemTags.registerTags(this);
+//		GemItemTags.registerTags(this);
+//		ConstructionItemTags.registerTags(this);
+//		CarpentryItemTags.registerTags(this);
+//
+//		// add vanilla wood
+//		tag(CompendiumTags.PLANK).add(Items.OAK_PLANKS);
+//		TagKey<Item> OAK_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/oak"));
+//		tag(OAK_PLANKS_MATERIAL).add(Items.OAK_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.ACACIA_PLANKS);
+//		TagKey<Item> ACACIA_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/acacia"));
+//		tag(ACACIA_PLANKS_MATERIAL).add(Items.ACACIA_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.BIRCH_PLANKS);
+//		TagKey<Item> BIRCH_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/birch"));
+//		tag(BIRCH_PLANKS_MATERIAL).add(Items.BIRCH_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.CRIMSON_PLANKS);
+//		TagKey<Item> CRIMSON_PLANKS_MATERIAL = ItemTags
+//				.create(new ResourceLocation(Reference.MOD_ID, "planks/crimson"));
+//		tag(CRIMSON_PLANKS_MATERIAL).add(Items.CRIMSON_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.DARK_OAK_PLANKS);
+//		TagKey<Item> DARK_OAK_PLANKS_MATERIAL = ItemTags
+//				.create(new ResourceLocation(Reference.MOD_ID, "planks/dark_oak"));
+//		tag(DARK_OAK_PLANKS_MATERIAL).add(Items.DARK_OAK_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.JUNGLE_PLANKS);
+//		TagKey<Item> JUNGLE_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/jungle"));
+//		tag(JUNGLE_PLANKS_MATERIAL).add(Items.JUNGLE_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.SPRUCE_PLANKS);
+//		TagKey<Item> SPRUCE_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/spruce"));
+//		tag(SPRUCE_PLANKS_MATERIAL).add(Items.SPRUCE_PLANKS);
+//
+//		tag(CompendiumTags.PLANK).add(Items.WARPED_PLANKS);
+//		TagKey<Item> WARPED_PLANKS_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "planks/warped"));
+//		tag(WARPED_PLANKS_MATERIAL).add(Items.WARPED_PLANKS);
+
 //	for (MaterialHelper mh : CompendiumMaterials.materials) {
 //
 //	    // Premade Materials
@@ -81,77 +74,77 @@ public class TCItemTags extends ItemTagsProvider {
 //		PremadeMaterial mm = mh.getPremade();
 //
 //		if (mm.INGOT != null) {
-//		    getOrCreateBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
-//		    INamedTag<Item> INGOT_MATERIAL = ItemTag("ingots/" + mh.name);
-//		    getOrCreateBuilder(INGOT_MATERIAL).add(mm.INGOT.get());
+//		    tag(Tags.Items.INGOTS).add(mm.INGOT.get());
+//		    TagKey<Item> INGOT_MATERIAL = ItemTag("ingots/" + mh.name);
+//		    tag(INGOT_MATERIAL).add(mm.INGOT.get());
 //		}
 //
 //		if (mm.NUGGET != null) {
-//		    getOrCreateBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
-//		    INamedTag<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
-//		    getOrCreateBuilder(NUGGET_MATERIAL).add(mm.NUGGET.get());
+//		    tag(Tags.Items.NUGGETS).add(mm.NUGGET.get());
+//		    TagKey<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
+//		    tag(NUGGET_MATERIAL).add(mm.NUGGET.get());
 //		}
 //
 //		if (mm.STORAGE_ITEMBLOCK != null) {
-//		    getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
-//		    INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
-//		    getOrCreateBuilder(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
+//		    tag(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
+//		    TagKey<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
+//		    tag(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
 //		}
 //	    }
 //
 //	    // Meltable Materials
 //	    if (mh.getIngot() != null) {
 //		BasicMetalMaterial mm = mh.getIngot();
-//		getOrCreateBuilder(Tags.Items.INGOTS).add(mm.INGOT.get());
-//		getOrCreateBuilder(Tags.Items.NUGGETS).add(mm.NUGGET.get());
-//		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
+//		tag(Tags.Items.INGOTS).add(mm.INGOT.get());
+//		tag(Tags.Items.NUGGETS).add(mm.NUGGET.get());
+//		tag(Tags.Items.STORAGE_BLOCKS).add(mm.STORAGE_ITEMBLOCK.get());
 //
-//		INamedTag<Item> INGOT_MATERIAL = ItemTag("ingots/" + mh.name);
-//		INamedTag<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
-//		INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
+//		TagKey<Item> INGOT_MATERIAL = ItemTag("ingots/" + mh.name);
+//		TagKey<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
+//		TagKey<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
 //
-//		getOrCreateBuilder(INGOT_MATERIAL).add(mm.INGOT.get());
-//		getOrCreateBuilder(NUGGET_MATERIAL).add(mm.NUGGET.get());
-//		getOrCreateBuilder(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
+//		tag(INGOT_MATERIAL).add(mm.INGOT.get());
+//		tag(NUGGET_MATERIAL).add(mm.NUGGET.get());
+//		tag(BLOCK_MATERIAL).add(mm.STORAGE_ITEMBLOCK.get());
 //	    }
 //
 //	    // Craftable Materials
 //	    if (mh.getGem() != null) {
 //		BasicGemMaterial cm = mh.getGem();
-//		getOrCreateBuilder(Tags.Items.GEMS).add(cm.GEM.get());
-//		getOrCreateBuilder(Tags.Items.NUGGETS).add(cm.SHARD.get());
-//		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
+//		tag(Tags.Items.GEMS).add(cm.GEM.get());
+//		tag(Tags.Items.NUGGETS).add(cm.SHARD.get());
+//		tag(Tags.Items.STORAGE_BLOCKS).add(cm.STORAGE_ITEMBLOCK.get());
 //
-//		INamedTag<Item> INGOT_MATERIAL = ItemTag("gems/" + mh.name);
-//		INamedTag<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
-//		INamedTag<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
+//		TagKey<Item> INGOT_MATERIAL = ItemTag("gems/" + mh.name);
+//		TagKey<Item> NUGGET_MATERIAL = ItemTag("nuggets/" + mh.name);
+//		TagKey<Item> BLOCK_MATERIAL = ItemTag("storage_blocks/" + mh.name);
 //
-//		getOrCreateBuilder(INGOT_MATERIAL).add(cm.GEM.get());
-//		getOrCreateBuilder(NUGGET_MATERIAL).add(cm.SHARD.get());
-//		getOrCreateBuilder(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
+//		tag(INGOT_MATERIAL).add(cm.GEM.get());
+//		tag(NUGGET_MATERIAL).add(cm.SHARD.get());
+//		tag(BLOCK_MATERIAL).add(cm.STORAGE_ITEMBLOCK.get());
 //	    }
 //
 //	    // Extra Components
 //	    if (mh.getExtraComponents() != null) {
 //		MaterialExtraComponents ec = mh.getExtraComponents();
 //
-//		getOrCreateBuilder(CompendiumTags.COIN).add(ec.COIN.get());
-//		getOrCreateBuilder(CompendiumTags.DUST).add(ec.DUST.get());
-//		getOrCreateBuilder(CompendiumTags.GEAR).add(ec.GEAR.get());
-//		getOrCreateBuilder(CompendiumTags.PLATE).add(ec.PLATE.get());
-//		getOrCreateBuilder(CompendiumTags.ROD).add(ec.ROD.get());
+//		tag(CompendiumTags.COIN).add(ec.COIN.get());
+//		tag(CompendiumTags.DUST).add(ec.DUST.get());
+//		tag(CompendiumTags.GEAR).add(ec.GEAR.get());
+//		tag(CompendiumTags.PLATE).add(ec.PLATE.get());
+//		tag(CompendiumTags.ROD).add(ec.ROD.get());
 //
-//		INamedTag<Item> COIN_MATERIAL = ItemTag("coins/" + mh.name);
-//		INamedTag<Item> DUST_MATERIAL = ItemTag("dusts/" + mh.name);
-//		INamedTag<Item> GEAR_MATERIAL = ItemTag("gears/" + mh.name);
-//		INamedTag<Item> PLATE_MATERIAL = ItemTag("plates/" + mh.name);
-//		INamedTag<Item> ROD_MATERIAL = ItemTag("rods/" + mh.name);
+//		TagKey<Item> COIN_MATERIAL = ItemTag("coins/" + mh.name);
+//		TagKey<Item> DUST_MATERIAL = ItemTag("dusts/" + mh.name);
+//		TagKey<Item> GEAR_MATERIAL = ItemTag("gears/" + mh.name);
+//		TagKey<Item> PLATE_MATERIAL = ItemTag("plates/" + mh.name);
+//		TagKey<Item> ROD_MATERIAL = ItemTag("rods/" + mh.name);
 //
-//		getOrCreateBuilder(COIN_MATERIAL).add(ec.COIN.get());
-//		getOrCreateBuilder(DUST_MATERIAL).add(ec.DUST.get());
-//		getOrCreateBuilder(GEAR_MATERIAL).add(ec.GEAR.get());
-//		getOrCreateBuilder(PLATE_MATERIAL).add(ec.PLATE.get());
-//		getOrCreateBuilder(ROD_MATERIAL).add(ec.ROD.get());
+//		tag(COIN_MATERIAL).add(ec.COIN.get());
+//		tag(DUST_MATERIAL).add(ec.DUST.get());
+//		tag(GEAR_MATERIAL).add(ec.GEAR.get());
+//		tag(PLATE_MATERIAL).add(ec.PLATE.get());
+//		tag(ROD_MATERIAL).add(ec.ROD.get());
 //
 //	    }
 //
@@ -159,45 +152,42 @@ public class TCItemTags extends ItemTagsProvider {
 //	    if (mh.getAdvancedComponents() != null) {
 //		MaterialAdvancedExtraComponents ec = mh.getAdvancedComponents();
 //
-//		getOrCreateBuilder(CompendiumTags.CASING).add(ec.CASING.get());
-//		getOrCreateBuilder(CompendiumTags.COIL).add(ec.COIL.get());
-//		getOrCreateBuilder(CompendiumTags.SPRING).add(ec.SPRING.get());
-//		getOrCreateBuilder(CompendiumTags.WIRE).add(ec.WIRE.get());
+//		tag(CompendiumTags.CASING).add(ec.CASING.get());
+//		tag(CompendiumTags.COIL).add(ec.COIL.get());
+//		tag(CompendiumTags.SPRING).add(ec.SPRING.get());
+//		tag(CompendiumTags.WIRE).add(ec.WIRE.get());
 //
-//		INamedTag<Item> CASING_MATERIAL = ItemTag("casings/" + mh.name);
-//		INamedTag<Item> COIL_MATERIAL = ItemTag("coils/" + mh.name);
-//		INamedTag<Item> SPRING_MATERIAL = ItemTag("springs/" + mh.name);
-//		INamedTag<Item> WIRE_MATERIAL = ItemTag("wires/" + mh.name);
+//		TagKey<Item> CASING_MATERIAL = ItemTag("casings/" + mh.name);
+//		TagKey<Item> COIL_MATERIAL = ItemTag("coils/" + mh.name);
+//		TagKey<Item> SPRING_MATERIAL = ItemTag("springs/" + mh.name);
+//		TagKey<Item> WIRE_MATERIAL = ItemTag("wires/" + mh.name);
 //
-//		getOrCreateBuilder(CASING_MATERIAL).add(ec.CASING.get());
-//		getOrCreateBuilder(COIL_MATERIAL).add(ec.COIL.get());
-//		getOrCreateBuilder(SPRING_MATERIAL).add(ec.SPRING.get());
-//		getOrCreateBuilder(WIRE_MATERIAL).add(ec.WIRE.get());
+//		tag(CASING_MATERIAL).add(ec.CASING.get());
+//		tag(COIL_MATERIAL).add(ec.COIL.get());
+//		tag(SPRING_MATERIAL).add(ec.SPRING.get());
+//		tag(WIRE_MATERIAL).add(ec.WIRE.get());
 //	    }
 //	}
-    }
-    
-    
-
-    private static <T> ITag.INamedTag<T> getOrRegister(List<? extends ITag.INamedTag<T>> list,
-	    Function<ResourceLocation, ITag.INamedTag<T>> register, ResourceLocation loc) {
-	for (ITag.INamedTag<T> existing : list) {
-	    if (existing.getName().equals(loc)) {
-		return existing;
-	    }
 	}
 
-	return register.apply(loc);
-    }
-
-    public static ITag.INamedTag<Block> BlockTag(String name) {
-	return getOrRegister(BlockTags.getAllTags(), loc -> BlockTags.makeWrapperTag(loc.toString()),
-		new ResourceLocation("forge", name));
-    }
-
-    public static ITag.INamedTag<Item> ItemTag(String name) {
-	return getOrRegister(ItemTags.getAllTags(), loc -> ItemTags.makeWrapperTag(loc.toString()),
-		new ResourceLocation("forge", name));
-    }
+//	private static <T> TagKey<T> getOrRegister(List<? extends TagKey<T>> list,
+//			Function<ResourceLocation, TagKey<T>> register, ResourceLocation loc) {
+//		for (TagKey<T> existing : list) {
+//			if (existing.location().equals(loc)) {
+//				return existing;
+//			}
+//		}
+//
+//		return register.apply(loc);
+//	}
+//
+//	public static TagKey<Block> BlockTag(String name) {
+//		return getOrRegister(BlockTags.getWrappers(), loc -> BlockTags.makeWrapperTag(loc.toString()),
+//				new ResourceLocation("forge", name));
+//	}
+//
+//	public static TagKey<Item> ItemTag(String name) {
+//		return ItemTags.create(new ResourceLocation("forge", name));
+//	}
 
 }

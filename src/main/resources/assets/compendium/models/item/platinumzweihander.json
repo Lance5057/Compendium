@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/InteractionHandheld",
   "display": {
-    "firstperson_lefthand": {
+    "firstperson_leftInteractionHand": {
       "rotation": [
         90,
         0,
@@ -18,7 +18,7 @@
         1.5
       ]
     },
-    "firstperson_righthand": {
+    "firstperson_rightInteractionHand": {
       "rotation": [
         90,
         0,
@@ -35,7 +35,7 @@
         1.5
       ]
     },
-    "thirdperson_lefthand": {
+    "thirdperson_leftInteractionHand": {
       "rotation": [
         0,
         90,
@@ -52,7 +52,7 @@
         1.5
       ]
     },
-    "thirdperson_righthand": {
+    "thirdperson_rightInteractionHand": {
       "rotation": [
         0,
         90,
@@ -71,7 +71,7 @@
     }
   },
   "textures": {
-    "layer0": "compendium:item/material/platinum/platinumzweihander",
-    "layer1": "compendium:item/zweihander_base"
+    "layer0": "compendium:item/material/platinum/platinumzweiInteractionHander",
+    "layer1": "compendium:item/zweiInteractionHander_base"
   }
 }
