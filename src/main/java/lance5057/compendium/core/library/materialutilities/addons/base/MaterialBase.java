@@ -15,6 +15,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 public abstract class MaterialBase {
 
 	public abstract void setup(MaterialHelper helper);
+	public abstract void setupClient(MaterialHelper helper);
 
 	public abstract void registerBlockModels(TCBlockModels model, String name);
 

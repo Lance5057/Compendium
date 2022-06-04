@@ -22,7 +22,7 @@ public class TCEnglishLoc extends LanguageProvider {
 			m.addTranslations(this);
 		}
 		
-//		this.add("CreativeModeTab.compendium.materials", "Compendium Materials");
+		this.add("itemGroup.compendium.materials", "Compendium Materials");
 //		this.add("CreativeModeTab.compendium.workstations", "Compendium Workstations");
 //
 //		this.add(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK.get(), "Crafting Anvil");

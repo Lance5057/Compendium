@@ -103,4 +103,10 @@ public class MaterialVanillaTools extends MaterialBase {
 
 	}
 
+	@Override
+	public void setupClient(MaterialHelper helper) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

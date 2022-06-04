@@ -107,4 +107,10 @@ public class MaterialMetal extends MaterialBase {
 //				.addCriterion(name + "storage_block", RecipeProvider.hasItem(TCItemTags.ItemTag("ingots/" + name)))
 //				.build(consumer, new ResourceLocation(Reference.MOD_ID, name + "_storage_block_from_ingots"));
 	}
+
+	@Override
+	public void setupClient(MaterialHelper helper) {
+		// TODO Auto-generated method stub
+		
+	}
 }

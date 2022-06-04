@@ -13,6 +13,7 @@ import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.loottables.TCBlockLoot;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialAdvancedTools;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialVanillaTools;
@@ -53,9 +54,14 @@ public class MaterialHelper {
 		addons.add(new MaterialMetal());
 		return this;
 	}
-	
+
 	public MaterialHelper addVanillaTools() {
 		addons.add(new MaterialVanillaTools());
+		return this;
+	}
+
+	public MaterialHelper addAdvancedTools() {
+		addons.add(new MaterialAdvancedTools());
 		return this;
 	}
 //	public void setBase() {
@@ -92,7 +98,7 @@ public class MaterialHelper {
 
 	public void addTranslations(TCEnglishLoc tcEnglishLoc) {
 		for (MaterialBase mb : addons)
-			mb.addTranslations(tcEnglishLoc, name.substring(0,1).toUpperCase() + name.substring(1));
+			mb.addTranslations(tcEnglishLoc, name.substring(0, 1).toUpperCase() + name.substring(1));
 	}
 
 	public void addItemTags(TCItemTags tags) {

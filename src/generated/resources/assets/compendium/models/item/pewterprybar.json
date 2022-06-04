@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "compendium:item/material/pewter/pewterprybar",
+    "layer1": "compendium:item/prybarbase"
+  }
+}

@@ -18,9 +18,9 @@ public class IndexBaseMetals {
 	// ArrayList<List<MaterialHelperBase>>();
 
 	public static Tier ALUMINIUM_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 80, 10f, 1f, 15, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 80, 10f, 1f, 15, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/aluminium")))),
-			new ResourceLocation("compendium:tier_aluminium"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_aluminium"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial ALUMINIUM_ARMOR_TIER = new CompendiumArmorTier("aluminium", 15,
 //			new int[] { 2, 5, 6, 2 }, 18, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/aluminium"));
@@ -29,7 +29,7 @@ public class IndexBaseMetals {
 	public static Tier BRASS_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 300, 5f, 1.5f, 16, BlockTags.NEEDS_STONE_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/brass")))),
-			new ResourceLocation("compendium:tier_brass"), List.of(Tiers.STONE), List.of(Tiers.STONE));
+			new ResourceLocation("compendium:tier_brass"), List.of(Tiers.STONE), List.of(Tiers.IRON));
 //	public static IArmorMaterial BRASS_ARMOR_TIER = new CompendiumArmorTier("brass", 13, new int[] { 2, 6, 4, 3 }, 27,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/brass"));
@@ -38,7 +38,7 @@ public class IndexBaseMetals {
 	public static Tier BRONZE_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(2, 260, 7, 2.5f, 18, BlockTags.NEEDS_IRON_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))),
-			new ResourceLocation("compendium:tier_bronze"), List.of(Tiers.IRON), List.of(Tiers.IRON));
+			new ResourceLocation("compendium:tier_bronze"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
 //	public static IArmorMaterial BRONZE_ARMOR_TIER = new CompendiumArmorTier("bronze", 17, new int[] { 2, 7, 5, 3 }, 25,
 //			SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/bronze"));
@@ -47,16 +47,16 @@ public class IndexBaseMetals {
 	public static Tier COPPER_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 180, 8, 1, 16, BlockTags.NEEDS_STONE_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/copper")))),
-			new ResourceLocation("compendium:tier_copper"), List.of(Tiers.STONE), List.of(Tiers.STONE));
+			new ResourceLocation("compendium:tier_copper"), List.of(Tiers.STONE), List.of(Tiers.IRON));
 //	public static IArmorMaterial COPPER_ARMOR_TIER = new CompendiumArmorTier("copper", 13, new int[] { 1, 5, 4, 2 }, 20,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/copper"));
 //			});
 //
 	public static Tier ELECTRUM_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 180, 13f, 1, 31, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 180, 13f, 1, 31, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/electrum")))),
-			new ResourceLocation("compendium:tier_electrum"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_electrum"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial ELECTRUM_ARMOR_TIER = new CompendiumArmorTier("electrum", 9, new int[] { 3, 7, 4, 2 },
 //			36, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 1.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/electrum"));
@@ -65,7 +65,7 @@ public class IndexBaseMetals {
 	public static Tier NICKEL_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 250, 2, 0.5f, 15, BlockTags.NEEDS_IRON_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/nickel")))),
-			new ResourceLocation("compendium:tier_nickel"), List.of(Tiers.IRON), List.of(Tiers.IRON));
+			new ResourceLocation("compendium:tier_nickel"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
 //	public static IArmorMaterial NICKEL_ARMOR_TIER = new CompendiumArmorTier("nickel", 16, new int[] { 2, 6, 5, 2 }, 21,
 //			SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/nickel"));
@@ -74,16 +74,16 @@ public class IndexBaseMetals {
 	public static Tier STEEL_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(2, 500, 11, 2, 30, BlockTags.NEEDS_DIAMOND_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/steel")))),
-			new ResourceLocation("compendium:tier_steel"), List.of(Tiers.DIAMOND), List.of(Tiers.DIAMOND));
+			new ResourceLocation("compendium:tier_steel"), List.of(Tiers.DIAMOND), List.of(Tiers.NETHERITE));
 //	public static IArmorMaterial STEEL_ARMOR_TIER = new CompendiumArmorTier("steel", 35, new int[] { 3, 8, 6, 3 }, 10,
 //			SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/steel"));
 //			});
 //
 	public static Tier TIN_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 60, 1, 0, 10, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 60, 1, 0, 10, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin")))),
-			new ResourceLocation("compendium:tier_tin"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_tin"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial TIN_ARMOR_TIER = new CompendiumArmorTier("tin", 11, new int[] { 1, 3, 2, 1 }, 5,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/tin"));
@@ -92,7 +92,7 @@ public class IndexBaseMetals {
 	public static Tier PEWTER_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 220, 6, 2, 16, BlockTags.NEEDS_STONE_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/pewter")))),
-			new ResourceLocation("compendium:tier_pewter"), List.of(Tiers.STONE), List.of(Tiers.STONE));
+			new ResourceLocation("compendium:tier_pewter"), List.of(Tiers.STONE), List.of(Tiers.IRON));
 //	public static IArmorMaterial PEWTER_ARMOR_TIER = new CompendiumArmorTier("pewter", 11, new int[] { 2, 7, 6, 3 }, 9,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/pewter"));
@@ -101,34 +101,34 @@ public class IndexBaseMetals {
 	public static Tier ZINC_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 120, 1.5f, 0.5f, 18, BlockTags.NEEDS_STONE_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/zinc")))),
-			new ResourceLocation("compendium:tier_zinc"), List.of(Tiers.STONE), List.of(Tiers.STONE));
+			new ResourceLocation("compendium:tier_zinc"), List.of(Tiers.STONE), List.of(Tiers.IRON));
 //	public static IArmorMaterial ZINC_ARMOR_TIER = new CompendiumArmorTier("zinc", 10, new int[] { 1, 3, 2, 1 }, 7,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/pewter"));
 //			});
 //
 	public static Tier ROSEGOLD_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 190, 11, 2, 30, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 190, 11, 2, 30, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/rosegold")))),
-			new ResourceLocation("compendium:tier_rosegold"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_rosegold"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial ROSEGOLD_ARMOR_TIER = new CompendiumArmorTier("rosegold", 11, new int[] { 3, 6, 5, 2 },
 //			35, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/rosegold"));
 //			});
 //
 	public static Tier PLATINUM_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 113, 12, 1, 28, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 113, 12, 1, 28, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/platinum")))),
-			new ResourceLocation("compendium:tier_platinum"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_platinum"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial PLATINUM_ARMOR_TIER = new CompendiumArmorTier("platinum", 10, new int[] { 2, 6, 5, 2 },
 //			25, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/platinum"));
 //			});
 //
 	public static Tier SILVER_TIER = TierSortingRegistry.registerTier(
-			new ForgeTier(0, 141, 6, 1, 18, BlockTags.MINEABLE_WITH_PICKAXE,
+			new ForgeTier(0, 141, 6, 1, 18, null,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/silver")))),
-			new ResourceLocation("compendium:tier_silver"), List.of(Tiers.WOOD), List.of(Tiers.WOOD));
+			new ResourceLocation("compendium:tier_silver"), List.of(Tiers.WOOD), List.of(Tiers.STONE));
 //	public static IArmorMaterial SILVER_ARMOR_TIER = new CompendiumArmorTier("silver", 10, new int[] { 2, 5, 3, 1 }, 23,
 //			SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/silver"));
@@ -137,7 +137,7 @@ public class IndexBaseMetals {
 	public static Tier LEAD_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(1, 100, 1, 2, 3, BlockTags.NEEDS_STONE_TOOL,
 					() -> Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/lead")))),
-			new ResourceLocation("compendium:tier_lead"), List.of(Tiers.STONE), List.of(Tiers.STONE));
+			new ResourceLocation("compendium:tier_lead"), List.of(Tiers.STONE), List.of(Tiers.IRON));
 //	public static IArmorMaterial LEAD_ARMOR_TIER = new CompendiumArmorTier("lead", 15, new int[] { 2, 6, 5, 2 }, 4,
 //			SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 2.0F, () -> {
 //				return Ingredient.of(TCItemTags.ItemTag("ingots/lead"));
@@ -145,24 +145,34 @@ public class IndexBaseMetals {
 
 	public IndexBaseMetals() {
 		// ALUMINIUM ------------------------------------------------------//
+		CompendiumMaterials.materials.add(
+				new MaterialHelper("aluminium", ALUMINIUM_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
 		CompendiumMaterials.materials
-				.add(new MaterialHelper("aluminium", ALUMINIUM_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("brass", BRASS_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("bronze", BRONZE_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("copper", COPPER_TIER).addMetalBase().addVanillaTools());
+				.add(new MaterialHelper("brass", BRASS_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
 		CompendiumMaterials.materials
-				.add(new MaterialHelper("electrum", ELECTRUM_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("nickel", NICKEL_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("steel", STEEL_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("tin", TIN_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("zinc", ZINC_TIER).addMetalBase().addVanillaTools());
+				.add(new MaterialHelper("bronze", BRONZE_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
 		CompendiumMaterials.materials
-				.add(new MaterialHelper("rosegold", ROSEGOLD_TIER).addMetalBase().addVanillaTools());
+				.add(new MaterialHelper("copper", COPPER_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
 		CompendiumMaterials.materials
-				.add(new MaterialHelper("platinum", PLATINUM_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("silver", SILVER_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("pewter", PEWTER_TIER).addMetalBase().addVanillaTools());
-		CompendiumMaterials.materials.add(new MaterialHelper("lead", LEAD_TIER).addMetalBase().addVanillaTools());
+				.add(new MaterialHelper("electrum", ELECTRUM_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("nickel", NICKEL_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("steel", STEEL_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("tin", TIN_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("zinc", ZINC_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("rosegold", ROSEGOLD_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("platinum", PLATINUM_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("silver", SILVER_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("pewter", PEWTER_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
+		CompendiumMaterials.materials
+				.add(new MaterialHelper("lead", LEAD_TIER).addMetalBase().addVanillaTools().addAdvancedTools());
 //		
 //		MetallurgyMaterialHelper aluminium = new MetallurgyMaterialHelper("aluminium", IndexBaseMetals.ALUMINIUM_TIER)
 //				.withBase().withVanillaTools().withComponents().withAdvancedTools().withDefense(ALUMINIUM_ARMOR_TIER);

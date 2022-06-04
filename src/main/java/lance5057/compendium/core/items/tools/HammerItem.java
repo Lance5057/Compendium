@@ -1,87 +1,68 @@
-//package lance5057.compendium.core.items.tools;
-//
-//import java.util.List;
-//import java.util.Map.Entry;
-//import java.util.Optional;
-//import java.util.stream.Collectors;
-//
-//import lance5057.compendium.CompendiumItems;
-//import lance5057.compendium.core.items.HandedAbilityTool;
-//import lance5057.compendium.core.recipes.HammerHandedToolRecipe;
-//import lance5057.compendium.core.recipes.HandedToolWrapper;
-//import lance5057.compendium.core.util.ToolUtil;
-//import net.minecraft.core.BlockPos;
-//import net.minecraft.core.particles.ItemParticleOption;
-//import net.minecraft.core.particles.ParticleTypes;
-//import net.minecraft.sounds.SoundEvents;
-//import net.minecraft.sounds.SoundSource;
-//import net.minecraft.tags.BlockTags;
-//import net.minecraft.world.Containers;
-//import net.minecraft.world.InteractionResult;
-//import net.minecraft.world.entity.player.Player;
-//import net.minecraft.world.item.BlockItem;
-//import net.minecraft.world.item.Item;
-//import net.minecraft.world.item.ItemStack;
-//import net.minecraft.world.item.Tier;
-//import net.minecraft.world.item.context.UseOnContext;
-//import net.minecraft.world.item.enchantment.EnchantmentHelper;
-//import net.minecraft.world.item.enchantment.Enchantments;
-//import net.minecraft.world.level.Level;
-//import net.minecraft.world.level.block.Blocks;
-//import net.minecraft.world.level.block.state.BlockState;
-//import net.minecraft.world.level.block.state.properties.Property;
-//import net.minecraft.world.level.material.Material;
-//import net.minecraft.world.phys.AABB;
-//
-//public class HammerItem extends HandedAbilityTool {
-//
-//	public HammerItem(Tier tier, int attackDamageIn, float attackSpeedIn, Item.Properties builder) {
-//		super((float) attackDamageIn, attackSpeedIn, tier, BlockTags.MINEABLE_WITH_PICKAXE, builder);
-//	}
-//
-//	/**
-//	 * Check whether this Item can harvest the given Block
-//	 */
-////	@Override
-////	public boolean isCorrectToolForDrops(BlockState blockIn) {
-////		int i = this.getTier().getLevel();
-////		if (blockIn.tag == ToolType.PICKAXE) {
-////			return i >= blockIn.getLevel();
-////		}
-////		Material material = blockIn.getMaterial();
-////		return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
-////	}
-//
-//	public float getDestroySpeed(ItemStack stack, BlockState state) {
-//		Material material = state.getMaterial();
-//		return material != Material.METAL && material != Material.HEAVY_METAL && material != Material.STONE
-//				? super.getDestroySpeed(stack, state)
-//				: this.speed;
-//	}
-//
+package lance5057.compendium.core.items.tools;
+
+import lance5057.compendium.core.items.HandedAbilityTool;
+import lance5057.compendium.core.util.ToolUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+
+public class HammerItem extends HandedAbilityTool {
+
+	public HammerItem(Tier tier, int attackDamageIn, float attackSpeedIn, Item.Properties builder) {
+		super((float) attackDamageIn, attackSpeedIn, tier, BlockTags.MINEABLE_WITH_PICKAXE, builder);
+	}
+
+	/**
+	 * Check whether this Item can harvest the given Block
+	 */
 //	@Override
-//	public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
-//		int radius = 1;
-//		if (player.isCrouching()) {
-//			radius = 0;
+//	public boolean isCorrectToolForDrops(BlockState blockIn) {
+//		int i = this.getTier().getLevel();
+//		if (blockIn.tag == ToolType.PICKAXE) {
+//			return i >= blockIn.getLevel();
 //		}
-//
-//		// float originHardness = level.getBlockState(pos).getBlockHardness(null, null);
-//
-//		// only do a 3x3 break if the player's tool is effective on the block they are
-//		// breaking
-//		// this makes it so breaking gravel doesn't break nearby stone
-//		if (player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
-//			ToolUtil.breakInRadius(level, player, radius);
-//		}
-//
-//		return true;
+//		Material material = blockIn.getMaterial();
+//		return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
 //	}
-//
-//	BlockState to;
-//
-//	@Override
-//	protected InteractionResult mainInteractionHandAbility(UseOnContext context) {
+
+	public float getDestroySpeed(ItemStack stack, BlockState state) {
+		Material material = state.getMaterial();
+		return material != Material.METAL && material != Material.HEAVY_METAL && material != Material.STONE
+				? super.getDestroySpeed(stack, state)
+				: this.speed;
+	}
+
+	@Override
+	public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
+		int radius = 1;
+		if (player.isCrouching()) {
+			radius = 0;
+		}
+
+		// float originHardness = level.getBlockState(pos).getBlockHardness(null, null);
+
+		// only do a 3x3 break if the player's tool is effective on the block they are
+		// breaking
+		// this makes it so breaking gravel doesn't break nearby stone
+		if (player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
+			ToolUtil.breakInRadius(level, player, radius);
+		}
+
+		return true;
+	}
+
+	BlockState to;
+
+	@Override
+	protected InteractionResult mainInteractionHandAbility(UseOnContext context) {
 //		HammerHandedToolRecipe recipe = this.matchRecipe(context);
 //
 //		if (recipe != null) {
@@ -114,16 +95,15 @@
 //				return InteractionResult.sidedSuccess(level.isClientSide());
 //			}
 //		}
-//		return InteractionResult.FAIL;
-//	}
-//
-//	// Make megalith stone
-//	@Override
-//	protected InteractionResult offInteractionHandAbility(UseOnContext context) {
-//
+		return InteractionResult.FAIL;
+	}
+
+	// Make megalith stone
+	@Override
+	protected InteractionResult offInteractionHandAbility(UseOnContext context) {
+
 //		Level level = context.getLevel();
 //
-//		// if (!level.isRemote) {
 //		BlockPos pos = context.getClickedPos().immutable();
 //		BlockState bs = level.getBlockState(pos);
 //		AABB aabb = new AABB(pos.above(1).north(1).east(1).relative(context.getClickedFace(), -1),
@@ -154,11 +134,10 @@
 //
 //			return InteractionResult.SUCCESS;
 //		}
-//		// }
-//
-//		return InteractionResult.FAIL;
-//	}
-//
+
+		return InteractionResult.FAIL;
+	}
+
 //	private HammerHandedToolRecipe matchRecipe(UseOnContext context) {
 //		Level level = context.getLevel();
 //		BlockState bs = context.getLevel().getBlockState(context.getClickedPos());
@@ -175,4 +154,4 @@
 //		}
 //		return null;
 //	}
-//}
+}
