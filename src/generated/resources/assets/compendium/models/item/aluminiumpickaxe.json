@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "compendium:item/material/aluminium/aluminiumpickaxe",
+    "layer1": "compendium:item/pickaxebase"
+  }
+}

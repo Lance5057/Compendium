@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import javax.annotation.Nullable;
+
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCBlockTags;
 import lance5057.compendium.core.data.builders.TCEnglishLoc;
@@ -13,28 +15,29 @@ import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.loottables.TCBlockLoot;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialVanillaTools;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.ForgeTier;
 
 public class MaterialHelper {
 
 	public String name;
-	public String type;
 
-	public ForgeTier tier;
+	public Tier tier;
 
 	ItemLike definingItem;
 
 	public List<MaterialBase> addons;
 
-	public MaterialHelper(String name, String type) {
-		this.name = name;
-		this.type = type;
-	}
+//	public MaterialHelper(String name, String type) {
+//		this.name = name;
+//		this.type = type;
+//	}
 
-	public MaterialHelper(String name) {
+	public MaterialHelper(String name, @Nullable Tier tier) {
 		this.name = name;
+		this.tier = tier;
 		addons = new ArrayList<MaterialBase>();
 	}
 
@@ -48,6 +51,11 @@ public class MaterialHelper {
 
 	public MaterialHelper addMetalBase() {
 		addons.add(new MaterialMetal());
+		return this;
+	}
+	
+	public MaterialHelper addVanillaTools() {
+		addons.add(new MaterialVanillaTools());
 		return this;
 	}
 //	public void setBase() {

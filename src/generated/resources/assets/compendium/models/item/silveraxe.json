@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "compendium:item/material/silver/silveraxe",
+    "layer1": "compendium:item/axebase"
+  }
+}
