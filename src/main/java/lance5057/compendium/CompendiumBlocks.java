@@ -1,5 +1,6 @@
 package lance5057.compendium;
 
+import lance5057.compendium.core.workstations.blocks.CraftingAnvilBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
@@ -15,8 +16,8 @@ public class CompendiumBlocks {
 
 //    public static final RegistryObject<HammeringStationBlock> HAMMERING_STATION = BLOCKS.register("hammering_station",
 //	    () -> new HammeringStationBlock());
-//    public static final RegistryObject<CraftingAnvilBlock> CRAFTING_ANVIL = BLOCKS.register("crafting_anvil",
-//	    () -> new CraftingAnvilBlock());
+	public static final RegistryObject<CraftingAnvilBlock> CRAFTING_ANVIL = BLOCKS.register("crafting_anvil",
+			() -> new CraftingAnvilBlock());
 //    public static final RegistryObject<SawhorseStationBlock> SAWHORSE_STATION = BLOCKS.register("sawhorse_station",
 //	    () -> new SawhorseStationBlock());
 //    public static final RegistryObject<ScrappingTableBlock> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",

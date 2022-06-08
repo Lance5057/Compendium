@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.indexes.CompendiumIndexes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -67,13 +68,13 @@ public class Compendium {
 		CompendiumItems.register(modEventBus);
 		CompendiumBlocks.register(modEventBus);
 //		CompendiumEntities.register(modEventBus);
-//		CompendiumTileEntities.register(modEventBus);
-//		CompendiumContainers.register(modEventBus);
+		CompendiumTileEntities.register(modEventBus);
+		CompendiumContainers.register(modEventBus);
 		// CompendiumStructures.register(modEventBus);
 //		CompendiumRecipes.register(modEventBus);
 //		CompendiumFeatures.register(modEventBus);
 //
-//		WorkstationRecipes.register(modEventBus);
+		WorkstationRecipes.register(modEventBus);
 
 //		MinecraftForge.EVENT_BUS.register(worldgen);
 

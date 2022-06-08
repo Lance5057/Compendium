@@ -1,3 +1,5 @@
+
+
 package lance5057.compendium.core.items.tools;
 
 import lance5057.compendium.core.items.HandedAbilityTool;
@@ -53,7 +55,7 @@ public class HammerItem extends HandedAbilityTool {
 		// breaking
 		// this makes it so breaking gravel doesn't break nearby stone
 		if (player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
-			ToolUtil.breakInRadius(level, player, radius);
+			ToolUtil.breakInRadius(level, player, radius, pos);
 		}
 
 		return true;

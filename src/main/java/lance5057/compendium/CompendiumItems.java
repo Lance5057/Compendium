@@ -1,5 +1,6 @@
 package lance5057.compendium;
 
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -7,6 +8,7 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class CompendiumItems {
 
@@ -22,12 +24,12 @@ public class CompendiumItems {
 //			return new ItemStack(BARK.get());
 //		}
 //	};
-//	public static final CreativeModeTab GROUP_WORKSTATIONS = new CreativeModeTab("compendium.workstations") {
-//		@Override
-//		public ItemStack makeIcon() {
-//			return new ItemStack(CRAFTING_ANVIL_ITEMBLOCK.get());
-//		}
-//	};
+	public static final CreativeModeTab GROUP_WORKSTATIONS = new CreativeModeTab("compendium.workstations") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(CRAFTING_ANVIL_ITEMBLOCK.get());
+		}
+	};
 
 //	public static Item book = new Item(new Item.Properties().tab(GROUP_MATERIALS));
 
@@ -39,9 +41,9 @@ public class CompendiumItems {
 //	public static final RegistryObject<BlockItem> SAWHORSE_STATION_ITEMBLOCK = ITEMS
 //			.register("sawhorse_station_itemblock", () -> new BlockItem(CompendiumBlocks.SAWHORSE_STATION.get(),
 //					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
-//	public static final RegistryObject<BlockItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS.register("crafting_anvil_itemblock",
-//			() -> new BlockItem(CompendiumBlocks.CRAFTING_ANVIL.get(),
-//					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS.register("crafting_anvil_itemblock",
+			() -> new BlockItem(CompendiumBlocks.CRAFTING_ANVIL.get(),
+					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 //	public static final RegistryObject<BlockItem> SCRAPPING_TABLE_ITEMBLOCK = ITEMS
 //			.register("scrapping_table_itemblock", () -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(),
 //					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
