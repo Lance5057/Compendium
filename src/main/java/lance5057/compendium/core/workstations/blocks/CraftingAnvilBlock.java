@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,7 +33,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.network.NetworkHooks;
 
-public class CraftingAnvilBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+public class CraftingAnvilBlock extends Block implements EntityBlock ,SimpleWaterloggedBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -83,7 +83,7 @@ public class CraftingAnvilBlock extends BaseEntityBlock implements SimpleWaterlo
 //			if (this.hasTileEntity(defaultBlockState())) {
 			else {
 				if (!(player instanceof ServerPlayer))
-					return InteractionResult.FAIL;
+					return InteractionResult.FAIL; 
 				ServerPlayer serverPlayer = (ServerPlayer) player;
 				NetworkHooks.openGui(serverPlayer, te, pos);
 			}

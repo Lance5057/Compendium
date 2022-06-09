@@ -1,9 +1,11 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -25,7 +27,8 @@ public class TCEnglishLoc extends LanguageProvider {
 		this.add("itemGroup.compendium.materials", "Compendium Materials");
 //		this.add("CreativeModeTab.compendium.workstations", "Compendium Workstations");
 //
-//		this.add(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK.get(), "Crafting Anvil");
+		this.add(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK.get(), "Crafting Anvil");
+		this.add(CraftingAnvilTE.SCREEN_TITLE, "Crafting Anvil");
 //		this.add(CompendiumItems.HAMMERING_STATION_ITEMBLOCK.get(), "Hammering Station");
 //		this.add(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK.get(), "Sawbuck");
 //

@@ -28,7 +28,7 @@ public class CraftingAnvilScreen extends AbstractContainerScreen<CraftingAnvilCo
 	@Override
 	protected void renderBg(PoseStack matrixStack, float partialTicks, int x, int y) {
 		RenderSystem.clearColor(1.0F, 1.0F, 1.0F, 1.0F);
-		this.minecraft.getTextureManager().bindForSetup(BACKGROUND_TEXTURE);
+		RenderSystem.setShaderTexture(0, BACKGROUND_TEXTURE);
 
 		int edgeSpacingX = (this.width - this.getXSize()) / 2;
 		int edgeSpacingY = (this.height - this.imageHeight) / 2;

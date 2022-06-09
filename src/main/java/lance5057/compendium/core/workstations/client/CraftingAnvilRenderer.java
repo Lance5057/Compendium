@@ -51,17 +51,15 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 					yoff += 0.12f;
 				ItemStack item = r.getStackInSlot(i);
 
-				if (item != null) { //wtf
-					if (!item.isEmpty()) {
-						matrixStackIn.pushPose();
-						matrixStackIn.translate(xoff + 0.26f, 1, yoff + 0.16);
-						matrixStackIn.mulPose(new Quaternion(-90, 0, 0, true));
-						float uniscale = 0.2f;
-						matrixStackIn.scale(uniscale, uniscale, uniscale);
+				if (!item.isEmpty()) {
+					matrixStackIn.pushPose();
+					matrixStackIn.translate(xoff + 0.26f, 1, yoff + 0.16);
+					matrixStackIn.mulPose(new Quaternion(-90, 0, 0, true));
+					float uniscale = 0.2f;
+					matrixStackIn.scale(uniscale, uniscale, uniscale);
 //					itemRenderer.render(item, ItemTransforms.TransformType.GROUND, combinedLightIn,
 //							combinedOverlayIn, matrixStackIn, bufferIn);
-						matrixStackIn.popPose();
-					}
+					matrixStackIn.popPose();
 				}
 			}
 

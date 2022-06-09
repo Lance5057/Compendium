@@ -12,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +27,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe> implements MenuProvider {
+	public static final String SCREEN_TITLE = "screen.workstations.craftinganvil";
 //    private final LazyOptional<IItemInteractionHandlerModifiable> InteractionHandler = LazyOptional.of(this::createInteractionHandler);
 	private ItemStack ghostStack = ItemStack.EMPTY;
 
@@ -377,47 +379,6 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 					}
 				}
 			}
-
-			@Override
-			public int getSlots() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public ItemStack getStackInSlot(int slot) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ItemStack extractItem(int slot, int amount, boolean simulate) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int getSlotLimit(int slot) {
-				return this.getStackInSlot(slot).getMaxStackSize();
-			}
-
-			@Override
-			public boolean isItemValid(int slot, ItemStack stack) {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public void setStackInSlot(int slot, ItemStack stack) {
-				// TODO Auto-generated method stub
-
-			}
 		};
 	}
 
@@ -469,12 +430,12 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 
 	@Override
 	public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-		return new CraftingAnvilContainer(id, inv, null);
+		return new CraftingAnvilContainer(id, this.worldPosition, inv, player);
 	}
 
 	@Override
 	public Component getDisplayName() {
 		// TODO Auto-generated method stub
-		return null;
+		return new TranslatableComponent(SCREEN_TITLE);
 	}
 }

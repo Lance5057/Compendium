@@ -11,6 +11,7 @@ import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -20,40 +21,86 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class CraftingAnvilContainer extends AbstractContainerMenu {
 	// private final CraftingInventory craftMatrix = new CraftingInventory(this, 5,
 	// 5);
 	// private final CraftResultInventory craftResult = new CraftResultInventory();
+	private BlockEntity blockEntity;
 	private final Level world;
 	private final Player player;
-	private ItemStackHandler inv;
+	// private ItemStackHandler inv;
 
 	private Slot output;
 	private Slot view;
 
 	public NonNullList<RecipeItemUse> toolList;
 
-	public static CraftingAnvilContainer createContainerServerSide(int windowID, Inventory playerInventory,
-			ItemStackHandler inv) {
-		return new CraftingAnvilContainer(windowID, playerInventory, inv);
-	}
+//	public static CraftingAnvilContainer createContainerServerSide(int windowID, Inventory playerInventory,
+//			ItemStackHandler inv) {
+//		return new CraftingAnvilContainer(windowID, playerInventory, inv);
+//	}
+//
+//	public static CraftingAnvilContainer createContainerClientSide(int windowID, Inventory playerInventory,
+//			net.minecraft.network.FriendlyByteBuf extraData) {
+//
+//		return new CraftingAnvilContainer(windowID, playerInventory, new ItemStackHandler(27));
+//	}
 
-	public static CraftingAnvilContainer createContainerClientSide(int windowID, Inventory playerInventory,
-			net.minecraft.network.FriendlyByteBuf extraData) {
-
-		return new CraftingAnvilContainer(windowID, playerInventory, new ItemStackHandler(27));
-	}
-
-	public CraftingAnvilContainer(int id, Inventory playerInventory, ItemStackHandler inv) {
-		super(CompendiumContainers.CRAFTING_ANVIL_CONTAINER.get(), id);
+	public CraftingAnvilContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
+		super(CompendiumContainers.CRAFTING_ANVIL_CONTAINER.get(), windowId);
+		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
 		this.player = playerInventory.player;
 		this.world = playerInventory.player.level;
-		this.inv = inv;
+
+		if (blockEntity != null) {
+			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+				this.addSlot(new SlotItemHandler(h, 25, 143, 22) {
+
+					@Override
+					public void setChanged() {
+						super.setChanged();
+
+						CraftingAnvilContainer.this
+								.slotsChanged(new WorkstationRecipeWrapper(5, 5, (IItemHandlerModifiable) h));
+					}
+				});
+
+				output = this.addSlot(new SlotItemHandler(h, 26, 143, 70) {
+					@Override
+					public void onTake(Player thePlayer, ItemStack stack) {
+						CraftingAnvilContainer.this.clear();
+					}
+
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return false;
+					}
+				});
+
+				for (int i = 0; i < 5; ++i) {
+					for (int j = 0; j < 5; ++j) {
+						this.addSlot(new SlotItemHandler(h, j + i * 5, 13 + j * 18, 8 + i * 18) {
+
+							@Override
+							public void setChanged() {
+								super.setChanged();
+
+								CraftingAnvilContainer.this
+										.slotsChanged(new WorkstationRecipeWrapper(5, 5, (IItemHandlerModifiable) h));
+							}
+						});
+					}
+				}
+			});
+		}
+
 		toolList = NonNullList.create();
 		view = this.addSlot(new Slot(new SimpleContainer(1), 0, 143, 44) {
 			@Override
@@ -72,42 +119,6 @@ public class CraftingAnvilContainer extends AbstractContainerMenu {
 				return false;
 			}
 		});
-
-		this.addSlot(new SlotItemHandler(this.inv, 25, 143, 22) {
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-
-				CraftingAnvilContainer.this.slotsChanged(new WorkstationRecipeWrapper(5, 5, inv));
-			}
-		});
-
-		output = this.addSlot(new SlotItemHandler(this.inv, 26, 143, 70) {
-			@Override
-			public void onTake(Player thePlayer, ItemStack stack) {
-				CraftingAnvilContainer.this.clear();
-			}
-
-			@Override
-			public boolean mayPlace(@Nonnull ItemStack stack) {
-				return false;
-			}
-		});
-
-		for (int i = 0; i < 5; ++i) {
-			for (int j = 0; j < 5; ++j) {
-				this.addSlot(new SlotItemHandler(this.inv, j + i * 5, 13 + j * 18, 8 + i * 18) {
-
-					@Override
-					public void setChanged() {
-						super.setChanged();
-
-						CraftingAnvilContainer.this.slotsChanged(new WorkstationRecipeWrapper(5, 5, inv));
-					}
-				});
-			}
-		}
 
 		for (int k = 0; k < 3; ++k) {
 			for (int i1 = 0; i1 < 9; ++i1) {

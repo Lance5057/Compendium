@@ -6,10 +6,16 @@ import javax.annotation.Nonnull;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumMaterials;
+import lance5057.compendium.Reference;
+import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
+import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class TCRecipes extends RecipeProvider {
 
@@ -20,11 +26,15 @@ public class TCRecipes extends RecipeProvider {
 
 	@Override
 	protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
-		
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
+
+		for (MaterialHelper m : CompendiumMaterials.materials) {
 			m.addRecipes(this, consumer);
 		}
+
+		AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_INGOT, 1).key('s', Items.STICK).pattern("sssss").pattern("s   s")
+				.pattern("sssss").addCriterion("stupid_ingot", RecipeProvider.has(Items.STICK))
+				.tool(Ingredient.of(Items.STONE), 16, true)
+				.build(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //

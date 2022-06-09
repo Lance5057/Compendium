@@ -3,17 +3,18 @@ package lance5057.compendium.core.util.recipes;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class WorkstationRecipeWrapper implements Container {
 	protected final int width, height;
-	protected final IItemHandlerModifiable inv;
+	protected final IItemHandler inv;
 
-	public WorkstationRecipeWrapper(int w, int h, IItemHandlerModifiable i)
+	public WorkstationRecipeWrapper(int w, int h, IItemHandlerModifiable h2)
 	{
 		this.width = w;
 		this.height = h;
-		this.inv = i;
+		this.inv = h2;
 	}
 
 	@Override

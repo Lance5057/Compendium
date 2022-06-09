@@ -3,6 +3,7 @@
   "block.compendium.brass_block": "Brass Block",
   "block.compendium.bronze_block": "Bronze Block",
   "block.compendium.copper_block": "Copper Block",
+  "block.compendium.crafting_anvil": "Crafting Anvil",
   "block.compendium.electrum_block": "Electrum Block",
   "block.compendium.lead_block": "Lead Block",
   "block.compendium.nickel_block": "Nickel Block",
@@ -209,5 +210,6 @@
   "item.compendium.zincshovel": "Zinc Shovel",
   "item.compendium.zincsword": "Zinc Sword",
   "item.compendium.zinczweihander": "Zinc Zweihander",
-  "itemGroup.compendium.materials": "Compendium Materials"
+  "itemGroup.compendium.materials": "Compendium Materials",
+  "screen.workstations.craftinganvil": "Crafting Anvil"
 }

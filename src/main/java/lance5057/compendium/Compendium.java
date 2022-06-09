@@ -102,7 +102,7 @@ public class Compendium {
 //		CompendiumClient.setTERenderers();
 //		CompendiumClient.setEntityRenderers();
 //
-////		CompendiumContainers.registerClient(event);
+		CompendiumContainers.registerClient(event);
 //
 //		event.enqueueWork(() -> {
 //			AppendixMetallurgy.client(event);

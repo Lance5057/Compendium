@@ -1,5 +1,6 @@
 package lance5057.compendium.core.data.builders.loottables;
 
+import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.loot.BlockLoot;
@@ -13,7 +14,7 @@ public class TCBlockLoot extends BlockLoot {
 		}
 		
 //		this.dropSelf(CompendiumBlocks.HAMMERING_STATION.get());
-//		this.dropSelf(CompendiumBlocks.CRAFTING_ANVIL.get());
+		this.dropSelf(CompendiumBlocks.CRAFTING_ANVIL.get());
 //		this.dropSelf(CompendiumBlocks.SAWHORSE_STATION.get());
 //		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
 //		this.dropSelf(CompendiumBlocks.DRYLAKEBED.get());

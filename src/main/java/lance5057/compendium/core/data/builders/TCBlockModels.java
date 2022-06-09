@@ -1,6 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
+import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.core.blocks.ComponentStake;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
@@ -46,8 +47,8 @@ public class TCBlockModels extends BlockStateProvider {
 ////		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
 //		this.horizontalBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
 //				models().getExistingFile(modLoc("block/workstations/sawhorse")));
-//		this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
-//				models().getExistingFile(modLoc("block/workstations/anvil")));
+		this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
+				models().getExistingFile(modLoc("block/workstations/anvil")));
 //		this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
 //				models().getExistingFile(modLoc("block/workstations/dismantling_table")));
 //
