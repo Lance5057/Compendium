@@ -90,7 +90,7 @@ public class CraftingAnvilBlock extends Block implements EntityBlock ,SimpleWate
 //			}
 		}
 
-		return InteractionResult.PASS;
+		return InteractionResult.SUCCESS;
 	}
 
 //	@Nonnull

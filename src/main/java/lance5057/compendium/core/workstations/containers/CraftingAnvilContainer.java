@@ -183,12 +183,13 @@ public class CraftingAnvilContainer extends AbstractContainerMenu {
 			// this.maxStrikes = recipe.get().getStrikes();
 		} else {
 			// this.output.set(ItemStack.EMPTY);
+			this.view.set(ItemStack.EMPTY);
 		}
 
 		Collection<CraftingAnvilRecipe> r = this.world.getRecipeManager()
 				.getAllRecipesFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get());
 		MultiToolRecipe r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
-		// zeroStrikes();
+		//zeroStrikes();
 		super.slotsChanged(inventoryIn);
 	}
 

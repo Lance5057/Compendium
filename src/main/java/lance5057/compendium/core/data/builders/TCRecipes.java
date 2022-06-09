@@ -34,7 +34,7 @@ public class TCRecipes extends RecipeProvider {
 		AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_INGOT, 1).key('s', Items.STICK).pattern("sssss").pattern("s   s")
 				.pattern("sssss").addCriterion("stupid_ingot", RecipeProvider.has(Items.STICK))
 				.tool(Ingredient.of(Items.STONE), 16, true)
-				.build(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //

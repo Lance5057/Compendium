@@ -412,7 +412,7 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 				LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
 						Direction.UP);
 
-				if (h.getStackInSlot(25) == ItemStack.EMPTY) {
+				if (h.getStackInSlot(26) == ItemStack.EMPTY) {
 
 					item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
 					if (item == null)
@@ -421,8 +421,8 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 				}
 			}
 
-			if (h.getStackInSlot(25) == ItemStack.EMPTY) {
-				h.setStackInSlot(25, item);
+			if (h.getStackInSlot(26) == ItemStack.EMPTY) {
+				h.setStackInSlot(26, item);
 				craft();
 			}
 		});

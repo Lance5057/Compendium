@@ -20,6 +20,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -102,6 +103,7 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 			json.add("tools", jsonobjectTools);
 
 			JsonObject schematic = new JsonObject();
+			
 			schematic.addProperty("item", Registry.ITEM.getKey(this.schematic).toString());
 			json.add("schematic", schematic);
 

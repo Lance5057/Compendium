@@ -20,14 +20,15 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
-public class AnvilShapedRecipeBuilder {
-	//private static final Logger LOGGER = LogManager.getLogger();
+public class AnvilShapedRecipeBuilder implements RecipeBuilder {
+	// private static final Logger LOGGER = LogManager.getLogger();
 	private final Item result;
 	private final int count;
 	private final Item schematic;
@@ -37,29 +38,28 @@ public class AnvilShapedRecipeBuilder {
 	private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 	private String group;
 
-	public AnvilShapedRecipeBuilder(ItemLike resultIn, int countIn, ItemLike schematicIn) {
-		this.result = resultIn.asItem();
+	public AnvilShapedRecipeBuilder(Item resultIn, int countIn, Item schematicIn) {
+		this.result = resultIn;
 		this.count = countIn;
 		if (schematicIn != null)
-			this.schematic = schematicIn.asItem();
+			this.schematic = schematicIn;
 		else
 			schematic = null;
 	}
 
-	public static AnvilShapedRecipeBuilder shapedRecipe(ItemLike resultIn) {
+	public static AnvilShapedRecipeBuilder shapedRecipe(Item resultIn) {
 		return shapedRecipe(resultIn, 1, null);
 	}
 
-	public static AnvilShapedRecipeBuilder shapedRecipe(ItemLike resultIn, ItemLike schematicIn) {
+	public static AnvilShapedRecipeBuilder shapedRecipe(Item resultIn, Item schematicIn) {
 		return shapedRecipe(resultIn, 1, schematicIn);
 	}
 
-	public static AnvilShapedRecipeBuilder shapedRecipe(ItemLike resultIn, int countIn) {
+	public static AnvilShapedRecipeBuilder shapedRecipe(Item resultIn, int countIn) {
 		return new AnvilShapedRecipeBuilder(resultIn, countIn, null);
 	}
 
-	public static AnvilShapedRecipeBuilder shapedRecipe(ItemLike resultIn, int countIn,
-			ItemLike schematicIn) {
+	public static AnvilShapedRecipeBuilder shapedRecipe(Item resultIn, int countIn, Item schematicIn) {
 		return new AnvilShapedRecipeBuilder(resultIn, countIn, schematicIn);
 	}
 
@@ -126,39 +126,39 @@ public class AnvilShapedRecipeBuilder {
 		return this;
 	}
 
-	/**
-	 * Builds this recipe into an {@link FinishedRecipe}.
-	 */
-	public void build(Consumer<FinishedRecipe> consumerIn) {
-		this.build(consumerIn, Registry.ITEM.getKey(this.result));
-	}
+//	/**
+//	 * Builds this recipe into an {@link FinishedRecipe}.
+//	 */
+//	public void build(Consumer<FinishedRecipe> consumerIn) {
+//		this.build(consumerIn, this.result.);
+//	}
+//
+//	/**
+//	 * Builds this recipe into an {@link FinishedRecipe}. Use
+//	 * {@link #build(Consumer)} if save is the same as the ID for the result.
+//	 */
+//	public void build(Consumer<FinishedRecipe> consumerIn, String save) {
+//		ResourceLocation resourcelocation = Registry.ITEM.getKey(this.result);
+//		if ((new ResourceLocation(save)).equals(resourcelocation)) {
+//			throw new IllegalStateException("Shaped Recipe " + save + " should remove its 'save' argument");
+//		} else {
+//			this.build(consumerIn, new ResourceLocation(Reference.MOD_ID, save));
+//		}
+//	}
 
-	/**
-	 * Builds this recipe into an {@link FinishedRecipe}. Use
-	 * {@link #build(Consumer)} if save is the same as the ID for the result.
-	 */
-	public void build(Consumer<FinishedRecipe> consumerIn, String save) {
-		ResourceLocation resourcelocation = Registry.ITEM.getKey(this.result);
-		if ((new ResourceLocation(save)).equals(resourcelocation)) {
-			throw new IllegalStateException("Shaped Recipe " + save + " should remove its 'save' argument");
-		} else {
-			this.build(consumerIn, new ResourceLocation(Reference.MOD_ID, save));
-		}
-	}
-
-	/**
-	 * Builds this recipe into an {@link FinishedRecipe}.
-	 */
-	public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
-		this.validate(id);
-		this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
-				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
-				.rewards(AdvancementRewards.Builder.recipe(id)).requirements(RequirementsStrategy.OR);
-		consumerIn.accept(new CraftingAnvilRecipeProvider.AnvilResult(id, this.result, this.count, this.schematic,
-				this.group == null ? "" : this.group, this.pattern, this.key, this.tools, this.advancementBuilder,
-				new ResourceLocation(id.getNamespace(),
-						"recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath())));
-	}
+//	/**
+//	 * Builds this recipe into an {@link FinishedRecipe}.
+//	 */
+//	public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
+//		this.validate(id);
+//		this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
+//				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+//				.rewards(AdvancementRewards.Builder.recipe(id)).requirements(RequirementsStrategy.OR);
+//		consumerIn.accept(new CraftingAnvilRecipeProvider.AnvilResult(id, this.result, this.count, this.schematic,
+//				this.group == null ? "" : this.group, this.pattern, this.key, this.tools, this.advancementBuilder,
+//				new ResourceLocation(id.getNamespace(),
+//						"recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath())));
+//	}
 
 	/**
 	 * Makes sure that this recipe is valid and obtainable.
@@ -190,5 +190,34 @@ public class AnvilShapedRecipeBuilder {
 				throw new IllegalStateException("No way of obtaining recipe " + id);
 			}
 		}
+	}
+
+	@Override
+	public RecipeBuilder unlockedBy(String p_176496_, CriterionTriggerInstance p_176497_) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RecipeBuilder group(String p_176495_) {
+		this.group = p_176495_;
+		return this;
+	}
+
+	@Override
+	public Item getResult() {
+		return this.result;
+	}
+
+	@Override
+	public void save(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
+		this.validate(id);
+		this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
+				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+				.rewards(AdvancementRewards.Builder.recipe(id)).requirements(RequirementsStrategy.OR);
+		consumerIn.accept(new CraftingAnvilRecipeProvider.AnvilResult(id, this.result, this.count, this.schematic,
+				this.group == null ? "" : this.group, this.pattern, this.key, this.tools, this.advancementBuilder,
+				new ResourceLocation(id.getNamespace(),
+						"recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath())));
 	}
 }

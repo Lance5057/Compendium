@@ -45,7 +45,8 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public final int height;
 	public final int numSlots;
 
-	public MultiToolRecipeStation(int slots, int width, int height, BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
+	public MultiToolRecipeStation(int slots, int width, int height, BlockEntityType<?> tileEntityTypeIn, BlockPos pos,
+			BlockState state) {
 		super(tileEntityTypeIn, pos, state);
 
 		this.width = width;
@@ -159,7 +160,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 				setupStage(r, stage);
 			}
 			if (this.curTool.test(hammer))
-				if (hammer.getCount() == this.toolCount) {
+				if (hammer.getCount() >= this.toolCount) {
 
 					if (this.progress >= this.maxProgress) {
 
@@ -169,14 +170,22 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 								addParticle();
 							}
 							level.playSound(Player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
-							hammer.hurtAndBreak(1, Player, null);
+
+							if (hammer.isDamageableItem())
+								hammer.hurtAndBreak(1, Player, null);
+							else
+								hammer.setCount(hammer.getCount() - this.toolCount);
 
 							this.finishRecipe(Player, r);
 						} else {
 							setupStage(r, stage + 1);
 						}
 					} else {
-						hammer.hurtAndBreak(1, Player, null);
+						if (hammer.isDamageableItem())
+							hammer.hurtAndBreak(1, Player, null);
+						else
+							hammer.setCount(hammer.getCount() - this.toolCount);
+
 						progress++;
 					}
 
@@ -184,7 +193,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		});
 		this.updateInventory();
 
-		return InteractionResult.PASS;
+		return InteractionResult.SUCCESS;
 	}
 
 	public abstract void addParticle();
