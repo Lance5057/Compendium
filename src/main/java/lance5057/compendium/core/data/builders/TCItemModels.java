@@ -1,6 +1,7 @@
 	package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
+import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
@@ -51,6 +52,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 //		new ResourceLocation(Reference.MOD_ID, "block/workstations/dismantling_table"));
 //
 //	forBlockItem(CompendiumItems.DRYLAKEBED_ITEMBLOCK, "drylakebed");
+    	
+    	forBlockItem(CompendiumBlocks.STORAGE_ITEMBLOCK, "test");
 //
 ////	forBlockItem(CompendiumItems.ITEM_SHINGLES, "bases/empty_shingles");
 ////	forBlockItem(CompendiumItems.ITEM_SHINGLES_ALT, "bases/empty_shinglesalt");

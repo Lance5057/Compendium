@@ -98,7 +98,7 @@ public class Compendium {
 	}
 
 	public void setupClient(FMLClientSetupEvent event) {
-//		CompendiumClient.setRenderLayers();
+		CompendiumClient.setRenderLayers();
 //		CompendiumClient.setTERenderers();
 //		CompendiumClient.setEntityRenderers();
 //

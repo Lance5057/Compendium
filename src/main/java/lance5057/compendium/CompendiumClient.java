@@ -1,6 +1,10 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
+import lance5057.compendium.shaders.ShaderAttempts;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -18,6 +22,9 @@ public class CompendiumClient {
 //	    mh.client();
 //	}
 
+		RenderType bright = ShaderAttempts.brightSolid(new ResourceLocation("compendium:block/test"));
+		
+		ItemBlockRenderTypes.setRenderLayer(CompendiumBlocks.TEST.get(), bright);
 //	RenderType cutout = RenderType.cutout();
 //	ItemBlockRenderTypes.setRenderLayer(CompendiumBlocks.HAMMERING_STATION.get(), cutout);
 //	ItemBlockRenderTypes.setRenderLayer(CompendiumBlocks.SCRAPPING_TABLE.get(), cutout);

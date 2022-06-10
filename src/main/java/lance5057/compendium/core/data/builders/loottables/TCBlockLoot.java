@@ -19,6 +19,8 @@ public class TCBlockLoot extends BlockLoot {
 //		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
 //		this.dropSelf(CompendiumBlocks.DRYLAKEBED.get());
 
+		this.dropSelf(CompendiumBlocks.TEST.get());
+		
 //	this.dropSelf(CompendiumBlocks.SHINGLES.get());
 //	this.dropSelf(CompendiumBlocks.SHINGLES_ALT.get());
 //	this.dropSelf(CompendiumBlocks.SHINGLES_BLOCK.get());

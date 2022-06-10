@@ -56,6 +56,8 @@ public class TCBlockModels extends BlockStateProvider {
 //		this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
 //				this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
 //						new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
+		
+		this.simpleBlock(CompendiumBlocks.TEST.get());
 
 		// Shingles
 //	this.shinglesModel("empty_", "bases/", "minecraft:block/oak_planks", "", "block/bases/empty_shingles",
