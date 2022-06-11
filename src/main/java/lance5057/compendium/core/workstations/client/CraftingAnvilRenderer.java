@@ -3,16 +3,25 @@ package lance5057.compendium.core.workstations.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
+import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.UnbakedModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.model.ForgeModelBakery;
+import net.minecraftforge.client.model.IModelLoader;
+import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -31,6 +40,22 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	@Override
 	public void render(CraftingAnvilTE tileEntityIn, float partialTicks, PoseStack matrixStackIn,
 			MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
+
+		Minecraft minecraft = Minecraft.getInstance();
+		BlockRenderDispatcher brd = minecraft.getBlockRenderer();
+		BakedModel bm = brd.getBlockModel(CompendiumBlocks.CRAFTING_ANVIL.get().defaultBlockState());
+		
+		UnbakedModel um = ForgeModelBakery.instance().getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
+
+		matrixStackIn.pushPose();
+		{
+			matrixStackIn.translate(0.26f, 1, 0.16);
+			float uniscale2 = 0.2f;
+			matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
+			brd.renderSingleBlock(CompendiumBlocks.CRAFTING_ANVIL.get().defaultBlockState(), matrixStackIn, bufferIn,
+					combinedLightIn, combinedOverlayIn, EmptyModelData.INSTANCE);
+		}
+		matrixStackIn.popPose();
 
 		if (!tileEntityIn.hasLevel()) {
 			return;
