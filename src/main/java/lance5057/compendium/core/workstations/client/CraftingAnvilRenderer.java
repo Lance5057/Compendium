@@ -1,27 +1,36 @@
 package lance5057.compendium.core.workstations.client;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
+import com.mojang.math.Vector3f;
+import com.mojang.math.Vector4f;
 
-import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.Compendium;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.recipes.RecipeItemUse;
+import lance5057.compendium.core.util.rendering.CompendiumModelPart;
 import lance5057.compendium.core.util.rendering.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.block.model.BlockElement;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.UnbakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.model.ForgeModelBakery;
-import net.minecraftforge.client.model.IModelLoader;
-import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -31,35 +40,44 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	int toolRandom = 0;
 	AnimatedFloatVector3 ghost;
 
+	List<CompendiumModelPart> currentModel;
+
 	public CraftingAnvilRenderer(BlockEntityRendererProvider.Context cxt) {
 		// super(rendererDispatcherIn);
 
 		ghost = new AnimatedFloatVector3(10, 10, 0, 0.1f);
+		currentModel = new ArrayList<CompendiumModelPart>();
 	}
 
 	@Override
 	public void render(CraftingAnvilTE tileEntityIn, float partialTicks, PoseStack matrixStackIn,
 			MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
-
-		Minecraft minecraft = Minecraft.getInstance();
-		BlockRenderDispatcher brd = minecraft.getBlockRenderer();
-		BakedModel bm = brd.getBlockModel(CompendiumBlocks.CRAFTING_ANVIL.get().defaultBlockState());
-		
-		UnbakedModel um = ForgeModelBakery.instance().getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
-
-		matrixStackIn.pushPose();
-		{
-			matrixStackIn.translate(0.26f, 1, 0.16);
-			float uniscale2 = 0.2f;
-			matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
-			brd.renderSingleBlock(CompendiumBlocks.CRAFTING_ANVIL.get().defaultBlockState(), matrixStackIn, bufferIn,
-					combinedLightIn, combinedOverlayIn, EmptyModelData.INSTANCE);
-		}
-		matrixStackIn.popPose();
-
 		if (!tileEntityIn.hasLevel()) {
 			return;
 		}
+
+		ModelPart mp = new ModelPart(null, null);
+
+		UnbakedModel um = ForgeModelBakery.instance()
+				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
+		if (um instanceof BlockModel) {
+			BlockModel bm = (BlockModel) um;
+
+			matrixStackIn.pushPose();
+			{
+				matrixStackIn.translate(0.26f, 1, 0.16);
+//				float uniscale2 = 0.2f;
+//				matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
+
+				currentModel = convert(bm);
+
+				for (CompendiumModelPart b : currentModel) {
+					b.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+				}
+			}
+			matrixStackIn.popPose();
+		} else
+			Compendium.logger.warn("Unsupported Model Type in CraftingAnvilRenderer! Ignoring...");
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
@@ -162,5 +180,49 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		ghost.setMax(0, 0, 90);
 		ghost.setMin(0, 0, 0);
 		ghost.setSpeed(3.1f);
+	}
+
+	private List<CompendiumModelPart> convert(BlockModel bm) {
+
+		List<CompendiumModelPart> mpl = new ArrayList<CompendiumModelPart>();
+
+		int offset = 20;
+		for (BlockElement e : bm.getElements()) {
+			List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
+
+			
+
+			CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),	false,
+					e.faces.getOrDefault(Direction.UP, null),
+					e.faces.getOrDefault(Direction.DOWN, null),
+					e.faces.getOrDefault(Direction.NORTH, null),
+					e.faces.getOrDefault(Direction.SOUTH, null),
+					e.faces.getOrDefault(Direction.WEST, null),
+					e.faces.getOrDefault(Direction.EAST, null), bm.textureMap);
+			cubeList.add(cube);
+
+			CompendiumModelPart mp = new CompendiumModelPart(cubeList, Collections.emptyMap());
+
+			if (e.rotation != null) {
+				switch (e.rotation.axis) {
+				case X:
+					mp.setRotation(e.rotation.angle, 0, 0);
+					break;
+				case Y:
+					mp.setRotation(0, e.rotation.angle, 0);
+					break;
+				case Z:
+					mp.setRotation(0, 0, e.rotation.angle);
+					break;
+				default:
+					mp.setRotation(0, 0, 0);
+					break;
+				}
+			}
+
+			mpl.add(mp);
+			offset += 50;
+		}
+		return mpl;
 	}
 }
