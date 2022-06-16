@@ -26,16 +26,16 @@ public class ShaderAttempts {
 
 	@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class ModClientEvents {
-		@SubscribeEvent
-		public static void shaderRegistry(RegisterShadersEvent event) throws IOException {
-			// Adds a shader to the list, the callback runs when loading is complete.
-			event.registerShader(
-					new ShaderInstance(event.getResourceManager(),
-							new ResourceLocation("compendium:rendertype_bright_solid"), DefaultVertexFormat.BLOCK),
-					shaderInstance -> {
-						CustomRenderTypes.brightSolidShader = shaderInstance;
-					});
-		}
+//		@SubscribeEvent
+//		public static void shaderRegistry(RegisterShadersEvent event) throws IOException {
+//			// Adds a shader to the list, the callback runs when loading is complete.
+//			event.registerShader(
+//					new ShaderInstance(event.getResourceManager(),
+//							new ResourceLocation("compendium:rendertype_bright_solid"), DefaultVertexFormat.BLOCK),
+//					shaderInstance -> {
+//						CustomRenderTypes.brightSolidShader = shaderInstance;
+//					});
+//		}
 	}
 
 	// Keep private because this stuff isn't meant to be public

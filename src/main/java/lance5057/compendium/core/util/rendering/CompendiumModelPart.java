@@ -333,25 +333,28 @@ public final class CompendiumModelPart {
 				vertices[3] = vertices[3].remap(y, z);
 				break;
 
-			case 1:
-				vertices[0] = vertices[0].remap(z, x);
-				vertices[1] = vertices[1].remap(w, x);
-				vertices[2] = vertices[2].remap(w, y);
-				vertices[3] = vertices[3].remap(z, y);
+			case 90:
+				
+				vertices[0] = vertices[0].remap(w, x);
+				vertices[1] = vertices[1].remap(w, z);
+				vertices[2] = vertices[2].remap(y, z);
+				vertices[3] = vertices[3].remap(y, x);
 				break;
 
-			case 2:
-				vertices[0] = vertices[0].remap(y, x);
-				vertices[1] = vertices[1].remap(w, x);
-				vertices[2] = vertices[2].remap(w, z);
-				vertices[3] = vertices[3].remap(y, z);
+			case 180:
+				
+				vertices[0] = vertices[0].remap(w, z);
+				vertices[1] = vertices[1].remap(y, z);
+				vertices[2] = vertices[2].remap(y, x);
+				vertices[3] = vertices[3].remap(w, x);
 				break;
 
-			case 3:
-				vertices[0] = vertices[0].remap(z, x);
-				vertices[1] = vertices[1].remap(w, x);
-				vertices[2] = vertices[2].remap(w, y);
-				vertices[3] = vertices[3].remap(z, y);
+			case 270:
+				
+				vertices[0] = vertices[0].remap(y, z);
+				vertices[1] = vertices[1].remap(y, x);
+				vertices[2] = vertices[2].remap(w, x);
+				vertices[3] = vertices[3].remap(w, z);
 				break;
 			}
 

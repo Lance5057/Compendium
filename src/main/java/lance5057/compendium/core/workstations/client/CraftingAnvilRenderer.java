@@ -59,16 +59,17 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		ModelPart mp = new ModelPart(null, null);
 
 		UnbakedModel um = ForgeModelBakery.instance()
-				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
+				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/acaciaseat"));
 		if (um instanceof BlockModel) {
 			BlockModel bm = (BlockModel) um;
 
 			matrixStackIn.pushPose();
 			{
-				matrixStackIn.translate(0.26f, 1, 0.16);
+				matrixStackIn.translate(1f, 0, 0);
 //				float uniscale2 = 0.2f;
 //				matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
 
+				
 				currentModel = convert(bm);
 
 				for (CompendiumModelPart b : currentModel) {
@@ -185,8 +186,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	private List<CompendiumModelPart> convert(BlockModel bm) {
 
 		List<CompendiumModelPart> mpl = new ArrayList<CompendiumModelPart>();
-
-		int offset = 20;
+		
 		for (BlockElement e : bm.getElements()) {
 			List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
 
@@ -221,7 +221,6 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 			}
 
 			mpl.add(mp);
-			offset += 50;
 		}
 		return mpl;
 	}
