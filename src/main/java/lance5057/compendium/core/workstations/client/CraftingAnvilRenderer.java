@@ -7,7 +7,6 @@ import java.util.List;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
-import com.mojang.math.Vector4f;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.Reference;
@@ -19,13 +18,15 @@ import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BlockElement;
 import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.renderer.block.model.MultiVariant;
+import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.client.renderer.block.model.multipart.MultiPart;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -56,29 +57,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 			return;
 		}
 
-		ModelPart mp = new ModelPart(null, null);
-
-		UnbakedModel um = ForgeModelBakery.instance()
-				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/acaciaseat"));
-		if (um instanceof BlockModel) {
-			BlockModel bm = (BlockModel) um;
-
-			matrixStackIn.pushPose();
-			{
-				matrixStackIn.translate(1f, 0, 0);
-//				float uniscale2 = 0.2f;
-//				matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
-
-				
-				currentModel = convert(bm);
-
-				for (CompendiumModelPart b : currentModel) {
-					b.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-				}
-			}
-			matrixStackIn.popPose();
-		} else
-			Compendium.logger.warn("Unsupported Model Type in CraftingAnvilRenderer! Ignoring...");
+		loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
@@ -183,22 +162,50 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		ghost.setSpeed(3.1f);
 	}
 
+	private void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
+			int combinedOverlayIn) {
+		UnbakedModel um = ForgeModelBakery.instance().getModelOrMissing(
+				new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
+		if (um instanceof BlockModel) {
+			BlockModel bm = (BlockModel) um;
+
+			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm);
+			
+		}
+
+		else
+			Compendium.logger.warn("Unsupported Model Type in CraftingAnvilRenderer! Ignoring...");
+	}
+
+	private void blockModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
+			int combinedOverlayIn, BlockModel bm) {
+		matrixStackIn.pushPose();
+		{
+			matrixStackIn.translate(1f, 0, 0);
+//				float uniscale2 = 0.2f;
+//				matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
+
+			currentModel = convert(bm);
+
+			for (CompendiumModelPart b : currentModel) {
+				b.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+			}
+		}
+		matrixStackIn.popPose();
+	}
+
 	private List<CompendiumModelPart> convert(BlockModel bm) {
 
 		List<CompendiumModelPart> mpl = new ArrayList<CompendiumModelPart>();
-		
+
 		for (BlockElement e : bm.getElements()) {
 			List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
 
-			
-
-			CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),	false,
-					e.faces.getOrDefault(Direction.UP, null),
-					e.faces.getOrDefault(Direction.DOWN, null),
-					e.faces.getOrDefault(Direction.NORTH, null),
-					e.faces.getOrDefault(Direction.SOUTH, null),
-					e.faces.getOrDefault(Direction.WEST, null),
-					e.faces.getOrDefault(Direction.EAST, null), bm.textureMap);
+			CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),
+					false, e.faces.getOrDefault(Direction.UP, null), e.faces.getOrDefault(Direction.DOWN, null),
+					e.faces.getOrDefault(Direction.NORTH, null), e.faces.getOrDefault(Direction.SOUTH, null),
+					e.faces.getOrDefault(Direction.WEST, null), e.faces.getOrDefault(Direction.EAST, null),
+					bm.textureMap);
 			cubeList.add(cube);
 
 			CompendiumModelPart mp = new CompendiumModelPart(cubeList, Collections.emptyMap());
