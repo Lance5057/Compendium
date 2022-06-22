@@ -8,7 +8,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
 
-import lance5057.compendium.Compendium;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.CompendiumModelPart;
@@ -16,17 +15,12 @@ import lance5057.compendium.core.util.rendering.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.BlockElement;
 import net.minecraft.client.renderer.block.model.BlockModel;
-import net.minecraft.client.renderer.block.model.MultiVariant;
-import net.minecraft.client.renderer.block.model.Variant;
-import net.minecraft.client.renderer.block.model.multipart.MultiPart;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -42,6 +36,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	AnimatedFloatVector3 ghost;
 
 	List<CompendiumModelPart> currentModel;
+	List<Integer> blacklist;
 
 	public CraftingAnvilRenderer(BlockEntityRendererProvider.Context cxt) {
 		// super(rendererDispatcherIn);
@@ -164,17 +159,14 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 
 	private void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
 			int combinedOverlayIn) {
-		UnbakedModel um = ForgeModelBakery.instance().getModelOrMissing(
-				new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
+		UnbakedModel um = ForgeModelBakery.instance()
+				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
 		if (um instanceof BlockModel) {
 			BlockModel bm = (BlockModel) um;
 
 			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm);
-			
-		}
 
-		else
-			Compendium.logger.warn("Unsupported Model Type in CraftingAnvilRenderer! Ignoring...");
+		}
 	}
 
 	private void blockModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
@@ -198,36 +190,39 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 
 		List<CompendiumModelPart> mpl = new ArrayList<CompendiumModelPart>();
 
-		for (BlockElement e : bm.getElements()) {
-			List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
+		for (int i = 0; i < bm.getElements().size(); i++) {
+			if (!blacklist.contains(i)) {
+				BlockElement e = bm.getElements().get(i);
+				List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
 
-			CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),
-					false, e.faces.getOrDefault(Direction.UP, null), e.faces.getOrDefault(Direction.DOWN, null),
-					e.faces.getOrDefault(Direction.NORTH, null), e.faces.getOrDefault(Direction.SOUTH, null),
-					e.faces.getOrDefault(Direction.WEST, null), e.faces.getOrDefault(Direction.EAST, null),
-					bm.textureMap);
-			cubeList.add(cube);
+				CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),
+						false, e.faces.getOrDefault(Direction.UP, null), e.faces.getOrDefault(Direction.DOWN, null),
+						e.faces.getOrDefault(Direction.NORTH, null), e.faces.getOrDefault(Direction.SOUTH, null),
+						e.faces.getOrDefault(Direction.WEST, null), e.faces.getOrDefault(Direction.EAST, null),
+						bm.textureMap);
+				cubeList.add(cube);
 
-			CompendiumModelPart mp = new CompendiumModelPart(cubeList, Collections.emptyMap());
+				CompendiumModelPart mp = new CompendiumModelPart(cubeList, Collections.emptyMap());
 
-			if (e.rotation != null) {
-				switch (e.rotation.axis) {
-				case X:
-					mp.setRotation(e.rotation.angle, 0, 0);
-					break;
-				case Y:
-					mp.setRotation(0, e.rotation.angle, 0);
-					break;
-				case Z:
-					mp.setRotation(0, 0, e.rotation.angle);
-					break;
-				default:
-					mp.setRotation(0, 0, 0);
-					break;
+				if (e.rotation != null) {
+					switch (e.rotation.axis) {
+					case X:
+						mp.setRotation(e.rotation.angle, 0, 0);
+						break;
+					case Y:
+						mp.setRotation(0, e.rotation.angle, 0);
+						break;
+					case Z:
+						mp.setRotation(0, 0, e.rotation.angle);
+						break;
+					default:
+						mp.setRotation(0, 0, 0);
+						break;
+					}
 				}
-			}
 
-			mpl.add(mp);
+				mpl.add(mp);
+			}
 		}
 		return mpl;
 	}
