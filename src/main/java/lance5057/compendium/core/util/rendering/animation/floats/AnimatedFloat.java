@@ -88,39 +88,21 @@ public class AnimatedFloat {
 		return new AnimatedFloat(min, max, speed, loop);
 	}
 
-	public static void write(AnimatedFloat am, FriendlyByteBuf buffer) {
-		buffer.writeFloat(am.iMin);
-		buffer.writeFloat(am.iMin);
-		buffer.writeFloat(am.iMin);
-		buffer.writeBoolean(am.loop);
+	public static void write(AnimatedFloat af, FriendlyByteBuf buffer) {
+		buffer.writeFloat(af.iMin);
+		buffer.writeFloat(af.iMin);
+		buffer.writeFloat(af.iMin);
+		buffer.writeBoolean(af.loop);
 	}
 
-	public static JsonObject addProperty(Transform transform) {
-
-		JsonObject t = new JsonObject();
-
-		t.addProperty("x", transform.translate.x());
-		t.addProperty("y", transform.translate.y());
-		t.addProperty("z", transform.translate.z());
-
-		JsonObject r = new JsonObject();
-
-		t.addProperty("x", transform.rotation.x());
-		t.addProperty("y", transform.rotation.y());
-		t.addProperty("z", transform.rotation.z());
-
-		JsonObject s = new JsonObject();
-
-		t.addProperty("x", transform.scale.x());
-		t.addProperty("y", transform.scale.y());
-		t.addProperty("z", transform.scale.z());
-
-		JsonObject jt = new JsonObject();
-
-		jt.add("translate", t);
-		jt.add("rotation", r);
-		jt.add("scale", s);
-
-		return jt;
+	public static JsonObject addProperty(AnimatedFloat af) {
+		JsonObject jo = new JsonObject();
+		
+		jo.addProperty("min", af.iMin);
+		jo.addProperty("max", af.iMax);
+		jo.addProperty("speed", af.speed);
+		jo.addProperty("loop", af.loop);
+		
+		return jo;
 	}
 }

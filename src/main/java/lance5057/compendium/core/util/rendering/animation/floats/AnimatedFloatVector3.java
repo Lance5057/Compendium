@@ -1,18 +1,16 @@
 package lance5057.compendium.core.util.rendering.animation.floats;
 
+import com.google.gson.JsonObject;
+
+import net.minecraft.network.FriendlyByteBuf;
+
 public class AnimatedFloatVector3 {
 	AnimatedFloat x, y, z;
 
-	public AnimatedFloatVector3(float xMax, float yMax, float zMax, float speed) {
-		x = new AnimatedFloat(xMax, speed);
-		y = new AnimatedFloat(yMax, speed);
-		z = new AnimatedFloat(zMax, speed);
-	}
-
-	public AnimatedFloatVector3(float xMin, float xMax, float yMin, float yMax, float zMin, float zMax, float speed) {
-		x = new AnimatedFloat(xMin, xMax, speed);
-		y = new AnimatedFloat(yMin, yMax, speed);
-		z = new AnimatedFloat(zMin, zMax, speed);
+	public AnimatedFloatVector3(AnimatedFloat x,AnimatedFloat y,AnimatedFloat z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
 	public void animate() {
@@ -50,5 +48,36 @@ public class AnimatedFloatVector3 {
 		this.getX().setSpeed(speed);
 		this.getY().setSpeed(speed);
 		this.getZ().setSpeed(speed);
+	}
+	
+	public static AnimatedFloatVector3 read(JsonObject j) {
+		AnimatedFloat x = AnimatedFloat.read(j.get("x").getAsJsonObject());
+		AnimatedFloat y = AnimatedFloat.read(j.get("y").getAsJsonObject());
+		AnimatedFloat z = AnimatedFloat.read(j.get("z").getAsJsonObject());
+		
+		return new AnimatedFloatVector3(x,y,z);
+	}
+
+	public static AnimatedFloatVector3 read(FriendlyByteBuf buffer) {
+		AnimatedFloat x = AnimatedFloat.read(buffer);
+		AnimatedFloat y = AnimatedFloat.read(buffer);
+		AnimatedFloat z = AnimatedFloat.read(buffer);
+		
+		return new AnimatedFloatVector3(x,y,z);
+	}
+
+	public static void write(AnimatedFloatVector3 af, FriendlyByteBuf buffer) {
+		AnimatedFloat.write(af.x, buffer);
+		AnimatedFloat.write(af.y, buffer);
+		AnimatedFloat.write(af.z, buffer);
+	}
+
+	public static JsonObject addProperty(AnimatedFloatVector3 af) {
+		JsonObject jo = new JsonObject();
+		jo.add("x", AnimatedFloat.addProperty(af.x));
+		jo.add("y", AnimatedFloat.addProperty(af.y));
+		jo.add("z", AnimatedFloat.addProperty(af.z));
+		
+		return jo;
 	}
 }
