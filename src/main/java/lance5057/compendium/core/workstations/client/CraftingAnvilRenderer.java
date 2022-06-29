@@ -12,7 +12,9 @@ import lance5057.compendium.Reference;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.CompendiumModelPart;
 import lance5057.compendium.core.util.rendering.RenderUtil;
+import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
+import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -33,7 +35,7 @@ import net.minecraftforge.items.IItemHandler;
 public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilTE> {
 	int timer = 0;
 	int toolRandom = 0;
-	AnimatedFloatVector3 ghost;
+	AnimationFloatTransform ghost;
 
 	List<CompendiumModelPart> currentModel;
 	List<Integer> blacklist;
@@ -41,8 +43,12 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	public CraftingAnvilRenderer(BlockEntityRendererProvider.Context cxt) {
 		// super(rendererDispatcherIn);
 
-		ghost = new AnimatedFloatVector3(10, 10, 0, 0.1f);
+		ghost = new AnimationFloatTransform()
+				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-1, 1, 0.01f, true)));
 		currentModel = new ArrayList<CompendiumModelPart>();
+
+		// Remove this later
+		blacklist = new ArrayList<Integer>();
 	}
 
 	@Override
@@ -106,12 +112,17 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 
 			if (!tool.isEmpty()) {
 				matrixStackIn.pushPose();
-				matrixStackIn.translate(0.75f, 1.1, 0.5f);
-				matrixStackIn.mulPose(new Quaternion(0 + ghost.getX().getFloat(), 0 + ghost.getY().getFloat(),
-						45 + ghost.getZ().getFloat(), true));
+				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
+						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
+
+				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
+						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
+
 				matrixStackIn.translate(0.125f, 0.125, 0.0f);
+
 				float uniscale = 0.25f;
-				matrixStackIn.scale(uniscale, uniscale, uniscale);
+				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
+						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
 
 				float transparency = 0.5f;
 				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
@@ -128,8 +139,8 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		if (!item.isEmpty()) {
 			matrixStackIn.pushPose();
 			matrixStackIn.translate(0.5f, 1.1, 0.5f);
-			matrixStackIn.mulPose(new Quaternion(-90 + ghost.getX().getFloat(), 90 + ghost.getY().getFloat(),
-					45 + ghost.getZ().getFloat(), true));
+//			matrixStackIn.mulPose(new Quaternion(-90 + ghost.getX().getFloat(), 90 + ghost.getY().getFloat(),
+//					45 + ghost.getZ().getFloat(), true));
 			float uniscale = 0.7f;
 			matrixStackIn.scale(uniscale, uniscale, uniscale);
 //			if (tileEntityIn.maxProgress > 0) {
@@ -152,15 +163,15 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		ghost.animate();
 
 		// For hotswapping, remove later!
-		ghost.setMax(0, 0, 90);
-		ghost.setMin(0, 0, 0);
-		ghost.setSpeed(3.1f);
+//		ghost.setMax(0, 0, 10);
+//		ghost.setMin(0, 0, 0);
+//		ghost.setSpeed(5);
 	}
 
 	private void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
 			int combinedOverlayIn) {
 		UnbakedModel um = ForgeModelBakery.instance()
-				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
+				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/bases/seat/stool_full"));
 		if (um instanceof BlockModel) {
 			BlockModel bm = (BlockModel) um;
 

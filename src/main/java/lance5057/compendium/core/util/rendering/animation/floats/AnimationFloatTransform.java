@@ -1,35 +1,88 @@
 package lance5057.compendium.core.util.rendering.animation.floats;
 
+import com.google.gson.JsonObject;
+
+import net.minecraft.network.FriendlyByteBuf;
+
 public class AnimationFloatTransform {
 	AnimatedFloatVector3 loc, scale, rot;
-	
-	public AnimationFloatTransform(AnimatedFloatVector3 l, AnimatedFloatVector3 s, AnimatedFloatVector3 r)
-	{
+
+	public AnimationFloatTransform() {
+		loc = AnimatedFloatVector3.zero;
+		rot = AnimatedFloatVector3.zero;
+		scale = AnimatedFloatVector3.zero;
+	}
+
+	public AnimationFloatTransform(AnimatedFloatVector3 l, AnimatedFloatVector3 s, AnimatedFloatVector3 r) {
 		loc = l;
 		scale = s;
 		rot = r;
 	}
-	
+
 	public void animate() {
 		loc.animate();
 		scale.animate();
 		rot.animate();
 	}
-	
-	public AnimatedFloatVector3 getLocation()
-	{
+
+	public AnimationFloatTransform setLocation(AnimatedFloatVector3 in) {
+		loc = in;
+
+		return this;
+	}
+
+	public AnimationFloatTransform setRotation(AnimatedFloatVector3 in) {
+		rot = in;
+
+		return this;
+	}
+
+	public AnimationFloatTransform setScale(AnimatedFloatVector3 in) {
+		scale = in;
+
+		return this;
+	}
+
+	public AnimatedFloatVector3 getLocation() {
 		return loc;
 	}
-	
-	public AnimatedFloatVector3 getScale()
-	{
+
+	public AnimatedFloatVector3 getScale() {
 		return scale;
 	}
-	
-	public AnimatedFloatVector3 getRotation()
-	{
+
+	public AnimatedFloatVector3 getRotation() {
 		return rot;
 	}
-	
-	
+
+	public static AnimationFloatTransform read(JsonObject j) {
+		AnimatedFloatVector3 location = AnimatedFloatVector3.read(j.get("location").getAsJsonObject());
+		AnimatedFloatVector3 rotation = AnimatedFloatVector3.read(j.get("rotation").getAsJsonObject());
+		AnimatedFloatVector3 scale = AnimatedFloatVector3.read(j.get("scale").getAsJsonObject());
+
+		return new AnimationFloatTransform(location, rotation, scale);
+	}
+
+	public static AnimationFloatTransform read(FriendlyByteBuf buffer) {
+		AnimatedFloatVector3 l = AnimatedFloatVector3.read(buffer);
+		AnimatedFloatVector3 r = AnimatedFloatVector3.read(buffer);
+		AnimatedFloatVector3 s = AnimatedFloatVector3.read(buffer);
+
+		return new AnimationFloatTransform(l, r, s);
+	}
+
+	public static void write(AnimationFloatTransform af, FriendlyByteBuf buffer) {
+		AnimatedFloatVector3.write(af.loc, buffer);
+		AnimatedFloatVector3.write(af.rot, buffer);
+		AnimatedFloatVector3.write(af.scale, buffer);
+	}
+
+	public static JsonObject addProperty(AnimationFloatTransform af) {
+		JsonObject jo = new JsonObject();
+		jo.add("x", AnimatedFloatVector3.addProperty(af.loc));
+		jo.add("y", AnimatedFloatVector3.addProperty(af.rot));
+		jo.add("z", AnimatedFloatVector3.addProperty(af.scale));
+
+		return jo;
+	}
 }

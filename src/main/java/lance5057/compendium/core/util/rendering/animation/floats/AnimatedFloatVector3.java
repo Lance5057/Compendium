@@ -7,10 +7,34 @@ import net.minecraft.network.FriendlyByteBuf;
 public class AnimatedFloatVector3 {
 	AnimatedFloat x, y, z;
 
-	public AnimatedFloatVector3(AnimatedFloat x,AnimatedFloat y,AnimatedFloat z) {
+	public static AnimatedFloatVector3 zero = new AnimatedFloatVector3(AnimatedFloat.zero, AnimatedFloat.zero,
+			AnimatedFloat.zero);
+
+	public AnimatedFloatVector3() {
+		x = AnimatedFloat.zero;
+		y = AnimatedFloat.zero;
+		z = AnimatedFloat.zero;
+	}
+
+	public AnimatedFloatVector3(AnimatedFloat x, AnimatedFloat y, AnimatedFloat z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+	}
+
+	public AnimatedFloatVector3 setX(AnimatedFloat in) {
+		x = in;
+		return this;
+	}
+
+	public AnimatedFloatVector3 setY(AnimatedFloat in) {
+		y = in;
+		return this;
+	}
+
+	public AnimatedFloatVector3 setZ(AnimatedFloat in) {
+		z = in;
+		return this;
 	}
 
 	public void animate() {
@@ -43,27 +67,26 @@ public class AnimatedFloatVector3 {
 		this.getZ().setMin(z);
 	}
 
-	public void setSpeed(float speed)
-	{
+	public void setSpeed(float speed) {
 		this.getX().setSpeed(speed);
 		this.getY().setSpeed(speed);
 		this.getZ().setSpeed(speed);
 	}
-	
+
 	public static AnimatedFloatVector3 read(JsonObject j) {
 		AnimatedFloat x = AnimatedFloat.read(j.get("x").getAsJsonObject());
 		AnimatedFloat y = AnimatedFloat.read(j.get("y").getAsJsonObject());
 		AnimatedFloat z = AnimatedFloat.read(j.get("z").getAsJsonObject());
-		
-		return new AnimatedFloatVector3(x,y,z);
+
+		return new AnimatedFloatVector3(x, y, z);
 	}
 
 	public static AnimatedFloatVector3 read(FriendlyByteBuf buffer) {
 		AnimatedFloat x = AnimatedFloat.read(buffer);
 		AnimatedFloat y = AnimatedFloat.read(buffer);
 		AnimatedFloat z = AnimatedFloat.read(buffer);
-		
-		return new AnimatedFloatVector3(x,y,z);
+
+		return new AnimatedFloatVector3(x, y, z);
 	}
 
 	public static void write(AnimatedFloatVector3 af, FriendlyByteBuf buffer) {
@@ -77,7 +100,7 @@ public class AnimatedFloatVector3 {
 		jo.add("x", AnimatedFloat.addProperty(af.x));
 		jo.add("y", AnimatedFloat.addProperty(af.y));
 		jo.add("z", AnimatedFloat.addProperty(af.z));
-		
+
 		return jo;
 	}
 }

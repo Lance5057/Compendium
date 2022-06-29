@@ -13,6 +13,8 @@ public class AnimatedFloat {
 	boolean add = true;
 	boolean loop;
 
+	public static AnimatedFloat zero = new AnimatedFloat(0, 0, 0);
+
 	public AnimatedFloat(float iMax) {
 		this(-iMax, iMax, 1);
 	}
@@ -40,16 +42,16 @@ public class AnimatedFloat {
 			if (i > iMax) {
 				if (loop)
 					add = false;
-				else
-					speed = iMax;
+
+				i = iMax;
 			}
 		} else {
 			i -= speed;
 			if (i < iMin) {
 				if (loop)
 					add = true;
-				else
-					speed = iMin;
+
+				i = iMin;
 			}
 		}
 	}
@@ -75,16 +77,17 @@ public class AnimatedFloat {
 		float max = j.get("max").getAsFloat();
 		float speed = j.get("speed").getAsFloat();
 		boolean loop = j.get("loop").getAsBoolean();
-		
+
 		return new AnimatedFloat(min, max, speed, loop);
 	}
 
 	public static AnimatedFloat read(FriendlyByteBuf buffer) {
 		float min = buffer.readFloat();
 		float max = buffer.readFloat();
-		float speed = buffer.readFloat();;
+		float speed = buffer.readFloat();
+		;
 		boolean loop = buffer.readBoolean();
-		
+
 		return new AnimatedFloat(min, max, speed, loop);
 	}
 
@@ -97,12 +100,12 @@ public class AnimatedFloat {
 
 	public static JsonObject addProperty(AnimatedFloat af) {
 		JsonObject jo = new JsonObject();
-		
+
 		jo.addProperty("min", af.iMin);
 		jo.addProperty("max", af.iMax);
 		jo.addProperty("speed", af.speed);
 		jo.addProperty("loop", af.loop);
-		
+
 		return jo;
 	}
 }
