@@ -11,7 +11,8 @@ public class AnimatedFloat {
 	float iMin;
 	float speed;
 	boolean add = true;
-	boolean loop;
+	boolean loop = false;
+	boolean pingpong = false;
 
 	public static AnimatedFloat zero = new AnimatedFloat(0, 0, 0);
 
@@ -29,11 +30,12 @@ public class AnimatedFloat {
 		this.speed = speed;
 	}
 
-	public AnimatedFloat(float iMin, float iMax, float speed, boolean loop) {
+	public AnimatedFloat(float iMin, float iMax, float speed, boolean loop, boolean pingpong) {
 		this.iMin = iMin;
 		this.iMax = iMax;
 		this.speed = speed;
 		this.loop = loop;
+		this.pingpong = pingpong;
 	}
 
 	public void animate() {
@@ -41,6 +43,8 @@ public class AnimatedFloat {
 			i += speed;
 			if (i > iMax) {
 				if (loop)
+					i = iMin;
+				if (pingpong)
 					add = false;
 
 				i = iMax;
@@ -48,7 +52,7 @@ public class AnimatedFloat {
 		} else {
 			i -= speed;
 			if (i < iMin) {
-				if (loop)
+				if (pingpong)
 					add = true;
 
 				i = iMin;
@@ -77,18 +81,19 @@ public class AnimatedFloat {
 		float max = j.get("max").getAsFloat();
 		float speed = j.get("speed").getAsFloat();
 		boolean loop = j.get("loop").getAsBoolean();
+		boolean pingpong = j.get("pingpong").getAsBoolean();
 
-		return new AnimatedFloat(min, max, speed, loop);
+		return new AnimatedFloat(min, max, speed, loop, pingpong);
 	}
 
 	public static AnimatedFloat read(FriendlyByteBuf buffer) {
 		float min = buffer.readFloat();
 		float max = buffer.readFloat();
 		float speed = buffer.readFloat();
-		;
 		boolean loop = buffer.readBoolean();
+		boolean pingpong = buffer.readBoolean();
 
-		return new AnimatedFloat(min, max, speed, loop);
+		return new AnimatedFloat(min, max, speed, loop, pingpong);
 	}
 
 	public static void write(AnimatedFloat af, FriendlyByteBuf buffer) {

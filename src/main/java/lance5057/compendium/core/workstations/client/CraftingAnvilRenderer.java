@@ -44,7 +44,8 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		// super(rendererDispatcherIn);
 
 		ghost = new AnimationFloatTransform()
-				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-1, 1, 0.01f, true)));
+				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, false, true)))
+				.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 1f, true, false)));
 		currentModel = new ArrayList<CompendiumModelPart>();
 
 		// Remove this later
@@ -112,13 +113,16 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 
 			if (!tool.isEmpty()) {
 				matrixStackIn.pushPose();
-				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
-						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
+				
+//				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
+//						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
 
+				matrixStackIn.translate(0, 1, 0.0f);
 				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
 						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
+				matrixStackIn.translate(0, -1, 0.0f);
 
-				matrixStackIn.translate(0.125f, 0.125, 0.0f);
+				//matrixStackIn.translate(0.125f, 0.125, 0.0f);
 
 				float uniscale = 0.25f;
 				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
