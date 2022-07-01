@@ -41,21 +41,21 @@ public class AnimatedFloat {
 	public void animate() {
 		if (add) {
 			i += speed;
-			if (i > iMax) {
+			if (i >= iMax) {
 				if (loop)
 					i = iMin;
-				if (pingpong)
+				else if (pingpong)
 					add = false;
-
-				i = iMax;
+				else
+					i = iMax;
 			}
 		} else {
 			i -= speed;
-			if (i < iMin) {
+			if (i <= iMin) {
 				if (pingpong)
 					add = true;
-
-				i = iMin;
+				else
+					i = iMax;
 			}
 		}
 	}

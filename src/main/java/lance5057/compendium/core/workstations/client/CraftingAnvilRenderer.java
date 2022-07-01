@@ -118,6 +118,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 //						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
 
 				matrixStackIn.translate(0, 1, 0.0f);
+				RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
 				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
 						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
 				matrixStackIn.translate(0, -1, 0.0f);

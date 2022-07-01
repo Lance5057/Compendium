@@ -1,5 +1,7 @@
 package lance5057.compendium.core.util.rendering;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -7,12 +9,15 @@ import javax.annotation.Nullable;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Vector3f;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.BlockElementFace;
+import net.minecraft.client.renderer.block.model.BlockFaceUV;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
@@ -46,7 +51,7 @@ public class RenderUtil {
 						stack.hasFoil());
 				renderBakedItemModel(model, stack, color, light, overlay, ms, ivertexbuilder);
 			} else {
-				
+
 			}
 		}
 		ms.popPose();
@@ -85,4 +90,22 @@ public class RenderUtil {
 		}
 
 	}
+
+	public static CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, new Vector3f(0, 0, 0),
+			new Vector3f(1, 1, 1), new Vector3f(0, 0, 0), false,
+			new BlockElementFace(Direction.UP, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			new BlockElementFace(Direction.DOWN, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			new BlockElementFace(Direction.NORTH, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			new BlockElementFace(Direction.SOUTH, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			new BlockElementFace(Direction.WEST, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			new BlockElementFace(Direction.EAST, -1, "textures/blank.png",
+					new BlockFaceUV(new float[] { 0, 0, 1, 1 }, 0)),
+			null);
+	
+	public static CompendiumModelPart debugPart = new CompendiumModelPart(new ArrayList<CompendiumModelPart.Cube>(List.of(cube)), Collections.emptyMap());
 }
