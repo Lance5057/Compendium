@@ -104,39 +104,39 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		});
 
 		// Render Recipe Tool
-		if (tileEntityIn.getCurrentTool() != null) {
-			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
-
-			if (toolRandom >= recipe.tool.getItems().length)
-				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
-			ItemStack tool = recipe.tool.getItems()[toolRandom];
-
-			if (!tool.isEmpty()) {
-				matrixStackIn.pushPose();
-				
-//				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
-//						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
-
-				matrixStackIn.translate(0, 1, 0.0f);
-				RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
-						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
-				matrixStackIn.translate(0, -1, 0.0f);
-
-				//matrixStackIn.translate(0.125f, 0.125, 0.0f);
-
-				float uniscale = 0.25f;
-				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
-						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
-
-				float transparency = 0.5f;
-				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
-				RenderUtil.renderItemCustomColor(tileEntityIn, tool, color, matrixStackIn, bufferIn, combinedLightIn,
-						combinedOverlayIn, null);
-
-				matrixStackIn.popPose();
-			}
-		}
+//		if (tileEntityIn.getCurrentTool() != null) {
+//			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
+//
+//			if (toolRandom >= recipe.tool.getItems().length)
+//				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
+//			ItemStack tool = recipe.tool.getItems()[toolRandom];
+//
+//			if (!tool.isEmpty()) {
+//				matrixStackIn.pushPose();
+//				
+////				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
+////						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
+//
+//				matrixStackIn.translate(0, 1, 0.0f);
+//				//RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+//				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
+//						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
+//				matrixStackIn.translate(0, -1, 0.0f);
+//
+//				//matrixStackIn.translate(0.125f, 0.125, 0.0f);
+//
+//				float uniscale = 0.25f;
+//				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
+//						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
+//
+//				float transparency = 0.5f;
+//				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
+//				RenderUtil.renderItemCustomColor(tileEntityIn, tool, color, matrixStackIn, bufferIn, combinedLightIn,
+//						combinedOverlayIn, null);
+//
+//				matrixStackIn.popPose();
+//			}
+//		}
 
 		// Render Recipe Output
 		ItemStack item = tileEntityIn.getGhostStack();
