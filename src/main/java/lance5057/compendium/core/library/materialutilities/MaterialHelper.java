@@ -15,11 +15,17 @@ import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.data.builders.loottables.TCBlockLoot;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialAdvancedTools;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialBase;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialComponents;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialOre;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialVanillaTools;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class MaterialHelper {
 
@@ -64,6 +70,17 @@ public class MaterialHelper {
 		addons.add(new MaterialAdvancedTools());
 		return this;
 	}
+
+	public MaterialHelper addComponents() {
+		addons.add(new MaterialComponents());
+		return this;
+	}
+
+	public MaterialHelper addOre(RuleTest test, int size, PlacementModifier... mods) {
+		addons.add(new MaterialOre(test, size, mods));
+		return this;
+	}
+
 //	public void setBase() {
 //		switch (type) {
 //		case "wood":
@@ -119,5 +136,10 @@ public class MaterialHelper {
 	public void addRecipes(TCRecipes recipes, Consumer<FinishedRecipe> consumer) {
 		for (MaterialBase mb : addons)
 			mb.buildRecipes(recipes, consumer, name);
+	}
+
+	public void doBiomeEvent(BiomeLoadingEvent event) {
+		for (MaterialBase mb : addons)
+			mb.biomeEvent(event, this.name);
 	}
 }

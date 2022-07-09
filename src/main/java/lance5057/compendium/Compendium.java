@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.indexes.CompendiumIndexes;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -77,6 +78,7 @@ public class Compendium {
 		WorkstationRecipes.register(modEventBus);
 
 //		MinecraftForge.EVENT_BUS.register(worldgen);
+		MinecraftForge.EVENT_BUS.addListener(CompendiumWorldGen::onBiomeLoadingEvent);
 
 //		AppendixMetallurgy.setup();
 //		AppendixCarpentry.setup();

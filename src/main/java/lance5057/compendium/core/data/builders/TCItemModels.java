@@ -238,6 +238,11 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 	this.singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0",
 		modLoc("item/material/" + name + "/" + item.getId().getPath()));
     }
+    
+    public void forMaterialItem(RegistryObject<? extends Item> item, String name, String loc) {
+    	this.singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0",
+    		modLoc("item/material/" + name + "/" + loc));
+        }
 
     public void forBlockItem(RegistryObject<? extends BlockItem> item, String name) {
 	getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(

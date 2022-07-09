@@ -11,6 +11,7 @@ import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public abstract class MaterialBase {
 
@@ -29,4 +30,6 @@ public abstract class MaterialBase {
 	public abstract void buildLootTable(BlockLoot table, String name);
 
 	public abstract void buildRecipes(TCRecipes recipes, Consumer<FinishedRecipe> consumer, String name);
+	
+	public void biomeEvent(BiomeLoadingEvent event, String name) {}
 }
