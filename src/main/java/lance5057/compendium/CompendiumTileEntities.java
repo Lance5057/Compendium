@@ -1,6 +1,12 @@
 package lance5057.compendium;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.tileentities.ItemDisplayTileEntity;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -26,8 +32,12 @@ public class CompendiumTileEntities {
 
 //    public static final RegistryObject<BlockEntityType<VaultTileEntity>> VAULT_TE = TILE_ENTITIES.register("vault_tile",
 //	    () -> BlockEntityType.Builder.create(VaultTileEntity::new, getAllVaults()).build(null));
-//    public static final RegistryObject<BlockEntityType<ItemDisplayTileEntity>> ITEM_DISPLAY_TE = TILE_ENTITIES.register("item_display_tile",
-//	    () -> BlockEntityType.Builder.create(ItemDisplayTileEntity::new, getAllItemDisplays()).build(null));
+	
+	public static List<Block> displayBlocks = new ArrayList<Block>();
+	
+	public static final RegistryObject<BlockEntityType<ItemDisplayTileEntity>> ITEM_DISPLAY_TE = TILE_ENTITIES.register(
+			"item_display_tile",
+			() -> BlockEntityType.Builder.of(ItemDisplayTileEntity::new, getAllItemDisplays()).build(null));
 
 	public static void register(IEventBus modBus) {
 		TILE_ENTITIES.register(modBus);
@@ -45,15 +55,13 @@ public class CompendiumTileEntities {
 //	return  blocks.toArray(b);
 //    }
 //    
-//    static Block[] getAllItemDisplays()
-//    {
-//	List<Block> blocks = new ArrayList<Block>();
-//	for(MaterialHelper mh: CompendiumMaterials.materials)
-//	{
-//	    if(mh.getAdvancedComponents() != null)
-//		blocks.add(mh.getAdvancedComponents().STATUE.get());
-//	}
-//	Block[] b = {};
-//	return  blocks.toArray(b);
-//    }
+	static Block[] getAllItemDisplays() {
+		List<Block> blocks = new ArrayList<Block>();
+		for (MaterialHelper mh : CompendiumMaterials.materials) {
+			if (mh.g != null)
+				blocks.add(mh.getAdvancedComponents().STATUE.get());
+		}
+		Block[] b = {};
+		return blocks.toArray(b);
+	}
 }

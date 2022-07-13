@@ -33,6 +33,7 @@ public class MaterialComponents extends MaterialBase {
 	public RegistryObject<Item> SPRING;
 	public RegistryObject<Item> SETTING;
 	public RegistryObject<Item> CASING;
+	public RegistryObject<Item> NAILS;
 
 	@Override
 	public void setup(MaterialHelper helper) {
@@ -52,6 +53,7 @@ public class MaterialComponents extends MaterialBase {
 		 SPRING = CompendiumItems.ITEMS.register(helper.name + "_spring", () -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 		 SETTING = CompendiumItems.ITEMS.register(helper.name + "_setting", () -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 		 CASING = CompendiumItems.ITEMS.register(helper.name + "_casing", () -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
+		 NAILS = CompendiumItems.ITEMS.register(helper.name + "_nails", () -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 	}
 
 	@Override
@@ -84,6 +86,7 @@ public class MaterialComponents extends MaterialBase {
 		model.forMaterialItem(SPRING, name, name + "spring");
 		model.forMaterialItem(SETTING, name, name + "setting");
 		model.forMaterialItem(CASING, name, name + "casing");
+		//model.forMaterialItem(NAILS, name, name + "nails");
 	}
 
 	@Override
@@ -104,6 +107,7 @@ public class MaterialComponents extends MaterialBase {
 		loc.add(SPRING.get(), capName + " Spring");
 		loc.add(SETTING.get(), capName + " Setting");
 		loc.add(CASING.get(), capName + " Casing");
+		loc.add(NAILS.get(), capName + " Nails");
 	}
 
 	@Override
