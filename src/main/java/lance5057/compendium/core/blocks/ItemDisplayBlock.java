@@ -5,14 +5,12 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.CompendiumTileEntities;
 import lance5057.compendium.core.tileentities.ItemDisplayTileEntity;
-import net.minecraft.block.HorizontalBlock;
+import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -63,7 +61,7 @@ public class ItemDisplayBlock extends Block implements EntityBlock ,SimpleWaterl
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new ItemDisplayTileEntity(CompendiumTileEntities..get(), pPos, pState);
+		return new ItemDisplayTileEntity(pPos, pState);
 	}
 
 	@Override
@@ -73,24 +71,23 @@ public class ItemDisplayBlock extends Block implements EntityBlock ,SimpleWaterl
 
 	@Nonnull
 	@Override
-	public InteractionResultHolder onBlockActivated(@Nonnull BlockState blockState, Level world,
-			@Nonnull BlockPos blockPos, @Nonnull Player Player, @Nonnull InteractionHand InteractionHand,
-			@Nonnull BlockHitResult BlockHitResult) {
+	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player,
+			InteractionHand InteractionHandIn, BlockHitResult hit) {
 
-		TileEntity entity = world.getTileEntity(blockPos);
+		BlockEntity entity = worldIn.getBlockEntity(pos);
 		if (entity instanceof ItemDisplayTileEntity) {
 
 			ItemDisplayTileEntity te = ((ItemDisplayTileEntity) entity);
 
-			if (Player.getHeldItem(InteractionHand).isEmpty()) {
-				te.extractItem(Player);
+			if (player.getItemInHand(InteractionHandIn).isEmpty()) {
+				te.extractItem(player);
 			} else
-				te.insertItem(Player.getHeldItem(InteractionHand));
+				te.insertItem(player.getItemInHand(InteractionHandIn));
 
-			return InteractionResultHolder.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 
-		return super.onBlockActivated(blockState, world, blockPos, Player, InteractionHand, BlockHitResult);
+		return super.use(state, worldIn, pos, player, InteractionHandIn, hit);
 
 	}
 
@@ -106,29 +103,29 @@ public class ItemDisplayBlock extends Block implements EntityBlock ,SimpleWaterl
 //    }
 
 	@Override
-	public void onReplaced(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
+	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
 			boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if (tileentity instanceof ItemDisplayTileEntity) {
-				tileentity.getCapability(CapabilityItemHandler.ITEM_InteractionHandLER_CAPABILITY).ifPresent(
+			BlockEntity tileentity = worldIn.getBlockEntity(pos);
+			if (tileentity instanceof CraftingAnvilTE) {
+				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(
 						itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots()).forEach(
-								i -> Block.spawnAsEntity(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
+								i -> Block.popResource(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
 
-				worldIn.updateComparatorOutputLevel(pos, this);
+				worldIn.updateNeighbourForOutputSignal(pos, this);
 			}
 
-			super.onReplaced(state, worldIn, pos, newState, isMoving);
+			super.onRemove(state, worldIn, pos, newState, isMoving);
 		}
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		FluidState ifluidstate = context.getLevel().getFluidState(context.getPos());
+		FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
 
 		BlockState blockstate = this.defaultBlockState()
 				.setValue(FACING, context.getHorizontalDirection().getOpposite())
-				.setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+				.setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
 		return blockstate;
 	}
 

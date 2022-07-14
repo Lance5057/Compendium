@@ -152,7 +152,7 @@ public class IndexBaseMetals {
 	public IndexBaseMetals() {
 		// ALUMINIUM ------------------------------------------------------//
 		CompendiumMaterials.materials.add(new MaterialHelper("aluminium", ALUMINIUM_TIER).addMetalBase()
-				.addVanillaTools().addAdvancedTools().addComponents().addOre(OreFeatures.STONE_ORE_REPLACEABLES, 10,
+				.addVanillaTools().addAdvancedTools().addComponents().addStatues().addOre(OreFeatures.STONE_ORE_REPLACEABLES, 10,
 						CountPlacement.of(1),
 						InSquarePlacement.spread(),
 						BiomeFilter.biome(),

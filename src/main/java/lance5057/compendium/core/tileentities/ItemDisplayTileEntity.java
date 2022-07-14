@@ -3,6 +3,7 @@ package lance5057.compendium.core.tileentities;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import lance5057.compendium.CompendiumTileEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -26,8 +27,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class ItemDisplayTileEntity extends BlockEntity {
 
-	public ItemDisplayTileEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
-		super(p_155228_, p_155229_, p_155230_);
+	public ItemDisplayTileEntity(BlockPos p_155229_, BlockState p_155230_) {
+		super(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), p_155229_, p_155230_);
 		// TODO Auto-generated constructor stub
 	}
 

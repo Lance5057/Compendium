@@ -18,6 +18,7 @@ import lance5057.compendium.core.library.materialutilities.addons.base.MaterialB
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialComponents;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialOre;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialStatues;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialVanillaTools;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Tier;
@@ -78,6 +79,11 @@ public class MaterialHelper {
 
 	public MaterialHelper addOre(RuleTest test, int size, PlacementModifier... mods) {
 		addons.add(new MaterialOre(test, size, mods));
+		return this;
+	}
+	
+	public MaterialHelper addStatues() {
+		addons.add(new MaterialStatues());
 		return this;
 	}
 
