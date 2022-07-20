@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumItems;
+import lance5057.compendium.Reference;
 import lance5057.compendium.core.blocks.BlockShingles;
 import lance5057.compendium.core.blocks.BlockShinglesCap;
 import lance5057.compendium.core.data.builders.TCBlockModels;
@@ -18,6 +19,7 @@ import lance5057.compendium.core.data.builders.TCRecipes;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -26,7 +28,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.RegistryObject;
 
 public class MaterialShingles extends MaterialBase {
-	
+
 	public static List<MaterialHelper> WOODS = new ArrayList<MaterialHelper>();
 
 	RegistryObject<Block> SHINGLE_BLOCK;
@@ -60,45 +62,41 @@ public class MaterialShingles extends MaterialBase {
 
 		SHINGLES_ITEMBLOCK = CompendiumItems.ITEMS.register(helper.name + "_shingles_itemblock",
 				() -> new BlockItem(SHINGLE_BLOCK.get(), new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
-		
-		for(MaterialHelper mh : WOODS)
-		{
-			if(mh.getDefiningItem() != null)
-			{
-				RegistryObject<BlockShingles> SHINGLE = cmh.BLOCKS.register(cmh.name + "_" + m.name + "_shingles",
-					() -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(),
-						Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
-							.sound(SoundType.METAL).notSolid()));
 
-				RegistryObject<BlockShingles> SHINGLE_ALT = cmh.BLOCKS.register(
-					cmh.name + "_" + m.name + "_shinglesalt",
-					() -> new BlockShingles(() -> SHINGLE_BLOCK.get().getDefaultState(),
-						Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
-							.sound(SoundType.METAL).notSolid()));
+		for (MaterialHelper mh : WOODS) {
+			if (mh.getDefiningItem() != null) {
+				RegistryObject<BlockShingles> SHINGLE = CompendiumBlocks.BLOCKS.register(
+						helper.name + "_" + mh.name + "_shingles",
+						() -> new BlockShingles(() -> SHINGLE_BLOCK.get().defaultBlockState(), Block.Properties
+								.of(Material.WOOD).strength(5F, 10F).sound(SoundType.METAL).noOcclusion()));
 
-				RegistryObject<BlockNamedItem> SHINGLEITEM = cmh.ITEMS
-					.register(cmh.name + "_" + m.name + "_shinglesitem", () -> new BlockNamedItem(SHINGLE.get(),
-						new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+				RegistryObject<BlockShingles> SHINGLE_ALT = CompendiumBlocks.BLOCKS.register(
+						helper.name + "_" + mh.name + "_shinglesalt",
+						() -> new BlockShingles(() -> SHINGLE_BLOCK.get().defaultBlockState(), Block.Properties
+								.of(Material.WOOD).strength(5F, 10F).sound(SoundType.METAL).noOcclusion()));
 
-				RegistryObject<BlockNamedItem> SHINGLEITEM_ALT = cmh.ITEMS.register(
-					cmh.name + "_" + m.name + "_shinglesitem_alt", () -> new BlockNamedItem(SHINGLE_ALT.get(),
-						new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+				RegistryObject<BlockItem> SHINGLEITEM = CompendiumItems.ITEMS.register(
+						helper.name + "_" + mh.name + "_shinglesitem",
+						() -> new BlockItem(SHINGLE.get(), new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 
-				RegistryObject<BlockShinglesCap> SHINGLE_CAP = cmh.BLOCKS.register(
-					cmh.name + "_" + m.name + "_shingles_cap",
-					() -> new BlockShinglesCap(Block.Properties.create(Material.WOOD).hardnessAndResistance(5F, 10F)
-						.sound(SoundType.METAL).notSolid()));
+				RegistryObject<BlockItem> SHINGLEITEM_ALT = CompendiumItems.ITEMS.register(
+						helper.name + "_" + mh.name + "_shinglesitem_alt", () -> new BlockItem(SHINGLE_ALT.get(),
+								new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 
-				RegistryObject<BlockNamedItem> SHINGLEITEM_CAP = cmh.ITEMS.register(
-					cmh.name + "_" + m.name + "_shinglesitem_cap", () -> new BlockNamedItem(SHINGLE_CAP.get(),
-						new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
+				RegistryObject<BlockShinglesCap> SHINGLE_CAP = CompendiumBlocks.BLOCKS.register(
+						helper.name + "_" + mh.name + "_shingles_cap", () -> new BlockShinglesCap(Block.Properties
+								.of(Material.WOOD).strength(5F, 10F).sound(SoundType.METAL).noOcclusion()));
 
-//			    RegistryObject<BlockShinglesCap> SHINGLE_CAP_ALT = cmh.BLOCKS
-//				    .register(cmh.name + "_" + m.name + "_shingles_cap_alt", () -> new BlockShinglesCap(Block.Properties
+				RegistryObject<BlockItem> SHINGLEITEM_CAP = CompendiumItems.ITEMS.register(
+						helper.name + "_" + mh.name + "_shinglesitem_cap", () -> new BlockItem(SHINGLE_CAP.get(),
+								new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
+
+//			    RegistryObject<BlockShinglesCap> SHINGLE_CAP_ALT = CompendiumBlocks.BLOCKS
+//				    .register(CompendiumBlocks.name + "_" + m.name + "_shingles_cap_alt", () -> new BlockShinglesCap(Block.Properties
 //					    .create(Material.WOOD).hardnessAndResistance(5F, 10F).sound(SoundType.METAL).notSolid()));
-		//
-//			    RegistryObject<BlockNamedItem> SHINGLEITEM_CAP_ALT = cmh.ITEMS.register(
-//				    cmh.name + "_" + m.name + "_shinglesitem_cap_alt", () -> new BlockNamedItem(SHINGLE_CAP_ALT.get(),
+				//
+//			    RegistryObject<BlockNamedItem> SHINGLEITEM_CAP_ALT = CompendiumBlocks.ITEMS.register(
+//				    CompendiumBlocks.name + "_" + m.name + "_shinglesitem_cap_alt", () -> new BlockNamedItem(SHINGLE_CAP_ALT.get(),
 //					    new Item.Properties().group(CarpentryMaterialHelper.GROUP_WOOD)));
 
 				SHINGLES.add(SHINGLE);
@@ -110,8 +108,7 @@ public class MaterialShingles extends MaterialBase {
 //			    SHINGLESITEM_CAPS_ALT.add(SHINGLEITEM_CAP_ALT);
 				SHINGLESITEM.add(SHINGLEITEM);
 				SHINGLESITEM_ALT.add(SHINGLEITEM_ALT);
-			}
-			else
+			} else
 				Compendium.logger.warn(mh.name + " doesn't have a defining item, ignoring!");
 		}
 	}
@@ -124,14 +121,13 @@ public class MaterialShingles extends MaterialBase {
 
 	@Override
 	public void registerBlockModels(TCBlockModels model, String name) {
-		// TODO Auto-generated method stub
-
+		model.simpleBlock(SHINGLE_BLOCK.get(), model.models().cubeAll(SHINGLE_BLOCK.get().getRegistryName().getPath(),
+				new ResourceLocation(Reference.MOD_ID, "block/material/" + name + "/" + name + "block")));
 	}
 
 	@Override
 	public void registerItemModels(TCItemModels model, String name) {
-		// TODO Auto-generated method stub
-
+		model.forBlockItem(SHINGLES_ITEMBLOCK, name);
 	}
 
 	@Override

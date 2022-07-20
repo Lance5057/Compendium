@@ -49,8 +49,9 @@ public class MaterialHelper {
 		addons = new ArrayList<MaterialBase>();
 	}
 
-	protected void setDefiningItem(ItemLike item) {
+	public MaterialHelper setDefiningItem(ItemLike item) {
 		definingItem = item;
+		return this;
 	}
 
 	public ItemLike getDefiningItem() {
@@ -81,7 +82,7 @@ public class MaterialHelper {
 		addons.add(new MaterialOre(test, size, mods));
 		return this;
 	}
-	
+
 	public MaterialHelper addStatues() {
 		addons.add(new MaterialStatues());
 		return this;
