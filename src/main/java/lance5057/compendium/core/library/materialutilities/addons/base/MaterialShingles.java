@@ -10,13 +10,16 @@ import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.blocks.BlockShingles;
 import lance5057.compendium.core.blocks.BlockShinglesCap;
+import lance5057.compendium.core.client.models.blocks.ModelShingles;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCBlockTags;
 import lance5057.compendium.core.data.builders.TCEnglishLoc;
 import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCRecipes;
+import lance5057.compendium.core.library.CompendiumTags;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import net.minecraft.core.Registry;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +28,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class MaterialShingles extends MaterialBase {
@@ -123,11 +128,39 @@ public class MaterialShingles extends MaterialBase {
 	public void registerBlockModels(TCBlockModels model, String name) {
 		model.simpleBlock(SHINGLE_BLOCK.get(), model.models().cubeAll(SHINGLE_BLOCK.get().getRegistryName().getPath(),
 				new ResourceLocation(Reference.MOD_ID, "block/material/" + name + "/" + name + "block")));
+
+		for (int i = 0; i < WOODS.size(); i++) {
+			if (WOODS.get(i).getDefiningItem() != null) {
+				ModelShingles.shinglesModel(model, name + "_" + WOODS.get(i).name + "_",
+						"compendium:block/material/" + name + "/" + name + "shingles",
+						"minecraft:block/" + WOODS.get(i).name + "_" + WOODS.get(i).storageName, "",
+						"block/bases/shingles", SHINGLES.get(i).get());
+
+				TCBlockModels.shinglesModel(model, name + "_" + WOODS.get(i).name + "_",
+						"compendium:block/material/" + name + "/" + name + "shingles",
+						"minecraft:block/" + WOODS.get(i).name + "_" + WOODS.get(i).storageName, "alt",
+						"block/bases/shingles", SHINGLES_ALT.get(i).get());
+
+				TCBlockModels.shinglesCapModel(model, name + "_" + WOODS.get(i).name + "_",
+						"compendium:block/material/" + name + "/" + name + "shingles", "", "block/bases/shingles_cap",
+						SHINGLES_CAPS.get(i).get());
+			}
+		}
 	}
 
 	@Override
 	public void registerItemModels(TCItemModels model, String name) {
 		model.forBlockItem(SHINGLES_ITEMBLOCK, name);
+
+		for (int i = 0; i < WOODS.size(); i++) {
+
+			model.forBlockItem(SHINGLESITEM.get(i), name);
+			model.forBlockItem(SHINGLESITEM_ALT.get(i), name);
+			model.getBuilder(SHINGLESITEM_CAPS.get(i).getId().getPath())
+					.parent(new ModelFile.UncheckedModelFile(model.modLoc("block/bases/shingles_cap_full")))
+					.texture("0", model.modLoc("block/material/" + name + "/" + name + "shingles"));
+//		    model.forBlockItem(m.SHINGLESITEM_CAPS_ALT.get(i), name);
+		}
 	}
 
 	@Override
@@ -144,14 +177,25 @@ public class MaterialShingles extends MaterialBase {
 
 	@Override
 	public void registerBlockTags(TCBlockTags tags, String name) {
-		// TODO Auto-generated method stub
 
+		for (int i = 0; i < WOODS.size(); i++) {
+			tags.getOrCreateRawBuilder(CompendiumTags.SHINGLESCAP).addElement(Registry.BLOCK.getKey(this.SHINGLES_CAPS.get(i).get()),
+					Reference.MOD_ID);
+		}
 	}
 
 	@Override
 	public void buildLootTable(BlockLoot table, String name) {
-		// TODO Auto-generated method stub
+		table.dropSelf(SHINGLE_BLOCK.get());
 
+		for (int i = 0; i < WOODS.size(); i++) {
+			table.dropOther(SHINGLES.get(i).get(),
+					ForgeRegistries.ITEMS.getValue(new ResourceLocation(Reference.MOD_ID, name + "plate")));// .registerDropSelfLootTable(b.SHINGLES.get(i).get());
+			table.dropSelf(SHINGLES_ALT.get(i).get());
+
+			table.dropSelf(SHINGLES_CAPS.get(i).get());
+//		    table.registerDropSelfLootTable(b.SHINGLES_CAPS_ALT.get(i).get());
+		}
 	}
 
 	@Override

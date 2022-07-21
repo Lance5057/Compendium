@@ -18,12 +18,12 @@ import lance5057.compendium.core.library.materialutilities.addons.base.MaterialB
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialComponents;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialMetal;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialOre;
+import lance5057.compendium.core.library.materialutilities.addons.base.MaterialShingles;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialStatues;
 import lance5057.compendium.core.library.materialutilities.addons.base.MaterialVanillaTools;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -34,7 +34,12 @@ public class MaterialHelper {
 
 	public Tier tier;
 
+	ItemLike smallItem;
 	ItemLike definingItem;
+	ItemLike storageItem;
+	
+	public String storageName;
+	public String smallName;
 
 	public List<MaterialBase> addons;
 
@@ -56,6 +61,26 @@ public class MaterialHelper {
 
 	public ItemLike getDefiningItem() {
 		return definingItem;
+	}
+
+	public MaterialHelper setStorageItem(ItemLike item, String name) {
+		storageItem = item;
+		storageName = name;
+		return this;
+	}
+
+	public ItemLike getStorageItem() {
+		return storageItem;
+	}
+
+	public MaterialHelper setSmallItem(ItemLike item, String name) {
+		smallItem = item;
+		smallName = name;
+		return this;
+	}
+
+	public ItemLike getSmallItem() {
+		return smallItem;
 	}
 
 	public MaterialHelper addMetalBase() {
@@ -85,6 +110,11 @@ public class MaterialHelper {
 
 	public MaterialHelper addStatues() {
 		addons.add(new MaterialStatues());
+		return this;
+	}
+	
+	public MaterialHelper addShingles() {
+		addons.add(new MaterialShingles());
 		return this;
 	}
 

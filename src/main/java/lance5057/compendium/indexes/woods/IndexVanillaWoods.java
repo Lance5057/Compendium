@@ -18,7 +18,7 @@ public class IndexVanillaWoods {
 
 	public IndexVanillaWoods() {
 
-		MaterialHelper oak = new MaterialHelper("oak", Tiers.WOOD).setDefiningItem(Items.OAK_WOOD);
+		MaterialHelper oak = new MaterialHelper("oak", Tiers.WOOD).setDefiningItem(Items.OAK_WOOD).setStorageItem(Items.OAK_LOG, "log");
 		CompendiumMaterials.materials.add(oak);
 
 		MaterialShingles.WOODS.add(oak);
