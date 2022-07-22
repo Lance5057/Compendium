@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/handstatue",
+  "textures": {
+    "0": "compendium:block/material/aluminium/aluminiumgemblock"
+  }
+}
