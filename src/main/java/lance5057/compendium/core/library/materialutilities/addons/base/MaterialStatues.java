@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import lance5057.compendium.CompendiumBlocks;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.CompendiumTileEntities;
+import lance5057.compendium.core.blocks.BlockHand;
 import lance5057.compendium.core.blocks.ItemDisplayBlock;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCBlockTags;
@@ -17,30 +18,31 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.registries.RegistryObject;
 
 public class MaterialStatues extends MaterialBase {
 
 	public RegistryObject<ItemDisplayBlock> STATUE_BLOCK;
-	public RegistryObject<ItemDisplayBlock> HAND_STATUE_BLOCK;
-	
+	public RegistryObject<BlockHand> HAND_STATUE_BLOCK;
+
 	public RegistryObject<BlockItem> STATUE_ITEMBLOCK;
 	public RegistryObject<BlockItem> HAND_STATUE_ITEMBLOCK;
-	
+
 	@Override
 	public void setup(MaterialHelper helper) {
-		STATUE_BLOCK = CompendiumBlocks.BLOCKS.register(helper.name + "_statueblock",
-				() -> new ItemDisplayBlock());
-		HAND_STATUE_BLOCK = CompendiumBlocks.BLOCKS.register(helper.name + "_handstatueblock",
-				() -> new ItemDisplayBlock());
-		
+		STATUE_BLOCK = CompendiumBlocks.BLOCKS.register(helper.name + "_statueblock", () -> new ItemDisplayBlock());
+		HAND_STATUE_BLOCK = CompendiumBlocks.BLOCKS.register(helper.name + "_handstatueblock", () -> new BlockHand());
+
 		STATUE_ITEMBLOCK = CompendiumItems.ITEMS.register(helper.name + "_statueitemblock",
 				() -> new BlockItem(STATUE_BLOCK.get(), new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
 		HAND_STATUE_ITEMBLOCK = CompendiumItems.ITEMS.register(helper.name + "_handstatueitemblock",
-				() -> new BlockItem(HAND_STATUE_BLOCK.get(), new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
-		
+				() -> new BlockItem(HAND_STATUE_BLOCK.get(),
+						new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));
+
 		CompendiumTileEntities.displayBlocks.add(STATUE_BLOCK);
-		CompendiumTileEntities.displayBlocks.add(HAND_STATUE_BLOCK);
+		CompendiumTileEntities.displayHandBlocks.add(HAND_STATUE_BLOCK);
 	}
 
 	@Override
@@ -51,13 +53,21 @@ public class MaterialStatues extends MaterialBase {
 
 	@Override
 	public void registerBlockModels(TCBlockModels model, String name) {
+
+//		model.getVariantBuilder(HAND_STATUE_BLOCK.get())
+//				.forAllStates(state -> ConfiguredModel.builder()
+//						.modelFile(model.models()
+//								.withExistingParent(name + "handstatue", model.modLoc("block/bases/handstatue"))
+//								.texture("0", model.modLoc("block/material/" + name + "/" + name + "gemblock")))
+//						.rotationY(state.getValue(BlockStateProperties.ROTATION_16) % 360).build());
+
 		model.horizontalBlock(STATUE_BLOCK.get(),
-				model.models().withExistingParent(name + "statue", model.modLoc("block/bases/statue"))
-					.texture("0", model.modLoc("block/material/" + name + "/" + name + "gemblock")));
-		
-		model.horizontalBlock(HAND_STATUE_BLOCK.get(),
-				model.models().withExistingParent(name + "handstatue", model.modLoc("block/bases/handstatue"))
-					.texture("0", model.modLoc("block/material/" + name + "/" + name + "gemblock")));
+				model.models().withExistingParent(name + "statue", model.modLoc("block/bases/statue")).texture("0",
+						model.modLoc("block/material/" + name + "/" + name + "gemblock")));
+
+//		model.horizontalBlock(HAND_STATUE_BLOCK.get(),
+//				model.models().withExistingParent(name + "handstatue", model.modLoc("block/bases/handstatue"))
+//						.texture("0", model.modLoc("block/material/" + name + "/" + name + "gemblock")));
 	}
 
 	@Override

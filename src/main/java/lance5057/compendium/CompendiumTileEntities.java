@@ -3,8 +3,9 @@ package lance5057.compendium;
 import java.util.ArrayList;
 import java.util.List;
 
+import lance5057.compendium.core.blocks.BlockHand;
 import lance5057.compendium.core.blocks.ItemDisplayBlock;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
+import lance5057.compendium.core.tileentities.HandTileEntity;
 import lance5057.compendium.core.tileentities.ItemDisplayTileEntity;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.world.level.block.Block;
@@ -35,10 +36,15 @@ public class CompendiumTileEntities {
 //	    () -> BlockEntityType.Builder.create(VaultTileEntity::new, getAllVaults()).build(null));
 	
 	public static List<RegistryObject<ItemDisplayBlock>> displayBlocks = new ArrayList<RegistryObject<ItemDisplayBlock>>();
+	public static List<RegistryObject<BlockHand>> displayHandBlocks = new ArrayList<RegistryObject<BlockHand>>();
 	
 	public static final RegistryObject<BlockEntityType<ItemDisplayTileEntity>> ITEM_DISPLAY_TE = TILE_ENTITIES.register(
 			"item_display_tile",
 			() -> BlockEntityType.Builder.of(ItemDisplayTileEntity::new, getAllItemDisplays()).build(null));
+	
+	public static final RegistryObject<BlockEntityType<HandTileEntity>> HAND_DISPLAY_TE = TILE_ENTITIES.register(
+			"hand_display_tile",
+			() -> BlockEntityType.Builder.of(HandTileEntity::new, getAllHandDisplays()).build(null));
 
 	public static void register(IEventBus modBus) {
 		TILE_ENTITIES.register(modBus);
@@ -60,6 +66,18 @@ public class CompendiumTileEntities {
 		List<Block> blocksOut = new ArrayList<Block>();
 		
 		for(RegistryObject<ItemDisplayBlock> block : displayBlocks)
+		{
+			blocksOut.add(block.get());
+		}
+		
+		Block[] b = {};
+		return blocksOut.toArray(b);
+	}
+	
+	static Block[] getAllHandDisplays() {
+		List<Block> blocksOut = new ArrayList<Block>();
+		
+		for(RegistryObject<BlockHand> block : displayHandBlocks)
 		{
 			blocksOut.add(block.get());
 		}

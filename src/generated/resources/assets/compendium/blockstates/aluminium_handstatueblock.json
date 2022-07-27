@@ -1,64 +1,196 @@
 {
   "variants": {
-    "facing=north,lit=false,waterlogged=false": {
+    "lit=false,rotation=0,waterlogged=false": {
       "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=south,lit=false,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 180
-    },
-    "facing=west,lit=false,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 270
-    },
-    "facing=east,lit=false,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 90
-    },
-    "facing=north,lit=true,waterlogged=false": {
+    "lit=true,rotation=0,waterlogged=false": {
       "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=south,lit=true,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 180
-    },
-    "facing=west,lit=true,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 270
-    },
-    "facing=east,lit=true,waterlogged=false": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 90
-    },
-    "facing=north,lit=false,waterlogged=true": {
+    "lit=false,rotation=1,waterlogged=false": {
       "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=south,lit=false,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 180
-    },
-    "facing=west,lit=false,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 270
-    },
-    "facing=east,lit=false,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 90
-    },
-    "facing=north,lit=true,waterlogged=true": {
+    "lit=true,rotation=1,waterlogged=false": {
       "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=south,lit=true,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 180
+    "lit=false,rotation=2,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=west,lit=true,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 270
+    "lit=true,rotation=2,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
     },
-    "facing=east,lit=true,waterlogged=true": {
-      "model": "compendium:block/aluminiumhandstatue",
-      "y": 90
+    "lit=false,rotation=3,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=3,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=4,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=4,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=5,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=5,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=6,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=6,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=7,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=7,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=8,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=8,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=9,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=9,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=10,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=10,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=11,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=11,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=12,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=12,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=13,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=13,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=14,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=14,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=15,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=15,waterlogged=false": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=0,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=0,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=1,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=1,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=2,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=2,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=3,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=3,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=4,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=4,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=5,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=5,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=6,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=6,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=7,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=7,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=8,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=8,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=9,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=9,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=10,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=10,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=11,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=11,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=12,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=12,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=13,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=13,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=14,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=14,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=false,rotation=15,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
+    },
+    "lit=true,rotation=15,waterlogged=true": {
+      "model": "compendium:block/aluminiumhandstatue"
     }
   }
 }
