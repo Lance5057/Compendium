@@ -7,6 +7,10 @@ import net.minecraft.network.FriendlyByteBuf;
 public class AnimationFloatTransform {
 	AnimatedFloatVector3 loc, scale, rot;
 
+
+	public static AnimationFloatTransform ZERO = new AnimationFloatTransform(AnimatedFloatVector3.zero,
+			AnimatedFloatVector3.zero, AnimatedFloatVector3.zero);
+	
 	public AnimationFloatTransform() {
 		loc = AnimatedFloatVector3.zero;
 		rot = AnimatedFloatVector3.zero;

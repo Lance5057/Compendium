@@ -20,9 +20,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.BlockElement;
 import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -77,13 +79,13 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 				ItemStack item = r.getStackInSlot(i);
 
 				if (!item.isEmpty()) {
+					BakedModel bakedmodel = itemRenderer.getModel(item, tileEntityIn.getLevel(), null, 0);
 					matrixStackIn.pushPose();
 					matrixStackIn.translate(xoff + 0.26f, 1, yoff + 0.16);
 					matrixStackIn.mulPose(new Quaternion(-90, 0, 0, true));
 					float uniscale = 0.2f;
 					matrixStackIn.scale(uniscale, uniscale, uniscale);
-//					itemRenderer.render(item, ItemTransforms.TransformType.GROUND, combinedLightIn,
-//							combinedOverlayIn, matrixStackIn, bufferIn);
+					itemRenderer.render(item, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bakedmodel);
 					matrixStackIn.popPose();
 				}
 			}
@@ -91,52 +93,55 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 			ItemStack item = r.getStackInSlot(25);
 
 			if (!item.isEmpty()) {
+				BakedModel bakedmodel = itemRenderer.getModel(item, tileEntityIn.getLevel(), null, 0);
 				matrixStackIn.pushPose();
 				matrixStackIn.translate(1, 0.6, 0.5);
 				matrixStackIn.mulPose(new Quaternion(150, -60, 30, true));
 				float uniscale = 1.7f;
 				matrixStackIn.scale(uniscale, uniscale, uniscale);
-//				itemRenderer.render(item, ItemTransforms.TransformType.GROUND, combinedLightIn, combinedOverlayIn,
-//						matrixStackIn, bufferIn);
-
+				itemRenderer.render(item, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bakedmodel);
 				matrixStackIn.popPose();
 			}
 		});
 
 		// Render Recipe Tool
-//		if (tileEntityIn.getCurrentTool() != null) {
-//			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
-//
-//			if (toolRandom >= recipe.tool.getItems().length)
-//				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
-//			ItemStack tool = recipe.tool.getItems()[toolRandom];
-//
-//			if (!tool.isEmpty()) {
-//				matrixStackIn.pushPose();
-//				
-////				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
-////						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
-//
-//				matrixStackIn.translate(0, 1, 0.0f);
-//				//RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-//				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
-//						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
-//				matrixStackIn.translate(0, -1, 0.0f);
-//
-//				//matrixStackIn.translate(0.125f, 0.125, 0.0f);
-//
-//				float uniscale = 0.25f;
-//				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
-//						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
-//
+		if (tileEntityIn.getCurrentTool() != null) {
+			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
+
+			if (toolRandom >= recipe.tool.getItems().length)
+				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
+			ItemStack tool = recipe.tool.getItems()[toolRandom];
+
+			if (!tool.isEmpty()) {
+				BakedModel bakedmodel = itemRenderer.getModel(tool, tileEntityIn.getLevel(), null, 0);
+				
+				matrixStackIn.pushPose();
+				
+//				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
+//						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
+
+				matrixStackIn.translate(0, 1, 0.0f);
+				//RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
+						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
+				matrixStackIn.translate(0, -1, 0.0f);
+
+				//matrixStackIn.translate(0.125f, 0.125, 0.0f);
+
+				float uniscale = 0.25f;
+				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
+						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
+
 //				float transparency = 0.5f;
 //				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
 //				RenderUtil.renderItemCustomColor(tileEntityIn, tool, color, matrixStackIn, bufferIn, combinedLightIn,
 //						combinedOverlayIn, null);
-//
-//				matrixStackIn.popPose();
-//			}
-//		}
+
+				itemRenderer.render(tool, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bakedmodel);
+				
+				matrixStackIn.popPose();
+			}
+		}
 
 		// Render Recipe Output
 		ItemStack item = tileEntityIn.getGhostStack();
@@ -176,7 +181,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 	private void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
 			int combinedOverlayIn) {
 		UnbakedModel um = ForgeModelBakery.instance()
-				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "block/bases/seat/stool_full"));
+				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
 		if (um instanceof BlockModel) {
 			BlockModel bm = (BlockModel) um;
 
