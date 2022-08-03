@@ -6,10 +6,10 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.CompendiumContainers;
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -40,7 +40,7 @@ public class CraftingAnvilContainer extends AbstractContainerMenu {
 	private Slot output;
 	private Slot view;
 
-	public NonNullList<RecipeItemUse> toolList;
+	public NonNullList<AnimatedRecipeItemUse> toolList;
 
 //	public static CraftingAnvilContainer createContainerServerSide(int windowID, Inventory playerInventory,
 //			ItemStackHandler inv) {

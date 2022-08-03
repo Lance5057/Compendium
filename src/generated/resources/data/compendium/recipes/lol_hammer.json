@@ -17,7 +17,73 @@
         "item": "minecraft:stone"
       },
       "Count": 1,
-      "Damage": true
+      "Damage": true,
+      "animation": {
+        "x": {
+          "x": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "y": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "z": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          }
+        },
+        "y": {
+          "x": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "y": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "z": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          }
+        },
+        "z": {
+          "x": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "y": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          },
+          "z": {
+            "min": 0.0,
+            "max": 0.0,
+            "speed": 0.0,
+            "loop": false
+          }
+        }
+      },
+      "model": {
+        "blacklist": [],
+        "location": "compendium:models/recipe/stool.json"
+      }
     }
   },
   "schematic": {

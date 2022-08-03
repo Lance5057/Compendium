@@ -13,7 +13,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
@@ -51,14 +50,14 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 	private final int recipeWidth;
 	private final int recipeHeight;
 	private final NonNullList<Ingredient> recipeItems;
-	private final NonNullList<RecipeItemUse> recipeTools;
+	private final NonNullList<AnimatedRecipeItemUse> recipeTools;
 
 	private final ItemStack recipeOutput;
 	private final ResourceLocation id;
 	private final String group;
 
 	public MultiToolRecipe(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
-			NonNullList<Ingredient> recipeItemsIn, NonNullList<RecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn,
+			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn,
 			RecipeType<?> type) {
 		this.id = idIn;
 		this.group = groupIn;
@@ -97,7 +96,7 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 		return this.getRecipeItems();
 	}
 
-	public NonNullList<RecipeItemUse> getToolList() {
+	public NonNullList<AnimatedRecipeItemUse> getToolList() {
 		return this.getRecipeTools();
 	}
 
@@ -304,8 +303,8 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 		return map;
 	}
 
-	public static NonNullList<RecipeItemUse> deserializeTool(JsonObject json) {
-		NonNullList<RecipeItemUse> map = NonNullList.create();
+	public static NonNullList<AnimatedRecipeItemUse> deserializeTool(JsonObject json) {
+		NonNullList<AnimatedRecipeItemUse> map = NonNullList.create();
 
 		for (Entry<String, JsonElement> entry : json.entrySet()) {
 //	    if (entry.getKey().length() != 1) {
@@ -317,12 +316,12 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 //		throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
 //	    }
 
-			RecipeItemUse r = RecipeItemUse.read(entry.getValue().getAsJsonObject());
+			AnimatedRecipeItemUse r = AnimatedRecipeItemUse.read(entry.getValue().getAsJsonObject());
 
 			map.add(r);
 		}
 
-		// map.put(" ", RecipeItemUse.EMPTY);
+		// map.put(" ", AnimatedRecipeItemUse.EMPTY);
 		return map;
 	}
 
@@ -352,7 +351,7 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 		return recipeTools.size();
 	}
 
-	public NonNullList<RecipeItemUse> getRecipeTools() {
+	public NonNullList<AnimatedRecipeItemUse> getRecipeTools() {
 		return recipeTools;
 	}
 

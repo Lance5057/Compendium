@@ -5,8 +5,8 @@ import java.util.Map;
 import com.google.gson.JsonObject;
 
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -33,7 +33,7 @@ public class CraftingAnvilRecipeSerializer
 		ItemStack itemstackSchem = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "schematic"), true, false); 
 		ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
 
-		NonNullList<RecipeItemUse> nonnulllistTools = CraftingAnvilRecipe
+		NonNullList<AnimatedRecipeItemUse> nonnulllistTools = CraftingAnvilRecipe
 				.deserializeTool(GsonHelper.getAsJsonObject(json, "tools"));
 
 		return new CraftingAnvilRecipe(recipeId, s, i, j, nonnulllist, nonnulllistTools, itemstackSchem, itemstack);
@@ -52,10 +52,10 @@ public class CraftingAnvilRecipeSerializer
 
 		int h = buffer.readVarInt();
 
-		NonNullList<RecipeItemUse> tools = NonNullList.withSize(h, RecipeItemUse.EMPTY);
+		NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(h, AnimatedRecipeItemUse.EMPTY);
 
 		for (int k = 0; k < tools.size(); ++k) {
-			tools.set(k, RecipeItemUse.read(buffer));
+			tools.set(k, AnimatedRecipeItemUse.read(buffer));
 		}
 
 		ItemStack schematic = buffer.readItem();
@@ -75,8 +75,8 @@ public class CraftingAnvilRecipeSerializer
 
 		buffer.writeVarInt(recipe.getToolListLength());
 
-		for (RecipeItemUse riu : recipe.getRecipeTools())
-			RecipeItemUse.write(riu, buffer);
+		for (AnimatedRecipeItemUse riu : recipe.getRecipeTools())
+			AnimatedRecipeItemUse.write(riu, buffer);
 
 		buffer.writeItem(recipe.getSchematic());
 		buffer.writeItem(recipe.getRecipeOutput());

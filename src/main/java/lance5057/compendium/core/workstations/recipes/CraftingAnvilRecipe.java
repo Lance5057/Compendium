@@ -1,8 +1,8 @@
 package lance5057.compendium.core.workstations.recipes;
 
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +17,7 @@ public class CraftingAnvilRecipe extends MultiToolRecipe {
 	private final ItemStack schematic;
 
 	public CraftingAnvilRecipe(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
-			NonNullList<Ingredient> recipeItemsIn, NonNullList<RecipeItemUse> recipeToolsIn, ItemStack schematicIn,
+			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack schematicIn,
 			ItemStack recipeOutputIn) {
 		super(idIn, groupIn, recipeWidthIn, recipeHeightIn, recipeItemsIn, recipeToolsIn, recipeOutputIn,
 				WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get());

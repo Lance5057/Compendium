@@ -27,9 +27,9 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe> implements MenuProvider {
-	public static final String SCREEN_TITLE = "screen.workstations.craftinganvil";
+    public static final String SCREEN_TITLE = "screen.workstations.craftinganvil";
 //    private final LazyOptional<IItemInteractionHandlerModifiable> InteractionHandler = LazyOptional.of(this::createInteractionHandler);
-	private ItemStack ghostStack = ItemStack.EMPTY;
+    private ItemStack ghostStack = ItemStack.EMPTY;
 
 //    // public Optional<CraftingAnvilRecipe> currentRecipe;
 //    public boolean recipeLocked = false;
@@ -40,9 +40,9 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 //    public int toolCount;
 //    public int stage = 0;
 
-	public CraftingAnvilTE(BlockPos pos, BlockState state) {
-		super(27, 5, 5, CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), pos, state);
-	}
+    public CraftingAnvilTE(BlockPos pos, BlockState state) {
+	super(27, 5, 5, CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), pos, state);
+    }
 
 //	@Nullable
 //	@Override
@@ -122,13 +122,13 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 //	this.stage = 0;
 //    }
 //
-	public void setGhostStack(ItemStack i) {
-		this.ghostStack = i;
-	}
+    public void setGhostStack(ItemStack i) {
+	this.ghostStack = i;
+    }
 
-	public ItemStack getGhostStack() {
-		return this.ghostStack;
-	}
+    public ItemStack getGhostStack() {
+	return this.ghostStack;
+    }
 //
 //    public RecipeItemUse getCurrentTool() {
 //	Optional<CraftingAnvilRecipe> currentRecipe = matchRecipe();
@@ -351,7 +351,7 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 //	return nbt;
 //    }
 
-	private static final TextComponent CONTAINER_NAME = new TextComponent("compendium.workstations.crafting_anvil");
+    private static final TextComponent CONTAINER_NAME = new TextComponent("compendium.workstations.crafting_anvil");
 
 //	@Override
 //	public TextComponent getDisplayName() {
@@ -359,83 +359,83 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 //		return CONTAINER_NAME;
 //	}
 
-	@Override
-	protected IItemHandlerModifiable createInteractionHandler() {
-		return new ItemStackHandler(27) {
+    @Override
+    protected IItemHandlerModifiable createInteractionHandler() {
+	return new ItemStackHandler(27) {
 
-			@Override
-			protected void onContentsChanged(int slot) {
-				updateInventory();
-				if (slot != 25) {
+	    @Override
+	    protected void onContentsChanged(int slot) {
+		updateInventory();
+		if (slot != 25) {
 
-					zeroProgress();
-					Optional<CraftingAnvilRecipe> recipe = matchRecipe();
+		    zeroProgress();
+		    Optional<CraftingAnvilRecipe> recipe = matchRecipe();
 
-					setGhostStack(ItemStack.EMPTY);
+		    setGhostStack(ItemStack.EMPTY);
 
-					if (recipe.isPresent()) {
-						setGhostStack(recipe.get().getRecipeOutput().copy());
-						setRecipe(recipe);
-					}
-				}
-			}
-		};
-	}
-
-	@Override
-	public void addParticle() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected Optional<CraftingAnvilRecipe> matchRecipe() {
-		if (level != null) {
-
-			Optional<CraftingAnvilRecipe> recipe = InteractionHandler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get(),
-						new WorkstationRecipeWrapper(5, 5, i), level);
-			}).get();
-
-			// setRecipe(recipe);
-			return recipe;
+		    if (recipe.isPresent()) {
+			setGhostStack(recipe.get().getRecipeOutput().copy());
+			setRecipe(recipe);
+		    }
 		}
-		return null;
+	    }
+	};
+    }
+
+    @Override
+    public void addParticle() {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    protected Optional<CraftingAnvilRecipe> matchRecipe() {
+	if (level != null) {
+
+	    Optional<CraftingAnvilRecipe> recipe = InteractionHandler.map(i -> {
+		return level.getRecipeManager().getRecipeFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get(),
+			new WorkstationRecipeWrapper(5, 5, i), level);
+	    }).get();
+
+	    // setRecipe(recipe);
+	    return recipe;
 	}
+	return null;
+    }
 
-	@Override
-	public void finishRecipe(Player Player, CraftingAnvilRecipe r) {
-		InteractionHandler.ifPresent(h -> {
-			ItemStack item = r.getRecipeOutput().copy();
-			BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
-			if (te != null) {
-				LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
-						Direction.UP);
+    @Override
+    public void finishRecipe(Player Player, CraftingAnvilRecipe r) {
+	InteractionHandler.ifPresent(h -> {
+	    ItemStack item = r.getRecipeOutput().copy();
+	    BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
+	    if (te != null) {
+		LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
+			Direction.UP);
 
-				if (h.getStackInSlot(26) == ItemStack.EMPTY) {
+		if (h.getStackInSlot(26) == ItemStack.EMPTY) {
 
-					item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
-					if (item == null)
-						craft();
+		    item = ih.map(h2 -> dropItemBelow(h2, r.getRecipeOutput().copy())).get();
+		    if (item == null)
+			craft();
 
-				}
-			}
+		}
+	    }
 
-			if (h.getStackInSlot(26) == ItemStack.EMPTY) {
-				h.setStackInSlot(26, item);
-				craft();
-			}
-		});
-	}
+	    if (h.getStackInSlot(26) == ItemStack.EMPTY) {
+		h.setStackInSlot(26, item);
+		craft();
+	    }
+	});
+    }
 
-	@Override
-	public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-		return new CraftingAnvilContainer(id, this.worldPosition, inv, player);
-	}
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+	return new CraftingAnvilContainer(id, this.worldPosition, inv, player);
+    }
 
-	@Override
-	public Component getDisplayName() {
-		// TODO Auto-generated method stub
-		return new TranslatableComponent(SCREEN_TITLE);
-	}
+    @Override
+    public Component getDisplayName() {
+	// TODO Auto-generated method stub
+	return new TranslatableComponent(SCREEN_TITLE);
+    }
 }

@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.core.recipes.RecipeItemUse;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -119,7 +120,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.stage = 0;
 	}
 
-	public RecipeItemUse getCurrentTool() {
+	public AnimatedRecipeItemUse getCurrentTool() {
 		Optional<V> currentRecipe = matchRecipe();
 		if (currentRecipe.isPresent())
 			return currentRecipe.get().getToolList().get(stage);

@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
@@ -20,7 +20,6 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -55,12 +54,12 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 		private final String group;
 		private final List<String> pattern;
 		private final Map<Character, Ingredient> key;
-		private final List<RecipeItemUse> tools;
+		private final List<AnimatedRecipeItemUse> tools;
 		private final Advancement.Builder advancementBuilder;
 		private final ResourceLocation advancementId;
 
 		public AnvilResult(ResourceLocation idIn, Item resultIn, int countIn, Item schematicIn, String groupIn,
-				List<String> patternIn, Map<Character, Ingredient> keyIn, List<RecipeItemUse> toolsIn,
+				List<String> patternIn, Map<Character, Ingredient> keyIn, List<AnimatedRecipeItemUse> toolsIn,
 				Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
 			this.id = idIn;
 			this.result = resultIn;
@@ -98,7 +97,7 @@ public class CraftingAnvilRecipeProvider extends RecipeProvider {
 			JsonObject jsonobjectTools = new JsonObject();
 
 			for (int i = 0; i < this.tools.size(); i++) {// entry : this.tools) {
-				jsonobjectTools.add("Step_" + i, RecipeItemUse.addProperty(tools.get(i)));
+				jsonobjectTools.add("Step_" + i, AnimatedRecipeItemUse.addProperty(tools.get(i)));
 			}
 			json.add("tools", jsonobjectTools);
 
