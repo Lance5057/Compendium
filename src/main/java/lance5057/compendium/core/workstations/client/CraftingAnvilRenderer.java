@@ -9,6 +9,7 @@ import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
 
 import lance5057.compendium.Reference;
+import lance5057.compendium.core.client.CompendiumModelUtil;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.CompendiumModelPart;
 import lance5057.compendium.core.util.rendering.RenderUtil;
@@ -61,7 +62,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 			return;
 		}
 
-		loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+		CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
@@ -178,73 +179,4 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 //		ghost.setSpeed(5);
 	}
 
-	private void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn) {
-		UnbakedModel um = ForgeModelBakery.instance()
-				.getModelOrMissing(new ResourceLocation(Reference.MOD_ID, "recipe/stool_full"));
-		if (um instanceof BlockModel) {
-			BlockModel bm = (BlockModel) um;
-
-			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm);
-
-		}
-	}
-
-	private void blockModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn, BlockModel bm) {
-		matrixStackIn.pushPose();
-		{
-			matrixStackIn.translate(1f, 0, 0);
-//				float uniscale2 = 0.2f;
-//				matrixStackIn.scale(uniscale2, uniscale2, uniscale2);
-
-			currentModel = convert(bm);
-
-			for (CompendiumModelPart b : currentModel) {
-				b.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-			}
-		}
-		matrixStackIn.popPose();
-	}
-
-	private List<CompendiumModelPart> convert(BlockModel bm) {
-
-		List<CompendiumModelPart> mpl = new ArrayList<CompendiumModelPart>();
-
-		for (int i = 0; i < bm.getElements().size(); i++) {
-			if (!blacklist.contains(i)) {
-				BlockElement e = bm.getElements().get(i);
-				List<CompendiumModelPart.Cube> cubeList = new ArrayList<CompendiumModelPart.Cube>();
-
-				CompendiumModelPart.Cube cube = new CompendiumModelPart.Cube(1, 1, e.from, e.to, new Vector3f(0, 0, 0),
-						false, e.faces.getOrDefault(Direction.UP, null), e.faces.getOrDefault(Direction.DOWN, null),
-						e.faces.getOrDefault(Direction.NORTH, null), e.faces.getOrDefault(Direction.SOUTH, null),
-						e.faces.getOrDefault(Direction.WEST, null), e.faces.getOrDefault(Direction.EAST, null),
-						bm.textureMap);
-				cubeList.add(cube);
-
-				CompendiumModelPart mp = new CompendiumModelPart(cubeList, Collections.emptyMap());
-
-				if (e.rotation != null) {
-					switch (e.rotation.axis) {
-					case X:
-						mp.setRotation(e.rotation.angle, 0, 0);
-						break;
-					case Y:
-						mp.setRotation(0, e.rotation.angle, 0);
-						break;
-					case Z:
-						mp.setRotation(0, 0, e.rotation.angle);
-						break;
-					default:
-						mp.setRotation(0, 0, 0);
-						break;
-					}
-				}
-
-				mpl.add(mp);
-			}
-		}
-		return mpl;
-	}
 }
