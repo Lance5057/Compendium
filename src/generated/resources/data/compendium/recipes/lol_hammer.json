@@ -91,7 +91,7 @@
       },
       "model": {
         "blacklist": [],
-        "location": "compendium:models/recipe/stool.json"
+        "location": "compendium:recipe/stool_full"
       }
     }
   },

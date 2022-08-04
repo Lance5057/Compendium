@@ -38,31 +38,47 @@ public class AnimatedFloat {
 		this.pingpong = pingpong;
 	}
 
-	public void animate() {
-		if (add) {
-			i += speed;
-			if (i >= iMax) {
-				if (loop)
-					i = iMin;
-				else if (pingpong)
-					add = false;
-				else
-					i = iMax;
-			}
-		} else {
-			i -= speed;
-			if (i <= iMin) {
-				if (pingpong)
-					add = true;
-				else
-					i = iMax;
+	public float animate(float time) {
+		float mod = this.iMax - this.iMin;
+
+		if (mod == 0)
+			return 0;
+
+		float t = ((time * speed) % mod);
+		if (pingpong) {
+			float t2 = ((time * speed) % (mod * 2));
+
+			if (t2 >= mod) {
+				t = mod - t;
 			}
 		}
+
+		return t + iMin;
+
+//		if (add) {
+//			i += speed;
+//			if (i >= iMax) {
+//				if (loop)
+//					i = iMin;
+//				else if (pingpong)
+//					add = false;
+//				else
+//					i = iMax;
+//			}
+//		} else {
+//			i -= speed;
+//			if (i <= iMin) {
+//				if (pingpong)
+//					add = true;
+//				else
+//					i = iMax;
+//			}
+//		}
 	}
 
-	public float getFloat() {
-		return i;
-	}
+//	public float getFloat() {
+//		return i;
+//	}
 
 	public void setMax(float m) {
 		this.iMax = m;
@@ -77,11 +93,11 @@ public class AnimatedFloat {
 	}
 
 	public static AnimatedFloat read(JsonObject j) {
-		float min = j.get("min").getAsFloat();
-		float max = j.get("max").getAsFloat();
-		float speed = j.get("speed").getAsFloat();
-		boolean loop = j.get("loop").getAsBoolean();
-		boolean pingpong = j.get("pingpong").getAsBoolean();
+		float min = j.get("min") != null ? j.get("min").getAsFloat() : 0;
+		float max = j.get("max") != null ? j.get("max").getAsFloat() : 0;
+		float speed = j.get("speed") != null ? j.get("speed").getAsFloat() : 0;
+		boolean loop = j.get("loop") != null ? j.get("loop").getAsBoolean() : false;
+		boolean pingpong = j.get("pingpong") != null ? j.get("pingpong").getAsBoolean() : false;
 
 		return new AnimatedFloat(min, max, speed, loop, pingpong);
 	}
@@ -107,11 +123,16 @@ public class AnimatedFloat {
 	public static JsonObject addProperty(AnimatedFloat af) {
 		JsonObject jo = new JsonObject();
 
-		jo.addProperty("min", af.iMin);
-		jo.addProperty("max", af.iMax);
-		jo.addProperty("speed", af.speed);
-		jo.addProperty("loop", af.loop);
-		jo.addProperty("pingpong", af.pingpong);
+		if (af.iMin != 0)
+			jo.addProperty("min", af.iMin);
+		if (af.iMax != 0)
+			jo.addProperty("max", af.iMax);
+		if (af.speed != 0)
+			jo.addProperty("speed", af.speed);
+		if (af.loop)
+			jo.addProperty("loop", af.loop);
+		if (af.pingpong)
+			jo.addProperty("pingpong", af.pingpong);
 
 		return jo;
 	}

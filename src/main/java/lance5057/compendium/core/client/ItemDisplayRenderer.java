@@ -88,6 +88,6 @@ public class ItemDisplayRenderer implements BlockEntityRenderer<ItemDisplayTileE
 		if (timer > 100)
 			timer = 0;
 
-		ghost.animate();
+		//ghost.animate();
 	}
 }

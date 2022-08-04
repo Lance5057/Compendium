@@ -23,10 +23,10 @@ public class AnimationFloatTransform {
 		rot = r;
 	}
 
-	public void animate() {
-		loc.animate();
-		scale.animate();
-		rot.animate();
+	public void animate(float time) {
+		loc.animate(time);
+		scale.animate(time);
+		rot.animate(time);
 	}
 
 	public AnimationFloatTransform setLocation(AnimatedFloatVector3 in) {

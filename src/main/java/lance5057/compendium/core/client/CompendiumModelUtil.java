@@ -19,35 +19,38 @@ import net.minecraftforge.client.model.ForgeModelBakery;
 
 public class CompendiumModelUtil {
 	public static void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn, BlacklistedModel model, AnimationFloatTransform transform) {
+			int combinedOverlayIn, BlacklistedModel model, AnimationFloatTransform transform, float timer) {
 		UnbakedModel um = ForgeModelBakery.instance().getModelOrMissing(model.rc);
 		if (um instanceof BlockModel) {
 			BlockModel bm = (BlockModel) um;
 
-			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm, model.blacklist, transform);
+			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm, model.blacklist, transform,
+					timer);
 
 		}
 	}
 
 	public static void blockModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn, BlockModel bm, List<Integer> blacklist, AnimationFloatTransform transform) {
+			int combinedOverlayIn, BlockModel bm, List<Integer> blacklist, AnimationFloatTransform transform,
+			float timer) {
 		matrixStackIn.pushPose();
 		{
 			List<CompendiumModelPart> currentModel = convert(bm, blacklist);
 
-			matrixStackIn.translate(transform.getLocation().getX().getFloat(),
-					transform.getLocation().getY().getFloat(), transform.getLocation().getZ().getFloat());
-			matrixStackIn.mulPose(new Quaternion(transform.getRotation().getX().getFloat(),
-					transform.getLocation().getY().getFloat(), transform.getLocation().getZ().getFloat(), true));
-			matrixStackIn.scale(1f + transform.getScale().getX().getFloat(),
-					1f + transform.getLocation().getY().getFloat(), 1f + transform.getLocation().getZ().getFloat());
+			matrixStackIn.translate(transform.getLocation().getX().animate(timer) / 16,
+					transform.getLocation().getY().animate(timer) / 16,
+					transform.getLocation().getZ().animate(timer) / 16);
+			matrixStackIn.mulPose(new Quaternion(transform.getRotation().getX().animate(timer),
+					transform.getRotation().getY().animate(timer), transform.getRotation().getZ().animate(timer),
+					true));
+			matrixStackIn.scale(1f + transform.getScale().getX().animate(timer),
+					1f + transform.getScale().getY().animate(timer),
+					1f + transform.getScale().getZ().animate(timer));
 			for (CompendiumModelPart b : currentModel) {
 				b.render(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
 			}
 		}
 		matrixStackIn.popPose();
-
-		transform.animate();
 
 	}
 

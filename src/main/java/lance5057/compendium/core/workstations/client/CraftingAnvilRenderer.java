@@ -33,7 +33,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		// super(rendererDispatcherIn);
 
 		ghost = new AnimationFloatTransform()
-				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, false, true)))
+				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, false, false)))
 				.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 1f, false, false)));
 		// currentModel = new ArrayList<CompendiumModelPart>();
 
@@ -51,7 +51,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		if (tileEntityIn.getCurrentTool() != null)
 		{
 			CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn,
-					tileEntityIn.getCurrentTool().model, tileEntityIn.getCurrentTool().transform); 
+					tileEntityIn.getCurrentTool().model, tileEntityIn.getCurrentTool().transform, timer); 
 		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
@@ -116,15 +116,15 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 				matrixStackIn.translate(0, 1, 0.0f);
 				// RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn,
 				// combinedOverlayIn);
-				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().getFloat(),
-						0 + ghost.getRotation().getY().getFloat(), 0 + ghost.getRotation().getZ().getFloat(), true));
+				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().animate(timer),
+						0 + ghost.getRotation().getY().animate(timer), 0 + ghost.getRotation().getZ().animate(timer), true));
 				matrixStackIn.translate(0, -1, 0.0f);
 
 				// matrixStackIn.translate(0.125f, 0.125, 0.0f);
 
 				float uniscale = 0.25f;
-				matrixStackIn.scale(uniscale + ghost.getScale().getX().getFloat(),
-						uniscale + ghost.getScale().getY().getFloat(), uniscale + ghost.getScale().getZ().getFloat());
+				matrixStackIn.scale(uniscale + ghost.getScale().getX().animate(timer),
+						uniscale + ghost.getScale().getY().animate(timer), uniscale + ghost.getScale().getZ().animate(timer));
 
 //				float transparency = 0.5f;
 //				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
@@ -157,15 +157,14 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		}
 
 		timer++;
-		if (timer > 100) {
-			timer = 0;
+		if (timer % 100 == 0) {
 			if (tileEntityIn.getCurrentTool() != null) {
 				RecipeItemUse recipe = tileEntityIn.getCurrentTool();
 				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
 			}
 		}
 
-		ghost.animate();
+		ghost.animate(timer);
 
 		// For hotswapping, remove later!
 //		ghost.setMax(0, 0, 10);

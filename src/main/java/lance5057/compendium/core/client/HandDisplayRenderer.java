@@ -102,6 +102,6 @@ public class HandDisplayRenderer implements BlockEntityRenderer<HandTileEntity> 
 		if (timer > 100)
 			timer = 0;
 
-		ghost.animate();
+		//ghost.animate();
 	}
 }

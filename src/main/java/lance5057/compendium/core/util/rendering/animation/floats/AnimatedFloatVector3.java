@@ -37,10 +37,10 @@ public class AnimatedFloatVector3 {
 		return this;
 	}
 
-	public void animate() {
-		x.animate();
-		y.animate();
-		z.animate();
+	public void animate(float time) {
+		x.animate(time);
+		y.animate(time);
+		z.animate(time);
 	}
 
 	public AnimatedFloat getX() {
@@ -74,9 +74,11 @@ public class AnimatedFloatVector3 {
 	}
 
 	public static AnimatedFloatVector3 read(JsonObject j) {
-		AnimatedFloat x = AnimatedFloat.read(j.get("x").getAsJsonObject());
-		AnimatedFloat y = AnimatedFloat.read(j.get("y").getAsJsonObject());
-		AnimatedFloat z = AnimatedFloat.read(j.get("z").getAsJsonObject());
+		AnimatedFloat x = j.get("x") != null ? AnimatedFloat.read(j.get("x").getAsJsonObject()) : AnimatedFloat.zero;
+
+		AnimatedFloat y = j.get("y") != null ? AnimatedFloat.read(j.get("y").getAsJsonObject()) : AnimatedFloat.zero;
+
+		AnimatedFloat z = j.get("z") != null ? AnimatedFloat.read(j.get("z").getAsJsonObject()) : AnimatedFloat.zero;
 
 		return new AnimatedFloatVector3(x, y, z);
 	}
@@ -97,9 +99,13 @@ public class AnimatedFloatVector3 {
 
 	public static JsonObject addProperty(AnimatedFloatVector3 af) {
 		JsonObject jo = new JsonObject();
-		jo.add("x", AnimatedFloat.addProperty(af.x));
-		jo.add("y", AnimatedFloat.addProperty(af.y));
-		jo.add("z", AnimatedFloat.addProperty(af.z));
+
+		if (af.x != AnimatedFloat.zero)
+			jo.add("x", AnimatedFloat.addProperty(af.x));
+		if (af.y != AnimatedFloat.zero)
+			jo.add("y", AnimatedFloat.addProperty(af.y));
+		if (af.z != AnimatedFloat.zero)
+			jo.add("z", AnimatedFloat.addProperty(af.z));
 
 		return jo;
 	}
