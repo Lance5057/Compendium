@@ -19,64 +19,73 @@
       "Count": 1,
       "Damage": true,
       "animation": {
-        "x": {
+        "location": {
           "x": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "y": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "z": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           }
         },
-        "y": {
+        "rotation": {
           "x": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "y": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "z": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           }
         },
-        "z": {
+        "scale": {
           "x": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "y": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           },
           "z": {
             "min": 0.0,
             "max": 0.0,
             "speed": 0.0,
-            "loop": false
+            "loop": false,
+            "pingpong": false
           }
         }
       },

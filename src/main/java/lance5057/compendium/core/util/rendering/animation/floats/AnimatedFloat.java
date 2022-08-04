@@ -101,6 +101,7 @@ public class AnimatedFloat {
 		buffer.writeFloat(af.iMin);
 		buffer.writeFloat(af.iMin);
 		buffer.writeBoolean(af.loop);
+		buffer.writeBoolean(af.pingpong);
 	}
 
 	public static JsonObject addProperty(AnimatedFloat af) {
@@ -110,6 +111,7 @@ public class AnimatedFloat {
 		jo.addProperty("max", af.iMax);
 		jo.addProperty("speed", af.speed);
 		jo.addProperty("loop", af.loop);
+		jo.addProperty("pingpong", af.pingpong);
 
 		return jo;
 	}

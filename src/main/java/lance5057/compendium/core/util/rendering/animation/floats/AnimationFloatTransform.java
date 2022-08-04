@@ -83,9 +83,9 @@ public class AnimationFloatTransform {
 
 	public static JsonObject addProperty(AnimationFloatTransform af) {
 		JsonObject jo = new JsonObject();
-		jo.add("x", AnimatedFloatVector3.addProperty(af.loc));
-		jo.add("y", AnimatedFloatVector3.addProperty(af.rot));
-		jo.add("z", AnimatedFloatVector3.addProperty(af.scale));
+		jo.add("location", AnimatedFloatVector3.addProperty(af.loc));
+		jo.add("rotation", AnimatedFloatVector3.addProperty(af.rot));
+		jo.add("scale", AnimatedFloatVector3.addProperty(af.scale));
 
 		return jo;
 	}
