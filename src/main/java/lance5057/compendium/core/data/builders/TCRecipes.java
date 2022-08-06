@@ -18,27 +18,27 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
 public class TCRecipes extends RecipeProvider {
 
-    public TCRecipes(DataGenerator generatorIn) {
-	super(generatorIn);
-	Compendium.logger.info("\t - Recipes");
-    }
-
-    @Override
-    protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
-
-	for (MaterialHelper m : CompendiumMaterials.materials) {
-	    m.addRecipes(this, consumer);
+	public TCRecipes(DataGenerator generatorIn) {
+		super(generatorIn);
+		Compendium.logger.info("\t - Recipes");
 	}
 
-	AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_INGOT, 1).key('s', Items.STICK).pattern("sssss")
-		.pattern("s   s").pattern("sssss").addCriterion("stupid_ingot", RecipeProvider.has(Items.STICK))
-		.tool(Ingredient.of(Items.STONE), 16, true, AnimationFloatTransform.ZERO,
-			new BlacklistedModel(new ResourceLocation("compendium:recipe/stool_full"),
-				new ArrayList<Integer>()))
-		.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
+	@Override
+	protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
+
+		for (MaterialHelper m : CompendiumMaterials.materials) {
+			m.addRecipes(this, consumer);
+		}
+
+		AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_INGOT, 1).key('s', Items.STICK).pattern("sssss")
+				.pattern("s   s").pattern("sssss").addCriterion("stupid_ingot", RecipeProvider.has(Items.STICK))
+				.tool(Ingredient.of(Items.STONE), 16, true,
+						new BlacklistedModel(Items.ACACIA_BUTTON, AnimationFloatTransform.ZERO))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //
@@ -75,7 +75,7 @@ public class TCRecipes extends RecipeProvider {
 //////	    else
 //////		neither(mh, consumer);
 ////	}
-    }
+	}
 //
 //	private void alloys(Consumer<FinishedRecipe> consumer) {
 //

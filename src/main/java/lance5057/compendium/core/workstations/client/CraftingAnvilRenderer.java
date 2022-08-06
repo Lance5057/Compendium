@@ -3,6 +3,7 @@ package lance5057.compendium.core.workstations.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
+import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.client.CompendiumModelUtil;
 import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
@@ -48,10 +49,9 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 			return;
 		}
 
-		if (tileEntityIn.getCurrentTool() != null)
-		{
-			CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn,
-					tileEntityIn.getCurrentTool().model, tileEntityIn.getCurrentTool().transform, timer); 
+		if (tileEntityIn.getCurrentTool() != null) {
+			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
+				CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
 		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
@@ -117,14 +117,16 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 				// RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn,
 				// combinedOverlayIn);
 				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().animate(timer),
-						0 + ghost.getRotation().getY().animate(timer), 0 + ghost.getRotation().getZ().animate(timer), true));
+						0 + ghost.getRotation().getY().animate(timer), 0 + ghost.getRotation().getZ().animate(timer),
+						true));
 				matrixStackIn.translate(0, -1, 0.0f);
 
 				// matrixStackIn.translate(0.125f, 0.125, 0.0f);
 
 				float uniscale = 0.25f;
 				matrixStackIn.scale(uniscale + ghost.getScale().getX().animate(timer),
-						uniscale + ghost.getScale().getY().animate(timer), uniscale + ghost.getScale().getZ().animate(timer));
+						uniscale + ghost.getScale().getY().animate(timer),
+						uniscale + ghost.getScale().getZ().animate(timer));
 
 //				float transparency = 0.5f;
 //				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));

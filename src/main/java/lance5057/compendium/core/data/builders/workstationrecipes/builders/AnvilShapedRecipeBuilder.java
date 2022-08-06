@@ -77,15 +77,14 @@ public class AnvilShapedRecipeBuilder implements RecipeBuilder {
 	return this.key(symbol, Ingredient.of(itemIn));
     }
 
-    public AnvilShapedRecipeBuilder tool(Ingredient tool, int count, int uses, boolean damage,
-	    AnimationFloatTransform transform, BlacklistedModel model) {
-	this.tools.add(new AnimatedRecipeItemUse(uses, tool, count, damage, transform, model));
+    public AnvilShapedRecipeBuilder tool(Ingredient tool, int count, int uses, boolean damage, BlacklistedModel... model) {
+	this.tools.add(new AnimatedRecipeItemUse(uses, tool, count, damage, model));
 	return this;
     }
 
-    public AnvilShapedRecipeBuilder tool(Ingredient tool, int uses, boolean damage, AnimationFloatTransform transform,
-	    BlacklistedModel model) {
-	this.tools.add(new AnimatedRecipeItemUse(uses, tool, 1, damage, transform, model));
+    public AnvilShapedRecipeBuilder tool(Ingredient tool, int uses, boolean damage,
+	    BlacklistedModel... model) {
+	this.tools.add(new AnimatedRecipeItemUse(uses, tool, 1, damage, model));
 	return this;
     } 
 

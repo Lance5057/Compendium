@@ -1,73 +1,92 @@
 package lance5057.compendium.core.workstations.recipes.bases;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.recipes.RecipeItemUse;
-import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class AnimatedRecipeItemUse extends RecipeItemUse {
 
-    public final AnimationFloatTransform transform;
-    public final BlacklistedModel model;
+	public final List<BlacklistedModel> model;
 
-    public static AnimatedRecipeItemUse EMPTY = new AnimatedRecipeItemUse(RecipeItemUse.EMPTY,
-	    AnimationFloatTransform.ZERO, BlacklistedModel.empty);
+	public static AnimatedRecipeItemUse EMPTY = new AnimatedRecipeItemUse(RecipeItemUse.EMPTY, BlacklistedModel.empty);
 
-    public AnimatedRecipeItemUse(int uses, Ingredient tool, int count, boolean damage,
-	    AnimationFloatTransform transform, BlacklistedModel model) {
-	super(uses, tool, count, damage);
+	public AnimatedRecipeItemUse(int uses, Ingredient tool, int count, boolean damage, BlacklistedModel... model) {
+		super(uses, tool, count, damage);
 
-	this.transform = transform;
-	this.model = model;
-    }
+		this.model = List.of(model);
+	}
 
-    public AnimatedRecipeItemUse(RecipeItemUse riu, AnimationFloatTransform transform, BlacklistedModel model) {
-	super(riu.uses, riu.tool, riu.count, riu.damageTool);
+	public AnimatedRecipeItemUse(RecipeItemUse riu, BlacklistedModel... model) {
+		super(riu.uses, riu.tool, riu.count, riu.damageTool);
 
-	this.transform = transform;
-	this.model = model;
-    }
+		this.model = List.of(model);
+	}
 
-    public static AnimatedRecipeItemUse read(JsonObject j) {
-	RecipeItemUse riu = RecipeItemUse.read(j);
+	public static AnimatedRecipeItemUse read(JsonObject j) {
+		RecipeItemUse riu = RecipeItemUse.read(j);
 
-	AnimationFloatTransform t = AnimationFloatTransform.read(j.getAsJsonObject("animation"));
-	BlacklistedModel b = BlacklistedModel.read(j.getAsJsonObject("model"));
+		List<BlacklistedModel> b = new ArrayList<BlacklistedModel>();
+		if (j.get("models") != null) {
+			JsonArray ja = j.get("models").getAsJsonArray();
 
-	return new AnimatedRecipeItemUse(riu, t, b);
-    }
+			if (ja != null) {
+				for (int i = 0; i < ja.size(); i++) {
+					b.add(BlacklistedModel.read(ja.get(i).getAsJsonObject()));
+				}
+			}
+		}
 
-    public static AnimatedRecipeItemUse read(FriendlyByteBuf buffer) {
-	RecipeItemUse riu = RecipeItemUse.read(buffer);
+		// BlacklistedModel b = BlacklistedModel.read(j.getAsJsonObject("model"));
 
-	AnimationFloatTransform t = AnimationFloatTransform.read(buffer);
-	BlacklistedModel b = BlacklistedModel.read(buffer);
+		return new AnimatedRecipeItemUse(riu, (BlacklistedModel[]) b.toArray());
+	}
 
-	return new AnimatedRecipeItemUse(riu, t, b);
-    }
+	public static AnimatedRecipeItemUse read(FriendlyByteBuf buffer) {
+		RecipeItemUse riu = RecipeItemUse.read(buffer);
 
-    public static void write(AnimatedRecipeItemUse r, FriendlyByteBuf buffer) {
-	RecipeItemUse.write(r, buffer);
+		int size = buffer.readInt();
 
-	AnimationFloatTransform.write(r.transform, buffer);
-	BlacklistedModel.write(r.model, buffer);
-    }
+		List<BlacklistedModel> b = new ArrayList<BlacklistedModel>();
 
-    public static JsonObject addProperty(AnimatedRecipeItemUse r) {
-	JsonObject o = RecipeItemUse.addProperty(r);
+		for (int i = 0; i < size; i++)
+			b.add(BlacklistedModel.read(buffer));
 
-	o.add("animation", AnimationFloatTransform.addProperty(r.transform));
-	o.add("model", BlacklistedModel.addProperty(r.model));
+		return new AnimatedRecipeItemUse(riu, (BlacklistedModel[]) b.toArray());
+	}
 
-	return o;
-    }
+	public static void write(AnimatedRecipeItemUse r, FriendlyByteBuf buffer) {
+		RecipeItemUse.write(r, buffer);
 
-    public Vec3i getToolList() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+		buffer.writeInt(r.model.size());
+
+		for (int i = 0; i < r.model.size(); i++)
+			BlacklistedModel.write(r.model.get(i), buffer);
+	}
+
+	public static JsonObject addProperty(AnimatedRecipeItemUse r) {
+		JsonObject o = RecipeItemUse.addProperty(r);
+
+		if (r.model != null && !r.model.isEmpty()) {
+			JsonArray ja = new JsonArray();
+			for (int i = 0; i < r.model.size(); i++)
+				ja.add(BlacklistedModel.addProperty(r.model.get(i)));
+
+			o.add("models", ja);
+		}
+
+		return o;
+	}
+
+	public Vec3i getToolList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
