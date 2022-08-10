@@ -20,10 +20,86 @@
       "Damage": true,
       "models": [
         {
-          "location": "minecraft:acacia_button",
+          "location": "minecraft:diamond_sword",
           "animation": {
             "location": {},
-            "rotation": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        },
+        {
+          "location": "minecraft:golden_sword",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        },
+        {
+          "location": "minecraft:iron_sword",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        },
+        {
+          "location": "minecraft:netherite_sword",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        },
+        {
+          "location": "minecraft:stone_sword",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        },
+        {
+          "location": "minecraft:wooden_sword",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 1.0,
+                "loop": true
+              }
+            },
             "scale": {}
           }
         }

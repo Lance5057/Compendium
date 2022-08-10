@@ -64,7 +64,7 @@ public class AnimationFloatTransform {
 		AnimatedFloatVector3 rotation = AnimatedFloatVector3.read(j.get("rotation").getAsJsonObject());
 		AnimatedFloatVector3 scale = AnimatedFloatVector3.read(j.get("scale").getAsJsonObject());
 
-		return new AnimationFloatTransform(location, rotation, scale);
+		return new AnimationFloatTransform(location,scale, rotation);
 	}
 
 	public static AnimationFloatTransform read(FriendlyByteBuf buffer) {
@@ -72,7 +72,7 @@ public class AnimationFloatTransform {
 		AnimatedFloatVector3 r = AnimatedFloatVector3.read(buffer);
 		AnimatedFloatVector3 s = AnimatedFloatVector3.read(buffer);
 
-		return new AnimationFloatTransform(l, r, s);
+		return new AnimationFloatTransform(l, s, r);
 	}
 
 	public static void write(AnimationFloatTransform af, FriendlyByteBuf buffer) {

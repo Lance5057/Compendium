@@ -9,6 +9,7 @@ public class AnimatedFloat {
 	float i;
 	float iMax;
 	float iMin;
+	float offset;
 	float speed;
 	boolean add = true;
 	boolean loop = false;
@@ -30,10 +31,11 @@ public class AnimatedFloat {
 		this.speed = speed;
 	}
 
-	public AnimatedFloat(float iMin, float iMax, float speed, boolean loop, boolean pingpong) {
+	public AnimatedFloat(float iMin, float iMax, float offset, float speed, boolean loop, boolean pingpong) {
 		this.iMin = iMin;
 		this.iMax = iMax;
 		this.speed = speed;
+		this.offset = offset;
 		this.loop = loop;
 		this.pingpong = pingpong;
 	}
@@ -79,6 +81,11 @@ public class AnimatedFloat {
 //	public float getFloat() {
 //		return i;
 //	}
+	
+	public float getOffset()
+	{
+		return offset;
+	}
 
 	public void setMax(float m) {
 		this.iMax = m;
@@ -95,27 +102,30 @@ public class AnimatedFloat {
 	public static AnimatedFloat read(JsonObject j) {
 		float min = j.get("min") != null ? j.get("min").getAsFloat() : 0;
 		float max = j.get("max") != null ? j.get("max").getAsFloat() : 0;
+		float offset = j.get("offset") != null ? j.get("offset").getAsFloat() : 0;
 		float speed = j.get("speed") != null ? j.get("speed").getAsFloat() : 0;
 		boolean loop = j.get("loop") != null ? j.get("loop").getAsBoolean() : false;
 		boolean pingpong = j.get("pingpong") != null ? j.get("pingpong").getAsBoolean() : false;
 
-		return new AnimatedFloat(min, max, speed, loop, pingpong);
+		return new AnimatedFloat(min, max, offset, speed, loop, pingpong);
 	}
 
 	public static AnimatedFloat read(FriendlyByteBuf buffer) {
 		float min = buffer.readFloat();
 		float max = buffer.readFloat();
+		float offset = buffer.readFloat();
 		float speed = buffer.readFloat();
 		boolean loop = buffer.readBoolean();
 		boolean pingpong = buffer.readBoolean();
 
-		return new AnimatedFloat(min, max, speed, loop, pingpong);
+		return new AnimatedFloat(min, max, offset, speed, loop, pingpong);
 	}
 
 	public static void write(AnimatedFloat af, FriendlyByteBuf buffer) {
 		buffer.writeFloat(af.iMin);
-		buffer.writeFloat(af.iMin);
-		buffer.writeFloat(af.iMin);
+		buffer.writeFloat(af.iMax);
+		buffer.writeFloat(af.offset);
+		buffer.writeFloat(af.speed);
 		buffer.writeBoolean(af.loop);
 		buffer.writeBoolean(af.pingpong);
 	}
@@ -127,6 +137,8 @@ public class AnimatedFloat {
 			jo.addProperty("min", af.iMin);
 		if (af.iMax != 0)
 			jo.addProperty("max", af.iMax);
+		if (af.offset != 0)
+			jo.addProperty("offset", af.offset);
 		if (af.speed != 0)
 			jo.addProperty("speed", af.speed);
 		if (af.loop)

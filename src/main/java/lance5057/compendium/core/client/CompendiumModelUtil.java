@@ -76,12 +76,14 @@ public class CompendiumModelUtil {
 			BakedModel bakedmodel = itemRenderer.getModel(stack, null, null, 0);
 			// List<CompendiumModelPart> currentModel = convert(bm, blacklist);
 
-			matrixStackIn.translate(transform.getLocation().getX().animate(timer) / 16,
-					transform.getLocation().getY().animate(timer) / 16,
-					transform.getLocation().getZ().animate(timer) / 16);
-			matrixStackIn.mulPose(new Quaternion(transform.getRotation().getX().animate(timer),
-					transform.getRotation().getY().animate(timer), transform.getRotation().getZ().animate(timer),
-					true));
+			matrixStackIn.translate(
+					transform.getLocation().getX().getOffset() + transform.getLocation().getX().animate(timer) / 16,
+					transform.getLocation().getY().getOffset() + transform.getLocation().getY().animate(timer) / 16,
+					transform.getLocation().getZ().getOffset() + transform.getLocation().getZ().animate(timer) / 16);
+			matrixStackIn.mulPose(new Quaternion(
+					transform.getRotation().getX().getOffset() + transform.getRotation().getX().animate(timer),
+					transform.getRotation().getY().getOffset() + transform.getRotation().getY().animate(timer),
+					transform.getRotation().getZ().getOffset() + transform.getRotation().getZ().animate(timer), true));
 			matrixStackIn.scale(1f + transform.getScale().getX().animate(timer),
 					1f + transform.getScale().getY().animate(timer), 1f + transform.getScale().getZ().animate(timer));
 			itemRenderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn,

@@ -33,20 +33,22 @@ public class AnimatedRecipeItemUse extends RecipeItemUse {
 	public static AnimatedRecipeItemUse read(JsonObject j) {
 		RecipeItemUse riu = RecipeItemUse.read(j);
 
-		List<BlacklistedModel> b = new ArrayList<BlacklistedModel>();
+		BlacklistedModel[] b = null;
 		if (j.get("models") != null) {
 			JsonArray ja = j.get("models").getAsJsonArray();
+			
+			b = new BlacklistedModel[ja.size()];
 
 			if (ja != null) {
 				for (int i = 0; i < ja.size(); i++) {
-					b.add(BlacklistedModel.read(ja.get(i).getAsJsonObject()));
+					b[i] = BlacklistedModel.read(ja.get(i).getAsJsonObject());
 				}
 			}
 		}
 
 		// BlacklistedModel b = BlacklistedModel.read(j.getAsJsonObject("model"));
 
-		return new AnimatedRecipeItemUse(riu, (BlacklistedModel[]) b.toArray());
+		return new AnimatedRecipeItemUse(riu, b);
 	}
 
 	public static AnimatedRecipeItemUse read(FriendlyByteBuf buffer) {
@@ -54,12 +56,12 @@ public class AnimatedRecipeItemUse extends RecipeItemUse {
 
 		int size = buffer.readInt();
 
-		List<BlacklistedModel> b = new ArrayList<BlacklistedModel>();
+		BlacklistedModel[] b = new BlacklistedModel[size];
 
 		for (int i = 0; i < size; i++)
-			b.add(BlacklistedModel.read(buffer));
+			b[i] = BlacklistedModel.read(buffer);
 
-		return new AnimatedRecipeItemUse(riu, (BlacklistedModel[]) b.toArray());
+		return new AnimatedRecipeItemUse(riu, b);
 	}
 
 	public static void write(AnimatedRecipeItemUse r, FriendlyByteBuf buffer) {

@@ -34,8 +34,8 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		// super(rendererDispatcherIn);
 
 		ghost = new AnimationFloatTransform()
-				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, false, false)))
-				.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 1f, false, false)));
+				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, 0, false, false)))
+				.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 1f, 0, false, false)));
 		// currentModel = new ArrayList<CompendiumModelPart>();
 
 		// Remove this later
