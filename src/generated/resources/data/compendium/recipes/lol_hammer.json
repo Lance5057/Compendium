@@ -26,7 +26,7 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "speed": 0.1,
                 "loop": true
               }
             },
@@ -40,7 +40,8 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "offset": 60.0,
+                "speed": 0.1,
                 "loop": true
               }
             },
@@ -54,7 +55,8 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "offset": 120.0,
+                "speed": 0.1,
                 "loop": true
               }
             },
@@ -68,7 +70,8 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "offset": 180.0,
+                "speed": 0.1,
                 "loop": true
               }
             },
@@ -82,7 +85,8 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "offset": 240.0,
+                "speed": 0.1,
                 "loop": true
               }
             },
@@ -96,7 +100,8 @@
             "rotation": {
               "y": {
                 "max": 360.0,
-                "speed": 1.0,
+                "offset": 300.0,
+                "speed": 0.1,
                 "loop": true
               }
             },

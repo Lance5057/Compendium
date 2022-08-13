@@ -151,38 +151,38 @@ public class IndexBaseMetals {
 
 	public IndexBaseMetals() {
 		// ALUMINIUM ------------------------------------------------------//
-		CompendiumMaterials.materials.add(new MaterialHelper("aluminium", ALUMINIUM_TIER).addMetalBase()
-				.addVanillaTools().addAdvancedTools().addComponents().addStatues().addShingles().addOre(OreFeatures.STONE_ORE_REPLACEABLES, 10,
-						CountPlacement.of(1),
-						InSquarePlacement.spread(),
-						BiomeFilter.biome(),
-						HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(75))));
-		CompendiumMaterials.materials.add(new MaterialHelper("brass", BRASS_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("bronze", BRONZE_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("copper", COPPER_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("electrum", ELECTRUM_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("nickel", NICKEL_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("steel", STEEL_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("tin", TIN_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("zinc", ZINC_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("rosegold", ROSEGOLD_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("platinum", PLATINUM_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("silver", SILVER_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("pewter", PEWTER_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
-		CompendiumMaterials.materials.add(new MaterialHelper("lead", LEAD_TIER).addMetalBase().addVanillaTools()
-				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("aluminium", ALUMINIUM_TIER).addMetalBase()
+//				.addVanillaTools().addAdvancedTools().addComponents().addStatues().addShingles().addOre(OreFeatures.STONE_ORE_REPLACEABLES, 10,
+//						CountPlacement.of(1),
+//						InSquarePlacement.spread(),
+//						BiomeFilter.biome(),
+//						HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(75))));
+//		CompendiumMaterials.materials.add(new MaterialHelper("brass", BRASS_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("bronze", BRONZE_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("copper", COPPER_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("electrum", ELECTRUM_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("nickel", NICKEL_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("steel", STEEL_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("tin", TIN_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("zinc", ZINC_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("rosegold", ROSEGOLD_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("platinum", PLATINUM_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("silver", SILVER_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("pewter", PEWTER_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
+//		CompendiumMaterials.materials.add(new MaterialHelper("lead", LEAD_TIER).addMetalBase().addVanillaTools()
+//				.addAdvancedTools().addComponents());
 //		
 //		MetallurgyMaterialHelper aluminium = new MetallurgyMaterialHelper("aluminium", IndexBaseMetals.ALUMINIUM_TIER)
 //				.withBase().withVanillaTools().10ithComponents().withAdvancedTools().withDefense(ALUMINIUM_ARMOR_TIER);

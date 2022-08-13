@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "compendium:item/material/brass/brassaxe",
-    "layer1": "compendium:item/axebase"
-  }
-}

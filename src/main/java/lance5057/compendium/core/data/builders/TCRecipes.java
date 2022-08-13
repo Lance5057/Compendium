@@ -35,18 +35,29 @@ public class TCRecipes extends RecipeProvider {
 		for (MaterialHelper m : CompendiumMaterials.materials) {
 			m.addRecipes(this, consumer);
 		}
-		
-		AnimationFloatTransform ySpin = new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 0, true, false)));
+
+//		AnimationFloatTransform ySpin = new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 0, true, false)));
 
 		AnvilShapedRecipeBuilder.shapedRecipe(Items.IRON_INGOT, 1).key('s', Items.STICK).pattern("sssss")
 				.pattern("s   s").pattern("sssss").addCriterion("stupid_ingot", RecipeProvider.has(Items.STICK))
-				.tool(Ingredient.of(Items.STONE), 16, true,
-						new BlacklistedModel(Items.DIAMOND_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 0, true, false)))),
-						new BlacklistedModel(Items.GOLDEN_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 60, true, false)))),
-						new BlacklistedModel(Items.IRON_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 120, true, false)))),
-						new BlacklistedModel(Items.NETHERITE_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 180, true, false)))),
-						new BlacklistedModel(Items.STONE_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 240, true, false)))),
-						new BlacklistedModel(Items.WOODEN_SWORD, new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 300, true, false)))))
+				.tool(Ingredient.of(Items.STONE), 16, true, new BlacklistedModel(Items.DIAMOND_SWORD,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))),
+						new BlacklistedModel(Items.GOLDEN_SWORD,
+								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0, 360, 60, 0.1f, true, false)))),
+						new BlacklistedModel(Items.IRON_SWORD,
+								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0, 360, 120, 0.1f, true, false)))),
+						new BlacklistedModel(Items.NETHERITE_SWORD,
+								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0, 360, 180, 0.1f, true, false)))),
+						new BlacklistedModel(Items.STONE_SWORD,
+								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0, 360, 240, 0.1f, true, false)))),
+						new BlacklistedModel(Items.WOODEN_SWORD,
+								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0, 360, 300, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");

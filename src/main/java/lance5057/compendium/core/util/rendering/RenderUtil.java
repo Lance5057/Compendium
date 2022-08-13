@@ -34,13 +34,13 @@ public class RenderUtil {
 		return (a << 24) | (r << 16) | (g << 8) | (b);
 	}
 
-	public static void renderItemCustomColor(BlockEntity tileEntityIn, ItemStack stack, int color, PoseStack ms,
+	public static void renderItemCustomColor(ItemStack stack, int color, PoseStack ms,
 			MultiBufferSource buffers, int light, int overlay, @Nullable BakedModel model) {
 		ms.pushPose();
 		{
 			if (model == null) {
 				ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-				model = itemRenderer.getModel(stack, tileEntityIn.getLevel(), null, 0);
+				model = itemRenderer.getModel(stack, null, null, 0);
 			}
 			model = ForgeHooksClient.handleCameraTransforms(ms, model, ItemTransforms.TransformType.NONE, false);
 			ms.translate(-0.5D, -0.5D, -0.5D);

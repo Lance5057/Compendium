@@ -9,6 +9,7 @@ import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
 
 import lance5057.compendium.core.util.rendering.CompendiumModelPart;
+import lance5057.compendium.core.util.rendering.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -88,6 +89,9 @@ public class CompendiumModelUtil {
 					1f + transform.getScale().getY().animate(timer), 1f + transform.getScale().getZ().animate(timer));
 			itemRenderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn,
 					combinedLightIn, combinedOverlayIn, bakedmodel);
+			
+//			RenderUtil.renderItemCustomColor(stack, RenderUtil.argbToHex(255, 0, 0, 255), matrixStackIn, bufferIn, combinedLightIn,
+//				combinedOverlayIn, bakedmodel);
 		}
 		matrixStackIn.popPose();
 

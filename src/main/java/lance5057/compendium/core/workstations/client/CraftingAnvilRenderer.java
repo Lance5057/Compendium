@@ -34,8 +34,9 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		// super(rendererDispatcherIn);
 
 		ghost = new AnimationFloatTransform()
-				.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-0.1f, 0.1f, 0.001f, 0, false, false)))
-				.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 1f, 0, false, false)));
+				.setLocation(new AnimatedFloatVector3().setAll(new AnimatedFloat(8F, 8f, 0, 0, false, false))
+						.setY(new AnimatedFloat(8f, 12f, 0, 0.01f, true, false)))
+				.setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0f, 360f, 0, 1f, false, false)));
 		// currentModel = new ArrayList<CompendiumModelPart>();
 
 		// Remove this later
@@ -98,80 +99,81 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 		});
 
 		// Render Recipe Tool
-		if (tileEntityIn.getCurrentTool() != null) {
-			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
-
-			if (toolRandom >= recipe.tool.getItems().length)
-				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
-			ItemStack tool = recipe.tool.getItems()[toolRandom];
-
-			if (!tool.isEmpty()) {
-				BakedModel bakedmodel = itemRenderer.getModel(tool, tileEntityIn.getLevel(), null, 0);
-
-				matrixStackIn.pushPose();
-
-//				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
-//						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
-
-				matrixStackIn.translate(0, 1, 0.0f);
-				// RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn,
-				// combinedOverlayIn);
-				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().animate(timer),
-						0 + ghost.getRotation().getY().animate(timer), 0 + ghost.getRotation().getZ().animate(timer),
-						true));
-				matrixStackIn.translate(0, -1, 0.0f);
-
-				// matrixStackIn.translate(0.125f, 0.125, 0.0f);
-
-				float uniscale = 0.25f;
-				matrixStackIn.scale(uniscale + ghost.getScale().getX().animate(timer),
-						uniscale + ghost.getScale().getY().animate(timer),
-						uniscale + ghost.getScale().getZ().animate(timer));
-
-//				float transparency = 0.5f;
-//				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
-//				RenderUtil.renderItemCustomColor(tileEntityIn, tool, color, matrixStackIn, bufferIn, combinedLightIn,
-//						combinedOverlayIn, null);
-
-				itemRenderer.render(tool, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn,
-						combinedLightIn, combinedOverlayIn, bakedmodel);
-
-				matrixStackIn.popPose();
-			}
-		}
-
-		// Render Recipe Output
-		ItemStack item = tileEntityIn.getGhostStack();
-
-		if (!item.isEmpty()) {
-			matrixStackIn.pushPose();
-			matrixStackIn.translate(0.5f, 1.1, 0.5f);
-//			matrixStackIn.mulPose(new Quaternion(-90 + ghost.getX().getFloat(), 90 + ghost.getY().getFloat(),
-//					45 + ghost.getZ().getFloat(), true));
-			float uniscale = 0.7f;
-			matrixStackIn.scale(uniscale, uniscale, uniscale);
-//			if (tileEntityIn.maxProgress > 0) {
-//				float transparency = (float) tileEntityIn.progress / (float) tileEntityIn.maxProgress;
-//				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
-//				RenderUtil.renderItemCustomColor(tileEntityIn, item, color, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, null);
+//		if (tileEntityIn.getCurrentTool() != null) {
+////			ghost = new AnimationFloatTransform()
+////					.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(-16f, 16f, 0, 0.001f, false, false)))
+////					.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0f, 360f, 0, 1f, false, false)))
+////					.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(16F, 16f, 0, 0, false, false)));
+//
+//			RecipeItemUse recipe = tileEntityIn.getCurrentTool();
+//
+//			if (toolRandom >= recipe.tool.getItems().length)
+//				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
+//			ItemStack tool = recipe.tool.getItems()[toolRandom];
+//
+//			if (!tool.isEmpty()) {
+//
+//				BakedModel bakedmodel = itemRenderer.getModel(tool, tileEntityIn.getLevel(), null, 0);
+//
+//				matrixStackIn.pushPose();
+//
+////				matrixStackIn.translate(0.75f + ghost.getLocation().getX().getFloat(),
+////						1.1 + ghost.getLocation().getY().getFloat(), 0.5f + ghost.getLocation().getZ().getFloat());
+//
+//				// RenderUtil.debugPart.render(matrixStackIn, bufferIn, combinedLightIn,
+//				// combinedOverlayIn);
+//				matrixStackIn.mulPose(new Quaternion(0 + ghost.getRotation().getX().animate(timer),
+//						0 + ghost.getRotation().getY().animate(timer), 0 + ghost.getRotation().getZ().animate(timer),
+//						true));
+//				matrixStackIn.translate(ghost.getLocation().getX().animate(timer) / 16,
+//						ghost.getLocation().getY().animate(timer) / 16, ghost.getLocation().getZ().animate(timer) / 16);
+//				// matrixStackIn.translate(0, -1, 0.0f);
+//
+//				// matrixStackIn.translate(0.125f, 0.125, 0.0f);
+//
+//				float uniscale = 0.25f;
+//				matrixStackIn.scale(1f + ghost.getScale().getX().animate(timer),
+//						1f + ghost.getScale().getY().animate(timer), 1f + ghost.getScale().getZ().animate(timer));
+//
+////				float transparency = 0.5f;
+////				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
+////				RenderUtil.renderItemCustomColor(tileEntityIn, tool, color, matrixStackIn, bufferIn, combinedLightIn,
+////						combinedOverlayIn, null);
+//
+//				itemRenderer.render(tool, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn,
+//						combinedLightIn, combinedOverlayIn, bakedmodel);
+//
+//				matrixStackIn.popPose();
 //			}
-			matrixStackIn.popPose();
-		}
 
 		timer++;
-		if (timer % 100 == 0) {
-			if (tileEntityIn.getCurrentTool() != null) {
-				RecipeItemUse recipe = tileEntityIn.getCurrentTool();
-				toolRandom = tileEntityIn.getLevel().getRandom().nextInt(recipe.tool.getItems().length);
-			}
-		}
+	}
 
-		ghost.animate(timer);
+//		// Render Recipe Output
+//		ItemStack item = tileEntityIn.getGhostStack();
+//
+//		if (!item.isEmpty()) {
+//			matrixStackIn.pushPose();
+//			matrixStackIn.translate(0.5f, 1.1, 0.5f);
+////			matrixStackIn.mulPose(new Quaternion(-90 + ghost.getX().getFloat(), 90 + ghost.getY().getFloat(),
+////					45 + ghost.getZ().getFloat(), true));
+//			float uniscale = 0.7f;
+//			matrixStackIn.scale(uniscale, uniscale, uniscale);
+////			if (tileEntityIn.maxProgress > 0) {
+////				float transparency = (float) tileEntityIn.progress / (float) tileEntityIn.maxProgress;
+////				int color = RenderUtil.argbToHex(255, 255, 255, (int) (transparency * 255));
+////				RenderUtil.renderItemCustomColor(tileEntityIn, item, color, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, null);
+////			}
+//			matrixStackIn.popPose();
+//		}
+//
 
-		// For hotswapping, remove later!
+//		ghost.animate(timer);
+
+	// For hotswapping, remove later!
 //		ghost.setMax(0, 0, 10);
 //		ghost.setMin(0, 0, 0);
 //		ghost.setSpeed(5);
-	}
+//	}
 
 }

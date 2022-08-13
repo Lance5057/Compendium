@@ -36,6 +36,14 @@ public class AnimatedFloatVector3 {
 		z = in;
 		return this;
 	}
+	
+	public AnimatedFloatVector3 setAll(AnimatedFloat in) {
+		this.x = in;
+		this.y = in;
+		this.z = in;
+		
+		return this;
+	}
 
 	public void animate(float time) {
 		x.animate(time);

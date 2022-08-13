@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "compendium:item/material/aluminium/aluminiumhoe",
-    "layer1": "compendium:item/hoebase"
-  }
-}

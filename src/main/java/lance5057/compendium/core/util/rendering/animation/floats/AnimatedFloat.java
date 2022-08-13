@@ -55,6 +55,13 @@ public class AnimatedFloat {
 			}
 		}
 
+		if (!loop) {
+			if (t + speed >= iMax)
+				speed = 0;
+		}
+		
+		if(speed == 0)
+			return iMax;
 		return t + iMin;
 
 //		if (add) {
@@ -81,9 +88,8 @@ public class AnimatedFloat {
 //	public float getFloat() {
 //		return i;
 //	}
-	
-	public float getOffset()
-	{
+
+	public float getOffset() {
 		return offset;
 	}
 
