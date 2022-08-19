@@ -27,7 +27,10 @@ public class AnimatedRecipeItemUse extends RecipeItemUse {
 	public AnimatedRecipeItemUse(RecipeItemUse riu, BlacklistedModel... model) {
 		super(riu.uses, riu.tool, riu.count, riu.damageTool);
 
-		this.model = List.of(model);
+		if (model != null)
+			this.model = List.of(model);
+		else
+			this.model = new ArrayList<BlacklistedModel>();
 	}
 
 	public static AnimatedRecipeItemUse read(JsonObject j) {
@@ -36,7 +39,7 @@ public class AnimatedRecipeItemUse extends RecipeItemUse {
 		BlacklistedModel[] b = null;
 		if (j.get("models") != null) {
 			JsonArray ja = j.get("models").getAsJsonArray();
-			
+
 			b = new BlacklistedModel[ja.size()];
 
 			if (ja != null) {
