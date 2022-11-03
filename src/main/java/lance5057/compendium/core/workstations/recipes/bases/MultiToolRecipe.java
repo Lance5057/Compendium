@@ -68,6 +68,7 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 
 		this.recipeOutput = recipeOutputIn;
 		this.type = type;
+		
 	}
 
 	public ResourceLocation getId() {
