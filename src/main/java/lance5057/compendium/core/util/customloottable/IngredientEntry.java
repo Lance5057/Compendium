@@ -1,11 +1,17 @@
 package lance5057.compendium.core.util.customloottable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.JsonObject;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
 
-public class IngredientEntry {
+public class IngredientEntry implements ILoot {
 	public Ingredient item;
 	public int count;
 
@@ -36,9 +42,16 @@ public class IngredientEntry {
 	public static JsonObject addProperty(IngredientEntry r) {
 		JsonObject o = new JsonObject();
 
-		o.add("Tool", r.item.toJson());
+		o.add("Item", r.item.toJson());
 		o.addProperty("Count", r.count);
 
 		return o;
+	}
+
+	@Override
+	public List<ItemStack> invoke(Level level, Player player, ItemStack usedItem) {
+		List<ItemStack> items = new ArrayList<ItemStack>();
+		items.add(new ItemStack(item, count));
+		return null;
 	}
 }
