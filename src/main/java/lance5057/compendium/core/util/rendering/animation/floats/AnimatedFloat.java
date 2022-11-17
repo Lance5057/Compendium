@@ -2,7 +2,6 @@ package lance5057.compendium.core.util.rendering.animation.floats;
 
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.core.util.rendering.animation.Transform;
 import net.minecraft.network.FriendlyByteBuf;
 
 public class AnimatedFloat {

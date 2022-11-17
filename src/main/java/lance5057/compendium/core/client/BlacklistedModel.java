@@ -12,8 +12,6 @@ import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatT
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class BlacklistedModel {
 	public boolean isBlock;

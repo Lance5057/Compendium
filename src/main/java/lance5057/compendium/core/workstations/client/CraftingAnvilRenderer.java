@@ -5,7 +5,6 @@ import com.mojang.math.Quaternion;
 
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.client.CompendiumModelUtil;
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;

@@ -1,6 +1,5 @@
 package lance5057.compendium.core.data.builders;
 
-import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
@@ -20,7 +19,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 
 public class TCRecipes extends RecipeProvider {
 

@@ -4,9 +4,7 @@ import java.util.Random;
 
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.core.util.customloottable.IngredientEntry;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.item.crafting.Ingredient;
 
 public class ConstRoll implements IRoll {
 

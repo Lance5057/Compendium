@@ -18,8 +18,6 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.registries.RegistryObject;
 
 public class MaterialStatues extends MaterialBase {

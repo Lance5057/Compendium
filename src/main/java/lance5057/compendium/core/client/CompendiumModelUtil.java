@@ -9,7 +9,6 @@ import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
 
 import lance5057.compendium.core.util.rendering.CompendiumModelPart;
-import lance5057.compendium.core.util.rendering.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;

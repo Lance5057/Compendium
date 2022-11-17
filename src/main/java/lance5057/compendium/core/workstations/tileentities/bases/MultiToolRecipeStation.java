@@ -5,7 +5,6 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.core.recipes.RecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.core.BlockPos;

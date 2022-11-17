@@ -3,7 +3,6 @@ package lance5057.compendium;
 import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
 import lance5057.compendium.core.workstations.screen.CraftingAnvilScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;

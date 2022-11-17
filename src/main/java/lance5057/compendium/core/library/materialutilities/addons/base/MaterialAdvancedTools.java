@@ -2,8 +2,6 @@ package lance5057.compendium.core.library.materialutilities.addons.base;
 
 import java.util.function.Consumer;
 
-import javax.annotation.Nullable;
-
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.core.data.builders.TCBlockModels;
 import lance5057.compendium.core.data.builders.TCBlockTags;
@@ -16,17 +14,12 @@ import lance5057.compendium.core.items.tools.PrybarItem;
 import lance5057.compendium.core.items.tools.SawItem;
 import lance5057.compendium.core.items.weapons.ZweihanderItem;
 import lance5057.compendium.core.library.materialutilities.MaterialHelper;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraftforge.client.model.generators.ModelBuilder.Perspective;
 import net.minecraftforge.registries.RegistryObject;
