@@ -30,6 +30,9 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	public static final String SCREEN_TITLE = "screen.workstations.craftinganvil";
 //    private final LazyOptional<IItemInteractionHandlerModifiable> InteractionHandler = LazyOptional.of(this::createInteractionHandler);
 	private ItemStack ghostStack = ItemStack.EMPTY;
+	
+	boolean isMaster = false;
+	CraftingAnvilTE master;
 
 //    // public Optional<CraftingAnvilRecipe> currentRecipe;
 //    public boolean recipeLocked = false;

@@ -3,9 +3,7 @@ package lance5057.compendium;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.indexes.CompendiumIndexes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -20,8 +18,8 @@ public class Compendium {
 	public static CompendiumItems items;
 	public static CompendiumBlocks blocks;
 
-	public static CompendiumMaterials materials;
-	public static CompendiumIndexes indexes;
+//	public static CompendiumMaterials materials;
+//	public static CompendiumIndexes indexes;
 //	public static CompendiumWorldGen worldgen;
 
 //    public static AppendixMetallurgy metal;
@@ -31,7 +29,7 @@ public class Compendium {
 		modEventBus.addListener(this::modSetup);
 		modEventBus.addListener(this::setupClient);
 
-		materials = new CompendiumMaterials();
+//		materials = new CompendiumMaterials();
 
 		// Config
 //		ModLoadingContext modLoadingContext = ModLoadingContext.get();
@@ -59,12 +57,12 @@ public class Compendium {
 
 //		blocks = new CompendiumBlocks();
 //		items = new CompendiumItems();
-		indexes = new CompendiumIndexes();
-//		worldgen = new CompendiumWorldGen();
-
-		for (MaterialHelper m : CompendiumMaterials.materials) {
-			m.setup();
-		}
+//		indexes = new CompendiumIndexes();
+////		worldgen = new CompendiumWorldGen();
+//
+//		for (MaterialHelper m : CompendiumMaterials.materials) {
+//			m.setup();
+//		}
 
 		CompendiumItems.register(modEventBus);
 		CompendiumBlocks.register(modEventBus);
@@ -78,7 +76,7 @@ public class Compendium {
 		WorkstationRecipes.register(modEventBus);
 
 //		MinecraftForge.EVENT_BUS.register(worldgen);
-		MinecraftForge.EVENT_BUS.addListener(CompendiumWorldGen::onBiomeLoadingEvent);
+//		MinecraftForge.EVENT_BUS.addListener(CompendiumWorldGen::onBiomeLoadingEvent);
 
 //		AppendixMetallurgy.setup();
 //		AppendixCarpentry.setup();

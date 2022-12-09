@@ -1,8 +1,6 @@
 package lance5057.compendium.core.data.builders;
 
-import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -17,9 +15,9 @@ public class TCBlockTags extends BlockTagsProvider {
 
 	@Override
 	protected void addTags() {
-		for (MaterialHelper m : CompendiumMaterials.materials) {
-			m.addBlockTags(this);
-		}
+//		for (MaterialHelper m : CompendiumMaterials.materials) {
+//			m.addBlockTags(this);
+//		}
 	}
 
 }

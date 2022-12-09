@@ -1,9 +1,7 @@
 package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -18,10 +16,10 @@ public class TCItemTags extends ItemTagsProvider {
 
 	@Override
 	protected void addTags() {
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			m.addItemTags(this);
-		}
+//		for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			m.addItemTags(this);
+//		}
 //
 //		this.tag(CompendiumTags.HAMMER).add(CompendiumItems.CRUDE_HAMMER.get());
 //		TagKey<Item> HAMMER_MATERIAL = ItemTags.create(new ResourceLocation(Reference.MOD_ID, "tools/hammers/crude"));

@@ -2,9 +2,7 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
-import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -19,10 +17,10 @@ public class TCEnglishLoc extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 
-		for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			m.addTranslations(this);
-		}
+//		for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			m.addTranslations(this);
+//		}
 		
 		this.add("itemGroup.compendium.materials", "Compendium Materials");
 //		this.add("CreativeModeTab.compendium.workstations", "Compendium Workstations");

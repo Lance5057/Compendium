@@ -1,7 +1,5 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.client.HandDisplayRenderer;
-import lance5057.compendium.core.client.ItemDisplayRenderer;
 import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
 import lance5057.compendium.shaders.ShaderAttempts;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -40,8 +38,8 @@ public class CompendiumClient {
 //		HammeringStationRenderer::new);
 		event.registerBlockEntityRenderer(CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), CraftingAnvilRenderer::new);
 		
-		event.registerBlockEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
-		event.registerBlockEntityRenderer(CompendiumTileEntities.HAND_DISPLAY_TE.get(), HandDisplayRenderer::new);
+//		event.registerBlockEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);
+//		event.registerBlockEntityRenderer(CompendiumTileEntities.HAND_DISPLAY_TE.get(), HandDisplayRenderer::new);
 //	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SAWHORSE_STATION_TE.get(),
 //		SawhorseStationRenderer::new);
 //	ClientRegistry.bindTileEntityRenderer(CompendiumTileEntities.SCRAPPING_TABLE_TE.get(),

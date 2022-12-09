@@ -2,9 +2,7 @@
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumBlocks;
-import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -33,10 +31,10 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
     @Override
     protected void registerModels() {
     	
-    	for(MaterialHelper m : CompendiumMaterials.materials)
-		{
-			m.registerItemModels(this);
-		}
+//    	for(MaterialHelper m : CompendiumMaterials.materials)
+//		{
+//			m.registerItemModels(this);
+//		}
 //	getBuilder(CompendiumItems.MEGALITH_STONE.getId().getPath())
 //		.parent(new ModelFile.UncheckedModelFile("block/bases/megalith_stone"));
 //	this.withExistingParent(CompendiumItems.MEGALITH_STONE.getId().getPath(),

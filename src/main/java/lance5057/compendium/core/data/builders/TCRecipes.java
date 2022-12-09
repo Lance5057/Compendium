@@ -5,11 +5,9 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumMaterials;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
-import lance5057.compendium.core.library.materialutilities.MaterialHelper;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
@@ -30,9 +28,9 @@ public class TCRecipes extends RecipeProvider {
 	@Override
 	protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
 
-		for (MaterialHelper m : CompendiumMaterials.materials) {
-			m.addRecipes(this, consumer);
-		}
+//		for (MaterialHelper m : CompendiumMaterials.materials) {
+//			m.addRecipes(this, consumer);
+//		}
 
 //		AnimationFloatTransform ySpin = new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 1, 0, true, false)));
 
