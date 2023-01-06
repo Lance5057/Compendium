@@ -41,6 +41,9 @@ public class CompendiumItems {
 //	public static final RegistryObject<BlockItem> SAWHORSE_STATION_ITEMBLOCK = ITEMS
 //			.register("sawhorse_station_itemblock", () -> new BlockItem(CompendiumBlocks.SAWHORSE_STATION.get(),
 //					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockItem> WORKSTATION_ITEMBLOCK = ITEMS.register("workstation_itemblock",
+			() -> new BlockItem(CompendiumBlocks.WORKSTATION.get(),
+					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 	public static final RegistryObject<BlockItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS.register("crafting_anvil_itemblock",
 			() -> new BlockItem(CompendiumBlocks.CRAFTING_ANVIL.get(),
 					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));

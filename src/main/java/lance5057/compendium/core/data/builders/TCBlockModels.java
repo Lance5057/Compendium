@@ -2,8 +2,16 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.core.workstations.blocks.WorkstationBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class TCBlockModels extends BlockStateProvider {
@@ -17,7 +25,7 @@ public class TCBlockModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		
+
 //		for(MaterialHelper m : CompendiumMaterials.materials)
 //		{
 //			m.registerBlockModels(this);
@@ -34,6 +42,9 @@ public class TCBlockModels extends BlockStateProvider {
 ////		models().getExistingFile(modLoc("block/workstations/hammeringtable")));
 //		this.horizontalBlock(CompendiumBlocks.SAWHORSE_STATION.get(),
 //				models().getExistingFile(modLoc("block/workstations/sawhorse")));
+
+		this.workbenchModel(CompendiumBlocks.WORKSTATION.get());
+
 		this.horizontalBlock(CompendiumBlocks.CRAFTING_ANVIL.get(),
 				models().getExistingFile(modLoc("block/workstations/anvil")));
 //		this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
@@ -43,7 +54,7 @@ public class TCBlockModels extends BlockStateProvider {
 //		this.simpleBlock(CompendiumBlocks.DRYLAKEBED.get(),
 //				this.models().cubeAll(CompendiumBlocks.DRYLAKEBED.get().getRegistryName().getPath(),
 //						new ResourceLocation(Reference.MOD_ID, "block/lakebed")));
-		
+
 		this.simpleBlock(CompendiumBlocks.TEST.get());
 
 		// Shingles
@@ -285,6 +296,22 @@ public class TCBlockModels extends BlockStateProvider {
 //				true));
 //	    }
 //	}
+	}
+
+	public void workbenchModel(Block b) {
+		ModelFile left = models().getExistingFile(modLoc("block/workstations/workstation_left"));
+		ModelFile right = models().getExistingFile(modLoc("block/workstations/workstation_right"));
+
+		VariantBlockStateBuilder builder = getVariantBuilder(b);
+
+		for (Direction dir : WorkstationBlock.FACING.getPossibleValues()) {
+
+			builder.partialState().with(WorkstationBlock.FACING, dir).with(WorkstationBlock.HALF, Half.TOP)
+					.modelForState().modelFile(left).rotationY((int) dir.toYRot()-90).addModel()
+
+					.partialState().with(WorkstationBlock.FACING, dir).with(WorkstationBlock.HALF, Half.BOTTOM)
+					.modelForState().modelFile(right).rotationY((int) dir.toYRot()-90).addModel();
+		}
 	}
 
 //    private void bardoorModel(MaterialHelper mh) {
