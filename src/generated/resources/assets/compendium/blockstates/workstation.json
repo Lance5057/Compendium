@@ -2,33 +2,35 @@
   "variants": {
     "facing=north,half=top": {
       "model": "compendium:block/workstations/workstation_left",
-      "y": 90
+      "y": 450
     },
     "facing=south,half=top": {
       "model": "compendium:block/workstations/workstation_left",
-      "y": -90
+      "y": 270
     },
     "facing=west,half=top": {
-      "model": "compendium:block/workstations/workstation_left"
+      "model": "compendium:block/workstations/workstation_left",
+      "y": 360
     },
     "facing=east,half=top": {
       "model": "compendium:block/workstations/workstation_left",
-      "y": 180
+      "y": 540
     },
     "facing=north,half=bottom": {
       "model": "compendium:block/workstations/workstation_right",
-      "y": 90
+      "y": 450
     },
     "facing=south,half=bottom": {
       "model": "compendium:block/workstations/workstation_right",
-      "y": -90
+      "y": 270
     },
     "facing=west,half=bottom": {
-      "model": "compendium:block/workstations/workstation_right"
+      "model": "compendium:block/workstations/workstation_right",
+      "y": 360
     },
     "facing=east,half=bottom": {
       "model": "compendium:block/workstations/workstation_right",
-      "y": 180
+      "y": 540
     }
   }
 }

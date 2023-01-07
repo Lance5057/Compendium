@@ -307,10 +307,10 @@ public class TCBlockModels extends BlockStateProvider {
 		for (Direction dir : WorkstationBlock.FACING.getPossibleValues()) {
 
 			builder.partialState().with(WorkstationBlock.FACING, dir).with(WorkstationBlock.HALF, Half.TOP)
-					.modelForState().modelFile(left).rotationY((int) dir.toYRot()-90).addModel()
+					.modelForState().modelFile(left).rotationY((int) dir.toYRot()+270).addModel()
 
 					.partialState().with(WorkstationBlock.FACING, dir).with(WorkstationBlock.HALF, Half.BOTTOM)
-					.modelForState().modelFile(right).rotationY((int) dir.toYRot()-90).addModel();
+					.modelForState().modelFile(right).rotationY((int) dir.toYRot()+270).addModel();
 		}
 	}
 

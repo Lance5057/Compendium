@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
+import lance5057.compendium.core.workstations.tileentities.WorkstationTE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -72,10 +73,18 @@ public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterl
 		if (worldIn.isClientSide)
 			return InteractionResult.SUCCESS; // on client side, don't do anything
 
+		if (state.getValue(HALF) != Half.TOP) {
+			pos = pos.relative(state.getValue(FACING));
+            state = worldIn.getBlockState(pos);
+            if (!state.is(this)) {
+               return InteractionResult.CONSUME;
+            }
+         }
+		
 		BlockEntity entity = worldIn.getBlockEntity(pos);
-		if (entity instanceof CraftingAnvilTE) {
+		if (entity instanceof WorkstationTE) {
 
-			CraftingAnvilTE te = ((CraftingAnvilTE) entity);
+			WorkstationTE te = ((WorkstationTE) entity);
 			if (!player.isCrouching()) {
 				boolean success = false;
 				// Get item in both InteractionHands
@@ -106,7 +115,7 @@ public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterl
 			boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
 			BlockEntity tileentity = worldIn.getBlockEntity(pos);
-			if (tileentity instanceof CraftingAnvilTE) {
+			if (tileentity instanceof WorkstationTE) {
 				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(
 						itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots()).forEach(
 								i -> Block.popResource(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
@@ -133,7 +142,7 @@ public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterl
 	@Override
 	@Nullable
 	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new CraftingAnvilTE(pPos, pState);
+		return new WorkstationTE(pPos, pState);
 	}
 
 	private static Direction getNeighbourDirection(Half p_49534_, Direction p_49535_) {
