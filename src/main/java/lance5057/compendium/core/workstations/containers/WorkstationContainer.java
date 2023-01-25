@@ -11,6 +11,7 @@ import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.WorkstationRecipe;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import lance5057.compendium.core.workstations.tileentities.WorkstationTE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
@@ -21,7 +22,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -32,7 +32,7 @@ public class WorkstationContainer extends AbstractContainerMenu {
 	// private final CraftingInventory craftMatrix = new CraftingInventory(this, 5,
 	// 5);
 	// private final CraftResultInventory craftResult = new CraftResultInventory();
-	private BlockEntity blockEntity;
+	private WorkstationTE blockEntity;
 	private final Level world;
 	private final Player player;
 	// private ItemStackHandler inv;
@@ -55,7 +55,7 @@ public class WorkstationContainer extends AbstractContainerMenu {
 
 	public WorkstationContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
 		super(CompendiumContainers.WORKSTATION_CONTAINER.get(), windowId);
-		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
+		blockEntity = (WorkstationTE) player.getCommandSenderWorld().getBlockEntity(pos);
 		this.player = playerInventory.player;
 		this.world = playerInventory.player.level;
 

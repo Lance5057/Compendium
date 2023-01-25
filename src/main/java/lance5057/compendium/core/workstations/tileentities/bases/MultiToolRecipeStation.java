@@ -61,9 +61,15 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
 				return InteractionHandler.cast();
 			}
+		
+		LazyOptional<T> extra = getExtraCapability(cap,side);
+		if(extra != null)
+			return extra;
+		
 		return super.getCapability(cap, side);
 	}
 
+	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
 	protected abstract Optional<V> matchRecipe();
 //    {
 //
@@ -258,7 +264,11 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		((ItemStackHandler) itemInteractionHandler).deserializeNBT(nbt.getCompound("inventory"));
 
 		this.stage = nbt.getInt("stage");
+		
+		readExtraNBT(nbt);
 	}
+
+	protected abstract void readExtraNBT(CompoundTag nbt);
 
 	CompoundTag writeNBT(CompoundTag tag) {
 
@@ -267,9 +277,13 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		tag.put("inventory", ((ItemStackHandler) itemInteractionHandler).serializeNBT());
 
 		tag.putInt("stage", stage);
+		
+		writeExtraNBT(tag);
 
 		return tag;
 	}
+	
+	protected abstract CompoundTag writeExtraNBT(CompoundTag tag);
 
 	@Override
 	public void load(@Nonnull CompoundTag nbt) {

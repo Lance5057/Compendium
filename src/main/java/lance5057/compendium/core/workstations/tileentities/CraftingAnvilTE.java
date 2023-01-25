@@ -10,6 +10,7 @@ import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import lance5057.compendium.core.workstations.tileentities.bases.MultiToolRecipeStation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -20,6 +21,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -123,5 +125,23 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	public Component getDisplayName() {
 		// TODO Auto-generated method stub
 		return new TranslatableComponent(SCREEN_TITLE);
+	}
+
+	@Override
+	protected <T> LazyOptional<T> getExtraCapability(Capability<T> cap, Direction side) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void readExtraNBT(CompoundTag nbt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected CompoundTag writeExtraNBT(CompoundTag tag) {
+		// TODO Auto-generated method stub
+		return tag;
 	}
 }

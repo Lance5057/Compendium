@@ -1,5 +1,6 @@
 {
+  "": "Work Bench",
   "block.compendium.crafting_anvil": "Crafting Anvil",
   "itemGroup.compendium.materials": "Compendium Materials",
-  "screen.workstations.workstation": "Crafting Anvil"
+  "screen.workstations.crafting_anvil": "Crafting Anvil"
 }
