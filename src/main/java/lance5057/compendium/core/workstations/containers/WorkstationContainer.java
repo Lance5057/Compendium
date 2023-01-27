@@ -10,7 +10,7 @@ import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.WorkstationRecipe;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeShaped;
 import lance5057.compendium.core.workstations.tileentities.WorkstationTE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -164,15 +164,15 @@ public class WorkstationContainer extends AbstractContainerMenu {
 
 		Collection<WorkstationRecipe> r = this.world.getRecipeManager()
 				.getAllRecipesFor(WorkstationRecipes.WORKSTATION_RECIPE.get());
-		MultiToolRecipe r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
+		MultiToolRecipeShaped r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
 		// zeroStrikes();
 		super.slotsChanged(inventoryIn);
 	}
 
-	private MultiToolRecipe matchRecipe(WorkstationRecipeWrapper inventoryIn) {
+	private MultiToolRecipeShaped matchRecipe(WorkstationRecipeWrapper inventoryIn) {
 		if (world != null) {
-			return world.getRecipeManager().getRecipes().stream().filter(recipe -> recipe instanceof MultiToolRecipe)
-					.map(recipe -> (MultiToolRecipe) recipe).filter(recipe -> recipe.matches(inventoryIn, this.world))
+			return world.getRecipeManager().getRecipes().stream().filter(recipe -> recipe instanceof MultiToolRecipeShaped)
+					.map(recipe -> (MultiToolRecipeShaped) recipe).filter(recipe -> recipe.matches(inventoryIn, this.world))
 					.findFirst().orElse(null);
 		}
 		return null;

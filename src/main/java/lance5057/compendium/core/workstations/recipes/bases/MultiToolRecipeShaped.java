@@ -26,7 +26,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.IShapedRecipe;
 
-public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> {
+public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWrapper> {
 	static int MAX_WIDTH = 5;
 	static int MAX_HEIGHT = 5;
 
@@ -56,7 +56,7 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 	private final ResourceLocation id;
 	private final String group;
 
-	public MultiToolRecipe(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
+	public MultiToolRecipeShaped(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
 			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn,
 			RecipeType<?> type) {
 		this.id = idIn;
@@ -125,6 +125,11 @@ public class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> 
 		}
 
 		return false;
+	}
+	
+	public boolean matchAdditional()
+	{
+		return true;
 	}
 
 	/**

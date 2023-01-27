@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeShaped;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -28,7 +28,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
-public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends BlockEntity {
+public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> extends BlockEntity {
 	protected final LazyOptional<IItemHandlerModifiable> InteractionHandler = LazyOptional
 			.of(this::createInteractionHandler);
 	// private ItemStack ghostStack = ItemStack.EMPTY;

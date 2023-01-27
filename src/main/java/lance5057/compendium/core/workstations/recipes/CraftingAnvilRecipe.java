@@ -3,7 +3,7 @@ package lance5057.compendium.core.workstations.recipes;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeShaped;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public class CraftingAnvilRecipe extends MultiToolRecipe {
+public class CraftingAnvilRecipe extends MultiToolRecipeShaped {
 
 	private final ItemStack schematic;
 
@@ -74,11 +74,6 @@ public class CraftingAnvilRecipe extends MultiToolRecipe {
 		}
 
 		return true;
-	}
-
-	@Override
-	public RecipeType<?> getType() {
-		return WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get();
 	}
 
 	@Override
