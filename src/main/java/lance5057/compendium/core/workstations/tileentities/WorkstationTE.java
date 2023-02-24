@@ -102,7 +102,7 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	protected Optional<WorkstationRecipe> matchRecipe() {
 		if (level != null) {
 
-			Optional<WorkstationRecipe> recipe = InteractionHandler.map(i -> {
+			Optional<WorkstationRecipe> recipe = handler.map(i -> {
 				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.WORKSTATION_RECIPE.get(),
 						new WorkstationRecipeWrapper(gridLevel, gridLevel, i), level);
 			}).get();
@@ -115,7 +115,7 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 
 	@Override
 	public void finishRecipe(Player Player, WorkstationRecipe r) {
-		InteractionHandler.ifPresent(h -> {
+		handler.ifPresent(h -> {
 			ItemStack item = r.getRecipeOutput().copy();
 			BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
 			if (te != null) {

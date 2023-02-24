@@ -2,8 +2,10 @@ package lance5057.compendium.core.workstations;
 
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
+import lance5057.compendium.core.workstations.recipes.SawBuckRecipe;
 import lance5057.compendium.core.workstations.recipes.WorkstationRecipe;
 import lance5057.compendium.core.workstations.recipes.serializers.CraftingAnvilRecipeSerializer;
+import lance5057.compendium.core.workstations.recipes.serializers.SawBuckRecipeSerializer;
 import lance5057.compendium.core.workstations.recipes.serializers.WorkstationRecipeSerializer;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -22,7 +24,9 @@ public class WorkstationRecipes {
 			.register("crafting_anvil", CraftingAnvilRecipeSerializer::new);
 	public static final RegistryObject<RecipeSerializer<WorkstationRecipe>> WORKSTATION_SERIALIZER = RECIPE_SERIALIZERS
 			.register("workstation", WorkstationRecipeSerializer::new);
-
+	public static final RegistryObject<RecipeSerializer<SawBuckRecipe>> SAWBUCK_SERIALIZER = RECIPE_SERIALIZERS
+			.register("sawbuck", SawBuckRecipeSerializer::new);
+ 
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(Registry.RECIPE_TYPE_REGISTRY, Reference.MOD_ID);
 
@@ -31,6 +35,9 @@ public class WorkstationRecipes {
 			});
 	public static final RegistryObject<RecipeType<WorkstationRecipe>> WORKSTATION_RECIPE = RECIPE_TYPES
 			.register("workstation_recipe_type", () -> new RecipeType<WorkstationRecipe>() {
+			});
+	public static final RegistryObject<RecipeType<SawBuckRecipe>> SAWBUCK_RECIPE = RECIPE_TYPES
+			.register("sawbuck_recipe_type", () -> new RecipeType<SawBuckRecipe>() {
 			});
 
 	// public static RecipeType<CraftingAnvilRecipe> CRAFTING_ANVIL_RECIPE;

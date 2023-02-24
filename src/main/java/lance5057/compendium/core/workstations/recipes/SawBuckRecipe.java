@@ -1,20 +1,25 @@
 package lance5057.compendium.core.workstations.recipes;
 
+import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeShaped;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeSingle;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeType;
 
-public class SawBuckRecipe extends MultiToolRecipeShaped {
+public class SawBuckRecipe extends MultiToolRecipeSingle {
 
-	public SawBuckRecipe(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
-			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
-			ItemStack recipeOutputIn, RecipeType<?> type) {
-		super(idIn, groupIn, recipeWidthIn, recipeHeightIn, recipeItemsIn, recipeToolsIn, recipeOutputIn, type);
-		// TODO Auto-generated constructor stub
+	private final ResourceLocation loot;
+
+	public SawBuckRecipe(ResourceLocation idIn, String groupIn, Ingredient recipeItemsIn,
+			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable) {
+
+		super(idIn, groupIn, recipeItemsIn, recipeToolsIn, WorkstationRecipes.SAWBUCK_RECIPE.get());
+
+		this.loot = loottable;
 	}
 
+	public ResourceLocation getLootTable() {
+		return loot;
+	}
 }

@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipeShaped;
+import lance5057.compendium.core.workstations.recipes.bases.MultiToolRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -28,9 +28,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
-public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> extends BlockEntity {
-	protected final LazyOptional<IItemHandlerModifiable> InteractionHandler = LazyOptional
-			.of(this::createInteractionHandler);
+public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends BlockEntity {
+	protected final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createInteractionHandler);
 	// private ItemStack ghostStack = ItemStack.EMPTY;
 
 	// public Optional<V> currentRecipe;
@@ -59,31 +58,19 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> ex
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
 		if (side != Direction.DOWN)
 			if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-				return InteractionHandler.cast();
+				return handler.cast();
 			}
-		
-		LazyOptional<T> extra = getExtraCapability(cap,side);
-		if(extra != null)
+
+		LazyOptional<T> extra = getExtraCapability(cap, side);
+		if (extra != null)
 			return extra;
-		
+
 		return super.getCapability(cap, side);
 	}
 
 	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
+
 	protected abstract Optional<V> matchRecipe();
-//    {
-//
-//	if (level != null) {
-//	    Optional<V> recipe =  InteractionHandler.map(i -> {
-//		return level.getRecipeManager().getRecipe(WorkstationRecipes.CRAFTING_ANVIL_RECIPE,
-//			new WorkstationRecipeWrapper(width, height, i), level);
-//	    }).get();
-//
-//	    // setRecipe(recipe);
-//	    return recipe;
-//	}
-//	return null;
-//    }
 
 	public void setRecipe(Optional<V> r) {
 
@@ -94,28 +81,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> ex
 	}
 
 	protected abstract IItemHandlerModifiable createInteractionHandler();
-//    {
-//	return new ItemStackInteractionHandler(numSlots) {
-//	    @Override
-//	    protected int getStackLimit(int slot, @Nonnull ItemStack stack) {
-//		return stack.getMaxStackSize();
-//	    }
-//
-//	    @Override
-//	    protected void onContentsChanged(int slot) {
-//		updateInventory();
-//		if (slot != 25) {
-//
-//		    zeroProgress();
-//		    Optional<V> recipe = matchRecipe();
-//
-//		    if (recipe.isPresent()) {
-//			setRecipe(recipe);
-//		    }
-//		}
-//	    }
-//	};
-//    }
 
 	public void zeroProgress() {
 		this.progress = 0;
@@ -207,7 +172,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> ex
 	public abstract void finishRecipe(Player Player, V recipe);
 
 	protected void craft() {
-		this.InteractionHandler.ifPresent(it -> {
+		this.handler.ifPresent(it -> {
 			for (int i = 0; i < width * height; i++) {
 				ItemStack stack = it.getStackInSlot(i);
 				stack.setCount(stack.getCount() - 1);
@@ -264,7 +229,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> ex
 		((ItemStackHandler) itemInteractionHandler).deserializeNBT(nbt.getCompound("inventory"));
 
 		this.stage = nbt.getInt("stage");
-		
+
 		readExtraNBT(nbt);
 	}
 
@@ -277,12 +242,26 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipeShaped> ex
 		tag.put("inventory", ((ItemStackHandler) itemInteractionHandler).serializeNBT());
 
 		tag.putInt("stage", stage);
-		
+
 		writeExtraNBT(tag);
 
 		return tag;
 	}
-	
+
+	// External extract handler
+	public void extractItem(Player playerEntity) {
+		handler.ifPresent(inventory -> this.extractItem(playerEntity, inventory));
+	}
+
+	// External insert handler
+	public void insertItem(ItemStack heldItem) {
+		handler.ifPresent(inventory -> this.insertItem(inventory, heldItem));
+	}
+
+	public void extractItem(Player playerEntity, IItemHandler inventory) {}
+
+	public void insertItem(IItemHandler inventory, ItemStack heldItem) {}
+
 	protected abstract CompoundTag writeExtraNBT(CompoundTag tag);
 
 	@Override

@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
+import lance5057.compendium.core.workstations.tileentities.SawBuckTE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,10 +15,13 @@ public class CompendiumTileEntities {
 	public static final RegistryObject<BlockEntityType<CraftingAnvilTE>> WORKSTATION_TE = TILE_ENTITIES.register(
 			"workstation_tile",
 			() -> BlockEntityType.Builder.of(CraftingAnvilTE::new, CompendiumBlocks.WORKSTATION.get()).build(null));
-	
+
 	public static final RegistryObject<BlockEntityType<CraftingAnvilTE>> CRAFTING_ANVIL_TE = TILE_ENTITIES.register(
 			"crafting_anvil_tile",
 			() -> BlockEntityType.Builder.of(CraftingAnvilTE::new, CompendiumBlocks.CRAFTING_ANVIL.get()).build(null));
+
+	public static final RegistryObject<BlockEntityType<SawBuckTE>> SAW_BUCK_TE = TILE_ENTITIES.register("saw_buck_tile",
+			() -> BlockEntityType.Builder.of(SawBuckTE::new, CompendiumBlocks.SAW_BUCK.get()).build(null));
 //	public static final RegistryObject<BlockEntityType<HammeringStationTE>> HAMMERING_STATION_TE = TILE_ENTITIES
 //			.register("hammering_station_tile", () -> BlockEntityType.Builder
 //					.of(HammeringStationTE::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));
@@ -30,7 +34,7 @@ public class CompendiumTileEntities {
 
 //    public static final RegistryObject<BlockEntityType<VaultTileEntity>> VAULT_TE = TILE_ENTITIES.register("vault_tile",
 //	    () -> BlockEntityType.Builder.create(VaultTileEntity::new, getAllVaults()).build(null));
-	
+
 //	public static List<RegistryObject<ItemDisplayBlock>> displayBlocks = new ArrayList<RegistryObject<ItemDisplayBlock>>();
 //	public static List<RegistryObject<BlockHand>> displayHandBlocks = new ArrayList<RegistryObject<BlockHand>>();
 //	

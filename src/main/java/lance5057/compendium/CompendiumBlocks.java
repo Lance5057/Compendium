@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.blocks.CraftingAnvilBlock;
+import lance5057.compendium.core.workstations.blocks.SawBuckBlock;
 import lance5057.compendium.core.workstations.blocks.WorkstationBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -30,13 +31,8 @@ public class CompendiumBlocks {
 	public static final RegistryObject<CraftingAnvilBlock> CRAFTING_ANVIL = BLOCKS.register("crafting_anvil",
 			() -> new CraftingAnvilBlock());
 
-//    public static final RegistryObject<SawhorseStationBlock> SAWHORSE_STATION = BLOCKS.register("sawhorse_station",
-//	    () -> new SawhorseStationBlock());
-//    public static final RegistryObject<ScrappingTableBlock> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
-//	    () -> new ScrappingTableBlock());
-
-//    public static final RegistryObject<Block> DRYLAKEBED = BLOCKS.register("dry_lake_bed",
-//	    () -> new Block(Block.Properties.of(Material.DIRT).strength(0.5F).sound(SoundType.GRAVEL)));
+	public static final RegistryObject<SawBuckBlock> SAW_BUCK = BLOCKS.register("saw_buck",
+			() -> new SawBuckBlock());
 
 	public static void register(IEventBus modBus) {
 

@@ -26,7 +26,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.IShapedRecipe;
 
-public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWrapper> {
+public class MultiToolRecipeShaped extends MultiToolRecipe {
 	static int MAX_WIDTH = 5;
 	static int MAX_HEIGHT = 5;
 
@@ -45,41 +45,22 @@ public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWra
 			MAX_HEIGHT = height;
 	}
 
-	private final RecipeType<?> type;
-
 	private final int recipeWidth;
 	private final int recipeHeight;
 	private final NonNullList<Ingredient> recipeItems;
-	private final NonNullList<AnimatedRecipeItemUse> recipeTools;
 
 	private final ItemStack recipeOutput;
-	private final ResourceLocation id;
-	private final String group;
 
 	public MultiToolRecipeShaped(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
-			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn,
-			RecipeType<?> type) {
-		this.id = idIn;
-		this.group = groupIn;
+			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
+			ItemStack recipeOutputIn, RecipeType<?> type) {
+		super(idIn, groupIn, recipeToolsIn, type);
 		this.recipeWidth = recipeWidthIn;
 		this.recipeHeight = recipeHeightIn;
 		this.recipeItems = recipeItemsIn;
-		this.recipeTools = recipeToolsIn;
 
 		this.recipeOutput = recipeOutputIn;
-		this.type = type;
-		
-	}
 
-	public ResourceLocation getId() {
-		return this.id;
-	}
-
-	/**
-	 * Recipes with equal group are combined into one button in the recipe book
-	 */
-	public String getGroup() {
-		return this.group;
 	}
 
 	/**
@@ -95,10 +76,6 @@ public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWra
 
 	public NonNullList<Ingredient> getIngredients() {
 		return this.getRecipeItems();
-	}
-
-	public NonNullList<AnimatedRecipeItemUse> getToolList() {
-		return this.getRecipeTools();
 	}
 
 	/**
@@ -126,9 +103,8 @@ public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWra
 
 		return false;
 	}
-	
-	public boolean matchAdditional()
-	{
+
+	public boolean matchAdditional() {
 		return true;
 	}
 
@@ -342,11 +318,6 @@ public class MultiToolRecipeShaped implements IShapedRecipe<WorkstationRecipeWra
 			int i = GsonHelper.getAsInt(object, "count", 1);
 			return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(object, true);
 		}
-	}
-
-	@Override
-	public RecipeType<?> getType() {
-		return type;
 	}
 
 	public NonNullList<Ingredient> getRecipeItems() {
