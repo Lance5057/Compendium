@@ -1,5 +1,6 @@
 package lance5057.compendium.core.data.builders.workstationrecipes;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
@@ -10,6 +11,8 @@ import com.google.gson.JsonObject;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -27,67 +30,44 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 	@Override
 	protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
 		// From Tag
-		this.createRecipe("plank_to_sticks", SawBuckRecipeLoottables.allplanks, Ingredient.of(ItemTags.PLANKS),
-				consumer, 2);
-
-		this.createRecipe("log_to_plank", new ResourceLocation(Reference.MOD_ID, "recipese/sawhorse/oak_log"),
-				Ingredient.of(Items.OAK_LOG), consumer, 2);
-	}
-
-	private void createRecipe(String name, ResourceLocation output, Ingredient input,
-			Consumer<FinishedRecipe> consumer) {
-		consumer.accept(new SawBuckFinishedRecipe(
-				new ResourceLocation(Reference.MOD_ID, "sawhorsestation/" + name), output, input));
-	}
-
-	private void createRecipe(String name, ResourceLocation output, Ingredient input, Consumer<FinishedRecipe> consumer,
-			int strike) {
-		consumer.accept(new SawBuckFinishedRecipe(
-				new ResourceLocation(Reference.MOD_ID, "sawhorsestation/" + name), output, input, strike));
+//		this.createRecipe("plank_to_sticks", SawBuckRecipeLoottables.allplanks, Ingredient.of(ItemTags.PLANKS),
+//				consumer, 2);
+//
+//		this.createRecipe("log_to_plank", new ResourceLocation(Reference.MOD_ID, "recipese/sawhorse/oak_log"),
+//				Ingredient.of(Items.OAK_LOG), consumer, 2);
 	}
 
 	// Copied it since inner class was private
-	private static class SawBuckFinishedRecipe implements FinishedRecipe {
+	public static class SawBuckFinishedRecipe implements FinishedRecipe {
 		private final ResourceLocation id;
 		private final ResourceLocation output;
 		private final Ingredient input;
-		private final int strikes;
+		private final List<AnimatedRecipeItemUse> tools;
+		private final Advancement.Builder advancementBuilder;
+		private final ResourceLocation advancementId;
 
-		private SawBuckFinishedRecipe(ResourceLocation id, ResourceLocation output, Ingredient input,
-				int strikes) {
+		public SawBuckFinishedRecipe(ResourceLocation id, ResourceLocation output, Ingredient input,
+				List<AnimatedRecipeItemUse> tools, Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
 			this.id = id;
 			this.output = output;
 			this.input = input;
-			this.strikes = strikes;
-		}
-
-		private SawBuckFinishedRecipe(ResourceLocation id, ResourceLocation output, Ingredient input) {
-			this.id = id;
-			this.output = output;
-			this.input = input;
-			this.strikes = 4;
+			this.tools = tools;
+			this.advancementBuilder = advancementBuilderIn;
+			this.advancementId = advancementIdIn;
 		}
 
 		@Override
 		public void serializeRecipeData(JsonObject json) {
-			json.addProperty("strikes", strikes);
+			JsonObject jsonobjectTools = new JsonObject();
+
+			for (int i = 0; i < this.tools.size(); i++) {// entry : this.tools) {
+				jsonobjectTools.add("Step_" + i, AnimatedRecipeItemUse.addProperty(tools.get(i)));
+			}
+			json.add("tools", jsonobjectTools);
 			json.add("input", input.toJson());
 
 			json.addProperty("output", output.toString());
 		}
-
-//		public static JsonObject serializeItemStack(ItemStack output) {
-//			JsonObject resultObject = new JsonObject();
-//			resultObject.addProperty("item", ForgeRegistries.ITEMS.getKey(output.getItem()).toString());
-//			if (output.getCount() > 1) {
-//				resultObject.addProperty("count", output.getCount());
-//			}
-//
-//			if (output.hasTag() && output.getTag() != null) {
-//				resultObject.addProperty("nbt", output.getTag().toString());
-//			}
-//			return resultObject;
-//		}
 
 		@Override
 		@Nonnull

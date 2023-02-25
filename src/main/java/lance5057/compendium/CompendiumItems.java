@@ -47,6 +47,9 @@ public class CompendiumItems {
 	public static final RegistryObject<BlockItem> CRAFTING_ANVIL_ITEMBLOCK = ITEMS.register("crafting_anvil_itemblock",
 			() -> new BlockItem(CompendiumBlocks.CRAFTING_ANVIL.get(),
 					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockItem> SAW_BUCK_ITEMBLOCK = ITEMS.register("saw_buck_itemblock",
+			() -> new BlockItem(CompendiumBlocks.SAW_BUCK.get(),
+					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 //	public static final RegistryObject<BlockItem> SCRAPPING_TABLE_ITEMBLOCK = ITEMS
 //			.register("scrapping_table_itemblock", () -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(),
 //					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));

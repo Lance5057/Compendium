@@ -1,0 +1,33 @@
+{
+  "type": "compendium:sawbuck",
+  "tools": {
+    "Step_0": {
+      "Uses": 1,
+      "Tool": {
+        "item": "minecraft:diamond_axe"
+      },
+      "Count": 1,
+      "Damage": true,
+      "models": [
+        {
+          "location": "minecraft:diamond_axe",
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "max": 360.0,
+                "speed": 0.1,
+                "loop": true
+              }
+            },
+            "scale": {}
+          }
+        }
+      ]
+    }
+  },
+  "input": {
+    "item": "minecraft:oak_log"
+  },
+  "output": "minecraft:recipes/sawhorse/planks"
+}

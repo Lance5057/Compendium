@@ -18,7 +18,7 @@ public class SawBuckRecipeSerializer extends net.minecraftforge.registries.Forge
 
 	public SawBuckRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
 		String s = GsonHelper.getAsString(json, "group", "");
-		Ingredient itemIn = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "item"));
+		Ingredient itemIn = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "input"));
 
 		NonNullList<AnimatedRecipeItemUse> nonnulllistTools = SawBuckRecipe
 				.deserializeTool(GsonHelper.getAsJsonObject(json, "tools"));

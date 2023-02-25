@@ -7,14 +7,22 @@ import javax.annotation.Nonnull;
 import lance5057.compendium.CompendiumTileEntities;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
+import lance5057.compendium.core.workstations.recipes.CraftingAnvilRecipe;
 import lance5057.compendium.core.workstations.recipes.SawBuckRecipe;
 import lance5057.compendium.core.workstations.tileentities.bases.MultiToolRecipeStation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
@@ -36,8 +44,17 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 
 	@Override
 	protected Optional<SawBuckRecipe> matchRecipe() {
-		// TODO Auto-generated method stub
-		return null;
+		if (level != null) {
+
+			Optional<SawBuckRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
+						new WorkstationRecipeWrapper(1, 1, i), level);
+			}).get();
+
+			// setRecipe(recipe);
+			return recipe;
+		}
+		return Optional.empty();
 	}
 
 	public Optional<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
@@ -77,9 +94,26 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 	}
 
 	@Override
-	public void finishRecipe(Player Player, SawBuckRecipe recipe) {
-		// TODO Auto-generated method stub
+	public void finishRecipe(Player player, SawBuckRecipe recipe) {
+		if (level != null && !level.isClientSide()) {
+			final LootContext pContext = new LootContext.Builder((ServerLevel) level)
+					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
+					.withParameter(LootContextParams.THIS_ENTITY, player).withRandom(level.getRandom())
+					.withLuck(player.getLuck() + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE,
+							player.getMainHandItem()))
+					.create(LootContextParamSets.EMPTY);
+			// TODO Investigate how to make block not drop things so violently
+			player.getServer().getLootTables().get(recipe.getLootTable()).getRandomItems(pContext)
+					.forEach(itemStack -> new ItemEntity(level, getBlockPos().getX(), getBlockPos().getY(),
+							getBlockPos().getZ(), itemStack).spawnAtLocation(itemStack));
 
+			this.handler.ifPresent(it -> {
+				ItemStack stack = it.getStackInSlot(0);
+				stack.setCount(stack.getCount() - 1);
+				it.setStackInSlot(0, stack);
+			});
+
+		}
 	}
 
 	@Override

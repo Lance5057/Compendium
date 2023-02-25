@@ -8,6 +8,8 @@ import lance5057.compendium.Compendium;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
+import lance5057.compendium.core.data.builders.workstationrecipes.builders.SawBuckRecipeBuilder;
+import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
@@ -17,6 +19,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.Tags;
 
 public class TCRecipes extends RecipeProvider {
 
@@ -55,6 +58,13 @@ public class TCRecipes extends RecipeProvider {
 								new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
 										.setY(new AnimatedFloat(0, 360, 300, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
+
+		SawBuckRecipeBuilder.recipe(Ingredient.of(Items.OAK_LOG), SawBuckRecipeLoottables.allplanks)
+				.addCriterion("log", RecipeProvider.has(Items.OAK_LOG))
+				.tool(Ingredient.of(Items.DIAMOND_AXE), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //

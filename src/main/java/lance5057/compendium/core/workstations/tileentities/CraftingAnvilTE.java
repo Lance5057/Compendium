@@ -88,7 +88,7 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 			// setRecipe(recipe);
 			return recipe;
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
