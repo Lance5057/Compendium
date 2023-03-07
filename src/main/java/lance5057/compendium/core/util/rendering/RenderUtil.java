@@ -22,6 +22,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,7 +60,7 @@ public class RenderUtil {
 	// [VanillaCopy] ItemRenderer with custom color
 	private static void renderBakedItemModel(BakedModel model, ItemStack stack, int color, int light, int overlay,
 			PoseStack ms, VertexConsumer buffer) {
-		Random random = new Random();
+		RandomSource random = RandomSource.create();
 		long i = 42L;
 
 		for (Direction direction : Direction.values()) {

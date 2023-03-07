@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class CompendiumTileEntities {
 	public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITIES = DeferredRegister
-			.create(ForgeRegistries.BLOCK_ENTITIES, Reference.MOD_ID);
+			.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Reference.MOD_ID);
 
 	public static final RegistryObject<BlockEntityType<CraftingAnvilTE>> WORKSTATION_TE = TILE_ENTITIES.register(
 			"workstation_tile",

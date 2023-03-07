@@ -12,6 +12,7 @@ import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatT
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlacklistedModel {
 	public boolean isBlock;
@@ -21,17 +22,16 @@ public class BlacklistedModel {
 
 	public static BlacklistedModel empty = new BlacklistedModel(new ResourceLocation("", ""), new ArrayList<Integer>(),
 			true, AnimationFloatTransform.ZERO);
-	
+
 //	public BlacklistedModel(BlockState block)
 //	{
 //		ModelLoaderRegistry.
 //		this.rc = block.
 //		isBlock = true;
 //	}
-	
-	public BlacklistedModel(Item item, AnimationFloatTransform anim)
-	{
-		this.rc = item.getRegistryName();
+
+	public BlacklistedModel(Item item, AnimationFloatTransform anim) {
+		this.rc = ForgeRegistries.ITEMS.getKey(item);
 		isBlock = false;
 		this.transform = anim;
 	}
@@ -70,7 +70,7 @@ public class BlacklistedModel {
 		List<Integer> b = IntStream.of(buffer.readVarIntArray()).boxed().collect(Collectors.toList());
 
 		boolean block = buffer.readBoolean();
-		
+
 		AnimationFloatTransform t = AnimationFloatTransform.read(buffer);
 
 		return new BlacklistedModel(rc, b, block, t);
@@ -94,12 +94,12 @@ public class BlacklistedModel {
 			jo.add("blacklist", ja);
 		}
 
-		if(!bm.rc.equals(new ResourceLocation("", "")))
+		if (!bm.rc.equals(new ResourceLocation("", "")))
 			jo.addProperty("location", bm.rc.toString());
-		
-		if(bm.isBlock)
+
+		if (bm.isBlock)
 			jo.addProperty("IsBlock", bm.isBlock);
-		
+
 		jo.add("animation", AnimationFloatTransform.addProperty(bm.transform));
 
 		return jo;

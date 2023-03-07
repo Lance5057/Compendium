@@ -17,8 +17,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
-public class WorkstationRecipeSerializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>>
-		implements RecipeSerializer<WorkstationRecipe> {
+public class WorkstationRecipeSerializer implements RecipeSerializer<WorkstationRecipe> {
 	private static final ResourceLocation NAME = new ResourceLocation(Reference.MOD_ID, "crafting_anvil_shaped");
 
 	public WorkstationRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

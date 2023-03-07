@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
 import lance5057.compendium.core.client.BlacklistedModel;
-import lance5057.compendium.core.client.CompendiumModelUtil;
+import lance5057.compendium.core.client.RenderUtil;
 import lance5057.compendium.core.workstations.tileentities.SawBuckTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -35,7 +35,7 @@ public class SawBuckRenderer implements BlockEntityRenderer<SawBuckTE> {
 		
 		if (tileEntityIn.getCurrentTool() != null) {
 			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
-				CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
 		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

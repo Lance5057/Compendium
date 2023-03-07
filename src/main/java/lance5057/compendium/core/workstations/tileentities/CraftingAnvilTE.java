@@ -12,8 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -44,8 +42,6 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	public ItemStack getGhostStack() {
 		return this.ghostStack;
 	}
-
-	private static final TextComponent CONTAINER_NAME = new TextComponent("compendium.workstations.workstation");
 
 	@Override
 	protected IItemHandlerModifiable createInteractionHandler() {
@@ -124,7 +120,7 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	@Override
 	public Component getDisplayName() {
 		// TODO Auto-generated method stub
-		return new TranslatableComponent(SCREEN_TITLE);
+		return Component.translatable(SCREEN_TITLE);
 	}
 
 	@Override
@@ -136,7 +132,7 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	@Override
 	protected void readExtraNBT(CompoundTag nbt) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

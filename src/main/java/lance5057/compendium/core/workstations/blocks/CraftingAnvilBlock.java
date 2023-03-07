@@ -85,7 +85,7 @@ public class CraftingAnvilBlock extends Block implements EntityBlock ,SimpleWate
 				if (!(player instanceof ServerPlayer))
 					return InteractionResult.FAIL; 
 				ServerPlayer serverPlayer = (ServerPlayer) player;
-				NetworkHooks.openGui(serverPlayer, te, pos);
+				NetworkHooks.openScreen(serverPlayer, te, pos);
 			}
 //			}
 		}

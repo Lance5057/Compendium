@@ -1,7 +1,7 @@
-	package lance5057.compendium.core.data.builders;
+package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
-import lance5057.compendium.CompendiumBlocks;
+import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -11,26 +11,27 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class TCItemModels extends ModelProvider<ItemModelBuilder> {
-    private final ExistingFileHelper fh;
+	private final ExistingFileHelper fh;
 
-    public TCItemModels(DataGenerator generator, ExistingFileHelper fh) {
-	super(generator, Reference.MOD_ID, ITEM_FOLDER, ItemModelBuilder::new, fh);
-	Compendium.logger.info("\t - Item Models");
-	this.fh = fh;
-    }
+	public TCItemModels(DataGenerator generator, ExistingFileHelper fh) {
+		super(generator, Reference.MOD_ID, ITEM_FOLDER, ItemModelBuilder::new, fh);
+		Compendium.logger.info("\t - Item Models");
+		this.fh = fh;
+	}
 
-    @Override
-    public String getName() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return "Compendium Item Models";
+	}
 
-    @Override
-    protected void registerModels() {
-    	
+	@Override
+	protected void registerModels() {
+
 //    	for(MaterialHelper m : CompendiumMaterials.materials)
 //		{
 //			m.registerItemModels(this);
@@ -40,18 +41,25 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 //	this.withExistingParent(CompendiumItems.MEGALITH_STONE.getId().getPath(),
 //		"compendium:block/bases/megalith_stone");
 //
-//	forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK,
-//		new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
-//	forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK,
-//		new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
-//	forBlockItem(CompendiumItems.SAWHORSE_STATION_ITEMBLOCK,
-//		new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
-//	forBlockItem(CompendiumItems.SCRAPPING_TABLE_ITEMBLOCK,
-//		new ResourceLocation(Reference.MOD_ID, "block/workstations/dismantling_table"));
+		forBlockItem(CompendiumItems.WORKSTATION_ITEMBLOCK,
+				new ResourceLocation(Reference.MOD_ID, "block/workstations/workstation"));
+		forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK,
+				new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
+//		forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK,
+//				new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
+		forBlockItem(CompendiumItems.SAW_BUCK_ITEMBLOCK,
+				new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
+//		forBlockItem(CompendiumItems.SCRAPPING_TABLE_ITEMBLOCK,
+//				new ResourceLocation(Reference.MOD_ID, "block/workstations/dismantling_table"));
 //
+		
+		
+		//Sawbuck Items
+		forItem(CompendiumItems.BARK, "bark");
+		forItem(CompendiumItems.SAWDUST, "sawdust");
 //	forBlockItem(CompendiumItems.DRYLAKEBED_ITEMBLOCK, "drylakebed");
-    	
-    	forBlockItem(CompendiumBlocks.STORAGE_ITEMBLOCK, "test");
+
+//		forBlockItem(CompendiumBlocks.STORAGE_ITEMBLOCK, "test");
 //
 ////	forBlockItem(CompendiumItems.ITEM_SHINGLES, "bases/empty_shingles");
 ////	forBlockItem(CompendiumItems.ITEM_SHINGLES_ALT, "bases/empty_shinglesalt");
@@ -226,35 +234,30 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 //		forBlockItem(mo.ITEM_ORE, mh.name);
 //	    }
 //	}
-    }
+	}
 
-    public void forItem(RegistryObject<? extends Item> item, String name) {
-		this.singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0", modLoc("item/" + name));
-    }
+	public void forItem(RegistryObject<? extends Item> item, String name) {
+		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + name));
+	}
 
-    public void forMaterialItem(RegistryObject<? extends Item> item, String name) {
-	this.singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0",
-		modLoc("item/material/" + name + "/" + item.getId().getPath()));
-    }
-    
-    public void forMaterialItem(RegistryObject<? extends Item> item, String name, String loc) {
-    	this.singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0",
-    		modLoc("item/material/" + name + "/" + loc));
-        }
+	public void forMaterialItem(RegistryObject<? extends Item> item, String name) {
+		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
+				modLoc("item/material/" + name + "/" + item.getId().getPath()));
+	}
 
-    public void forBlockItem(RegistryObject<? extends BlockItem> item, String name) {
-	getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-		new ResourceLocation(Reference.MOD_ID, "block/" + item.get().getBlock().getRegistryName().getPath())));
-    }
+	public void forBlockItem(RegistryObject<? extends BlockItem> item, String name) {
+		getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(new ResourceLocation(Reference.MOD_ID,
+						"block/" + ForgeRegistries.BLOCKS.getKey(item.get().getBlock()).getPath())));
+	}
 
-    public void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation) {
-	getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
-    }
+	public void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation) {
+		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
+	}
 
-    public void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation, String key,
-	    ResourceLocation texture) {
-	getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation)).texture(key,
-		texture);
-    }
-
+	public void forBlockItem(RegistryObject<? extends BlockItem> item, ResourceLocation modelLocation, String key,
+			ResourceLocation texture) {
+		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation)).texture(key,
+				texture);
+	}
 }

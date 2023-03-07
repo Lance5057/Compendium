@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.Compendium;
+import lance5057.compendium.CompendiumTags;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
@@ -59,9 +60,9 @@ public class TCRecipes extends RecipeProvider {
 										.setY(new AnimatedFloat(0, 360, 300, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
-		SawBuckRecipeBuilder.recipe(Ingredient.of(Items.OAK_LOG), SawBuckRecipeLoottables.allplanks)
+		SawBuckRecipeBuilder.recipe(Ingredient.of(Items.OAK_LOG), SawBuckRecipeLoottables.oak_log)
 				.addCriterion("log", RecipeProvider.has(Items.OAK_LOG))
-				.tool(Ingredient.of(Items.DIAMOND_AXE), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));

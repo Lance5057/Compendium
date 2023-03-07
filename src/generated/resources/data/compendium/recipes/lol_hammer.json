@@ -1,120 +1,120 @@
 {
   "type": "compendium:crafting_anvil",
-  "pattern": [
-    "sssss",
-    "s   s",
-    "sssss"
-  ],
   "key": {
     "s": {
       "item": "minecraft:stick"
     }
   },
-  "tools": {
-    "Step_0": {
-      "Uses": 16,
-      "Tool": {
-        "item": "minecraft:stone"
-      },
-      "Count": 1,
-      "Damage": true,
-      "models": [
-        {
-          "location": "minecraft:diamond_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        },
-        {
-          "location": "minecraft:golden_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "offset": 60.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        },
-        {
-          "location": "minecraft:iron_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "offset": 120.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        },
-        {
-          "location": "minecraft:netherite_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "offset": 180.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        },
-        {
-          "location": "minecraft:stone_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "offset": 240.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        },
-        {
-          "location": "minecraft:wooden_sword",
-          "animation": {
-            "location": {},
-            "rotation": {
-              "y": {
-                "max": 360.0,
-                "offset": 300.0,
-                "speed": 0.1,
-                "loop": true
-              }
-            },
-            "scale": {}
-          }
-        }
-      ]
-    }
+  "pattern": [
+    "sssss",
+    "s   s",
+    "sssss"
+  ],
+  "result": {
+    "item": "minecraft:iron_ingot"
   },
   "schematic": {
     "item": "minecraft:air"
   },
-  "result": {
-    "item": "minecraft:iron_ingot"
+  "tools": {
+    "Step_0": {
+      "Count": 1,
+      "Damage": true,
+      "Tool": {
+        "item": "minecraft:stone"
+      },
+      "Uses": 16,
+      "models": [
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:diamond_sword"
+        },
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "offset": 60.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:golden_sword"
+        },
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "offset": 120.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:iron_sword"
+        },
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "offset": 180.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:netherite_sword"
+        },
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "offset": 240.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:stone_sword"
+        },
+        {
+          "animation": {
+            "location": {},
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "offset": 300.0,
+                "speed": 0.1
+              }
+            },
+            "scale": {}
+          },
+          "location": "minecraft:wooden_sword"
+        }
+      ]
+    }
   }
 }

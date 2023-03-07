@@ -17,9 +17,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
-public class CraftingAnvilRecipeSerializer
-		extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>>
-		implements RecipeSerializer<CraftingAnvilRecipe> {
+public class CraftingAnvilRecipeSerializer implements RecipeSerializer<CraftingAnvilRecipe> {
 	private static final ResourceLocation NAME = new ResourceLocation(Reference.MOD_ID, "crafting_anvil_shaped");
 
 	public CraftingAnvilRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
@@ -30,7 +28,8 @@ public class CraftingAnvilRecipeSerializer
 		int i = astring[0].length();
 		int j = astring.length;
 		NonNullList<Ingredient> nonnulllist = CraftingAnvilRecipe.deserializeIngredients(astring, map, i, j);
-		ItemStack itemstackSchem = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "schematic"), true, false); 
+		ItemStack itemstackSchem = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "schematic"), true,
+				false);
 		ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
 
 		NonNullList<AnimatedRecipeItemUse> nonnulllistTools = CraftingAnvilRecipe

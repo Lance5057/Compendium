@@ -1,10 +1,13 @@
 package lance5057.compendium;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -53,6 +56,22 @@ public class CompendiumItems {
 //	public static final RegistryObject<BlockItem> SCRAPPING_TABLE_ITEMBLOCK = ITEMS
 //			.register("scrapping_table_itemblock", () -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(),
 //					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
+
+	// Sawbuck stuff
+	public static final RegistryObject<Item> SAWDUST = ITEMS.register("sawdust",
+			() -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)) {
+				@Override
+				public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+					return 300;
+				}
+			});
+	public static final RegistryObject<Item> BARK = ITEMS.register("bark",
+			() -> new Item(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)) {
+				@Override
+				public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+					return 300;
+				}
+			});
 
 //	public static final RegistryObject<MegalithStoneItem> MEGALITH_STONE = ITEMS.register("megalith_stone",
 //			() -> new MegalithStoneItem(new Item.Properties().tab(CompendiumItems.GROUP_MATERIALS)));

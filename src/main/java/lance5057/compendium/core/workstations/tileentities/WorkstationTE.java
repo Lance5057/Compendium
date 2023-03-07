@@ -12,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -36,22 +35,21 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 
 	public static final int PRODUCT_DISPLAY_SLOT = 0;
 	public static final int OUTPUT_SLOT = 1;
-	
+
 	public static final int UPGRADE_4x4_SLOT = OUTPUT_SLOT + 1;
 	public static final int UPGRADE_5x5_SLOT = UPGRADE_4x4_SLOT + 1;
 	public static final int UPGRADE_LIGHT_SLOT = UPGRADE_5x5_SLOT + 1;
 	public static final int UPGRADE_ENERGY = UPGRADE_LIGHT_SLOT + 1;
 	public static final int UPGRADE_BATTERY = UPGRADE_ENERGY + 1;
-	
+
 	public static final int INVENTORY_SIZE = UPGRADE_BATTERY + 1;
-	
-	int gridLevel = 3; //3=3x3 4=4x4 5=5x5
+
+	int gridLevel = 3; // 3=3x3 4=4x4 5=5x5
 	boolean light = false;
 	boolean powered = false;
 	int powerLevel = 0;
-	
-	protected final LazyOptional<IEnergyStorage> EnergyHandler = LazyOptional
-			.of(this::createEnergyHandler);
+
+	protected final LazyOptional<IEnergyStorage> EnergyHandler = LazyOptional.of(this::createEnergyHandler);
 
 	public WorkstationTE(BlockPos pos, BlockState state) {
 		super(27, 5, 5, CompendiumTileEntities.WORKSTATION_TE.get(), pos, state);
@@ -87,7 +85,7 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 			}
 		};
 	}
-	
+
 	protected IEnergyStorage createEnergyHandler() {
 		return new EnergyStorage(powerLevel);
 	}
@@ -146,13 +144,13 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	@Override
 	public Component getDisplayName() {
 		// TODO Auto-generated method stub
-		return new TranslatableComponent(SCREEN_TITLE);
+		return Component.translatable(SCREEN_TITLE);
 	}
 
 	@Override
 	protected void readExtraNBT(CompoundTag nbt) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

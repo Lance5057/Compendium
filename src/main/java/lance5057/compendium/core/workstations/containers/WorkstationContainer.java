@@ -35,7 +35,7 @@ public class WorkstationContainer extends AbstractContainerMenu {
 	private WorkstationTE blockEntity;
 	private final Level world;
 	private final Player player;
-	// private ItemStackHandler inv;
+	// private ItemStackHandler inv;v
 
 	private Slot output;
 	private Slot view;

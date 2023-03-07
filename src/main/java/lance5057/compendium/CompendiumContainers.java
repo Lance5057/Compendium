@@ -18,7 +18,7 @@ public class CompendiumContainers {
 		CRAFTING_ANVIL, WORKSTATION
 	};
 
-	public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS,
+	public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES,
 			Reference.MOD_ID);
 
 	public static final RegistryObject<MenuType<CraftingAnvilContainer>> CRAFTING_ANVIL_CONTAINER = CONTAINERS

@@ -75,38 +75,27 @@ public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterl
 
 		if (state.getValue(HALF) != Half.TOP) {
 			pos = pos.relative(state.getValue(FACING));
-            state = worldIn.getBlockState(pos);
-            if (!state.is(this)) {
-               return InteractionResult.CONSUME;
-            }
-         }
-		
+			state = worldIn.getBlockState(pos);
+			if (!state.is(this)) {
+				return InteractionResult.CONSUME;
+			}
+		}
+
 		BlockEntity entity = worldIn.getBlockEntity(pos);
 		if (entity instanceof WorkstationTE) {
 
 			WorkstationTE te = ((WorkstationTE) entity);
-			if (!player.isCrouching()) {
-				boolean success = false;
-				// Get item in both InteractionHands
-				ItemStack heldmain = player.getItemInHand(InteractionHand.MAIN_HAND);
-				// ItemStack heldoff = player.getHeldItem(InteractionHand.OFF_InteractionHand);
+			ItemStack heldmain = player.getItemInHand(InteractionHand.MAIN_HAND);
 
-				if (heldmain != ItemStack.EMPTY)
-					te.hammer(player, heldmain);
-//		if (heldoff != ItemStack.EMPTY)
-//		    te.hammer(player, heldoff);
-			}
-//			INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
-//			if (this.hasTileEntity(defaultBlockState())) {
-			else {
+			if (heldmain != ItemStack.EMPTY) {
+				te.hammer(player, heldmain);
+			} else {
 				if (!(player instanceof ServerPlayer))
 					return InteractionResult.FAIL;
 				ServerPlayer serverPlayer = (ServerPlayer) player;
-				NetworkHooks.openGui(serverPlayer, te, pos);
+				NetworkHooks.openScreen(serverPlayer, te, pos);
 			}
-//			}
 		}
-
 		return InteractionResult.SUCCESS;
 	}
 

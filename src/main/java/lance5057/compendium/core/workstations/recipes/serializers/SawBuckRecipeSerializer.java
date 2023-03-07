@@ -12,8 +12,7 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
-public class SawBuckRecipeSerializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>>
-		implements RecipeSerializer<SawBuckRecipe> {
+public class SawBuckRecipeSerializer implements RecipeSerializer<SawBuckRecipe> {
 	private static final ResourceLocation NAME = new ResourceLocation(Reference.MOD_ID, "crafting_anvil_shaped");
 
 	public SawBuckRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

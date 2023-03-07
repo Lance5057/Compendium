@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
 import lance5057.compendium.core.client.BlacklistedModel;
-import lance5057.compendium.core.client.CompendiumModelUtil;
+import lance5057.compendium.core.client.RenderUtil;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
@@ -51,7 +51,7 @@ public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilT
 
 		if (tileEntityIn.getCurrentTool() != null) {
 			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
-				CompendiumModelUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
 		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
