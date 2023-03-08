@@ -1,7 +1,7 @@
 package lance5057.compendium.core.data.builders.loottables;
 
 import lance5057.compendium.CompendiumBlocks;
-import lance5057.compendium.core.workstations.blocks.WorkstationBlock;
+import lance5057.compendium.core.workstations.workstation.WorkstationBlock;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.Half;

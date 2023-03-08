@@ -2,7 +2,7 @@ package lance5057.compendium.core.data.builders;
 
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumBlocks;
-import lance5057.compendium.core.workstations.blocks.WorkstationBlock;
+import lance5057.compendium.core.workstations.workstation.WorkstationBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;

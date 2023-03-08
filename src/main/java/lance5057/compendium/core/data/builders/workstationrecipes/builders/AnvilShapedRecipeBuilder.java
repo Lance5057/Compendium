@@ -11,7 +11,7 @@ import com.google.common.collect.Sets;
 
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.data.builders.workstationrecipes.CraftingAnvilRecipeProvider;
-import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
+import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;

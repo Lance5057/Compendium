@@ -1,7 +1,7 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
-import lance5057.compendium.core.workstations.tileentities.SawBuckTE;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilTE;
+import lance5057.compendium.core.workstations.sawbuck.SawBuckTE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

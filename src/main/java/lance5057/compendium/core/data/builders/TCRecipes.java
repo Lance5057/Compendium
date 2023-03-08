@@ -69,7 +69,7 @@ public class TCRecipes extends RecipeProvider {
 				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
-				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_log"));
 
 		SawBuckRecipeBuilder
 				.recipe(Ingredient.of(Items.STRIPPED_OAK_LOG), SawBuckRecipeLoottables.stripped_oak_log,
@@ -78,7 +78,7 @@ public class TCRecipes extends RecipeProvider {
 				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
-				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_stripped_log"));
 		
 		SawBuckRecipeBuilder
 		.recipe(Ingredient.of(ItemTags.PLANKS), SawBuckRecipeLoottables.allplanks,
@@ -87,7 +87,7 @@ public class TCRecipes extends RecipeProvider {
 		.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
 				new AnimationFloatTransform().setRotation(
 						new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
-		.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
+		.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_planks"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //

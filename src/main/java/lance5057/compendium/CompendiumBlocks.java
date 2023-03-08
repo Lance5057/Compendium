@@ -1,8 +1,8 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.workstations.blocks.CraftingAnvilBlock;
-import lance5057.compendium.core.workstations.blocks.SawBuckBlock;
-import lance5057.compendium.core.workstations.blocks.WorkstationBlock;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilBlock;
+import lance5057.compendium.core.workstations.sawbuck.SawBuckBlock;
+import lance5057.compendium.core.workstations.workstation.WorkstationBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

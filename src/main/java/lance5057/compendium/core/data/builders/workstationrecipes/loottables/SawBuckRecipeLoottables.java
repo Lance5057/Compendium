@@ -29,14 +29,14 @@ public class SawBuckRecipeLoottables implements Consumer<BiConsumer<ResourceLoca
 //								.add(LootItem.lootTableItem(CompendiumItems.SAWDUST.get()).setWeight(1)))
 		);
 
-		t.accept(stripped_oak_log,
+		t.accept(oak_log,
 				LootTable.lootTable()
 						.withPool(LootPool.lootPool().name("sawdust").setRolls(UniformGenerator.between(0, 2))
 								.add(LootItem.lootTableItem(CompendiumItems.SAWDUST.get()).setWeight(1)))
 						.withPool(LootPool.lootPool().name("bark").setRolls(UniformGenerator.between(3, 4))
 								.add(LootItem.lootTableItem(CompendiumItems.BARK.get()).setWeight(1))));
 
-		t.accept(oak_log,
+		t.accept(stripped_oak_log,
 				LootTable.lootTable()
 						.withPool(LootPool.lootPool().name("main").setRolls(UniformGenerator.between(0, 1))
 								.add(LootItem.lootTableItem(Items.OAK_PLANKS).setWeight(1)))

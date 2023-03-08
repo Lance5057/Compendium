@@ -12,7 +12,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
+import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;

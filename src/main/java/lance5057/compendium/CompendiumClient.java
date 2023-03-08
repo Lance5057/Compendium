@@ -1,7 +1,7 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.workstations.client.CraftingAnvilRenderer;
-import lance5057.compendium.core.workstations.client.SawBuckRenderer;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilRenderer;
+import lance5057.compendium.core.workstations.sawbuck.SawBuckRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;

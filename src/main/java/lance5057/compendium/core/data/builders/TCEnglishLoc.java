@@ -3,8 +3,8 @@ package lance5057.compendium.core.data.builders;
 import lance5057.compendium.Compendium;
 import lance5057.compendium.CompendiumItems;
 import lance5057.compendium.Reference;
-import lance5057.compendium.core.workstations.tileentities.CraftingAnvilTE;
-import lance5057.compendium.core.workstations.tileentities.WorkstationTE;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilTE;
+import lance5057.compendium.core.workstations.workstation.WorkstationTE;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 

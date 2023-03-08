@@ -1,9 +1,9 @@
 package lance5057.compendium;
 
-import lance5057.compendium.core.workstations.containers.CraftingAnvilContainer;
-import lance5057.compendium.core.workstations.containers.WorkstationContainer;
-import lance5057.compendium.core.workstations.screen.CraftingAnvilScreen;
-import lance5057.compendium.core.workstations.screen.WorkstationScreen;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilContainer;
+import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilScreen;
+import lance5057.compendium.core.workstations.workstation.WorkstationContainer;
+import lance5057.compendium.core.workstations.workstation.WorkstationScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;

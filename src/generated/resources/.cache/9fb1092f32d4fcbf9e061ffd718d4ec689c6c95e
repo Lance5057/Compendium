@@ -1,4 +1,6 @@
-// 1.19.2	2023-03-07T14:40:13.6710511	Recipes
+// 1.19.2	2023-03-08T10:07:07.5094617	Recipes
 cfdd4f61f81c0a3f95514bd1f87c2ab67da55a09 data/compendium/advancements/recipes/misc/lol_hammer.json
-22e829c576fca2f7acdb7908c2e7b039f057d866 data/compendium/recipes/log.json
 0fc562ce5ae30dba5240c3f5e8855cb4c2b3652c data/compendium/recipes/lol_hammer.json
+50ecbeb8f37550b3717cf9ea2d0ba2cd11fcf9e9 data/compendium/recipes/oak_log.json
+95c164a7208946f26f506b95d3b00d622d1b0225 data/compendium/recipes/oak_planks.json
+68022664e627c8030b6fcd2106d58fdf14b1a2fa data/compendium/recipes/oak_stripped_log.json
