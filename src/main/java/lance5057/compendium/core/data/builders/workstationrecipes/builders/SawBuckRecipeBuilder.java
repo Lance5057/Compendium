@@ -16,22 +16,25 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class SawBuckRecipeBuilder implements RecipeBuilder {
-	private final ResourceLocation output;
+	private final ResourceLocation outputTable;
+	private final ItemStack output;
 	private final Ingredient input;
 	private final List<AnimatedRecipeItemUse> tools = NonNullList.create();
 	private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 	private String group;
 
-	public static SawBuckRecipeBuilder recipe(Ingredient input, ResourceLocation resultIn) {
-		return new SawBuckRecipeBuilder(input, resultIn);
+	public static SawBuckRecipeBuilder recipe(Ingredient input, ResourceLocation resultIn, ItemStack output) {
+		return new SawBuckRecipeBuilder(input, resultIn, output);
 	}
 
-	public SawBuckRecipeBuilder(Ingredient input, ResourceLocation resultIn) {
-		this.output = resultIn;
+	public SawBuckRecipeBuilder(Ingredient input, ResourceLocation resultIn, ItemStack output) {
+		this.outputTable = resultIn;
 		this.input = input;
+		this.output = output;
 	}
 
 	public SawBuckRecipeBuilder tool(Ingredient tool, int count, int uses, boolean damage, BlacklistedModel... model) {
@@ -79,8 +82,9 @@ public class SawBuckRecipeBuilder implements RecipeBuilder {
 		this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
 				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
 				.rewards(AdvancementRewards.Builder.recipe(id)).requirements(RequirementsStrategy.OR);
-		consumerIn.accept(new SawBuckRecipeProvider.SawBuckFinishedRecipe(id, this.output, this.input, this.tools,
-				this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/sawbuck/" + id.getPath())));
+		consumerIn.accept(new SawBuckRecipeProvider.SawBuckFinishedRecipe(id, this.outputTable, this.input, this.output,
+				this.tools, this.advancementBuilder,
+				new ResourceLocation(id.getNamespace(), "recipes/sawbuck/" + id.getPath())));
 	}
 
 }

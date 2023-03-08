@@ -11,8 +11,8 @@
       "name": "main",
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 5.0,
-        "min": 4.0
+        "max": 1.0,
+        "min": 0.0
       }
     },
     {
@@ -28,21 +28,6 @@
         "type": "minecraft:uniform",
         "max": 4.0,
         "min": 1.0
-      }
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "compendium:bark"
-        }
-      ],
-      "name": "bark",
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 4.0,
-        "min": 3.0
       }
     }
   ]

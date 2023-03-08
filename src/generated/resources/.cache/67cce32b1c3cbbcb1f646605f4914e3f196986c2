@@ -1,8 +1,11 @@
-// 1.19.2	2023-03-07T04:29:05.6482159	LootTables
+// 1.19.2	2023-03-07T14:40:13.6730529	LootTables
 b49b97fbc94f36529ab716536b564d18c6ed3de4 data/compendium/loot_tables/blocks/crafting_anvil.json
 e1aa15b62ac9e6ac66ea3aa777e92135f70cdad8 data/compendium/loot_tables/blocks/saw_buck.json
 12cf00f464a704d688dff2d86ce8e6e28d0676af data/compendium/loot_tables/blocks/test.json
 079fcc1c0cf403e4519b96de85d57143b091d285 data/compendium/loot_tables/blocks/workstation.json
+0f83eb9fd3833500cc88e5866f76853ff6c19563 data/compendium/loot_tables/recipes/sawhorse/oak_log.json
+2d6f17b1f618c6a71610952f5d9188cdb485e757 data/compendium/loot_tables/recipes/sawhorse/planks.json
+3b388e27c3e24ef848ee18e14e473c5b559862f4 data/compendium/loot_tables/recipes/sawhorse/stripped_oak_log.json
 073505198303a44ae5994e419cb41af51cb277b1 data/minecraft/loot_tables/blocks/acacia_button.json
 1b0c87bd1e19eb8ac7ad9901922e73af8368c87c data/minecraft/loot_tables/blocks/acacia_door.json
 68340baea42bef6195971c4e3f75a0ce830d148a data/minecraft/loot_tables/blocks/acacia_fence.json
@@ -872,5 +875,3 @@ f46ebf35ffcbf8c86b2dbc51934f6386f5cd8aad data/minecraft/loot_tables/blocks/yello
 6d85991d09c5dcdca5fadb4f354cf625927137fd data/minecraft/loot_tables/blocks/yellow_terracotta.json
 f17769a329162b39939fb2d731b25d5753d879e7 data/minecraft/loot_tables/blocks/yellow_wool.json
 a336d36be6abbd25721f26f02d2b2217c892b2cd data/minecraft/loot_tables/blocks/zombie_head.json
-5631ebe80bf5f348b3008152872eadf691b1a357 data/minecraft/loot_tables/recipes/sawhorse/oak_log.json
-2d6f17b1f618c6a71610952f5d9188cdb485e757 data/minecraft/loot_tables/recipes/sawhorse/planks.json

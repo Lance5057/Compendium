@@ -13,19 +13,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
@@ -97,6 +94,10 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 	@Override
 	public void finishRecipe(Player player, SawBuckRecipe recipe) {
 		if (level != null && !level.isClientSide()) {
+
+			// drop main output
+			dropItems(recipe.getOutput().copy());
+
 			final LootContext pContext = new LootContext.Builder((ServerLevel) level)
 					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
 					.withParameter(LootContextParams.THIS_ENTITY, player).withRandom(level.getRandom())
@@ -106,17 +107,7 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 			// TODO Investigate how to make block not drop things so violently
 			player.getServer().getLootTables().get(recipe.getLootTable()).getRandomItems(pContext)
 					.forEach(itemStack -> {
-						BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
-						ItemStack i = itemStack.copy();
-						ItemStack o = itemStack.copy();
-						if (te != null) {
-
-							LazyOptional<IItemHandler> ih = te
-									.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
-							o = ih.map(h2 -> dropItemBelow(h2, i)).get();
-						}
-						level.addFreshEntity(new ItemEntity(level, getBlockPos().getX(), getBlockPos().getY() + 0.5f,
-								getBlockPos().getZ(), o));
+						dropItems(itemStack);
 					});
 
 			this.handler.ifPresent(it -> {

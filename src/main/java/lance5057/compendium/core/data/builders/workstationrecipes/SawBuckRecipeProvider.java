@@ -8,8 +8,6 @@ import javax.annotation.Nullable;
 
 import com.google.gson.JsonObject;
 
-import lance5057.compendium.Reference;
-import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations.recipes.bases.AnimatedRecipeItemUse;
 import net.minecraft.advancements.Advancement;
@@ -17,10 +15,11 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class SawBuckRecipeProvider extends RecipeProvider {
 	public SawBuckRecipeProvider(DataGenerator generatorIn) {
@@ -40,18 +39,23 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 	// Copied it since inner class was private
 	public static class SawBuckFinishedRecipe implements FinishedRecipe {
 		private final ResourceLocation id;
-		private final ResourceLocation output;
+		private final ResourceLocation outputTable;
 		private final Ingredient input;
+		private final Item output;
+		private final int count;
 		private final List<AnimatedRecipeItemUse> tools;
 		private final Advancement.Builder advancementBuilder;
 		private final ResourceLocation advancementId;
 
-		public SawBuckFinishedRecipe(ResourceLocation id, ResourceLocation output, Ingredient input,
-				List<AnimatedRecipeItemUse> tools, Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
+		public SawBuckFinishedRecipe(ResourceLocation id, ResourceLocation outputTable, Ingredient input,
+				ItemStack output, List<AnimatedRecipeItemUse> tools, Advancement.Builder advancementBuilderIn,
+				ResourceLocation advancementIdIn) {
 			this.id = id;
-			this.output = output;
+			this.outputTable = outputTable;
 			this.input = input;
+			this.output = output.getItem();
 			this.tools = tools;
+			this.count = output.getCount();
 			this.advancementBuilder = advancementBuilderIn;
 			this.advancementId = advancementIdIn;
 		}
@@ -66,7 +70,14 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 			json.add("tools", jsonobjectTools);
 			json.add("input", input.toJson());
 
-			json.addProperty("output", output.toString());
+			JsonObject objectResult = new JsonObject();
+			objectResult.addProperty("item", ForgeRegistries.ITEMS.getKey(output).toString());
+			if (count > 1) {
+				objectResult.addProperty("count", count);
+			}
+			json.add("output", objectResult);
+
+			json.addProperty("outputTable", outputTable.toString());
 		}
 
 		@Override

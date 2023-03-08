@@ -9,8 +9,10 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.ShapedRecipe;
 
 public class SawBuckRecipeSerializer implements RecipeSerializer<SawBuckRecipe> {
 	private static final ResourceLocation NAME = new ResourceLocation(Reference.MOD_ID, "crafting_anvil_shaped");
@@ -22,9 +24,10 @@ public class SawBuckRecipeSerializer implements RecipeSerializer<SawBuckRecipe> 
 		NonNullList<AnimatedRecipeItemUse> nonnulllistTools = SawBuckRecipe
 				.deserializeTool(GsonHelper.getAsJsonObject(json, "tools"));
 
-		ResourceLocation output = new ResourceLocation(json.get("output").getAsString());
+		ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
+		ResourceLocation output = new ResourceLocation(json.get("outputTable").getAsString());
 
-		return new SawBuckRecipe(recipeId, s, itemIn, nonnulllistTools, output);
+		return new SawBuckRecipe(recipeId, s, itemIn, itemstack, nonnulllistTools, output);
 	}
 
 	public SawBuckRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
@@ -41,9 +44,11 @@ public class SawBuckRecipeSerializer implements RecipeSerializer<SawBuckRecipe> 
 		}
 
 		String q = buffer.readUtf();
-		final ResourceLocation output = new ResourceLocation(q);
+		
+		ItemStack output = buffer.readItem();
+		final ResourceLocation outputTable = new ResourceLocation(q);
 
-		return new SawBuckRecipe(recipeId, group, ing, tools, output);
+		return new SawBuckRecipe(recipeId, group, ing, output, tools, outputTable);
 	}
 
 	public void toNetwork(FriendlyByteBuf buffer, SawBuckRecipe recipe) {
@@ -55,7 +60,7 @@ public class SawBuckRecipeSerializer implements RecipeSerializer<SawBuckRecipe> 
 		for (AnimatedRecipeItemUse riu : recipe.getRecipeTools())
 			AnimatedRecipeItemUse.write(riu, buffer);
 
-		// buffer.writeItem(recipe.getSchematic());
+		buffer.writeItem(recipe.getOutput());
 		buffer.writeResourceLocation(recipe.getLootTable());
 	}
 }

@@ -38,21 +38,23 @@ public class SawBuckBlock extends StationGuiless {
 			BlockEntity tileEntity = worldIn.getBlockEntity(pos);
 			if (tileEntity instanceof SawBuckTE te) {
 
-				ItemStack itemstack = player.getItemInHand(InteractionHandIn);
-				Optional<SawBuckRecipe> optional = te.matchRecipe(itemstack);
-				if (optional.isPresent()) {
-					te.hammer(player, player.getItemInHand(InteractionHandIn));
+				if (player.isCrouching()) {
+					te.extractItem(player);
+					return InteractionResult.SUCCESS;
 				} else {
-					if (player.isCrouching()) {
-						te.extractItem(player);
-					} else {
-						te.insertItem(player.getItemInHand(InteractionHandIn));
+
+					ItemStack itemstack = player.getItemInHand(InteractionHandIn);
+					Optional<SawBuckRecipe> optional = te.matchRecipe(itemstack);
+					if (optional.isPresent()) {
+						if (te.isSlotEmpty(0))
+							te.insertItem(player.getItemInHand(InteractionHandIn));
+						else
+							te.hammer(player, player.getItemInHand(InteractionHandIn));
+						return InteractionResult.SUCCESS;
 					}
 				}
-
 			}
-			return InteractionResult.CONSUME;
+			return InteractionResult.PASS;
 		}
 	}
-
 }

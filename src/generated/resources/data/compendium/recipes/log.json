@@ -3,7 +3,10 @@
   "input": {
     "item": "minecraft:oak_log"
   },
-  "output": "minecraft:recipes/sawhorse/oak_log",
+  "output": {
+    "item": "minecraft:stripped_oak_log"
+  },
+  "outputTable": "compendium:recipes/sawhorse/oak_log",
   "tools": {
     "Step_0": {
       "Count": 1,

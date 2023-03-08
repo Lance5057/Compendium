@@ -15,6 +15,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -66,6 +67,11 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			return extra;
 
 		return super.getCapability(cap, side);
+	}
+	
+	public boolean isSlotEmpty(int slot)
+	{
+		return handler.map(h -> h.getStackInSlot(slot) != ItemStack.EMPTY).get();
 	}
 
 	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
@@ -181,6 +187,22 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		});
 	}
 
+	protected void dropItems(ItemStack item) {
+		BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
+
+		ItemStack s = item;
+		ItemStack sf = item;
+
+		if (te != null) {
+			LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
+					Direction.UP);
+
+			s = ih.map(h2 -> dropItemBelow(h2, sf)).get();
+		}
+		level.addFreshEntity(
+				new ItemEntity(level, getBlockPos().getX(), getBlockPos().getY() + 0.5f, getBlockPos().getZ(), s));
+	}
+
 	protected ItemStack dropItemBelow(IItemHandler InteractionHandler, ItemStack insert) {
 		for (int i = 0; i < InteractionHandler.getSlots(); i++) {
 			insert = InteractionHandler.insertItem(i, insert, false);
@@ -258,9 +280,11 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		handler.ifPresent(inventory -> this.insertItem(inventory, heldItem));
 	}
 
-	public void extractItem(Player playerEntity, IItemHandler inventory) {}
+	public void extractItem(Player playerEntity, IItemHandler inventory) {
+	}
 
-	public void insertItem(IItemHandler inventory, ItemStack heldItem) {}
+	public void insertItem(IItemHandler inventory, ItemStack heldItem) {
+	}
 
 	protected abstract CompoundTag writeExtraNBT(CompoundTag tag);
 

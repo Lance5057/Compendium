@@ -18,6 +18,8 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
@@ -60,12 +62,32 @@ public class TCRecipes extends RecipeProvider {
 										.setY(new AnimatedFloat(0, 360, 300, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "lol_hammer"));
 
-		SawBuckRecipeBuilder.recipe(Ingredient.of(Items.OAK_LOG), SawBuckRecipeLoottables.oak_log)
+		SawBuckRecipeBuilder
+				.recipe(Ingredient.of(Items.OAK_LOG), SawBuckRecipeLoottables.oak_log,
+						new ItemStack(Items.STRIPPED_OAK_LOG, 1))
 				.addCriterion("log", RecipeProvider.has(Items.OAK_LOG))
 				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
+
+		SawBuckRecipeBuilder
+				.recipe(Ingredient.of(Items.STRIPPED_OAK_LOG), SawBuckRecipeLoottables.stripped_oak_log,
+						new ItemStack(Items.OAK_PLANKS, 4))
+				.addCriterion("log", RecipeProvider.has(Items.STRIPPED_OAK_LOG))
+				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
+		
+		SawBuckRecipeBuilder
+		.recipe(Ingredient.of(ItemTags.PLANKS), SawBuckRecipeLoottables.allplanks,
+				new ItemStack(Items.STICK, 4))
+		.addCriterion("log", RecipeProvider.has(Items.STRIPPED_OAK_LOG))
+		.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+				new AnimationFloatTransform().setRotation(
+						new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+		.save(consumer, new ResourceLocation(Reference.MOD_ID, "log"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //
