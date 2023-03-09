@@ -68,10 +68,9 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 		return super.getCapability(cap, side);
 	}
-	
-	public boolean isSlotEmpty(int slot)
-	{
-		return handler.map(h -> h.getStackInSlot(slot) == ItemStack.EMPTY).get();
+
+	public boolean isSlotEmpty(int slot) {
+		return handler.map(h -> h.getStackInSlot(slot).isEmpty()).get();
 	}
 
 	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
@@ -187,20 +186,22 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		});
 	}
 
-	protected void dropItems(ItemStack item) {
+	protected void dropItems(ItemStack... item) {
 		BlockEntity te = level.getBlockEntity(this.getBlockPos().offset(0, -1, 0));
 
-		ItemStack s = item;
-		ItemStack sf = item;
+		for (int i = 0; i < item.length; i++) {
+			ItemStack s = item[i];
+			ItemStack sf = item[i];
 
-		if (te != null) {
-			LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
-					Direction.UP);
+			if (te != null) {
+				LazyOptional<IItemHandler> ih = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,
+						Direction.UP);
 
-			s = ih.map(h2 -> dropItemBelow(h2, sf)).get();
+				s = ih.map(h2 -> dropItemBelow(h2, sf)).get();
+			}
+			level.addFreshEntity(
+					new ItemEntity(level, getBlockPos().getX(), getBlockPos().getY() + 0.5f, getBlockPos().getZ(), s));
 		}
-		level.addFreshEntity(
-				new ItemEntity(level, getBlockPos().getX(), getBlockPos().getY() + 0.5f, getBlockPos().getZ(), s));
 	}
 
 	protected ItemStack dropItemBelow(IItemHandler InteractionHandler, ItemStack insert) {

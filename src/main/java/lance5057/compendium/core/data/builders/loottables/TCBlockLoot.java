@@ -14,6 +14,7 @@ public class TCBlockLoot extends BlockLoot {
 		this.add(CompendiumBlocks.WORKSTATION.get(), TCBlockLoot::createWorkbench);
 		this.dropSelf(CompendiumBlocks.TEST.get());
 		this.dropSelf(CompendiumBlocks.SAW_BUCK.get());
+		this.dropSelf(CompendiumBlocks.HAMMERING_STATION.get());
 	}
 
 	public static LootTable.Builder createWorkbench(Block p_124138_) {

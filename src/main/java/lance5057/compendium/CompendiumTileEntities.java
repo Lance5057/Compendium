@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilTE;
+import lance5057.compendium.core.workstations.hammeringstation.HammeringStationTE;
 import lance5057.compendium.core.workstations.sawbuck.SawBuckTE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,9 @@ public class CompendiumTileEntities {
 
 	public static final RegistryObject<BlockEntityType<SawBuckTE>> SAW_BUCK_TE = TILE_ENTITIES.register("saw_buck_tile",
 			() -> BlockEntityType.Builder.of(SawBuckTE::new, CompendiumBlocks.SAW_BUCK.get()).build(null));
+	public static final RegistryObject<BlockEntityType<HammeringStationTE>> HAMMERING_STATION_TE = TILE_ENTITIES
+			.register("hammering_station_tile", () -> BlockEntityType.Builder
+					.of(HammeringStationTE::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));
 //	public static final RegistryObject<BlockEntityType<HammeringStationTE>> HAMMERING_STATION_TE = TILE_ENTITIES
 //			.register("hammering_station_tile", () -> BlockEntityType.Builder
 //					.of(HammeringStationTE::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));

@@ -38,12 +38,6 @@ public class CompendiumItems {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
-//	public static final RegistryObject<BlockItem> HAMMERING_STATION_ITEMBLOCK = ITEMS
-//			.register("hammering_station_itemblock", () -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(),
-//					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
-//	public static final RegistryObject<BlockItem> SAWHORSE_STATION_ITEMBLOCK = ITEMS
-//			.register("sawhorse_station_itemblock", () -> new BlockItem(CompendiumBlocks.SAWHORSE_STATION.get(),
-//					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 	public static final RegistryObject<BlockItem> WORKSTATION_ITEMBLOCK = ITEMS.register("workstation_itemblock",
 			() -> new BlockItem(CompendiumBlocks.WORKSTATION.get(),
 					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
@@ -52,6 +46,9 @@ public class CompendiumItems {
 					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 	public static final RegistryObject<BlockItem> SAW_BUCK_ITEMBLOCK = ITEMS.register("saw_buck_itemblock",
 			() -> new BlockItem(CompendiumBlocks.SAW_BUCK.get(),
+					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
+	public static final RegistryObject<BlockItem> HAMMERING_STATION_ITEMBLOCK = ITEMS
+			.register("hammering_station_itemblock", () -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(),
 					new Item.Properties().tab(CompendiumItems.GROUP_WORKSTATIONS)));
 //	public static final RegistryObject<BlockItem> SCRAPPING_TABLE_ITEMBLOCK = ITEMS
 //			.register("scrapping_table_itemblock", () -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(),

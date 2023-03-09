@@ -12,6 +12,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 
 import lance5057.compendium.core.data.builders.loottables.TCBlockLoot;
+import lance5057.compendium.core.data.builders.workstationrecipes.loottables.HammeringStationLootTables;
 import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
@@ -32,7 +33,8 @@ public class TCLootTables extends LootTableProvider {
 	@Nonnull
 	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
 		return ImmutableList.of(Pair.of(TCBlockLoot::new, LootContextParamSets.BLOCK),
-				Pair.of(SawBuckRecipeLoottables::new, LootContextParamSets.ALL_PARAMS));
+				Pair.of(SawBuckRecipeLoottables::new, LootContextParamSets.ALL_PARAMS),
+				Pair.of(HammeringStationLootTables::new, LootContextParamSets.ALL_PARAMS));
 	}
 
 	@Override

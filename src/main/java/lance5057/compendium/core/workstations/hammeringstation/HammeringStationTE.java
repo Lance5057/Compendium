@@ -29,7 +29,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationRecipe> {
 
 	public HammeringStationTE(BlockPos pos, BlockState state) {
-		super(1, 1, 1, CompendiumTileEntities.SAW_BUCK_TE.get(), pos, state);
+		super(1, 1, 1, CompendiumTileEntities.HAMMERING_STATION_TE.get(), pos, state);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -95,7 +95,7 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 		if (level != null && !level.isClientSide()) {
 
 			// drop main output
-			dropItems(recipe.getOutput().copy());
+			dropItems(recipe.getItemOut().copy());
 
 			final LootContext pContext = new LootContext.Builder((ServerLevel) level)
 					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
@@ -104,7 +104,7 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 							player.getMainHandItem()))
 					.create(LootContextParamSets.EMPTY);
 			// TODO Investigate how to make block not drop things so violently
-			player.getServer().getLootTables().get(recipe.getLootTable()).getRandomItems(pContext)
+			player.getServer().getLootTables().get(recipe.getLootTableOut()).getRandomItems(pContext)
 					.forEach(itemStack -> {
 						dropItems(itemStack);
 					});

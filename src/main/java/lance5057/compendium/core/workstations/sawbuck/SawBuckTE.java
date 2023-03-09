@@ -95,7 +95,7 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 		if (level != null && !level.isClientSide()) {
 
 			// drop main output
-			dropItems(recipe.getOutput().copy());
+			dropItems(recipe.getItemOut().copy());
 
 			final LootContext pContext = new LootContext.Builder((ServerLevel) level)
 					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
@@ -104,7 +104,7 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 							player.getMainHandItem()))
 					.create(LootContextParamSets.EMPTY);
 			// TODO Investigate how to make block not drop things so violently
-			player.getServer().getLootTables().get(recipe.getLootTable()).getRandomItems(pContext)
+			player.getServer().getLootTables().get(recipe.getLootTableOut()).getRandomItems(pContext)
 					.forEach(itemStack -> {
 						dropItems(itemStack);
 					});

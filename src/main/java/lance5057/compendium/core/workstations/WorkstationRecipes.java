@@ -26,6 +26,8 @@ public class WorkstationRecipes {
 			.register("workstation", WorkstationRecipeSerializer::new);
 	public static final RegistryObject<RecipeSerializer<SawBuckRecipe>> SAWBUCK_SERIALIZER = RECIPE_SERIALIZERS
 			.register("sawbuck", SawBuckRecipe.Serializer::new);
+	public static final RegistryObject<RecipeSerializer<HammeringStationRecipe>> HAMMERINGSTATION_SERIALIZER = RECIPE_SERIALIZERS
+			.register("hammeringstation", HammeringStationRecipe.Serializer::new);
 
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(Registry.RECIPE_TYPE_REGISTRY, Reference.MOD_ID);

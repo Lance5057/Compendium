@@ -49,6 +49,8 @@ public class TCBlockModels extends BlockStateProvider {
 				models().getExistingFile(modLoc("block/workstations/anvil")));
 		this.horizontalBlock(CompendiumBlocks.SAW_BUCK.get(),
 				models().getExistingFile(modLoc("block/workstations/sawbuck")));
+		this.horizontalBlock(CompendiumBlocks.HAMMERING_STATION.get(),
+				models().getExistingFile(modLoc("block/workstations/hammeringstation")));
 //		this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
 //				models().getExistingFile(modLoc("block/workstations/dismantling_table")));
 //

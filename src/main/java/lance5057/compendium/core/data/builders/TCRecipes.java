@@ -9,7 +9,9 @@ import lance5057.compendium.CompendiumTags;
 import lance5057.compendium.Reference;
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.data.builders.workstationrecipes.builders.AnvilShapedRecipeBuilder;
+import lance5057.compendium.core.data.builders.workstationrecipes.builders.HammeringStationRecipeBuilder;
 import lance5057.compendium.core.data.builders.workstationrecipes.builders.SawBuckRecipeBuilder;
+import lance5057.compendium.core.data.builders.workstationrecipes.loottables.HammeringStationLootTables;
 import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
 import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
@@ -79,15 +81,24 @@ public class TCRecipes extends RecipeProvider {
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_stripped_log"));
-		
+
 		SawBuckRecipeBuilder
-		.recipe(Ingredient.of(ItemTags.PLANKS), SawBuckRecipeLoottables.allplanks,
-				new ItemStack(Items.STICK, 4))
-		.addCriterion("log", RecipeProvider.has(Items.STRIPPED_OAK_LOG))
-		.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
-				new AnimationFloatTransform().setRotation(
-						new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
-		.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_planks"));
+				.recipe(Ingredient.of(ItemTags.PLANKS), SawBuckRecipeLoottables.allplanks,
+						new ItemStack(Items.STICK, 4))
+				.addCriterion("log", RecipeProvider.has(Items.STRIPPED_OAK_LOG))
+				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "oak_planks"));
+
+		HammeringStationRecipeBuilder
+				.recipe(Ingredient.of(Tags.Items.COBBLESTONE), HammeringStationLootTables.cobble_gravel,
+						new ItemStack(Items.GRAVEL, 1))
+				.addCriterion("cobble", RecipeProvider.has(Tags.Items.COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.PICKAXES), 1, true, new BlacklistedModel(Items.DIAMOND_PICKAXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "cobble_gravel"));
 
 //		SpecialRecipeBuilder.special(RecipeSerializer.SHIELD_DECORATION).save(consumer, "shield_decoration");
 //

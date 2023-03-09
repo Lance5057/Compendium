@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilRenderer;
+import lance5057.compendium.core.workstations.hammeringstation.HammeringStationRenderer;
 import lance5057.compendium.core.workstations.sawbuck.SawBuckRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -30,8 +31,8 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void setTERenderers(EntityRenderersEvent.RegisterRenderers event) {
-//	ClientRegistry.bindBlockEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(),
-//		HammeringStationRenderer::new);
+		event.registerBlockEntityRenderer(CompendiumTileEntities.HAMMERING_STATION_TE.get(),
+				HammeringStationRenderer::new);
 		event.registerBlockEntityRenderer(CompendiumTileEntities.CRAFTING_ANVIL_TE.get(), CraftingAnvilRenderer::new);
 
 //		event.registerBlockEntityRenderer(CompendiumTileEntities.ITEM_DISPLAY_TE.get(), ItemDisplayRenderer::new);

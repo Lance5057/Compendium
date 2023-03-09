@@ -1,6 +1,7 @@
 package lance5057.compendium;
 
 import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilBlock;
+import lance5057.compendium.core.workstations.hammeringstation.HammeringStationBlock;
 import lance5057.compendium.core.workstations.sawbuck.SawBuckBlock;
 import lance5057.compendium.core.workstations.workstation.WorkstationBlock;
 import net.minecraft.world.item.BlockItem;
@@ -31,8 +32,9 @@ public class CompendiumBlocks {
 	public static final RegistryObject<CraftingAnvilBlock> CRAFTING_ANVIL = BLOCKS.register("crafting_anvil",
 			() -> new CraftingAnvilBlock());
 
-	public static final RegistryObject<SawBuckBlock> SAW_BUCK = BLOCKS.register("saw_buck",
-			() -> new SawBuckBlock());
+	public static final RegistryObject<SawBuckBlock> SAW_BUCK = BLOCKS.register("saw_buck", () -> new SawBuckBlock());
+	public static final RegistryObject<HammeringStationBlock> HAMMERING_STATION = BLOCKS.register("hammering_station",
+			() -> new HammeringStationBlock());
 
 	public static void register(IEventBus modBus) {
 

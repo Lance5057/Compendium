@@ -1,7 +1,6 @@
 package lance5057.compendium.core.data.builders.workstationrecipes;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -15,7 +14,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -26,23 +24,12 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 		super(generatorIn);
 	}
 
-	@Override
-	protected void buildCraftingRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
-		// From Tag
-//		this.createRecipe("plank_to_sticks", SawBuckRecipeLoottables.allplanks, Ingredient.of(ItemTags.PLANKS),
-//				consumer, 2);
-//
-//		this.createRecipe("log_to_plank", new ResourceLocation(Reference.MOD_ID, "recipese/sawhorse/oak_log"),
-//				Ingredient.of(Items.OAK_LOG), consumer, 2);
-	}
-
 	// Copied it since inner class was private
 	public static class SawBuckFinishedRecipe implements FinishedRecipe {
 		private final ResourceLocation id;
 		private final ResourceLocation outputTable;
 		private final Ingredient input;
-		private final Item output;
-		private final int count;
+		private final ItemStack output;
 		private final List<AnimatedRecipeItemUse> tools;
 		private final Advancement.Builder advancementBuilder;
 		private final ResourceLocation advancementId;
@@ -53,9 +40,8 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 			this.id = id;
 			this.outputTable = outputTable;
 			this.input = input;
-			this.output = output.getItem();
+			this.output = output;
 			this.tools = tools;
-			this.count = output.getCount();
 			this.advancementBuilder = advancementBuilderIn;
 			this.advancementId = advancementIdIn;
 		}
@@ -71,9 +57,9 @@ public class SawBuckRecipeProvider extends RecipeProvider {
 			json.add("input", input.toJson());
 
 			JsonObject objectResult = new JsonObject();
-			objectResult.addProperty("item", ForgeRegistries.ITEMS.getKey(output).toString());
-			if (count > 1) {
-				objectResult.addProperty("count", count);
+			objectResult.addProperty("item", ForgeRegistries.ITEMS.getKey(output.getItem()).toString());
+			if (output.getCount() > 1) {
+				objectResult.addProperty("count", output.getCount());
 			}
 			json.add("output", objectResult);
 

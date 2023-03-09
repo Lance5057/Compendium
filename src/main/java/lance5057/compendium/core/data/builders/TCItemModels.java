@@ -45,8 +45,8 @@ public class TCItemModels extends ModelProvider<ItemModelBuilder> {
 				new ResourceLocation(Reference.MOD_ID, "block/workstations/workstation"));
 		forBlockItem(CompendiumItems.CRAFTING_ANVIL_ITEMBLOCK,
 				new ResourceLocation(Reference.MOD_ID, "block/workstations/anvil"));
-//		forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK,
-//				new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
+		forBlockItem(CompendiumItems.HAMMERING_STATION_ITEMBLOCK,
+				new ResourceLocation(Reference.MOD_ID, "block/workstations/hammeringtable"));
 		forBlockItem(CompendiumItems.SAW_BUCK_ITEMBLOCK,
 				new ResourceLocation(Reference.MOD_ID, "block/workstations/sawhorse"));
 //		forBlockItem(CompendiumItems.SCRAPPING_TABLE_ITEMBLOCK,

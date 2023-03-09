@@ -1,8 +1,10 @@
-// 1.19.2	2023-03-08T10:27:11.5842763	LootTables
+// 1.19.2	2023-03-09T13:35:29.9980739	LootTables
 b49b97fbc94f36529ab716536b564d18c6ed3de4 data/compendium/loot_tables/blocks/crafting_anvil.json
+885e9e63b1944d59ff95c3a8f5152978dac83f7f data/compendium/loot_tables/blocks/hammering_station.json
 e1aa15b62ac9e6ac66ea3aa777e92135f70cdad8 data/compendium/loot_tables/blocks/saw_buck.json
 12cf00f464a704d688dff2d86ce8e6e28d0676af data/compendium/loot_tables/blocks/test.json
 079fcc1c0cf403e4519b96de85d57143b091d285 data/compendium/loot_tables/blocks/workstation.json
+178f781abe9fd44981ab921f9e4b4af4e9c42265 data/compendium/loot_tables/recipes/hammeringstation/cobble_gravel.json
 3b388e27c3e24ef848ee18e14e473c5b559862f4 data/compendium/loot_tables/recipes/sawhorse/oak_log.json
 2d6f17b1f618c6a71610952f5d9188cdb485e757 data/compendium/loot_tables/recipes/sawhorse/planks.json
 0f83eb9fd3833500cc88e5866f76853ff6c19563 data/compendium/loot_tables/recipes/sawhorse/stripped_oak_log.json

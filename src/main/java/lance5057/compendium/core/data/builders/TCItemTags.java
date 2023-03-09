@@ -21,5 +21,7 @@ public class TCItemTags extends ItemTagsProvider {
 	protected void addTags() {
 		tag(CompendiumTags.AXES).add(Items.NETHERITE_AXE, Items.DIAMOND_AXE, Items.IRON_AXE, Items.GOLDEN_AXE,
 				Items.STONE_AXE, Items.WOODEN_AXE);
+		tag(CompendiumTags.PICKAXES).add(Items.NETHERITE_PICKAXE, Items.DIAMOND_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE,
+				Items.STONE_PICKAXE, Items.WOODEN_PICKAXE);
 	}
 }
