@@ -1,6 +1,7 @@
 package lance5057.compendium.core.workstations.hammeringstation;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -40,32 +41,32 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 	}
 
 	@Override
-	protected Optional<HammeringStationRecipe> matchRecipe() {
+	protected List<HammeringStationRecipe> matchRecipe() {
 		if (level != null) {
 
-			Optional<HammeringStationRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+			List<HammeringStationRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
 						new WorkstationRecipeWrapper(1, 1, i), level);
 			}).get();
 
 			// setRecipe(recipe);
 			return recipe;
 		}
-		return Optional.empty();
+		return new ArrayList<HammeringStationRecipe>();
 	}
 
-	public Optional<HammeringStationRecipe> matchRecipe(ItemStack itemstack) {
+	public List<HammeringStationRecipe> matchRecipe(ItemStack itemstack) {
 		if (level != null) {
 
-			Optional<HammeringStationRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+			List<HammeringStationRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
 						new WorkstationRecipeWrapper(1, 1, i), level);
 			}).get();
 
 			// setRecipe(recipe);
 			return recipe;
 		}
-		return Optional.empty();
+		return new ArrayList<HammeringStationRecipe>();
 	}
 
 	@Override
@@ -79,6 +80,11 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 			@Override
 			protected void onContentsChanged(int slot) {
 				zeroProgress();
+
+				if (!this.getStackInSlot(slot).isEmpty()) {
+					setRecipe(matchRecipe());
+				}
+
 				updateInventory();
 			}
 		};

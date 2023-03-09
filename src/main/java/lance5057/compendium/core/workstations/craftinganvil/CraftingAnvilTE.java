@@ -1,5 +1,6 @@
 package lance5057.compendium.core.workstations.craftinganvil;
 
+import java.util.List;
 import java.util.Optional;
 
 import lance5057.compendium.CompendiumTileEntities;
@@ -48,18 +49,18 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 			@Override
 			protected void onContentsChanged(int slot) {
 				updateInventory();
-				if (slot != 25) {
-
-					zeroProgress();
-					Optional<CraftingAnvilRecipe> recipe = matchRecipe();
-
-					setGhostStack(ItemStack.EMPTY);
-
-					if (recipe.isPresent()) {
-						setGhostStack(recipe.get().getRecipeOutput().copy());
-						setRecipe(recipe);
-					}
-				}
+//				if (slot != 25) {
+//
+//					zeroProgress();
+//					Optional<CraftingAnvilRecipe> recipe = matchRecipe();
+//
+//					setGhostStack(ItemStack.EMPTY);
+//
+//					if (recipe.isPresent()) {
+//						setGhostStack(recipe.get().getRecipeOutput().copy());
+//						setRecipe(recipe);
+//					}
+//				}
 			}
 		};
 	}
@@ -71,18 +72,18 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	}
 
 	@Override
-	protected Optional<CraftingAnvilRecipe> matchRecipe() {
-		if (level != null) {
-
-			Optional<CraftingAnvilRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get(),
-						new WorkstationRecipeWrapper(5, 5, i), level);
-			}).get();
-
-			// setRecipe(recipe);
-			return recipe;
-		}
-		return Optional.empty();
+	protected List<CraftingAnvilRecipe> matchRecipe() {
+//		if (level != null) {
+//
+//			Optional<CraftingAnvilRecipe> recipe = handler.map(i -> {
+//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get(),
+//						new WorkstationRecipeWrapper(5, 5, i), level);
+//			}).get();
+//
+//			// setRecipe(recipe);
+//			return recipe;
+//		}
+		return null;
 	}
 
 	@Override

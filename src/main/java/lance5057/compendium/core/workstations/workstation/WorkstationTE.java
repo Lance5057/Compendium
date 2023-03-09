@@ -1,5 +1,6 @@
 package lance5057.compendium.core.workstations.workstation;
 
+import java.util.List;
 import java.util.Optional;
 
 import lance5057.compendium.CompendiumTileEntities;
@@ -68,18 +69,18 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 			@Override
 			protected void onContentsChanged(int slot) {
 				updateInventory();
-				if (slot < PRODUCT_DISPLAY_SLOT) {
-
-					zeroProgress();
-					Optional<WorkstationRecipe> recipe = matchRecipe();
-
-					setGhostStack(ItemStack.EMPTY);
-
-					if (recipe.isPresent()) {
-						setGhostStack(recipe.get().getRecipeOutput().copy());
-						setRecipe(recipe);
-					}
-				}
+//				if (slot < PRODUCT_DISPLAY_SLOT) {
+//
+//					zeroProgress();
+//					Optional<WorkstationRecipe> recipe = matchRecipe();
+//
+//					setGhostStack(ItemStack.EMPTY);
+//
+//					if (recipe.isPresent()) {
+//						setGhostStack(recipe.get().getRecipeOutput().copy());
+//						//setRecipe(recipe);
+//					}
+//				}
 			}
 		};
 	}
@@ -95,17 +96,17 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	}
 
 	@Override
-	protected Optional<WorkstationRecipe> matchRecipe() {
-		if (level != null) {
-
-			Optional<WorkstationRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.WORKSTATION_RECIPE.get(),
-						new WorkstationRecipeWrapper(gridLevel, gridLevel, i), level);
-			}).get();
-
-			// setRecipe(recipe);
-			return recipe;
-		}
+	protected List<WorkstationRecipe> matchRecipe() {
+//		if (level != null) {
+//
+//			Optional<WorkstationRecipe> recipe = handler.map(i -> {
+//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.WORKSTATION_RECIPE.get(),
+//						new WorkstationRecipeWrapper(gridLevel, gridLevel, i), level);
+//			}).get();
+//
+//			// setRecipe(recipe);
+//			return recipe;
+//		}
 		return null;
 	}
 

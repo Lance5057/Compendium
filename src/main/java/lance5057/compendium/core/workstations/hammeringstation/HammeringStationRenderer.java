@@ -32,10 +32,10 @@ public class HammeringStationRenderer implements BlockEntityRenderer<HammeringSt
 			return;
 		}
 
-		if (tileEntityIn.getCurrentTool() != null) {
-			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
-				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
-		}
+//		if (tileEntityIn.getCurrentTool() != null) {
+//			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
+//				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+//		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 

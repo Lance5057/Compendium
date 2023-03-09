@@ -1,5 +1,6 @@
 package lance5057.compendium.core.workstations.hammeringstation;
 
+import java.util.List;
 import java.util.Optional;
 
 import lance5057.compendium.core.workstations._bases.blocks.StationGuiless;
@@ -47,7 +48,7 @@ public class HammeringStationBlock extends StationGuiless {
 					if (te.isSlotEmpty(0)) {
 						te.insertItem(player.getItemInHand(InteractionHandIn));
 
-						Optional<HammeringStationRecipe> optional = te.matchRecipe(itemstack);
+						List<HammeringStationRecipe> optional = te.matchRecipe(itemstack);
 						
 						if (!optional.isEmpty()) 
 							return InteractionResult.SUCCESS;

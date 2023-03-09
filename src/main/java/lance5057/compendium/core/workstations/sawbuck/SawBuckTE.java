@@ -1,5 +1,6 @@
 package lance5057.compendium.core.workstations.sawbuck;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
@@ -40,18 +41,18 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 	}
 
 	@Override
-	protected Optional<SawBuckRecipe> matchRecipe() {
-		if (level != null) {
-
-			Optional<SawBuckRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, i), level);
-			}).get();
-
-			// setRecipe(recipe);
-			return recipe;
-		}
-		return Optional.empty();
+	protected List<SawBuckRecipe> matchRecipe() {
+//		if (level != null) {
+//
+//			Optional<SawBuckRecipe> recipe = handler.map(i -> {
+//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
+//						new WorkstationRecipeWrapper(1, 1, i), level);
+//			}).get();
+//
+//			// setRecipe(recipe);
+//			return recipe;
+//		}
+		return null;
 	}
 
 	public Optional<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
