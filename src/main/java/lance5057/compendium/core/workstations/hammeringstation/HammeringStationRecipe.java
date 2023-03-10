@@ -111,4 +111,10 @@ public class HammeringStationRecipe extends MultiToolRecipe implements ISingleIt
 			buffer.writeResourceLocation(recipe.getLootTableOut());
 		}
 	}
+
+	@Override
+	public ItemStack getResultItem() {
+		// TODO Auto-generated method stub
+		return this.getItemOut();
+	}
 }

@@ -111,4 +111,10 @@ public class SawBuckRecipe extends MultiToolRecipe implements ISingleItemIn, ISi
 		// TODO Auto-generated method stub
 		return this.input;
 	}
+
+	@Override
+	public ItemStack getResultItem() {
+		// TODO Auto-generated method stub
+		return this.getItemOut();
+	}
 }

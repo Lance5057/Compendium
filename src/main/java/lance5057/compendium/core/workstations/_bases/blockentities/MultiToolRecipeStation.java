@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import lance5057.compendium.Compendium;
 import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
 import net.minecraft.core.BlockPos;
@@ -13,8 +14,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -89,9 +88,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	public void zeroProgress() {
 		this.progress = 0;
-//		this.maxProgress = 0;
-//		this.curTool = null;
-//		this.toolCount = 0;
 		this.stage = 0;
 		this.currentRecipes.clear();
 	}
@@ -113,42 +109,68 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		}
 	}
 
-	protected void setupStage(List<V> r, int i) {
+	protected void setupStage(int i) {
 
 		this.progress = 0;
 		this.stage = i;
-
-		this.currentRecipes = r;
 	}
 
-//	boolean isFinalStage(V r) {
-//		int i = r.getToolList().size();
-//		if (i - 1 > stage) {
-//			return false;
-//		}
-//		return true;
-//	}
-
-	void validateRecipes(ItemStack curTool) {
+	void validateStage(Player player, ItemStack curTool) {
 		for (int i = 0; i < this.currentRecipes.size(); i++) {
 			V r = currentRecipes.get(i);
 
-			AnimatedRecipeItemUse a = r.getRecipeTools().get(stage);
-			if (a.uses < this.progress || !a.tool.test(curTool)) {
-				currentRecipes.remove(i);
-				break;
+			if (r.getRecipeTools().size() < stage + 1) {
+				AnimatedRecipeItemUse a = r.getRecipeTools().get(stage);
+				AnimatedRecipeItemUse b = r.getRecipeTools().get(stage + 1);
+
+				if (a.tool.test(lastUsed)) {
+					if (b.tool.test(curTool)) {
+						setupStage(stage + 1);
+						break;
+					}
+				}
+			} else {
+				if (this.validateFinalStage())
+					this.finishRecipe(player, r);
 			}
 		}
 	}
 
-	public InteractionResult hammer(Player Player, ItemStack hammer) {
+	// by this point there should be only one recipe left, if not something went
+	// wrong and an error should be thrown
+	boolean validateFinalStage() {
+		if (this.currentRecipes.size() > 1) {
+			Compendium.logger.error(
+					"MultiToolRecipeStation finished a recipe with more than one recipe in list, this should not have happened!");
+			return false;
+		}
+		return true;
+	}
 
-		validateRecipes(hammer);
-		
-		//TODO the thing
-		
-		this.lastUsed = hammer;
-		
+	List<V> validateRecipes(ItemStack curTool) {
+		List<V> o = new ArrayList<V>();
+
+		for (int i = 0; i < this.currentRecipes.size(); i++) {
+			V r = currentRecipes.get(i);
+
+			AnimatedRecipeItemUse a = r.getRecipeTools().get(stage);
+			if (!(a.uses < this.progress || !a.tool.test(curTool))) {
+				o.add(currentRecipes.get(i));
+			}
+		}
+		return o;
+	}
+
+	public InteractionResult hammer(Player player, ItemStack hammer) {
+		this.validateStage(player, hammer);
+		List<V> r = validateRecipes(hammer);
+
+		// if r is empty consider it a misfire and dont do anything
+		if (!r.isEmpty()) {
+			currentRecipes = r;
+			this.lastUsed = hammer;
+		}
+
 //		currentRecipe.ifPresent(r -> {
 //
 //			if (this.curTool == null) {

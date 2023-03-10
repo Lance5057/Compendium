@@ -69,12 +69,6 @@ public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipe
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public ItemStack getResultItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public int getRecipeWidth() {
