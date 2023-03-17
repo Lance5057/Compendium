@@ -79,7 +79,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public void setRecipe(List<V> r) {
 
 		if (!r.isEmpty()) {
-			this.setupStage(r, 0);
+			this.setupStage(0);
 		} else
 			this.zeroProgress();
 	}
