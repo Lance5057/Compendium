@@ -11,6 +11,7 @@ import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations._bases.blockentities.MultiToolRecipeStation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -39,31 +40,15 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	protected List<HammeringStationRecipe> matchRecipe() {
-		if (level != null) {
-
-			List<HammeringStationRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, i), level);
-			}).get();
-
-			// setRecipe(recipe);
-			return recipe;
-		}
-		return new ArrayList<HammeringStationRecipe>();
-	}
-
+	
 	public List<HammeringStationRecipe> matchRecipe(ItemStack itemstack) {
 		if (level != null) {
+			NonNullList<ItemStack> l = NonNullList.create();
+			l.add(itemstack);
+			List<HammeringStationRecipe> recipe =
+				 level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+						new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
 
-			List<HammeringStationRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, i), level);
-			}).get();
-
-			// setRecipe(recipe);
 			return recipe;
 		}
 		return new ArrayList<HammeringStationRecipe>();
@@ -80,11 +65,6 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 			@Override
 			protected void onContentsChanged(int slot) {
 				zeroProgress();
-
-				if (!this.getStackInSlot(slot).isEmpty()) {
-					setRecipe(matchRecipe());
-				}
-
 				updateInventory();
 			}
 		};

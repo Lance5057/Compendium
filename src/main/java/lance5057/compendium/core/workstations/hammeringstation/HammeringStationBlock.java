@@ -43,18 +43,17 @@ public class HammeringStationBlock extends StationGuiless {
 				} else {
 
 					ItemStack itemstack = player.getItemInHand(InteractionHandIn);
-					
 
 					if (te.isSlotEmpty(0)) {
-						te.insertItem(player.getItemInHand(InteractionHandIn));
 
 						List<HammeringStationRecipe> optional = te.matchRecipe(itemstack);
-						
-						if (!optional.isEmpty()) 
+
+						if (!optional.isEmpty()) {
+							te.insertItem(player.getItemInHand(InteractionHandIn));
+							te.setRecipe(optional);
 							return InteractionResult.SUCCESS;
-						else
-							te.extractItem(player);
-						
+						}
+
 					} else
 						te.hammer(player, player.getItemInHand(InteractionHandIn));
 				}

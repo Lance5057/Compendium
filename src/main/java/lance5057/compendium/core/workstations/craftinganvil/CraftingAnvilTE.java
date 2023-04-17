@@ -72,21 +72,6 @@ public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe>
 	}
 
 	@Override
-	protected List<CraftingAnvilRecipe> matchRecipe() {
-//		if (level != null) {
-//
-//			Optional<CraftingAnvilRecipe> recipe = handler.map(i -> {
-//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.CRAFTING_ANVIL_RECIPE.get(),
-//						new WorkstationRecipeWrapper(5, 5, i), level);
-//			}).get();
-//
-//			// setRecipe(recipe);
-//			return recipe;
-//		}
-		return null;
-	}
-
-	@Override
 	public void finishRecipe(Player Player, CraftingAnvilRecipe r) {
 		handler.ifPresent(h -> {
 			ItemStack item = r.getRecipeOutput().copy();

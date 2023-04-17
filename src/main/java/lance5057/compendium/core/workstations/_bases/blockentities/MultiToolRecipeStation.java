@@ -74,10 +74,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
 
-	protected abstract List<V> matchRecipe();
+	// protected abstract List<V> matchRecipe();
 
 	public void setRecipe(List<V> r) {
-
+		this.currentRecipes = r;
 		if (!r.isEmpty()) {
 			this.setupStage(0);
 		} else
@@ -90,15 +90,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.progress = 0;
 		this.stage = 0;
 		this.currentRecipes.clear();
-	}
-
-	public List<AnimatedRecipeItemUse> getCurrentTools() {
-		List<V> currentRecipe = matchRecipe();
-		List<AnimatedRecipeItemUse> tools = new ArrayList<AnimatedRecipeItemUse>();
-		if (!currentRecipe.isEmpty())
-			for (V a : currentRecipe)
-				tools.add(a.getToolList().get(stage));
-		return null;
 	}
 
 	public void updateInventory() {
@@ -115,7 +106,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.stage = i;
 	}
 
-	void validateStage(Player player, ItemStack curTool) {
+	void doStage(Player player, ItemStack curTool) {
 		for (int i = 0; i < this.currentRecipes.size(); i++) {
 			V r = currentRecipes.get(i);
 
@@ -162,55 +153,26 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public InteractionResult hammer(Player player, ItemStack hammer) {
-		this.validateStage(player, hammer);
-		List<V> r = validateRecipes(hammer);
+		doProgress(hammer);
+		doStage(player, hammer);
 
 		// if r is empty consider it a misfire and dont do anything
-		if (!r.isEmpty()) {
-			currentRecipes = r;
+		if (!currentRecipes.isEmpty()) {
 			this.lastUsed = hammer;
 		}
-
-//		currentRecipe.ifPresent(r -> {
-//
-//			if (this.curTool == null) {
-//				setupStage(r, stage);
-//			}
-//			if (this.curTool.test(hammer))
-//				if (hammer.getCount() >= this.toolCount) {
-//
-//					if (this.progress >= this.maxProgress) {
-//
-//						if (isFinalStage(r)) {
-//
-//							for (int i = 0; i < 5; i++) {
-//								addParticle();
-//							}
-//							level.playSound(Player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
-//
-//							if (hammer.isDamageableItem())
-//								hammer.hurtAndBreak(1, Player, null);
-//							else
-//								hammer.setCount(hammer.getCount() - this.toolCount);
-//
-//							this.finishRecipe(Player, r);
-//						} else {
-//							setupStage(r, stage + 1);
-//						}
-//					} else {
-//						if (hammer.isDamageableItem())
-//							hammer.hurtAndBreak(1, Player, null);
-//						else
-//							hammer.setCount(hammer.getCount() - this.toolCount);
-//
-//						progress++;
-//					}
-//
-//				}
-//		});
+		
 		this.updateInventory();
 
 		return InteractionResult.SUCCESS;
+	}
+
+	private void doProgress(ItemStack hammer) {
+		List<V> o = validateRecipes(hammer);
+
+		if (!o.isEmpty()) {
+			currentRecipes = o;
+			progress++;
+		}
 	}
 
 	public abstract void addParticle();

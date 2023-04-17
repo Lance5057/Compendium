@@ -40,21 +40,6 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 		return null;
 	}
 
-	@Override
-	protected List<SawBuckRecipe> matchRecipe() {
-//		if (level != null) {
-//
-//			Optional<SawBuckRecipe> recipe = handler.map(i -> {
-//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
-//						new WorkstationRecipeWrapper(1, 1, i), level);
-//			}).get();
-//
-//			// setRecipe(recipe);
-//			return recipe;
-//		}
-		return null;
-	}
-
 	public Optional<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
 		if (level != null) {
 

@@ -96,21 +96,6 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	}
 
 	@Override
-	protected List<WorkstationRecipe> matchRecipe() {
-//		if (level != null) {
-//
-//			Optional<WorkstationRecipe> recipe = handler.map(i -> {
-//				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.WORKSTATION_RECIPE.get(),
-//						new WorkstationRecipeWrapper(gridLevel, gridLevel, i), level);
-//			}).get();
-//
-//			// setRecipe(recipe);
-//			return recipe;
-//		}
-		return null;
-	}
-
-	@Override
 	public void finishRecipe(Player Player, WorkstationRecipe r) {
 		handler.ifPresent(h -> {
 			ItemStack item = r.getRecipeOutput().copy();

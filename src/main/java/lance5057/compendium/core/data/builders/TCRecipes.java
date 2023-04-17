@@ -95,7 +95,7 @@ public class TCRecipes extends RecipeProvider {
 				.recipe(Ingredient.of(Tags.Items.COBBLESTONE), HammeringStationLootTables.cobble_gravel,
 						new ItemStack(Items.GRAVEL, 1))
 				.addCriterion("cobble", RecipeProvider.has(Tags.Items.COBBLESTONE))
-				.tool(Ingredient.of(CompendiumTags.PICKAXES), 1, true, new BlacklistedModel(Items.DIAMOND_PICKAXE,
+				.tool(Ingredient.of(CompendiumTags.PICKAXES), 2, true, new BlacklistedModel(Items.DIAMOND_PICKAXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "cobble_gravel_pick"));
@@ -104,7 +104,19 @@ public class TCRecipes extends RecipeProvider {
 				.recipe(Ingredient.of(Tags.Items.COBBLESTONE), HammeringStationLootTables.cobble_gravel,
 						new ItemStack(Items.GRAVEL, 1))
 				.addCriterion("cobble", RecipeProvider.has(Tags.Items.COBBLESTONE))
-				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_AXE,
+				.tool(Ingredient.of(CompendiumTags.PICKAXES), 1, true, new BlacklistedModel(Items.DIAMOND_PICKAXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.tool(Ingredient.of(CompendiumTags.AXES), 1, true, new BlacklistedModel(Items.DIAMOND_PICKAXE,
+						new AnimationFloatTransform().setRotation(
+								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
+				.save(consumer, new ResourceLocation(Reference.MOD_ID, "cobble_gravel_moar"));
+
+		HammeringStationRecipeBuilder
+				.recipe(Ingredient.of(Tags.Items.COBBLESTONE), HammeringStationLootTables.cobble_gravel,
+						new ItemStack(Items.GRAVEL, 1))
+				.addCriterion("cobble", RecipeProvider.has(Tags.Items.COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.AXES), 2, true, new BlacklistedModel(Items.DIAMOND_AXE,
 						new AnimationFloatTransform().setRotation(
 								new AnimatedFloatVector3().setY(new AnimatedFloat(0, 360, 0, 0.1f, true, false)))))
 				.save(consumer, new ResourceLocation(Reference.MOD_ID, "cobble_gravel_axe"));
