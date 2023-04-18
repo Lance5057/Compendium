@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/table/table_top",
-  "textures": {
-    "0": "minecraft:block/birch_planks"
-  }
-}

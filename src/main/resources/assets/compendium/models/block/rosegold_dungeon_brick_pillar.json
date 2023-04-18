@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "compendium:block/material/rosegold/rosegolddungeon_pillar",
-    "end": "compendium:block/material/rosegold/rosegolddungeon_square"
-  }
-}

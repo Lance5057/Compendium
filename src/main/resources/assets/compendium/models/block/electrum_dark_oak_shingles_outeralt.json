@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_outer_corneralt",
-  "textures": {
-    "0": "compendium:block/material/electrum/electrumshingles",
-    "1": "minecraft:block/dark_oak_log_top",
-    "2": "minecraft:block/dark_oak_log"
-  }
-}

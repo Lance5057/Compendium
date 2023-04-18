@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shingles_cap_post",
-  "textures": {
-    "0": "minecraft:block/acacia_planks",
-    "1": "minecraft:block/acacia_log_top",
-    "2": "minecraft:block/acacia_log"
-  }
-}

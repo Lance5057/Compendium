@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "compendium:block/material/silver/silverdungeon_pillar",
-    "end": "compendium:block/material/silver/silverdungeon_square"
-  }
-}

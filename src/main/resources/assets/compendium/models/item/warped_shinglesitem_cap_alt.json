@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shingles_cap_alt_full",
-  "textures": {
-    "0": "minecraft:block/warped_planks",
-    "2": "minecraft:block/warped_stem",
-    "1": "minecraft:block/warped_stem_top"
-  }
-}

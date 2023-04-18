@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/InteractionHandheld",
-  "textures": {
-    "layer0": "compendium:block/light_blue_stained_glass",
-    "layer1": "compendium:block/material/aluminium/aluminiumstainedglass_rupees"
-  }
-}

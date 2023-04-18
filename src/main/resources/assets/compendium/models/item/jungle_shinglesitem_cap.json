@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shingles_cap_full",
-  "textures": {
-    "0": "minecraft:block/jungle_planks",
-    "2": "minecraft:block/jungle_log",
-    "1": "minecraft:block/jungle_log_top"
-  }
-}

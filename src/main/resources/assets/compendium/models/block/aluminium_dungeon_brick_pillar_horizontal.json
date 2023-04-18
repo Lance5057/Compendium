@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "side": "compendium:block/material/aluminium/aluminiumdungeon_pillar",
-    "end": "compendium:block/material/aluminium/aluminiumdungeon_square"
-  }
-}

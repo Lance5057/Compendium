@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shinglesalt",
-  "textures": {
-    "0": "compendium:block/material/platinum/platinumshingles",
-    "1": "minecraft:block/crimson_stem_top",
-    "2": "minecraft:block/crimson_stem"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/table/leg",
-  "textures": {
-    "0": "minecraft:block/dark_oak_planks"
-  }
-}

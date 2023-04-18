@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shinglesalt",
-  "textures": {
-    "0": "compendium:block/material/lead/leadshingles",
-    "1": "minecraft:block/jungle_log_top",
-    "2": "minecraft:block/jungle_log"
-  }
-}

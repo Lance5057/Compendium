@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/denseore",
-  "textures": {
-    "1": "compendium:block/material/lead/leadore"
-  }
-}

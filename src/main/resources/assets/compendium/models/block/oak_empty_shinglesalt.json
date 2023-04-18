@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/empty_shinglesalt",
-  "textures": {
-    "0": "minecraft:block/oak_planks",
-    "1": "minecraft:block/oak_log_top",
-    "2": "minecraft:block/oak_log"
-  }
-}

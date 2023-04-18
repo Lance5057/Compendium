@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/dungeon_trim_flip_3",
-  "textures": {
-    "0": "compendium:block/material/iron/irondungeon_bricks"
-  }
-}

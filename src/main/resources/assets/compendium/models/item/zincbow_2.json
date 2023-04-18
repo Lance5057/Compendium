@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/InteractionHandheld",
-  "textures": {
-    "layer1": "compendium:item/material/zinc/zincbow_pulling_2",
-    "layer0": "minecraft:item/bow_pulling_2"
-  }
-}

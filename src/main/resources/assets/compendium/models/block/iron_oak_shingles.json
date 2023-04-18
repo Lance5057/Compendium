@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles",
-  "textures": {
-    "0": "compendium:block/material/iron/ironshingles",
-    "1": "minecraft:block/oak_log_top",
-    "2": "minecraft:block/oak_log"
-  }
-}

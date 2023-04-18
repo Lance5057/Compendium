@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/InteractionHandheld",
-  "textures": {
-    "layer0": "compendium:item/material/zinc/zincsaw",
-    "layer1": "compendium:item/sawbase"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "compendium:block/material/nickel/nickeldungeon_pillar",
-    "end": "compendium:block/material/nickel/nickeldungeon_square"
-  }
-}

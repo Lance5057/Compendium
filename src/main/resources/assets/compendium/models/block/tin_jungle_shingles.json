@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles",
-  "textures": {
-    "0": "compendium:block/material/tin/tinshingles",
-    "1": "minecraft:block/jungle_log_top",
-    "2": "minecraft:block/jungle_log"
-  }
-}

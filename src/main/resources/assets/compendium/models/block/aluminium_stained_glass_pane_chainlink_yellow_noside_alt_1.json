@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/2layer_glass_pane_noside_alt",
-  "textures": {
-    "0": "compendium:block/yellow_stained_glass",
-    "1": "compendium:block/material/aluminium/aluminiumchainlink"
-  }
-}
