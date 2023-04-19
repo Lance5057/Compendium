@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import lance5057.compendium.CompendiumContainers;
+import lance5057.compendium.CompendiumTags;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
 
@@ -59,43 +61,83 @@ public class WorkstationContainer extends AbstractContainerMenu {
 
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				this.addSlot(new SlotItemHandler(h, 25, 143, 22) {
 
-					@Override
-					public void setChanged() {
-						super.setChanged();
+				int max = blockEntity.getGridLevel();
+				for (int i = 0; i < max; ++i) {
+					for (int j = 0; j < max; ++j) {
+						this.addSlot(new SlotItemHandler(h, WorkstationTE.INVENTORY_SIZE + j + i * max, 31 + j * 18,
+								26 + i * 18) {
 
-						WorkstationContainer.this
-								.slotsChanged(new WorkstationRecipeWrapper(5, 5, (IItemHandlerModifiable) h));
+							@Override
+							public void setChanged() {
+								super.setChanged();
+
+								WorkstationContainer.this.slotsChanged(
+										new WorkstationRecipeWrapper(max, max, (IItemHandlerModifiable) h));
+							}
+						});
 					}
-				});
+				}
 
-				output = this.addSlot(new SlotItemHandler(h, 26, 143, 70) {
-					@Override
-					public void onTake(Player thePlayer, ItemStack stack) {
-						WorkstationContainer.this.clear();
-					}
-
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.OUTPUT_SLOT, 143, 70) {
 					@Override
 					public boolean mayPlace(@Nonnull ItemStack stack) {
 						return false;
 					}
 				});
 
-				for (int i = 0; i < 5; ++i) {
-					for (int j = 0; j < 5; ++j) {
-						this.addSlot(new SlotItemHandler(h, j + i * 5, 13 + j * 18, 8 + i * 18) {
-
-							@Override
-							public void setChanged() {
-								super.setChanged();
-
-								WorkstationContainer.this
-										.slotsChanged(new WorkstationRecipeWrapper(5, 5, (IItemHandlerModifiable) h));
-							}
-						});
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.UPGRADE_4x4_SLOT, 181, 11) {
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return stack.is(CompendiumTags.WORKSTATION_UPGRADE_INV4X) && isGridEmpty(this.getItemHandler());
 					}
-				}
+
+					@Override
+					public boolean mayPickup(Player playerIn) {
+						return this.getItemHandler().getStackInSlot(WorkstationTE.UPGRADE_5x5_SLOT).isEmpty()
+								&& isGridEmpty(this.getItemHandler());
+					}
+				});
+
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.UPGRADE_5x5_SLOT, 181, 29) {
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return !this.getItemHandler().getStackInSlot(WorkstationTE.UPGRADE_4x4_SLOT).isEmpty()
+								&& stack.is(CompendiumTags.WORKSTATION_UPGRADE_INV5X)
+								&& isGridEmpty(this.getItemHandler());
+					}
+
+					@Override
+					public boolean mayPickup(Player playerIn) {
+						return isGridEmpty(this.getItemHandler());
+					}
+				});
+
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.UPGRADE_LIGHT_SLOT, 181, 47) {
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return stack.is(CompendiumTags.WORKSTATION_UPGRADE_LIGHT);
+					}
+				});
+
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.UPGRADE_ENERGY, 181, 65) {
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return stack.is(CompendiumTags.WORKSTATION_UPGRADE_POWER);
+					}
+
+					@Override
+					public boolean mayPickup(Player playerIn) {
+						return this.getItemHandler().getStackInSlot(WorkstationTE.UPGRADE_BATTERY).isEmpty();
+					}
+				});
+
+				this.addSlot(new SlotItemHandler(h, WorkstationTE.UPGRADE_BATTERY, 181, 83) {
+					@Override
+					public boolean mayPlace(@Nonnull ItemStack stack) {
+						return stack.is(CompendiumTags.WORKSTATION_UPGRADE_BATTERY);
+					}
+				});
 			});
 		}
 
@@ -128,6 +170,16 @@ public class WorkstationContainer extends AbstractContainerMenu {
 			this.addSlot(new Slot(playerInventory, l, 8 + l * 18, 169));
 		}
 
+	}
+
+	boolean isGridEmpty(IItemHandler iItemHandler) {
+		for (int i = 0; i < 5; ++i) {
+			for (int j = 0; j < 5; ++j) {
+				if (!iItemHandler.getStackInSlot(WorkstationTE.INVENTORY_SIZE + j + i * 5).isEmpty())
+					return false;
+			}
+		}
+		return true;
 	}
 
 	public void zeroStrikes() {
@@ -169,9 +221,10 @@ public class WorkstationContainer extends AbstractContainerMenu {
 
 	private MultiToolRecipeShaped matchRecipe(WorkstationRecipeWrapper inventoryIn) {
 		if (world != null) {
-			return world.getRecipeManager().getRecipes().stream().filter(recipe -> recipe instanceof MultiToolRecipeShaped)
-					.map(recipe -> (MultiToolRecipeShaped) recipe).filter(recipe -> recipe.matches(inventoryIn, this.world))
-					.findFirst().orElse(null);
+			return world.getRecipeManager().getRecipes().stream()
+					.filter(recipe -> recipe instanceof MultiToolRecipeShaped)
+					.map(recipe -> (MultiToolRecipeShaped) recipe)
+					.filter(recipe -> recipe.matches(inventoryIn, this.world)).findFirst().orElse(null);
 		}
 		return null;
 	}

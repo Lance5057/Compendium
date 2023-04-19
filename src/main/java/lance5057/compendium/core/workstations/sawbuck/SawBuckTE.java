@@ -43,20 +43,6 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 		return null;
 	}
 
-	public List<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
-		if (level != null) {
-			NonNullList<ItemStack> l = NonNullList.create();
-			l.add(itemstack);
-			List<SawBuckRecipe> recipe =
-				 level.getRecipeManager().getRecipesFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
-
-			return recipe;
-		}
-		return new ArrayList<SawBuckRecipe>();
-	}
-
-
 	@Override
 	protected IItemHandlerModifiable createInteractionHandler() {
 		return new ItemStackHandler(1) {
@@ -142,6 +128,34 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 			}
 		updateInventory();
 
+	}
+
+	@Override
+	protected Optional<SawBuckRecipe> matchRecipe() {
+		if (level != null) {
+
+			Optional<SawBuckRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
+						new WorkstationRecipeWrapper(1, 1, i), level);
+			}).get();
+
+			// setRecipe(recipe);
+			return recipe;
+		}
+		return Optional.empty();
+	}
+
+	public Optional<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
+		if (level != null) {
+			NonNullList<ItemStack> l = NonNullList.create();
+			l.add(itemstack);
+			Optional<SawBuckRecipe> recipe = level.getRecipeManager().getRecipeFor(
+					WorkstationRecipes.SAWBUCK_RECIPE.get(),
+					new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
+
+			return recipe;
+		}
+		return Optional.empty();
 	}
 
 }

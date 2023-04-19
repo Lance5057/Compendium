@@ -61,10 +61,15 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	public ItemStack getGhostStack() {
 		return this.ghostStack;
 	}
+	
+	public int getGridLevel()
+	{
+		return gridLevel;
+	}
 
 	@Override
 	protected IItemHandlerModifiable createInteractionHandler() {
-		return new ItemStackHandler(INVENTORY_SIZE + (gridLevel * gridLevel)) {
+		return new ItemStackHandler(INVENTORY_SIZE + (5 * 5)) {
 
 			@Override
 			protected void onContentsChanged(int slot) {
@@ -147,6 +152,21 @@ public class WorkstationTE extends MultiToolRecipeStation<WorkstationRecipe> imp
 	@Override
 	protected <T> LazyOptional<T> getExtraCapability(Capability<T> cap, Direction side) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Optional<WorkstationRecipe> matchRecipe() {
+		if (level != null) {
+
+			Optional<WorkstationRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.WORKSTATION_RECIPE.get(),
+						new WorkstationRecipeWrapper(gridLevel, gridLevel, i), level);
+			}).get();
+
+			// setRecipe(recipe);
+			return recipe;
+		}
 		return null;
 	}
 

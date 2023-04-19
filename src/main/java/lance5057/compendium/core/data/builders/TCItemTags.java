@@ -23,5 +23,11 @@ public class TCItemTags extends ItemTagsProvider {
 				Items.STONE_AXE, Items.WOODEN_AXE);
 		tag(CompendiumTags.PICKAXES).add(Items.NETHERITE_PICKAXE, Items.DIAMOND_PICKAXE, Items.IRON_PICKAXE, Items.GOLDEN_PICKAXE,
 				Items.STONE_PICKAXE, Items.WOODEN_PICKAXE);
+		
+		tag(CompendiumTags.WORKSTATION_UPGRADE_INV4X).add(Items.CHEST);
+		tag(CompendiumTags.WORKSTATION_UPGRADE_INV5X).add(Items.SHULKER_BOX);
+		tag(CompendiumTags.WORKSTATION_UPGRADE_LIGHT).add(Items.REDSTONE_LAMP);
+		tag(CompendiumTags.WORKSTATION_UPGRADE_POWER).add(Items.REDSTONE);
+		tag(CompendiumTags.WORKSTATION_UPGRADE_BATTERY).add(Items.REDSTONE_BLOCK);
 	}
 }

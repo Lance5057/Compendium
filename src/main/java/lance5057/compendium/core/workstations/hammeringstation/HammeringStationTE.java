@@ -2,6 +2,7 @@ package lance5057.compendium.core.workstations.hammeringstation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
@@ -9,6 +10,7 @@ import lance5057.compendium.CompendiumTileEntities;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations._bases.blockentities.MultiToolRecipeStation;
+import lance5057.compendium.core.workstations.sawbuck.SawBuckRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -40,18 +42,32 @@ public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationR
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public List<HammeringStationRecipe> matchRecipe(ItemStack itemstack) {
+
+	public Optional<HammeringStationRecipe> matchRecipe(ItemStack itemstack) {
 		if (level != null) {
 			NonNullList<ItemStack> l = NonNullList.create();
 			l.add(itemstack);
-			List<HammeringStationRecipe> recipe =
-				 level.getRecipeManager().getRecipesFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
-
+			Optional<HammeringStationRecipe> recipe = level.getRecipeManager().getRecipeFor(
+					WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+					new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
 			return recipe;
 		}
-		return new ArrayList<HammeringStationRecipe>();
+		return Optional.empty();
+	}
+	
+	@Override
+	protected Optional<HammeringStationRecipe> matchRecipe() {
+		if (level != null) {
+
+			Optional<HammeringStationRecipe> recipe = handler.map(i -> {
+				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+						new WorkstationRecipeWrapper(1, 1, i), level);
+			}).get();
+
+			// setRecipe(recipe);
+			return recipe;
+		}
+		return Optional.empty();
 	}
 
 	@Override

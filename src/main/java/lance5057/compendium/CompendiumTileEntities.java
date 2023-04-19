@@ -3,6 +3,7 @@ package lance5057.compendium;
 import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilTE;
 import lance5057.compendium.core.workstations.hammeringstation.HammeringStationTE;
 import lance5057.compendium.core.workstations.sawbuck.SawBuckTE;
+import lance5057.compendium.core.workstations.workstation.WorkstationTE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,9 +14,9 @@ public class CompendiumTileEntities {
 	public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITIES = DeferredRegister
 			.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Reference.MOD_ID);
 
-	public static final RegistryObject<BlockEntityType<CraftingAnvilTE>> WORKSTATION_TE = TILE_ENTITIES.register(
+	public static final RegistryObject<BlockEntityType<WorkstationTE>> WORKSTATION_TE = TILE_ENTITIES.register(
 			"workstation_tile",
-			() -> BlockEntityType.Builder.of(CraftingAnvilTE::new, CompendiumBlocks.WORKSTATION.get()).build(null));
+			() -> BlockEntityType.Builder.of(WorkstationTE::new, CompendiumBlocks.WORKSTATION.get()).build(null));
 
 	public static final RegistryObject<BlockEntityType<CraftingAnvilTE>> CRAFTING_ANVIL_TE = TILE_ENTITIES.register(
 			"crafting_anvil_tile",

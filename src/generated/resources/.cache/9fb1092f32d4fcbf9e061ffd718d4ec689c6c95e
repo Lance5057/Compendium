@@ -1,7 +1,5 @@
-// 1.19.2	2023-04-17T01:45:03.9807356	Recipes
+// 1.19.2	2023-04-19T10:08:04.5856016	Recipes
 cfdd4f61f81c0a3f95514bd1f87c2ab67da55a09 data/compendium/advancements/recipes/misc/lol_hammer.json
-d309ec02142f3a802be6c0b3d5dfe21654208bdb data/compendium/recipes/cobble_gravel_axe.json
-6bb5a96fd858487dfddcf28e264b3d2f13c38d50 data/compendium/recipes/cobble_gravel_moar.json
 f97a08300e24a46204cdfc95aeb46439929ac717 data/compendium/recipes/cobble_gravel_pick.json
 0fc562ce5ae30dba5240c3f5e8855cb4c2b3652c data/compendium/recipes/lol_hammer.json
 50ecbeb8f37550b3717cf9ea2d0ba2cd11fcf9e9 data/compendium/recipes/oak_log.json

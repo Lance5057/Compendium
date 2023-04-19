@@ -38,19 +38,9 @@ public class HammeringStationRenderer implements BlockEntityRenderer<HammeringSt
 			return;
 		}
 
-		if (!tileEntityIn.recipeLoc.isEmpty()) {
-			for (ResourceLocation h : tileEntityIn.recipeLoc) {
-
-				Optional<? extends Recipe<?>> recipe = tileEntityIn.getLevel().getRecipeManager().byKey(h);
-
-				if (recipe.isPresent()) {
-					if (recipe.get() instanceof HammeringStationRecipe hr) {
-						AnimatedRecipeItemUse tools = hr.getToolList().get(tileEntityIn.stage);
-						for (BlacklistedModel b : tools.model)
-							RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
-					}
-				}
-			}
+		if (tileEntityIn.getCurrentTool() != null) {
+			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
+				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
 		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();

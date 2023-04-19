@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import lance5057.compendium.core.workstations._bases.blocks.StationGuiless;
+import lance5057.compendium.core.workstations.sawbuck.SawBuckRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -46,11 +47,10 @@ public class HammeringStationBlock extends StationGuiless {
 
 					if (te.isSlotEmpty(0)) {
 
-						List<HammeringStationRecipe> optional = te.matchRecipe(itemstack);
+						Optional<HammeringStationRecipe> optional = te.matchRecipe(itemstack);
 
 						if (!optional.isEmpty()) {
 							te.insertItem(player.getItemInHand(InteractionHandIn));
-							te.setRecipe(optional);
 							return InteractionResult.SUCCESS;
 						}
 

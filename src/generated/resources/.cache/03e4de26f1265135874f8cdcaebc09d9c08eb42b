@@ -1,3 +1,8 @@
-// 1.19.2	2023-03-09T13:29:12.6831214	Tags for minecraft:item
+// 1.19.2	2023-04-19T12:59:11.9532184	Tags for minecraft:item
+82a5ce9d51d09b093be2c4b1934357352e43f3b5 data/compendium/tags/items/workstation_battery.json
+da47c4a3f08fcfa641ff36c2a1cb230b8c37383a data/compendium/tags/items/workstation_inv4x.json
+3ae9f87200eda9255e9f974c3c16e48dd11322e1 data/compendium/tags/items/workstation_inv5x.json
+c50b1d011fe12cd74d34e200538b601fc6bc79ad data/compendium/tags/items/workstation_light.json
+5db69586b6c50b2befacf44de1aedc4a5af092fe data/compendium/tags/items/workstation_power.json
 954e9d0ed7592dd53cd509b2720ac09d13963818 data/forge/tags/items/axes.json
 4a0ead7332ba88f1ae7e2495c2519460d4e7fa6a data/forge/tags/items/pickaxes.json

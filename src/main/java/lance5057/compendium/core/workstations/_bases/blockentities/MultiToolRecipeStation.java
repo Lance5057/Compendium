@@ -1,7 +1,7 @@
 package lance5057.compendium.core.workstations._bases.blockentities;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,14 +11,16 @@ import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.Mul
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,15 +34,13 @@ import net.minecraftforge.items.ItemStackHandler;
 public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends BlockEntity {
 	protected final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createInteractionHandler);
 	// private ItemStack ghostStack = ItemStack.EMPTY;
-
-	public List<V> currentRecipes = new ArrayList<V>();
-	public List<ResourceLocation> recipeLoc = new ArrayList<ResourceLocation>();
+	
 	public boolean recipeLocked = false;
 	private ItemStack lastUsed = ItemStack.EMPTY;
 	private int progress;
-//	private int maxProgress;
-//	private Ingredient curTool;
-//	public int toolCount;
+	private int maxProgress;
+	private Ingredient curTool;
+	public int toolCount;
 	public int stage = 0;
 	public final int width;
 	public final int height;
@@ -76,11 +76,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	protected abstract <T> LazyOptional<T> getExtraCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
 
-	// protected abstract List<V> matchRecipe();
+	protected abstract Optional<V> matchRecipe();
 
-	public void setRecipe(List<V> r) {
-		this.currentRecipes = r;
-		if (!r.isEmpty()) {
+	public void setRecipe(Optional<V> r) {
+		if (r.isPresent()) {
 			this.setupStage(0);
 		} else
 			this.zeroProgress();
@@ -90,8 +89,24 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	public void zeroProgress() {
 		this.progress = 0;
+		this.maxProgress = 0;
+		this.curTool = null;
+		this.toolCount = 0;
 		this.stage = 0;
-		this.currentRecipes.clear();
+	}
+
+	protected void setupStage(int s) {
+
+		this.progress = 0;
+		this.stage = s;
+	}
+	
+
+	public AnimatedRecipeItemUse getCurrentTool() {
+		Optional<V> currentRecipe = matchRecipe();
+		if (currentRecipe.isPresent())
+			return currentRecipe.get().getToolList().get(stage);
+		return null;
 	}
 
 	public void updateInventory() {
@@ -102,81 +117,68 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		}
 	}
 
-	protected void setupStage(int s) {
+	protected void setupStage(V r, int i) {
 
 		this.progress = 0;
-		this.stage = s;
+		this.maxProgress = r.getToolList().get(i).uses;
+		this.curTool = r.getToolList().get(i).tool;
+		this.toolCount = r.getToolList().get(i).count;
+
+		this.stage = i;
 	}
 
-	void doStage(Player player, ItemStack curTool) {
-		for (int i = 0; i < this.currentRecipes.size(); i++) {
-			V r = currentRecipes.get(i);
-
-			if (r.getRecipeTools().size() < stage + 1) {
-				AnimatedRecipeItemUse a = r.getRecipeTools().get(stage);
-				AnimatedRecipeItemUse b = r.getRecipeTools().get(stage + 1);
-
-				if (a.tool.test(lastUsed)) {
-					if (b.tool.test(curTool)) {
-						setupStage(stage + 1);
-						break;
-					}
-				}
-			} else {
-				if (curTool.equals(ItemStack.EMPTY, false))
-					this.finishRecipe(player, r);
-			}
+	boolean isFinalStage(V r) {
+		int i = r.getToolList().size();
+		if (i - 1 > stage) {
+			return false;
 		}
-	}
-
-	// by this point there should be only one recipe left, if not something went
-	// wrong and an error should be thrown
-//	boolean validateFinalStage() {
-//		if (this.currentRecipes.size() > 1) {
-//			Compendium.logger.error(
-//					"MultiToolRecipeStation finished a recipe with more than one recipe in list, this should not have happened!");
-//			return false;
-//		}
-//		return true;
-//	}
-
-	List<V> validateRecipes(ItemStack curTool) {
-		List<V> o = new ArrayList<V>();
-
-		for (int i = 0; i < this.currentRecipes.size(); i++) {
-			V r = currentRecipes.get(i);
-
-			AnimatedRecipeItemUse a = r.getRecipeTools().get(stage);
-			if (!(a.uses < this.progress || !a.tool.test(curTool))) {
-				o.add(currentRecipes.get(i));
-			}
-		}
-		return o;
+		return true;
 	}
 
 	public InteractionResult hammer(Player player, ItemStack hammer) {
-		doProgress(hammer);
-		doStage(player, hammer);
+		Optional<V> currentRecipe = matchRecipe();
+		currentRecipe.ifPresent(r -> {
 
-		// if r is empty consider it a misfire and dont do anything
-		if (!currentRecipes.isEmpty()) {
-			this.lastUsed = hammer;
-		}
+			if (this.curTool == null) {
+				setupStage(r, stage);
+			}
+			if (this.curTool.test(hammer))
+				if (hammer.getCount() >= this.toolCount) {
 
+					if (this.progress >= this.maxProgress) {
+
+						if (isFinalStage(r)) {
+
+							for (int i = 0; i < 5; i++) {
+								addParticle();
+							}
+							level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
+
+							if (hammer.isDamageableItem())
+								hammer.hurtAndBreak(1, player, null);
+							else
+								hammer.setCount(hammer.getCount() - this.toolCount);
+
+							this.finishRecipe(player, r);
+						} else {
+							setupStage(r, stage + 1);
+						}
+					} else {
+						if (hammer.isDamageableItem())
+							hammer.hurtAndBreak(1, player, null);
+						else
+							hammer.setCount(hammer.getCount() - this.toolCount);
+
+						progress++;
+					}
+
+				}
+		});
 		this.updateInventory();
 
 		return InteractionResult.SUCCESS;
 	}
-
-	private void doProgress(ItemStack hammer) {
-		List<V> o = validateRecipes(hammer);
-
-		if (!o.isEmpty()) {
-			currentRecipes = o;
-			progress++;
-		}
-	}
-
+	
 	public abstract void addParticle();
 
 	public abstract void finishRecipe(Player Player, V recipe);
@@ -255,13 +257,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		final IItemHandler itemInteractionHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				.orElseGet(this::createInteractionHandler);
 		((ItemStackHandler) itemInteractionHandler).deserializeNBT(nbt.getCompound("inventory"));
-
-		CompoundTag compoundRecipes = nbt.getCompound("recipes");
-		for (String key : compoundRecipes.getAllKeys()) {
-			String s = compoundRecipes.getString(key);
-			
-			recipeLoc.add(new ResourceLocation(s));
-		}
 		
 		this.stage = nbt.getInt("stage");
 
@@ -275,14 +270,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		IItemHandler itemInteractionHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				.orElseGet(this::createInteractionHandler);
 		tag.put("inventory", ((ItemStackHandler) itemInteractionHandler).serializeNBT());
-
-		CompoundTag compoundRecipes = new CompoundTag();
-		for (int i = 0; i < currentRecipes.size(); i++) {
-			ResourceLocation rl = currentRecipes.get(i).getId();
-			String s = rl.toString();
-			compoundRecipes.putString("recipe_" + i, s);
-		}
-		tag.put("recipes", compoundRecipes);
 
 		tag.putInt("stage", stage);
 
