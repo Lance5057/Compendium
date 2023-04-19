@@ -1,5 +1,6 @@
 package lance5057.compendium.core.workstations.sawbuck;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,8 +10,10 @@ import lance5057.compendium.CompendiumTileEntities;
 import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
 import lance5057.compendium.core.workstations.WorkstationRecipes;
 import lance5057.compendium.core.workstations._bases.blockentities.MultiToolRecipeStation;
+import lance5057.compendium.core.workstations.hammeringstation.HammeringStationRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -40,19 +43,19 @@ public class SawBuckTE extends MultiToolRecipeStation<SawBuckRecipe> {
 		return null;
 	}
 
-	public Optional<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
+	public List<SawBuckRecipe> matchRecipe(ItemStack itemstack) {
 		if (level != null) {
+			NonNullList<ItemStack> l = NonNullList.create();
+			l.add(itemstack);
+			List<SawBuckRecipe> recipe =
+				 level.getRecipeManager().getRecipesFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
+						new WorkstationRecipeWrapper(1, 1, new ItemStackHandler(l)), level);
 
-			Optional<SawBuckRecipe> recipe = handler.map(i -> {
-				return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
-						new WorkstationRecipeWrapper(1, 1, i), level);
-			}).get();
-
-			// setRecipe(recipe);
 			return recipe;
 		}
-		return Optional.empty();
+		return new ArrayList<SawBuckRecipe>();
 	}
+
 
 	@Override
 	protected IItemHandlerModifiable createInteractionHandler() {

@@ -1,10 +1,14 @@
 package lance5057.compendium.core.workstations.sawbuck;
 
+import java.util.Optional;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
 import lance5057.compendium.core.client.BlacklistedModel;
 import lance5057.compendium.core.client.RenderUtil;
+import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
+import lance5057.compendium.core.workstations.hammeringstation.HammeringStationRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -12,7 +16,9 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -32,10 +38,20 @@ public class SawBuckRenderer implements BlockEntityRenderer<SawBuckTE> {
 			return;
 		}
 		
-//		if (tileEntityIn.getCurrentTool() != null) {
-//			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
-//				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
-//		}
+		if (!tileEntityIn.recipeLoc.isEmpty()) {
+			for (ResourceLocation h : tileEntityIn.recipeLoc) {
+
+				Optional<? extends Recipe<?>> recipe = tileEntityIn.getLevel().getRecipeManager().byKey(h);
+
+				if (recipe.isPresent()) {
+					if (recipe.get() instanceof SawBuckRecipe hr) {
+						AnimatedRecipeItemUse tools = hr.getToolList().get(tileEntityIn.stage);
+						for (BlacklistedModel b : tools.model)
+							RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+					}
+				}
+			}
+		}
 
 		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 

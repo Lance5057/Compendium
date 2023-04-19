@@ -1,6 +1,6 @@
 package lance5057.compendium.core.workstations.sawbuck;
 
-import java.util.Optional;
+import java.util.List;
 
 import lance5057.compendium.core.workstations._bases.blocks.StationGuiless;
 import net.minecraft.core.BlockPos;
@@ -42,16 +42,17 @@ public class SawBuckBlock extends StationGuiless {
 				} else {
 
 					ItemStack itemstack = player.getItemInHand(InteractionHandIn);
-					Optional<SawBuckRecipe> optional = te.matchRecipe(itemstack);
 
 					if (te.isSlotEmpty(0)) {
-						te.insertItem(player.getItemInHand(InteractionHandIn));
 
-						if (optional.isPresent()) 
+						List<SawBuckRecipe> optional = te.matchRecipe(itemstack);
+
+						if (!optional.isEmpty()) {
+							te.insertItem(player.getItemInHand(InteractionHandIn));
+							te.setRecipe(optional);
 							return InteractionResult.SUCCESS;
-						else
-							player.setItemInHand(InteractionHandIn, itemstack);
-						
+						}
+
 					} else
 						te.hammer(player, player.getItemInHand(InteractionHandIn));
 				}

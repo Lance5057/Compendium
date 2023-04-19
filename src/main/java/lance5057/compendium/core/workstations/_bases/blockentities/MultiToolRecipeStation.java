@@ -6,14 +6,15 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lance5057.compendium.Compendium;
 import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -33,6 +34,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	// private ItemStack ghostStack = ItemStack.EMPTY;
 
 	public List<V> currentRecipes = new ArrayList<V>();
+	public List<ResourceLocation> recipeLoc = new ArrayList<ResourceLocation>();
 	public boolean recipeLocked = false;
 	private ItemStack lastUsed = ItemStack.EMPTY;
 	private int progress;
@@ -100,10 +102,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		}
 	}
 
-	protected void setupStage(int i) {
+	protected void setupStage(int s) {
 
 		this.progress = 0;
-		this.stage = i;
+		this.stage = s;
 	}
 
 	void doStage(Player player, ItemStack curTool) {
@@ -121,7 +123,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 					}
 				}
 			} else {
-				if (this.validateFinalStage())
+				if (curTool.equals(ItemStack.EMPTY, false))
 					this.finishRecipe(player, r);
 			}
 		}
@@ -129,14 +131,14 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	// by this point there should be only one recipe left, if not something went
 	// wrong and an error should be thrown
-	boolean validateFinalStage() {
-		if (this.currentRecipes.size() > 1) {
-			Compendium.logger.error(
-					"MultiToolRecipeStation finished a recipe with more than one recipe in list, this should not have happened!");
-			return false;
-		}
-		return true;
-	}
+//	boolean validateFinalStage() {
+//		if (this.currentRecipes.size() > 1) {
+//			Compendium.logger.error(
+//					"MultiToolRecipeStation finished a recipe with more than one recipe in list, this should not have happened!");
+//			return false;
+//		}
+//		return true;
+//	}
 
 	List<V> validateRecipes(ItemStack curTool) {
 		List<V> o = new ArrayList<V>();
@@ -160,7 +162,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		if (!currentRecipes.isEmpty()) {
 			this.lastUsed = hammer;
 		}
-		
+
 		this.updateInventory();
 
 		return InteractionResult.SUCCESS;
@@ -254,6 +256,13 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 				.orElseGet(this::createInteractionHandler);
 		((ItemStackHandler) itemInteractionHandler).deserializeNBT(nbt.getCompound("inventory"));
 
+		CompoundTag compoundRecipes = nbt.getCompound("recipes");
+		for (String key : compoundRecipes.getAllKeys()) {
+			String s = compoundRecipes.getString(key);
+			
+			recipeLoc.add(new ResourceLocation(s));
+		}
+		
 		this.stage = nbt.getInt("stage");
 
 		readExtraNBT(nbt);
@@ -266,6 +275,14 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		IItemHandler itemInteractionHandler = getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				.orElseGet(this::createInteractionHandler);
 		tag.put("inventory", ((ItemStackHandler) itemInteractionHandler).serializeNBT());
+
+		CompoundTag compoundRecipes = new CompoundTag();
+		for (int i = 0; i < currentRecipes.size(); i++) {
+			ResourceLocation rl = currentRecipes.get(i).getId();
+			String s = rl.toString();
+			compoundRecipes.putString("recipe_" + i, s);
+		}
+		tag.put("recipes", compoundRecipes);
 
 		tag.putInt("stage", stage);
 
