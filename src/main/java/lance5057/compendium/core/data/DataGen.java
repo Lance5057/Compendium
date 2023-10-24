@@ -9,7 +9,7 @@ import lance5057.compendium.core.data.builders.TCItemModels;
 import lance5057.compendium.core.data.builders.TCItemTags;
 import lance5057.compendium.core.data.builders.TCLootTables;
 import lance5057.compendium.core.data.builders.TCRecipes;
-import lance5057.compendium.core.data.builders.workstationrecipes.loottables.SawBuckRecipeLoottables;
+import lance5057.compendium.core.data.builders.index.IndexProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,5 +33,7 @@ public class DataGen {
 		TCBlockTags btg = new TCBlockTags(generator, event.getExistingFileHelper());
 		generator.addProvider(true, btg);
 		generator.addProvider(true, new TCItemTags(generator, btg, event.getExistingFileHelper()));
+		
+		generator.addProvider(true, new IndexProvider(generator));
 	}
 }

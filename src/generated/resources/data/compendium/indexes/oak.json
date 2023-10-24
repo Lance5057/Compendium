@@ -1,0 +1,17 @@
+{
+  "material_type": "wood",
+  "name": "oak",
+  "tool_head": {
+    "dig_speed": 1.0,
+    "durability": 2,
+    "enchantability": 2,
+    "weapon_damage": 1.0,
+    "weapon_speed": 1.0
+  },
+  "weapon_head": {
+    "durability": 2,
+    "enchantability": 2,
+    "weapon_damage": 1.0,
+    "weapon_speed": 1.0
+  }
+}
