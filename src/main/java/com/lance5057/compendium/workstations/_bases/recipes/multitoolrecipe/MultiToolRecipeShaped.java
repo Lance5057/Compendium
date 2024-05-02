@@ -1,31 +1,27 @@
-package lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe;
+package com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe;
 
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.crafting.IShapedRecipe;
 
 public class MultiToolRecipeShaped extends MultiToolRecipe {
 	static int MAX_WIDTH = 5;
@@ -266,25 +262,25 @@ public class MultiToolRecipeShaped extends MultiToolRecipe {
 	/**
 	 * Returns a key json object as a Java HashMap.
 	 */
-	public static Map<String, Ingredient> deserializeKey(JsonObject json) {
-		Map<String, Ingredient> map = Maps.newHashMap();
-
-		for (Entry<String, JsonElement> entry : json.entrySet()) {
-			if (entry.getKey().length() != 1) {
-				throw new JsonSyntaxException("Invalid key entry: '" + (String) entry.getKey()
-						+ "' is an invalid symbol (must be 1 character only).");
-			}
-
-			if (" ".equals(entry.getKey())) {
-				throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
-			}
-
-			map.put(entry.getKey(), Ingredient.fromJson(entry.getValue()));
-		}
-
-		map.put(" ", Ingredient.EMPTY);
-		return map;
-	}
+//	public static Map<String, Ingredient> deserializeKey(JsonObject json) {
+//		Map<String, Ingredient> map = Maps.newHashMap();
+//
+//		for (Entry<String, JsonElement> entry : json.entrySet()) {
+//			if (entry.getKey().length() != 1) {
+//				throw new JsonSyntaxException("Invalid key entry: '" + (String) entry.getKey()
+//						+ "' is an invalid symbol (must be 1 character only).");
+//			}
+//
+//			if (" ".equals(entry.getKey())) {
+//				throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
+//			}
+//
+//			map.put(entry.getKey(), Ingredient.fromJson(entry.getValue()));
+//		}
+//
+//		map.put(" ", Ingredient.EMPTY);
+//		return map;
+//	}
 
 	public static NonNullList<AnimatedRecipeItemUse> deserializeTool(JsonObject json) {
 		NonNullList<AnimatedRecipeItemUse> map = NonNullList.create();
@@ -308,18 +304,18 @@ public class MultiToolRecipeShaped extends MultiToolRecipe {
 		return map;
 	}
 
-	public static ItemStack deserializeItem(JsonObject object) {
-		String s = GsonHelper.convertToString(object, "item");
-		Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
-			return new JsonSyntaxException("Unknown item '" + s + "'");
-		});
-		if (object.has("data")) {
-			throw new JsonParseException("Disallowed data tag found");
-		} else {
-			int i = GsonHelper.getAsInt(object, "count", 1);
-			return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(object, true);
-		}
-	}
+//	public static ItemStack deserializeItem(JsonObject object) {
+//		String s = GsonHelper.convertToString(object, "item");
+//		Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
+//			return new JsonSyntaxException("Unknown item '" + s + "'");
+//		});
+//		if (object.has("data")) {
+//			throw new JsonParseException("Disallowed data tag found");
+//		} else {
+//			int i = GsonHelper.getAsInt(object, "count", 1);
+//			return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(object, true);
+//		}
+//	}
 
 	public NonNullList<Ingredient> getRecipeItems() {
 		return recipeItems;
@@ -339,7 +335,7 @@ public class MultiToolRecipeShaped extends MultiToolRecipe {
 	}
 
 	@Override
-	public ItemStack assemble(WorkstationRecipeWrapper p_77572_1_) {
+	public ItemStack assemble(WorkstationRecipeWrapper p_77572_1_, RegistryAccess p_267165_) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -351,7 +347,7 @@ public class MultiToolRecipeShaped extends MultiToolRecipe {
 	}
 
 	@Override
-	public ItemStack getResultItem() {
+	public ItemStack getResultItem(RegistryAccess p_267165_) {
 		// TODO Auto-generated method stub
 		return null;
 	}

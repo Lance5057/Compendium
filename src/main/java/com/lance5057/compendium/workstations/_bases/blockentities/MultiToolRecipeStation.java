@@ -28,7 +28,7 @@ import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends BlockEntity {
-	protected final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createInteractionHandler);
+//	protected final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createInteractionHandler);
 	// private ItemStack ghostStack = ItemStack.EMPTY;
 	
 	public boolean recipeLocked = false;
@@ -51,20 +51,20 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.numSlots = slots;
 	}
 
-	@Nonnull
-	@Override
-	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-		if (side != Direction.DOWN)
-			if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-				return handler.cast();
-			}
-
-		LazyOptional<T> extra = getExtraCapability(cap, side);
-		if (extra != null)
-			return extra;
-
-		return super.getCapability(cap, side);
-	}
+//	@Nonnull
+//	@Override
+//	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+//		if (side != Direction.DOWN)
+//			if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+//				return handler.cast();
+//			}
+//
+//		LazyOptional<T> extra = getExtraCapability(cap, side);
+//		if (extra != null)
+//			return extra;
+//
+//		return super.getCapability(cap, side);
+//	}
 
 	public boolean isSlotEmpty(int slot) {
 		return handler.map(h -> h.getStackInSlot(slot).isEmpty()).get();

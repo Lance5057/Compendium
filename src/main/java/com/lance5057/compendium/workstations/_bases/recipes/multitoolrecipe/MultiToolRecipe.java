@@ -1,4 +1,4 @@
-package lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe;
+package com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe;
 
 import java.util.Map.Entry;
 
@@ -6,17 +6,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.crafting.IShapedRecipe;
+import net.neoforged.neoforge.common.crafting.IShapedRecipe;
 
 public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipeWrapper> {
 
@@ -59,7 +60,7 @@ public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipe
 	}
 
 	@Override
-	public ItemStack assemble(WorkstationRecipeWrapper p_44001_) {
+	public ItemStack assemble(WorkstationRecipeWrapper p_44001_, RegistryAccess p_267165_) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -94,19 +95,6 @@ public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipe
 
 		// map.put(" ", AnimatedRecipeItemUse.EMPTY);
 		return map;
-	}
-
-	public static ItemStack deserializeItem(JsonObject object) {
-		String s = GsonHelper.convertToString(object, "item");
-		Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
-			return new JsonSyntaxException("Unknown item '" + s + "'");
-		});
-		if (object.has("data")) {
-			throw new JsonParseException("Disallowed data tag found");
-		} else {
-			int i = GsonHelper.getAsInt(object, "count", 1);
-			return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(object, true);
-		}
 	}
 
 }

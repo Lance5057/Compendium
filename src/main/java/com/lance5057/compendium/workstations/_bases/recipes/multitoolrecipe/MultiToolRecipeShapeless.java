@@ -1,8 +1,8 @@
-package lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe;
+package com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe;
 
 import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -18,7 +18,7 @@ public class MultiToolRecipeShapeless implements IShapedRecipe<WorkstationRecipe
 	}
 
 	@Override
-	public ItemStack assemble(WorkstationRecipeWrapper p_44001_) {
+	public ItemStack assemble(WorkstationRecipeWrapper p_44001_, RegistryAccess p_267165_) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -29,13 +29,7 @@ public class MultiToolRecipeShapeless implements IShapedRecipe<WorkstationRecipe
 	}
 
 	@Override
-	public ItemStack getResultItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ResourceLocation getId() {
+	public ItemStack getResultItem(RegistryAccess p_267165_) {
 		// TODO Auto-generated method stub
 		return null;
 	}
