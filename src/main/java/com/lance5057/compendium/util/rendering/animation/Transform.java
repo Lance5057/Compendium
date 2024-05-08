@@ -1,6 +1,6 @@
-package lance5057.compendium.core.util.rendering.animation;
+package com.lance5057.compendium.util.rendering.animation;
 
-import com.mojang.math.Vector3f;
+import org.joml.Vector3f;
 
 public class Transform {
 	Vector3f translate;

@@ -1,4 +1,4 @@
-package lance5057.compendium.core.util.rendering.animation.floats;
+package com.lance5057.compendium.util.rendering.animation.floats;
 
 import com.google.gson.JsonObject;
 

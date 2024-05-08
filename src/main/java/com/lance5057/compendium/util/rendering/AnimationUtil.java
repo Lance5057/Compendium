@@ -1,4 +1,4 @@
-package lance5057.compendium.core.util.rendering;
+package com.lance5057.compendium.util.rendering;
 
 public class AnimationUtil {
 	// Static Methods

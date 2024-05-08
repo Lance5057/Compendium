@@ -1,36 +1,33 @@
 package com.lance5057.compendium.workstations._bases.recipes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.client.BlacklistedModel;
-import com.lance5057.compendium.recipes.RecipeItemUse;
 
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class AnimatedRecipeItemUse extends RecipeItemUse {
 
 	public final List<BlacklistedModel> model;
 
-	public static AnimatedRecipeItemUse EMPTY = new AnimatedRecipeItemUse(RecipeItemUse.EMPTY, BlacklistedModel.empty);
+	public static final AnimatedRecipeItemUse EMPTY = new AnimatedRecipeItemUse(RecipeItemUse.EMPTY, BlacklistedModel.empty);
 
-	public AnimatedRecipeItemUse(int uses, Ingredient tool, int count, boolean damage, BlacklistedModel... model) {
-		super(uses, tool, count, damage);
+	public AnimatedRecipeItemUse(int uses, Ingredient tool, int count, boolean damage, ResourceLocation loottable,
+			BlacklistedModel... model) {
+		super(uses, tool, count, damage, loottable);
 
 		this.model = List.of(model);
 	}
 
 	public AnimatedRecipeItemUse(RecipeItemUse riu, BlacklistedModel... model) {
-		super(riu.uses, riu.tool, riu.count, riu.damageTool);
+		super(riu.uses, riu.tool, riu.count, riu.damageTool, riu.lootTable);
 
-		if (model != null)
-			this.model = List.of(model);
-		else
-			this.model = new ArrayList<BlacklistedModel>();
+		this.model = List.of(model);
 	}
 
 	public static AnimatedRecipeItemUse read(JsonObject j) {
@@ -76,13 +73,13 @@ public class AnimatedRecipeItemUse extends RecipeItemUse {
 			BlacklistedModel.write(r.model.get(i), buffer);
 	}
 
-	public static JsonObject addProperty(AnimatedRecipeItemUse r) {
-		JsonObject o = RecipeItemUse.addProperty(r);
+	public static JsonObject addProperty(AnimatedRecipeItemUse recipeItemUse) {
+		JsonObject o = RecipeItemUse.addProperty(recipeItemUse);
 
-		if (r.model != null && !r.model.isEmpty()) {
+		if (recipeItemUse.model != null && !recipeItemUse.model.isEmpty()) {
 			JsonArray ja = new JsonArray();
-			for (int i = 0; i < r.model.size(); i++)
-				ja.add(BlacklistedModel.addProperty(r.model.get(i)));
+			for (int i = 0; i < recipeItemUse.model.size(); i++)
+				ja.add(BlacklistedModel.addProperty(recipeItemUse.model.get(i)));
 
 			o.add("models", ja);
 		}
