@@ -1,13 +1,11 @@
 package lance5057.compendium.core.workstations.craftinganvil;
 
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Quaternion;
 
-import lance5057.compendium.core.client.BlacklistedModel;
-import lance5057.compendium.core.client.RenderUtil;
-import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloat;
-import lance5057.compendium.core.util.rendering.animation.floats.AnimatedFloatVector3;
-import lance5057.compendium.core.util.rendering.animation.floats.AnimationFloatTransform;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -18,7 +16,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 
 public class CraftingAnvilRenderer implements BlockEntityRenderer<CraftingAnvilTE> {
 	int timer = 0;

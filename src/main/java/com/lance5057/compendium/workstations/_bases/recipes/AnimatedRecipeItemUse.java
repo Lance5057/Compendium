@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.client.BlacklistedModel;
+import com.lance5057.compendium.recipes.RecipeItemUse;
 
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.FriendlyByteBuf;

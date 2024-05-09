@@ -5,12 +5,13 @@ import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
+import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShaped;
+
 import lance5057.compendium.CompendiumContainers;
 import lance5057.compendium.CompendiumTags;
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShaped;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
@@ -21,12 +22,12 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class WorkstationContainer extends AbstractContainerMenu {
 	// private final CraftingInventory craftMatrix = new CraftingInventory(this, 5,

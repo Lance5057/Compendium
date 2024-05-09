@@ -1,12 +1,14 @@
-package lance5057.compendium.core.workstations.sawbuck;
+package com.lance5057.compendium.workstations.sawbuck;
 
 import com.google.gson.JsonObject;
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
+import com.lance5057.compendium.workstations._bases.interfaces.item.io.single.WorkstationSingleItemOut;
+import com.lance5057.compendium.workstations._bases.interfaces.loottable.io.WorkstationLootTableOut;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
+import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
+import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.interfaces.in.items.ISingleItemIn;
 
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
-import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
-import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.interfaces.in.items.ISingleItemIn;
 import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.interfaces.out.items.ILoottableOut;
 import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.interfaces.out.items.ISingleItemOut;
 import net.minecraft.core.NonNullList;
@@ -19,7 +21,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 
-public class SawBuckRecipe extends MultiToolRecipe implements ISingleItemIn, ISingleItemOut, ILoottableOut {
+public class SawBuckRecipe extends MultiToolRecipe implements ISingleItemIn, WorkstationSingleItemOut, WorkstationLootTableOut {
 
 	private final Ingredient input;
 	private final ResourceLocation loot;

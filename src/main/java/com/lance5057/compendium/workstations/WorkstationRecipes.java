@@ -1,58 +1,61 @@
-package lance5057.compendium.core.workstations;
+package com.lance5057.compendium.workstations;
 
-import lance5057.compendium.Reference;
-import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilRecipe;
-import lance5057.compendium.core.workstations.craftinganvil.CraftingAnvilRecipeSerializer;
-import lance5057.compendium.core.workstations.hammeringstation.HammeringStationRecipe;
-import lance5057.compendium.core.workstations.sawbuck.SawBuckRecipe;
-import lance5057.compendium.core.workstations.workstation.WorkstationRecipe;
-import lance5057.compendium.core.workstations.workstation.WorkstationRecipeSerializer;
-import net.minecraft.core.Registry;
+
+import java.util.function.Supplier;
+
+import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.workstations.craftinganvil.CraftingAnvilRecipe;
+import com.lance5057.compendium.workstations.craftinganvil.CraftingAnvilRecipeSerializer;
+import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe;
+import com.lance5057.compendium.workstations.sawbuck.SawBuckRecipe;
+import com.lance5057.compendium.workstations.sawbuck.SawBuckRecipe.Serializer;
+import com.lance5057.compendium.workstations.workstation.WorkstationRecipe;
+import com.lance5057.compendium.workstations.workstation.WorkstationRecipeSerializer;
+
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 //@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WorkstationRecipes {
 	private static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister
-			.create(ForgeRegistries.RECIPE_SERIALIZERS, Reference.MOD_ID);
+			.create(BuiltInRegistries.RECIPE_SERIALIZER, Compendium.MOD_ID);
 
-	public static final RegistryObject<RecipeSerializer<CraftingAnvilRecipe>> CRAFTING_ANVIL_SERIALIZER = RECIPE_SERIALIZERS
+	public static final Supplier<CraftingAnvilRecipeSerializer> CRAFTING_ANVIL_SERIALIZER = RECIPE_SERIALIZERS
 			.register("crafting_anvil", CraftingAnvilRecipeSerializer::new);
-	public static final RegistryObject<RecipeSerializer<WorkstationRecipe>> WORKSTATION_SERIALIZER = RECIPE_SERIALIZERS
+	public static final Supplier<WorkstationRecipeSerializer> WORKSTATION_SERIALIZER = RECIPE_SERIALIZERS
 			.register("workstation", WorkstationRecipeSerializer::new);
-	public static final RegistryObject<RecipeSerializer<SawBuckRecipe>> SAWBUCK_SERIALIZER = RECIPE_SERIALIZERS
+	public static final Supplier<Serializer> SAWBUCK_SERIALIZER = RECIPE_SERIALIZERS
 			.register("sawbuck", SawBuckRecipe.Serializer::new);
-	public static final RegistryObject<RecipeSerializer<HammeringStationRecipe>> HAMMERINGSTATION_SERIALIZER = RECIPE_SERIALIZERS
+	public static final Supplier<com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe.Serializer> HAMMERINGSTATION_SERIALIZER = RECIPE_SERIALIZERS
 			.register("hammeringstation", HammeringStationRecipe.Serializer::new);
 
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
-			.create(Registry.RECIPE_TYPE_REGISTRY, Reference.MOD_ID);
+			.create(BuiltInRegistries.RECIPE_TYPE, Compendium.MOD_ID);
 
-	public static final RegistryObject<RecipeType<CraftingAnvilRecipe>> CRAFTING_ANVIL_RECIPE = RECIPE_TYPES
+	public static final Supplier<RecipeType<CraftingAnvilRecipe>> CRAFTING_ANVIL_RECIPE = RECIPE_TYPES
 			.register("crafting_anvil_recipe_type", () -> new RecipeType<CraftingAnvilRecipe>() {
 			});
-	public static final RegistryObject<RecipeType<WorkstationRecipe>> WORKSTATION_RECIPE = RECIPE_TYPES
+	public static final Supplier<RecipeType<WorkstationRecipe>> WORKSTATION_RECIPE = RECIPE_TYPES
 			.register("workstation_recipe_type", () -> new RecipeType<WorkstationRecipe>() {
 			});
-	public static final RegistryObject<RecipeType<SawBuckRecipe>> SAWBUCK_RECIPE = RECIPE_TYPES
+	public static final Supplier<RecipeType<SawBuckRecipe>> SAWBUCK_RECIPE = RECIPE_TYPES
 			.register("sawbuck_recipe_type", () -> new RecipeType<SawBuckRecipe>() {
 			});
-	public static final RegistryObject<RecipeType<HammeringStationRecipe>> HAMMERINGSTATION_RECIPE = RECIPE_TYPES
+	public static final Supplier<RecipeType<HammeringStationRecipe>> HAMMERINGSTATION_RECIPE = RECIPE_TYPES
 			.register("hammeringstation_recipe_type", () -> new RecipeType<HammeringStationRecipe>() {
 			});
 
 	// public static RecipeType<CraftingAnvilRecipe> CRAFTING_ANVI L_RECIPE;
 //
-//	public static final RegistryObject<RecipeSerializer<HammeringStationRecipe>> HAMMERING_STATION_SERIALIZER = RECIPE_SERIALIZERS
+//	public static final Supplier<RecipeType<HammeringStationRecipe>> HAMMERING_STATION_SERIALIZER = RECIPE_SERIALIZERS
 //			.register("hammering_station", HammeringStationRecipeSerializer::new);
 //	
-//	public static final RegistryObject<RecipeSerializer<SawhorseStationRecipe>> SAWHORSE_STATION_SERIALIZER = RECIPE_SERIALIZERS
+//	public static final Supplier<RecipeType<SawhorseStationRecipe>> SAWHORSE_STATION_SERIALIZER = RECIPE_SERIALIZERS
 //			.register("sawhorse_station", SawhorseStationRecipeSerializer::new);
-//	public static final RegistryObject<RecipeSerializer<ScrappingTableRecipe>> SCRAPPING_TABLE_SERIALIZER = RECIPE_SERIALIZERS
+//	public static final Supplier<RecipeType<ScrappingTableRecipe>> SCRAPPING_TABLE_SERIALIZER = RECIPE_SERIALIZERS
 //			.register("scrapping_table", ScrappingTableRecipeSerializer::new);
 //
 //	public static final RegistryObject<SimpleRecipeSerializer<CompendiumShieldRecipe>> CRAFTING_SPECIAL_SHIELD = RECIPE_SERIALIZERS

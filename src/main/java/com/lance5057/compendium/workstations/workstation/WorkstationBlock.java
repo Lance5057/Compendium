@@ -1,4 +1,4 @@
-package lance5057.compendium.core.workstations.workstation;
+package com.lance5057.compendium.workstations.workstation;
 
 import java.util.stream.IntStream;
 
@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -33,10 +32,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.network.NetworkHooks;
 
 public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterloggedBlock {
 
@@ -45,7 +41,7 @@ public class WorkstationBlock extends Block implements EntityBlock, SimpleWaterl
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
 
 	public WorkstationBlock() {
-		super(Block.Properties.of(Material.STONE).strength(3, 4).noOcclusion());
+		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion());
 		this.registerDefaultState(
 				this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM));
 	}

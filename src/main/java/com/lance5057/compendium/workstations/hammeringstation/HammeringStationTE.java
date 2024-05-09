@@ -1,16 +1,14 @@
 package lance5057.compendium.core.workstations.hammeringstation;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
+import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
+
 import lance5057.compendium.CompendiumTileEntities;
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations._bases.blockentities.MultiToolRecipeStation;
-import lance5057.compendium.core.workstations.sawbuck.SawBuckRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -26,9 +24,9 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationRecipe> {
 

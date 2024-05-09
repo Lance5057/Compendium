@@ -3,9 +3,8 @@ package lance5057.compendium.core.workstations.workstation;
 import java.util.Map;
 
 import com.google.gson.JsonObject;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 
-import lance5057.compendium.Reference;
-import lance5057.compendium.core.workstations._bases.recipes.AnimatedRecipeItemUse;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraftforge.common.crafting.CraftingHelper;
+import net.neoforged.neoforge.common.crafting.CraftingHelper;
 
 public class WorkstationRecipeSerializer implements RecipeSerializer<WorkstationRecipe> {
 	private static final ResourceLocation NAME = new ResourceLocation(Reference.MOD_ID, "crafting_anvil_shaped");

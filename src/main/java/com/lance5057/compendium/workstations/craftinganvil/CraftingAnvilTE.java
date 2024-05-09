@@ -1,12 +1,12 @@
 package lance5057.compendium.core.workstations.craftinganvil;
 
-import java.util.List;
 import java.util.Optional;
 
+import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
+import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
+
 import lance5057.compendium.CompendiumTileEntities;
-import lance5057.compendium.core.util.recipes.WorkstationRecipeWrapper;
-import lance5057.compendium.core.workstations.WorkstationRecipes;
-import lance5057.compendium.core.workstations._bases.blockentities.MultiToolRecipeStation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -21,9 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class CraftingAnvilTE extends MultiToolRecipeStation<CraftingAnvilRecipe> implements MenuProvider {
 	public static final String SCREEN_TITLE = "screen.workstations.crafting_anvil";
