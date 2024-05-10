@@ -3,6 +3,8 @@ package com.lance5057.compendium;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
+
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -16,6 +18,8 @@ public class Compendium {
 
 	public Compendium(IEventBus bus, Dist dist) {
 
+		IndexInitialResourceLoader.init();
+		
 		CompendiumItems.ITEMS.register(bus);
 		
 		CompendiumTabs.TABS.register(bus);

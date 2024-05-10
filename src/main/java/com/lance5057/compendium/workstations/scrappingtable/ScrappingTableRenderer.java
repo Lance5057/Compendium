@@ -1,4 +1,4 @@
-package lance5057.compendium.core.workstations.scrappingtable;
+//package lance5057.compendium.core.workstations.scrappingtable;
 //package lance5057.compendium.core.workstations.client;
 //
 //import com.mojang.blaze3d.matrix.MatrixStack;

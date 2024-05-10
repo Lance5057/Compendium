@@ -1,4 +1,4 @@
-package lance5057.compendium.core.workstations.scrappingtable;
+//package lance5057.compendium.core.workstations.scrappingtable;
 //package lance5057.compendium.core.workstations.recipes.serializers;
 //
 //import java.util.Map.Entry;

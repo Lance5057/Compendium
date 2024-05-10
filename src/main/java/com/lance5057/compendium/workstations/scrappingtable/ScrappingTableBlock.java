@@ -1,4 +1,3 @@
-package lance5057.compendium.core.workstations.scrappingtable;
 //package lance5057.compendium.core.workstations.blocks;
 //
 //import java.util.stream.IntStream;
