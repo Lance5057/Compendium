@@ -1,11 +1,11 @@
-package com.lance5057.compendium.index.material.basetypes;
+package com.lance5057.compendium.index.material.base;
 
 public class MaterialMetal {
 	public boolean loadIngot;
 	public boolean loadStorageBlock;
 	public boolean loadNugget;
 	
-	String stringTest;
+	public String stringTest;
 	
 	public MaterialMetal()
 	{
