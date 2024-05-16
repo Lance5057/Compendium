@@ -12,20 +12,18 @@ import org.slf4j.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
-
 public class IndexInitialResourceLoader {
-	//https://github.com/dyhe83/Gson-Polymorphism-Example/tree/master
-	
+	// https://github.com/dyhe83/Gson-Polymorphism-Example/tree/master
+
 	private static final Logger LOGGER = LogUtils.getLogger();
 	private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping()
 			.registerTypeAdapterFactory(new MaterialTypeAdapterFactory()).create();
-	private static final Path path = Minecraft.getInstance().getResourcePackDirectory()
-			.resolve("Compendium\\src\\main\\resources\\data\\materials\\");
+	private static Path path = Path.of(".\\resourcepacks\\Compendium\\src\\main\\resources\\data\\materials");
 
 	public static void init() {
 		buildDefaults();
@@ -33,7 +31,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-		buildDefault(new MaterialMetal("iron", false, false, false));
+		buildDefault(new MaterialMetal("prototypium", true, true, true));
 	}
 
 	static void buildDefault(_MaterialBase mat) {
@@ -41,7 +39,7 @@ public class IndexInitialResourceLoader {
 		try {
 			Files.createDirectories(path);
 			Path p = path.resolve(mat.name + ".json");
-			if (Files.exists(path))
+			if (Files.exists(p))
 				return;
 			else {
 				Writer w = Files.newBufferedWriter(p);
@@ -63,15 +61,15 @@ public class IndexInitialResourceLoader {
 			paths.forEach(p -> {
 				try {
 					Reader r = Files.newBufferedReader(p);
-					
-					_MaterialBase b = GSON.fromJson(r, _MaterialBase.class);
+
+					CompendiumIndex.index.add(GSON.fromJson(r, _MaterialBase.class));
 					r.close();
-					
+
 				} catch (IOException e) {
 					LOGGER.error(e.getLocalizedMessage());
 				}
 			});
-			
+
 		} catch (IOException e) {
 			LOGGER.error(e.getLocalizedMessage());
 		}

@@ -1,8 +1,11 @@
 package com.lance5057.compendium;
 
+import com.lance5057.compendium.index.CompendiumIndex;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -15,5 +18,10 @@ public class CompendiumTabs {
 			() -> CreativeModeTab.builder().title(Component.translatable("itemGroup.compendium.tab"))
 					.icon(() -> new ItemStack(CompendiumItems.SAWDUST.get())).displayItems((parameters, output) -> {
 						output.accept(CompendiumItems.SAWDUST);
+
+						for(DeferredHolder<Item, ? extends Item> i : CompendiumIndex.ITEMS.getEntries())
+						{
+							output.accept(i.get());
+						}
 					}).build());
 }
