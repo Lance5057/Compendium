@@ -26,64 +26,36 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class MaterialMetal extends _MaterialBase {
-	public boolean loadIngot;
-	public boolean loadStorageBlock;
-	public boolean loadNugget;
+public class MaterialGem extends _MaterialBase {
 
-	public DeferredItem<Item> INGOT;
-	public DeferredItem<Item> NUGGET;
+	public boolean loadGem;
+	public boolean loadStorageBlock;
+	public boolean loadShard;
+
+	public DeferredItem<Item> GEM;
+	public DeferredItem<Item> SHARD;
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
 
-	public MaterialMetal(String name) {
+	public MaterialGem(String name) {
 		this(name, true, true, true);
 	}
 
-	public MaterialMetal(String name, boolean ingot, boolean block, boolean nugget) {
+	public MaterialGem(String name, boolean ingot, boolean block, boolean nugget) {
 		super(name);
-		loadIngot = ingot;
+		loadGem = ingot;
 		loadStorageBlock = block;
-		loadNugget = nugget;
+		loadShard = nugget;
 
 		this.type = Serializer.CLASS_TYPE;
 	}
 
-	public class Serializer implements JsonSerializer<MaterialMetal>, JsonDeserializer<MaterialMetal> {
-
-		public static final String CLASS_TYPE = "METAL";
-
-		@Override
-		public MaterialMetal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-				throws JsonParseException {
-			JsonObject jsonObj = json.getAsJsonObject();
-			String className = jsonObj.get(CLASS_TYPE).getAsString();
-
-			try {
-				Class<?> clz = Class.forName(className);
-				return context.deserialize(json, clz);
-			} catch (ClassNotFoundException e) {
-				throw new JsonParseException(e);
-			}
-		}
-
-		@Override
-		public JsonElement serialize(MaterialMetal src, Type typeOfSrc, JsonSerializationContext context) {
-			Gson gson = new Gson();
-			gson.toJson(src, src.getClass());
-			JsonElement jsonElement = gson.toJsonTree(src);
-			jsonElement.getAsJsonObject().addProperty(CLASS_TYPE, src.getClass().getCanonicalName());
-			return jsonElement;
-		}
-
-	}
-
 	@Override
 	public void setup() {
-		if (this.loadIngot)
-			INGOT = CompendiumIndex.ITEMS.register(this.name + "_ingot", () -> new Item(new Item.Properties()));
-		if (this.loadNugget)
-			NUGGET = CompendiumIndex.ITEMS.register(this.name + "_nugget", () -> new Item(new Item.Properties()));
+		if (this.loadGem)
+			GEM = CompendiumIndex.ITEMS.register(this.name + "_gem", () -> new Item(new Item.Properties()));
+		if (this.loadShard)
+			SHARD = CompendiumIndex.ITEMS.register(this.name + "_shard", () -> new Item(new Item.Properties()));
 		if (this.loadStorageBlock) {
 			BLOCK = CompendiumIndex.BLOCKS.register(this.name + "_block",
 					() -> new Block(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
@@ -100,10 +72,10 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
-		if (this.loadNugget)
-			tmp.basicItem(this.NUGGET.get());
-		if (this.loadIngot)
-			tmp.basicItem(this.INGOT.get());
+		if (this.loadShard)
+			tmp.basicItem(this.SHARD.get());
+		if (this.loadGem)
+			tmp.basicItem(this.GEM.get());
 		if (this.loadStorageBlock)
 			ItemModels.forBlockItem(tmp, BLOCK_ITEM, name);
 	}
@@ -111,10 +83,10 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
-		if (this.loadNugget)
-			lp.add(this.NUGGET.get(), locName + " Nugget");
-		if (this.loadIngot)
-			lp.add(this.INGOT.get(), locName + " Ingot");
+		if (this.loadShard)
+			lp.add(this.SHARD.get(), locName + " Shard");
+		if (this.loadGem)
+			lp.add(this.GEM.get(), locName + " Gem");
 		if (this.loadStorageBlock)
 			lp.add(this.BLOCK_ITEM.get(), locName + " Block");
 
@@ -135,9 +107,38 @@ public class MaterialMetal extends _MaterialBase {
 	public void tab(Output output) {
 		if (this.loadStorageBlock)
 			output.accept(BLOCK_ITEM);
-		if (this.loadIngot)
-			output.accept(INGOT);
-		if (this.loadNugget)
-			output.accept(NUGGET);
+		if (this.loadGem)
+			output.accept(GEM);
+		if (this.loadShard)
+			output.accept(SHARD);
+	}
+
+	public class Serializer implements JsonSerializer<MaterialGem>, JsonDeserializer<MaterialGem> {
+
+		public static final String CLASS_TYPE = "GEM";
+
+		@Override
+		public MaterialGem deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+				throws JsonParseException {
+			JsonObject jsonObj = json.getAsJsonObject();
+			String className = jsonObj.get(CLASS_TYPE).getAsString();
+
+			try {
+				Class<?> clz = Class.forName(className);
+				return context.deserialize(json, clz);
+			} catch (ClassNotFoundException e) {
+				throw new JsonParseException(e);
+			}
+		}
+
+		@Override
+		public JsonElement serialize(MaterialGem src, Type typeOfSrc, JsonSerializationContext context) {
+			Gson gson = new Gson();
+			gson.toJson(src, src.getClass());
+			JsonElement jsonElement = gson.toJsonTree(src);
+			jsonElement.getAsJsonObject().addProperty(CLASS_TYPE, src.getClass().getCanonicalName());
+			return jsonElement;
+		}
+
 	}
 }

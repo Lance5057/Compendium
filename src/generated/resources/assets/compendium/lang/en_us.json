@@ -1,5 +1,9 @@
 {
   "block.compendium.prototypium_block": "Prototypium Block",
+  "block.compendium.prototypium_gem_block": "Prototypium_gem Block",
+  "block.compendium.prototypium_wood_planks": "Prototypium_wood Planks",
+  "item.compendium.prototypium_gem_gem": "Prototypium_gem Gem",
+  "item.compendium.prototypium_gem_shard": "Prototypium_gem Shard",
   "item.compendium.prototypium_ingot": "Prototypium Ingot",
   "item.compendium.prototypium_nugget": "Prototypium Nugget"
 }

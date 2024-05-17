@@ -13,7 +13,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.base.MaterialGem;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.mojang.logging.LogUtils;
 
@@ -32,6 +34,8 @@ public class IndexInitialResourceLoader {
 
 	static void buildDefaults() {
 		buildDefault(new MaterialMetal("prototypium", true, true, true));
+		buildDefault(new MaterialWood("prototypium_wood", true));
+		buildDefault(new MaterialGem("prototypium_gem", true, true, true));
 	}
 
 	static void buildDefault(_MaterialBase mat) {
@@ -62,13 +66,20 @@ public class IndexInitialResourceLoader {
 				try {
 					Reader r = Files.newBufferedReader(p);
 
-					CompendiumIndex.index.add(GSON.fromJson(r, _MaterialBase.class));
+					_MaterialBase m = GSON.fromJson(r, _MaterialBase.class);
+					if (m != null) {
+						CompendiumIndex.index.add(m);
+
+					} else
+						LOGGER.error("Json at " + p + " returned null object! Missing Type?");
+
 					r.close();
 
 				} catch (IOException e) {
 					LOGGER.error(e.getLocalizedMessage());
 				}
 			});
+			paths.close();
 
 		} catch (IOException e) {
 			LOGGER.error(e.getLocalizedMessage());
