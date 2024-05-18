@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public abstract class _MaterialExtention {
+public abstract class _MaterialExtension {
 	public abstract void setup(_MaterialBase base);
 
 	public abstract void tab(_MaterialBase base, Output output);

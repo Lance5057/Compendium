@@ -2,16 +2,14 @@ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.MaterialTypeSerializer;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -41,41 +39,10 @@ public class MaterialMetal extends _MaterialBase {
 	}
 
 	public MaterialMetal(String name, boolean ingot, boolean block, boolean nugget) {
-		super(name);
+		super(name, "METAL");
 		loadIngot = ingot;
 		loadStorageBlock = block;
 		loadNugget = nugget;
-
-		this.type = Serializer.CLASS_TYPE;
-	}
-
-	public class Serializer implements JsonSerializer<MaterialMetal>, JsonDeserializer<MaterialMetal> {
-
-		public static final String CLASS_TYPE = "METAL";
-
-		@Override
-		public MaterialMetal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-				throws JsonParseException {
-			JsonObject jsonObj = json.getAsJsonObject();
-			String className = jsonObj.get(CLASS_TYPE).getAsString();
-
-			try {
-				Class<?> clz = Class.forName(className);
-				return context.deserialize(json, clz);
-			} catch (ClassNotFoundException e) {
-				throw new JsonParseException(e);
-			}
-		}
-
-		@Override
-		public JsonElement serialize(MaterialMetal src, Type typeOfSrc, JsonSerializationContext context) {
-			Gson gson = new Gson();
-			gson.toJson(src, src.getClass());
-			JsonElement jsonElement = gson.toJsonTree(src);
-			jsonElement.getAsJsonObject().addProperty(CLASS_TYPE, src.getClass().getCanonicalName());
-			return jsonElement;
-		}
-
 	}
 
 	@Override
@@ -139,5 +106,38 @@ public class MaterialMetal extends _MaterialBase {
 			output.accept(INGOT);
 		if (this.loadNugget)
 			output.accept(NUGGET);
+	}
+
+	public static class Serializer extends MaterialTypeSerializer<MaterialMetal> {
+
+//		public boolean loadIngot;
+//		public boolean loadStorageBlock;
+//		public boolean loadNugget;
+
+		@Override
+		public MaterialMetal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+				throws JsonParseException {
+			JsonObject j = json.getAsJsonObject();
+
+			String name = j.get("name").getAsString();
+			boolean ingot = j.get("loadIngot").getAsBoolean();
+			boolean block = j.get("loadStorageBlock").getAsBoolean();
+			boolean nugget = j.get("loadNugget").getAsBoolean();
+
+			return new MaterialMetal(name, ingot, block, nugget);
+		}
+
+		@Override
+		public JsonElement serialize(MaterialMetal src, Type typeOfSrc, JsonSerializationContext context) {
+			JsonObject j = new JsonObject();
+
+			j.addProperty("name", src.name);
+			j.addProperty("loadIngot", src.loadIngot);
+			j.addProperty("loadStorageBlock", src.loadStorageBlock);
+			j.addProperty("loadNugget", src.loadNugget);
+
+			return j;
+		}
+
 	}
 }

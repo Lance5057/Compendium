@@ -12,6 +12,7 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.MaterialTypeSerializer;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -41,13 +42,11 @@ public class MaterialGem extends _MaterialBase {
 		this(name, true, true, true);
 	}
 
-	public MaterialGem(String name, boolean ingot, boolean block, boolean nugget) {
-		super(name);
-		loadGem = ingot;
+	public MaterialGem(String name, boolean gem, boolean block, boolean shard) {
+		super(name, "GEM");
+		loadGem = gem;
 		loadStorageBlock = block;
-		loadShard = nugget;
-
-		this.type = Serializer.CLASS_TYPE;
+		loadShard = shard;
 	}
 
 	@Override
@@ -113,31 +112,31 @@ public class MaterialGem extends _MaterialBase {
 			output.accept(SHARD);
 	}
 
-	public class Serializer implements JsonSerializer<MaterialGem>, JsonDeserializer<MaterialGem> {
-
-		public static final String CLASS_TYPE = "GEM";
+	public static class Serializer extends MaterialTypeSerializer<MaterialGem> {
 
 		@Override
 		public MaterialGem deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
-			JsonObject jsonObj = json.getAsJsonObject();
-			String className = jsonObj.get(CLASS_TYPE).getAsString();
+			JsonObject j = json.getAsJsonObject();
 
-			try {
-				Class<?> clz = Class.forName(className);
-				return context.deserialize(json, clz);
-			} catch (ClassNotFoundException e) {
-				throw new JsonParseException(e);
-			}
+			String name = j.get("name").getAsString();
+			boolean loadGem = j.get("loadGem").getAsBoolean();
+			boolean loadStorageBlock = j.get("loadStorageBlock").getAsBoolean();
+			boolean loadShard = j.get("loadShard").getAsBoolean();
+
+			return new MaterialGem(name, loadGem, loadStorageBlock, loadShard);
 		}
 
 		@Override
 		public JsonElement serialize(MaterialGem src, Type typeOfSrc, JsonSerializationContext context) {
-			Gson gson = new Gson();
-			gson.toJson(src, src.getClass());
-			JsonElement jsonElement = gson.toJsonTree(src);
-			jsonElement.getAsJsonObject().addProperty(CLASS_TYPE, src.getClass().getCanonicalName());
-			return jsonElement;
+			JsonObject j = new JsonObject();
+
+			j.addProperty("name", src.name);
+			j.addProperty("loadGem", src.loadGem);
+			j.addProperty("loadStorageBlock", src.loadStorageBlock);
+			j.addProperty("loadShard", src.loadShard);
+
+			return j;
 		}
 
 	}

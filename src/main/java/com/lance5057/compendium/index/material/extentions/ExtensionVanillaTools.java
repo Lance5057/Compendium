@@ -4,14 +4,18 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class ExtensionVanillaTools extends _MaterialExtention {
-
+public class ExtensionVanillaTools extends _MaterialExtension {
+	boolean loadSword;
+	boolean loadAxe;
+	boolean loadShovel;
+	boolean loadHoe;
+	boolean loadPickaxe;
+	
 	@Override
 	public void setup(_MaterialBase base) {
 	}

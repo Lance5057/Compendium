@@ -5,6 +5,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import org.slf4j.Logger;
@@ -13,18 +14,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base.MaterialGem;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
 import com.mojang.logging.LogUtils;
 
 public class IndexInitialResourceLoader {
 	// https://github.com/dyhe83/Gson-Polymorphism-Example/tree/master
 
 	private static final Logger LOGGER = LogUtils.getLogger();
-	private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping()
-			.registerTypeAdapterFactory(new MaterialTypeAdapterFactory()).create();
+	private static final Gson GSON = MaterialTypeRegistry.setupGson().create();
 	private static Path path = Path.of(".\\resourcepacks\\Compendium\\src\\main\\resources\\data\\materials");
 
 	public static void init() {
@@ -33,7 +35,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-		buildDefault(new MaterialMetal("prototypium", true, true, true));
+		buildDefault(new MaterialMetal("prototypium", true, true, true).addExtension(new ExtensionVanillaTools()));
 		buildDefault(new MaterialWood("prototypium_wood", true));
 		buildDefault(new MaterialGem("prototypium_gem", true, true, true));
 	}
@@ -70,8 +72,7 @@ public class IndexInitialResourceLoader {
 					if (m != null) {
 						CompendiumIndex.index.add(m);
 
-					} else
-						LOGGER.error("Json at " + p + " returned null object! Missing Type?");
+					}
 
 					r.close();
 

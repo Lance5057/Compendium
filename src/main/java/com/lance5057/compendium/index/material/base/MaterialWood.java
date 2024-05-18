@@ -2,16 +2,14 @@ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.MaterialTypeSerializer;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -37,11 +35,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public MaterialWood(String name, boolean planks) {
-		super(name);
+		super(name, "WOOD");
 
 		this.loadPlanks = planks;
-
-		this.type = Serializer.CLASS_TYPE;
 	}
 
 	@Override
@@ -91,31 +87,27 @@ public class MaterialWood extends _MaterialBase {
 
 	}
 
-	public class Serializer implements JsonSerializer<MaterialWood>, JsonDeserializer<MaterialWood> {
-
-		public static final String CLASS_TYPE = "WOOD";
+	public static class Serializer extends MaterialTypeSerializer<MaterialWood> {
 
 		@Override
 		public MaterialWood deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
-			JsonObject jsonObj = json.getAsJsonObject();
-			String className = jsonObj.get(CLASS_TYPE).getAsString();
+			JsonObject j = json.getAsJsonObject();
 
-			try {
-				Class<?> clz = Class.forName(className);
-				return context.deserialize(json, clz);
-			} catch (ClassNotFoundException e) {
-				throw new JsonParseException(e);
-			}
+			String name = j.get("name").getAsString();
+			boolean plank = j.get("loadPlanks").getAsBoolean();
+
+			return new MaterialWood(name, plank);
 		}
 
 		@Override
 		public JsonElement serialize(MaterialWood src, Type typeOfSrc, JsonSerializationContext context) {
-			Gson gson = new Gson();
-			gson.toJson(src, src.getClass());
-			JsonElement jsonElement = gson.toJsonTree(src);
-			jsonElement.getAsJsonObject().addProperty(CLASS_TYPE, src.getClass().getCanonicalName());
-			return jsonElement;
+			JsonObject j = new JsonObject();
+
+			j.addProperty("name", src.name);
+			j.addProperty("loadPlanks", src.loadPlanks);
+
+			return j;
 		}
 
 	}
