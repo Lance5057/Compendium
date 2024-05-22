@@ -43,7 +43,7 @@ public class MaterialGem extends _MaterialBase {
 	}
 
 	public MaterialGem(String name, boolean gem, boolean block, boolean shard) {
-		super(name, "GEM");
+		super(name);
 		loadGem = gem;
 		loadStorageBlock = block;
 		loadShard = shard;
@@ -114,6 +114,10 @@ public class MaterialGem extends _MaterialBase {
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialGem> {
 
+		public Serializer() {
+			super("GEM");
+		}
+
 		@Override
 		public MaterialGem deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
@@ -132,6 +136,7 @@ public class MaterialGem extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("type", type);
 			j.addProperty("loadGem", src.loadGem);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
 			j.addProperty("loadShard", src.loadShard);

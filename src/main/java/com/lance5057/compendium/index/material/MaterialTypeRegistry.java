@@ -24,7 +24,13 @@ public class MaterialTypeRegistry {
 		return g;
 	}
 
+	public static MaterialTypeSerializer<?> getSerializer(String s) {
+		return serializers.entrySet().stream().filter(e -> e.getValue().getType().equals(s)).map(Map.Entry::getValue)
+				.findFirst().orElse(null);
+	}
+
 	static {
+		serializers.put(_MaterialBase.class, new _MaterialBase.Serializer());
 		serializers.put(MaterialMetal.class, new MaterialMetal.Serializer());
 		serializers.put(MaterialWood.class, new MaterialWood.Serializer());
 		serializers.put(MaterialGem.class, new MaterialGem.Serializer());

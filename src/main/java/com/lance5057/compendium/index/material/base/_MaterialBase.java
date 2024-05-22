@@ -1,19 +1,31 @@
 package com.lance5057.compendium.index.material.base;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.MaterialTypeRegistry;
+import com.lance5057.compendium.index.material.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 
 public abstract class _MaterialBase implements IIndexEntry {
-	public final String TYPE;
+//	public final String TYPE;
 	public String name;
 
 	public List<_MaterialExtension> extensions;
 
-	public _MaterialBase(String name, String type) {
-		this.TYPE = type;
+	public _MaterialBase(String name) {
+
 		this.name = name;
+
+		extensions = new ArrayList<_MaterialExtension>();
 	}
 
 	@Override
@@ -28,5 +40,40 @@ public abstract class _MaterialBase implements IIndexEntry {
 	public _MaterialBase addExtension(_MaterialExtension x) {
 		extensions.add(x);
 		return this;
+	}
+
+	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {
+
+		public Serializer() {
+			super("BASE");
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public _MaterialBase deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+				throws JsonParseException {
+			JsonObject j = json.getAsJsonObject();
+
+			String type = j.get("type").getAsString();
+			
+//			JsonArray extensionsArray = obj.getAsJsonArray("extensions");
+//
+//			for (JsonElement extensionElement : extensionsArray) {
+//				context.serialize(extensionElement, _MaterialExtension.class);
+//			}
+
+			return MaterialTypeRegistry.getSerializer(type).deserialize(json, typeOfT, context);
+		}
+
+		@Override
+		public JsonElement serialize(_MaterialBase src, Type typeOfSrc, JsonSerializationContext context) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("type", type);
+			
+
+			context.serialize(src);
+			return obj;
+		}
+
 	}
 }

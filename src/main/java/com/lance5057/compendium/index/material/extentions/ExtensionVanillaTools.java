@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.material.extentions;
 
+import com.google.gson.JsonObject;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -52,6 +53,18 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public JsonObject serialize(JsonObject j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deserialize(JsonObject j) {
 		// TODO Auto-generated method stub
 		
 	}

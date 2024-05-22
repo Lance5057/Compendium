@@ -35,7 +35,7 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public MaterialWood(String name, boolean planks) {
-		super(name, "WOOD");
+		super(name);
 
 		this.loadPlanks = planks;
 	}
@@ -89,6 +89,10 @@ public class MaterialWood extends _MaterialBase {
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialWood> {
 
+		public Serializer() {
+			super("WOOD");
+		}
+
 		@Override
 		public MaterialWood deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
@@ -105,6 +109,7 @@ public class MaterialWood extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("type", type);
 			j.addProperty("loadPlanks", src.loadPlanks);
 
 			return j;

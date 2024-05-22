@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.material.extentions;
 
+import com.google.gson.JsonObject;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -23,4 +24,8 @@ public abstract class _MaterialExtension {
 	public abstract void recipes(_MaterialBase base, RecipeOutput consumer);
 
 	public abstract void blockLoot(_MaterialBase base, BlockLootSubProvider blp);
+	
+	public abstract JsonObject serialize(JsonObject j);
+	
+	public abstract void deserialize(JsonObject j);
 }

@@ -39,7 +39,7 @@ public class MaterialMetal extends _MaterialBase {
 	}
 
 	public MaterialMetal(String name, boolean ingot, boolean block, boolean nugget) {
-		super(name, "METAL");
+		super(name);
 		loadIngot = ingot;
 		loadStorageBlock = block;
 		loadNugget = nugget;
@@ -109,10 +109,9 @@ public class MaterialMetal extends _MaterialBase {
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialMetal> {
-
-//		public boolean loadIngot;
-//		public boolean loadStorageBlock;
-//		public boolean loadNugget;
+		public Serializer() {
+			super("METAL");
+		}
 
 		@Override
 		public MaterialMetal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
@@ -120,6 +119,7 @@ public class MaterialMetal extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			
 			boolean ingot = j.get("loadIngot").getAsBoolean();
 			boolean block = j.get("loadStorageBlock").getAsBoolean();
 			boolean nugget = j.get("loadNugget").getAsBoolean();
@@ -132,10 +132,13 @@ public class MaterialMetal extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("type", type);
 			j.addProperty("loadIngot", src.loadIngot);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
 			j.addProperty("loadNugget", src.loadNugget);
 
+			src.extensions.forEach(x -> x.serialize(j));
+			
 			return j;
 		}
 
