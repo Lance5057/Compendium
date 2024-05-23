@@ -2,6 +2,7 @@ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -9,7 +10,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.material.MaterialTypeSerializer;
+import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -119,10 +120,17 @@ public class MaterialMetal extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
-			
+
 			boolean ingot = j.get("loadIngot").getAsBoolean();
 			boolean block = j.get("loadStorageBlock").getAsBoolean();
 			boolean nugget = j.get("loadNugget").getAsBoolean();
+
+			JsonArray extensionsArray = j.getAsJsonArray("extensions");
+
+			if (extensionsArray != null)
+				for (JsonElement extensionElement : extensionsArray) {
+					context.deserialize(extensionElement, _MaterialExtension.class);
+				}
 
 			return new MaterialMetal(name, ingot, block, nugget);
 		}
@@ -137,7 +145,12 @@ public class MaterialMetal extends _MaterialBase {
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
 			j.addProperty("loadNugget", src.loadNugget);
 
-			src.extensions.forEach(x -> x.serialize(j));
+			JsonArray ext = new JsonArray();
+
+			for (_MaterialExtension e : src.extensions)
+				ext.add(context.serialize(e));
+
+			j.add("extensions", ext);
 			
 			return j;
 		}

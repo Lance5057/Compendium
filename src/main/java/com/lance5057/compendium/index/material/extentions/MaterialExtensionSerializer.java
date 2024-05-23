@@ -1,14 +1,13 @@
-package com.lance5057.compendium.index.material;
+package com.lance5057.compendium.index.material.extentions;
 
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
-public abstract class MaterialTypeSerializer<T extends _MaterialBase>
+public abstract class MaterialExtensionSerializer<T extends _MaterialExtension>
 		implements JsonSerializer<T>, JsonDeserializer<T> {
 	public final String type;
 
-	public MaterialTypeSerializer(String type) {
+	public MaterialExtensionSerializer(String type) {
 		this.type = type;
 	}
 

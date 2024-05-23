@@ -5,13 +5,11 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
@@ -35,7 +33,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-		buildDefault(new MaterialMetal("prototypium", true, true, true).addExtension(new ExtensionVanillaTools()));
+		buildDefault(new MaterialMetal("prototypium", true, true, true).addExtension(new ExtensionVanillaTools(true, true, true, true, true)));
 		buildDefault(new MaterialWood("prototypium_wood", true));
 		buildDefault(new MaterialGem("prototypium_gem", true, true, true));
 	}

@@ -6,14 +6,25 @@ import java.util.Map;
 import com.google.gson.GsonBuilder;
 import com.lance5057.compendium.index.material.base.MaterialGem;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
+import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
+import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 
 public class MaterialTypeRegistry {
 	private static Map<Class<?>, MaterialTypeSerializer<?>> serializers = new HashMap<>();
 
-	public static <T extends _MaterialBase> void register(Class<T> type, MaterialTypeSerializer<T> serializer) {
+	private static Map<Class<?>, MaterialExtensionSerializer<?>> extensions = new HashMap<>();
+
+	public static <T extends _MaterialBase> void registerType(Class<T> type, MaterialTypeSerializer<T> serializer) {
 		serializers.put(type, serializer);
+	}
+
+	public static <T extends _MaterialExtension> void registerExtension(Class<T> type,
+			MaterialExtensionSerializer<T> serializer) {
+		extensions.put(type, serializer);
 	}
 
 	public static GsonBuilder setupGson() {
@@ -21,11 +32,19 @@ public class MaterialTypeRegistry {
 		for (Map.Entry<Class<?>, MaterialTypeSerializer<?>> entry : serializers.entrySet()) {
 			g.registerTypeAdapter(entry.getKey(), entry.getValue());
 		}
+		for (Map.Entry<Class<?>, MaterialExtensionSerializer<?>> entry : extensions.entrySet()) {
+			g.registerTypeAdapter(entry.getKey(), entry.getValue());
+		}
 		return g;
 	}
 
-	public static MaterialTypeSerializer<?> getSerializer(String s) {
+	public static MaterialTypeSerializer<?> getTypeSerializer(String s) {
 		return serializers.entrySet().stream().filter(e -> e.getValue().getType().equals(s)).map(Map.Entry::getValue)
+				.findFirst().orElse(null);
+	}
+
+	public static MaterialExtensionSerializer<?> getExtensionSerializer(String s) {
+		return extensions.entrySet().stream().filter(e -> e.getValue().getType().equals(s)).map(Map.Entry::getValue)
 				.findFirst().orElse(null);
 	}
 
@@ -34,5 +53,8 @@ public class MaterialTypeRegistry {
 		serializers.put(MaterialMetal.class, new MaterialMetal.Serializer());
 		serializers.put(MaterialWood.class, new MaterialWood.Serializer());
 		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
+
+		extensions.put(_MaterialExtension.class, new _MaterialExtension.Serializer());
+		extensions.put(ExtensionVanillaTools.class, new ExtensionVanillaTools.Serializer());
 	}
 }
