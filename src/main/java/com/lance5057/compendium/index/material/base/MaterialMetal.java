@@ -14,13 +14,20 @@ import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.SimpleTier;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -35,6 +42,11 @@ public class MaterialMetal extends _MaterialBase {
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
 
+	private TagKey<Item> ingotTag;
+	private TagKey<Item> nuggetTag;
+	private TagKey<Item> blockItemTag;
+	private TagKey<Block> blockTag;
+
 	public MaterialMetal(String name) {
 		this(name, true, true, true);
 	}
@@ -44,10 +56,25 @@ public class MaterialMetal extends _MaterialBase {
 		loadIngot = ingot;
 		loadStorageBlock = block;
 		loadNugget = nugget;
+
+		ingotTag = ItemTags.create(new ResourceLocation("forge", "ingots/" + name));
+		nuggetTag = ItemTags.create(new ResourceLocation("forge", "nuggets/" + name));
+		blockItemTag = ItemTags.create(new ResourceLocation("forge", "storage_blocks/" + name));
+		blockTag = BlockTags.create(new ResourceLocation("forge", "storage_blocks/" + name));
+
 	}
 
 	@Override
 	public void setup() {
+
+		if (premadeTier != null && !premadeTier.isEmpty())
+			tier = Tiers.valueOf(premadeTier);
+		else {
+			useBlockTag = BlockTags.create(new ResourceLocation("forge", useTag));
+			tier = new SimpleTier(level, uses, speed, damage, enchantmentValue, useBlockTag,
+					() -> Ingredient.of(ingotTag));
+		}
+
 		if (this.loadIngot)
 			INGOT = CompendiumIndex.ITEMS.register(this.name + "_ingot", () -> new Item(new Item.Properties()));
 		if (this.loadNugget)
@@ -125,6 +152,16 @@ public class MaterialMetal extends _MaterialBase {
 			boolean block = j.get("loadStorageBlock").getAsBoolean();
 			boolean nugget = j.get("loadNugget").getAsBoolean();
 
+			String tier = j.get("tier").getAsString();
+				
+			int level = j.get("level").getAsInt();
+			int uses = j.get("uses").getAsInt();
+			float speed = j.get("speed").getAsFloat();
+			float damage = j.get("damage").getAsFloat();
+			int enchantmentValue = j.get("enchantmentValue").getAsInt();
+			String useTag = j.get("useTag").getAsString();
+			String repairTag = j.get("repairTag").getAsString();
+
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
 			if (extensionsArray != null)
@@ -132,7 +169,13 @@ public class MaterialMetal extends _MaterialBase {
 					context.deserialize(extensionElement, _MaterialExtension.class);
 				}
 
-			return new MaterialMetal(name, ingot, block, nugget);
+			MaterialMetal m = new MaterialMetal(name, ingot, block, nugget);
+
+			if (tier != null && !tier.isEmpty())
+				m.setupTier(tier);
+			else
+				m.setupTier(level, uses, speed, damage, enchantmentValue, useTag, repairTag);
+			return m;
 		}
 
 		@Override
@@ -145,13 +188,22 @@ public class MaterialMetal extends _MaterialBase {
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
 			j.addProperty("loadNugget", src.loadNugget);
 
+			j.addProperty("tier", "DIAMOND");
+			j.addProperty("level", 0);
+			j.addProperty("uses", 0);
+			j.addProperty("speed", 0);
+			j.addProperty("damage", 0);
+			j.addProperty("enchantmentValue", 0);
+			j.addProperty("useTag", "");
+			j.addProperty("repairTag", "");
+
 			JsonArray ext = new JsonArray();
 
 			for (_MaterialExtension e : src.extensions)
 				ext.add(context.serialize(e));
 
 			j.add("extensions", ext);
-			
+
 			return j;
 		}
 

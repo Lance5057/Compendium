@@ -7,14 +7,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionVanillaTools extends _MaterialExtension {
 	boolean loadSword;
@@ -22,6 +26,12 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	boolean loadShovel;
 	boolean loadHoe;
 	boolean loadPickaxe;
+
+	public DeferredItem<Item> SWORD;
+	public DeferredItem<Item> AXE;
+	public DeferredItem<Item> SHOVEL;
+	public DeferredItem<Item> HOE;
+	public DeferredItem<Item> PICKAXE;
 
 	public ExtensionVanillaTools(boolean sword, boolean axe, boolean shovel, boolean hoe, boolean pickaxe) {
 		this.loadSword = sword;
@@ -33,6 +43,9 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
+		if (this.loadAxe)
+			AXE = CompendiumIndex.ITEMS.register(base.name + "_ingot",
+					() -> new AxeItem(base.tier, 5, 3, new Item.Properties()));
 	}
 
 	@Override

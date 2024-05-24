@@ -6,10 +6,8 @@ import org.apache.logging.log4j.Logger;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 
 @Mod(Compendium.MOD_ID)
@@ -20,13 +18,11 @@ public class Compendium {
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
 	public Compendium(IEventBus bus, Dist dist) {
-		ModList m = ModList.get();
-		
 		IndexInitialResourceLoader.init();
 		CompendiumIndex.setup(bus);
 
 		CompendiumItems.ITEMS.register(bus);
-		
+
 		CompendiumTabs.TABS.register(bus);
 	}
 }
