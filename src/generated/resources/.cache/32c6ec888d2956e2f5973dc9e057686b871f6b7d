@@ -1,7 +1,3 @@
-// 1.20.4	2024-05-23T12:49:46.8143052	Block States: compendium
-fdb09c8a1815031c611b5735ae6ee307595bcb47 assets/compendium/blockstates/prototypium_block.json
-1d3d7b824e88b4e377adc2b40c078f1377fe5f31 assets/compendium/blockstates/prototypium_gem_block.json
-29c3a2b4132aff772d36d2a3e48a995324006bb2 assets/compendium/blockstates/prototypium_wood_planks.json
-f800ea6d214103415b989059dcb3d1324e298b7f assets/compendium/models/block/prototypium_block.json
-a0111afb313ffb658cfae275cf28d1f573b622ee assets/compendium/models/block/prototypium_gem_block.json
-9d54f802a740329488695b9e92da80311d6cf714 assets/compendium/models/block/prototypium_wood_planks.json
+// 1.20.4	2024-05-25T11:39:37.6534966	Block States: compendium
+b41484606eb86c03a7e15a6e1482fe0eb3e71a6f assets/compendium/blockstates/tin_block.json
+63f45ee606d389ade3fe1036c6e1972979822cf8 assets/compendium/models/block/blocktin.json

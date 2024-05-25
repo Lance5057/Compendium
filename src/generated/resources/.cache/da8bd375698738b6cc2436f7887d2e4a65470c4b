@@ -1,8 +1,9 @@
-// 1.20.4	2024-05-23T12:49:46.8233067	Item Models: compendium
-db209e089a35f86386266e5a10eaefd414643684 assets/compendium/models/item/prototypium_block_item.json
-77538b1652e84ee4904a61c2b02153fe0914f8c7 assets/compendium/models/item/prototypium_gem_block_item.json
-cb381ee5f2cc0dd8c91d9ae465d9ad17f1af6804 assets/compendium/models/item/prototypium_gem_gem.json
-fadadfee92e447e5b9a2d1e0069b5bcde66f9b82 assets/compendium/models/item/prototypium_gem_shard.json
-98dc9c97ec9c6651d1e27b17eb1692098fd94930 assets/compendium/models/item/prototypium_ingot.json
-19834320b298821445b1171bcfd05657c4c33577 assets/compendium/models/item/prototypium_nugget.json
-d07b832a0c11cb64a6ade9006b1e3256045d7c0f assets/compendium/models/item/prototypium_wood_planks_item.json
+// 1.20.4	2024-05-25T12:38:19.9750235	Item Models: compendium
+3fc2cdfb4561b27c89bf6f9492ffff3c437f10d5 assets/compendium/models/item/tin_axe.json
+9055770ed4c60f4c34f29dcc61acec1512aa278f assets/compendium/models/item/tin_block_item.json
+22f5d2a5554fb557fc437c561da4ed8333f432d7 assets/compendium/models/item/tin_hoe.json
+7bfa18d629b791c57934411ab835badec71b2d04 assets/compendium/models/item/tin_ingot.json
+af840caf02a0b376aad3b11e503c64821954c307 assets/compendium/models/item/tin_nugget.json
+e54932bac35ec49ef7bd31c14db7702030c5eb8c assets/compendium/models/item/tin_pickaxe.json
+451d0da2aa621d45a1a4c7a5b4344f3f08d7c777 assets/compendium/models/item/tin_shovel.json
+dc5517e81a7a0caadaf70aadbe178728625f9e4d assets/compendium/models/item/tin_sword.json

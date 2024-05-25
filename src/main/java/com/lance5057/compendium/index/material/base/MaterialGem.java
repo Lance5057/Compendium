@@ -12,6 +12,7 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -71,11 +72,11 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadShard)
-			tmp.basicItem(this.SHARD.get());
+			DataUtil.basicMaterialItem(tmp, this.SHARD.get(), name);
 		if (this.loadGem)
-			tmp.basicItem(this.GEM.get());
+			DataUtil.basicMaterialItem(tmp, this.GEM.get(), name);
 		if (this.loadStorageBlock)
-			ItemModels.forBlockItem(tmp, BLOCK_ITEM, name);
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name);
 	}
 
 	@Override

@@ -33,9 +33,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-		buildDefault(new MaterialMetal("prototypium", true, true, true).addExtension(new ExtensionVanillaTools(true, true, true, true, true)));
-		buildDefault(new MaterialWood("prototypium_wood", true));
-		buildDefault(new MaterialGem("prototypium_gem", true, true, true));
+		buildDefault(new MaterialMetal("tin", true, true, true).addExtension(new ExtensionVanillaTools(true, true, true, true, true)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

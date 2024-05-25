@@ -8,9 +8,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
+import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -85,22 +85,28 @@ public class MaterialMetal extends _MaterialBase {
 			BLOCK_ITEM = CompendiumIndex.ITEMS.register(this.name + "_block_item",
 					() -> new BlockItem(BLOCK.get(), new Item.Properties()));
 		}
+
+		this.extensions.forEach(i -> i.setup(this));
 	}
 
 	@Override
 	public void blockModel(BlockStateProvider bsp) {
 		if (this.loadStorageBlock)
-			bsp.simpleBlock(this.BLOCK.get());
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name);
+
+		this.extensions.forEach(i -> i.blockModel(this, bsp));
 	}
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadNugget)
-			tmp.basicItem(this.NUGGET.get());
+			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), name);
 		if (this.loadIngot)
-			tmp.basicItem(this.INGOT.get());
+			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), name);
 		if (this.loadStorageBlock)
-			ItemModels.forBlockItem(tmp, BLOCK_ITEM, name);
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name);
+
+		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
 
 	@Override
@@ -113,17 +119,20 @@ public class MaterialMetal extends _MaterialBase {
 		if (this.loadStorageBlock)
 			lp.add(this.BLOCK_ITEM.get(), locName + " Block");
 
+		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
 		// TODO Auto-generated method stub
 
+		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
 
+		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 
 	@Override
@@ -134,6 +143,8 @@ public class MaterialMetal extends _MaterialBase {
 			output.accept(INGOT);
 		if (this.loadNugget)
 			output.accept(NUGGET);
+
+		this.extensions.forEach(i -> i.tab(this, output));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialMetal> {
@@ -153,7 +164,7 @@ public class MaterialMetal extends _MaterialBase {
 			boolean nugget = j.get("loadNugget").getAsBoolean();
 
 			String tier = j.get("tier").getAsString();
-				
+
 			int level = j.get("level").getAsInt();
 			int uses = j.get("uses").getAsInt();
 			float speed = j.get("speed").getAsFloat();
@@ -164,17 +175,18 @@ public class MaterialMetal extends _MaterialBase {
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			if (extensionsArray != null)
-				for (JsonElement extensionElement : extensionsArray) {
-					context.deserialize(extensionElement, _MaterialExtension.class);
-				}
-
 			MaterialMetal m = new MaterialMetal(name, ingot, block, nugget);
 
 			if (tier != null && !tier.isEmpty())
 				m.setupTier(tier);
 			else
 				m.setupTier(level, uses, speed, damage, enchantmentValue, useTag, repairTag);
+
+			if (extensionsArray != null)
+				for (JsonElement extensionElement : extensionsArray) {
+					m.addExtension(context.deserialize(extensionElement, _MaterialExtension.class));
+				}
+
 			return m;
 		}
 

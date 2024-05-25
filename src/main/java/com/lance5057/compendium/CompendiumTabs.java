@@ -19,9 +19,6 @@ public class CompendiumTabs {
 					.icon(() -> new ItemStack(CompendiumItems.SAWDUST.get())).displayItems((parameters, output) -> {
 						output.accept(CompendiumItems.SAWDUST);
 
-						for(DeferredHolder<Item, ? extends Item> i : CompendiumIndex.ITEMS.getEntries())
-						{
-							output.accept(i.get());
-						}
+						CompendiumIndex.index.forEach(i -> i.tab(output));
 					}).build());
 }
