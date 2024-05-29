@@ -23,8 +23,10 @@ public class _DataGen {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
 		generator.addProvider(event.includeClient(), new EngLoc(output));
-		
+
 		generator.addProvider(true, new ItemModels(output, helper));
 		generator.addProvider(true, new BlockModels(output, helper));
+
+		generator.addProvider(true, new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper));
 	}
 }
