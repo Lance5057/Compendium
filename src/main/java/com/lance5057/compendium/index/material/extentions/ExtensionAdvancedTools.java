@@ -10,7 +10,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
-import com.lance5057.compendium.items.PrybarItem;
+import com.lance5057.compendium.items.tools.PrybarItem;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;

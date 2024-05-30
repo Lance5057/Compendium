@@ -21,7 +21,7 @@ public class DataUtil {
 	}
 
 	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, ResourceLocation item, String name) {
-		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/generated")).texture(
+		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld")).texture(
 				"layer0", new ResourceLocation(item.getNamespace(), "item/material/" + name + "/" + item.getPath()));
 	}
 

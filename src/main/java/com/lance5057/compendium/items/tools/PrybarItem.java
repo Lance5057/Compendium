@@ -1,4 +1,4 @@
-package com.lance5057.compendium.items;
+package com.lance5057.compendium.items.tools;
 
 import org.joml.Quaternionf;
 
@@ -66,6 +66,9 @@ public class PrybarItem extends TieredItem implements Vanishable {
 
 					level.destroyBlock(result.getBlockPos(), true, player);
 
+					if (level.getRandom().nextInt() % 10 == 0)
+						player.knockback(0.2f, (double) -Mth.sin(player.getYRot() * (float) (Math.PI / 180.0)),
+								(double) (Mth.cos(player.getYRot() * (float) (Math.PI / 180.0))));
 				}
 
 			}
@@ -76,16 +79,8 @@ public class PrybarItem extends TieredItem implements Vanishable {
 	}
 
 	@Override
-	public void releaseUsing(ItemStack stack, Level worldIn, LivingEntity entityLiving, int timeLeft) {
-		if (entityLiving instanceof Player) {
-
-		}
-
-	}
-
-	@Override
 	public UseAnim getUseAnimation(ItemStack pStack) {
-		return UseAnim.NONE;
+		return UseAnim.CUSTOM;
 	}
 
 	@Override
@@ -108,34 +103,41 @@ public class PrybarItem extends TieredItem implements Vanishable {
 						}
 					});
 
-//			@Override
-//			public HumanoidModel.ArmPose getArmPose(LivingEntity entityLiving, InteractionHand hand,
-//					ItemStack itemStack) {
-////				if (!itemStack.isEmpty()) {
-////					if (entityLiving.getUsedItemHand() == hand && entityLiving.getUseItemRemainingTicks() > 0) {
-////						return EXAMPLE_POSE;
-////					}
-////				}
-//				return HumanoidModel.ArmPose.ITEM;
-//			}
+			@Override
+			public HumanoidModel.ArmPose getArmPose(LivingEntity entityLiving, InteractionHand hand,
+					ItemStack itemStack) {
+				if (!itemStack.isEmpty()) {
+					if (entityLiving.getUsedItemHand() == hand && entityLiving.getUseItemRemainingTicks() > 0) {
+						return EXAMPLE_POSE;
+					}
+				}
+				return HumanoidModel.ArmPose.ITEM;
+			}
 
-//			@Override
-//			public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm,
-//					ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {
-//				float f = player.getUseItemRemainingTicks() - partialTick + 1.0F;
-//				int i = arm == HumanoidArm.RIGHT ? 1 : -1;
-//				float i2 = arm == HumanoidArm.RIGHT ? -0.5f : 0.5f;
-//				float i3 = arm == HumanoidArm.RIGHT ? 1f : 1f;
+			@Override
+			public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm,
+					ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {
+
+				float f = player.getUseItemRemainingTicks() - partialTick + 1.0F;
+				int i = arm == HumanoidArm.RIGHT ? 10 : -10;
+				float i2 = arm == HumanoidArm.RIGHT ? 0.5f : -0.5f;
+				float i3 = arm == HumanoidArm.RIGHT ? 1f : 1f;
+
+				float f2 = -Mth.abs(Mth.cos(f / 80.0F * (float) Math.PI) * 20F);
+
+				if (player.getUseItem() == itemInHand && player.isUsingItem()
+						&& player.getUseItemRemainingTicks() > 0) {
+					poseStack.translate(i2, 0.5, -0.75);
+					poseStack.mulPose(new Quaternionf().rotateXYZ((float) Math.toRadians(-f2),
+							(float) Math.toRadians(i), (float) Math.toRadians(180)));
+					poseStack.translate(0, 0.5, 0);
+
+				}
+
 //				poseStack.translate(i * 0.56F, -0.52F, -0.72F);
-//				float f2 = Mth.abs(Mth.cos(f / 8.0F * (float) Math.PI) * 0.5F);
-////				if (player.getUseItem() == itemInHand && player.isUsingItem()) {
-////
-////					poseStack.mulPose(new Quaternionf().rotateXYZ(0, 90, 0));
-////					poseStack.translate(1f, 0, 1);
-////
-////				}
-//				return true;
-//			}
+
+				return false;
+			}
 		});
 	}
 }

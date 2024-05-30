@@ -18,7 +18,8 @@ public class CompendiumTabs {
 			() -> CreativeModeTab.builder().title(Component.translatable("itemGroup.compendium.tab"))
 					.icon(() -> new ItemStack(CompendiumItems.SAWDUST.get())).displayItems((parameters, output) -> {
 						output.accept(CompendiumItems.SAWDUST);
-
+						output.accept(CompendiumItems.MEGALITH_STONE);
+						
 						CompendiumIndex.index.forEach(i -> i.tab(output));
 					}).build());
 }
