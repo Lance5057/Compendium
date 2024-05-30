@@ -10,6 +10,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
+import com.lance5057.compendium.items.tools.HammerItem;
 import com.lance5057.compendium.items.tools.PrybarItem;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -24,11 +25,14 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionAdvancedTools extends _MaterialExtension {
 	boolean loadPrybar;
+	boolean loadHammer;
 
 	public DeferredItem<Item> PRYBAR;
+	public DeferredItem<Item> HAMMER;
 
-	public ExtensionAdvancedTools(boolean loadPrybar) {
+	public ExtensionAdvancedTools(boolean loadPrybar, boolean loadHammer) {
 		this.loadPrybar = loadPrybar;
+		this.loadHammer = loadHammer;
 	}
 
 	@Override
@@ -36,23 +40,30 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		if (this.loadPrybar)
 			PRYBAR = CompendiumIndex.ITEMS.register(base.name + "_prybar",
 					() -> new PrybarItem(base.tier, new Item.Properties()));
+		if (this.loadHammer)
+			HAMMER = CompendiumIndex.ITEMS.register(base.name + "_hammer",
+					() -> new HammerItem(base.tier, 5, 3, new Item.Properties()));
 	}
 
 	@Override
 	public void tab(_MaterialBase base, Output output) {
 		if (this.loadPrybar)
 			output.accept(PRYBAR);
+		if (this.loadHammer)
+			output.accept(HAMMER);
 	}
 
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
-		
+
 	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadPrybar)
 			DataUtil.basicMaterialItem(tmp, this.PRYBAR.get(), base.name);
+		if (this.loadHammer)
+			DataUtil.basicMaterialItem(tmp, this.HAMMER.get(), base.name);
 	}
 
 	@Override
@@ -72,7 +83,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionAdvancedTools> {
 
 		public Serializer() {
@@ -85,6 +96,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 			j.addProperty("type", type);
 			j.addProperty("loadPrybar", src.loadPrybar);
+			j.addProperty("loadHammer", src.loadHammer);
 
 			return j;
 		}
@@ -94,9 +106,10 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			boolean sword = j.get("loadPrybar").getAsBoolean();
+			boolean prybar = j.get("loadPrybar").getAsBoolean();
+			boolean hammer = j.get("loadHammer").getAsBoolean();
 
-			return new ExtensionAdvancedTools(sword);
+			return new ExtensionAdvancedTools(prybar, hammer);
 		}
 
 	}

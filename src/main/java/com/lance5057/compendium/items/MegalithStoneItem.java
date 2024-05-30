@@ -1,5 +1,7 @@
 package com.lance5057.compendium.items;
 
+import com.lance5057.compendium.Compendium;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -21,15 +23,16 @@ public class MegalithStoneItem extends Item {
 					context.getClickedPos().below(1).south(1).west(1).relative(context.getClickedFace(), 2)
 							.getCenter());
 			boolean invalid = BlockPos.betweenClosedStream(aabb)
-					.allMatch(pos -> !context.getLevel().getBlockState(pos).canBeReplaced());
+					.allMatch(pos -> context.getLevel().getBlockState(pos).canBeReplaced());
 
 			if (invalid) {
-				BlockPos.betweenClosedStream(aabb)
-						.forEach(b -> context.getLevel().setBlockAndUpdate(b, Blocks.STONE.defaultBlockState()));
-				return InteractionResult.PASS;
+				BlockPos.betweenClosedStream(aabb).forEach(b -> {
+					context.getLevel().setBlockAndUpdate(b, Blocks.STONE.defaultBlockState());
+				});
+				return InteractionResult.SUCCESS;
 			}
 		}
-		return InteractionResult.FAIL;
+		return InteractionResult.PASS;
 	}
 
 }

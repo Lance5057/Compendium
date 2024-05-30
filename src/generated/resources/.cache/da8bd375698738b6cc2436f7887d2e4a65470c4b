@@ -1,6 +1,7 @@
-// 1.20.4	2024-05-30T11:26:43.5315592	Item Models: compendium
+// 1.20.4	2024-05-30T15:56:39.2621713	Item Models: compendium
 88e693996a9235ddbbd13506583415677df7095b assets/compendium/models/item/tin_axe.json
 9055770ed4c60f4c34f29dcc61acec1512aa278f assets/compendium/models/item/tin_block_item.json
+d1523fb020dfdaa255a11a637a808a1c90599929 assets/compendium/models/item/tin_hammer.json
 61cbff0b944c2ea131b4daebc6bfb18474f67d2a assets/compendium/models/item/tin_hoe.json
 531c95661c3bbaf2771852459e9d69a82565d4a7 assets/compendium/models/item/tin_ingot.json
 49ca000e970de4ba8539a9fed9bb9854a650cdaf assets/compendium/models/item/tin_nugget.json
