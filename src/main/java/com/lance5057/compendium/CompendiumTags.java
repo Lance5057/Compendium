@@ -7,4 +7,5 @@ import net.minecraft.world.level.block.Block;
 
 public class CompendiumTags {
 	public static TagKey<Block> PRYABLE = BlockTags.create(new ResourceLocation("forge", "pryable"));
+	public static TagKey<Block> SAWABLE = BlockTags.create(new ResourceLocation("forge", "sawable"));
 }

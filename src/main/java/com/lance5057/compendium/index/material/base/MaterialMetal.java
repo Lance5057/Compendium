@@ -25,6 +25,7 @@ import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
@@ -219,5 +220,10 @@ public class MaterialMetal extends _MaterialBase {
 			return j;
 		}
 
+	}
+
+	@Override
+	public void setupClient(FMLClientSetupEvent event) {
+		this.extensions.forEach(i -> i.setupClient(this, event));
 	}
 }

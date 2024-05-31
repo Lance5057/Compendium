@@ -17,6 +17,7 @@ import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -114,5 +115,11 @@ public class MaterialWood extends _MaterialBase {
 			return j;
 		}
 
+	}
+
+	@Override
+	public void setupClient(FMLClientSetupEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -8,11 +8,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
+import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -31,6 +33,8 @@ public abstract class _MaterialExtension {
 	public abstract void recipes(_MaterialBase base, RecipeOutput consumer);
 
 	public abstract void blockLoot(_MaterialBase base, BlockLootSubProvider blp);
+	
+	public abstract void setupClient(_MaterialBase base, FMLClientSetupEvent event);
 
 	public static class Serializer extends MaterialExtensionSerializer<_MaterialExtension> {
 
@@ -52,10 +56,13 @@ public abstract class _MaterialExtension {
 		public JsonElement serialize(_MaterialExtension src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject obj = new JsonObject();
 			obj.addProperty("type", type);
-			
+
 			context.serialize(src);
 			return obj;
 		}
 
 	}
+
 }
+
+

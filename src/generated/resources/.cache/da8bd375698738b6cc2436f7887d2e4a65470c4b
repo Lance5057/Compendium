@@ -1,11 +1,18 @@
-// 1.20.4	2024-05-30T15:56:39.2621713	Item Models: compendium
+// 1.20.4	2024-05-31T14:15:29.2662907	Item Models: compendium
 88e693996a9235ddbbd13506583415677df7095b assets/compendium/models/item/tin_axe.json
 9055770ed4c60f4c34f29dcc61acec1512aa278f assets/compendium/models/item/tin_block_item.json
+3fabfa763c975310135bd055a65664d9c49d1c93 assets/compendium/models/item/tin_bow.json
+5bea81cc1f3d36980939a9cc5b23b3aaec73ec29 assets/compendium/models/item/tin_bow_pulling_0.json
+4028435a3abd97b8c9b4eda742aef2be16e604fd assets/compendium/models/item/tin_bow_pulling_1.json
+0fb2b8aa67174b23cf234e52fcc5ef058636bdb0 assets/compendium/models/item/tin_bow_pulling_2.json
 d1523fb020dfdaa255a11a637a808a1c90599929 assets/compendium/models/item/tin_hammer.json
 61cbff0b944c2ea131b4daebc6bfb18474f67d2a assets/compendium/models/item/tin_hoe.json
 531c95661c3bbaf2771852459e9d69a82565d4a7 assets/compendium/models/item/tin_ingot.json
 49ca000e970de4ba8539a9fed9bb9854a650cdaf assets/compendium/models/item/tin_nugget.json
 c5e87c0c6448c119524690dbf01220bf67a89a46 assets/compendium/models/item/tin_pickaxe.json
 c22e11182a4c6e44e41e3379ba881823e8240085 assets/compendium/models/item/tin_prybar.json
+9516033cf5c46d1dc192a1e0cd31ec1b01259362 assets/compendium/models/item/tin_saw.json
+77b83cb254f1d1d51f8b83672c12858b2ccf677c assets/compendium/models/item/tin_shears.json
 29b1f2926df062650b83d5faec8079de59fed7c3 assets/compendium/models/item/tin_shovel.json
 65550653ff78ac82a639b93133a452a4d5848142 assets/compendium/models/item/tin_sword.json
+95d1e8dd822f8d5d1edc6b2b0807f0ffdf4839b8 assets/compendium/models/item/tin_zweihander.json

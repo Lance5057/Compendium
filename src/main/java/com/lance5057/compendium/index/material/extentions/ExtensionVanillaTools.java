@@ -20,6 +20,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -122,6 +123,12 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
 		// TODO Auto-generated method stub
 
 	}

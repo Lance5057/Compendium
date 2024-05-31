@@ -9,6 +9,7 @@ import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod(Compendium.MOD_ID)
 public class Compendium {
@@ -24,5 +25,14 @@ public class Compendium {
 		CompendiumItems.ITEMS.register(bus);
 
 		CompendiumTabs.TABS.register(bus);
+		bus.addListener(this::setupClient);
+	}
+
+	public void setupClient(FMLClientSetupEvent event) {
+		event.enqueueWork(() -> {
+			CompendiumIndex.index.forEach(i -> {
+				i.setupClient(event);
+			});
+		});
 	}
 }
