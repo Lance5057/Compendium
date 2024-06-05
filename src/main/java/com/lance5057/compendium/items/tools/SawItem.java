@@ -1,10 +1,15 @@
 package com.lance5057.compendium.items.tools;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Nullable;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.items.HandedAbilityTool;
@@ -26,9 +31,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.Vec3;
 
 public class SawItem extends HandedAbilityTool {
-	//Use eviction by time to remove old entries.
+	// Use eviction by time to remove old entries.
 //	private static final Cache<BlockPos, List<Vec3>> cache;
 
 	protected static final Map<Block, Block> STRIPPABLES = new Builder<Block, Block>()
@@ -125,10 +131,65 @@ public class SawItem extends HandedAbilityTool {
 		return net.neoforged.neoforge.common.ToolActions.DEFAULT_AXE_ACTIONS.contains(toolAction);
 	}
 
+	Cache<BlockPos, List<BlockPos>> treeCache = CacheBuilder.newBuilder().expireAfterWrite(10, TimeUnit.MINUTES)
+			.build();
+
 	@Override
 	protected InteractionResult offInteractionHandAbility(UseOnContext context) {
-		// TODO Chop down the tree!
+		List<BlockPos> logLocs = treeCache.getIfPresent(context.getClickedPos());
+
+		if (logLocs == null)
+		{
+			logLocs = recurseUpTheTree(context.getLevel(), context.getClickedPos());
+			treeCache.put(context.getClickedPos(), logLocs);
+		}
+		
+		
+		
+		//TODO remove this test
+		for(BlockPos p : logLocs)
+			context.getLevel().destroyBlock(p, true);
+
 		return InteractionResult.PASS;
+	}
+
+	private List<BlockPos> recurseUpTheTree(Level level, BlockPos clickedPos) {
+		BlockState b = level.getBlockState(clickedPos);
+		List<BlockPos> vecs = recurse(level, b.getBlock(), clickedPos, new ArrayList<BlockPos>(), 0);
+
+		// sort vecs by distance
+
+		return vecs;
+	}
+
+	private List<BlockPos> recurse(Level level, Block block, BlockPos cur, List<BlockPos> visited, int dist) {
+		List<BlockPos> l = new ArrayList<BlockPos>();
+
+		if (dist < 64 && level.getBlockState(cur).is(block) && !visited.contains(cur)) {
+			visited.add(cur);
+			l.add(cur);
+
+			l.addAll(recurse(level, block, cur.above(), visited, dist+1));
+			l.addAll(recurse(level, block, cur.below(), visited, dist+1));
+			l.addAll(recurse(level, block, cur.east(), visited, dist+1));
+			l.addAll(recurse(level, block, cur.west(), visited, dist+1));
+			l.addAll(recurse(level, block, cur.north(), visited, dist+1));
+			l.addAll(recurse(level, block, cur.south(), visited, dist+1));
+			
+			l.addAll(recurse(level, block, cur.offset(-1, -1, -1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(-1, -1, 1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(1, -1, -1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(1, -1, 1), visited, dist+1));
+
+			l.addAll(recurse(level, block, cur.offset(-1, 1, -1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(-1, 1, 1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(1, 1, -1), visited, dist+1));
+			l.addAll(recurse(level, block, cur.offset(1, 1, 1), visited, dist+1));
+		}
+
+		
+		return l;
+
 	}
 
 }
