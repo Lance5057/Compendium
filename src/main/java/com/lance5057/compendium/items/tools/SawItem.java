@@ -13,6 +13,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.items.HandedAbilityTool;
+import com.mojang.blaze3d.vertex.VertexSorting.DistanceFunction;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -135,19 +136,22 @@ public class SawItem extends HandedAbilityTool {
 
 	@Override
 	protected InteractionResult offInteractionHandAbility(UseOnContext context) {
-		List<BlockPos> logLocs = treeCache.getIfPresent(context.getClickedPos());
+		if (!context.getLevel().isClientSide) {
+			List<BlockPos> logLocs = treeCache.getIfPresent(context.getClickedPos());
 
-		if (logLocs == null) {
-			logLocs = recurseUpTheTree(context.getLevel(), context.getClickedPos());
-			treeCache.put(context.getClickedPos(), logLocs);
+			if (logLocs == null) {
+				logLocs = recurseUpTheTree(context.getLevel(), context.getClickedPos());
+				treeCache.put(context.getClickedPos(), logLocs);
+			}
+
+			// TODO remove this test
+			for (BlockPos p : logLocs)
+				context.getLevel().setBlock(p, Blocks.WHITE_WOOL.defaultBlockState(), 3);
+
+			context.getPlayer().getCooldowns().addCooldown(this, 20);
+
+			return InteractionResult.SUCCESS;
 		}
-
-		// TODO remove this test
-		for (BlockPos p : logLocs)
-			context.getLevel().destroyBlock(p, true);
-
-		context.getPlayer().getCooldowns().addCooldown(this, 20);
-
 		return InteractionResult.PASS;
 	}
 
@@ -176,6 +180,16 @@ public class SawItem extends HandedAbilityTool {
 
 		return l;
 
+	}
+
+	protected class VisitedPos {
+		BlockPos pos;
+		int depth;
+
+		public VisitedPos(BlockPos pos, int depth) {
+			this.pos = pos;
+			this.depth = depth;
+		}
 	}
 
 }
