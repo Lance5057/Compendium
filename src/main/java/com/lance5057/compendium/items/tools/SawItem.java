@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.Vec3;
 
 public class SawItem extends HandedAbilityTool {
 	// Use eviction by time to remove old entries.
@@ -138,17 +137,16 @@ public class SawItem extends HandedAbilityTool {
 	protected InteractionResult offInteractionHandAbility(UseOnContext context) {
 		List<BlockPos> logLocs = treeCache.getIfPresent(context.getClickedPos());
 
-		if (logLocs == null)
-		{
+		if (logLocs == null) {
 			logLocs = recurseUpTheTree(context.getLevel(), context.getClickedPos());
 			treeCache.put(context.getClickedPos(), logLocs);
 		}
-		
-		
-		
-		//TODO remove this test
-		for(BlockPos p : logLocs)
+
+		// TODO remove this test
+		for (BlockPos p : logLocs)
 			context.getLevel().destroyBlock(p, true);
+
+		context.getPlayer().getCooldowns().addCooldown(this, 20);
 
 		return InteractionResult.PASS;
 	}
@@ -165,29 +163,17 @@ public class SawItem extends HandedAbilityTool {
 	private List<BlockPos> recurse(Level level, Block block, BlockPos cur, List<BlockPos> visited, int dist) {
 		List<BlockPos> l = new ArrayList<BlockPos>();
 
-		if (dist < 64 && level.getBlockState(cur).is(block) && !visited.contains(cur)) {
-			visited.add(cur);
+		if (dist < 3 && level.getBlockState(cur).is(block) && !visited.contains(cur)) {
+
+			for (int x = -1; x < 2; x++)
+				for (int y = -1; y < 2; y++)
+					for (int z = -1; z < 2; z++)
+							l.addAll(recurse(level, block, cur.offset(x, y, z), visited, dist + 1));
+
 			l.add(cur);
-
-			l.addAll(recurse(level, block, cur.above(), visited, dist+1));
-			l.addAll(recurse(level, block, cur.below(), visited, dist+1));
-			l.addAll(recurse(level, block, cur.east(), visited, dist+1));
-			l.addAll(recurse(level, block, cur.west(), visited, dist+1));
-			l.addAll(recurse(level, block, cur.north(), visited, dist+1));
-			l.addAll(recurse(level, block, cur.south(), visited, dist+1));
-			
-			l.addAll(recurse(level, block, cur.offset(-1, -1, -1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(-1, -1, 1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(1, -1, -1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(1, -1, 1), visited, dist+1));
-
-			l.addAll(recurse(level, block, cur.offset(-1, 1, -1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(-1, 1, 1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(1, 1, -1), visited, dist+1));
-			l.addAll(recurse(level, block, cur.offset(1, 1, 1), visited, dist+1));
+			visited.add(cur);
 		}
 
-		
 		return l;
 
 	}
