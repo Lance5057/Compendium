@@ -226,4 +226,9 @@ public class MaterialMetal extends _MaterialBase {
 	public void setupClient(FMLClientSetupEvent event) {
 		this.extensions.forEach(i -> i.setupClient(this, event));
 	}
+
+	@Override
+	public Ingredient getBaseItem() {
+		return Ingredient.of(this.INGOT.get());
+	}
 }

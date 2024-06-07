@@ -15,6 +15,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -120,6 +121,12 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void setupClient(FMLClientSetupEvent event) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public Ingredient getBaseItem() {
+		// TODO Auto-generated method stub
+		return Ingredient.of(this.PLANKS_ITEM.get());
 	}
 }

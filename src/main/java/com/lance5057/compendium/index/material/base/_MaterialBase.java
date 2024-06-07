@@ -56,6 +56,8 @@ public abstract class _MaterialBase implements IIndexEntry {
 		}
 		return false;
 	}
+	
+	public abstract Ingredient getBaseItem();
 
 	public _MaterialBase addExtension(_MaterialExtension x) {
 		extensions.add(x);

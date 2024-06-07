@@ -2,15 +2,11 @@ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.util.DataUtil;
 
@@ -19,6 +15,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -151,5 +148,10 @@ public class MaterialGem extends _MaterialBase {
 	public void setupClient(FMLClientSetupEvent event) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Ingredient getBaseItem() {
+		return Ingredient.of(GEM.get());
 	}
 }
