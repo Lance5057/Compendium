@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.client.armor.CompendiumArmorItem;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -21,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -124,26 +124,17 @@ public class ExtensionArmor extends _MaterialExtension {
 			}
 
 			HELM = CompendiumIndex.ITEMS.register(base.name + "_helm",
-					() -> new ArmorItem(MATERIAL, ArmorItem.Type.HELMET, new Item.Properties()) {
-						@Override
-						public void initializeClient(java.util.function.Consumer<IClientItemExtensions> consumer) {
-							consumer.accept(new IClientItemExtensions() {
-//								@Override
-//								HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
-//										EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-//									{
-//
-//									}
-//								}
-							});
-						}
-					});
+					() -> new CompendiumArmorItem(MATERIAL, ArmorItem.Type.HELMET, new Item.Properties(),
+							"textures/models/armor/material/" + base.name + "/" + base.name + "_helm.png"));
 			CHESTPLATE = CompendiumIndex.ITEMS.register(base.name + "_chestplate",
-					() -> new ArmorItem(MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+					() -> new CompendiumArmorItem(MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties(),
+							"textures/models/armor/material/" + base.name + "/" + base.name + "_breastplate.png"));
 			LEGGINGS = CompendiumIndex.ITEMS.register(base.name + "_leggings",
-					() -> new ArmorItem(MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+					() -> new CompendiumArmorItem(MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties(),
+							"textures/models/armor/material/" + base.name + "/" + base.name + "_grieves.png"));
 			BOOTS = CompendiumIndex.ITEMS.register(base.name + "_boots",
-					() -> new ArmorItem(MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+					() -> new CompendiumArmorItem(MATERIAL, ArmorItem.Type.BOOTS, new Item.Properties(),
+							"textures/models/armor/material/" + base.name + "/" + base.name + "_sabatons.png"));
 		}
 		if (this.loadShield)
 			SHIELD = CompendiumIndex.ITEMS.register(base.name + "_shield", () -> new ShieldItem(new Item.Properties()));
@@ -160,11 +151,11 @@ public class ExtensionArmor extends _MaterialExtension {
 		if (this.loadShield)
 			output.accept(this.SHIELD);
 	}
-	
+
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -254,7 +245,5 @@ public class ExtensionArmor extends _MaterialExtension {
 		}
 
 	}
-
-	
 
 }
