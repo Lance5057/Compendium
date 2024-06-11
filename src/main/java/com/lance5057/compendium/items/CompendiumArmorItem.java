@@ -52,6 +52,15 @@ public class CompendiumArmorItem extends ArmorItem {
 
 			ModelPart root = null;
 			switch (slot) {
+			case HEAD:
+				root = models.bakeLayer(CompendiumClient.HELM);
+				break;
+			case CHEST:
+				root = models.bakeLayer(CompendiumClient.BREASTPLATE);
+				break;
+			case LEGS:
+				root = models.bakeLayer(CompendiumClient.GREAVES);
+				break;
 			case FEET:
 			default:
 				root = models.bakeLayer(CompendiumClient.SABATONS);

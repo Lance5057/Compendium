@@ -1,117 +1,78 @@
-//package com.lance5057.compendium.client.armor;
-//
-//import net.minecraft.client.model.HumanoidModel;
-//import net.minecraft.client.model.geom.ModelPart;
-//import net.minecraft.world.entity.LivingEntity;
-//
-///**
-// * ModelPlayer - Either Mojang or a mod author Created using Tabula 7.0.0
-// */
-//public class ModelSabatons<T extends LivingEntity> extends HumanoidModel<T> {
-//	public ModelPart BootL;
-//	public ModelPart ShinGuardL;
-//	public ModelPart KneeGuardCapL;
-//	public ModelPart LegBackL;
-//	public ModelPart BootR;
-//	public ModelPart ShinGuardR;
-//	public ModelPart BootCapR;
-//	public ModelPart BootCapL;
-//	public ModelPart LegBackR;
-//	public ModelPart KneeGuardCapR;
-//	public ModelPart KneeGuardR;
-//	public ModelPart KneeGuardL;
-//
-//	public ModelSabatons() {
-//		super(0.3f, 0, 96, 96);
-//		this.textureWidth = 96;
-//		this.textureHeight = 96;
-//
-////        this.ShinGuardL = new ModelPart(this, 64, 48);
-////        this.ShinGuardL.mirror = true;
-////        this.ShinGuardL.setRotationPoint(0.0F, 0.0F, 0.0F);
-////        this.ShinGuardL.addBox(-2.0F, 4.0F, -2.5F, 40, 50, 30, 10.26F);
-////        this.setRotateAngle(ShinGuardL, 0.05759586531581287F, 0.0F, 0.0F);
-////        this.bipedLeftLeg.addChild(ShinGuardL);
-//
-//		this.ShinGuardL = new ModelPart(this, 64, 48);
-//		this.ShinGuardL.mirror = true;
-//		this.ShinGuardL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.ShinGuardL.addBox(-2.0F, 4.0F, -2.5F, 4, 5, 3, 0.26F);
-//		this.setRotateAngle(ShinGuardL, 0.05759586531581287F, 0.0F, 0.0F);
-//		this.bipedLeftLeg.addChild(ShinGuardL);
-//
-//		this.BootL = new ModelPart(this, 64, 56);
-//		this.BootL.mirror = true;
-//		this.BootL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BootL.addBox(-2.0F, 9.0F, -3.0F, 4, 3, 5, 0.31F);
-//		this.bipedLeftLeg.addChild(BootL);
-//
-//		this.LegBackL = new ModelPart(this, 64, 40);
-//		this.LegBackL.mirror = true;
-//		this.LegBackL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.LegBackL.addBox(-2.0F, 3.0F, 0.6F, 4, 6, 2, 0.3F);
-//		this.setRotateAngle(LegBackL, -0.05759586531581287F, 0.0F, 0.0F);
-//		this.bipedLeftLeg.addChild(LegBackL);
-//
-//		this.KneeGuardCapL = new ModelPart(this, 80, 36);
-//		this.KneeGuardCapL.mirror = true;
-//		this.KneeGuardCapL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.KneeGuardCapL.addBox(-1.5F, 2.4F, -3.8F, 3, 2, 1, 0.2F);
-//		this.setRotateAngle(KneeGuardCapL, 0.17453292519943295F, 0.0F, 0.0F);
-//		this.bipedLeftLeg.addChild(KneeGuardCapL);
-//
-//		this.KneeGuardR = new ModelPart(this, 64, 32);
-//		this.KneeGuardR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.KneeGuardR.addBox(-2.0F, 3.0F, -2.5F, 4, 3, 4, 0.31F);
-//		this.bipedRightLeg.addChild(KneeGuardR);
-//
-//		this.BootR = new ModelPart(this, 64, 56);
-//		this.BootR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BootR.addBox(-2.0F, 9.0F, -3.0F, 4, 3, 5, 0.31F);
-//		this.bipedRightLeg.addChild(BootR);
-//
-//		this.ShinGuardR = new ModelPart(this, 64, 48);
-//		this.ShinGuardR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.ShinGuardR.addBox(-2.0F, 4.0F, -2.5F, 4, 5, 3, 0.26F);
-//		this.setRotateAngle(ShinGuardR, 0.05759586531581287F, 0.0F, 0.0F);
-//		this.bipedRightLeg.addChild(ShinGuardR);
-//
-//		this.KneeGuardL = new ModelPart(this, 64, 32);
-//		this.KneeGuardL.mirror = true;
-//		this.KneeGuardL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.KneeGuardL.addBox(-2.0F, 3.0F, -2.5F, 4, 3, 4, 0.31F);
-//		this.bipedLeftLeg.addChild(KneeGuardL);
-//
-//		this.BootCapR = new ModelPart(this, 76, 32);
-//		this.BootCapR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BootCapR.addBox(-1.5F, 10.0F, -4.0F, 3, 2, 2, 0.3F);
-//		this.bipedRightLeg.addChild(BootCapR);
-//
-//		this.KneeGuardCapR = new ModelPart(this, 80, 36);
-//		this.KneeGuardCapR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.KneeGuardCapR.addBox(-1.5F, 2.4F, -3.8F, 3, 2, 1, 0.2F);
-//		this.setRotateAngle(KneeGuardCapR, 0.17453292519943295F, 0.0F, 0.0F);
-//		this.bipedRightLeg.addChild(KneeGuardCapR);
-//
-//		this.BootCapL = new ModelPart(this, 76, 32);
-//		this.BootCapL.mirror = true;
-//		this.BootCapL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BootCapL.addBox(-1.5F, 10.0F, -4.0F, 3, 2, 2, 0.3F);
-//		this.bipedLeftLeg.addChild(BootCapL);
-//
-//		this.LegBackR = new ModelPart(this, 64, 40);
-//		this.LegBackR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.LegBackR.addBox(-2.0F, 3.0F, 0.6F, 4, 6, 2, 0.3F);
-//		this.setRotateAngle(LegBackR, -0.05759586531581287F, 0.0F, 0.0F);
-//		this.bipedRightLeg.addChild(LegBackR);
-//	}
-//
-//	/**
-//	 * This is a helper function from Tabula to set the rotation of model parts
-//	 */
-//	public void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
-//		modelRenderer.rotateAngleX = x;
-//		modelRenderer.rotateAngleY = y;
-//		modelRenderer.rotateAngleZ = z;
-//	}
-//}
+package com.lance5057.compendium.client.armor;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+
+// Made with Blockbench 4.9.4
+// Exported for Minecraft version 1.17 or later with Mojang mappings
+// Paste this class into your mod and generate all required imports
+
+public class ModelSabatons {
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		
+		PartDefinition RightLeg = partdefinition.addOrReplaceChild("right_leg",
+				CubeListBuilder.create().texOffs(16, 7)
+						.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).texOffs(16, 7)
+						.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F)).texOffs(0, 24)
+						.addBox(-2.2F, 9.0F, -3.0F, 4.0F, 3.0F, 5.0F, new CubeDeformation(0.31F)).texOffs(0, 0)
+						.addBox(-2.2F, 3.9F, -2.5F, 4.0F, 3.0F, 4.0F, new CubeDeformation(0.31F)),
+				PartPose.offset(-1.9F, 12.0F, 0.0F));
+
+		PartDefinition KneeGuardCapR_r1 = RightLeg.addOrReplaceChild("KneeGuardCapR_r1",
+				CubeListBuilder.create().texOffs(16, 4).addBox(-3.4F, 7.6F, -3.8F, 3.0F, 2.0F, 1.0F,
+						new CubeDeformation(0.2F)),
+				PartPose.offsetAndRotation(1.8F, -4.2F, -1.3F, 0.1745F, 0.0F, 0.0F));
+
+		PartDefinition ToeGuardR_r1 = RightLeg.addOrReplaceChild("ToeGuardR_r1",
+				CubeListBuilder.create().texOffs(16, 4).addBox(-1.5F, -3.4F, -4.8F, 3.0F, 2.0F, 1.0F,
+						new CubeDeformation(0.2F)),
+				PartPose.offsetAndRotation(-0.2F, 14.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		PartDefinition LegBackR_r1 = RightLeg.addOrReplaceChild("LegBackR_r1",
+				CubeListBuilder.create().texOffs(0, 8).addBox(-0.1F, -8.0F, 0.6F, 4.0F, 6.0F, 2.0F,
+						new CubeDeformation(0.3F)),
+				PartPose.offsetAndRotation(-2.1F, 12.0F, -0.8F, -0.0576F, 0.0F, 0.0F));
+
+		PartDefinition ShinGuardR_r1 = RightLeg.addOrReplaceChild("ShinGuardR_r1",
+				CubeListBuilder.create().texOffs(0, 16).addBox(-0.1F, -7.0F, -2.5F, 4.0F, 5.0F, 3.0F,
+						new CubeDeformation(0.26F)),
+				PartPose.offsetAndRotation(-2.1F, 11.0F, 0.5F, 0.0576F, 0.0F, 0.0F));
+
+		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("left_leg",
+				CubeListBuilder.create().texOffs(16, 7)
+						.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).texOffs(16, 7)
+						.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F)).texOffs(0, 24)
+						.addBox(-2.0F, 9.0F, -3.0F, 4.0F, 3.0F, 5.0F, new CubeDeformation(0.31F)).texOffs(0, 0)
+						.addBox(-2.0F, 3.9F, -2.5F, 4.0F, 3.0F, 4.0F, new CubeDeformation(0.31F)),
+				PartPose.offset(1.9F, 12.0F, 0.0F));
+
+		PartDefinition KneeGuardCapL_r1 = LeftLeg.addOrReplaceChild("KneeGuardCapL_r1",
+				CubeListBuilder.create().texOffs(16, 4).addBox(-3.4F, 7.6F, -3.8F, 3.0F, 2.0F, 1.0F,
+						new CubeDeformation(0.2F)),
+				PartPose.offsetAndRotation(2.0F, -4.2F, -1.3F, 0.1745F, 0.0F, 0.0F));
+
+		PartDefinition ToeGuardL_r1 = LeftLeg.addOrReplaceChild("ToeGuardL_r1",
+				CubeListBuilder.create().texOffs(16, 4).addBox(-1.5F, -3.4F, -4.8F, 3.0F, 2.0F, 1.0F,
+						new CubeDeformation(0.2F)),
+				PartPose.offsetAndRotation(0.0F, 14.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
+
+		PartDefinition LegBackL_r1 = LeftLeg.addOrReplaceChild("LegBackL_r1",
+				CubeListBuilder.create().texOffs(0, 8).addBox(-0.1F, -8.0F, 0.6F, 4.0F, 6.0F, 2.0F,
+						new CubeDeformation(0.3F)),
+				PartPose.offsetAndRotation(-1.9F, 12.0F, -0.8F, -0.0576F, 0.0F, 0.0F));
+
+		PartDefinition ShinGuardL_r1 = LeftLeg.addOrReplaceChild("ShinGuardL_r1",
+				CubeListBuilder.create().texOffs(0, 16).addBox(-0.1F, -7.0F, -2.5F, 4.0F, 5.0F, 3.0F,
+						new CubeDeformation(0.26F)),
+				PartPose.offsetAndRotation(-1.9F, 11.0F, 0.5F, 0.0576F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 32, 32);
+	}
+}

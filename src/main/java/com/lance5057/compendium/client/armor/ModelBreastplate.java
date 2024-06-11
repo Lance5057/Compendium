@@ -1,87 +1,71 @@
-//package com.lance5057.compendium.client.armor;
-//
-//import net.minecraft.client.model.HumanoidModel;
-//import net.minecraft.client.model.geom.ModelPart;
-//import net.minecraft.world.entity.LivingEntity;
-//
-///**
-// * ModelPlayer - Either Mojang or a mod author Created using Tabula 7.0.0
-// */
-//public class ModelBreastplate<T extends LivingEntity> extends HumanoidModel<T> {
-//	public ModelPart BackPlate;
-//	public ModelPart BreastPlate;
-//	public ModelPart Plackart;
-//	public ModelPart PauldronR;
-//	public ModelPart PauldronL;
-//	public ModelPart ArmR;
-//	public ModelPart ArmL;
-//	public ModelPart Pauldron2L;
-//	public ModelPart Pauldron2R;
-//
-//	public ModelBreastplate() {
-//		super(0.25f, 0, 128, 64);
-//		this.textureWidth = 128;
-//		this.textureHeight = 64;
-//
-//		this.ArmL = new ModelPart(this, 92, 12);
-//		this.ArmL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.ArmL.addBox(-1.0F, -2.3F, -3.0F, 5, 6, 6, 0.0F);
-//		this.bipedLeftArm.addChild(ArmL);
-//
-//		this.PauldronR = new ModelPart(this, 88, 0);
-//		this.PauldronR.mirror = true;
-//		this.PauldronR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.PauldronR.addBox(-4.6F, -2.0F, -3.5F, 4, 5, 7, 0.1F);
-//		this.setRotateAngle(PauldronR, 0.0F, 0.0F, 0.4363323129985824F);
-//		this.bipedRightArm.addChild(PauldronR);
-//
-//		this.Plackart = new ModelPart(this, 64, 10);
-//		this.Plackart.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.Plackart.addBox(-4.0F, 5.0F, -3.0F, 8, 7, 6, 0.3F);
-//		this.bipedBody.addChild(Plackart);
-//
-//		this.ArmR = new ModelPart(this, 92, 12);
-//		this.ArmR.mirror = true;
-//		this.ArmR.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.ArmR.addBox(-4.0F, -2.3F, -3.0F, 5, 6, 6, 0.0F);
-//		this.bipedRightArm.addChild(ArmR);
-//
-//		this.BackPlate = new ModelPart(this, 64, 24);
-//		this.BackPlate.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BackPlate.addBox(-4.0F, -0.1F, 1.0F, 8, 5, 3, 0.41F);
-//		this.setRotateAngle(BackPlate, -0.08726646259971647F, 0.0F, 0.0F);
-//		this.bipedBody.addChild(BackPlate);
-//
-//		this.Pauldron2L = new ModelPart(this, 88, 0);
-//		this.Pauldron2L.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.Pauldron2L.addBox(0.5F, -1.5F, -3.5F, 4, 4, 7, -0.4F);
-//		this.setRotateAngle(Pauldron2L, 0.0F, 0.0F, -1.1344640137963142F);
-//		this.bipedLeftArm.addChild(Pauldron2L);
-//
-//		this.Pauldron2R = new ModelPart(this, 88, 0);
-//		this.Pauldron2R.mirror = true;
-//		this.Pauldron2R.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.Pauldron2R.addBox(-4.5F, -1.5F, -3.5F, 4, 4, 7, -0.4F);
-//		this.setRotateAngle(Pauldron2R, 0.0F, 0.0F, 1.1344640137963142F);
-//		this.bipedRightArm.addChild(Pauldron2R);
-//
-//		this.BreastPlate = new ModelPart(this, 64, 0);
-//		this.BreastPlate.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.BreastPlate.addBox(-4.0F, 0.1F, -3.6F, 8, 6, 4, 0.41F);
-//		this.bipedBody.addChild(BreastPlate);
-//
-//		this.PauldronL = new ModelPart(this, 88, 0);
-//		this.PauldronL.setRotationPoint(0.0F, 0.0F, 0.0F);
-//		this.PauldronL.addBox(0.5F, -2.0F, -3.5F, 4, 5, 7, 0.1F);
-//		this.setRotateAngle(PauldronL, 0.0F, 0.0F, -0.4363323129985824F);
-//		this.bipedLeftArm.addChild(PauldronL);
-//
-//		// this.partsList = init(stack, this.boxList);
-//	}
-//
-//	public void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
-//		modelRenderer.rotateAngleX = x;
-//		modelRenderer.rotateAngleY = y;
-//		modelRenderer.rotateAngleZ = z;
-//	}
-//}
+package com.lance5057.compendium.client.armor;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+
+/**
+ * ModelPlayer - Either Mojang or a mod author Created using Tabula 7.0.0
+ */
+public class ModelBreastplate {
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(32, 48)
+				.addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create()
+				.texOffs(40, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).addBox(
+				-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition ArmL = left_arm.addOrReplaceChild("ArmL", CubeListBuilder.create().texOffs(92, 12)
+				.addBox(-1.0F, -2.3F, -3.0F, 5, 6, 6, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition ArmR = right_arm.addOrReplaceChild("ArmR", CubeListBuilder.create().texOffs(92, 12).mirror()
+				.addBox(-4.0F, -2.3F, -3.0F, 5, 6, 6, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition Plackart = body.addOrReplaceChild("Plackart",
+				CubeListBuilder.create().texOffs(64, 10).addBox(-4.0F, 5.0F, -3.0F, 8, 7, 6, new CubeDeformation(0.3F)),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition Breastplate = body.addOrReplaceChild("Breastplate",
+				CubeListBuilder.create().texOffs(64, 0).addBox(-4.0F, 0.1F, -3.6F, 8, 6, 4, new CubeDeformation(0.41F)),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition BackPlate = body.addOrReplaceChild("BackPlate",
+				CubeListBuilder.create().texOffs(64, 24).addBox(-4.0F, -0.1F, 1.0F, 8, 5, 3,
+						new CubeDeformation(0.41F)),
+				PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.0873F, 0.0F, 0.0F));
+
+		PartDefinition Pauldron2L = left_arm.addOrReplaceChild("Pauldron2L",
+				CubeListBuilder.create().texOffs(88, 0).addBox(0.5F, -1.5F, -3.5F, 4, 4, 7, new CubeDeformation(-0.4F)),
+				PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -1.1345F));
+
+		PartDefinition PauldronL = left_arm.addOrReplaceChild("PauldronL",
+				CubeListBuilder.create().texOffs(88, 0).addBox(0.5F, -2.0F, -3.5F, 4, 5, 7, new CubeDeformation(0.1F)),
+				PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.4363F));
+
+		PartDefinition PauldronR = right_arm
+				.addOrReplaceChild("PauldronR",
+						CubeListBuilder.create().texOffs(88, 0).mirror().addBox(-4.6F, -2.0F, -3.5F, 4, 5, 7,
+								new CubeDeformation(0.1F)),
+						PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.4363F));
+
+		PartDefinition Pauldron2R = right_arm
+				.addOrReplaceChild("Pauldron2R",
+						CubeListBuilder.create().texOffs(88, 0).mirror().addBox(-4.5F, -1.5F, -3.5F, 4, 4, 7,
+								new CubeDeformation(-0.4F)),
+						PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 1.1345F));
+
+		return LayerDefinition.create(meshdefinition, 128, 64);
+	}
+}

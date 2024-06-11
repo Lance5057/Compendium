@@ -1,65 +1,40 @@
-//package com.lance5057.compendium.client.armor;
-//
-//import net.minecraft.client.model.HumanoidModel;
-//import net.minecraft.client.model.geom.ModelPart;
-//import net.minecraft.world.entity.LivingEntity;
-//
-///**
-// * ModelPlayer - Either Mojang or a mod author Created using Tabula 7.0.0
-// */
-//public class ModelHelm<T extends LivingEntity> extends HumanoidModel<T> {
-//    public ModelPart Visor;
-//    public ModelPart Helm;
-//    public ModelPart Trim;
-//    public ModelPart MouthGuard;
-//    
-//    public ModelPart Head;
-//
-//    public ModelHelm() {
-//	super(0.25f, 0, 64, 64);
-//
-//	this.textureWidth = 64;
-//	this.textureHeight = 64;
-//
-//	this.Trim = new ModelPart(this, 0, 12);
-//	this.Trim.setRotationPoint(0.0F, 0.0F, 0.0F);
-//	this.Trim.addBox(-1.0F, -8.9F, -5.0F, 2, 9, 10, 0.0F);
-//
-//	this.Helm = new ModelPart(this, 26, 4);
-//	this.Helm.setRotationPoint(0.0F, 0.0F, 0.0F);
-//	this.Helm.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, 0.5F);
-//
-//	this.MouthGuard = new ModelPart(this, 30, 20);
-//	this.MouthGuard.setRotationPoint(0.0F, -2.0F, 0.0F);
-//	this.MouthGuard.addBox(-4.5F, -3.0F, -5.4F, 9, 5, 8, 0.01F);
-//	this.setRotateAngle(MouthGuard, 0.3490658503988659F, 0.0F, 0.0F);
-//
-//	this.Visor = new ModelPart(this, 0, 0);
-//	this.Visor.setRotationPoint(0.0F, -6.7F, 0.1F);
-//	this.Visor.addBox(-4.5F, 0.2F, -5.9F, 9, 4, 8, 0.0F);
-//	this.setRotateAngle(Visor, -0.08726646259971647F, 0.0F, 0.01F);
-//
-//	this.Helm.addChild(this.Trim);
-//	this.Helm.addChild(this.MouthGuard);
-//	this.Helm.addChild(this.Visor);
-//	
-//	this.Head = new ModelPart(this, 1,1);
-//	this.Head.addBox(-4.0F, -8.0F, -4.0F, 0.0F, 0.0F, 0.0F, 0.1f);
-//	this.Head.setRotationPoint(0.0F, 0.0F, 0.0F);
-//	
-//	this.bipedHead = this.Helm;
-//	this.bipedHeadwear = this.Head;
-//
-////	this.bipedHead.showModel = false;
-////	this.bipedHeadwear.showModel = false;
-//    }
-//
-//    /**
-//     * This is a helper function from Tabula to set the rotation of model parts
-//     */
-//    public void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
-//	modelRenderer.rotateAngleX = x;
-//	modelRenderer.rotateAngleY = y;
-//	modelRenderer.rotateAngleZ = z;
-//    }
-//}
+package com.lance5057.compendium.client.armor;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+
+/**
+ * ModelPlayer - Either Mojang or a mod author Created using Tabula 7.0.0
+ */
+public class ModelHelm {
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition head = partdefinition.addOrReplaceChild("head",
+				CubeListBuilder.create().texOffs(26, 4).addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, new CubeDeformation(0.5F)),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition trim = head.addOrReplaceChild("trim", CubeListBuilder.create().texOffs(0, 12).addBox(-1.0F,
+				-8.9F, -5.0F, 2, 9, 10, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition MouthGuard = head.addOrReplaceChild("MouthGuard",
+				CubeListBuilder.create().texOffs(30, 20).addBox(-4.5F, -3.0F, -5.4F, 9, 5, 8,
+						new CubeDeformation(0.01F)),
+				PartPose.offsetAndRotation(0.0F, -2.0F, 0.0F, 0.3491F, 0.0F, 0.0F));
+
+		PartDefinition visor = head.addOrReplaceChild("visor",
+				CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, 0.2F, -5.9F, 9, 4, 8, new CubeDeformation(0.02F)),
+				PartPose.offsetAndRotation(0.0F, -6.7F, 0.1F, -0.0872F, 0.0F, 0.0F));
+
+		PartDefinition hat = partdefinition.addOrReplaceChild("hat", CubeListBuilder.create(),
+				PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
+	}
+}
