@@ -4,6 +4,6 @@ import java.util.List;
 
 import net.neoforged.neoforge.fluids.FluidStack;
 
-public interface WorkstationMultipleFluidOut {
+public interface StationMultipleFluidOut {
 	public List<FluidStack> getFluidsOut();
 }

@@ -88,28 +88,28 @@
 //				if (!(player instanceof ServerPlayer))
 //					return InteractionResult.FAIL;
 //				ServerPlayer serverPlayer = (ServerPlayer) player;
-//				NetworkHooks.openScreen(serverPlayer, te, pos);
+//				serverPlayer.openMenu(te, pos);
 //			}
 //		}
 //		return InteractionResult.SUCCESS;
 //	}
 //
-//	@Override
-//	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
-//			boolean isMoving) {
-//		if (state.getBlock() != newState.getBlock()) {
-//			BlockEntity tileentity = worldIn.getBlockEntity(pos);
-//			if (tileentity instanceof WorkstationTE) {
-//				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(
-//						itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots()).forEach(
-//								i -> Block.popResource(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
-//
-//				worldIn.updateNeighbourForOutputSignal(pos, this);
-//			}
-//
-//			super.onRemove(state, worldIn, pos, newState, isMoving);
-//		}
-//	}
+////	@Override
+////	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
+////			boolean isMoving) {
+////		if (state.getBlock() != newState.getBlock()) {
+////			BlockEntity tileentity = worldIn.getBlockEntity(pos);
+////			if (tileentity instanceof WorkstationTE) {
+////				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(
+////						itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots()).forEach(
+////								i -> Block.popResource(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
+////
+////				worldIn.updateNeighbourForOutputSignal(pos, this);
+////			}
+////
+////			super.onRemove(state, worldIn, pos, newState, isMoving);
+////		}
+////	}
 //
 //	public void setPlacedBy(Level p_49499_, BlockPos p_49500_, BlockState p_49501_, @Nullable LivingEntity p_49502_,
 //			ItemStack p_49503_) {
@@ -133,7 +133,7 @@
 //		return p_49534_ == Half.BOTTOM ? p_49535_ : p_49535_.getOpposite();
 //	}
 //
-//	public void playerWillDestroy(Level p_49505_, BlockPos p_49506_, BlockState p_49507_, Player p_49508_) {
+//	public BlockState playerWillDestroy(Level p_49505_, BlockPos p_49506_, BlockState p_49507_, Player p_49508_) {
 //		if (!p_49505_.isClientSide && p_49508_.isCreative()) {
 //			Half bedpart = p_49507_.getValue(HALF);
 //			if (bedpart == Half.BOTTOM) {
@@ -146,7 +146,7 @@
 //			}
 //		}
 //
-//		super.playerWillDestroy(p_49505_, p_49506_, p_49507_, p_49508_);
+//		return super.playerWillDestroy(p_49505_, p_49506_, p_49507_, p_49508_);
 //	}
 //
 //	public BlockState updateShape(BlockState p_49525_, Direction p_49526_, BlockState p_49527_, LevelAccessor p_49528_,

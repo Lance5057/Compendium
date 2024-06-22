@@ -4,6 +4,6 @@ import java.util.List;
 
 import net.minecraft.world.item.ItemStack;
 
-public interface WorkstationMultipleItemOut {
+public interface StationMultipleItemOut {
 	public List<ItemStack> getItemsOut(); 
 }

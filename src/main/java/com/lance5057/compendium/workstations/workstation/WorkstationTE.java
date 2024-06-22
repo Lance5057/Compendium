@@ -2,11 +2,11 @@
 //
 //import java.util.Optional;
 //
+//import com.lance5057.compendium.CompendiumTileEntities;
 //import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
 //import com.lance5057.compendium.workstations.WorkstationRecipes;
 //import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 //
-//import lance5057.compendium.CompendiumTileEntities;
 //import net.minecraft.core.BlockPos;
 //import net.minecraft.core.Direction;
 //import net.minecraft.nbt.CompoundTag;
@@ -21,6 +21,7 @@
 //import net.minecraftforge.common.capabilities.Capability;
 //import net.minecraftforge.common.util.LazyOptional;
 //import net.minecraftforge.items.CapabilityItemHandler;
+//import net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage;
 //import net.neoforged.neoforge.energy.IEnergyStorage;
 //import net.neoforged.neoforge.items.IItemHandler;
 //import net.neoforged.neoforge.items.IItemHandlerModifiable;
