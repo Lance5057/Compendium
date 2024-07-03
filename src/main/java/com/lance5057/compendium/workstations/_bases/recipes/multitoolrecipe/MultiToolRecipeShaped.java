@@ -48,10 +48,10 @@ public class MultiToolRecipeShaped extends MultiToolRecipe {
 
 	private final ItemStack recipeOutput;
 
-	public MultiToolRecipeShaped(ResourceLocation idIn, String groupIn, int recipeWidthIn, int recipeHeightIn,
+	public MultiToolRecipeShaped(String groupIn, int recipeWidthIn, int recipeHeightIn,
 			NonNullList<Ingredient> recipeItemsIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
 			ItemStack recipeOutputIn, RecipeType<?> type) {
-		super(idIn, groupIn, recipeToolsIn, type);
+		super(groupIn, recipeToolsIn, type); 
 		this.recipeWidth = recipeWidthIn;
 		this.recipeHeight = recipeHeightIn;
 		this.recipeItems = recipeItemsIn;

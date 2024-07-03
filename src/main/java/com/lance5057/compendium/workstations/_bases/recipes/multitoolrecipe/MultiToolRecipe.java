@@ -18,14 +18,12 @@ public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipe
 
 	private final RecipeType<?> type;
 	protected final NonNullList<AnimatedRecipeItemUse> recipeTools;
-	private final ResourceLocation id;
 	private final String group;
 
-	public MultiToolRecipe(ResourceLocation idIn, String groupIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
+	public MultiToolRecipe(String groupIn, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
 			RecipeType<?> type) {
 		this.recipeTools = recipeToolsIn;
 		this.type = type;
-		this.id = idIn;
 		this.group = groupIn;
 	}
 
@@ -44,10 +42,6 @@ public abstract class MultiToolRecipe implements IShapedRecipe<WorkstationRecipe
 	@Override
 	public RecipeType<?> getType() {
 		return type;
-	}
-
-	public ResourceLocation getId() {
-		return this.id;
 	}
 
 	public String getGroup() {

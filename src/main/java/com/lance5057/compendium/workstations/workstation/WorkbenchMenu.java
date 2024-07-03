@@ -197,21 +197,21 @@ public class WorkbenchMenu extends AbstractContainerMenu {
 	 */
 	@Override
 	public void slotsChanged(Container inventoryIn) {
-		RecipeHolder<WorkbenchRecipe> recipe = this.world.getRecipeManager().getRecipeFor(
-				WorkstationRecipes.WORKSTATION_RECIPE.get(), (WorkstationRecipeWrapper) inventoryIn, this.world).get();
-		if (recipe != null) {
-			ItemStack result = recipe.value().getCraftingResult((WorkstationRecipeWrapper) inventoryIn);
-			this.view.set(result);
-			this.toolList = recipe.value().getToolList();
-			// this.maxStrikes = recipe.get().getStrikes();
-		} else {
-			// this.output.set(ItemStack.EMPTY);
-			this.view.set(ItemStack.EMPTY);
-		}
-
-		Collection<RecipeHolder<WorkbenchRecipe>> r = this.world.getRecipeManager()
-				.getAllRecipesFor(WorkstationRecipes.WORKSTATION_RECIPE.get());
-		MultiToolRecipeShaped r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
+//		RecipeHolder<WorkbenchRecipe> recipe = this.world.getRecipeManager().getRecipeFor(
+//				WorkstationRecipes.WORKSTATION_RECIPE.get(), (WorkstationRecipeWrapper) inventoryIn, this.world).get();
+//		if (recipe != null) {
+//			ItemStack result = recipe.value().getCraftingResult((WorkstationRecipeWrapper) inventoryIn);
+//			this.view.set(result);
+//			this.toolList = recipe.value().getToolList();
+//			// this.maxStrikes = recipe.get().getStrikes();
+//		} else {
+//			// this.output.set(ItemStack.EMPTY);
+//			this.view.set(ItemStack.EMPTY);
+//		}
+//
+//		Collection<RecipeHolder<WorkbenchRecipe>> r = this.world.getRecipeManager()
+//				.getAllRecipesFor(WorkstationRecipes.WORKSTATION_RECIPE.get());
+//		MultiToolRecipeShaped r2 = matchRecipe((WorkstationRecipeWrapper) inventoryIn);
 		// zeroStrikes();
 		super.slotsChanged(inventoryIn);
 	}
