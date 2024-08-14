@@ -28,10 +28,10 @@ import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-public class HammeringStationTE extends MultiToolRecipeStation<HammeringStationRecipe> {
+public class HammeringStationBlockEntity extends MultiToolRecipeStation<HammeringStationRecipe> {
 
-	public HammeringStationTE(BlockPos pos, BlockState state) {
-		super(1, 1, 1, CompendiumTileEntities.HAMMERING_STATION_TE.get(), pos, state);
+	public HammeringStationBlockEntity(BlockPos pos, BlockState state) {
+		super(1, 1, 1, CompendiumTileEntities.HAMMERING_STATION.get(), pos, state);
 		// TODO Auto-generated constructor stub
 	}
 

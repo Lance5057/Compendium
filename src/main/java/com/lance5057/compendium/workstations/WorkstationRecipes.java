@@ -1,9 +1,9 @@
 package com.lance5057.compendium.workstations;
 
-
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe;
 import com.lance5057.compendium.workstations.workstation.WorkbenchRecipe;
 import com.lance5057.compendium.workstations.workstation.WorkbenchRecipeSerializer;
 
@@ -24,8 +24,8 @@ public class WorkstationRecipes {
 			.register("workstation", WorkbenchRecipeSerializer::new);
 //	public static final Supplier<Serializer> SAWBUCK_SERIALIZER = RECIPE_SERIALIZERS
 //			.register("sawbuck", SawBuckRecipe.Serializer::new);
-//	public static final Supplier<com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe.Serializer> HAMMERINGSTATION_SERIALIZER = RECIPE_SERIALIZERS
-//			.register("hammeringstation", HammeringStationRecipe.Serializer::new);
+	public static final Supplier<HammeringStationRecipe.Serializer> HAMMERINGSTATION_SERIALIZER = RECIPE_SERIALIZERS
+			.register("hammeringstation", HammeringStationRecipe.Serializer::new);
 //
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(BuiltInRegistries.RECIPE_TYPE, Compendium.MOD_ID);

@@ -34,7 +34,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	int powerLevel = 0;
 
 	public WorkbenchBlockEntity(BlockPos pos, BlockState state) {
-		super(27, 5, 5, CompendiumTileEntities.WORKSTATION_TE.get(), pos, state);
+		super(27, 5, 5, CompendiumTileEntities.WORKSTATION.get(), pos, state);
 	}
 
 	public void setGhostStack(ItemStack i) {

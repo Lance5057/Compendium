@@ -24,7 +24,7 @@ public class HammeringStationBlock extends StationGuiless {
 	@Override
 	public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
 		// TODO Auto-generated method stub
-		return new HammeringStationTE(p_153215_, p_153216_);
+		return new HammeringStationBlockEntity(p_153215_, p_153216_);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class HammeringStationBlock extends StationGuiless {
 			return InteractionResult.SUCCESS;
 		} else {
 			BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-			if (tileEntity instanceof HammeringStationTE te) {
+			if (tileEntity instanceof HammeringStationBlockEntity te) {
 
 				if (player.isCrouching()) {
 					te.extractItem(player);
