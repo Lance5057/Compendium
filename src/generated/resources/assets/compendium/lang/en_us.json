@@ -1,6 +1,10 @@
 {
-  "": "Work Bench",
-  "block.compendium.crafting_anvil": "Crafting Anvil",
-  "itemGroup.compendium.materials": "Compendium Materials",
-  "screen.workstations.crafting_anvil": "Crafting Anvil"
+  "block.compendium.tin_block": "Tin Block",
+  "item.compendium.tin_axe": "Tin Axe",
+  "item.compendium.tin_hoe": "Tin Hoe",
+  "item.compendium.tin_ingot": "Tin Ingot",
+  "item.compendium.tin_nugget": "Tin Nugget",
+  "item.compendium.tin_pickaxe": "Tin Pickaxe",
+  "item.compendium.tin_shovel": "Tin Shovel",
+  "item.compendium.tin_sword": "Tin Sword"
 }

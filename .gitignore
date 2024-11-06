@@ -7,6 +7,7 @@ bin
 .project
 
 # idea
+out
 *.ipr
 *.iws
 *.iml
@@ -19,3 +20,7 @@ build
 # other
 eclipse
 run
+runs
+run-data
+
+repo
