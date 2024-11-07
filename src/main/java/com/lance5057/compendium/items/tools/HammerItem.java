@@ -8,6 +8,7 @@ import com.lance5057.compendium.items.HandedAbilityTool;
 import com.lance5057.compendium.util.ToolUtil;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
@@ -107,7 +108,8 @@ public class HammerItem extends HandedAbilityTool {
 					.forEach(b -> level.destroyBlock(b.immutable(), false, context.getPlayer()));
 
 			float e = this.getTier().getSpeed();
-			float e2 = context.getItemInHand().getEnchantmentLevel(Enchantments.EFFICIENCY);
+			float e2 = context.getItemInHand()
+					.getEnchantmentLevel(ToolUtil.getEnchantment(level, Enchantments.EFFICIENCY));
 			int e3 = (int) (e * e2);
 
 			context.getPlayer().getCooldowns().addCooldown(this, (int) (100 - e3));

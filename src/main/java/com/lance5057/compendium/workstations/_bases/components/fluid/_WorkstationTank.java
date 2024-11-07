@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations._bases.components.fluid;
 import com.lance5057.compendium.workstations._bases.components.WorkstationComponent;
 
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.common.util.Lazy;
@@ -39,13 +40,13 @@ public class _WorkstationTank implements WorkstationComponent {
 	}
 
 	@Override
-	public CompoundTag writeNBT(CompoundTag tag) {
-		return fluids.writeToNBT(tag);
+	public CompoundTag writeNBT(HolderLookup.Provider provider,CompoundTag tag) {
+		return fluids.writeToNBT(provider, tag);
 	}
 
 	@Override
-	public void readNBT(CompoundTag nbt) {
-		fluids.readFromNBT(nbt);
+	public void readNBT(HolderLookup.Provider provider,CompoundTag nbt) {
+		fluids.readFromNBT(provider, nbt);
 	}
 
 	public IFluidHandler registerHandler(Direction d) {

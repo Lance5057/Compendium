@@ -36,7 +36,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialMetal("tin", true, true, true)
 				.addExtension(new ExtensionVanillaTools(true, true, true, true, true))
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1, 1)));
+				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

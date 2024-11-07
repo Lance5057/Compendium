@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations._bases.components.item;
 import com.lance5057.compendium.workstations._bases.components.WorkstationComponent;
 
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -14,8 +15,8 @@ public abstract class _WorkstationInventory implements WorkstationComponent {
 	protected final BlockEntity be;
 	private final String name;
 	public final String TAG;
-	private final ItemStackHandler items= createHandler();
-	private final Lazy<IItemHandlerModifiable> itemHandler =  Lazy.of(() -> items);
+	private final ItemStackHandler items = createHandler();
+	private final Lazy<IItemHandlerModifiable> itemHandler = Lazy.of(() -> items);
 	public final int NUM_SLOTS;
 	public final int WIDTH;
 	public final int HEIGHT;
@@ -60,16 +61,16 @@ public abstract class _WorkstationInventory implements WorkstationComponent {
 	}
 
 	@Override
-	public CompoundTag writeNBT(CompoundTag tag) {
-		tag.put(TAG, items.serializeNBT());
+	public CompoundTag writeNBT(HolderLookup.Provider provider, CompoundTag tag) {
+		tag.put(TAG, items.serializeNBT(provider));
 
 		return tag;
 	}
 
 	@Override
-	public void readNBT(CompoundTag nbt) {
+	public void readNBT(HolderLookup.Provider provider, CompoundTag nbt) {
 		if (nbt.contains(TAG)) {
-			items.deserializeNBT(nbt.getCompound(TAG));
+			items.deserializeNBT(provider, nbt.getCompound(TAG));
 		}
 	}
 

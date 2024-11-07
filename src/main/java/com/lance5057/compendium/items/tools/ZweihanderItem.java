@@ -2,6 +2,8 @@ package com.lance5057.compendium.items.tools;
 
 import java.util.List;
 
+import com.lance5057.compendium.util.ToolUtil;
+
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -9,7 +11,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
@@ -29,9 +31,6 @@ public class ZweihanderItem extends SwordItem {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		stack.hurtAndBreak(1, attacker, (entity) -> {
-			entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-		});
 
 		if (attacker instanceof Player) {
 			Player player = (Player) attacker;
@@ -50,10 +49,11 @@ public class ZweihanderItem extends SwordItem {
 		if (!playerIn.getCooldowns().isOnCooldown(this)) {
 			if (playerIn.getItemInHand(InteractionHand.OFF_HAND).isEmpty())
 				if (!playerIn.hasEffect(MobEffects.WEAKNESS)) {
-					worldIn.addParticle(ParticleTypes.SWEEP_ATTACK, playerIn.getX() + playerIn.getForward().normalize().x, playerIn.getY() + 1,
-							playerIn.getZ() + playerIn.getForward().normalize().z, 0, 0,0);
-					int i = 0;
-					i = i + EnchantmentHelper.getKnockbackBonus(playerIn);
+					worldIn.addParticle(ParticleTypes.SWEEP_ATTACK,
+							playerIn.getX() + playerIn.getForward().normalize().x, playerIn.getY() + 1,
+							playerIn.getZ() + playerIn.getForward().normalize().z, 0, 0, 0);
+//					int i = 0;
+//					i = i + playerIn.getKnockback(playerIn, null);
 
 					AABB aabb = new AABB(-3, 0, -3, 3, 1, 3);
 
@@ -75,7 +75,10 @@ public class ZweihanderItem extends SwordItem {
 							((LivingEntity) e).knockback((float) 1.0F, -(e.getX() - playerIn.getX()),
 									-(e.getZ() - playerIn.getZ()));
 
-							((LivingEntity) e).hurt(playerIn.damageSources().playerAttack(playerIn), 1);
+							((LivingEntity) e).hurt(playerIn.damageSources().playerAttack(playerIn),
+									EnchantmentHelper.getEnchantmentLevel(
+											ToolUtil.getEnchantment(worldIn, Enchantments.SWEEPING_EDGE), playerIn));
+
 							this.damageItem(playerIn.getItemInHand(InteractionHandIn), 1, ((LivingEntity) e), null);
 						}
 

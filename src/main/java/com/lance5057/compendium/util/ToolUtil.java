@@ -24,14 +24,18 @@ import java.util.stream.Stream;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -77,8 +81,9 @@ public class ToolUtil {
 								state.getBlock().destroy(server, pos, state);
 								state.getBlock().playerDestroy(server, player, pos, state, blockEntity, heldItem);
 //								state.getBlock().popExperience((ServerLevel) level, pos, event.getExpToDrop());
-								
-								CommonHooks.handleBlockDrops(server, originPos, state, blockEntity, null, player, heldItem);
+
+								CommonHooks.handleBlockDrops(server, originPos, state, blockEntity, null, player,
+										heldItem);
 
 								level.removeBlock(pos, false);
 								level.levelEvent(2001, pos, Block.getId(state));
@@ -111,7 +116,7 @@ public class ToolUtil {
 
 		Vec3 eyePosition = player.getEyePosition();
 		Vec3 rotation = player.getViewVector(1);
-		
+
 		double reach = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE);
 		Vec3 combined = eyePosition.add(rotation.x * reach, rotation.y * reach, rotation.z * reach);
 
@@ -133,5 +138,9 @@ public class ToolUtil {
 		}
 
 		return potentialBrokenBlocks;
+	}
+
+	public static Holder<Enchantment> getEnchantment(Level level, ResourceKey<Enchantment> key) {
+		return level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(key);
 	}
 }

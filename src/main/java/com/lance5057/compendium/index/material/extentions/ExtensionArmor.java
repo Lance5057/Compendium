@@ -1,21 +1,26 @@
 package com.lance5057.compendium.index.material.extentions;
 
+import java.util.List;
+import java.util.Map;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.items.CompendiumArmorItem;
 
+import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -38,9 +43,9 @@ public class ExtensionArmor extends _MaterialExtension {
 	int toughness;
 	int enchantability;
 	float knockbackResistance;
-	int durabilityMultiplier;
+//	int durabilityMultiplier;
 
-	ArmorMaterial MATERIAL;
+	Holder<ArmorMaterial> MATERIAL;
 
 	public DeferredItem<Item> HELM;
 	public DeferredItem<Item> CHESTPLATE;
@@ -49,7 +54,7 @@ public class ExtensionArmor extends _MaterialExtension {
 	public DeferredItem<Item> SHIELD;
 
 	public ExtensionArmor(boolean loadArmor, boolean loadShield, int helm, int chest, int leg, int boot, int toughness,
-			int enchant, float knockback, int durability) {
+			int enchant, float knockback) {
 		this.loadArmor = loadArmor;
 		this.loadShield = loadShield;
 
@@ -61,66 +66,23 @@ public class ExtensionArmor extends _MaterialExtension {
 		this.toughness = toughness;
 		this.enchantability = enchant;
 		this.knockbackResistance = knockback;
-		this.durabilityMultiplier = durability;
+//		this.durabilityMultiplier = durability;
 	}
 
 	@Override
 	public void setup(_MaterialBase base) {
 		if (this.loadArmor) {
 			if (this.loadArmor) {
-				MATERIAL = new ArmorMaterial() {
-
-					@Override
-					public int getDurabilityForType(Type pType) {
-						return switch (pType) {
-						case HELMET -> 11 * durabilityMultiplier;
-						case CHESTPLATE -> 16 * durabilityMultiplier;
-						case LEGGINGS -> 15 * durabilityMultiplier;
-						case BOOTS -> 13 * durabilityMultiplier;
-						};
-					}
-
-					@Override
-					public int getDefenseForType(Type pType) {
-						return switch (pType) {
-						case HELMET -> helmDefense;
-						case CHESTPLATE -> chestDefense;
-						case LEGGINGS -> legDefense;
-						case BOOTS -> bootDefense;
-						};
-					}
-
-					@Override
-					public int getEnchantmentValue() {
-						return enchantability;
-					}
-
-					@Override
-					public SoundEvent getEquipSound() {
-						return SoundEvents.ARMOR_EQUIP_IRON;
-					}
-
-					@Override
-					public Ingredient getRepairIngredient() {
-						return base.getBaseItem();
-					}
-
-					@Override
-					public String getName() {
-						return base.name;
-					}
-
-					@Override
-					public float getToughness() {
-						return toughness;
-					}
-
-					@Override
-					public float getKnockbackResistance() {
-						return knockbackResistance;
-					}
-
-				};
+				MATERIAL = CompendiumIndex.ARMOR_MATERIALS.register(base.name + "_armor_material",
+						() -> new ArmorMaterial(
+								Map.of(ArmorItem.Type.HELMET, helmDefense, ArmorItem.Type.CHESTPLATE, chestDefense,
+										ArmorItem.Type.LEGGINGS, legDefense, ArmorItem.Type.BOOTS, bootDefense,
+										ArmorItem.Type.BODY, chestDefense),
+								enchantability, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(ItemTags.WOOL),
+								List.of(new ArmorMaterial.Layer(
+										ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, base.name), "",
+										false)),
+								toughness, knockbackResistance));
 			}
 
 			HELM = CompendiumIndex.ITEMS.register(base.name + "_helm",
@@ -218,7 +180,7 @@ public class ExtensionArmor extends _MaterialExtension {
 			j.addProperty("toughness", src.toughness);
 			j.addProperty("enchantability", src.enchantability);
 			j.addProperty("knockbackResistance", src.knockbackResistance);
-			j.addProperty("durabilityMultiplier", src.durabilityMultiplier);
+//			j.addProperty("durabilityMultiplier", src.durabilityMultiplier);
 
 			return j;
 		}
@@ -239,9 +201,9 @@ public class ExtensionArmor extends _MaterialExtension {
 			int tough = j.get("toughness").getAsInt();
 			int enchant = j.get("enchantability").getAsInt();
 			float knockback = j.get("knockbackResistance").getAsInt();
-			int dur = j.get("durabilityMultiplier").getAsInt();
+//			int dur = j.get("durabilityMultiplier").getAsInt();
 
-			return new ExtensionArmor(armor, shield, helm, chest, leg, boot, tough, enchant, knockback, dur);
+			return new ExtensionArmor(armor, shield, helm, chest, leg, boot, tough, enchant, knockback);
 		}
 
 	}
