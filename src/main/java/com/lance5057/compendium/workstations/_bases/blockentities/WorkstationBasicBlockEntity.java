@@ -1,76 +1,77 @@
-//package com.lance5057.compendium.workstations._bases.blockentities;
-//
-//import java.util.List;
-//
-//import javax.annotation.Nonnull;
-//
-//import com.lance5057.compendium.workstations._bases.components.WorkstationComponent;
-//
-//import net.minecraft.core.BlockPos;
-//import net.minecraft.nbt.CompoundTag;
-//import net.minecraft.network.Connection;
-//import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-//import net.minecraft.world.level.block.entity.BlockEntity;
-//import net.minecraft.world.level.block.entity.BlockEntityType;
-//import net.minecraft.world.level.block.state.BlockState;
-//
-//public class WorkstationBasicBlockEntity extends BlockEntity {
-//
-//	List<WorkstationComponent> components;
-//	
-//	public WorkstationBasicBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
-//		super(pType, pPos, pBlockState);
-//	}
-//
-//	@Override
-//	public CompoundTag getUpdateTag() {
-//		CompoundTag nbt = super.getUpdateTag();
-//
-//		writeNBT(nbt);
-//
-//		return nbt;
-//	}
-//
-//	@Override
-//	public void handleUpdateTag(CompoundTag tag) {
-//		readNBT(tag);
-//	}
-//
-//	@Override
-//	public ClientboundBlockEntityDataPacket getUpdatePacket() {
-//		CompoundTag tag = new CompoundTag();
-//
-//		writeNBT(tag);
-//
-//		return ClientboundBlockEntityDataPacket.create(this);
-//	}
-//
-//	@Override
-//	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-//		CompoundTag tag = pkt.getTag();
-//		// InteractionHandle your Data
-//		readNBT(tag);
-//	}
-//
-//	void readNBT(CompoundTag nbt) {
-//		components.forEach(c -> c.readNBT(nbt));
-//	}
-//
-//	CompoundTag writeNBT(CompoundTag tag) {
-//		components.forEach(c -> c.writeNBT(tag));
-//		return tag;
-//	}
-//
-//	@Override
-//	public void load(@Nonnull CompoundTag nbt) {
-//		super.load(nbt);
-//		readNBT(nbt);
-//	}
-//
-//	@Override
-//	public void saveAdditional(@Nonnull CompoundTag nbt) {
-//		super.saveAdditional(nbt);
-//		writeNBT(nbt);
-//	}
-//	
-//}
+package com.lance5057.compendium.workstations._bases.blockentities;
+
+import java.util.List;
+
+import javax.annotation.Nonnull;
+
+import com.lance5057.compendium.workstations._bases.components.WorkstationComponent;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class WorkstationBasicBlockEntity extends BlockEntity {
+
+	List<WorkstationComponent> components;
+
+	public WorkstationBasicBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+		super(pType, pPos, pBlockState);
+	}
+
+	@Override
+	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+		CompoundTag nbt = super.getUpdateTag(registries);
+
+		writeNBT(nbt, registries);
+
+		return nbt;
+	}
+
+	@Override
+	public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
+		readNBT(tag, registries);
+	}
+
+	@Override
+	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		CompoundTag tag = new CompoundTag();
+
+		writeNBT(tag, null);
+
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
+		CompoundTag tag = pkt.getTag();
+		// InteractionHandle your Data
+		readNBT(tag, registries);
+	}
+
+	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		components.forEach(c -> c.readNBT(registries, nbt));
+	}
+
+	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
+		components.forEach(c -> c.writeNBT(registries, tag));
+		return tag;
+	}
+
+	@Override
+	public void loadAdditional(@Nonnull CompoundTag nbt, HolderLookup.Provider registries) {
+		super.loadAdditional(nbt, registries);
+		readNBT(nbt, registries);
+	}
+
+	@Override
+	public void saveAdditional(@Nonnull CompoundTag nbt, HolderLookup.Provider registries) {
+		super.saveAdditional(nbt, registries);
+		writeNBT(nbt, registries);
+	}
+
+}
