@@ -1,7 +1,10 @@
 package com.lance5057.compendium;
 
+import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class CompendiumTileEntities {
@@ -12,8 +15,8 @@ public class CompendiumTileEntities {
 //			.register("workbench", () -> BlockEntityType.Builder
 //					.of(WorkbenchBlockEntity::new, CompendiumBlocks.WORKBENCH.get()).build(null));
 //
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = TILES
-//			.register("hammering_station", () -> BlockEntityType.Builder
-//					.of(HammeringStationBlockEntity::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = TILES
+			.register("hammering_station", () -> BlockEntityType.Builder
+					.of(HammeringStationBlockEntity::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));
 
 }

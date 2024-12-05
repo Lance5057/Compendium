@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.lance5057.compendium.items.MegalithStoneItem;
 
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -19,6 +20,10 @@ public class CompendiumItems {
 			return 300;
 		}
 	});
-	
-	public static final DeferredItem<Item> MEGALITH_STONE = ITEMS.register("megalith_stone", () -> new MegalithStoneItem(new Item.Properties()));
+
+	public static final DeferredItem<Item> MEGALITH_STONE = ITEMS.register("megalith_stone",
+			() -> new MegalithStoneItem(new Item.Properties()));
+
+	public static final DeferredItem<Item> HAMMERING_STATION = ITEMS.register("hammering_station",
+			() -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(), new Item.Properties()));
 }

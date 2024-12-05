@@ -2,6 +2,7 @@ package com.lance5057.compendium.workstations._bases.blockentities;
 
 import java.util.Optional;
 
+import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
 
@@ -18,12 +19,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends WorkstationBasicBlockEntity {
-//	protected final LazyOptional<IItemHandlerModifiable> handler = LazyOptional.of(this::createInteractionHandler);
-	// private ItemStack ghostStack = ItemStack.EMPTY;
+	public static final String INVENTORY_TAG = "inv";
+	private final BlockEntityItemHandler inventory = createItemHandler();
+	private final Lazy<ItemStackHandler> itemHandler = Lazy.of(() -> inventory);
+
+	public Lazy<ItemStackHandler> getInventory() {
+		return itemHandler;
+	};
 
 	public boolean recipeLocked = false;
 	private ItemStack lastUsed = ItemStack.EMPTY;
@@ -54,7 +61,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			this.zeroProgress();
 	}
 
-	protected abstract IItemHandlerModifiable createInteractionHandler();
+	protected abstract BlockEntityItemHandler createItemHandler();
 
 	public void zeroProgress() {
 		this.progress = 0;
@@ -103,15 +110,19 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		return true;
 	}
 
-	public InteractionResult hammer(Player player, ItemStack hammer) {
+	public ItemStack insertItem(ItemStack item) {
+		return inventory.insertItem(0, item, false);
+	}
+
+	public InteractionResult use(Player player, ItemStack tool) {
 		Optional<V> currentRecipe = matchRecipe();
 		currentRecipe.ifPresent(r -> {
 
 			if (this.curTool == null) {
 				setupStage(r, stage);
 			}
-			if (this.curTool.test(hammer))
-				if (hammer.getCount() >= this.toolCount) {
+			if (this.curTool.test(tool))
+				if (tool.getCount() >= this.toolCount) {
 
 					if (this.progress >= this.maxProgress) {
 
@@ -122,20 +133,20 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 							}
 							level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
 
-							if (hammer.isDamageableItem())
-								hammer.hurtAndBreak(1, player, null);
+							if (tool.isDamageableItem())
+								tool.hurtAndBreak(1, player, null);
 							else
-								hammer.setCount(hammer.getCount() - this.toolCount);
+								tool.setCount(tool.getCount() - this.toolCount);
 
 							this.finishRecipe(player, r);
 						} else {
 							setupStage(r, stage + 1);
 						}
 					} else {
-						if (hammer.isDamageableItem())
-							hammer.hurtAndBreak(1, player, null);
+						if (tool.isDamageableItem())
+							tool.hurtAndBreak(1, player, null);
 						else
-							hammer.setCount(hammer.getCount() - this.toolCount);
+							tool.setCount(tool.getCount() - this.toolCount);
 
 						progress++;
 					}
@@ -165,35 +176,45 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-		CompoundTag nbt = super.getUpdateTag(registries);
+		CompoundTag tag = super.getUpdateTag(registries);
+		writeInventory(tag, registries);
+		writeNBT(tag, registries);
+		writeNBTExtra(tag, registries);
 
-		writeNBT(nbt);
-
-		return nbt;
+		return tag;
 	}
 
 	@Override
 	public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-		readNBT(tag);
+		readInventory(tag, registries);
+		readNBT(tag, registries);
+		readNBTExtra(tag, registries);
 	}
 
 	@Override
 	public ClientboundBlockEntityDataPacket getUpdatePacket() {
-		CompoundTag tag = new CompoundTag();
-
-		writeNBT(tag);
-
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
 	@Override
 	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
 		CompoundTag tag = pkt.getTag();
-		// InteractionHandle your Data
-		readNBT(tag);
+		readInventory(tag, registries);
+		readNBT(tag, registries);
+		readNBTExtra(tag, registries);
 	}
 
-	public abstract void readNBT(CompoundTag nbt);
+	void writeInventory(CompoundTag nbt, HolderLookup.Provider registries) {
+		nbt.put(INVENTORY_TAG, inventory.serializeNBT(registries));
+	}
 
-	public abstract CompoundTag writeNBT(CompoundTag tag);
+	void readInventory(CompoundTag nbt, HolderLookup.Provider registries) {
+		if (nbt.contains(INVENTORY_TAG)) {
+			inventory.deserializeNBT(registries, nbt.getCompound(INVENTORY_TAG));
+		}
+	}
+
+	protected abstract void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries);
+
+	protected abstract void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries);
 }

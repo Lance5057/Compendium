@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/gold/goldshingles",
+		"particle": "compendium:block/material/gold/goldshingles"
+	},
+	"elements": [
+		{
+			"name": "brace",
+			"from": [0, -3, 0],
+			"to": [16, 0, 10.6],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"east": {"uv": [2, 3, 5, 13.6], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"west": {"uv": [3, 3, 6, 13.6], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 3, 16, 13.6], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 0, 10.6, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "brace",
+			"from": [0, -3, 0],
+			"to": [10.6, 0, 16],
+			"rotation": {"angle": 45, "axis": "z", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"east": {"uv": [2, 3, 5, 13.6], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"west": {"uv": [3, 3, 6, 13.6], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 3, 16, 13.6], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 10.6, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "brace",
+			"from": [8.50467, 4.49533, 0],
+			"to": [19.10467, 7.49533, 16],
+			"rotation": {"angle": -45, "axis": "z", "origin": [8.50467, 7.49533, 0]},
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"east": {"uv": [2, 3, 5, 13.6], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"west": {"uv": [3, 3, 6, 13.6], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 3, 16, 13.6], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 10.6, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "brace",
+			"from": [0, 4.49533, 8.50467],
+			"to": [16, 7.49533, 19.10467],
+			"rotation": {"angle": 45, "axis": "x", "origin": [0, 7.49533, 8.50467]},
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"east": {"uv": [2, 3, 5, 13.6], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"west": {"uv": [3, 3, 6, 13.6], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 3, 16, 13.6], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 0, 10.6, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "log",
+			"from": [3.99, -0.01, 3.99],
+			"to": [12.01, 8.01, 12.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 4]},
+			"faces": {
+				"north": {"uv": [3.99, 7.99, 12.01, 16], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [2, 3, 10.02, 11.01], "texture": "#0"},
+				"south": {"uv": [3.99, 7.99, 12.01, 16.01], "texture": "#0"},
+				"west": {"uv": [3.99, 7.99, 12.01, 16.01], "texture": "#0"},
+				"up": {"uv": [3.99, 3.99, 12.01, 12.01], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [3.99, 3.99, 12.01, 12.01], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [0, 1, 2, 3,
+		{
+			"name": "shingles_cap_post",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [4]
+		}
+	]
+}

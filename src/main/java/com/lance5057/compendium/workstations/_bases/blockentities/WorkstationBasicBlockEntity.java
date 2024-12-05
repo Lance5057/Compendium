@@ -54,11 +54,13 @@ public class WorkstationBasicBlockEntity extends BlockEntity {
 	}
 
 	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
-		components.forEach(c -> c.readNBT(registries, nbt));
+		if (components != null)
+			components.forEach(c -> c.readNBT(registries, nbt));
 	}
 
 	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
-		components.forEach(c -> c.writeNBT(registries, tag));
+		if (components != null)
+			components.forEach(c -> c.writeNBT(registries, tag));
 		return tag;
 	}
 

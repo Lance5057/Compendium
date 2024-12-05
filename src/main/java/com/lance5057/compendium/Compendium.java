@@ -22,7 +22,9 @@ public class Compendium {
 		IndexInitialResourceLoader.init();
 		CompendiumIndex.setup(bus);
 
+		CompendiumBlocks.BLOCKS.register(bus);
 		CompendiumItems.ITEMS.register(bus);
+		CompendiumTileEntities.TILES.register(bus);
 
 		CompendiumTabs.TABS.register(bus);
 		bus.addListener(this::setupClient);

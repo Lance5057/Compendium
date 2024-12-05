@@ -16,9 +16,8 @@ public class CompendiumTabs {
 	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = TABS.register("tab",
 			() -> CreativeModeTab.builder().title(Component.translatable("itemGroup.compendium.tab"))
 					.icon(() -> new ItemStack(CompendiumItems.SAWDUST.get())).displayItems((parameters, output) -> {
-						output.accept(CompendiumItems.SAWDUST);
-						output.accept(CompendiumItems.MEGALITH_STONE);
-						
+						CompendiumItems.ITEMS.getEntries().forEach(i -> output.accept(i.get()));
+
 						CompendiumIndex.index.forEach(i -> i.tab(output));
 					}).build());
 }
