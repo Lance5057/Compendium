@@ -7,15 +7,14 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 
 public class AnimatedFloatVector3 {
-	public static final Codec<AnimatedFloatVector3> CODEC = RecordCodecBuilder.create(
-			inst -> inst.group(
-					AnimatedFloat.CODEC.optionalFieldOf("x", AnimatedFloat.ZERO).forGetter(a -> a.x),
+	public static final Codec<AnimatedFloatVector3> CODEC = RecordCodecBuilder.create(inst -> inst
+			.group(AnimatedFloat.CODEC.optionalFieldOf("x", AnimatedFloat.ZERO).forGetter(a -> a.x),
 					AnimatedFloat.CODEC.optionalFieldOf("y", AnimatedFloat.ZERO).forGetter(a -> a.y),
-					AnimatedFloat.CODEC.optionalFieldOf("z", AnimatedFloat.ZERO).forGetter(a -> a.z)
-			).apply(inst, AnimatedFloatVector3::new)
-	);
+					AnimatedFloat.CODEC.optionalFieldOf("z", AnimatedFloat.ZERO).forGetter(a -> a.z))
+			.apply(inst, AnimatedFloatVector3::new));
 
-	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloatVector3> STREAM_CODEC = StreamCodec.of(AnimatedFloatVector3::write, AnimatedFloatVector3::read);
+	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloatVector3> STREAM_CODEC = StreamCodec
+			.of(AnimatedFloatVector3::write, AnimatedFloatVector3::read);
 
 	AnimatedFloat x, y, z;
 
@@ -28,6 +27,18 @@ public class AnimatedFloatVector3 {
 		x = AnimatedFloat.ZERO;
 		y = AnimatedFloat.ZERO;
 		z = AnimatedFloat.ZERO;
+	}
+
+	public AnimatedFloatVector3(float in) {
+		this(new AnimatedFloat(in));
+	}
+
+	public AnimatedFloatVector3(AnimatedFloat in) {
+		this(in, in, in);
+	}
+
+	public AnimatedFloatVector3(float x, float y, float z) {
+		this(new AnimatedFloat(x), new AnimatedFloat(y), new AnimatedFloat(z));
 	}
 
 	public AnimatedFloatVector3(AnimatedFloat x, AnimatedFloat y, AnimatedFloat z) {

@@ -7,7 +7,9 @@ import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.NonNullList;
@@ -27,8 +29,9 @@ public class HammeringStationRecipe extends MultiToolRecipe
 	private final ResourceLocation loot;
 	private final ItemStack output;
 
-	public HammeringStationRecipe(ResourceLocation idIn, String groupIn, Ingredient recipeItemsIn, ItemStack output,
+	public HammeringStationRecipe(String groupIn, Ingredient recipeItemsIn, ItemStack output,
 			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable) {
+		super(groupIn);
 		this.input = recipeItemsIn;
 		this.loot = loottable;
 		this.output = output;
@@ -41,7 +44,7 @@ public class HammeringStationRecipe extends MultiToolRecipe
 
 	@Override
 	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -61,7 +64,7 @@ public class HammeringStationRecipe extends MultiToolRecipe
 
 	@Override
 	public RecipeSerializer<?> getSerializer() {
-		return null;
+		return WorkstationRecipes.HAMMERINGSTATION_SERIALIZER.get();
 	}
 
 	@Override
@@ -80,18 +83,55 @@ public class HammeringStationRecipe extends MultiToolRecipe
 	}
 
 	public static class Serializer implements RecipeSerializer<HammeringStationRecipe> {
+//		(String groupIn, Ingredient recipeItemsIn, ItemStack output,
+//				NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable)
+		public static final MapCodec<HammeringStationRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
+				.group(Codec.STRING.optionalFieldOf("group", "").forGetter(HammeringStationRecipe::getGroup),
+						Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(HammeringStationRecipe::getItemIn),
+						ItemStack.CODEC.fieldOf("ouput").forGetter(HammeringStationRecipe::getItemOut),
+						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
+								.forGetter(HammeringStationRecipe::getTools),
+						ResourceLocation.CODEC.fieldOf("loot").forGetter(HammeringStationRecipe::getLootTableOut))
+				.apply(inst, HammeringStationRecipe::new));
+
+		public static final StreamCodec<RegistryFriendlyByteBuf, HammeringStationRecipe> STREAM_CODEC = StreamCodec
+				.of(Serializer::write, Serializer::read);
 
 		@Override
 		public MapCodec<HammeringStationRecipe> codec() {
-			// TODO Auto-generated method stub
-			return null;
+			return CODEC;
 		}
 
 		@Override
 		public StreamCodec<RegistryFriendlyByteBuf, HammeringStationRecipe> streamCodec() {
-			// TODO Auto-generated method stub
-			return null;
+			return STREAM_CODEC;
 		}
 
+		private static HammeringStationRecipe read(RegistryFriendlyByteBuf buffer) {
+			String group = buffer.readUtf();
+			Ingredient in = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
+			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
+			int listSize = buffer.readVarInt();
+
+			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
+			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
+
+			ResourceLocation r = ResourceLocation.STREAM_CODEC.decode(buffer);
+
+			return new HammeringStationRecipe(group, in, out, tools, r);
+		}
+
+		private static void write(RegistryFriendlyByteBuf buffer, HammeringStationRecipe recipe) {
+			buffer.writeUtf(recipe.getGroup());
+
+			Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, recipe.input);
+
+			ItemStack.STREAM_CODEC.encode(buffer, recipe.output);
+
+			buffer.writeVarInt(recipe.getTools().size());
+			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
+
+			ResourceLocation.STREAM_CODEC.encode(buffer, recipe.loot);
+		}
 	}
 }

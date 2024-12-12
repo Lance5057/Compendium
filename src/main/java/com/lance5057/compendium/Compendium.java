@@ -36,6 +36,8 @@ public class Compendium {
 			CompendiumIndex.index.forEach(i -> {
 				i.setupClient(event);
 			});
+			
+			CompendiumClient.setBERenderers();
 		});
 	}
 }

@@ -16,7 +16,6 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 
 	public HammeringStationBlockEntity(BlockPos pos, BlockState state) {
 		super(1, 1, 1, CompendiumTileEntities.HAMMERING_STATION.get(), pos, state);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

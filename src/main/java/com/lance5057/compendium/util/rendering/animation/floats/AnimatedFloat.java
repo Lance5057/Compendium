@@ -31,7 +31,7 @@ public class AnimatedFloat {
 	public static AnimatedFloat ONE = new AnimatedFloat(1,1,1);
 
 	public AnimatedFloat(float iMax) {
-		this(iMax == 0 ? 0 : -iMax, iMax, 1);
+		this(iMax, iMax, 1);
 	}
 
 	public AnimatedFloat(float iMax, float speed) {
@@ -54,6 +54,9 @@ public class AnimatedFloat {
 	}
 
 	public float animate(float time) {
+		if(this.iMax == this.iMin)
+			return iMax;
+		
 		float mod = this.iMax - this.iMin;
 
 		if (mod == 0)

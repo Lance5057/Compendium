@@ -7,13 +7,21 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.crafting.Recipe;
 
 public abstract class MultiToolRecipe implements Recipe<MultiToolRecipeWrapper> {
+	String group;
 	NonNullList<AnimatedRecipeItemUse> tools;
 
-	public MultiToolRecipe() {
+	public MultiToolRecipe(String group) {
+		this.group = group;
 	}
 
 	public NonNullList<AnimatedRecipeItemUse> getTools() {
 		return tools;
+	}
+	
+	@Override
+	public String getGroup()
+	{
+		return this.group;
 	}
 
 }

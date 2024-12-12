@@ -37,34 +37,29 @@ public class RenderUtil {
 		float j = Mth.sin(0.5F * z);
 		float k = Mth.cos(0.5F * z);
 
-		return new Quaternionf(
-				f * i * k + g * h * j,
-				g * h * k - f * i * j,
-				f * h * k + g * i * j,
-				g * i * k - f * h * j
-		);
+		return new Quaternionf(f * i * k + g * h * j, g * h * k - f * i * j, f * h * k + g * i * j,
+				g * i * k - f * h * j);
 	}
 
 	public static void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
 			int combinedOverlayIn, BlacklistedModel model, float timer) {
 
 		if (model.isBlock()) {
-			IRenderable<ModelData> bm = BakedModelRenderable.of(ModelResourceLocation.standalone(model.rc())).withModelDataContext();
-			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm,
-					model.transform(), timer);
+			IRenderable<ModelData> bm = BakedModelRenderable.of(ModelResourceLocation.standalone(model.rc()))
+					.withModelDataContext();
+			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm, model.transform(), timer);
 
 		} else
 
 		{
 			Item item = BuiltInRegistries.ITEM.get(model.rc());
-			itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, item,
+			itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new ItemStack(item),
 					model.transform(), timer);
 		}
 	}
 
 	public static void blockModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn, IRenderable<ModelData> bm,
-			AnimationFloatTransform transform, float timer) {
+			int combinedOverlayIn, IRenderable<ModelData> bm, AnimationFloatTransform transform, float timer) {
 		matrixStackIn.pushPose();
 		{
 
@@ -74,8 +69,8 @@ public class RenderUtil {
 			matrixStackIn.mulPose(createQuaternion(transform.getRotation().getX().animate(timer),
 					transform.getRotation().getY().animate(timer), transform.getRotation().getZ().animate(timer),
 					true));
-			matrixStackIn.scale(1+transform.getScale().getX().animate(timer),
-					1+transform.getScale().getY().animate(timer), 1+transform.getScale().getZ().animate(timer));
+			matrixStackIn.scale(1 + transform.getScale().getX().animate(timer),
+					1 + transform.getScale().getY().animate(timer), 1 + transform.getScale().getZ().animate(timer));
 
 			bm.render(matrixStackIn, bufferIn, texture -> RenderType.entityTranslucent(texture), combinedLightIn,
 					combinedOverlayIn, timer, ModelData.EMPTY);
@@ -86,30 +81,35 @@ public class RenderUtil {
 	}
 
 	public static void itemModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
-			int combinedOverlayIn, Item item, AnimationFloatTransform transform, float timer) {
-		matrixStackIn.pushPose();
-		{
-			ItemStack stack = new ItemStack(item);
-			ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-			BakedModel bakedmodel = itemRenderer.getModel(stack, null, null, 0);
+			int combinedOverlayIn, ItemStack item, AnimationFloatTransform transform, float timer) {
+		if (item != null && !item.isEmpty()) {
+			matrixStackIn.pushPose();
+			{
+				ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+				BakedModel bakedmodel = itemRenderer.getModel(item, null, null, 0);
 
-			matrixStackIn.translate(
-					(transform.getLocation().getX().getOffset() + transform.getLocation().getX().animate(timer) / 16),
-					(transform.getLocation().getY().getOffset() + transform.getLocation().getY().animate(timer) / 16),
-					(transform.getLocation().getZ().getOffset() + transform.getLocation().getZ().animate(timer) / 16));
+				matrixStackIn.translate(
+						(transform.getLocation().getX().getOffset()
+								+ transform.getLocation().getX().animate(timer) / 16),
+						(transform.getLocation().getY().getOffset()
+								+ transform.getLocation().getY().animate(timer) / 16),
+						(transform.getLocation().getZ().getOffset()
+								+ transform.getLocation().getZ().animate(timer) / 16));
 
-			matrixStackIn.mulPose(createQuaternion(
-					transform.getRotation().getX().getOffset() + transform.getRotation().getX().animate(timer),
-					transform.getRotation().getY().getOffset() + transform.getRotation().getY().animate(timer),
-					transform.getRotation().getZ().getOffset() + transform.getRotation().getZ().animate(timer), true));
+				matrixStackIn.mulPose(createQuaternion(
+						transform.getRotation().getX().getOffset() + transform.getRotation().getX().animate(timer),
+						transform.getRotation().getY().getOffset() + transform.getRotation().getY().animate(timer),
+						transform.getRotation().getZ().getOffset() + transform.getRotation().getZ().animate(timer),
+						true));
 
-			matrixStackIn.scale(transform.getScale().getX().animate(timer),
-					transform.getScale().getY().animate(timer), transform.getScale().getZ().animate(timer));
+				matrixStackIn.scale(transform.getScale().getX().animate(timer),
+						transform.getScale().getY().animate(timer), transform.getScale().getZ().animate(timer));
 
-			itemRenderer.render(stack, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn,
-					combinedLightIn, combinedOverlayIn, bakedmodel);
+				itemRenderer.render(item, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, combinedLightIn,
+						combinedOverlayIn, bakedmodel);
+			}
+
+			matrixStackIn.popPose();
 		}
-		matrixStackIn.popPose();
-
 	}
 }

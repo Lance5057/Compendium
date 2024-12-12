@@ -47,6 +47,12 @@ public class AnimationFloatTransform {
 		return this;
 	}
 
+	public AnimationFloatTransform setLocation(float x, float y, float z) {
+		loc = new AnimatedFloatVector3(x, y, z);
+
+		return this;
+	}
+
 	public AnimationFloatTransform setRotation(AnimatedFloatVector3 in) {
 		rot = in;
 
@@ -55,6 +61,12 @@ public class AnimationFloatTransform {
 
 	public AnimationFloatTransform setScale(AnimatedFloatVector3 in) {
 		scale = in;
+
+		return this;
+	}
+
+	public AnimationFloatTransform setScale(float in) {
+		scale = new AnimatedFloatVector3(in);
 
 		return this;
 	}

@@ -4,13 +4,14 @@ import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
+import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
@@ -30,5 +31,9 @@ public class CompendiumClient {
 		event.registerLayerDefinition(BREASTPLATE, ModelBreastplate::createBodyLayer);
 		event.registerLayerDefinition(GREAVES, ModelGreaves::createBodyLayer);
 		event.registerLayerDefinition(SABATONS, ModelSabatons::createBodyLayer);
+	}
+
+	public static void setBERenderers() {
+		BlockEntityRenderers.register(CompendiumTileEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
 	}
 }
