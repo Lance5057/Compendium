@@ -111,7 +111,23 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public ItemStack insertItem(ItemStack item) {
-		return inventory.insertItem(0, item, false);
+		for (int i = 0; i < inventory.getSlots(); i++) {
+			item = inventory.insertItem(0, item, false);
+			if (item.isEmpty())
+				return item;
+
+		}
+		return item;
+	}
+	
+	public ItemStack extractItem() {
+		for(int i = inventory.getSlots()-1; i >= 0; i--)
+		{
+			ItemStack stack = inventory.extractItem(i, 64, false);
+			if(!stack.isEmpty())
+				return stack;
+		}
+		return ItemStack.EMPTY;
 	}
 
 	public InteractionResult use(Player player, ItemStack tool) {

@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -58,7 +59,11 @@ public abstract class StationGuiless extends Block implements EntityBlock, Simpl
 			Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			pPlayer.setItemInHand(pHand, be.insertItem(stack));
+			if (pPlayer.isCrouching()) {
+				if (!pPlayer.addItem(be.extractItem()))
+					pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY() + 1, pPos.getZ(), stack));
+			} else
+				pPlayer.setItemInHand(pHand, be.insertItem(stack));
 			return ItemInteractionResult.SUCCESS;
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

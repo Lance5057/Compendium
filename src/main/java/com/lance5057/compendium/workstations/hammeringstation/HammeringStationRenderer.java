@@ -2,15 +2,15 @@ package com.lance5057.compendium.workstations.hammeringstation;
 
 import com.lance5057.compendium.util.rendering.RenderUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
+import com.lance5057.compendium.workstations._bases.client.MultiToolBlockEntityRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-public class HammeringStationRenderer implements BlockEntityRenderer<HammeringStationBlockEntity> {
+public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<HammeringStationBlockEntity> {
 	int timer = 0;
 	int toolRandom = 0;
 
@@ -21,7 +21,7 @@ public class HammeringStationRenderer implements BlockEntityRenderer<HammeringSt
 	}
 
 	@Override
-	public void render(HammeringStationBlockEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn,
+	public void renderInventory(HammeringStationBlockEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn,
 			MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
 		if (!tileEntityIn.hasLevel()) {
 			return;
