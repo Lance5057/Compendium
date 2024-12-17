@@ -7,7 +7,6 @@ public class MultiToolRecipeWrapper extends RecipeWrapper {
 
 	public MultiToolRecipeWrapper(IItemHandler inv) {
 		super(inv);
-		// TODO Auto-generated constructor stub
 	}
 
 }

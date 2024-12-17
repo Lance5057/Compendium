@@ -17,6 +17,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.Lazy;
@@ -52,7 +53,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.numSlots = slots;
 	}
 
-	protected abstract Optional<V> matchRecipe();
+	protected abstract Optional<RecipeHolder<V>> matchRecipe();
 
 	public void setRecipe(Optional<V> r) {
 		if (r.isPresent()) {
@@ -78,9 +79,9 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public AnimatedRecipeItemUse getCurrentTool() {
-		Optional<V> currentRecipe = matchRecipe();
+		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
 		if (currentRecipe.isPresent())
-			return currentRecipe.get().getTools().get(stage);
+			return currentRecipe.get().value().getTools().get(stage);
 		return null;
 	}
 
@@ -131,18 +132,18 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public InteractionResult use(Player player, ItemStack tool) {
-		Optional<V> currentRecipe = matchRecipe();
+		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
 		currentRecipe.ifPresent(r -> {
 
 			if (this.curTool == null) {
-				setupStage(r, stage);
+				setupStage(r.value(), stage);
 			}
 			if (this.curTool.test(tool))
 				if (tool.getCount() >= this.toolCount) {
 
 					if (this.progress >= this.maxProgress) {
 
-						if (isFinalStage(r)) {
+						if (isFinalStage(r.value())) {
 
 							for (int i = 0; i < 5; i++) {
 								addParticle();
@@ -154,9 +155,9 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 							else
 								tool.setCount(tool.getCount() - this.toolCount);
 
-							this.finishRecipe(player, r);
+							this.finishRecipe(player, r.value());
 						} else {
-							setupStage(r, stage + 1);
+							setupStage(r.value(), stage + 1);
 						}
 					} else {
 						if (tool.isDamageableItem())
