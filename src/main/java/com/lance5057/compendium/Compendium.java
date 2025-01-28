@@ -6,9 +6,10 @@ import org.apache.logging.log4j.Logger;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod(Compendium.MOD_ID)
@@ -18,7 +19,9 @@ public class Compendium {
 
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-	public Compendium(IEventBus bus, Dist dist) {
+	public Compendium(IEventBus bus, ModContainer modContainer) {
+		modContainer.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.spec);
+
 		IndexInitialResourceLoader.init();
 		CompendiumIndex.setup(bus);
 
@@ -36,7 +39,7 @@ public class Compendium {
 			CompendiumIndex.index.forEach(i -> {
 				i.setupClient(event);
 			});
-			
+
 			CompendiumClient.setBERenderers();
 		});
 	}
