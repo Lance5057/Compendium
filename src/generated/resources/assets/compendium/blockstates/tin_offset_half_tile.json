@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "compendium:block/material/tin/tin_offset_half_tile_block"
+    }
+  }
+}

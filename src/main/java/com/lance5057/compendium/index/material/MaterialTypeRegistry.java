@@ -11,6 +11,7 @@ import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
+import com.lance5057.compendium.index.material.extentions.ExtensionExtraMetalBlocks;
 import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
@@ -60,5 +61,6 @@ public class MaterialTypeRegistry {
 		extensions.put(ExtensionVanillaTools.class, new ExtensionVanillaTools.Serializer());
 		extensions.put(ExtensionAdvancedTools.class, new ExtensionAdvancedTools.Serializer());
 		extensions.put(ExtensionArmor.class, new ExtensionArmor.Serializer());
+		extensions.put(ExtensionExtraMetalBlocks.class, new ExtensionExtraMetalBlocks.Serializer());
 	}
 }

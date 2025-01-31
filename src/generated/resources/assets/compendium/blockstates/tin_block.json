@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "compendium:block/blocktin"
+      "model": "compendium:block/material/tin/tin_block"
     }
   }
 }

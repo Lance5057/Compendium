@@ -123,8 +123,7 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

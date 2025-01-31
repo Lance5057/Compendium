@@ -21,19 +21,31 @@ public class DataUtil {
 	}
 
 	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, ResourceLocation item, String name) {
-		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld")).texture(
-				"layer0", ResourceLocation.fromNamespaceAndPath(item.getNamespace(), "item/material/" + name + "/" + item.getPath()));
+		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
+				.texture("layer0", ResourceLocation.fromNamespaceAndPath(item.getNamespace(),
+						"item/material/" + name + "/" + item.getPath()));
 	}
 
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
 			String name) {
-		p.getBuilder(item.getId().getPath()).parent(
-				new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/block" + name)));
+		p.getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation
+				.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/" + name + "/" + name + "_block")));
+	}
+
+	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
+			String extra) {
+		p.getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation
+				.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/" + name + "/" + name + extra + "_block")));
 	}
 
 	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name) {
-		bsp.simpleBlock(block,
-				bsp.models().cubeAll("block" + name, bsp.modLoc("block/material/" + name + "/" + name + "block")));
+		bsp.simpleBlock(block, bsp.models().cubeAll("block/material/" + name + "/" + name + "_block",
+				bsp.modLoc("block/material/" + name + "/" + name + "_block")));
+	}
+
+	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, String extra) {
+		bsp.simpleBlock(block, bsp.models().cubeAll("block/material/" + name + "/" + name + extra + "_block",
+				bsp.modLoc("block/material/" + name + "/" + name + extra + "_block")));
 	}
 
 	public static void basicMaterialBow(ItemModelProvider tmp, Item item, String name) {
