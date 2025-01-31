@@ -1,4 +1,4 @@
-package com.lance5057.compendium.blocks.entity;
+package com.lance5057.compendium.styleblock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;

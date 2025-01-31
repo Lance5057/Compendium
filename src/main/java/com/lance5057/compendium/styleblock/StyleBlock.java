@@ -1,4 +1,4 @@
-package com.lance5057.compendium.blocks;
+package com.lance5057.compendium.styleblock;
 
 import net.minecraft.world.level.block.Block;
 
