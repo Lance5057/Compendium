@@ -7,7 +7,6 @@ import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -29,9 +28,9 @@ public class HammeringStationRecipe extends MultiToolRecipe
 	private final ResourceLocation loot;
 	private final ItemStack output;
 
-	public HammeringStationRecipe(String groupIn, Ingredient recipeItemsIn, ItemStack output,
+	public HammeringStationRecipe(Ingredient recipeItemsIn, ItemStack output,
 			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable) {
-		super(groupIn);
+		super();
 		this.input = recipeItemsIn;
 		this.loot = loottable;
 		this.output = output;
@@ -86,8 +85,7 @@ public class HammeringStationRecipe extends MultiToolRecipe
 //		(String groupIn, Ingredient recipeItemsIn, ItemStack output,
 //				NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable)
 		public static final MapCodec<HammeringStationRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
-				.group(Codec.STRING.optionalFieldOf("group", "").forGetter(HammeringStationRecipe::getGroup),
-						Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(HammeringStationRecipe::getItemIn),
+				.group(Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(HammeringStationRecipe::getItemIn),
 						ItemStack.CODEC.fieldOf("ouput").forGetter(HammeringStationRecipe::getItemOut),
 						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
 								.forGetter(HammeringStationRecipe::getTools),
@@ -118,7 +116,7 @@ public class HammeringStationRecipe extends MultiToolRecipe
 
 			ResourceLocation r = ResourceLocation.STREAM_CODEC.decode(buffer);
 
-			return new HammeringStationRecipe(group, in, out, tools, r);
+			return new HammeringStationRecipe(in, out, tools, r);
 		}
 
 		private static void write(RegistryFriendlyByteBuf buffer, HammeringStationRecipe recipe) {

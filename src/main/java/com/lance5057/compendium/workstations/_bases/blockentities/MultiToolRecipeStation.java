@@ -96,9 +96,9 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	protected void setupStage(V r, int i) {
 
 		this.progress = 0;
-		this.maxProgress = r.getTools().get(i).getUses();
-		this.curTool = r.getTools().get(i).getTool();
-		this.toolCount = r.getTools().get(i).getCount();
+		this.maxProgress = r.getTools().get(i).uses();
+		this.curTool = r.getTools().get(i).tool();
+		this.toolCount = r.getTools().get(i).count();
 
 		this.stage = i;
 	}

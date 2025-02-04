@@ -1,7 +1,6 @@
 package com.lance5057.compendium.styleblock;
 
 import com.lance5057.compendium.CompendiumMenus;
-import com.lance5057.extradelight.network.StyleableMenuSyncPacket;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -49,7 +48,7 @@ public class StyleBlockMenu extends AbstractContainerMenu {
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();
 		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new StyleableMenuSyncPacket(this.containerId, this.pos));
+			serverPlayer.connection.send(new StyleBlockMenuSyncPacket(this.containerId, this.pos));
 	}
 
 }

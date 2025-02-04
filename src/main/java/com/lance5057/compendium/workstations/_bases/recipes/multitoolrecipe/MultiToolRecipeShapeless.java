@@ -8,8 +8,8 @@ import net.minecraft.world.level.Level;
 
 public abstract class MultiToolRecipeShapeless extends MultiToolRecipe {
 
-	public MultiToolRecipeShapeless(String group) {
-		super(group);
+	public MultiToolRecipeShapeless() {
+		super();
 	}
 
 	@Override
