@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Block;
 
 public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 	private BlockPos pos = BlockPos.ZERO;
@@ -33,6 +34,9 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 	private float scrollOffs;
 	private boolean scrolling;
 	private int startIndex;
+
+	private BlockPos pos = BlockPos.ZERO;
+	private StyleBlock style;
 
 	public StyleBlockScreen(StyleBlockMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
@@ -104,5 +108,8 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 //			return style.numStyles() > 12;
 //		return false;
 //	}
-
+		Block block = this.minecraft.level.getBlockState(pos).getBlock();
+		if (block instanceof StyleBlock style)
+			this.style = style;
+	}
 }

@@ -4,6 +4,7 @@ import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
+import com.lance5057.compendium.styleblock.StyleBlockScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -13,6 +14,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class CompendiumClient {
@@ -35,5 +37,10 @@ public class CompendiumClient {
 
 	public static void setBERenderers() {
 		BlockEntityRenderers.register(CompendiumTileEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+	}
+
+	@SubscribeEvent
+	public static void registerClient(RegisterMenuScreensEvent event) {
+		event.register(CompendiumMenus.STYLE_MENU.get(), StyleBlockScreen::new);
 	}
 }

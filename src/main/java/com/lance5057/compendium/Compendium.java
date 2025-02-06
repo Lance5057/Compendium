@@ -22,6 +22,8 @@ public class Compendium {
 	public Compendium(IEventBus bus, ModContainer modContainer) {
 		modContainer.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.spec);
 
+		bus.addListener(CompendiumNetworkHandler::setupPackets);
+
 		IndexInitialResourceLoader.init();
 		CompendiumIndex.setup(bus);
 

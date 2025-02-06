@@ -40,8 +40,8 @@ public class StyleBlockMenu extends AbstractContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		// TODO Auto-generated method stub
-		return false;
+		// TODO Auto-generated method stubvvvv
+		return true;
 	}
 
 	@Override

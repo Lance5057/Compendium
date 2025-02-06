@@ -1,0 +1,14 @@
+package com.lance5057.compendium;
+
+import com.lance5057.compendium.styleblock.StyleBlockMenuSyncPacket;
+
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+
+public class CompendiumNetworkHandler {
+	public static void setupPackets(RegisterPayloadHandlersEvent event) {
+		PayloadRegistrar registrar = event.registrar(Compendium.MOD_ID).versioned("1.0.0").optional();
+		
+		registrar.playToClient(StyleBlockMenuSyncPacket.id, StyleBlockMenuSyncPacket.STREAM_CODEC, StyleBlockMenuSyncPacket::handle);
+	}
+}
