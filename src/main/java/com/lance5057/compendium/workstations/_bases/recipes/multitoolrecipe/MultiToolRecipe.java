@@ -10,8 +10,8 @@ public abstract class MultiToolRecipe implements Recipe<MultiToolRecipeWrapper> 
 
 	NonNullList<AnimatedRecipeItemUse> tools;
 
-	public MultiToolRecipe() {
-
+	public MultiToolRecipe(NonNullList<AnimatedRecipeItemUse> tools) {
+		this.tools = tools;
 	}
 
 	public NonNullList<AnimatedRecipeItemUse> getTools() {

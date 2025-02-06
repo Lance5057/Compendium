@@ -32,7 +32,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 public class HammeringRecipeBuilder implements RecipeBuilder {
 	private final Ingredient input;
 	private final ItemStack result;
-	private final List<AnimatedRecipeItemUse> tools = NonNullList.create();
+	private final NonNullList<AnimatedRecipeItemUse> tools = NonNullList.create();
 
 	private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
@@ -41,7 +41,7 @@ public class HammeringRecipeBuilder implements RecipeBuilder {
 		this.result = out;
 	}
 
-	public static HammeringRecipeBuilder chill(Ingredient input, ItemStack result) {
+	public static HammeringRecipeBuilder hammer(Ingredient input, ItemStack result) {
 		return new HammeringRecipeBuilder(input, result);
 	}
 
@@ -103,7 +103,7 @@ public class HammeringRecipeBuilder implements RecipeBuilder {
 				.rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
 		this.criteria.forEach(advancementBuilder::addCriterion);
 
-		HammeringStationRecipe recipe = new HammeringStationRecipe(input, result, null, recipeId);
+		HammeringStationRecipe recipe = new HammeringStationRecipe(input, result, tools, recipeId); 
 		output.accept(recipeId, recipe, advancementBuilder.build(id.withPrefix("recipes/hammering/")));
 	}
 
