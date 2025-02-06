@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -32,6 +33,7 @@ public class Compendium {
 		CompendiumTabs.TABS.register(bus);
 		bus.addListener(this::setupClient);
 		CompendiumMenus.register(bus);
+		WorkstationRecipes.register(bus);
 	}
 
 	public void setupClient(FMLClientSetupEvent event) {

@@ -30,7 +30,7 @@ public class HammeringStationRecipe extends MultiToolRecipe
 
 	public HammeringStationRecipe(Ingredient recipeItemsIn, ItemStack output,
 			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable) {
-		super();
+		super(recipeToolsIn);
 		this.input = recipeItemsIn;
 		this.loot = loottable;
 		this.output = output;
@@ -82,8 +82,6 @@ public class HammeringStationRecipe extends MultiToolRecipe
 	}
 
 	public static class Serializer implements RecipeSerializer<HammeringStationRecipe> {
-//		(String groupIn, Ingredient recipeItemsIn, ItemStack output,
-//				NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable)
 		public static final MapCodec<HammeringStationRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
 				.group(Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(HammeringStationRecipe::getItemIn),
 						ItemStack.CODEC.fieldOf("ouput").forGetter(HammeringStationRecipe::getItemOut),

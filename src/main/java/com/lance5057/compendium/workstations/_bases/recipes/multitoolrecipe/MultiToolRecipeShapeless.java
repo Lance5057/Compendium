@@ -1,15 +1,17 @@
 package com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe;
 
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public abstract class MultiToolRecipeShapeless extends MultiToolRecipe {
 
-	public MultiToolRecipeShapeless() {
-		super();
+	public MultiToolRecipeShapeless(NonNullList<AnimatedRecipeItemUse> tools) {
+		super(tools);
 	}
 
 	@Override
