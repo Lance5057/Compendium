@@ -12,6 +12,7 @@ import com.lance5057.compendium.index.util.BasicBlockItem;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraMetalBlocks extends _MaterialExtension {
@@ -101,6 +103,18 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
+
+	}
+
+	@Override
+	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
+		// TODO Auto-generated method stub
 
 	}
 

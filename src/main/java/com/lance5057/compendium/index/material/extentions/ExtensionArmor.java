@@ -17,6 +17,7 @@ import com.lance5057.compendium.items.CompendiumArmorItem;
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
@@ -29,6 +30,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -146,6 +148,18 @@ public class ExtensionArmor extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
 		// TODO Auto-generated method stub
 
 	}

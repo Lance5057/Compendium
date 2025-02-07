@@ -22,15 +22,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
 
 public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends WorkstationBasicBlockEntity {
 	public static final String INVENTORY_TAG = "inv";
 	private final BlockEntityItemHandler inventory = createItemHandler();
-	private final Lazy<ItemStackHandler> itemHandler = Lazy.of(() -> inventory);
+	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
 
-	public Lazy<ItemStackHandler> getInventory() {
-		return itemHandler;
+	public BlockEntityItemHandler getInventory() {
+		return itemHandler.get();
 	};
 
 	public boolean recipeLocked = false;
@@ -120,12 +119,11 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		}
 		return item;
 	}
-	
+
 	public ItemStack extractItem() {
-		for(int i = inventory.getSlots()-1; i >= 0; i--)
-		{
+		for (int i = inventory.getSlots() - 1; i >= 0; i--) {
 			ItemStack stack = inventory.extractItem(i, 64, false);
-			if(!stack.isEmpty())
+			if (!stack.isEmpty())
 				return stack;
 		}
 		return ItemStack.EMPTY;
@@ -141,7 +139,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			if (this.curTool.test(tool))
 				if (tool.getCount() >= this.toolCount) {
 
-					if (this.progress >= this.maxProgress) {
+					if (this.progress >= this.maxProgress-1) {
 
 						if (isFinalStage(r.value())) {
 
@@ -156,6 +154,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 								tool.setCount(tool.getCount() - this.toolCount);
 
 							this.finishRecipe(player, r.value());
+							this.zeroProgress();
 						} else {
 							setupStage(r.value(), stage + 1);
 						}

@@ -27,7 +27,9 @@ public class _DataGen {
 		generator.addProvider(true, new ItemModels(output, helper));
 		generator.addProvider(true, new BlockModels(output, helper));
 
-		generator.addProvider(true, new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper));
+		BlockTagGen btg = new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper);
+		generator.addProvider(true, btg);
+		generator.addProvider(true, new ItemTagGen(output, lookupProvider, btg.contentsGetter(), helper));
 		generator.addProvider(true, new Recipes(output, lookupProvider));
 	}
 }

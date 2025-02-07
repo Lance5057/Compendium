@@ -31,15 +31,19 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		hammering(consumer);
 	}
 
-	BlacklistedModel standardHammeringModel(ResourceLocation rl) {
-		return new BlacklistedModel(rl, true,
-				new AnimationFloatTransform().setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(0))));
+	BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true)))
+						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8, 0))
+								.setY(new AnimatedFloat(10 + yOffset, 0)).setZ(new AnimatedFloat(8, 0)))
+						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
 	}
 
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, LootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("hammer")))
+						standardHammeringModel(TagUtil.modLoc("tin_hammer"), 0))
 				.save(consumer);
 	}
 }

@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations.hammeringstation;
 import java.util.Optional;
 
 import com.lance5057.compendium.CompendiumTileEntities;
+import com.lance5057.compendium.util.ItemUtil;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
@@ -23,9 +24,9 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 
 	@Override
 	protected Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
-		if (this.level != null && this.getInventory().get() != null) {
+		if (this.level != null && this.getInventory() != null) {
 			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
-					new MultiToolRecipeWrapper(this.getInventory().get()), level);
+					new MultiToolRecipeWrapper(this.getInventory()), level);
 		}
 		return Optional.empty();
 	}
@@ -45,8 +46,8 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 
 	@Override
 	public void finishRecipe(Player Player, HammeringStationRecipe recipe) {
-		// TODO Auto-generated method stub
-
+		ItemUtil.giveOrDrop(recipe.getItemOut(), Player);
+		this.getInventory().shrinkAll();
 	}
 
 	@Override
