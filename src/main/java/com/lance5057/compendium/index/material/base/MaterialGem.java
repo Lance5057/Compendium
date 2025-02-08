@@ -12,6 +12,7 @@ import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -21,6 +22,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -109,6 +111,16 @@ public class MaterialGem extends _MaterialBase {
 		if (this.loadShard)
 			output.accept(SHARD);
 	}
+	
+	@Override
+	public void setupItemTags(ItemTagsProvider itp) {
+		this.extensions.forEach(i -> i.setupItemTags(this, itp));
+	}
+
+	@Override
+	public void setupBlockTags(BlockTagsProvider itp) {
+		this.extensions.forEach(i -> i.setupBlockTags(this, itp));
+	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialGem> {
 
@@ -154,4 +166,6 @@ public class MaterialGem extends _MaterialBase {
 	public Ingredient getBaseItem() {
 		return Ingredient.of(GEM.get());
 	}
+
+	
 }

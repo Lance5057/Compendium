@@ -62,6 +62,8 @@ public abstract class StationGuiless extends Block implements EntityBlock, Simpl
 			if (pPlayer.isCrouching()) {
 				if (!pPlayer.addItem(be.extractItem()))
 					pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY() + 1, pPos.getZ(), stack));
+			} else if (!be.getInventory().isEmpty()) {
+				be.use(pPlayer, stack);
 			} else
 				pPlayer.setItemInHand(pHand, be.insertItem(stack));
 			return ItemInteractionResult.SUCCESS;

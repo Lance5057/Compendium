@@ -14,6 +14,7 @@ import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -29,6 +30,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -145,6 +147,16 @@ public class MaterialMetal extends _MaterialBase {
 			output.accept(NUGGET);
 
 		this.extensions.forEach(i -> i.tab(this, output));
+	}
+
+	@Override
+	public void setupItemTags(ItemTagsProvider itp) {
+		this.extensions.forEach(i -> i.setupItemTags(this, itp));
+	}
+
+	@Override
+	public void setupBlockTags(BlockTagsProvider itp) {
+		this.extensions.forEach(i -> i.setupBlockTags(this, itp));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialMetal> {

@@ -13,6 +13,7 @@ import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.HoeItem;
@@ -23,6 +24,7 @@ import net.minecraft.world.item.SwordItem;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -123,7 +125,19 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
-		
+
+	}
+
+	@Override
+	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
