@@ -38,6 +38,9 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 	private BlockPos pos = BlockPos.ZERO;
 	private StyleBlock style;
 
+	private BlockPos pos = BlockPos.ZERO;
+	private StyleBlock style;
+
 	public StyleBlockScreen(StyleBlockMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
 	}
