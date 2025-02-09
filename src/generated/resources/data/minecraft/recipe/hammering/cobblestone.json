@@ -37,7 +37,7 @@
                 "max": 45.0,
                 "min": -45.0,
                 "pingpong": true,
-                "speed": 0.05
+                "speed": 0.5
               }
             },
             "scale": {

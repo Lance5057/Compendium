@@ -13,30 +13,35 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
 
-public class CosmeticToolbox extends Item {
+public class CosmeticToolbox extends BlockItem {
 
-	public CosmeticToolbox(Properties properties) {
-		super(properties);
+	public CosmeticToolbox(Block block, Properties properties) {
+		super(block, properties);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StyleBlock s) {
-			if (!pContext.getLevel().isClientSide())
-				pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
-					return new StyleBlockMenu(p_57074_, p_57075_,
-							ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
-							pContext.getClickedPos());
-				}, CommonComponents.EMPTY));
-		}
-		return InteractionResult.PASS;
-
+		if (pContext.getPlayer().isCrouching()) {
+			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StyleBlock s) {
+				if (!pContext.getLevel().isClientSide())
+					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
+						return new StyleBlockMenu(p_57074_, p_57075_,
+								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
+								pContext.getClickedPos());
+					}, CommonComponents.EMPTY));
+				return InteractionResult.PASS;
+			}
+		} else
+			return super.useOn(pContext);
+		return InteractionResult.CONSUME;
 	}
 
 	@Override

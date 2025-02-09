@@ -20,7 +20,11 @@ public class BlockModels extends BlockStateProvider {
 			i.blockModel(this);
 		});
 
-		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(), models().getExistingFile(modLoc("block/workstations/hammering_station")));
+		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(),
+				models().getExistingFile(modLoc("block/workstations/hammering_station")));
+
+		this.horizontalBlock(CompendiumBlocks.COSMETIC_TOOLBOX.get(),
+				models().getExistingFile(modLoc("block/cosmetic_toolbox_open")));
 	}
 
 }

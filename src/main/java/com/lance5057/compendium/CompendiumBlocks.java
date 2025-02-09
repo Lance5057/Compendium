@@ -1,6 +1,7 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.ChairBlock;
+import com.lance5057.compendium.blocks.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 
 import net.minecraft.world.level.block.Block;
@@ -15,6 +16,9 @@ public class CompendiumBlocks {
 //	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 	public static final DeferredBlock<Block> HAMMERING_STATION = BLOCKS.register("hammering_station",
 			HammeringStationBlock::new);
+
+	public static final DeferredBlock<Block> COSMETIC_TOOLBOX = BLOCKS.register("cosmetic_toolbox",
+			() -> new CosmeticToolboxBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> CHAIR = BLOCKS.register("chair",
 			() -> new ChairBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));

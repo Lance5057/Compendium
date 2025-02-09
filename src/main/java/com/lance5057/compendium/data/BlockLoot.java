@@ -21,5 +21,6 @@ public class BlockLoot extends BlockLootSubProvider {
 		});
 
 		this.dropSelf(CompendiumBlocks.HAMMERING_STATION.get());
+		this.dropSelf(CompendiumBlocks.COSMETIC_TOOLBOX.get());
 	}
 }

@@ -28,8 +28,8 @@ public class CompendiumItems {
 	public static final DeferredItem<Item> HAMMERING_STATION = ITEMS.register("hammering_station",
 			() -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(), new Item.Properties()));
 
-	public static final DeferredItem<Item> COSMETIC_TOOLBOX = ITEMS.register("cosmetic_toolbox",
-			() -> new CosmeticToolbox(new Item.Properties()));
+	public static final DeferredItem<BlockItem> COSMETIC_TOOLBOX = ITEMS.register("cosmetic_toolbox",
+			() -> new CosmeticToolbox(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
 			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()));
