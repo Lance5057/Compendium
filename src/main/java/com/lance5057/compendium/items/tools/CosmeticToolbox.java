@@ -29,7 +29,7 @@ public class CosmeticToolbox extends BlockItem {
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		if (pContext.getPlayer().isCrouching()) {
+		if (!pContext.getPlayer().isCrouching()) {
 			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StyleBlock s) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {

@@ -1,7 +1,9 @@
 package com.lance5057.compendium.styleblock;
 
 import com.lance5057.compendium.Compendium;
+import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.math.Axis;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -50,10 +52,29 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 		if (state != null) {
 			if (state.getBlock() instanceof StyleBlock style) {
 				int i = this.leftPos + 8;
-				int j = this.topPos + 36;
+				int j = this.topPos - 45;
 
 				RenderSystem.setShaderTexture(0, BACKGROUND);
 				gui.blit(BACKGROUND, i, j, 0, 0, 176, 256);
+				gui.blit(BACKGROUND, i - 81, j, 175, 0, 81, 81);
+
+				RenderSystem.enableBlend();
+				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+				Lighting.setupForFlatItems();
+
+				gui.pose().pushPose();
+				{
+					gui.pose().translate(this.leftPos - 32, this.topPos - 18, 100);
+					gui.pose().scale(40F, 40F, 40F);
+
+					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
+					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
+
+					renderBlock(gui, state);
+
+				}
+				gui.pose().popPose();
+
 			}
 		}
 	}
@@ -99,6 +120,10 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 
 			p_282733_.blitSprite(resourcelocation, k, i1 - 1, 16, 18);
 		}
+	}
+
+	@Override
+	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 	}
 
 //	private boolean isScrollBarActive() {
