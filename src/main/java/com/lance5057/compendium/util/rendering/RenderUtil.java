@@ -102,6 +102,11 @@ public class RenderUtil {
 						transform.getRotation().getZ().getOffset() + transform.getRotation().getZ().animate(timer),
 						true));
 
+				matrixStackIn.translate(
+						(transform.getPivot().getX().getOffset() + transform.getPivot().getX().animate(timer) / 16),
+						(transform.getPivot().getY().getOffset() + transform.getPivot().getY().animate(timer) / 16),
+						(transform.getPivot().getZ().getOffset() + transform.getPivot().getZ().animate(timer) / 16));
+
 				matrixStackIn.scale(transform.getScale().getX().animate(timer),
 						transform.getScale().getY().animate(timer), transform.getScale().getZ().animate(timer));
 

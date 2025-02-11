@@ -10,35 +10,40 @@ public class AnimationFloatTransform {
 	public static final Codec<AnimationFloatTransform> CODEC = RecordCodecBuilder.create(inst -> inst
 			.group(AnimatedFloatVector3.CODEC.fieldOf("location").forGetter(a -> a.loc),
 					AnimatedFloatVector3.CODEC.fieldOf("scale").forGetter(a -> a.scale),
-					AnimatedFloatVector3.CODEC.fieldOf("rotation").forGetter(a -> a.rot))
+					AnimatedFloatVector3.CODEC.fieldOf("rotation").forGetter(a -> a.rot),
+					AnimatedFloatVector3.CODEC.fieldOf("pivot").forGetter(a -> a.pivot))
 			.apply(inst, AnimationFloatTransform::new));
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, AnimationFloatTransform> STREAM_CODEC = StreamCodec
 			.of(AnimationFloatTransform::write, AnimationFloatTransform::read);
 
-	AnimatedFloatVector3 loc, scale, rot;
+	AnimatedFloatVector3 loc, scale, rot, pivot;
 
 	public static AnimationFloatTransform ZERO = new AnimationFloatTransform(AnimatedFloatVector3.ZERO,
-			AnimatedFloatVector3.ZERO, AnimatedFloatVector3.ZERO);
+			AnimatedFloatVector3.ONE, AnimatedFloatVector3.ZERO, AnimatedFloatVector3.ZERO);
 	public static AnimationFloatTransform ONE = new AnimationFloatTransform(AnimatedFloatVector3.ONE,
-			AnimatedFloatVector3.ONE, AnimatedFloatVector3.ONE);
+			AnimatedFloatVector3.ONE, AnimatedFloatVector3.ONE, AnimatedFloatVector3.ONE);
 
 	public AnimationFloatTransform() {
 		loc = AnimatedFloatVector3.ZERO;
 		rot = AnimatedFloatVector3.ZERO;
 		scale = AnimatedFloatVector3.ONE;
+		pivot = AnimatedFloatVector3.ZERO;
 	}
 
-	public AnimationFloatTransform(AnimatedFloatVector3 l, AnimatedFloatVector3 s, AnimatedFloatVector3 r) {
+	public AnimationFloatTransform(AnimatedFloatVector3 l, AnimatedFloatVector3 s, AnimatedFloatVector3 r,
+			AnimatedFloatVector3 p) {
 		loc = l;
 		scale = s;
 		rot = r;
+		pivot = p;
 	}
 
 	public void animate(float time) {
 		loc.animate(time);
 		scale.animate(time);
 		rot.animate(time);
+		pivot.animate(time);
 	}
 
 	public AnimationFloatTransform setLocation(AnimatedFloatVector3 in) {
@@ -82,18 +87,23 @@ public class AnimationFloatTransform {
 	public AnimatedFloatVector3 getRotation() {
 		return rot;
 	}
+	
+	public AnimatedFloatVector3 getPivot() {
+		return pivot;
+	}
 
 	private static AnimationFloatTransform read(RegistryFriendlyByteBuf buffer) {
 		AnimatedFloatVector3 l = AnimatedFloatVector3.STREAM_CODEC.decode(buffer);
 		AnimatedFloatVector3 r = AnimatedFloatVector3.STREAM_CODEC.decode(buffer);
 		AnimatedFloatVector3 s = AnimatedFloatVector3.STREAM_CODEC.decode(buffer);
-
-		return new AnimationFloatTransform(l, s, r);
+		AnimatedFloatVector3 p = AnimatedFloatVector3.STREAM_CODEC.decode(buffer);
+		return new AnimationFloatTransform(l, s, r, p);
 	}
 
 	private static void write(RegistryFriendlyByteBuf buffer, AnimationFloatTransform af) {
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.loc);
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.rot);
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.scale);
+		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.pivot);
 	}
 }

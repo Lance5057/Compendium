@@ -7,18 +7,17 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 
 public class AnimatedFloat {
-	public static final Codec<AnimatedFloat> CODEC = RecordCodecBuilder.create(
-			inst -> inst.group(
-					Codec.FLOAT.optionalFieldOf("min", 0F).forGetter(a -> a.iMin),
+	public static final Codec<AnimatedFloat> CODEC = RecordCodecBuilder.create(inst -> inst
+			.group(Codec.FLOAT.optionalFieldOf("min", 0F).forGetter(a -> a.iMin),
 					Codec.FLOAT.optionalFieldOf("max", 0F).forGetter(a -> a.iMax),
 					Codec.FLOAT.optionalFieldOf("offset", 0F).forGetter(a -> a.offset),
 					Codec.FLOAT.optionalFieldOf("speed", 0F).forGetter(a -> a.speed),
 					Codec.BOOL.optionalFieldOf("loop", false).forGetter(a -> a.loop),
-					Codec.BOOL.optionalFieldOf("pingpong", false).forGetter(a -> a.pingpong)
-			).apply(inst, AnimatedFloat::new)
-	);
+					Codec.BOOL.optionalFieldOf("pingpong", false).forGetter(a -> a.pingpong))
+			.apply(inst, AnimatedFloat::new));
 
-	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloat> STREAM_CODEC = StreamCodec.of(AnimatedFloat::write, AnimatedFloat::read);
+	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloat> STREAM_CODEC = StreamCodec
+			.of(AnimatedFloat::write, AnimatedFloat::read);
 
 	float iMin;
 	float iMax;
@@ -28,7 +27,7 @@ public class AnimatedFloat {
 	boolean pingpong;
 
 	public static AnimatedFloat ZERO = new AnimatedFloat(0, 0, 0);
-	public static AnimatedFloat ONE = new AnimatedFloat(1,1,1);
+	public static AnimatedFloat ONE = new AnimatedFloat(1, 1, 1);
 
 	public AnimatedFloat(float iMax) {
 		this(iMax, iMax, 1);
@@ -54,9 +53,9 @@ public class AnimatedFloat {
 	}
 
 	public float animate(float time) {
-		if(this.iMax == this.iMin)
+		if (this.iMax == this.iMin)
 			return iMax;
-		
+
 		float mod = this.iMax - this.iMin;
 
 		if (mod == 0)
@@ -75,8 +74,8 @@ public class AnimatedFloat {
 			if (t + speed >= iMax)
 				speed = 0;
 		}
-		
-		if(speed == 0)
+
+		if (speed == 0)
 			return iMax;
 		return t + iMin;
 

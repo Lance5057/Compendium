@@ -31,6 +31,7 @@
                 "min": -8.0
               }
             },
+            "pivot": {},
             "rotation": {
               "z": {
                 "loop": true,

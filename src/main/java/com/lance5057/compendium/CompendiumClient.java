@@ -4,6 +4,7 @@ import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
+import com.lance5057.compendium.gui.AdjustinatorScreen;
 import com.lance5057.compendium.styleblock.StyleBlockScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 
@@ -42,5 +43,6 @@ public class CompendiumClient {
 	@SubscribeEvent
 	public static void registerClient(RegisterMenuScreensEvent event) {
 		event.register(CompendiumMenus.STYLE_MENU.get(), StyleBlockScreen::new);
+		event.register(CompendiumMenus.ADJUSTINATOR_MENU.get(), AdjustinatorScreen::new);
 	}
 }

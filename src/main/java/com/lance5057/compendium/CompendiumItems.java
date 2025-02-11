@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import javax.annotation.Nullable;
 
+import com.lance5057.compendium.items.Adjustinator;
 import com.lance5057.compendium.items.MegalithStoneItem;
 import com.lance5057.compendium.items.tools.CosmeticToolbox;
 
@@ -21,6 +22,9 @@ public class CompendiumItems {
 			return 300;
 		}
 	});
+	
+	public static final DeferredItem<Item> ADJUSTINATOR = ITEMS.register("adjustinator",
+			() -> new Adjustinator(new Item.Properties()));
 
 	public static final DeferredItem<Item> MEGALITH_STONE = ITEMS.register("megalith_stone",
 			() -> new MegalithStoneItem(new Item.Properties()));
