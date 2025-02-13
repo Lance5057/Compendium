@@ -1,9 +1,11 @@
 package com.lance5057.compendium.gui;
 
 import com.lance5057.compendium.CompendiumMenus;
+import com.lance5057.compendium.styleblock.StyleBlockMenuSyncPacket;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -41,6 +43,13 @@ public class AdjustinatorMenu extends AbstractContainerMenu {
 	public boolean stillValid(Player player) {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	
+	@Override
+	public void sendAllDataToRemote() {
+		super.sendAllDataToRemote();
+		if (this.player instanceof ServerPlayer serverPlayer)
+			serverPlayer.connection.send(new StyleBlockMenuSyncPacket(this.containerId, this.pos));
 	}
 
 }

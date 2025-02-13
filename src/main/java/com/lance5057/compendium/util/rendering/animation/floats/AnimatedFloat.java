@@ -104,6 +104,10 @@ public class AnimatedFloat {
 		return iMax;
 	}
 
+	public float getMin() {
+		return iMin;
+	}
+
 	public float getOffset() {
 		return offset;
 	}

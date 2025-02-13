@@ -23,7 +23,7 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	}
 
 	@Override
-	protected Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
+	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
 			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
 					new MultiToolRecipeWrapper(this.getInventory()), level);

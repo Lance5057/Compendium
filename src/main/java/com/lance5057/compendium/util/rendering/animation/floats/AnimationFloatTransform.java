@@ -75,6 +75,12 @@ public class AnimationFloatTransform {
 
 		return this;
 	}
+	
+	public AnimationFloatTransform setPivot(AnimatedFloatVector3 in) {
+		pivot = in;
+
+		return this;
+	}
 
 	public AnimatedFloatVector3 getLocation() {
 		return loc;

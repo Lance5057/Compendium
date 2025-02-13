@@ -52,7 +52,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.numSlots = slots;
 	}
 
-	protected abstract Optional<RecipeHolder<V>> matchRecipe();
+	public abstract Optional<RecipeHolder<V>> matchRecipe();
 
 	public void setRecipe(Optional<V> r) {
 		if (r.isPresent()) {
