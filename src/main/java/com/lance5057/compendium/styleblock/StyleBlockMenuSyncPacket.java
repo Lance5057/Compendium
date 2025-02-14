@@ -1,6 +1,7 @@
 package com.lance5057.compendium.styleblock;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.gui.AdjustinatorScreen;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -32,10 +33,14 @@ public record StyleBlockMenuSyncPacket(int containerId, BlockPos pos) implements
 
 				@Override
 				public void run() {
-					if (Minecraft.getInstance().screen != null
-							&& Minecraft.getInstance().screen instanceof StyleBlockScreen screen) {
-						screen.setPos(message.pos());
-					}
+					if (Minecraft.getInstance().screen != null)
+						if (Minecraft.getInstance().screen instanceof StyleBlockScreen screen) {
+							screen.setPos(message.pos());
+						}
+						else if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
+							screen.setPos(message.pos()); 
+							
+						}
 				}
 
 			});

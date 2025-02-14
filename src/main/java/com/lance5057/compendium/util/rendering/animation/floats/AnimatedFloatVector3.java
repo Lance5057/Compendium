@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.phys.Vec3;
 
 public class AnimatedFloatVector3 {
 	public static final Codec<AnimatedFloatVector3> CODEC = RecordCodecBuilder.create(inst -> inst
@@ -45,6 +46,10 @@ public class AnimatedFloatVector3 {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+	}
+
+	public AnimatedFloatVector3(Vec3 in) {
+		this((float) in.x, (float) in.y, (float) in.z);
 	}
 
 	public AnimatedFloatVector3 setX(AnimatedFloat in) {
@@ -104,6 +109,16 @@ public class AnimatedFloatVector3 {
 		this.getX().setSpeed(speed);
 		this.getY().setSpeed(speed);
 		this.getZ().setSpeed(speed);
+	}
+
+	public void setSpeed(float x, float y, float z) {
+		this.getX().setSpeed(x);
+		this.getY().setSpeed(y);
+		this.getZ().setSpeed(z);
+	}
+
+	public Vec3 getSpeed() {
+		return new Vec3((float) this.getX().speed, (float) this.getY().speed, (float) this.getZ().speed);
 	}
 
 	private static AnimatedFloatVector3 read(RegistryFriendlyByteBuf buffer) {
