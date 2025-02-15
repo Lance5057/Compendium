@@ -1,122 +1,133 @@
-//package com.lance5057.compendium.workstations.sawbuck;
-//
-//import com.google.gson.JsonObject;
-//import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
-//import com.lance5057.compendium.workstations.WorkstationRecipes;
-//import com.lance5057.compendium.workstations._bases.interfaces.item.io.single.WorkstationSingleItemOut;
-//import com.lance5057.compendium.workstations._bases.interfaces.loottable.io.WorkstationLootTableOut;
-//import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
-//import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
-//import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.interfaces.in.items.ISingleItemIn;
-//
-//import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.interfaces.out.items.ILoottableOut;
-//import lance5057.compendium.core.workstations._bases.recipes.multitoolrecipe.interfaces.out.items.ISingleItemOut;
-//import net.minecraft.core.NonNullList;
-//import net.minecraft.network.FriendlyByteBuf;
-//import net.minecraft.resources.ResourceLocation;
-//import net.minecraft.util.GsonHelper;
-//import net.minecraft.world.item.ItemStack;
-//import net.minecraft.world.item.crafting.Ingredient;
-//import net.minecraft.world.item.crafting.RecipeSerializer;
-//import net.minecraft.world.item.crafting.ShapedRecipe;
-//import net.minecraft.world.level.Level;
-//
-//public class SawBuckRecipe extends MultiToolRecipe implements ISingleItemIn, WorkstationSingleItemOut, WorkstationLootTableOut {
-//
-//	private final Ingredient input;
-//	private final ResourceLocation loot;
-//	private final ItemStack output;
-//
-//	public SawBuckRecipe(ResourceLocation idIn, String groupIn, Ingredient recipeItemsIn, ItemStack output,
-//			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ResourceLocation loottable) {
-//		super(idIn, groupIn, recipeToolsIn, WorkstationRecipes.SAWBUCK_RECIPE.get());
-//
-//		this.input = recipeItemsIn;
-//		this.loot = loottable;
-//		this.output = output;
-//	}
-//
-//	public static class Serializer implements RecipeSerializer<SawBuckRecipe> {
-//
-//		public SawBuckRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-//			String s = GsonHelper.getAsString(json, "group", "");
-//			Ingredient itemIn = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "input"));
-//
-//			NonNullList<AnimatedRecipeItemUse> nonnulllistTools = SawBuckRecipe
-//					.deserializeTool(GsonHelper.getAsJsonObject(json, "tools"));
-//
-//			ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-//			ResourceLocation output = new ResourceLocation(json.get("outputTable").getAsString());
-//
-//			return new SawBuckRecipe(recipeId, s, itemIn, itemstack, nonnulllistTools, output);
-//		}
-//
-//		public SawBuckRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-//			String group = buffer.readUtf(32767);
-//
-//			Ingredient ing = Ingredient.fromNetwork(buffer);
-//
-//			int h = buffer.readVarInt();
-//
-//			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(h, AnimatedRecipeItemUse.EMPTY);
-//
-//			for (int k = 0; k < tools.size(); ++k) {
-//				tools.set(k, AnimatedRecipeItemUse.read(buffer));
-//			}
-//
-//			String q = buffer.readUtf();
-//
-//			ItemStack output = buffer.readItem();
-//			final ResourceLocation outputTable = new ResourceLocation(q);
-//
-//			return new SawBuckRecipe(recipeId, group, ing, output, tools, outputTable);
-//		}
-//
-//		public void toNetwork(FriendlyByteBuf buffer, SawBuckRecipe recipe) {
-//			buffer.writeUtf(recipe.getGroup());
-//
-//			recipe.getItemIn().toNetwork(buffer);
-//			buffer.writeVarInt(recipe.getToolListLength());
-//
-//			for (AnimatedRecipeItemUse riu : recipe.getRecipeTools())
-//				AnimatedRecipeItemUse.write(riu, buffer);
-//
-//			buffer.writeItem(recipe.getItemOut());
-//			buffer.writeResourceLocation(recipe.getLootTableOut());
-//		}
-//	}
-//
-//	@Override
-//	public boolean matches(WorkstationRecipeWrapper pContainer, Level pLevel) {
-//		return this.input.test(pContainer.getItem(0));
-//	}
-//
-//	@Override
-//	public RecipeSerializer<?> getSerializer() {
-//		return null;
-//	}
-//
-//	@Override
-//	public ResourceLocation getLootTableOut() {
-//		// TODO Auto-generated method stub
-//		return this.loot;
-//	}
-//
-//	@Override
-//	public ItemStack getItemOut() {
-//		// TODO Auto-generated method stub
-//		return this.output;
-//	}
-//
-//	@Override
-//	public Ingredient getItemIn() {
-//		// TODO Auto-generated method stub
-//		return this.input;
-//	}
-//
-//	@Override
-//	public ItemStack getResultItem() {
-//		// TODO Auto-generated method stub
-//		return this.getItemOut();
-//	}
-//}
+package com.lance5057.compendium.workstations.sawbuck;
+
+import com.lance5057.compendium.recipes.interfaces.item.io.single.IRecipeSingleItemIn;
+import com.lance5057.compendium.recipes.interfaces.item.io.single.IRecipeSingleItemOut;
+import com.lance5057.compendium.recipes.interfaces.loottable.io.IRecipeLootTableOut;
+import com.lance5057.compendium.workstations.WorkstationRecipes;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
+import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
+import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+
+public class SawBuckRecipe extends MultiToolRecipe
+		implements IRecipeSingleItemIn, IRecipeSingleItemOut, IRecipeLootTableOut {
+
+	private final Ingredient input;
+	private final ResourceLocation loot;
+	private final ItemStack output;
+
+	public SawBuckRecipe(Ingredient recipeItemsIn, ItemStack output, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
+			ResourceLocation loottable) {
+		super(recipeToolsIn);
+		this.input = recipeItemsIn;
+		this.loot = loottable;
+		this.output = output;
+	}
+
+	@Override
+	public boolean matches(MultiToolRecipeWrapper input, Level level) {
+		return this.input.test(input.getItem(0));
+	}
+
+	@Override
+	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
+		return ItemStack.EMPTY;
+	}
+
+	@Override
+	public boolean canCraftInDimensions(int width, int height) {
+		return true;
+	}
+
+	@Override
+	public ItemStack getResultItem(Provider registries) {
+		return this.output;
+	}
+
+	@Override
+	public RecipeType<?> getType() {
+		return WorkstationRecipes.SAWBUCK_RECIPE.get();
+	}
+
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return WorkstationRecipes.SAWBUCK_SERIALIZER.get();
+	}
+
+	@Override
+	public ResourceLocation getLootTableOut() {
+		return this.loot;
+	}
+
+	@Override
+	public ItemStack getItemOut() {
+		return this.output;
+	}
+
+	@Override
+	public Ingredient getItemIn() {
+		return this.input;
+	}
+
+	public static class Serializer implements RecipeSerializer<SawBuckRecipe> {
+		public static final MapCodec<SawBuckRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
+				.group(Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(SawBuckRecipe::getItemIn),
+						ItemStack.CODEC.fieldOf("ouput").forGetter(SawBuckRecipe::getItemOut),
+						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
+								.forGetter(SawBuckRecipe::getTools),
+						ResourceLocation.CODEC.fieldOf("loot").forGetter(SawBuckRecipe::getLootTableOut))
+				.apply(inst, SawBuckRecipe::new));
+
+		public static final StreamCodec<RegistryFriendlyByteBuf, SawBuckRecipe> STREAM_CODEC = StreamCodec
+				.of(Serializer::write, Serializer::read);
+
+		@Override
+		public MapCodec<SawBuckRecipe> codec() {
+			return CODEC;
+		}
+
+		@Override
+		public StreamCodec<RegistryFriendlyByteBuf, SawBuckRecipe> streamCodec() {
+			return STREAM_CODEC;
+		}
+
+		private static SawBuckRecipe read(RegistryFriendlyByteBuf buffer) {
+			String group = buffer.readUtf();
+			Ingredient in = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
+			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
+			int listSize = buffer.readVarInt();
+
+			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
+			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
+
+			ResourceLocation r = ResourceLocation.STREAM_CODEC.decode(buffer);
+
+			return new SawBuckRecipe(in, out, tools, r);
+		}
+
+		private static void write(RegistryFriendlyByteBuf buffer, SawBuckRecipe recipe) {
+			buffer.writeUtf(recipe.getGroup());
+
+			Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, recipe.input);
+
+			ItemStack.STREAM_CODEC.encode(buffer, recipe.output);
+
+			buffer.writeVarInt(recipe.getTools().size());
+			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
+
+			ResourceLocation.STREAM_CODEC.encode(buffer, recipe.loot);
+		}
+	}
+}

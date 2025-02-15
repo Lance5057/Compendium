@@ -1,6 +1,9 @@
-// 1.21.1	2025-02-11T13:21:58.5973982	Item Models: compendium
+// 1.21.1	2025-02-15T02:45:15.7543147	Item Models: compendium
 0653f2da20f6b16c3ebc4209b9431ade2d730a80 assets/compendium/models/item/adjustinator.json
 3dab4f78a256e5fdbdd90d647de0fe1f6943e358 assets/compendium/models/item/cosmetic_toolbox.json
+0c469efe2ae61be34c9be7b9ef3c95da2b489df2 assets/compendium/models/item/hammering_station.json
+4379b4c99bef71cb0c56f388b78aa1d81a3a82cd assets/compendium/models/item/saw_buck.json
+0a21c283b19246ee38e7f03b0ed9cf5ca1a6392e assets/compendium/models/item/scrapping_table.json
 88e693996a9235ddbbd13506583415677df7095b assets/compendium/models/item/tin_axe.json
 47d3dea5061a2c9258e06730e280f8f7570950c9 assets/compendium/models/item/tin_block_item.json
 eace930d47934a7608addcc79e321e789fe2ddcd assets/compendium/models/item/tin_boots.json

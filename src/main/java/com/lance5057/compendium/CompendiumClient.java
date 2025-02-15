@@ -1,5 +1,7 @@
 package com.lance5057.compendium;
 
+import java.util.Map;
+
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
@@ -7,14 +9,20 @@ import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
 import com.lance5057.compendium.styleblock.StyleBlockScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
+import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
+import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRenderer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
@@ -37,12 +45,33 @@ public class CompendiumClient {
 	}
 
 	public static void setBERenderers() {
-		BlockEntityRenderers.register(CompendiumTileEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+		BlockEntityRenderers.register(CompendiumBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
+		BlockEntityRenderers.register(CompendiumBlockEntities.SAW_BUCK.get(), SawBuckRenderer::new);
+		BlockEntityRenderers.register(CompendiumBlockEntities.SCRAPPING_TABLE.get(), ScrappingTableRenderer::new);
 	}
 
 	@SubscribeEvent
 	public static void registerClient(RegisterMenuScreensEvent event) {
 		event.register(CompendiumMenus.STYLE_MENU.get(), StyleBlockScreen::new);
 		event.register(CompendiumMenus.ADJUSTINATOR_MENU.get(), AdjustinatorScreen::new);
+	}
+
+	@SubscribeEvent
+	public static void RegisterExtraModels(ModelEvent.RegisterAdditional event) {
+		Map<ResourceLocation, Resource> rrs = Minecraft.getInstance().getResourceManager().listResources("models/extra",
+				(p_215600_) -> {
+					return p_215600_.getPath().endsWith(".json");
+				});
+
+		rrs.forEach((rl, r) -> {
+			String s = rl.toString();
+
+			s = s.substring(s.indexOf('/') + 1, s.indexOf('.'));
+
+			ModelResourceLocation rl2 = ModelResourceLocation
+					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
+
+			event.register(rl2);
+		});
 	}
 }

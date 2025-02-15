@@ -1,0 +1,31 @@
+package com.lance5057.compendium;
+
+import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
+import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
+import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
+
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public class CompendiumBlockEntities {
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
+			.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Compendium.MOD_ID);
+
+//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WorkbenchBlockEntity>> WORKSTATION = TILES
+//			.register("workbench", () -> BlockEntityType.Builder
+//					.of(WorkbenchBlockEntity::new, CompendiumBlocks.WORKBENCH.get()).build(null));
+//
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = BLOCK_ENTITIES
+			.register("hammering_station", () -> BlockEntityType.Builder
+					.of(HammeringStationBlockEntity::new, CompendiumBlocks.HAMMERING_STATION.get()).build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SawBuckBlockEntity>> SAW_BUCK = BLOCK_ENTITIES
+			.register("saw_buck", () -> BlockEntityType.Builder
+					.of(SawBuckBlockEntity::new, CompendiumBlocks.SAW_BUCK.get()).build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ScrappingTableBlockEntity>> SCRAPPING_TABLE = BLOCK_ENTITIES
+			.register("scrapping_table", () -> BlockEntityType.Builder
+					.of(ScrappingTableBlockEntity::new, CompendiumBlocks.SCRAPPING_TABLE.get()).build(null));
+}

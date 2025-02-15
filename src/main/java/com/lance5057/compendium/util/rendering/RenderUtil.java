@@ -2,6 +2,7 @@ package com.lance5057.compendium.util.rendering;
 
 import org.joml.Quaternionf;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -13,6 +14,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -112,6 +114,13 @@ public class RenderUtil {
 
 				itemRenderer.render(item, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, combinedLightIn,
 						combinedOverlayIn, bakedmodel);
+				
+//				IRenderable<ModelData> bm = BakedModelRenderable
+//						.of(ModelResourceLocation
+//								.standalone(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "extra/pivot_gizmo")))
+//						.withModelDataContext();
+//				bm.render(matrixStackIn, bufferIn, texture -> RenderType.entityTranslucent(texture), combinedLightIn,
+//						combinedOverlayIn, timer, ModelData.EMPTY);
 			}
 
 			matrixStackIn.popPose();

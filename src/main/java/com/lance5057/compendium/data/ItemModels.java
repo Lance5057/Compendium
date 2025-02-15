@@ -28,8 +28,15 @@ public class ItemModels extends ItemModelProvider {
 
 		getBuilder(CompendiumItems.COSMETIC_TOOLBOX.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/cosmetic_toolbox")));
-		
+
 		forItem(CompendiumItems.ADJUSTINATOR, "adjustinator");
+
+		forBlockItem(CompendiumItems.HAMMERING_STATION,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/hammering_station"));
+		forBlockItem(CompendiumItems.SAW_BUCK,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/sawbuck"));
+		forBlockItem(CompendiumItems.SCRAPPING_TABLE,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
 	}
 
 	public static void forBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name) {
@@ -46,6 +53,13 @@ public class ItemModels extends ItemModelProvider {
 	public void forMaterialItem(DeferredItem<? extends Item> item, String name) {
 		this.singleTexture(item.getId().getPath(), mcLoc("item/handheld"), "layer0",
 				modLoc("item/material/" + name + "/" + item.getId().getPath()));
+	}
+
+	public void forBlockItem(DeferredItem<Item> item, String name) {
+		if (item.get() instanceof BlockItem b)
+			getBuilder(item.getId().getPath())
+					.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+							"block/" + BuiltInRegistries.BLOCK.getKey(b.getBlock()).getPath())));
 	}
 
 	public void forBlockItem(DeferredItem<? extends BlockItem> item, ResourceLocation modelLocation) {

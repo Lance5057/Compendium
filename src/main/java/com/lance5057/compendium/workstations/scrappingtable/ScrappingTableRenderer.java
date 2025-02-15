@@ -1,51 +1,64 @@
-//package lance5057.compendium.core.workstations.scrappingtable;
-//package lance5057.compendium.core.workstations.client;
-//
-//import com.mojang.blaze3d.matrix.MatrixStack;
-//import com.mojang.math.Quaternion;
-//
-//import lance5057.compendium.core.workstations.tileentities.ScrappingTableTE;
-//import net.minecraft.client.Minecraft;
-//import net.minecraft.client.renderer.IRenderTypeBuffer;
-//import net.minecraft.client.renderer.entity.ItemRenderer;
-//import net.minecraft.client.renderer.model.ItemCameraTransforms;
-//import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
-//import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-//import net.minecraft.world.item.ItemStack;
-//import net.minecraftforge.common.util.LazyOptional;
-//import net.minecraftforge.items.CapabilityItemHandler;
-//import net.minecraftforge.items.IItemInteractionHandler;
-//
-//public class ScrappingTableRenderer extends TileEntityRenderer<ScrappingTableTE> {
-//
-//    public ScrappingTableRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
-//	super(rendererDispatcherIn);
-//    }
-//
-//    @Override
-//    public void render(ScrappingTableTE tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
-//	    IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-//	if (!tileEntityIn.hasWorld()) {
-//	    return;
-//	}
-//
-//	ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-//
-//	LazyOptional<IItemInteractionHandler> itemInteractionHandler = tileEntityIn
-//		.getCapability(CapabilityItemHandler.ITEM_InteractionHandLER_CAPABILITY);
-//
-//	itemInteractionHandler.ifPresent(r -> {
-//	    ItemStack item = r.getStackInSlot(0);
-//
-//	    if (!item.isEmpty()) {
-//		matrixStackIn.push();
-//		matrixStackIn.translate(0.7, 0.9, 0.5);
-//		matrixStackIn.rotate(new Quaternion(90, 0, 90, true));
-//		itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.GROUND, combinedLightIn,
-//			combinedOverlayIn, matrixStackIn, bufferIn);
-//		matrixStackIn.pop();
-//	    }
-//	});
-//    }
-//
-//}
+package com.lance5057.compendium.workstations.scrappingtable;
+
+import org.joml.Quaternionf;
+
+import com.lance5057.compendium.util.rendering.RenderUtil;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
+import com.lance5057.compendium.workstations._bases.client.MultiToolBlockEntityRenderer;
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.neoforged.neoforge.items.ItemStackHandler;
+
+public class ScrappingTableRenderer extends MultiToolBlockEntityRenderer<ScrappingTableBlockEntity> {
+	int timer = 0;
+	int toolRandom = 0;
+
+	AnimationFloatTransform transform = new AnimationFloatTransform();
+
+	public ScrappingTableRenderer(BlockEntityRendererProvider.Context cxt) {
+
+	}
+
+	@Override
+	public void renderInventory(ScrappingTableBlockEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn,
+			MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
+		if (!tileEntityIn.hasLevel()) {
+			return;
+		}
+
+		ItemStackHandler inv = tileEntityIn.getInventory();
+
+		transform.setScale(0.5f);
+		transform.setRotation(0, 0, 0); 
+		transform.setLocation(8f, 13f, 8f);
+		
+
+		ItemStack input = inv.getStackInSlot(0);
+
+		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+
+		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
+			matrixStackIn.pushPose();
+			matrixStackIn.translate(0.5f, 1, 0.5f);
+			Quaternionf q = tileEntityIn.getBlockState().getValue(HorizontalDirectionalBlock.FACING).getRotation();
+
+			matrixStackIn.mulPose(q);
+			matrixStackIn.mulPose(RenderUtil.createQuaternion(-90, 0, 0, true));
+
+			matrixStackIn.translate(-0.5f, 0, -0.5f);
+
+			tileEntityIn.getCurrentTool().model().forEach(b -> {
+				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+			});
+
+			matrixStackIn.popPose();
+		}
+
+		timer++;
+	}
+
+}

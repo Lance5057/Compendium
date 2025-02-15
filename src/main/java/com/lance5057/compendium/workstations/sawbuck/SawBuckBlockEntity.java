@@ -1,4 +1,4 @@
-package com.lance5057.compendium.workstations.hammeringstation;
+package com.lance5057.compendium.workstations.sawbuck;
 
 import java.util.Optional;
 
@@ -16,16 +16,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class HammeringStationBlockEntity extends MultiToolRecipeStation<HammeringStationRecipe> {
+public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
 
-	public HammeringStationBlockEntity(BlockPos pos, BlockState state) {
-		super(1, 1, 1, CompendiumBlockEntities.HAMMERING_STATION.get(), pos, state);
+	public SawBuckBlockEntity(BlockPos pos, BlockState state) {
+		super(1, 1, 1, CompendiumBlockEntities.SAW_BUCK.get(), pos, state);
 	}
 
 	@Override
-	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
+	public Optional<RecipeHolder<SawBuckRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
-			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
+			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
 					new MultiToolRecipeWrapper(this.getInventory()), level);
 		}
 		return Optional.empty();
@@ -45,7 +45,7 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	}
 
 	@Override
-	public void finishRecipe(Player Player, HammeringStationRecipe recipe) {
+	public void finishRecipe(Player Player, SawBuckRecipe recipe) {
 		ItemUtil.giveOrDrop(recipe.getItemOut(), Player);
 		this.getInventory().shrinkAll();
 	}

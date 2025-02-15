@@ -1,66 +1,64 @@
-//package lance5057.compendium.core.workstations.sawbuck;
-//
-//import com.lance5057.compendium.client.BlacklistedModel;
-//import com.mojang.blaze3d.vertex.PoseStack;
-//import com.mojang.math.Quaternion;
-//
-//import net.minecraft.client.Minecraft;
-//import net.minecraft.client.renderer.MultiBufferSource;
-//import net.minecraft.client.renderer.block.model.ItemTransforms;
-//import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-//import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-//import net.minecraft.client.renderer.entity.ItemRenderer;
-//import net.minecraft.client.resources.model.BakedModel;
-//import net.minecraft.world.item.ItemStack;
-//import net.minecraftforge.common.util.LazyOptional;
-//import net.minecraftforge.items.CapabilityItemHandler;
-//import net.neoforged.neoforge.items.IItemHandler;
-//
-//public class SawBuckRenderer implements BlockEntityRenderer<SawBuckTE> {
-//	int timer = 0;
-//	int toolRandom = 0;
-//	
-//	public SawBuckRenderer(BlockEntityRendererProvider.Context cxt) {
-//
-//	}
-//
-//	@Override
-//	public void render(SawBuckTE tileEntityIn, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn,
-//			int combinedLightIn, int combinedOverlayIn) {
-//		if (!tileEntityIn.hasLevel()) {
-//			return;
-//		}
-//		
-//		if (tileEntityIn.getCurrentTool() != null) {
-//			for (BlacklistedModel b : tileEntityIn.getCurrentTool().model)
-//				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
-//		}
-//
-//		ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-//
-//		LazyOptional<IItemHandler> itemInteractionHandler = tileEntityIn
-//				.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
-//
-//		itemInteractionHandler.ifPresent(r -> {
-//
-//			float xoff = 0;
-//			float yoff = 0;
-//			ItemStack item = r.getStackInSlot(0);
-//
-//			if (!item.isEmpty()) {
-//				BakedModel bakedmodel = itemRenderer.getModel(item, tileEntityIn.getLevel(), null, 0);
-//				matrixStackIn.pushPose();
-//				matrixStackIn.translate(1.28f, 1.1, 0.5);
-//				matrixStackIn.mulPose(new Quaternion(45, 0, 90, true));
-//				float uniscale = 4.2f;
-//				matrixStackIn.scale(uniscale, uniscale, uniscale);
-//				itemRenderer.render(item, ItemTransforms.TransformType.GROUND, false, matrixStackIn, bufferIn,
-//						combinedLightIn, combinedOverlayIn, bakedmodel);
-//				matrixStackIn.popPose();
-//			}
-//		});
-//		
-//		timer++;
-//	}
-//
-//}
+package com.lance5057.compendium.workstations.sawbuck;
+
+import org.joml.Quaternionf;
+
+import com.lance5057.compendium.util.rendering.RenderUtil;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
+import com.lance5057.compendium.workstations._bases.client.MultiToolBlockEntityRenderer;
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.neoforged.neoforge.items.ItemStackHandler;
+
+public class SawBuckRenderer extends MultiToolBlockEntityRenderer<SawBuckBlockEntity> {
+	int timer = 0;
+	int toolRandom = 0;
+
+	AnimationFloatTransform transform = new AnimationFloatTransform();
+
+	public SawBuckRenderer(BlockEntityRendererProvider.Context cxt) {
+
+	}
+
+	@Override
+	public void renderInventory(SawBuckBlockEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn,
+			MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
+		if (!tileEntityIn.hasLevel()) {
+			return;
+		}
+
+		ItemStackHandler inv = tileEntityIn.getInventory();
+
+		transform.setScale(1f);
+		transform.setRotation(45, 0, 90); 
+		transform.setLocation(8f, 18f, 8f);
+		
+
+		ItemStack input = inv.getStackInSlot(0);
+
+		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+
+		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
+			matrixStackIn.pushPose();
+			matrixStackIn.translate(0.5f, 1, 0.5f);
+			Quaternionf q = tileEntityIn.getBlockState().getValue(HorizontalDirectionalBlock.FACING).getRotation();
+
+			matrixStackIn.mulPose(q);
+			matrixStackIn.mulPose(RenderUtil.createQuaternion(-90, 0, 0, true));
+
+			matrixStackIn.translate(-0.5f, 0, -0.5f);
+
+			tileEntityIn.getCurrentTool().model().forEach(b -> {
+				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
+			});
+
+			matrixStackIn.popPose();
+		}
+
+		timer++;
+	}
+
+}

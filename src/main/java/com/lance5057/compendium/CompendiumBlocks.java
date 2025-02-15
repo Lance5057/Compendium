@@ -3,6 +3,8 @@ package com.lance5057.compendium;
 import com.lance5057.compendium.blocks.ChairBlock;
 import com.lance5057.compendium.blocks.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
+import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
+import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,6 +18,10 @@ public class CompendiumBlocks {
 //	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 	public static final DeferredBlock<Block> HAMMERING_STATION = BLOCKS.register("hammering_station",
 			HammeringStationBlock::new);
+
+	public static final DeferredBlock<Block> SAW_BUCK = BLOCKS.register("saw_buck", SawBuckBlock::new);
+	public static final DeferredBlock<Block> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
+			ScrappingTableBlock::new);
 
 	public static final DeferredBlock<Block> COSMETIC_TOOLBOX = BLOCKS.register("cosmetic_toolbox",
 			() -> new CosmeticToolboxBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));

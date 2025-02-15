@@ -78,26 +78,6 @@ public class AnimatedFloat {
 		if (speed == 0)
 			return iMax;
 		return t + iMin;
-
-//		if (add) {
-//			i += speed;
-//			if (i >= iMax) {
-//				if (loop)
-//					i = iMin;
-//				else if (pingpong)
-//					add = false;
-//				else
-//					i = iMax;
-//			}
-//		} else {
-//			i -= speed;
-//			if (i <= iMin) {
-//				if (pingpong)
-//					add = true;
-//				else
-//					i = iMax;
-//			}
-//		}
 	}
 
 	public float getMax() {
@@ -106,6 +86,10 @@ public class AnimatedFloat {
 
 	public float getMin() {
 		return iMin;
+	}
+
+	public float getSpeed() {
+		return speed;
 	}
 
 	public float getOffset() {
@@ -122,6 +106,26 @@ public class AnimatedFloat {
 
 	public void setSpeed(float s) {
 		this.speed = s;
+	}
+
+	public boolean getLoop() {
+		return loop;
+	}
+
+	public void setLoop(boolean loop) {
+		this.loop = loop;
+	}
+
+	public boolean getPingpong() {
+		return pingpong;
+	}
+
+	public void setPingpong(boolean pingpong) {
+		this.pingpong = pingpong;
+	}
+
+	public void setOffset(float offset) {
+		this.offset = offset;
 	}
 
 	private static AnimatedFloat read(RegistryFriendlyByteBuf buffer) {
@@ -143,4 +147,5 @@ public class AnimatedFloat {
 		buffer.writeBoolean(af.loop);
 		buffer.writeBoolean(af.pingpong);
 	}
+
 }
