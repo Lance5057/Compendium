@@ -40,7 +40,7 @@ public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<Hamme
 		ItemStackHandler inv = tileEntityIn.getInventory();
 
 		transform.setScale(0.5f);
-		transform.setLocation(8f, 18f, 8f);
+		transform.setLocation(8f, 20f, 8f);
 
 		ItemStack input = inv.getStackInSlot(0);
 

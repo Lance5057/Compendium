@@ -9,7 +9,7 @@
 		{
 			"name": "plank",
 			"from": [-1, -2, -2],
-			"to": [1, 24, 1],
+			"to": [1, 16, 1],
 			"rotation": {"angle": -45, "axis": "x", "origin": [7, 16, 6]},
 			"faces": {
 				"north": {"uv": [0, 2, 16, 4], "rotation": 90, "texture": "#0"},
@@ -37,7 +37,7 @@
 		{
 			"name": "plank",
 			"from": [15, -2, -2],
-			"to": [17, 24, 1],
+			"to": [17, 16, 1],
 			"rotation": {"angle": -45, "axis": "x", "origin": [23, 16, 6]},
 			"faces": {
 				"north": {"uv": [0, 2, 16, 4], "rotation": 90, "texture": "#0"},
@@ -51,7 +51,7 @@
 		{
 			"name": "plank",
 			"from": [1, -5.13173, 9.43934],
-			"to": [3, 20.86827, 12.43934],
+			"to": [3, 12.86827, 12.43934],
 			"rotation": {"angle": 45, "axis": "x", "origin": [2, 7.86827, 10.93934]},
 			"faces": {
 				"north": {"uv": [0, 2, 16, 4], "rotation": 90, "texture": "#0"},
@@ -65,7 +65,7 @@
 		{
 			"name": "plank",
 			"from": [13, -5.13173, 9.43934],
-			"to": [15, 20.86827, 12.43934],
+			"to": [15, 12.86827, 12.43934],
 			"rotation": {"angle": 45, "axis": "x", "origin": [14, 7.86827, 10.93934]},
 			"faces": {
 				"north": {"uv": [0, 2, 16, 4], "rotation": 90, "texture": "#0"},

@@ -34,7 +34,7 @@ public class ScrappingTableRenderer extends MultiToolBlockEntityRenderer<Scrappi
 
 		transform.setScale(0.5f);
 		transform.setRotation(0, 0, 0); 
-		transform.setLocation(8f, 13f, 8f);
+		transform.setLocation(8f, 17f, 8f);
 		
 
 		ItemStack input = inv.getStackInSlot(0);
