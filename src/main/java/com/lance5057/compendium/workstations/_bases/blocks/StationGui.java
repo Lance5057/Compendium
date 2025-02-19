@@ -6,10 +6,14 @@ import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecip
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -54,23 +58,37 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 		return !state.getValue(WATERLOGGED);
 	}
 
+	@Override
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
+			BlockHitResult hitResult) {
+		BlockEntity blockentity = level.getBlockEntity(pos);
+		if (blockentity instanceof MultiToolRecipeStation be) {
+			openMenu();
+			return InteractionResult.SUCCESS;
+		}
+		return InteractionResult.CONSUME;
+	}
+
 	@Nonnull
 	@Override
 	public ItemInteractionResult useItemOn(ItemStack stack, BlockState pState, Level pLevel, BlockPos pPos,
 			Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			if (pPlayer.isCrouching()) {
-				if (!pPlayer.addItem(be.extractItem()))
-					pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY() + 1, pPos.getZ(), stack));
+			if (be.matchRecipe().isEmpty()) {
+				openMenu();
+				return ItemInteractionResult.SUCCESS;
 			} else if (!be.getInventory().isEmpty()) {
 				be.use(pPlayer, stack);
+				return ItemInteractionResult.SUCCESS;
 			} else
 				pPlayer.setItemInHand(pHand, be.insertItem(stack));
 			return ItemInteractionResult.SUCCESS;
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
+
+	public abstract void openMenu();
 
 	@Override
 	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,

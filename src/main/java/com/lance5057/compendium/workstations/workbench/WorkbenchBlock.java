@@ -67,6 +67,11 @@ public class WorkbenchBlock extends StationGui {
 	}
 
 	@Override
+	public void openMenu() {
+
+	}
+
+	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
 		return null;

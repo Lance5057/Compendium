@@ -3,6 +3,7 @@ package com.lance5057.compendium;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
+import com.lance5057.compendium.workstations.workbench.WorkbenchBlockEntity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -28,4 +29,8 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ScrappingTableBlockEntity>> SCRAPPING_TABLE = BLOCK_ENTITIES
 			.register("scrapping_table", () -> BlockEntityType.Builder
 					.of(ScrappingTableBlockEntity::new, CompendiumBlocks.SCRAPPING_TABLE.get()).build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WorkbenchBlockEntity>> WORKBENCH = BLOCK_ENTITIES
+			.register("workbench", () -> BlockEntityType.Builder
+					.of(WorkbenchBlockEntity::new, CompendiumBlocks.WORKBENCH.get()).build(null));
 }

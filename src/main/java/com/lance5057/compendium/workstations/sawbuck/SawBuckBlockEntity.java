@@ -14,6 +14,8 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
@@ -22,11 +24,13 @@ public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
 		super(1, 1, 1, CompendiumBlockEntities.SAW_BUCK.get(), pos, state);
 	}
 
+	private final CachedCheck<MultiToolRecipeWrapper, SawBuckRecipe> quickCheck = RecipeManager
+			.createCheck(WorkstationRecipes.SAWBUCK_RECIPE.get());
+
 	@Override
 	public Optional<RecipeHolder<SawBuckRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
-			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.SAWBUCK_RECIPE.get(),
-					new MultiToolRecipeWrapper(this.getInventory()), level);
+			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(this.getInventory()), level);
 		}
 		return Optional.empty();
 	}
