@@ -3,6 +3,8 @@ package com.lance5057.compendium.workstations.workbench;
 
 import javax.annotation.Nullable;
 
+import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
+
 //import javax.annotation.Nullable;
 //
 //import net.minecraft.core.BlockPos;
@@ -42,8 +44,12 @@ import com.lance5057.compendium.workstations._bases.blocks.StationGui;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -67,8 +73,20 @@ public class WorkbenchBlock extends StationGui {
 	}
 
 	@Override
-	public void openMenu() {
+	public void openMenu(Player player, MultiToolRecipeStation station, BlockPos pos) {
+		MenuProvider containerProvider = new MenuProvider() {
+			@Override
+			public Component getDisplayName() {
+				return Component.translatable("screen.workbench.name");
+			}
 
+			@Override
+			public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory,
+					Player playerEntity) {
+				return new WorkbenchMenu(windowId, playerInventory, station);
+			}
+		};
+		player.openMenu(containerProvider, buf -> buf.writeBlockPos(pos));
 	}
 
 	@Override

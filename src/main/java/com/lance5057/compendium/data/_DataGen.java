@@ -31,5 +31,7 @@ public class _DataGen {
 		generator.addProvider(true, btg);
 		generator.addProvider(true, new ItemTagGen(output, lookupProvider, btg.contentsGetter(), helper));
 		generator.addProvider(true, new Recipes(output, lookupProvider));
+
+		generator.addProvider(true, new LootTables(output, lookupProvider));
 	}
 }

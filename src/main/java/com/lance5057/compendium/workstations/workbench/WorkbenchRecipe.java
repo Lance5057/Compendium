@@ -18,7 +18,6 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -74,6 +73,12 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 	}
 
 	@Override
+	public MultiToolRecipeShapedPattern getShapedIn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public RecipeType<?> getType() {
 		return WorkstationRecipes.WORKBENCH_RECIPE.get();
 	}
@@ -85,11 +90,11 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 
 	public static class Serializer implements RecipeSerializer<WorkbenchRecipe> {
 		public static final MapCodec<WorkbenchRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
-				.group(MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchRecipe::getItemsIn),
-						ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchRecipe::getItemOut),
+				.group(MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchRecipe::getShapedIn),
 						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
 								.forGetter(WorkbenchRecipe::getTools),
-						ResourceLocation.CODEC.fieldOf("loot").forGetter(WorkbenchRecipe::getLootTableOut))
+						ItemStack.CODEC.fieldOf("schematic").forGetter(WorkbenchRecipe::getSchematic),
+						ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchRecipe::getItemOut))
 				.apply(inst, WorkbenchRecipe::new));
 
 		public static final StreamCodec<RegistryFriendlyByteBuf, WorkbenchRecipe> STREAM_CODEC = StreamCodec
@@ -106,37 +111,31 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 		}
 
 		private static WorkbenchRecipe read(RegistryFriendlyByteBuf buffer) {
-			String group = buffer.readUtf();
-			Ingredient in = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
-			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
+			MultiToolRecipeShapedPattern p = MultiToolRecipeShapedPattern.STREAM_CODEC.decode(buffer);
+
+			ItemStack schematic = ItemStack.STREAM_CODEC.decode(buffer);
+
 			int listSize = buffer.readVarInt();
 
 			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
 			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
 
-			ResourceLocation r = ResourceLocation.STREAM_CODEC.decode(buffer);
+			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
 
-			return new WorkbenchRecipe(in, out, tools, r);
+			return new WorkbenchRecipe(p, tools, schematic, out);
 		}
 
 		private static void write(RegistryFriendlyByteBuf buffer, WorkbenchRecipe recipe) {
-			buffer.writeUtf(recipe.getGroup());
 
-			Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, recipe.input);
+			MultiToolRecipeShapedPattern.STREAM_CODEC.encode(buffer, recipe.pattern);
 
-			ItemStack.STREAM_CODEC.encode(buffer, recipe.output);
+			ItemStack.STREAM_CODEC.encode(buffer, recipe.schematic);
 
 			buffer.writeVarInt(recipe.getTools().size());
 			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
 
-			ResourceLocation.STREAM_CODEC.encode(buffer, recipe.loot);
+			ItemStack.STREAM_CODEC.encode(buffer, recipe.getItemOut());
 		}
-	}
-
-	@Override
-	public MultiToolRecipeShapedPattern getShapedIn() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

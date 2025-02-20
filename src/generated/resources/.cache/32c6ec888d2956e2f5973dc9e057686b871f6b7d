@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-15T02:45:15.7523126	Block States: compendium
+// 1.21.1	2025-02-20T12:41:47.3135081	Block States: compendium
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
 06ba1db99efa07423015aeb81ea15a3a35ba475a assets/compendium/blockstates/hammering_station.json
 f0854893a95b3a47187624169b6094b0afd55887 assets/compendium/blockstates/saw_buck.json
@@ -10,6 +10,7 @@ cf653092609f1db4ba6935d440adc077de9e9875 assets/compendium/blockstates/tin_offse
 2e55d3fb972f2101b637a2f274a6104a11a91626 assets/compendium/blockstates/tin_offset_quarter_tile.json
 4ecc272d87aa34677f6b6893535412a0d9039c06 assets/compendium/blockstates/tin_quarter_tile.json
 00ab359f4d03d913e224ab418398d5823c2b4c35 assets/compendium/blockstates/tin_vertical_half_tile.json
+c8480a55d04a083b12fd4ae483e56e7410d3730d assets/compendium/blockstates/workbench.json
 aab704a67f69d6a828f8a6ed90d97316892a1064 assets/compendium/models/block/material/tin/tin_block.json
 db75e24df6fb2a6a228f11cedf09e8baaee66c8f assets/compendium/models/block/material/tin/tin_full_tile_block.json
 5d6b97d6d543f10354a68482ef1c9c6fe67d1896 assets/compendium/models/block/material/tin/tin_half_tile_block.json

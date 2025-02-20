@@ -1,0 +1,8 @@
+// 1.21.1	2025-02-20T11:54:29.0883824	Loot Tables
+5a1fe7cdef7c596454f96d5dc3aa3b0a928d8965 data/compendium/loot_table/blocks/chair.json
+cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosmetic_toolbox.json
+9673e43f0b1fcad5f36acb6e4b06e4bde0f755ae data/compendium/loot_table/blocks/hammering_station.json
+80b9cda2b573578a2502609b7bbfa17fad24484c data/compendium/loot_table/blocks/saw_buck.json
+70e06966cd643dcc892511d11243c262755e52bb data/compendium/loot_table/blocks/scrapping_table.json
+ee69408d19ad17c7c39b2b38e63a53566ac10e2e data/compendium/loot_table/blocks/workbench.json
+e57417d8a1e9516296b470e774b506bace9dedde data/compendium/loot_table/stone_to_cobble.json

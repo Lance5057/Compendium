@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,half=bottom,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": 180
+    },
+    "facing=east,half=bottom,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": 180
+    },
+    "facing=east,half=top,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": 180
+    },
+    "facing=east,half=top,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": 180
+    },
+    "facing=north,half=bottom,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": 90
+    },
+    "facing=north,half=bottom,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": 90
+    },
+    "facing=north,half=top,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": 90
+    },
+    "facing=north,half=top,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": 90
+    },
+    "facing=south,half=bottom,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": -90
+    },
+    "facing=south,half=bottom,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_bottom",
+      "y": -90
+    },
+    "facing=south,half=top,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": -90
+    },
+    "facing=south,half=top,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_top",
+      "y": -90
+    },
+    "facing=west,half=bottom,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_bottom"
+    },
+    "facing=west,half=bottom,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_bottom"
+    },
+    "facing=west,half=top,waterlogged=false": {
+      "model": "compendium:block/workstations/workbench_top"
+    },
+    "facing=west,half=top,waterlogged=true": {
+      "model": "compendium:block/workstations/workbench_top"
+    }
+  }
+}

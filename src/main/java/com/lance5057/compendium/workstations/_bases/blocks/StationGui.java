@@ -6,14 +6,10 @@ import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecip
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -63,7 +59,7 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 			BlockHitResult hitResult) {
 		BlockEntity blockentity = level.getBlockEntity(pos);
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			openMenu();
+			openMenu(player, be, pos);
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.CONSUME;
@@ -76,7 +72,7 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 		if (blockentity instanceof MultiToolRecipeStation be) {
 			if (be.matchRecipe().isEmpty()) {
-				openMenu();
+				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
 			} else if (!be.getInventory().isEmpty()) {
 				be.use(pPlayer, stack);
@@ -88,7 +84,7 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	public abstract void openMenu();
+	public abstract void openMenu(Player player, MultiToolRecipeStation<?> station, BlockPos pos);
 
 	@Override
 	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
