@@ -73,7 +73,7 @@ public class WorkbenchBlock extends StationGui {
 	}
 
 	@Override
-	public void openMenu(Player player, MultiToolRecipeStation station, BlockPos pos) {
+	public void openMenu(Player player, MultiToolRecipeStation<?> station, BlockPos pos) {
 		MenuProvider containerProvider = new MenuProvider() {
 			@Override
 			public Component getDisplayName() {
@@ -81,8 +81,7 @@ public class WorkbenchBlock extends StationGui {
 			}
 
 			@Override
-			public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory,
-					Player playerEntity) {
+			public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
 				return new WorkbenchMenu(windowId, playerInventory, station);
 			}
 		};
@@ -91,8 +90,7 @@ public class WorkbenchBlock extends StationGui {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		// TODO Auto-generated method stub
-		return null;
+		return new WorkbenchBlockEntity(pos, state);
 	}
 
 	@Override

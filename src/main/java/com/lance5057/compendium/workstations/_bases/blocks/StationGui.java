@@ -71,15 +71,13 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 			Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			if (be.matchRecipe().isEmpty()) {
+			if (pPlayer.isCrouching()) {
 				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
 			} else if (!be.getInventory().isEmpty()) {
 				be.use(pPlayer, stack);
 				return ItemInteractionResult.SUCCESS;
-			} else
-				pPlayer.setItemInHand(pHand, be.insertItem(stack));
-			return ItemInteractionResult.SUCCESS;
+			}
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}

@@ -4,11 +4,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-public class BlockEntityItemHandler extends ItemStackHandler {
+public class BlockEntityItemHandler<T extends BlockEntity> extends ItemStackHandler {
 
-	BlockEntity be;
+	T be;
 
-	public BlockEntityItemHandler(BlockEntity be, int size) {
+	public T getBe() {
+		return be;
+	}
+
+	public BlockEntityItemHandler(T be, int size) {
 		super(size);
 		this.be = be;
 	}

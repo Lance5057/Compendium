@@ -23,8 +23,10 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 //  private final LazyOptional<IItemInteractionHandlerModifiable> InteractionHandler = LazyOptional.of(this::createInteractionHandler);
 	private ItemStack ghostStack = ItemStack.EMPTY;
 
-	public static final int PRODUCT_DISPLAY_SLOT = 0;
-	public static final int OUTPUT_SLOT = 1;
+	public static final int CRAFTING_SLOTS = 25;
+
+	public static final int PRODUCT_DISPLAY_SLOT = CRAFTING_SLOTS + 1;
+	public static final int OUTPUT_SLOT = PRODUCT_DISPLAY_SLOT + 1;
 
 	public static final int UPGRADE_4x4_SLOT = OUTPUT_SLOT + 1;
 	public static final int UPGRADE_5x5_SLOT = UPGRADE_4x4_SLOT + 1;
@@ -71,9 +73,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 	@Override
 	public Optional<RecipeHolder<WorkbenchRecipe>> matchRecipe() {
-		if (this.level != null && this.getInventory() != null) {
-			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), level);
-		}
+//		if (this.level != null && this.getInventory() != null) {
+//			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), level);
+//		}
 		return Optional.empty();
 	}
 
@@ -82,9 +84,18 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	}
 
 	@Override
-	protected BlockEntityItemHandler createItemHandler() {
-		// TODO Auto-generated method stub
-		return null;
+	protected BlockEntityItemHandler<WorkbenchBlockEntity> createItemHandler() {
+		return new BlockEntityItemHandler<WorkbenchBlockEntity>(this, INVENTORY_SIZE) {
+			@Override
+			 protected void onContentsChanged(int slot) {
+				if(!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
+					this.getBe().gridLevel = 5;
+				else if(!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
+					this.getBe().gridLevel = 4;
+				else
+					this.getBe().gridLevel = 3;
+			}
+		};
 	}
 
 	@Override
@@ -97,5 +108,5 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	protected void writeNBTExtra(CompoundTag arg0, Provider arg1) {
 		// TODO Auto-generated method stub
 
-	} 
+	}
 }

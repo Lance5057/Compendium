@@ -11,6 +11,7 @@ import com.lance5057.compendium.styleblock.StyleBlockScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRenderer;
+import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -54,6 +55,7 @@ public class CompendiumClient {
 	public static void registerClient(RegisterMenuScreensEvent event) {
 		event.register(CompendiumMenus.STYLE_MENU.get(), StyleBlockScreen::new);
 		event.register(CompendiumMenus.ADJUSTINATOR_MENU.get(), AdjustinatorScreen::new);
+		event.register(CompendiumMenus.WORKBENCH_MENU.get(), WorkbenchScreen::new);
 	}
 
 	@SubscribeEvent

@@ -28,7 +28,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	private final BlockEntityItemHandler inventory = createItemHandler();
 	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
 
-	public BlockEntityItemHandler getInventory() {
+	public BlockEntityItemHandler<?> getInventory() {
 		return itemHandler.get();
 	};
 

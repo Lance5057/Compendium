@@ -30,14 +30,15 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	@Override
 	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
-			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(this.getInventory()), level);
+			MultiToolRecipeWrapper w = MultiToolRecipeWrapper.of(this.getInventory());
+			return this.quickCheck.getRecipeFor(w, level);
 		}
 		return Optional.empty();
 	}
 
 	@Override
-	protected BlockEntityItemHandler createItemHandler() {
-		return new BlockEntityItemHandler(this, 1) {
+	protected BlockEntityItemHandler<HammeringStationBlockEntity> createItemHandler() {
+		return new BlockEntityItemHandler<HammeringStationBlockEntity>(this, 1) {
 
 		};
 	}
