@@ -1,5 +1,5 @@
-// 1.21.1	2025-02-22T02:03:00.3419332	Recipes
+// 1.21.1	2025-02-22T11:30:26.3365756	Recipes
 da53297f6f5b7baeb7b2a92a1008224f08d04a9c data/minecraft/advancement/recipes/hammering/cobblestone.json
-dd4dbeabcb9d0bcf4d8f42b21993a2304f045a36 data/minecraft/advancement/recipes/workbench/light_weighted_pressure_plate.json
+974dc7f75870fea9cf654a41c9a4e92fe388d360 data/minecraft/advancement/recipes/workbench/light_weighted_pressure_plate.json
 ec1b06e1044e787e25edca49c8afa653f2d6032a data/minecraft/recipe/hammering/cobblestone.json
-e157c734ad1e151c1238519a20e7671b2e3fe02b data/minecraft/recipe/light_weighted_pressure_plate.json
+e157c734ad1e151c1238519a20e7671b2e3fe02b data/minecraft/recipe/workbench/light_weighted_pressure_plate.json

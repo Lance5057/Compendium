@@ -24,7 +24,6 @@ public abstract class MultiToolRecipeShaped extends MultiToolRecipe {
 
 	@Override
 	public boolean matches(MultiToolRecipeWrapper input, Level level) {
-		// TODO Auto-generated method stub
 		return pattern.matches(input);
 	}
 

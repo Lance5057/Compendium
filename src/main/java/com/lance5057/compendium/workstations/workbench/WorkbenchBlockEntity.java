@@ -42,6 +42,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	boolean powered = false;
 	int powerLevel = 0;
 
+	private final CachedCheck<MultiToolRecipeWrapper, WorkbenchRecipe> quickCheck = RecipeManager
+			.createCheck(WorkstationRecipes.WORKBENCH_RECIPE.get());
+
 	public WorkbenchBlockEntity(BlockPos pos, BlockState state) {
 		super(27, 5, 5, CompendiumBlockEntities.WORKBENCH.get(), pos, state);
 	}
@@ -70,15 +73,24 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 		this.getInventory().shrinkRange(0, 25);
 	}
 
-	private final CachedCheck<MultiToolRecipeWrapper, WorkbenchRecipe> quickCheck = RecipeManager
-			.createCheck(WorkstationRecipes.WORKBENCH_RECIPE.get());
-
 	@Override
 	public Optional<RecipeHolder<WorkbenchRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
 			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), level);
 		}
 		return Optional.empty();
+	}
+
+	@Override
+	protected void setupRecipe() {
+		Optional<RecipeHolder<WorkbenchRecipe>> recipe = this.matchRecipe();
+		if (recipe.isPresent()) {
+			WorkbenchRecipe curRecipe = recipe.get().value();
+			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT,
+					curRecipe.getResultItem(this.level.registryAccess()).copy());
+		} else {
+			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT, ItemStack.EMPTY.copy());
+		}
 	}
 
 	public String getDisplayName() {
@@ -119,4 +131,5 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 		// TODO Auto-generated method stub
 
 	}
+
 }

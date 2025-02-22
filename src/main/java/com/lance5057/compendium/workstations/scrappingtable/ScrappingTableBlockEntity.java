@@ -67,4 +67,10 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 	}
 
+	@Override
+	protected void setupRecipe() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

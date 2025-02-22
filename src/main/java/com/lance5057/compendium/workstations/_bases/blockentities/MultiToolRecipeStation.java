@@ -54,6 +54,8 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public abstract Optional<RecipeHolder<V>> matchRecipe();
+	
+	protected abstract void setupRecipe();
 
 	public void setRecipe(Optional<V> r) {
 		if (r.isPresent()) {
@@ -93,8 +95,6 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			this.getLevel().sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
 		}
 	}
-
-	protected abstract void setupRecipe();
 
 	protected void setupStage(V r, int i) {
 

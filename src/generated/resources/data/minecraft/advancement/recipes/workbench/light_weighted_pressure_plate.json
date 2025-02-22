@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:light_weighted_pressure_plate"
+        "recipe": "minecraft:workbench/light_weighted_pressure_plate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:light_weighted_pressure_plate"
+      "minecraft:workbench/light_weighted_pressure_plate"
     ]
   }
 }

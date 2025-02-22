@@ -1,6 +1,7 @@
 package com.lance5057.compendium.workstations.workbench;
 //
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
@@ -45,6 +46,9 @@ import com.lance5057.compendium.workstations._bases.blocks.StationGui;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -62,6 +66,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class WorkbenchBlock extends StationGui {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -90,12 +95,45 @@ public class WorkbenchBlock extends StationGui {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new WorkbenchBlockEntity(pos, state);
+		if (state.getValue(HALF) == Half.BOTTOM)
+			return new WorkbenchBlockEntity(pos, state);
+		return null;
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, WATERLOGGED, HALF);
+	}
+
+	@Override
+	protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer,
+			BlockHitResult pHit) {
+		if (pState.getValue(HALF) == Half.TOP)
+			pPos = pPos.relative(pState.getValue(FACING).getOpposite());
+		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+
+		if (blockentity instanceof MultiToolRecipeStation be) {
+			openMenu(pPlayer, be, pPos);
+			return InteractionResult.SUCCESS;
+		}
+		return InteractionResult.CONSUME;
+	}
+
+	@Nonnull
+	@Override
+	public ItemInteractionResult useItemOn(ItemStack stack, BlockState pState, Level pLevel, BlockPos pPos,
+			Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+		if (pState.getValue(HALF) == Half.TOP)
+			pPos = pPos.relative(pState.getValue(FACING).getOpposite());
+		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+
+		if (blockentity instanceof MultiToolRecipeStation be) {
+			if (pPlayer.isCrouching()) {
+				openMenu(pPlayer, be, pPos);
+				return ItemInteractionResult.SUCCESS;
+			}
+		}
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
 //	@Override

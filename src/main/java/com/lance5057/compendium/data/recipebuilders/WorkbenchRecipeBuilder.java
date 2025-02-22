@@ -139,12 +139,13 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput recipeOutput, ResourceLocation id) {
+		ResourceLocation recipeId = id.withPrefix("workbench/");
 		MultiToolRecipeShapedPattern shapedrecipepattern = MultiToolRecipeShapedPattern.of(this.key, this.rows);
 		Advancement.Builder advancement$builder = recipeOutput.advancement()
-				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
-				.rewards(AdvancementRewards.Builder.recipe(id)).requirements(AdvancementRequirements.Strategy.OR);
+				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
+				.rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
 		this.criteria.forEach(advancement$builder::addCriterion);
 		WorkbenchRecipe shapedrecipe = new WorkbenchRecipe(shapedrecipepattern, tools, this.resultStack);
-		recipeOutput.accept(id, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/workbench/")));
+		recipeOutput.accept(recipeId, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/workbench/")));
 	}
 }

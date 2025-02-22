@@ -67,4 +67,10 @@ public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
 
 	}
 
+	@Override
+	protected void setupRecipe() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
