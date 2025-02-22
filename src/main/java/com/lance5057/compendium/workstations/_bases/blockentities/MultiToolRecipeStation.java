@@ -28,7 +28,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	private final BlockEntityItemHandler inventory = createItemHandler();
 	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
 
-	public BlockEntityItemHandler getInventory() {
+	public BlockEntityItemHandler<?> getInventory() {
 		return itemHandler.get();
 	};
 
@@ -139,7 +139,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 			if (this.curTool.test(tool))
 				if (tool.getCount() >= this.toolCount) {
 
-					if (this.progress >= this.maxProgress-1) {
+					if (this.progress >= this.maxProgress - 1) {
 
 						if (isFinalStage(r.value())) {
 

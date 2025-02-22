@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import com.lance5057.compendium.gui.AdjustinatorMenu;
 import com.lance5057.compendium.styleblock.StyleBlockMenu;
+import com.lance5057.compendium.workstations.workbench.WorkbenchMenu;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -15,8 +16,8 @@ public class CompendiumMenus {
 	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(Registries.MENU,
 			Compendium.MOD_ID);
 
-//	public static final Supplier<MenuType<WorkbenchMenu>> WORKBENCH_MENU = MENU_TYPES.register("workbench",
-//			() -> IMenuTypeExtension.create(WorkbenchMenu::new));
+	public static final Supplier<MenuType<WorkbenchMenu>> WORKBENCH_MENU = MENU_TYPES.register("workbench",
+			() -> IMenuTypeExtension.create(WorkbenchMenu::new));
 
 	public static final Supplier<MenuType<StyleBlockMenu>> STYLE_MENU = MENU_TYPES.register("style",
 			() -> IMenuTypeExtension.create(StyleBlockMenu::new));

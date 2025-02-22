@@ -14,6 +14,8 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class HammeringStationBlockEntity extends MultiToolRecipeStation<HammeringStationRecipe> {
@@ -22,18 +24,21 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 		super(1, 1, 1, CompendiumBlockEntities.HAMMERING_STATION.get(), pos, state);
 	}
 
+	private final CachedCheck<MultiToolRecipeWrapper, HammeringStationRecipe> quickCheck = RecipeManager
+			.createCheck(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get());
+
 	@Override
 	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
-			return level.getRecipeManager().getRecipeFor(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get(),
-					new MultiToolRecipeWrapper(this.getInventory()), level);
+			MultiToolRecipeWrapper w = MultiToolRecipeWrapper.of(this.getInventory());
+			return this.quickCheck.getRecipeFor(w, level);
 		}
 		return Optional.empty();
 	}
 
 	@Override
-	protected BlockEntityItemHandler createItemHandler() {
-		return new BlockEntityItemHandler(this, 1) {
+	protected BlockEntityItemHandler<HammeringStationBlockEntity> createItemHandler() {
+		return new BlockEntityItemHandler<HammeringStationBlockEntity>(this, 1) {
 
 		};
 	}

@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.client.BlacklistedModel;
+import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
@@ -42,7 +43,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, LootTables.STONE_TO_COBBLE, List.of(),
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
 						standardHammeringModel(TagUtil.modLoc("tin_hammer"), 0))
 				.save(consumer);
 	}

@@ -6,6 +6,7 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRecipe;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRecipe;
+import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -27,6 +28,9 @@ public class WorkstationRecipes {
 	public static final Supplier<ScrappingTableRecipe.Serializer> SCRAPPINGTABLE_SERIALIZER = RECIPE_SERIALIZERS
 			.register("scrappingtable", ScrappingTableRecipe.Serializer::new);
 
+	public static final Supplier<WorkbenchRecipe.Serializer> WORKBENCH_SERIALIZER = RECIPE_SERIALIZERS
+			.register("workbench", WorkbenchRecipe.Serializer::new);
+
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(BuiltInRegistries.RECIPE_TYPE, Compendium.MOD_ID);
 
@@ -40,6 +44,10 @@ public class WorkstationRecipes {
 
 	public static final Supplier<RecipeType<ScrappingTableRecipe>> SCRAPPINGTABLE_RECIPE = RECIPE_TYPES
 			.register("scrappingtable_recipe_type", () -> new RecipeType<ScrappingTableRecipe>() {
+			});
+
+	public static final Supplier<RecipeType<WorkbenchRecipe>> WORKBENCH_RECIPE = RECIPE_TYPES
+			.register("workbench_recipe_type", () -> new RecipeType<WorkbenchRecipe>() {
 			});
 
 	public static void register(IEventBus modBus) {
