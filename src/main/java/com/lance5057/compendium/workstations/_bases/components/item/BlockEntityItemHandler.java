@@ -4,15 +4,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-public class BlockEntityItemHandler<T extends BlockEntity> extends ItemStackHandler {
+public class BlockEntityItemHandler extends ItemStackHandler {
 
-	T be;
+	BlockEntity be;
 
-	public T getBe() {
+	public BlockEntity getBe() {
 		return be;
 	}
 
-	public BlockEntityItemHandler(T be, int size) {
+	public BlockEntityItemHandler(BlockEntity be, int size) {
 		super(size);
 		this.be = be;
 	}
@@ -33,6 +33,12 @@ public class BlockEntityItemHandler<T extends BlockEntity> extends ItemStackHand
 	public void shrinkAll(int i) {
 		for (ItemStack s : this.stacks) {
 			s.shrink(i);
+		}
+	}
+
+	public void shrinkRange(int start, int finish) {
+		for (int i = start; i < finish; i++) {
+			this.stacks.get(i).shrink(1);
 		}
 	}
 }

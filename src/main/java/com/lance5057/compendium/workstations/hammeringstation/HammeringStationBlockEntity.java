@@ -37,8 +37,8 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	}
 
 	@Override
-	protected BlockEntityItemHandler<HammeringStationBlockEntity> createItemHandler() {
-		return new BlockEntityItemHandler<HammeringStationBlockEntity>(this, 1) {
+	protected BlockEntityItemHandler createItemHandler() {
+		return new BlockEntityItemHandler(this, 1) {
 
 		};
 	}

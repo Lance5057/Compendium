@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 public abstract class MultiToolRecipeShaped extends MultiToolRecipe {
 
 	public MultiToolRecipeShapedPattern pattern;
-	private final ItemStack recipeOutput;
+	protected final ItemStack recipeOutput;
 
 	public MultiToolRecipeShaped(MultiToolRecipeShapedPattern pattern, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
 			ItemStack recipeOutputIn, RecipeType<?> type) {

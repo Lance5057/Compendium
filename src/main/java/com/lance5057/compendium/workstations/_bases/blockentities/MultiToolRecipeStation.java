@@ -25,12 +25,6 @@ import net.neoforged.neoforge.items.IItemHandler;
 
 public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends WorkstationBasicBlockEntity {
 	public static final String INVENTORY_TAG = "inv";
-	private final BlockEntityItemHandler inventory = createItemHandler();
-	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
-
-	public BlockEntityItemHandler<?> getInventory() {
-		return itemHandler.get();
-	};
 
 	public boolean recipeLocked = false;
 	private ItemStack lastUsed = ItemStack.EMPTY;
@@ -42,6 +36,13 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public final int width;
 	public final int height;
 	public final int numSlots;
+
+	private final BlockEntityItemHandler inventory = createItemHandler();
+	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
+
+	public BlockEntityItemHandler getInventory() {
+		return itemHandler.get();
+	};
 
 	public MultiToolRecipeStation(int slots, int width, int height, BlockEntityType<?> tileEntityTypeIn, BlockPos pos,
 			BlockState state) {
@@ -85,12 +86,15 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public void updateInventory() {
+		this.setupRecipe();
 		requestModelDataUpdate();
 		this.setChanged();
 		if (this.getLevel() != null) {
 			this.getLevel().sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
 		}
 	}
+
+	protected abstract void setupRecipe();
 
 	protected void setupStage(V r, int i) {
 

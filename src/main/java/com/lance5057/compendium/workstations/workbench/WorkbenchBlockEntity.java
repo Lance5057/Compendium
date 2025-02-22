@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations.workbench;
 import java.util.Optional;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.util.ItemUtil;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
@@ -65,7 +66,8 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 	@Override
 	public void finishRecipe(Player Player, WorkbenchRecipe r) {
-
+		ItemUtil.giveOrDrop(r.getItemOut(), Player);
+		this.getInventory().shrinkRange(0, 25);
 	}
 
 	private final CachedCheck<MultiToolRecipeWrapper, WorkbenchRecipe> quickCheck = RecipeManager
@@ -73,9 +75,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 	@Override
 	public Optional<RecipeHolder<WorkbenchRecipe>> matchRecipe() {
-//		if (this.level != null && this.getInventory() != null) {
-//			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), level);
-//		}
+		if (this.level != null && this.getInventory() != null) {
+			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), level);
+		}
 		return Optional.empty();
 	}
 
@@ -84,16 +86,24 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	}
 
 	@Override
-	protected BlockEntityItemHandler<WorkbenchBlockEntity> createItemHandler() {
-		return new BlockEntityItemHandler<WorkbenchBlockEntity>(this, INVENTORY_SIZE) {
+	protected BlockEntityItemHandler createItemHandler() {
+		return new BlockEntityItemHandler(this, INVENTORY_SIZE) {
 			@Override
-			 protected void onContentsChanged(int slot) {
-				if(!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
-					this.getBe().gridLevel = 5;
-				else if(!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
-					this.getBe().gridLevel = 4;
-				else
-					this.getBe().gridLevel = 3;
+			protected void onContentsChanged(int slot) {
+				if (this.getBe() instanceof WorkbenchBlockEntity wb)
+					if (!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
+						wb.gridLevel = 5;
+					else if (!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
+						wb.gridLevel = 4;
+					else
+						wb.gridLevel = 3;
+
+				if (slot >= 0 && slot < 25) {
+					if (slot != PRODUCT_DISPLAY_SLOT) {
+						zeroProgress();
+						updateInventory();
+					}
+				}
 			}
 		};
 	}

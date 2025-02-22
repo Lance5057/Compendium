@@ -25,12 +25,12 @@ public class MultiToolRecipeWrapper extends RecipeWrapper {
 		this.items = item;
 		int i = 0;
 
-		for (i = 0; i < item.getSlots(); i++) {
-			if (!item.getStackInSlot(i).isEmpty()) {
-				i++;
-				this.stackedContents.accountStack(item.getStackInSlot(i), 1);
+		if (item != null)
+			for (i = 0; i < item.getSlots(); i++) {
+				if (!item.getStackInSlot(i).isEmpty()) {
+					this.stackedContents.accountStack(item.getStackInSlot(i), 1);
+				}
 			}
-		}
 
 		this.ingredientCount = i;
 	}
@@ -38,9 +38,9 @@ public class MultiToolRecipeWrapper extends RecipeWrapper {
 	public static MultiToolRecipeWrapper of(int width, int height, IItemHandler items) {
 		return ofPositioned(width, height, items).input();
 	}
-	
+
 	public static MultiToolRecipeWrapper of(IItemHandler items) {
-		return ofPositioned(0, 0, items).input();
+		return ofPositioned(1, 1, items).input();
 	}
 
 	public static MultiToolRecipeWrapper.Positioned ofPositioned(int width, int height, IItemHandler item) {

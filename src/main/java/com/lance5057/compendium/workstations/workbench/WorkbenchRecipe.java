@@ -3,7 +3,6 @@ package com.lance5057.compendium.workstations.workbench;
 import com.lance5057.compendium.recipes.interfaces.item.io.multiple.IRecipeShapedItemIn;
 import com.lance5057.compendium.recipes.interfaces.item.io.single.IRecipeSingleItemOut;
 import com.lance5057.compendium.recipes.interfaces.loottable.io.IRecipeLootTableOut;
-import com.lance5057.compendium.util.recipes.WorkstationRecipeWrapper;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShaped;
@@ -20,62 +19,45 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.Level;
 
 public class WorkbenchRecipe extends MultiToolRecipeShaped
 		implements IRecipeShapedItemIn, IRecipeSingleItemOut, IRecipeLootTableOut {
 
-	private final ItemStack schematic;
-
 	public WorkbenchRecipe(MultiToolRecipeShapedPattern input, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
-			ItemStack schematicIn, ItemStack recipeOutputIn) {
+			ItemStack recipeOutputIn) {
 		super(input, recipeToolsIn, recipeOutputIn, WorkstationRecipes.WORKBENCH_RECIPE.get());
 
-		this.schematic = schematicIn;
-	}
-
-	public ItemStack getSchematic() {
-		return schematic;
-	}
-
-	protected boolean schematicMatch(WorkstationRecipeWrapper inv, Level worldIn) {
-		return false;// this.getSchematic().equals(inv.getItem(26), true);
 	}
 
 	@Override
 	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getResultItem(registries);
 	}
 
 	@Override
 	public boolean canCraftInDimensions(int width, int height) {
-		// TODO Auto-generated method stub
-		return false;
+		return width <= 5 && height <= 5;
 	}
 
 	@Override
 	public ResourceLocation getLootTableOut() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ItemStack getItemOut() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.recipeOutput;
 	}
 
 	@Override
 	public void setShapedIn(MultiToolRecipeShapedPattern p) {
-		// TODO Auto-generated method stub
-
+		this.pattern = p;
 	}
 
 	@Override
 	public MultiToolRecipeShapedPattern getShapedIn() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pattern;
 	}
 
 	@Override
@@ -93,7 +75,6 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 				.group(MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchRecipe::getShapedIn),
 						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
 								.forGetter(WorkbenchRecipe::getTools),
-						ItemStack.CODEC.fieldOf("schematic").forGetter(WorkbenchRecipe::getSchematic),
 						ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchRecipe::getItemOut))
 				.apply(inst, WorkbenchRecipe::new));
 
@@ -113,8 +94,6 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 		private static WorkbenchRecipe read(RegistryFriendlyByteBuf buffer) {
 			MultiToolRecipeShapedPattern p = MultiToolRecipeShapedPattern.STREAM_CODEC.decode(buffer);
 
-			ItemStack schematic = ItemStack.STREAM_CODEC.decode(buffer);
-
 			int listSize = buffer.readVarInt();
 
 			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
@@ -122,14 +101,12 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 
 			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
 
-			return new WorkbenchRecipe(p, tools, schematic, out);
+			return new WorkbenchRecipe(p, tools, out);
 		}
 
 		private static void write(RegistryFriendlyByteBuf buffer, WorkbenchRecipe recipe) {
 
 			MultiToolRecipeShapedPattern.STREAM_CODEC.encode(buffer, recipe.pattern);
-
-			ItemStack.STREAM_CODEC.encode(buffer, recipe.schematic);
 
 			buffer.writeVarInt(recipe.getTools().size());
 			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
