@@ -13,7 +13,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -54,7 +54,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public abstract Optional<RecipeHolder<V>> matchRecipe();
-	
+
 	protected abstract void setupRecipe();
 
 	public void setRecipe(Optional<V> r) {
@@ -133,7 +133,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		return ItemStack.EMPTY;
 	}
 
-	public InteractionResult use(Player player, ItemStack tool) {
+	public ItemInteractionResult use(Player player, ItemStack tool) {
 		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
 		currentRecipe.ifPresent(r -> {
 
@@ -159,6 +159,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 							this.finishRecipe(player, r.value());
 							this.zeroProgress();
+
 						} else {
 							setupStage(r.value(), stage + 1);
 						}
@@ -175,7 +176,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		});
 		this.updateInventory();
 
-		return InteractionResult.SUCCESS;
+		return ItemInteractionResult.SUCCESS;
 	}
 
 	public abstract void addParticle();

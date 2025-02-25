@@ -64,17 +64,24 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class WorkbenchBlock extends StationGui {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
+	public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
 	public WorkbenchBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion());
-		this.registerDefaultState(
-				this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM));
+		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion().lightLevel(i -> isLit(i)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
+				.setValue(HALF, Half.BOTTOM).setValue(LIT, false));
+	}
+
+	private static int isLit(BlockState state) {
+		// TODO Auto-generated method stub
+		return state.getValue(LIT) ? 15 : 0;
 	}
 
 	@Override
@@ -102,7 +109,7 @@ public class WorkbenchBlock extends StationGui {
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING, WATERLOGGED, HALF);
+		builder.add(FACING, WATERLOGGED, HALF, LIT);
 	}
 
 	@Override
@@ -131,6 +138,11 @@ public class WorkbenchBlock extends StationGui {
 			if (pPlayer.isCrouching()) {
 				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
+			} else {
+				if (!stack.isEmpty()) {
+					be.use(pPlayer, stack);
+					return ItemInteractionResult.SUCCESS;
+				}
 			}
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

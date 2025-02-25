@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe> {
@@ -69,7 +70,10 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 	@Override
 	public void finishRecipe(Player Player, WorkbenchRecipe r) {
-		ItemUtil.giveOrDrop(r.getItemOut(), Player);
+
+		ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT, r.getItemOut(), false);
+		if (!s.isEmpty())
+			ItemUtil.giveOrDrop(s, Player);
 		this.getInventory().shrinkRange(0, 25);
 	}
 
@@ -102,7 +106,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 		return new BlockEntityItemHandler(this, INVENTORY_SIZE) {
 			@Override
 			protected void onContentsChanged(int slot) {
-				if (this.getBe() instanceof WorkbenchBlockEntity wb)
+				if (this.getBe() instanceof WorkbenchBlockEntity wb) {
 					if (!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
 						wb.gridLevel = 5;
 					else if (!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
@@ -110,10 +114,20 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 					else
 						wb.gridLevel = 3;
 
-				if (slot >= 0 && slot < 25) {
-					if (slot != PRODUCT_DISPLAY_SLOT) {
-						zeroProgress();
-						updateInventory();
+					if (slot >= 0 && slot < 25) {
+						if (slot != PRODUCT_DISPLAY_SLOT) {
+							zeroProgress();
+							updateInventory();
+						}
+					}
+
+					if (slot == UPGRADE_LIGHT_SLOT) {
+						if (this.getStackInSlot(slot).isEmpty())
+							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, false),
+									Block.UPDATE_ALL);
+						else
+							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, true),
+									Block.UPDATE_ALL);
 					}
 				}
 			}
