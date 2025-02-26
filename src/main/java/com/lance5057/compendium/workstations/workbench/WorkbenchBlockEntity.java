@@ -122,12 +122,19 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 					}
 
 					if (slot == UPGRADE_LIGHT_SLOT) {
-						if (this.getStackInSlot(slot).isEmpty())
+						if (this.getStackInSlot(slot).isEmpty()) {
 							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, false),
 									Block.UPDATE_ALL);
-						else
+							BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
+							wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, false),
+									Block.UPDATE_ALL);
+						} else {
 							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, true),
 									Block.UPDATE_ALL);
+							BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
+							wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, true),
+									Block.UPDATE_ALL);
+						}
 					}
 				}
 			}
