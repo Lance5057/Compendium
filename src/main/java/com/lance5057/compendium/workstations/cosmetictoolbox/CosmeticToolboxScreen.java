@@ -1,6 +1,7 @@
-package com.lance5057.compendium.styleblock;
+package com.lance5057.compendium.workstations.cosmetictoolbox;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.styleblock.StyleBlock;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.math.Axis;
@@ -16,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
+public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolboxMenu> {
 
 	private static ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 			"textures/gui/style.png");
@@ -38,7 +39,7 @@ public class StyleBlockScreen extends AbstractContainerScreen<StyleBlockMenu> {
 	private BlockPos pos = BlockPos.ZERO;
 	private StyleBlock style;
 
-	public StyleBlockScreen(StyleBlockMenu menu, Inventory playerInventory, Component title) {
+	public CosmeticToolboxScreen(CosmeticToolboxMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
 	}
 

@@ -3,7 +3,7 @@ package com.lance5057.compendium;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.gui.AdjustinatorMenu;
-import com.lance5057.compendium.styleblock.StyleBlockMenu;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
 import com.lance5057.compendium.workstations.workbench.WorkbenchMenu;
 
 import net.minecraft.core.registries.Registries;
@@ -19,8 +19,8 @@ public class CompendiumMenus {
 	public static final Supplier<MenuType<WorkbenchMenu>> WORKBENCH_MENU = MENU_TYPES.register("workbench",
 			() -> IMenuTypeExtension.create(WorkbenchMenu::new));
 
-	public static final Supplier<MenuType<StyleBlockMenu>> STYLE_MENU = MENU_TYPES.register("style",
-			() -> IMenuTypeExtension.create(StyleBlockMenu::new));
+	public static final Supplier<MenuType<CosmeticToolboxMenu>> STYLE_MENU = MENU_TYPES.register("style",
+			() -> IMenuTypeExtension.create(CosmeticToolboxMenu::new));
 	
 	public static final Supplier<MenuType<AdjustinatorMenu>> ADJUSTINATOR_MENU = MENU_TYPES.register("adjustinator",
 			() -> IMenuTypeExtension.create(AdjustinatorMenu::new));

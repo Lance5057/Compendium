@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.styleblock.StyleBlock;
-import com.lance5057.compendium.styleblock.StyleBlockMenu;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
@@ -33,7 +33,7 @@ public class CosmeticToolbox extends BlockItem {
 			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StyleBlock s) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
-						return new StyleBlockMenu(p_57074_, p_57075_,
+						return new CosmeticToolboxMenu(p_57074_, p_57075_,
 								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
 								pContext.getClickedPos());
 					}, CommonComponents.EMPTY));

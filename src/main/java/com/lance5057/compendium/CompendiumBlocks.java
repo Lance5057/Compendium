@@ -1,7 +1,7 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.ChairBlock;
-import com.lance5057.compendium.blocks.CosmeticToolboxBlock;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlock;

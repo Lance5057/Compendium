@@ -1,7 +1,8 @@
-package com.lance5057.compendium.styleblock;
+package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -13,11 +14,11 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record StyleBlockMenuSyncPacket(int containerId, BlockPos pos) implements CustomPacketPayload {
-	public static final Type<StyleBlockMenuSyncPacket> id = new CustomPacketPayload.Type<StyleBlockMenuSyncPacket>(
+public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPacketPayload {
+	public static final Type<StyleSyncPacket> id = new CustomPacketPayload.Type<StyleSyncPacket>(
 			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "style_packet"));
 
-	public StyleBlockMenuSyncPacket(FriendlyByteBuf buf) {
+	public StyleSyncPacket(FriendlyByteBuf buf) {
 		this(buf.readInt(), buf.readBlockPos());
 	}
 
@@ -27,14 +28,14 @@ public record StyleBlockMenuSyncPacket(int containerId, BlockPos pos) implements
 //		buf.writeBlockPos(pos);
 //	}
 //
-	public static void handle(StyleBlockMenuSyncPacket message, IPayloadContext ctx) {
+	public static void handle(StyleSyncPacket message, IPayloadContext ctx) {
 		if (ctx.flow().isClientbound()) {
 			ctx.enqueueWork(new Runnable() {
 
 				@Override
 				public void run() {
 					if (Minecraft.getInstance().screen != null)
-						if (Minecraft.getInstance().screen instanceof StyleBlockScreen screen) {
+						if (Minecraft.getInstance().screen instanceof CosmeticToolboxScreen screen) {
 							screen.setPos(message.pos());
 						}
 						else if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
@@ -47,9 +48,9 @@ public record StyleBlockMenuSyncPacket(int containerId, BlockPos pos) implements
 		}
 	}
 
-	public static StreamCodec<ByteBuf, StyleBlockMenuSyncPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
-			StyleBlockMenuSyncPacket::containerId, BlockPos.STREAM_CODEC, StyleBlockMenuSyncPacket::pos,
-			StyleBlockMenuSyncPacket::new);
+	public static StreamCodec<ByteBuf, StyleSyncPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
+			StyleSyncPacket::containerId, BlockPos.STREAM_CODEC, StyleSyncPacket::pos,
+			StyleSyncPacket::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

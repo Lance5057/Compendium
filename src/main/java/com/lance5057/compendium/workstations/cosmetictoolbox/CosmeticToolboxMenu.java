@@ -1,6 +1,7 @@
-package com.lance5057.compendium.styleblock;
+package com.lance5057.compendium.workstations.cosmetictoolbox;
 
 import com.lance5057.compendium.CompendiumMenus;
+import com.lance5057.compendium.network.StyleSyncPacket;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -11,20 +12,20 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
-public class StyleBlockMenu extends AbstractContainerMenu {
+public class CosmeticToolboxMenu extends AbstractContainerMenu {
 	private final ContainerLevelAccess access;
 	public BlockPos pos;
 	private final Player player;
 
-	public StyleBlockMenu(final int windowId, final Inventory playerInventory, final FriendlyByteBuf data) {
+	public CosmeticToolboxMenu(final int windowId, final Inventory playerInventory, final FriendlyByteBuf data) {
 		this(windowId, playerInventory);
 	}
 
-	public StyleBlockMenu(int pContainerId, Inventory pPlayerInventory) {
+	public CosmeticToolboxMenu(int pContainerId, Inventory pPlayerInventory) {
 		this(pContainerId, pPlayerInventory, ContainerLevelAccess.NULL, BlockPos.ZERO);
 	}
 
-	public StyleBlockMenu(int pContainerId, Inventory pPlayerInventory, final ContainerLevelAccess pAccess,
+	public CosmeticToolboxMenu(int pContainerId, Inventory pPlayerInventory, final ContainerLevelAccess pAccess,
 			BlockPos pos) {
 		super(CompendiumMenus.STYLE_MENU.get(), pContainerId);
 		this.access = pAccess;
@@ -48,7 +49,7 @@ public class StyleBlockMenu extends AbstractContainerMenu {
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();
 		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new StyleBlockMenuSyncPacket(this.containerId, this.pos));
+			serverPlayer.connection.send(new StyleSyncPacket(this.containerId, this.pos));
 	}
 
 }

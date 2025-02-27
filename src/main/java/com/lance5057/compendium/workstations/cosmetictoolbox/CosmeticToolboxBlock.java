@@ -1,4 +1,4 @@
-package com.lance5057.compendium.blocks;
+package com.lance5057.compendium.workstations.cosmetictoolbox;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
