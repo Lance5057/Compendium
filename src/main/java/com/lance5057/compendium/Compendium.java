@@ -7,6 +7,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -46,5 +47,9 @@ public class Compendium {
 
 			CompendiumClient.setBERenderers();
 		});
+	}
+
+	public static ResourceLocation modLoc(String string) {
+		return ResourceLocation.fromNamespaceAndPath("compendium", string);
 	}
 }

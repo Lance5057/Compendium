@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "style=0": {
+      "model": "compendium:block/tin_tile_full"
+    },
+    "style=1": {
+      "model": "compendium:block/tin_tile_half"
+    },
+    "style=2": {
+      "model": "compendium:block/tin_tile_vertical_half"
+    },
+    "style=3": {
+      "model": "compendium:block/tin_tile_quarter"
+    },
+    "style=4": {
+      "model": "compendium:block/tin_tile_offset_half"
+    },
+    "style=5": {
+      "model": "compendium:block/tin_tile_offset_quarter"
+    }
+  }
+}

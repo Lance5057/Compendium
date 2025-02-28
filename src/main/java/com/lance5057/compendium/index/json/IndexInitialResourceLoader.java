@@ -17,8 +17,8 @@ import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
-import com.lance5057.compendium.index.material.extentions.ExtensionExtraMetalBlocks;
 import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
+import com.lance5057.compendium.index.material.extentions.extrametalblocks.ExtensionExtraMetalBlocks;
 import com.mojang.logging.LogUtils;
 
 public class IndexInitialResourceLoader {
@@ -38,7 +38,7 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionVanillaTools(true, true, true, true, true))
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
 				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1))
-				.addExtension(new ExtensionExtraMetalBlocks(true, true, true, true, true, true)));
+				.addExtension(new ExtensionExtraMetalBlocks(true)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

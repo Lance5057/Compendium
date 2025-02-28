@@ -133,7 +133,7 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-
+		blp.dropSelf(this.BLOCK.get());
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 

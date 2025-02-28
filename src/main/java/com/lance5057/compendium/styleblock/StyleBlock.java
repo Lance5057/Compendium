@@ -17,7 +17,7 @@ public abstract class StyleBlock extends Block {
 		super(properties);
 	}
 
-	protected abstract BlockItemStateProperties getStateProperties();
+	protected abstract BlockItemStateProperties getStateProperties(BlockState state);
 
 	public abstract int numStyles();
 
@@ -38,7 +38,7 @@ public abstract class StyleBlock extends Block {
 		if (!level.isClientSide && player.isCreative()
 				&& level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
 			ItemStack itemstack = new ItemStack(this);
-			itemstack.set(DataComponents.BLOCK_STATE, getStateProperties());
+			itemstack.set(DataComponents.BLOCK_STATE, getStateProperties(state));
 			ItemEntity itementity = new ItemEntity(level, (double) pos.getX(), (double) pos.getY(), (double) pos.getZ(),
 					itemstack);
 			itementity.setDefaultPickUpDelay();

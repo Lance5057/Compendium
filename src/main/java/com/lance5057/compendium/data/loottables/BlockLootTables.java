@@ -1,6 +1,7 @@
 package com.lance5057.compendium.data.loottables;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.jetbrains.annotations.NotNull;
@@ -38,6 +39,11 @@ public class BlockLootTables extends BlockLootSubProvider {
 
 	@Override
 	protected @NotNull Iterable<Block> getKnownBlocks() {
-		return CompendiumBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());
+		List<Block> a = CompendiumBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get)
+				.collect(Collectors.toList());
+		List<Block> b = CompendiumIndex.BLOCKS.getEntries().stream().map(DeferredHolder::get)
+				.collect(Collectors.toList());
+		a.addAll(b);
+		return a;
 	}
 }

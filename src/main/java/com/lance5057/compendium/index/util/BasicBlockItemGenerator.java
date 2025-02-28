@@ -14,14 +14,14 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class BasicBlockItem implements IQuickBuildItem {
+public class BasicBlockItemGenerator implements IQuickBuildItem {
 	public String name;
 	boolean isEnabled = false;
 
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
 
-	public BasicBlockItem(String n) {
+	public BasicBlockItemGenerator(String n) {
 		name = n;
 	}
 
