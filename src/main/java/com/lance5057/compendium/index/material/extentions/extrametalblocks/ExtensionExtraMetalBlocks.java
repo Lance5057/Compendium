@@ -11,6 +11,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
+import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -26,7 +27,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -49,7 +50,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
 				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "tile_item",
+		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
 				() -> new BlockItem(TILE.get(), new Item.Properties()));
 	}
 
@@ -82,7 +83,9 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-
+			tmp.getBuilder(TILE_ITEM.getId().getPath())
+			.parent(new ModelFile.UncheckedModelFile("item/generated"))
+			.customLoader(MetalTileGeometryLoader::builder);
 		}
 	}
 

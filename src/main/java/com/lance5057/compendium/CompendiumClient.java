@@ -7,6 +7,7 @@ import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
+import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
@@ -77,5 +78,10 @@ public class CompendiumClient {
 
 			event.register(rl2);
 		});
+	}
+
+	@SubscribeEvent
+	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
+		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
 	}
 }

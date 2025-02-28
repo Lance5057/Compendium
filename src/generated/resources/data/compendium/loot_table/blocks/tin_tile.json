@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "compendium:tintile_item"
+          "name": "compendium:tin_tile_item"
         }
       ],
       "rolls": 1.0

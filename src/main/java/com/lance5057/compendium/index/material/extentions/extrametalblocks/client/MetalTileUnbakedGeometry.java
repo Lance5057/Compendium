@@ -22,6 +22,6 @@ public class MetalTileUnbakedGeometry implements IUnbakedGeometry<MetalTileUnbak
 	public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
-		return new MetalTileBakedGeometry(null);
+		return new MetalTileBakedGeometry();
 	}
 }
