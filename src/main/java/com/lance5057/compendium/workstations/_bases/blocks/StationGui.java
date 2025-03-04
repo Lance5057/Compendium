@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 
-public abstract class StationGui extends Block implements EntityBlock, SimpleWaterloggedBlock {
+public abstract class StationGui extends StationBlock implements EntityBlock, SimpleWaterloggedBlock {
 
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -75,7 +75,7 @@ public abstract class StationGui extends Block implements EntityBlock, SimpleWat
 				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
 			} else if (!be.getInventory().isEmpty()) {
-				be.use(pPlayer, stack);
+				be.use(pPlayer, pHand, stack);
 				return ItemInteractionResult.SUCCESS;
 			}
 		}

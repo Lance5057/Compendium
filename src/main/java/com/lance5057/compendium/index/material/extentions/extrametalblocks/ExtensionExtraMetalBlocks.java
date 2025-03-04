@@ -14,6 +14,7 @@ import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 import com.lance5057.compendium.styleblock.StyleItem;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -64,7 +65,8 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 					}
 				});
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
-				() -> new StyleItem(TILE.get(), new Item.Properties()) {
+				() -> new StyleItem(TILE.get(), new Item.Properties().component(DataComponents.BLOCK_STATE,
+						BlockItemStateProperties.EMPTY.with(StyleMetalTileBlock.STYLE, 0))) {
 					@Override
 					public String getStyleFromBlock(BlockItemStateProperties bisp) {
 						if (bisp != null)

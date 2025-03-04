@@ -140,7 +140,7 @@ public class WorkbenchBlock extends StationGui {
 				return ItemInteractionResult.SUCCESS;
 			} else {
 				if (!stack.isEmpty()) {
-					be.use(pPlayer, stack);
+					be.use(pPlayer, pHand, stack);
 					return ItemInteractionResult.SUCCESS;
 				}
 			}

@@ -1,29 +1,58 @@
 package com.lance5057.compendium.util.rendering;
 
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
 import org.joml.Quaternionf;
+import org.joml.Vector4f;
 
-import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
 import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class RenderUtil {
+	public static Vector4f getUV(ResourceLocation rc) {
+		TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(rc);
+		return getUVFromSprite(sprite);
+	}
+
+	public static Vector4f getUVFromSprite(TextureAtlasSprite sprite) {
+		return new Vector4f(sprite.getU0(), sprite.getU1(), sprite.getV0(), sprite.getV1());
+	}
+
+	public static Vector4f getUVFromSprite(TextureAtlasSprite sprite, float offsetX, float offsetY, float width,
+			float height) {
+		float uUnit = (sprite.getU1() - sprite.getU0()) / 16;
+		float vUnit = (sprite.getV1() - sprite.getV0()) / 16;
+
+		float start0 = sprite.getU0() + (uUnit * offsetX);
+		float start1 = sprite.getV0() + (vUnit * offsetY);
+
+		float end0 = ((uUnit * width)) + start0;
+		float end1 = ((vUnit * height)) + start1;
+
+		return new Vector4f(start0, end0, start1, end1);
+	}
 
 	public static Quaternionf createQuaternion(float x, float y, float z, boolean degrees) {
 		if (degrees) {
@@ -41,6 +70,22 @@ public class RenderUtil {
 
 		return new Quaternionf(f * i * k + g * h * j, g * h * k - f * i * j, f * h * k + g * i * j,
 				g * i * k - f * h * j);
+	}
+
+	public static void buildPlane(Vec3 pos1, Vec3 pos2, Vec3 pos3, Vec3 pos4, VertexConsumer vertexConsumer,
+			Matrix4f mat, Matrix3f normal, int tint, Vector4f uv, Vec3i vec3i, int light, int packedOverlay,
+			PoseStack poseStack) {
+		vertexConsumer.addVertex(mat, (float) pos1.x, (float) pos1.y, (float) pos1.z).setColor(tint).setUv(uv.x, uv.w)
+				.setOverlay(packedOverlay).setLight(light).setNormal(vec3i.getX(), vec3i.getY(), vec3i.getZ());
+
+		vertexConsumer.addVertex(mat, (float) pos2.x, (float) pos2.y, (float) pos2.z).setColor(tint).setUv(uv.y, uv.w)
+				.setOverlay(packedOverlay).setLight(light).setNormal(vec3i.getX(), vec3i.getY(), vec3i.getZ());
+
+		vertexConsumer.addVertex(mat, (float) pos3.x, (float) pos3.y, (float) pos3.z).setColor(tint).setUv(uv.y, uv.z)
+				.setOverlay(packedOverlay).setLight(light).setNormal(vec3i.getX(), vec3i.getY(), vec3i.getZ());
+
+		vertexConsumer.addVertex(mat, (float) pos4.x, (float) pos4.y, (float) pos4.z).setColor(tint).setUv(uv.x, uv.z)
+				.setOverlay(packedOverlay).setLight(light).setNormal(vec3i.getX(), vec3i.getY(), vec3i.getZ());
 	}
 
 	public static void loadModel(PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn,
@@ -114,7 +159,7 @@ public class RenderUtil {
 
 				itemRenderer.render(item, ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, combinedLightIn,
 						combinedOverlayIn, bakedmodel);
-				
+
 //				IRenderable<ModelData> bm = BakedModelRenderable
 //						.of(ModelResourceLocation
 //								.standalone(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "extra/pivot_gizmo")))

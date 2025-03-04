@@ -1,5 +1,6 @@
 package com.lance5057.compendium;
 
+import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -33,4 +34,8 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WorkbenchBlockEntity>> WORKBENCH = BLOCK_ENTITIES
 			.register("workbench", () -> BlockEntityType.Builder
 					.of(WorkbenchBlockEntity::new, CompendiumBlocks.WORKBENCH.get()).build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ToolRackBlockEntity>> TOOLRACK = BLOCK_ENTITIES
+			.register("toolrack", () -> BlockEntityType.Builder
+					.of(ToolRackBlockEntity::new, CompendiumBlocks.TOOLRACK.get()).build(null));
 }

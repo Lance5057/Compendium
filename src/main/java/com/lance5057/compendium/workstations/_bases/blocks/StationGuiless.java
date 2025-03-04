@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 
-public abstract class StationGuiless extends Block implements EntityBlock, SimpleWaterloggedBlock {
+public abstract class StationGuiless extends StationBlock implements EntityBlock, SimpleWaterloggedBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -63,7 +63,7 @@ public abstract class StationGuiless extends Block implements EntityBlock, Simpl
 				if (!pPlayer.addItem(be.extractItem()))
 					pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY() + 1, pPos.getZ(), stack));
 			} else if (!be.getInventory().isEmpty()) {
-				be.use(pPlayer, stack);
+				be.use(pPlayer, pHand, stack);
 			} else
 				pPlayer.setItemInHand(pHand, be.insertItem(stack));
 			return ItemInteractionResult.SUCCESS;
