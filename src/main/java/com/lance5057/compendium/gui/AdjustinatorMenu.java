@@ -44,7 +44,7 @@ public class AdjustinatorMenu extends AbstractContainerMenu {
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
+
 	@Override
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();

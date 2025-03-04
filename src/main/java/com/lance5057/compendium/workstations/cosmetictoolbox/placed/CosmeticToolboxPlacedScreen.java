@@ -1,4 +1,4 @@
-package com.lance5057.compendium.workstations.cosmetictoolbox;
+package com.lance5057.compendium.workstations.cosmetictoolbox.placed;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.styleblock.StyleBlock;
@@ -13,18 +13,22 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.model.data.ModelData;
 
-public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolboxMenu> {
+public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<CosmeticToolboxPlacedMenu> {
 
 	private static ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-			"textures/gui/style.png");
+			"textures/gui/style_placed.png");
 	private static final ResourceLocation SCROLLER_SPRITE = ResourceLocation
 			.withDefaultNamespace("container/stonecutter/scroller");
 	private static final ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation
@@ -41,7 +45,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private BlockPos pos = BlockPos.ZERO;
 	private StyleBlock style;
 
-	public CosmeticToolboxScreen(CosmeticToolboxMenu menu, Inventory playerInventory, Component title) {
+	public CosmeticToolboxPlacedScreen(CosmeticToolboxPlacedMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
 	}
 
@@ -51,49 +55,54 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		if (this.minecraft == null)
 			return;
 
-		BlockState state = this.minecraft.level.getBlockState(this.pos);
-		if (state != null) {
+		int i = this.leftPos;
+		int j = this.topPos - 38;
 
-			int i = this.leftPos + 8;
-			int j = this.topPos;
+		RenderSystem.setShaderTexture(0, BACKGROUND);
+		gui.blit(BACKGROUND, i, j, 0, 0, 176, 256);
+		gui.blit(BACKGROUND, i - 81, j, 175, 0, 81, 81);
+		gui.blit(BACKGROUND, i - 55, j + 84, 176, 92, 32, 45);
 
-			RenderSystem.setShaderTexture(0, BACKGROUND);
-			gui.blit(BACKGROUND, i, j, 0, 0, 176, 256);
-			gui.blit(BACKGROUND, i - 81, j, 175, 0, 81, 81);
+		int k = (int) (129.0F * this.scrollOffs);
+		ResourceLocation resourcelocation = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
+		gui.blitSprite(resourcelocation, i + 155, j + k + 8, 12, 15);
 
-			int k = (int) (129.0F * this.scrollOffs);
-			ResourceLocation resourcelocation = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
-			gui.blitSprite(resourcelocation, i + 155, j + k + 8, 12, 15);
+		ItemStack stack = this.menu.slots.get(0).getItem();
+		if (stack != null && !stack.isEmpty() && stack.getItem() instanceof BlockItem bi
+				&& bi.getBlock() instanceof StyleBlock s) {
+			if (stack.has(DataComponents.BLOCK_STATE)) {
+				BlockState state = stack.get(DataComponents.BLOCK_STATE).apply(bi.getBlock().defaultBlockState());
+				style = s;
+				if (state != null) {
+					int j1 = this.startIndex + 8;
+					this.renderButtons(gui, mouseX, mouseY, i + 8, j + 7, j1);
 
-			if (state.getBlock() instanceof StyleBlock style) {
-				int j1 = this.startIndex + 8;
-				this.renderButtons(gui, mouseX, mouseY, i + 8, j + 7, j1);
+					RenderSystem.enableBlend();
+					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+					Lighting.setupFor3DItems();
+					
+					gui.pose().pushPose();
+					{
+						renderRecipes(gui, 16, -25, j1);
+					}
+					gui.pose().popPose();
 
-				RenderSystem.enableBlend();
-				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-				Lighting.setupForFlatItems();
+					gui.pose().pushPose();
+					{
+						gui.pose().translate(this.leftPos - 40, this.topPos - 11, 100);
+						gui.pose().scale(40F, 40F, 40F);
 
-				gui.pose().pushPose();
-				{
-					renderRecipes(gui, 24, 13, j1);
+						gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
+						gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
+
+						renderBlock(gui, state);
+
+					}
+					gui.pose().popPose();
+
 				}
-				gui.pose().popPose();
-
-				gui.pose().pushPose();
-				{
-					gui.pose().translate(this.leftPos - 32, this.topPos + 26, 100);
-					gui.pose().scale(40F, 40F, 40F);
-
-					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
-					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
-
-					renderBlock(gui, state);
-
-				}
-				gui.pose().popPose();
 			}
 		}
-
 	}
 
 	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_) {
@@ -148,7 +157,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		guiGraphics.pose().scale(1f, -1f, 1f);
 
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY);
+				OverlayTexture.NO_OVERLAY, ModelData.EMPTY, null);
 
 		buffers.endBatch();
 
@@ -183,7 +192,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	public boolean mouseClicked(double p_99318_, double p_99319_, int p_99320_) {
 		this.scrolling = false;
 		int i = this.leftPos + 14;
-		int j = this.topPos + 9;
+		int j = this.topPos + 9 - 38;
 		int k = this.startIndex + 8;
 
 		for (int l = this.startIndex; l < k; ++l) {

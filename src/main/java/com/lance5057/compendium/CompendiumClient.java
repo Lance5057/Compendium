@@ -9,6 +9,7 @@ import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
 import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
+import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRenderer;
@@ -57,6 +58,7 @@ public class CompendiumClient {
 	@SubscribeEvent
 	public static void registerClient(RegisterMenuScreensEvent event) {
 		event.register(CompendiumMenus.STYLE_MENU.get(), CosmeticToolboxScreen::new);
+		event.register(CompendiumMenus.PLACED_STYLE_MENU.get(), CosmeticToolboxPlacedScreen::new);
 		event.register(CompendiumMenus.ADJUSTINATOR_MENU.get(), AdjustinatorScreen::new);
 		event.register(CompendiumMenus.WORKBENCH_MENU.get(), WorkbenchScreen::new);
 	}

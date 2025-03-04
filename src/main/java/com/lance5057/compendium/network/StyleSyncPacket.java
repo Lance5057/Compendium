@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPacketPayload {
+
 	public static final Type<StyleSyncPacket> id = new CustomPacketPayload.Type<StyleSyncPacket>(
 			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "style_packet"));
 
@@ -37,10 +38,10 @@ public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPa
 					if (Minecraft.getInstance().screen != null)
 						if (Minecraft.getInstance().screen instanceof CosmeticToolboxScreen screen) {
 							screen.setPos(message.pos());
-						}
-						else if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
-							screen.setPos(message.pos()); 
-							
+
+						} else if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
+							screen.setPos(message.pos());
+
 						}
 				}
 
@@ -49,8 +50,7 @@ public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPa
 	}
 
 	public static StreamCodec<ByteBuf, StyleSyncPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
-			StyleSyncPacket::containerId, BlockPos.STREAM_CODEC, StyleSyncPacket::pos,
-			StyleSyncPacket::new);
+			StyleSyncPacket::containerId, BlockPos.STREAM_CODEC, StyleSyncPacket::pos, StyleSyncPacket::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

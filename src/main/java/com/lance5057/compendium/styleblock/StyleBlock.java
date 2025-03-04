@@ -8,8 +8,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.HitResult;
 
 public abstract class StyleBlock extends Block {
 
@@ -17,7 +19,7 @@ public abstract class StyleBlock extends Block {
 		super(properties);
 	}
 
-	protected abstract BlockItemStateProperties getStateProperties(BlockState state);
+	public abstract BlockItemStateProperties getStateProperties(BlockState state);
 
 	public abstract int numStyles();
 
@@ -33,9 +35,17 @@ public abstract class StyleBlock extends Block {
 
 	public abstract boolean isPatreonStyle(int style);
 	
+	public String getStyleFromBlock(BlockItemStateProperties bisp) {
+		return "";
+	}
+
+	public String getStyleFromBlock(int i) {
+		return "";
+	}
+
 	@Override
 	public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-		if (!level.isClientSide && player.isCreative()
+		if (!level.isClientSide && !player.isCreative()
 				&& level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
 			ItemStack itemstack = new ItemStack(this);
 			itemstack.set(DataComponents.BLOCK_STATE, getStateProperties(state));
@@ -47,4 +57,5 @@ public abstract class StyleBlock extends Block {
 
 		return super.playerWillDestroy(level, pos, state, player);
 	}
+
 }

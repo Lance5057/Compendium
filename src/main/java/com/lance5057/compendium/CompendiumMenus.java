@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import com.lance5057.compendium.gui.AdjustinatorMenu;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
+import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedMenu;
 import com.lance5057.compendium.workstations.workbench.WorkbenchMenu;
 
 import net.minecraft.core.registries.Registries;
@@ -21,7 +22,10 @@ public class CompendiumMenus {
 
 	public static final Supplier<MenuType<CosmeticToolboxMenu>> STYLE_MENU = MENU_TYPES.register("style",
 			() -> IMenuTypeExtension.create(CosmeticToolboxMenu::new));
-	
+
+	public static final Supplier<MenuType<CosmeticToolboxPlacedMenu>> PLACED_STYLE_MENU = MENU_TYPES
+			.register("style_placed", () -> IMenuTypeExtension.create(CosmeticToolboxPlacedMenu::new));
+
 	public static final Supplier<MenuType<AdjustinatorMenu>> ADJUSTINATOR_MENU = MENU_TYPES.register("adjustinator",
 			() -> IMenuTypeExtension.create(AdjustinatorMenu::new));
 

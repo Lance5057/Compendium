@@ -12,15 +12,16 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
+import com.lance5057.compendium.styleblock.StyleItem;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -37,7 +38,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 
 	boolean loadTile = false;
 	public DeferredBlock<StyleMetalTileBlock> TILE;
-	public DeferredItem<BlockItem> TILE_ITEM;
+	public DeferredItem<StyleItem> TILE_ITEM;
 
 	private TagKey<Item> blockItemTag;
 	private TagKey<Block> blockTag;
@@ -49,9 +50,34 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
-				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)) {
+					@Override
+					public String getStyleFromBlock(BlockItemStateProperties bisp) {
+						if (bisp != null)
+							return base.name + ".style." + bisp.get(StyleMetalTileBlock.STYLE);
+						return base.name + "style.0";
+					}
+
+					@Override
+					public String getStyleFromBlock(int i) {
+						return base.name + ".style." + i;
+					}
+				});
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
-				() -> new BlockItem(TILE.get(), new Item.Properties()));
+				() -> new StyleItem(TILE.get(), new Item.Properties()) {
+					@Override
+					public String getStyleFromBlock(BlockItemStateProperties bisp) {
+						if (bisp != null)
+							return base.name + ".style." + bisp.get(StyleMetalTileBlock.STYLE);
+						return base.name + "style.0";
+					}
+
+					@Override
+					public String getStyleFromBlock(int i) {
+						return base.name + ".style." + i;
+					}
+
+				});
 	}
 
 	@Override
@@ -83,9 +109,8 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-			tmp.getBuilder(TILE_ITEM.getId().getPath())
-			.parent(new ModelFile.UncheckedModelFile("item/generated"))
-			.customLoader(MetalTileGeometryLoader::builder);
+			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("item/generated"))
+					.customLoader(MetalTileGeometryLoader::builder);
 		}
 	}
 

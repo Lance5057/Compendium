@@ -17,6 +17,18 @@
     },
     "style=5": {
       "model": "compendium:block/tin_tile_offset_quarter"
+    },
+    "style=6": {
+      "model": "compendium:block/tin_tile_indented"
+    },
+    "style=7": {
+      "model": "compendium:block/tin_tile_indented_segment"
+    },
+    "style=8": {
+      "model": "compendium:block/tin_tile_dented"
+    },
+    "style=9": {
+      "model": "compendium:block/tin_tile_dented_segment"
     }
   }
 }

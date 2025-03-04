@@ -63,13 +63,23 @@ public class WorkbenchRenderer extends MultiToolBlockEntityRenderer<WorkbenchBlo
 			matrixStackIn.popPose();
 		}
 
-		if (tileEntityIn.getInventory().getStackInSlot(WorkbenchBlockEntity.UPGRADE_LIGHT_SLOT) != null) {
+		ItemStack light = tileEntityIn.getInventory().getStackInSlot(WorkbenchBlockEntity.UPGRADE_LIGHT_SLOT);
+		if (!light.isEmpty()) {
 			matrixStackIn.pushPose();
-			matrixStackIn.translate(0.9f, 1, -0.5f);
+			
 			float scale = 0.75f;
 			matrixStackIn.scale(scale, scale, scale);
-			matrixStackIn.mulPose(RenderUtil.createQuaternion(0, 180, 0, true));
+//			matrixStackIn.mulPose(RenderUtil.createQuaternion(0, 180, 0, true));
+			
+			matrixStackIn.translate(0.65f, 0, 0.65f);
+			
+			Quaternionf q = tileEntityIn.getBlockState().getValue(HorizontalDirectionalBlock.FACING).getRotation();
 
+			matrixStackIn.mulPose(q);
+			matrixStackIn.mulPose(RenderUtil.createQuaternion(-90, 180, 0, true));
+
+			matrixStackIn.translate(-0.5f, 1.35, -0.15f);
+			
 			IRenderable<ModelData> bm = BakedModelRenderable
 					.of(ModelResourceLocation
 							.standalone(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "extra/lamp")))

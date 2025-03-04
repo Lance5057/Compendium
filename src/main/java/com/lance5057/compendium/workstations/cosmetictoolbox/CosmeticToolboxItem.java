@@ -1,10 +1,9 @@
-package com.lance5057.compendium.items.tools;
+package com.lance5057.compendium.workstations.cosmetictoolbox;
 
 import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.styleblock.StyleBlock;
-import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
@@ -20,9 +19,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 
-public class CosmeticToolbox extends BlockItem {
+public class CosmeticToolboxItem extends BlockItem {
 
-	public CosmeticToolbox(Block block, Properties properties) {
+	public CosmeticToolboxItem(Block block, Properties properties) {
 		super(block, properties);
 		// TODO Auto-generated constructor stub
 	}

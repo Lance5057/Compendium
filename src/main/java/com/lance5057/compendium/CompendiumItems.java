@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.lance5057.compendium.items.Adjustinator;
 import com.lance5057.compendium.items.MegalithStoneItem;
-import com.lance5057.compendium.items.tools.CosmeticToolbox;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxItem;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -42,7 +42,7 @@ public class CompendiumItems {
 			() -> new BlockItem(CompendiumBlocks.WORKBENCH.get(), new Item.Properties()));
 
 	public static final DeferredItem<BlockItem> COSMETIC_TOOLBOX = ITEMS.register("cosmetic_toolbox",
-			() -> new CosmeticToolbox(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
+			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
 			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()));

@@ -3,23 +3,29 @@ package com.lance5057.compendium.index.material.extentions.extrametalblocks;
 import com.lance5057.compendium.styleblock.StyleBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.HitResult;
 
 public class StyleMetalTileBlock extends StyleBlock {
 	public static enum Styles {
-		FULL, HALF, VERTICAL_HALF, QUARTER, OFFSET_HALF, OFFSET_QUARTER
+		FULL, HALF, VERTICAL_HALF, QUARTER, OFFSET_HALF, OFFSET_QUARTER, INDENTED, INDENTED_SEGMENT, DENTED,
+		DENTED_SEGMENT
 	};
 
-	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, 5);
+	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, 9);
 
 	public StyleMetalTileBlock(Properties properties) {
 		super(properties);
@@ -27,13 +33,13 @@ public class StyleMetalTileBlock extends StyleBlock {
 	}
 
 	@Override
-	protected BlockItemStateProperties getStateProperties(BlockState state) {
+	public BlockItemStateProperties getStateProperties(BlockState state) {
 		return BlockItemStateProperties.EMPTY.with(STYLE, getCurrentStyle(state));
 	}
 
 	@Override
 	public int numStyles() {
-		return 6;
+		return 10;
 	}
 
 	@Override
@@ -60,7 +66,7 @@ public class StyleMetalTileBlock extends StyleBlock {
 	@Override
 	public void setStyle(Level level, BlockPos pos, BlockState state, int style) {
 		BlockState nextState = state.setValue(STYLE, style);
-		level.setBlock(pos, nextState, 3);
+		level.setBlock(pos, nextState, Block.UPDATE_ALL);
 	}
 
 	@Override
@@ -92,6 +98,14 @@ public class StyleMetalTileBlock extends StyleBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(STYLE);
+	}
+
+	@Override
+	public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos,
+			Player player) {
+		ItemStack stack = new ItemStack(this);
+		stack.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(STYLE, state.getValue(STYLE)));
+		return stack;
 	}
 
 }
