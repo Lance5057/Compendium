@@ -41,9 +41,4 @@ public class RecipeToolSupplierBlock extends Block {
 		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 
 	}
-
-	@Override
-	public void destroy(LevelAccessor level, BlockPos pos, BlockState state) {
-
-	}
 }

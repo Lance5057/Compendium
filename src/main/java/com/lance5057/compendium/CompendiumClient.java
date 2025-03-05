@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import java.util.Map;
 
+import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
@@ -53,6 +54,7 @@ public class CompendiumClient {
 		BlockEntityRenderers.register(CompendiumBlockEntities.SAW_BUCK.get(), SawBuckRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.SCRAPPING_TABLE.get(), ScrappingTableRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.WORKBENCH.get(), WorkbenchRenderer::new);
+		BlockEntityRenderers.register(CompendiumBlockEntities.TOOLRACK.get(), ToolRackRenderer::new);
 	}
 
 	@SubscribeEvent

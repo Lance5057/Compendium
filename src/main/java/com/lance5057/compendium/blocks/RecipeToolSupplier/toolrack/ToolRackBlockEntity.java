@@ -7,6 +7,7 @@ import com.lance5057.compendium.workstations._bases.components.item.BlockEntityI
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.Tags;
 
 public class ToolRackBlockEntity extends RecipeToolSupplierBlockEntity {
 
@@ -16,12 +17,12 @@ public class ToolRackBlockEntity extends RecipeToolSupplierBlockEntity {
 
 	@Override
 	protected BlockEntityItemHandler createItemHandler() {
-		return new BlockEntityItemHandler(this, 4);
+		return new BlockEntityItemHandler(this, 2);
 	}
 
 	@Override
 	protected boolean canAccept(ItemStack stack) {
-		return false;
+		return stack.is(Tags.Items.TOOLS);
 	}
 
 }
