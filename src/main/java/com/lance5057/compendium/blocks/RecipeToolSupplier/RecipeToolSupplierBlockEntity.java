@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -52,6 +53,19 @@ public abstract class RecipeToolSupplierBlockEntity extends BlockEntity {
 
 					if (ent instanceof MultiToolRecipeStation<?> mtrs)
 						mtrs.toolSuppliers.add(this.worldPosition);
+				}
+
+	}
+
+	public void removeFromWorkstations(LevelAccessor level) {
+		for (int x = worldPosition.getX() - 5; x <= worldPosition.getX() + 5; x++)
+			for (int y = worldPosition.getY() - 5; y <= worldPosition.getY() + 5; y++)
+				for (int z = worldPosition.getZ() - 5; z <= worldPosition.getZ() + 5; z++) {
+					BlockPos pos = new BlockPos(x, y, z);
+					BlockEntity ent = level.getBlockEntity(pos);
+
+					if (ent instanceof MultiToolRecipeStation<?> mtrs)
+						mtrs.toolSuppliers.remove(this.worldPosition);
 				}
 
 	}

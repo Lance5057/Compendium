@@ -43,13 +43,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 	@Nullable
 	public BlockState getStateForPlacement(BlockPlaceContext p_49479_) {
 		Direction direction = p_49479_.getHorizontalDirection().getClockWise();
-		BlockPos blockpos = p_49479_.getClickedPos();
-		BlockPos blockpos1 = blockpos.relative(direction);
-		Level level = p_49479_.getLevel();
-		return level.getBlockState(blockpos1).canBeReplaced(p_49479_)
-				&& level.getWorldBorder().isWithinBounds(blockpos1)
-						? this.defaultBlockState().setValue(FACING, direction).setValue(WATERLOGGED, false)
-						: null;
+		return this.defaultBlockState().setValue(FACING, direction).setValue(WATERLOGGED, false);
 	}
 
 }

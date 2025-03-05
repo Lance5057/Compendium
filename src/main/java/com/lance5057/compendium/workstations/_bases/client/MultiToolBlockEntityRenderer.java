@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations._bases.client;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumConfig;
 import com.lance5057.compendium.util.rendering.RenderUtil;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
@@ -15,7 +16,7 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.phys.Vec3;
 
 public abstract class MultiToolBlockEntityRenderer<T extends MultiToolRecipeStation<?>>
@@ -42,10 +43,17 @@ public abstract class MultiToolBlockEntityRenderer<T extends MultiToolRecipeStat
 
 			poseStack.pushPose();
 
-			RenderUtil.buildPlane(new Vec3(0, 1, 1), new Vec3(0, 1, 0), new Vec3(0, 2, 0), new Vec3(0, 2, 1),
-					vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
-					RenderUtil.getUV(ResourceLocation.withDefaultNamespace("block/acacia_planks")),
-					Direction.UP.getNormal(), LightTexture.FULL_SKY, packedOverlay, poseStack);
+			Vec3 v = p.subtract(blockEntity.getBlockPos()).getCenter();
+
+			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(0.5, 1.1, 0.5), new Vec3(v.x, v.y + 0.6, v.z),
+					new Vec3(v.x, v.y + 0.7, v.z), vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
+					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
+					packedOverlay, poseStack);
+
+			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(v.x, v.y + 0.7, v.z),new Vec3(v.x, v.y + 0.6, v.z), new Vec3(0.5, 1.1, 0.5),
+					 vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
+					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
+					packedOverlay, poseStack);
 			poseStack.popPose();
 		}
 

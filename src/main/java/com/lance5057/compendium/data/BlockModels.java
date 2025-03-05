@@ -40,8 +40,18 @@ public class BlockModels extends BlockStateProvider {
 		getVariantBuilder(CompendiumBlocks.WORKBENCH.get()).forAllStates(state -> {
 			Half side = state.getValue(WorkbenchBlock.HALF);
 			return ConfiguredModel.builder()
-					.modelFile(new ModelFile.ExistingModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-							"block/workstations/workbench_" + side.name().toLowerCase()), models().existingFileHelper))
+					.modelFile(new ModelFile.ExistingModelFile(
+							ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+									"block/workstations/workbench_" + side.name().toLowerCase()),
+							models().existingFileHelper))
+					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
+		});
+
+		getVariantBuilder(CompendiumBlocks.TOOLRACK.get()).forAllStates(state -> {
+			return ConfiguredModel.builder()
+					.modelFile(new ModelFile.ExistingModelFile(
+							ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/toolrack"),
+							models().existingFileHelper))
 					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
 		});
 	}
