@@ -1,6 +1,7 @@
-// 1.21.1	2025-03-04T18:35:30.7659881	Loot Tables
+// 1.21.1	2025-03-06T13:09:22.9211607	Loot Tables
 5a1fe7cdef7c596454f96d5dc3aa3b0a928d8965 data/compendium/loot_table/blocks/chair.json
 cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosmetic_toolbox.json
+057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
 9673e43f0b1fcad5f36acb6e4b06e4bde0f755ae data/compendium/loot_table/blocks/hammering_station.json
 80b9cda2b573578a2502609b7bbfa17fad24484c data/compendium/loot_table/blocks/saw_buck.json
 70e06966cd643dcc892511d11243c262755e52bb data/compendium/loot_table/blocks/scrapping_table.json

@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import java.util.function.Supplier;
 
+import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerMenu;
 import com.lance5057.compendium.gui.AdjustinatorMenu;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedMenu;
@@ -28,6 +29,9 @@ public class CompendiumMenus {
 
 	public static final Supplier<MenuType<AdjustinatorMenu>> ADJUSTINATOR_MENU = MENU_TYPES.register("adjustinator",
 			() -> IMenuTypeExtension.create(AdjustinatorMenu::new));
+
+	public static final Supplier<MenuType<ComponentDrawerMenu>> COMPONENT_DRAWER_MENU = MENU_TYPES
+			.register("component_drawer", () -> IMenuTypeExtension.create(ComponentDrawerMenu::new));
 
 	public static void register(IEventBus modBus) {
 		MENU_TYPES.register(modBus);

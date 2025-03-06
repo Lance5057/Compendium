@@ -241,23 +241,38 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 		return insert;
 	}
+	
+	@Override
+	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		super.readNBT(nbt, registries);
+		readInventory(nbt, registries);
+		readNBTExtra(nbt, registries);
+	}
 
 	@Override
-	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-		CompoundTag tag = super.getUpdateTag(registries);
+	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
+		tag = super.writeNBT(tag, registries);
 		writeInventory(tag, registries);
-		writeNBT(tag, registries);
 		writeNBTExtra(tag, registries);
-
 		return tag;
 	}
 
-	@Override
-	public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-		readInventory(tag, registries);
-		readNBT(tag, registries);
-		readNBTExtra(tag, registries);
-	}
+//	@Override
+//	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+//		CompoundTag tag = super.getUpdateTag(registries);
+//		
+//		writeNBT(tag, registries);
+//		
+//
+//		return tag;
+//	}
+//
+//	@Override
+//	public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
+//		readInventory(tag, registries);
+//		readNBT(tag, registries);
+//		readNBTExtra(tag, registries);
+//	}
 
 	@Override
 	public ClientboundBlockEntityDataPacket getUpdatePacket() {
@@ -274,11 +289,41 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 	void writeInventory(CompoundTag nbt, HolderLookup.Provider registries) {
 		nbt.put(INVENTORY_TAG, inventory.serializeNBT(registries));
+
+		CompoundTag t = new CompoundTag();
+		int count = 0;
+
+		nbt.putInt("connected_count", toolSuppliers.size());
+		for (BlockPos pos : toolSuppliers) {
+			CompoundTag bp = new CompoundTag();
+			bp.putInt("x", pos.getX());
+			bp.putInt("y", pos.getY());
+			bp.putInt("z", pos.getZ());
+			t.put("pos" + count, bp);
+			count++;
+		}
+
+		nbt.put("connected", t);
+
 	}
 
 	void readInventory(CompoundTag nbt, HolderLookup.Provider registries) {
 		if (nbt.contains(INVENTORY_TAG)) {
 			inventory.deserializeNBT(registries, nbt.getCompound(INVENTORY_TAG));
+		}
+
+		if (nbt.contains("connected")) {
+			CompoundTag t = nbt.getCompound("connected");
+
+			int count = nbt.getInt("connected_count");
+
+			for (int i = 0; i < count; i++) {
+				CompoundTag pos = t.getCompound("pos" + i);
+
+				BlockPos bp = new BlockPos(pos.getInt("x"), pos.getInt("y"), pos.getInt("z"));
+				
+				toolSuppliers.add(bp);
+			}
 		}
 	}
 

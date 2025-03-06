@@ -1,6 +1,7 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.ChairBlock;
+import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
@@ -28,7 +29,8 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 
 	public static final DeferredBlock<Block> TOOLRACK = BLOCKS.register("toolrack", ToolRackBlock::new);
-
+	public static final DeferredBlock<Block> COMPONENT_DRAWER = BLOCKS.register("drawer", ComponentDrawerBlock::new);
+	
 	public static final DeferredBlock<Block> COSMETIC_TOOLBOX = BLOCKS.register("cosmetic_toolbox",
 			() -> new CosmeticToolboxBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 

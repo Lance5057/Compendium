@@ -54,6 +54,14 @@ public class BlockModels extends BlockStateProvider {
 							models().existingFileHelper))
 					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
 		});
+
+		getVariantBuilder(CompendiumBlocks.COMPONENT_DRAWER.get()).forAllStates(state -> {
+			return ConfiguredModel.builder()
+					.modelFile(new ModelFile.ExistingModelFile(
+							ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/component_drawer"),
+							models().existingFileHelper))
+					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
+		});
 	}
 
 }

@@ -36,6 +36,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.COSMETIC_TOOLBOX.get());
 		this.dropSelf(CompendiumBlocks.CHAIR.get());
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());
+		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
 	}
 
 	@Override
