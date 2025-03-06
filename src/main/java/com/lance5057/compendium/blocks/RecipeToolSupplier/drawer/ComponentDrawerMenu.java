@@ -50,7 +50,7 @@ public class ComponentDrawerMenu extends AbstractContainerMenu {
 			}
 
 			// Main Player Inventory
-			int startPlayerInvY = startY * 4 + 60;
+			int startPlayerInvY = startY * 4 + 33;
 			for (int r = 0; r < 3; ++r) {
 				for (int c = 0; c < 9; ++c) {
 					this.addSlot(new Slot(playerInventory, 9 + (r * 9) + c, startX + (c * borderSlotSize),
@@ -60,7 +60,7 @@ public class ComponentDrawerMenu extends AbstractContainerMenu {
 
 			// Hotbar
 			for (int c = 0; c < 9; ++c) {
-				this.addSlot(new Slot(playerInventory, c, startX + (c * borderSlotSize), 150));
+				this.addSlot(new Slot(playerInventory, c, startX + (c * borderSlotSize), 123));
 			}
 
 		}

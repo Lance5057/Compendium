@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.RecipeToolSupplier.drawer;
 
-import org.joml.Quaternionf;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
@@ -30,7 +28,7 @@ public class ComponentDrawerRenderer implements BlockEntityRenderer<ComponentDra
 
 		Direction dir = blockEntity.getBlockState().getValue(ComponentDrawerBlock.FACING);
 
-		poseStack.pushPose();
+//		poseStack.pushPose();
 		// poseStack.mulPose(new Quaternion(0, -dir.toYRot(), 0, true));
 		for (int i = 0; i < 4; i++) {
 
@@ -39,26 +37,40 @@ public class ComponentDrawerRenderer implements BlockEntityRenderer<ComponentDra
 			if (!item.isEmpty()) {
 				BakedModel bakedmodel = itemRenderer.getModel(item, blockEntity.getLevel(), null, 0);
 				poseStack.pushPose();
-				poseStack.translate(0.5f, 0.45, 0.5f);
-				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
-				poseStack.translate(0.05, -0.16, -0.22);
-
+				float uniscale = 0.25f;
+				
+				poseStack.translate(0.28f, 0.28, 0.5f);
+//				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
+				poseStack.translate(0.0, 0.0, 0.0001);
+				
 				if (i % 2 != 0) {
-					poseStack.translate(0, 0.0, 0.44);
+					poseStack.translate(0.44, 0.0, 0);
 				}
 				if (i < 2) {
-					poseStack.translate(0, 0.43, 0.0);
+					poseStack.translate(0, 0.44, 0.0);
 				}
+				if (bakedmodel.isGui3d()) {
+					poseStack.scale(0.45f, 0.45f, 0.01f);
+					poseStack.translate(0, -0.025, 0.0);
+				}
+				else
+				{
+					poseStack.scale(uniscale, uniscale, 0);
+				}
+				
+				
 
-				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-90), 0));
-				float uniscale = 0.25f;
-				poseStack.scale(uniscale, uniscale, uniscale);
+				bakedmodel.applyTransform(ItemDisplayContext.GUI, poseStack, false);
+
+//				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-90), 0));
+				
+				
 				itemRenderer.render(item, ItemDisplayContext.GROUND, false, poseStack, bufferSource, packedLight,
 						packedOverlay, bakedmodel);
 				poseStack.popPose();
 			}
 		}
-		poseStack.popPose();
+//		poseStack.popPose();
 	}
 
 }

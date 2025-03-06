@@ -50,8 +50,8 @@ public abstract class MultiToolBlockEntityRenderer<T extends MultiToolRecipeStat
 					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
 					packedOverlay, poseStack);
 
-			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(v.x, v.y + 0.7, v.z),new Vec3(v.x, v.y + 0.6, v.z), new Vec3(0.5, 1.1, 0.5),
-					 vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
+			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(v.x, v.y + 0.7, v.z), new Vec3(v.x, v.y + 0.6, v.z),
+					new Vec3(0.5, 1.1, 0.5), vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
 					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
 					packedOverlay, poseStack);
 			poseStack.popPose();
