@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
+  "loader": "compendium:material_swap",
   "textures": {
     "all": "compendium:block/material/tin/tile/tin_indented_tile_block"
   }

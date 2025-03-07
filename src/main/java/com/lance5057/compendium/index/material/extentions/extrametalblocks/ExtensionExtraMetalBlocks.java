@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
@@ -92,19 +93,26 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.loadTile) {
+
+//			ModelFile test = 
 			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
+//				return ConfiguredModel.builder().modelFile(test).build();
 				int style = state.getValue(StyleMetalTileBlock.STYLE);
 
 				String suffix = (StyleMetalTileBlock.Styles.values()[style] + "").toLowerCase();
-
 				return ConfiguredModel.builder()
-						.modelFile(
-								bsp.models()
-										.cubeAll(base.name + "_tile_" + suffix, bsp.modLoc("block/material/" + base.name
-												+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")))
-						.build();
+						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix, bsp.modLoc("block/material/" + base.name
+						+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")).customLoader(MaterialSwapModelBuilder::begin)
+						.end()).build();
+//				return ConfiguredModel.builder()
+//						.modelFile(
+//								bsp.models()
+//										.cubeAll(base.name + "_tile_" + suffix, bsp.modLoc("block/material/" + base.name
+//												+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")))
+//						.build();
 
 			});
+
 		}
 	}
 
