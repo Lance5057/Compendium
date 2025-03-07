@@ -36,6 +36,7 @@ public class ComponentDrawerRenderer implements BlockEntityRenderer<ComponentDra
 
 			if (!item.isEmpty()) {
 				BakedModel bakedmodel = itemRenderer.getModel(item, blockEntity.getLevel(), null, 0);
+				
 				poseStack.pushPose();
 				float uniscale = 0.25f;
 				
