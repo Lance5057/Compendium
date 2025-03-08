@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
 
@@ -241,5 +242,10 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public Ingredient getBaseItem() {
 		return Ingredient.of(this.INGOT.get());
+	}
+
+	@Override
+	public MATERIAL_TYPES getType() {
+		return MATERIAL_TYPES.METAL;
 	}
 }

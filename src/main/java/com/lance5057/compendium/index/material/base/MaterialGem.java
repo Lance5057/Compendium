@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -111,7 +112,7 @@ public class MaterialGem extends _MaterialBase {
 		if (this.loadShard)
 			output.accept(SHARD);
 	}
-	
+
 	@Override
 	public void setupItemTags(ItemTagsProvider itp) {
 		this.extensions.forEach(i -> i.setupItemTags(this, itp));
@@ -159,7 +160,7 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public void setupClient(FMLClientSetupEvent event) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -167,5 +168,9 @@ public class MaterialGem extends _MaterialBase {
 		return Ingredient.of(GEM.get());
 	}
 
-	
+	@Override
+	public MATERIAL_TYPES getType() {
+		return MATERIAL_TYPES.GEM;
+	}
+
 }

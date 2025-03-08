@@ -9,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
@@ -77,6 +78,8 @@ public abstract class _MaterialBase implements IIndexEntry {
 
 		return this;
 	}
+	
+	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {
 

@@ -16,6 +16,10 @@ public class CompendiumIndex {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
+	
+	public static enum MATERIAL_TYPES {
+		INVALID, METAL, WOOD, GEM
+	}
 
 	public static void setup(IEventBus bus) {
 		index.forEach(i -> i.setup());

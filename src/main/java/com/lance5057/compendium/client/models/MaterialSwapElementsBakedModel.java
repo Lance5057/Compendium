@@ -1,84 +1,85 @@
 package com.lance5057.compendium.client.models;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
+
+import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.ChunkRenderTypeSet;
-import net.neoforged.neoforge.client.RenderTypeGroup;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 
+	private final BakedModel base;
 	@Nullable
-	private final List<IIndexQuad> quads;
-	private final TextureAtlasSprite particle;
-	private final ItemOverrides overrides;
-	private final ItemTransforms transforms;
-	@Nullable
-	private final ChunkRenderTypeSet blockRenderTypes;
-	@Nullable
-	private final List<RenderType> itemRenderTypes;
-	@Nullable
-	private final List<RenderType> fabulousItemRenderTypes;
+	private List<IIndexQuad> quads;
 
-	public MaterialSwapElementsBakedModel(EnumSet<Direction> enabledFaces, boolean renderOnDisabledFaces,
-			List<Block> connectableBlocks, @Nullable List<IIndexQuad> quads, TextureAtlasSprite particle,
-			ItemOverrides overrides, ItemTransforms transforms, RenderTypeGroup group) {
-		this.quads = quads;
-		this.particle = particle;
-		this.overrides = overrides;
-		this.transforms = transforms;
-		this.blockRenderTypes = !group.isEmpty() ? ChunkRenderTypeSet.of(group.block()) : null;
-		this.itemRenderTypes = !group.isEmpty() ? List.of(group.entity()) : null;
-		this.fabulousItemRenderTypes = !group.isEmpty() ? List.of(group.entityFabulous()) : null;
+	@SuppressWarnings("deprecation")
+	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType) {
+		this.base = base;
+		
+		//Lets get stupid!
+		List<BakedQuad> q = base.getQuads(null, null, RandomSource.create());
+		
+		for(BakedQuad quad : q)
+		{
+			for(IIndexEntry i : CompendiumIndex.index)
+			{
+				if(i instanceof _MaterialBase mb)
+				{
+					
+				}
+			}
+		}
 	}
 
 	@Override
 	public boolean useAmbientOcclusion() {
-		return true;
+		return base.useAmbientOcclusion();
 	}
 
 	@Override
 	public boolean isGui3d() {
-		return true;
+		return base.isGui3d();
 	}
 
 	@Override
 	public boolean usesBlockLight() {
-		return true;
+		return base.usesBlockLight();
 	}
 
 	@Override
 	public boolean isCustomRenderer() {
-		return false;
+		return base.isCustomRenderer();
 	}
 
 	@Override
 	public TextureAtlasSprite getParticleIcon() {
-		return particle;
+		return base.getParticleIcon();
 	}
 
 	@Override
 	public ItemOverrides getOverrides() {
-		return overrides;
+		return base.getOverrides();
 	}
 
 	@Override
 	public ItemTransforms getTransforms() {
-		return this.transforms;
+		return base.getTransforms();
 	}
 
 	@Override
