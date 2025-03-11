@@ -7,11 +7,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
-import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -26,10 +23,10 @@ import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
-	private final BlockModel baseModel;
+	private final ResourceLocation baseModel;
 	private final MATERIAL_TYPES materialType;
 
-	public MaterialSwapElementsUnbakedModel(BlockModel baseModel, MATERIAL_TYPES type) {
+	public MaterialSwapElementsUnbakedModel(ResourceLocation baseModel, MATERIAL_TYPES type) {
 		this.baseModel = baseModel;
 		this.materialType = type;
 	}
@@ -57,15 +54,16 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 //		}
 //	}
 
-	@Override
-	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
-		this.baseModel.resolveParents(modelGetter);
-	}
+//	@Override
+//	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
+//		this.baseModel.resolveParents(modelGetter);
+//	}
 
 	@Override
 	public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
-		BakedModel baseBakedModel = this.baseModel.bake(baker, this.baseModel, spriteGetter, modelState, true);
+		UnbakedModel unbaked = baker.getModel(baseModel);
+		BakedModel baseBakedModel = unbaked.bake(baker, spriteGetter, modelState);
 
 		return new MaterialSwapElementsBakedModel(baseBakedModel, materialType);
 	}
@@ -86,9 +84,10 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				type = CompendiumIndex.MATERIAL_TYPES.valueOf(jsonObject.get("material_type").getAsString());
 			}
 
-			BlockModel baseModel = deserializationContext.deserialize(jsonObject, BlockModel.class); FIX THIS
+			ResourceLocation parentLocation = ResourceLocation.parse(jsonObject.get("parent").getAsString());
+//			BlockModel baseModel = deserializationContext.deserialize(jsonObject, BlockModel.class); /* FIX THIS */
 
-			return new MaterialSwapElementsUnbakedModel(baseModel, type);
+			return new MaterialSwapElementsUnbakedModel(parentLocation, type);
 		}
 	}
 

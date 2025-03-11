@@ -28,7 +28,11 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 	@Override
 	public JsonObject toJson(JsonObject json) {
-		json = super.toJson(json);
+		
+//		JsonObject j = new JsonObject();
+//		JsonObject base = super.toJson(json);
+		json.addProperty("loader", loaderId.toString());
+//		j.add("base", base);
 
 		json.addProperty("material_type", type.toString());
 

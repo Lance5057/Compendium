@@ -1,8 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "compendium:block/tin_tile_indented_base",
   "loader": "compendium:material_swap",
-  "material_type": "METAL",
-  "textures": {
-    "all": "compendium:block/material/tin/tile/tin_indented_tile_block"
-  }
+  "material_type": "METAL"
 }

@@ -4,6 +4,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.client.models.MaterialSwapElementsUnbakedModel;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
@@ -11,15 +13,22 @@ import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class MetalTileGeometryLoader implements IGeometryLoader<MetalTileUnbakedGeometry> {
-    public static ResourceLocation ID = Compendium.modLoc("metal_tile");
-    @Override
-    public MetalTileUnbakedGeometry read(JsonObject jsonObject, JsonDeserializationContext deserializationContext) throws JsonParseException {
-        return new MetalTileUnbakedGeometry();
-    }
+public class MetalTileGeometryLoader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {
+	public static ResourceLocation ID = Compendium.modLoc("metal_tile");
 
-    public static <T extends ModelBuilder<T>> CustomLoaderBuilder<T> builder(T parent, ExistingFileHelper existingFileHelper) {
-        return new CustomLoaderBuilder<T>(ID, parent, existingFileHelper, true) {
-        };
-    }
-} 
+	@Override
+	public MaterialSwapElementsUnbakedModel read(JsonObject jsonObject,
+			JsonDeserializationContext deserializationContext) throws JsonParseException {
+
+		ResourceLocation parentLocation = ResourceLocation.parse(jsonObject.get("parent").getAsString());
+		MATERIAL_TYPES type = MATERIAL_TYPES.valueOf(jsonObject.get("material_type").getAsString());
+
+		return new MaterialSwapElementsUnbakedModel(parentLocation, type);
+	}
+
+	public static <T extends ModelBuilder<T>> CustomLoaderBuilder<T> builder(T parent,
+			ExistingFileHelper existingFileHelper) {
+		return new CustomLoaderBuilder<T>(ID, parent, existingFileHelper, true) {
+		};
+	}
+}

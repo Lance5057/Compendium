@@ -1,7 +1,9 @@
 package com.lance5057.compendium.client.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -27,31 +29,38 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 
 	private final BakedModel base;
-	@Nullable
-	private List<IIndexQuad> quads;
+	Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
 
 	@SuppressWarnings("deprecation")
 	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType) {
 		this.base = base;
 
 		// Lets get stupid!
-		List<BakedQuad> q = base.getQuads(null, null, RandomSource.create());
 
 		for (IIndexEntry i : CompendiumIndex.index) {
 			if (i instanceof _MaterialBase mb) {
 				if (mb.getType() == materialType) {
-					BasicIndexQuad biq = new BasicIndexQuad();
-					for (BakedQuad quad : q) {
+					BasicIndexQuad biq = new BasicIndexQuad(mb.name);
 
-						// grab the sprite and change it!
-						ResourceLocation atlas = quad.getSprite().atlasLocation();
-						ResourceLocation sprite = quad.getSprite().contents().name();
+					for (Direction d : Direction.values()) {
+						List<BakedQuad> q = base.getQuads(null, d, RandomSource.create());
+						List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
+						for (BakedQuad quad : q) {
 
-						TextureAtlasSprite tas = Minecraft.getInstance().getTextureAtlas(atlas).apply(sprite);
+							// grab the sprite and change it!
+							ResourceLocation atlas = quad.getSprite().atlasLocation();
+							ResourceLocation sprite = quad.getSprite().contents().name();
 
-						BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(), quad.getDirection(), tas,
-								quad.isShade());
+							TextureAtlasSprite tas = Minecraft.getInstance().getTextureAtlas(atlas).apply(sprite);
 
+							BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(), quad.getDirection(),
+									tas, quad.isShade());
+
+							indexQuads.add(bq);
+
+						}
+
+						biq.quads.put(d, indexQuads);
 					}
 				}
 			}
@@ -96,11 +105,9 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
-		List<BakedQuad> q = new ArrayList<BakedQuad>();
-//		for (int i = 0; i < quads.size(); i++)
-//			q.add(quads.get(i).getQuad(null));
+//		List<BakedQuad> q = new ArrayList<BakedQuad>();
 
-		return q;
+		return quads.get("tin").quads.get(side);
 	}
 
 }
