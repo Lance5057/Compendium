@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "loader": "compendium:material_swap",
+  "material_type": "METAL",
   "textures": {
     "all": "compendium:block/material/tin/tile/tin_quarter_tile_block"
   }

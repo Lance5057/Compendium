@@ -10,6 +10,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -17,6 +18,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
@@ -31,17 +33,26 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	@SuppressWarnings("deprecation")
 	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType) {
 		this.base = base;
-		
-		//Lets get stupid!
+
+		// Lets get stupid!
 		List<BakedQuad> q = base.getQuads(null, null, RandomSource.create());
-		
-		for(BakedQuad quad : q)
-		{
-			for(IIndexEntry i : CompendiumIndex.index)
-			{
-				if(i instanceof _MaterialBase mb)
-				{
-					
+
+		for (IIndexEntry i : CompendiumIndex.index) {
+			if (i instanceof _MaterialBase mb) {
+				if (mb.getType() == materialType) {
+					BasicIndexQuad biq = new BasicIndexQuad();
+					for (BakedQuad quad : q) {
+
+						// grab the sprite and change it!
+						ResourceLocation atlas = quad.getSprite().atlasLocation();
+						ResourceLocation sprite = quad.getSprite().contents().name();
+
+						TextureAtlasSprite tas = Minecraft.getInstance().getTextureAtlas(atlas).apply(sprite);
+
+						BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(), quad.getDirection(), tas,
+								quad.isShade());
+
+					}
 				}
 			}
 		}
@@ -86,8 +97,8 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> q = new ArrayList<BakedQuad>();
-		for (int i = 0; i < quads.size(); i++)
-			q.add(quads.get(i).getQuad(null));
+//		for (int i = 0; i < quads.size(); i++)
+//			q.add(quads.get(i).getQuad(null));
 
 		return q;
 	}

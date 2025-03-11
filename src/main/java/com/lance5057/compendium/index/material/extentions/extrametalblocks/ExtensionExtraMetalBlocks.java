@@ -9,6 +9,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
@@ -101,9 +102,12 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 
 				String suffix = (StyleMetalTileBlock.Styles.values()[style] + "").toLowerCase();
 				return ConfiguredModel.builder()
-						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix, bsp.modLoc("block/material/" + base.name
-						+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")).customLoader(MaterialSwapModelBuilder::begin)
-						.end()).build();
+						.modelFile(bsp.models()
+								.cubeAll(base.name + "_tile_" + suffix,
+										bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
+												+ suffix.toLowerCase() + "_tile_block"))
+								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.METAL).end())
+						.build();
 //				return ConfiguredModel.builder()
 //						.modelFile(
 //								bsp.models()

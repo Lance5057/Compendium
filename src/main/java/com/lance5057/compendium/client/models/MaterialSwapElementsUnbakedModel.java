@@ -7,8 +7,11 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -82,7 +85,8 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			if (jsonObject.has("material_type")) {
 				type = CompendiumIndex.MATERIAL_TYPES.valueOf(jsonObject.get("material_type").getAsString());
 			}
-			BlockModel baseModel = deserializationContext.deserialize(jsonObject, BlockModel.class);
+
+			BlockModel baseModel = deserializationContext.deserialize(jsonObject, BlockModel.class); FIX THIS
 
 			return new MaterialSwapElementsUnbakedModel(baseModel, type);
 		}
