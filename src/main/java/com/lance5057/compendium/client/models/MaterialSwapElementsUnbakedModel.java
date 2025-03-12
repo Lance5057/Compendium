@@ -16,6 +16,7 @@ import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -25,6 +26,7 @@ import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
@@ -32,11 +34,11 @@ import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
-	private final ResourceLocation baseModel;
+	private final BlockModel baseModel;
 	private final MATERIAL_TYPES materialType;
 
-	public MaterialSwapElementsUnbakedModel(ResourceLocation baseModel, MATERIAL_TYPES type) {
-		this.baseModel = baseModel;
+	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, MATERIAL_TYPES type) {
+		this.baseModel = baseModel2;
 		this.materialType = type;
 	}
 
@@ -73,7 +75,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 		Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
 
-		UnbakedModel unbaked = baker.getModel(baseModel);
+		UnbakedModel unbaked = baseModel;
 		BakedModel baseBakedModel = unbaked.bake(baker, spriteGetter, modelState);
 
 		for (IIndexEntry i : CompendiumIndex.index) {
@@ -82,7 +84,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 					BasicIndexQuad biq = new BasicIndexQuad(mb.name);
 
 					for (Direction d : Direction.values()) {
-						List<BakedQuad> q = baseBakedModel.getQuads(null, d, RandomSource.create());
+						List<BakedQuad> q = baseBakedModel.getQuads(null, d, RandomSource.create(), null, null);
 						List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
 						for (BakedQuad quad : q) {
 
@@ -128,10 +130,11 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				type = CompendiumIndex.MATERIAL_TYPES.valueOf(jsonObject.get("material_type").getAsString());
 			}
 
-			ResourceLocation parentLocation = ResourceLocation.parse(jsonObject.get("parent").getAsString());
-//			BlockModel baseModel = deserializationContext.deserialize(jsonObject, BlockModel.class); /* FIX THIS */
+			BlockModel baseModel = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
+					BlockModel.class);
+//			ResourceLocation parentLocation = ResourceLocation.parse(jsonObject.get("parent").getAsString());
 
-			return new MaterialSwapElementsUnbakedModel(parentLocation, type);
+			return new MaterialSwapElementsUnbakedModel(baseModel, type);
 		}
 	}
 

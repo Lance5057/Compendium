@@ -1,7 +1,10 @@
 package com.lance5057.compendium;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
+import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.items.Adjustinator;
 import com.lance5057.compendium.items.MegalithStoneItem;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxItem;
@@ -54,5 +57,6 @@ public class CompendiumItems {
 			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
-			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()));
+			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(List.of()))));
 }

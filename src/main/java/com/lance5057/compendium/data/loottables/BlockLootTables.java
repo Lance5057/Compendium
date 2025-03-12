@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.jetbrains.annotations.NotNull;
 
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
@@ -15,6 +16,11 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class BlockLootTables extends BlockLootSubProvider {
@@ -37,6 +43,17 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.CHAIR.get());
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());
 		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
+		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMultiMaterialDrop(p_248609_));
+	}
+
+	protected LootTable.Builder createMultiMaterialDrop(Block block) {
+		return LootTable.lootTable()
+				.withPool(this.applyExplosionCondition(block,
+						LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+								.add(LootItem.lootTableItem(block)
+										.apply(CopyComponentsFunction
+												.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+												.include(CompendiumComponents.MULTI_MATERIAL.get())))));
 	}
 
 	@Override

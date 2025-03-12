@@ -11,7 +11,7 @@ public class CompendiumComponents {
 	public static final DeferredRegister.DataComponents COMPONENTS = DeferredRegister
 			.createDataComponents(Compendium.MOD_ID);
 
-	public static Supplier<DataComponentType<MultiMaterialBlockComponent>> FLUID = COMPONENTS.registerComponentType(
+	public static Supplier<DataComponentType<MultiMaterialBlockComponent>> MULTI_MATERIAL = COMPONENTS.registerComponentType(
 			"multi_material_block", builder -> builder.persistent(MultiMaterialBlockComponent.CODEC)
 					.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC));
 }

@@ -1,5 +1,6 @@
 {
-  "parent": "compendium:block/tin_tile_full_base",
-  "loader": "compendium:material_swap",
-  "material_type": "METAL"
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compendium:block/material/tin/tile/tin_full_tile_block"
+  }
 }

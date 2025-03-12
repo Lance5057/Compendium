@@ -82,7 +82,7 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 			}
 		}
 
-		return List.of();
+		return this.base.getQuads(state, side, rand, extraData, renderType);
 
 	}
 

@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-06T13:09:22.9211607	Loot Tables
+// 1.21.1	2025-03-12T12:16:25.0497262	Loot Tables
 5a1fe7cdef7c596454f96d5dc3aa3b0a928d8965 data/compendium/loot_table/blocks/chair.json
 cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosmetic_toolbox.json
 057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
@@ -8,5 +8,6 @@ cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosme
 36ef1616d8eec7c545728149c74e92cb9c3945e8 data/compendium/loot_table/blocks/tin_block.json
 aa48608f13d8147ed340bb107d0b3c95fbed9d39 data/compendium/loot_table/blocks/tin_tile.json
 b1d088686a40f05454d3e8755453a183a74fae95 data/compendium/loot_table/blocks/toolrack.json
+0365e99c1af5f5999bf9184d0e9615c7846dbeac data/compendium/loot_table/blocks/window.json
 ee69408d19ad17c7c39b2b38e63a53566ac10e2e data/compendium/loot_table/blocks/workbench.json
 e57417d8a1e9516296b470e774b506bace9dedde data/compendium/loot_table/stone_to_cobble.json

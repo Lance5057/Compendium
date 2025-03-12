@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "render_type": "minecraft:cutout",
+    "textures": {
+      "all": "minecraft:block/glass"
+    }
+  },
+  "loader": "compendium:material_swap",
+  "material_type": "METAL",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "minecraft:block/glass"
+  }
+}

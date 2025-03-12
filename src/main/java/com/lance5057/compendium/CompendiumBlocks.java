@@ -1,5 +1,6 @@
 package com.lance5057.compendium;
 
+import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.blocks.ChairBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
@@ -38,5 +39,5 @@ public class CompendiumBlocks {
 			() -> new ChairBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new Block(Properties.of()));
+			() -> new BasicDecorativeBlock(Properties.of()));
 }
