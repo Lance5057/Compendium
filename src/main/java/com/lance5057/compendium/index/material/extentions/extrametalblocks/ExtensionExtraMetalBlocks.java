@@ -13,7 +13,6 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
-import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 import com.lance5057.compendium.styleblock.StyleItem;
 
 import net.minecraft.core.component.DataComponents;
@@ -31,7 +30,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -106,7 +104,8 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 								bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
 										+ suffix.toLowerCase() + "_tile_block")))
 						.modelFile(bsp.models()
-								.withExistingParent(base.name + "_tile_" + suffix, bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
+								.withExistingParent(base.name + "_tile_" + suffix,
+										bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
 								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.METAL).end())
 
 						.build();
@@ -125,8 +124,8 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("item/generated"))
-					.customLoader(MetalTileGeometryLoader::builder);
+//			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("item/generated"))
+//					.customLoader(MaterialSwapElementsUnbakedModel.Loader::builder);
 		}
 	}
 

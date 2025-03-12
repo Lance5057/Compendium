@@ -29,6 +29,8 @@ public class Compendium {
 		IndexInitialResourceLoader.init();
 		CompendiumIndex.setup(bus);
 
+		CompendiumComponents.COMPONENTS.register(bus);
+
 		CompendiumBlocks.BLOCKS.register(bus);
 		CompendiumItems.ITEMS.register(bus);
 		CompendiumBlockEntities.BLOCK_ENTITIES.register(bus);

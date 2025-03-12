@@ -1,5 +1,9 @@
 package com.lance5057.compendium.client.models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import com.google.gson.JsonDeserializationContext;
@@ -8,8 +12,10 @@ import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
-import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -17,7 +23,10 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
@@ -62,10 +71,45 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 	@Override
 	public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
+		Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
+
 		UnbakedModel unbaked = baker.getModel(baseModel);
 		BakedModel baseBakedModel = unbaked.bake(baker, spriteGetter, modelState);
 
-		return new MaterialSwapElementsBakedModel(baseBakedModel, materialType);
+		for (IIndexEntry i : CompendiumIndex.index) {
+			if (i instanceof _MaterialBase mb) {
+				if (mb.getType() == materialType) {
+					BasicIndexQuad biq = new BasicIndexQuad(mb.name);
+
+					for (Direction d : Direction.values()) {
+						List<BakedQuad> q = baseBakedModel.getQuads(null, d, RandomSource.create());
+						List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
+						for (BakedQuad quad : q) {
+
+							// grab the sprite and change it!
+							ResourceLocation atlas = quad.getSprite().atlasLocation();
+							ResourceLocation sprite = quad.getSprite().contents().name();
+
+							TextureAtlasSprite tas = spriteGetter
+									.apply(new Material(InventoryMenu.BLOCK_ATLAS, sprite));
+
+//							TextureAtlasSprite tas = Minecraft.getInstance().getTextureAtlas(atlas).apply(sprite);
+
+							BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(), quad.getDirection(),
+									tas, quad.isShade());
+
+							indexQuads.add(bq);
+
+						}
+
+						biq.quads.put(d, indexQuads);
+					}
+					quads.put(mb.name, biq);
+				}
+			}
+		}
+
+		return new MaterialSwapElementsBakedModel(baseBakedModel, materialType, quads);
 	}
 
 	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {

@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
+import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -43,4 +44,8 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ComponentDrawerBlockEntity>> COMPONENT_DRAWER = BLOCK_ENTITIES
 			.register("component_drawer", () -> BlockEntityType.Builder
 					.of(ComponentDrawerBlockEntity::new, CompendiumBlocks.COMPONENT_DRAWER.get()).build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MultiMaterialBlockEntity>> MULTIMATERIAL = BLOCK_ENTITIES
+			.register("multimaterial", () -> BlockEntityType.Builder
+					.of(MultiMaterialBlockEntity::new, CompendiumBlocks.WINDOW.get()).build(null));
 }

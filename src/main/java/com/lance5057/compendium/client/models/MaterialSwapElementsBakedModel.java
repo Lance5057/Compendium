@@ -1,18 +1,13 @@
 package com.lance5057.compendium.client.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.IIndexEntry;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -20,7 +15,6 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
@@ -32,39 +26,11 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
 
 	@SuppressWarnings("deprecation")
-	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType) {
+	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType,
+			Map<String, BasicIndexQuad> quads) {
 		this.base = base;
+		this.quads = quads;
 
-		// Lets get stupid!
-
-		for (IIndexEntry i : CompendiumIndex.index) {
-			if (i instanceof _MaterialBase mb) {
-				if (mb.getType() == materialType) {
-					BasicIndexQuad biq = new BasicIndexQuad(mb.name);
-
-					for (Direction d : Direction.values()) {
-						List<BakedQuad> q = base.getQuads(null, d, RandomSource.create());
-						List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
-						for (BakedQuad quad : q) {
-
-							// grab the sprite and change it!
-							ResourceLocation atlas = quad.getSprite().atlasLocation();
-							ResourceLocation sprite = quad.getSprite().contents().name();
-
-							TextureAtlasSprite tas = Minecraft.getInstance().getTextureAtlas(atlas).apply(sprite);
-
-							BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(), quad.getDirection(),
-									tas, quad.isShade());
-
-							indexQuads.add(bq);
-
-						}
-
-						biq.quads.put(d, indexQuads);
-					}
-				}
-			}
-		}
 	}
 
 	@Override
@@ -105,9 +71,19 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
-//		List<BakedQuad> q = new ArrayList<BakedQuad>();
+		String[] mats = extraData.get(MultiMaterialModelData.STATE);
 
-		return quads.get("tin").quads.get(side);
+		if (mats != null && mats.length > 0) {
+			BasicIndexQuad q = quads.get(mats[0]);
+			if (q.quads != null) {
+				List<BakedQuad> r = q.quads.get(side);
+				if (r != null)
+					return r;
+			}
+		}
+
+		return List.of();
+
 	}
 
 }

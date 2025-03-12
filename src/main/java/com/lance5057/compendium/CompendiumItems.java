@@ -43,7 +43,7 @@ public class CompendiumItems {
 
 	public static final DeferredItem<BlockItem> TOOLRACK = ITEMS.register("toolrack",
 			() -> new BlockItem(CompendiumBlocks.TOOLRACK.get(), new Item.Properties()));
-	
+
 	public static final DeferredItem<BlockItem> COMPONENT_DRAWER = ITEMS.register("component_drawer",
 			() -> new BlockItem(CompendiumBlocks.COMPONENT_DRAWER.get(), new Item.Properties()));
 
@@ -52,4 +52,7 @@ public class CompendiumItems {
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
 			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()));
+
+	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
+			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()));
 }

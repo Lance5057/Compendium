@@ -30,10 +30,13 @@ public class CompendiumBlocks {
 
 	public static final DeferredBlock<Block> TOOLRACK = BLOCKS.register("toolrack", ToolRackBlock::new);
 	public static final DeferredBlock<Block> COMPONENT_DRAWER = BLOCKS.register("drawer", ComponentDrawerBlock::new);
-	
+
 	public static final DeferredBlock<Block> COSMETIC_TOOLBOX = BLOCKS.register("cosmetic_toolbox",
 			() -> new CosmeticToolboxBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> CHAIR = BLOCKS.register("chair",
 			() -> new ChairBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+
+	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
+			() -> new Block(Properties.of()));
 }

@@ -11,7 +11,6 @@ import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.MaterialSwapElementsUnbakedModel;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
-import com.lance5057.compendium.index.material.extentions.extrametalblocks.client.MetalTileGeometryLoader;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
@@ -91,7 +90,7 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
-		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
+//		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
 		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID, new MaterialSwapElementsUnbakedModel.Loader());
 	}
 }
