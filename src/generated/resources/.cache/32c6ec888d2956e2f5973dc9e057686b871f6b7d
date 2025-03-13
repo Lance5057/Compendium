@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-12T13:55:57.4214039	Block States: compendium
+// 1.21.1	2025-03-13T13:29:27.6262591	Block States: compendium
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
 f58fc8fe05666719489fdf5b061670327ea573ec assets/compendium/blockstates/drawer.json
 06ba1db99efa07423015aeb81ea15a3a35ba475a assets/compendium/blockstates/hammering_station.json
@@ -20,5 +20,6 @@ c460166a8b1b498ff74c27c1c65c81e599c6e939 assets/compendium/models/block/tin_tile
 8f279007e1e2dbdd1ce3919fad729cabfb8db896 assets/compendium/models/block/tin_tile_offset_quarter.json
 d89dea170606bd023820df338c0b3575fcd0cd79 assets/compendium/models/block/tin_tile_quarter.json
 905915073d79eb34b1091b8eeb276169e07f0a7a assets/compendium/models/block/tin_tile_vertical_half.json
-3cc8ae0e5b5745e253e0cd6588c1678e3d4696f5 assets/compendium/models/block/window.json
+cf3d90d43c2c36e85bdce1ede1b5997946829fbe assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json
+b5a22bf3cba3b78f856c462b4204ee2a9343c0ef assets/compendium/models/block/window_trim.json

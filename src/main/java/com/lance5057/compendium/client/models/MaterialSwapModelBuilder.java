@@ -1,5 +1,8 @@
 package com.lance5057.compendium.client.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.base.Preconditions;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.Compendium;
@@ -10,17 +13,24 @@ import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomLoaderBuilder<T> {
-	T base;
+	T baseModel;
+	List<IndexModelBuilder<T>> models;
 	MATERIAL_TYPES type;
 
 	protected MaterialSwapModelBuilder(T parent, ExistingFileHelper existingFileHelper) {
 		super(Compendium.modLoc("material_swap"), parent, existingFileHelper, false);
-//		this.type = t;
+		models = new ArrayList<IndexModelBuilder<T>>();
 	}
 
-	public MaterialSwapModelBuilder<T> base(T modelBuilder) {
-		Preconditions.checkNotNull(modelBuilder, "modelBuilder must not be null");
-		base = modelBuilder;
+	public MaterialSwapModelBuilder<T> base(T model) {
+		Preconditions.checkNotNull(model, "model must not be null");
+		baseModel = model;
+		return this;
+	}
+
+	public MaterialSwapModelBuilder<T> add(IndexModelBuilder<T> model) {
+		Preconditions.checkNotNull(model, "model must not be null");
+		models.add(model);
 		return this;
 	}
 
@@ -28,24 +38,23 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 		return new MaterialSwapModelBuilder<>(parent, helper);
 	}
 
-	public MaterialSwapModelBuilder<T> setType(MATERIAL_TYPES t) {
-		type = t;
-		return this;
-	}
+//	public MaterialSwapModelBuilder<T> setType(MATERIAL_TYPES t) {
+//		type = t;
+//		return this;
+//	}
 
 	@Override
 	public JsonObject toJson(JsonObject json) {
 
-		if (base != null) {
-			json.add("base", base.toJson());
+		json.add("base", baseModel.toJson());
+
+		if (models != null) {
+			for (int i = 0; i < models.size(); i++)
+				models.get(i).toJson(json, i);
 		}
 
-//		JsonObject j = new JsonObject();
-//		JsonObject base = super.toJson(json);
+		json.addProperty("count", models.size());
 		json.addProperty("loader", loaderId.toString());
-//		j.add("base", base);
-
-		json.addProperty("material_type", type.toString());
 
 		return json;
 	}

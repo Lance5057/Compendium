@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -17,6 +18,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
@@ -26,8 +28,7 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
 
 	@SuppressWarnings("deprecation")
-	public MaterialSwapElementsBakedModel(BakedModel base, MATERIAL_TYPES materialType,
-			Map<String, BasicIndexQuad> quads) {
+	public MaterialSwapElementsBakedModel(BakedModel base, Map<String, BasicIndexQuad> quads) {
 		this.base = base;
 		this.quads = quads;
 
@@ -68,6 +69,14 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 		return base.getTransforms();
 	}
 
+	@Override // FORGE: Get render types based on the selectors matched by the given block
+				// state
+	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
+			@NotNull ModelData data) {
+
+		return this.base.getRenderTypes(state, rand, data);
+	}
+
 	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
@@ -78,11 +87,15 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 			if (q.quads != null) {
 				List<BakedQuad> r = q.quads.get(side);
 				if (r != null)
-					return r;
+					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+						return r;
 			}
 		}
 
-		return this.base.getQuads(state, side, rand, extraData, renderType);
+		if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+			return this.base.getQuads(state, side, rand, extraData, renderType);
+
+		return List.of();
 
 	}
 

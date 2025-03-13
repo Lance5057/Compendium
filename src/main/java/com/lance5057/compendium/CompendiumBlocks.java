@@ -39,5 +39,5 @@ public class CompendiumBlocks {
 			() -> new ChairBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new BasicDecorativeBlock(Properties.of()));
+			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.GLASS)));
 }

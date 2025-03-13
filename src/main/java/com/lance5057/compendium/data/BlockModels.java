@@ -2,6 +2,7 @@ package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.client.models.IndexModelBuilder;
 import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -10,6 +11,7 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -67,10 +69,13 @@ public class BlockModels extends BlockStateProvider {
 
 		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 			return ConfiguredModel.builder()
-					.modelFile(models().cubeAll("window", mcLoc("block/glass")).renderType("cutout")
+					.modelFile(models().withExistingParent("window", mcLoc("block/block"))
 							.customLoader(MaterialSwapModelBuilder::begin)
 							.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"))
-							.setType(MATERIAL_TYPES.METAL).end())
+							.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.METAL,
+									models().cubeAll("window_trim", modLoc("block/material/invalid/window_trim"))
+											.renderType("cutout")))
+							.end())
 
 					.build();
 

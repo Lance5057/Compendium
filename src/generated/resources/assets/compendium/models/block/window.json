@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/block",
   "base": {
     "parent": "minecraft:block/cube_all",
     "render_type": "minecraft:cutout",
@@ -7,10 +7,16 @@
       "all": "minecraft:block/glass"
     }
   },
+  "count": 1,
   "loader": "compendium:material_swap",
-  "material_type": "METAL",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "all": "minecraft:block/glass"
+  "model_0": {
+    "type": "METAL",
+    "model": {
+      "parent": "minecraft:block/cube_all",
+      "render_type": "minecraft:cutout",
+      "textures": {
+        "all": "compendium:block/material/invalid/window_trim"
+      }
+    }
   }
 }
