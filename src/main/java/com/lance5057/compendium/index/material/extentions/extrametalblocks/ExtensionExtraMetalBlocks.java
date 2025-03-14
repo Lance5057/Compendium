@@ -182,6 +182,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
+			j.addProperty("loadTile", src.loadTile);
 
 			return j;
 		}

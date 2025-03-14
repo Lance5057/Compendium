@@ -1,13 +1,12 @@
 package com.lance5057.compendium.client.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -80,7 +79,11 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
+		List<BakedQuad> l = new ArrayList<BakedQuad>();
 		String[] mats = extraData.get(MultiMaterialModelData.STATE);
+
+//		if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
 		if (mats != null && mats.length > 0) {
 			BasicIndexQuad q = quads.get(mats[0]);
@@ -88,14 +91,19 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 				List<BakedQuad> r = q.quads.get(side);
 				if (r != null)
 					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-						return r;
+						l.addAll(r);
+			}
+		} else {
+			BasicIndexQuad q = quads.get("tin");
+			if (q.quads != null) {
+				List<BakedQuad> r = q.quads.get(side);
+				if (r != null)
+					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+						l.addAll(r);
 			}
 		}
 
-		if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-			return this.base.getQuads(state, side, rand, extraData, renderType);
-
-		return List.of();
+		return l;
 
 	}
 

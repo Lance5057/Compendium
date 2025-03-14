@@ -9,6 +9,7 @@ import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.client.models.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -28,9 +29,9 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 		this(pos, blockState, List.of());
 	}
 
-	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState, List<String> materials) {
+	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState, List<String> list) {
 		super(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState);
-		this.materials = materials;
+		this.materials = list;
 	}
 
 	@Override
@@ -81,7 +82,7 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 		CompoundTag mats = new CompoundTag();
 		mats.putInt("count", materials.size());
 		for (int i = 0; i < materials.size(); i++)
-			mats.putString("material_" + i, materials.get(i));
+			mats.putString("material_" + i, materials.get(i).toString());
 		tag.put("materials", mats);
 
 		return tag;
@@ -102,7 +103,7 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 	@Override
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
-		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(materials));
+		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(this.materials));
 	}
 
 	@Override
@@ -113,4 +114,5 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 			this.materials = m.types();
 		}
 	}
+
 }

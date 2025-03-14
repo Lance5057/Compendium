@@ -8,14 +8,15 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class BasicDecorativeBlock extends Block implements EntityBlock  {
+public class BasicDecorativeBlock extends Block implements EntityBlock {
 
 	public BasicDecorativeBlock(Properties properties) {
 		super(properties);
 	}
 
 	@Override
-	  public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new MultiMaterialBlockEntity(pos, state);
 	}
+
 }

@@ -69,8 +69,7 @@ public class BlockModels extends BlockStateProvider {
 
 		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 			return ConfiguredModel.builder()
-					.modelFile(models().withExistingParent("window", mcLoc("block/block"))
-							.customLoader(MaterialSwapModelBuilder::begin)
+					.modelFile(models().getBuilder("window").customLoader(MaterialSwapModelBuilder::begin)
 							.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"))
 							.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.METAL,
 									models().cubeAll("window_trim", modLoc("block/material/invalid/window_trim"))

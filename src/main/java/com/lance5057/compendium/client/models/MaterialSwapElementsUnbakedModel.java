@@ -16,6 +16,8 @@ import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.BlockElement;
+import net.minecraft.client.renderer.block.model.BlockElementFace;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -27,8 +29,6 @@ import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
@@ -39,7 +39,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 
 	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2) {
 		this.baseModel = baseModel2;
-		this.models = null;
+		this.models = List.of();
 	}
 
 	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<IndexModel> models) {
@@ -50,6 +50,9 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
 		this.baseModel.resolveParents(modelGetter);
+		for (IndexModel im : models) {
+			im.model.resolveParents(modelGetter);
+		}
 	}
 
 	@Override
@@ -57,38 +60,48 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 		Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
 
-//		UnbakedModel unbaked = baseModel;
-
 		for (IndexModel im : models) {
-			BakedModel bm = im.getModel().bake(baker, spriteGetter, modelState);
 
 			for (IIndexEntry i : CompendiumIndex.index) {
 				if (i instanceof _MaterialBase mb) {
 					if (mb.getType() == im.type) {
-						BasicIndexQuad biq = new BasicIndexQuad(mb.name);
+						BlockModel bm = im.getModel();
+						List<BlockElement> e = bm.getElements();
+						for (BlockElement element : e) {
 
-						for (Direction d : Direction.values()) {
-							List<BakedQuad> q = bm.getQuads(null, d, RandomSource.create(), null, null);
-							List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
-							for (BakedQuad quad : q) {
+//						BakedModel bm = im.getModel().bake(baker, spriteGetter, modelState);
+							BasicIndexQuad biq = new BasicIndexQuad(mb.name);
 
-								// grab the sprite and change it!
-								ResourceLocation atlas = quad.getSprite().atlasLocation();
-								ResourceLocation sprite = quad.getSprite().contents().name();
+							for (Direction d : Direction.values()) {
+								List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
+								BlockElementFace face = element.faces.get(d);
+//							List<BakedQuad> q = new ArrayList<BakedQuad>();
+//							ResourceLocation atlas = quad.getSprite().atlasLocation();
+								Material mat = bm.getMaterial(face.texture());
+								String s = mat.texture().toString().replace("invalid", mb.name);
+								ResourceLocation r = ResourceLocation.parse(s);
+								Material newMat = new Material(mat.atlasLocation(), r);
+								TextureAtlasSprite sprite = spriteGetter.apply(newMat);
 
-								TextureAtlasSprite tas = spriteGetter
-										.apply(new Material(InventoryMenu.BLOCK_ATLAS, sprite));
+								BakedQuad quad = BlockModel.bakeFace(element, face, sprite, d, modelState);
 
-								BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(),
-										quad.getDirection(), tas, quad.isShade());
-
-								indexQuads.add(bq);
+//							for (BakedQuad quad : q) {
+//
+//								// grab the sprite and change it!
+//								
+//
+//								BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(),
+//										quad.getDirection(), tas, quad.isShade());
+//
+								indexQuads.add(quad);
+								biq.quads.put(d, indexQuads);
+//							}
 
 							}
-
-							biq.quads.put(d, indexQuads);
+							
+							quads.put(mb.name, biq);
 						}
-						quads.put(mb.name, biq);
+						
 					}
 				}
 			}
@@ -120,10 +133,10 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				for (int i = 0; i < count; i++) {
 					if (jsonObject.has("model_" + i)) {
 						JsonObject m = jsonObject.getAsJsonObject("model_" + i);
-						
+
 						String s = m.get("type").getAsString();
 						MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-						
+
 						BlockModel b = deserializationContext.deserialize(GsonHelper.getAsJsonObject(m, "model"),
 								BlockModel.class);
 
