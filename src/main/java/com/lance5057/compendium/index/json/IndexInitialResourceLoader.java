@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
+import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
@@ -43,6 +44,8 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialMetal("iron", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraMetalBlocks(true)));
+		
+		buildDefault(new MaterialGlass("glass", true, true));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

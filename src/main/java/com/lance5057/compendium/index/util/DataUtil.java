@@ -16,6 +16,11 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class DataUtil {
+	public static ResourceLocation standardResource(String name, String path)
+	{
+		return Compendium.modLoc("item/material/" + name + "/" + path);
+	}
+	
 	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, String name) {
 		return basicMaterialItem(tmp, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)), name);
 	}
@@ -43,7 +48,7 @@ public class DataUtil {
 				bsp.modLoc("block/material/" + name + "/" + name + "_block")));
 	}
 
-	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, String extra) {
+	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, String extra, String rendertype) {
 		bsp.simpleBlock(block, bsp.models().cubeAll("block/material/" + name + "/" + name + extra + "_block",
 				bsp.modLoc("block/material/" + name + "/" + name + extra + "_block")));
 	}
