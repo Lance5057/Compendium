@@ -208,4 +208,9 @@ public class MaterialGlass extends _MaterialBase {
 
 	}
 
+	@Override
+	public String getName() {
+		return name;
+	}
+
 }

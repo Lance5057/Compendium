@@ -1,0 +1,7 @@
+{
+  "name": "glass",
+  "type": "GLASS",
+  "loadPane": true,
+  "loadBlock": true,
+  "extensions": []
+}

@@ -43,6 +43,11 @@ public class MaterialWood extends _MaterialBase {
 
 		this.loadPlanks = planks;
 	}
+	
+	@Override
+	public String getName() {
+		return this.name;
+	}
 
 	@Override
 	public void setup() {

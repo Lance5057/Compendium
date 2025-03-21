@@ -15,7 +15,7 @@ import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
 import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
-import com.lance5057.compendium.index.material.extentions.extrametalblocks.ExtensionExtraMetalBlocks;
+import com.lance5057.compendium.index.material.extentions.metal.ExtensionExtraMetalBlocks;
 
 public class MaterialTypeRegistry {
 	private static Map<Class<?>, MaterialTypeSerializer<?>> serializers = new HashMap<>();

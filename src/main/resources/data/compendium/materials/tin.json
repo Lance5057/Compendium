@@ -1,0 +1,55 @@
+{
+  "name": "tin",
+  "type": "METAL",
+  "loadIngot": true,
+  "loadStorageBlock": true,
+  "loadNugget": true,
+  "tier": "DIAMOND",
+  "level": 0,
+  "uses": 0,
+  "speed": 0,
+  "damage": 0,
+  "enchantmentValue": 0,
+  "useTag": "",
+  "repairTag": "",
+  "extensions": [
+    {
+      "type": "VANILLATOOLS",
+      "loadSword": true,
+      "loadAxe": true,
+      "loadShovel": true,
+      "loadHoe": true,
+      "loadPickaxe": true
+    },
+    {
+      "type": "ADVANCEDTOOLS",
+      "loadPrybar": true,
+      "loadHammer": true,
+      "loadSaw": true,
+      "loadShears": true,
+      "loadZweihander": true,
+      "loadBow": true
+    },
+    {
+      "type": "ARMOR",
+      "loadArmor": true,
+      "loadShield": true,
+      "helmDefense": 1,
+      "chestDefense": 1,
+      "legDefense": 1,
+      "bootDefense": 1,
+      "toughness": 1,
+      "enchantability": 1,
+      "knockbackResistance": 1.0
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "loadTile": true,
+      "loadHalfTile": true,
+      "loadVerticalHalfTile": true,
+      "loadQuarterTile": true,
+      "loadOffsetHalfTile": true,
+      "loadOffsetQuarterTile": true
+    }
+  ]
+}

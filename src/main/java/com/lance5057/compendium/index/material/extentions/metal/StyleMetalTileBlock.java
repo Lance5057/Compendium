@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.extentions.extrametalblocks;
+package com.lance5057.compendium.index.material.extentions.metal;
 
 import com.lance5057.compendium.styleblock.StyleBlock;
 

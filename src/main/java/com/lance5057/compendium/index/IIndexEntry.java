@@ -11,6 +11,8 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public interface IIndexEntry {
+	public String getName();
+	
 	public void setup();
 
 	public void tab(Output output);

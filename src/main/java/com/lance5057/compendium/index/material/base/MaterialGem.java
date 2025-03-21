@@ -173,4 +173,9 @@ public class MaterialGem extends _MaterialBase {
 		return MATERIAL_TYPES.GEM;
 	}
 
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
 }

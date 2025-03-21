@@ -18,7 +18,7 @@ public class CompendiumIndex {
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
 	
 	public static enum MATERIAL_TYPES {
-		INVALID, METAL, WOOD, GEM, GLASS, TEXTILE
+		INVALID, METAL, WOOD, GEM, GLASS, TEXTILE, CERAMIC, STONE
 	}
 
 	public static void setup(IEventBus bus) {

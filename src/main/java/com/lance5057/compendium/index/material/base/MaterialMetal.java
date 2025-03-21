@@ -69,6 +69,11 @@ public class MaterialMetal extends _MaterialBase {
 	}
 
 	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
 	public void setup() {
 
 		if (premadeTier != null && !premadeTier.isEmpty())
