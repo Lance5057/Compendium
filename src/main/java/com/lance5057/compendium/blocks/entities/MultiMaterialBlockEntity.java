@@ -9,7 +9,6 @@ import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.client.models.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;

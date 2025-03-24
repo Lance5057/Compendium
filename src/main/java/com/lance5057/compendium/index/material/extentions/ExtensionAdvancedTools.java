@@ -101,17 +101,17 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadPrybar)
-			DataUtil.basicMaterialItem(tmp, this.PRYBAR.get(), base.name);
+			DataUtil.basicMaterialItem(tmp, this.PRYBAR.get(), base.name, base.getType());
 		if (this.loadHammer)
-			DataUtil.basicMaterialItem(tmp, this.HAMMER.get(), base.name);
+			DataUtil.basicMaterialItem(tmp, this.HAMMER.get(), base.name, base.getType());
 		if (this.loadSaw)
-			DataUtil.basicMaterialItem(tmp, this.SAW.get(), base.name);
+			DataUtil.basicMaterialItem(tmp, this.SAW.get(), base.name, base.getType());
 		if (this.loadShears)
-			DataUtil.basicMaterialItem(tmp, this.SHEARS.get(), base.name);
+			DataUtil.basicMaterialItem(tmp, this.SHEARS.get(), base.name, base.getType());
 		if (this.loadZweihander)
-			DataUtil.basicMaterialItem(tmp, this.ZWEIHANDER.get(), base.name);
+			DataUtil.basicMaterialItem(tmp, this.ZWEIHANDER.get(), base.name, base.getType());
 		if (this.loadBow) {
-			DataUtil.basicMaterialBow(tmp, this.BOW.get(), base.name);
+			DataUtil.basicMaterialBow(tmp, this.BOW.get(), base.name, base.getType());
 
 		}
 	}

@@ -3,69 +3,157 @@ package com.lance5057.compendium.index.util;
 import java.util.Objects;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class DataUtil {
-	public static ResourceLocation standardResource(String name, String path)
-	{
+	public static ResourceLocation standardResource(String name, String path) {
 		return Compendium.modLoc("item/material/" + name + "/" + path);
 	}
-	
-	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, String name) {
-		return basicMaterialItem(tmp, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)), name);
+
+	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, String name,
+			MATERIAL_TYPES type) {
+		return basicMaterialItem(tmp, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)), name, type);
 	}
 
-	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, ResourceLocation item, String name) {
+	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, ResourceLocation item, String name,
+			MATERIAL_TYPES type) {
 		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
 				.texture("layer0", ResourceLocation.fromNamespaceAndPath(item.getNamespace(),
-						"item/material/" + name + "/" + item.getPath()));
-	}
-
-	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
-			String name) {
-		p.getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation
-				.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/" + name + "/" + name + "_block")));
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + item.getPath()));
 	}
 
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
-			String extra) {
-		p.getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation
-				.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/" + name + "/" + name + extra + "_block")));
+			MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_block")));
 	}
 
-	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name) {
-		bsp.simpleBlock(block, bsp.models().cubeAll("block/material/" + name + "/" + name + "_block",
-				bsp.modLoc("block/material/" + name + "/" + name + "_block")));
+	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
+			String extra, MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(
+						ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/"
+								+ type.toString().toLowerCase() + "/" + name + "/" + name + "_" + extra + "_block")));
 	}
 
-	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, String extra, String rendertype) {
-		bsp.simpleBlock(block, bsp.models().cubeAll("block/material/" + name + "/" + name + extra + "_block",
-				bsp.modLoc("block/material/" + name + "/" + name + extra + "_block")));
+	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, MATERIAL_TYPES type) {
+		bsp.simpleBlock(block, bsp.models().cubeAll(
+				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_block",
+				bsp.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_block")));
 	}
 
-	public static void basicMaterialBow(ItemModelProvider tmp, Item item, String name) {
+	public static void basicMaterialBlock(BlockStateProvider bsp, Block block, String name, String extra,
+			String rendertype, MATERIAL_TYPES type) {
+		bsp.simpleBlock(block,
+				bsp.models().cubeAll(
+						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_block",
+						bsp.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra
+								+ "_block")));
+	}
+
+	public static void axisMaterialBlock(BlockStateProvider bsp, RotatedPillarBlock block, String name, String extra,
+			String rendertype, MATERIAL_TYPES type) {
+		bsp.axisBlock(block, bsp.models().cubeColumn(
+				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_block",
+				Compendium.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra),
+				Compendium.modLoc(
+						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_top"))
+				.renderType(rendertype),
+				bsp.models().cubeColumnHorizontal(
+						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_block",
+						Compendium.modLoc(
+								"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra),
+						Compendium.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name
+								+ extra + "_top"))
+						.renderType(rendertype));
+	}
+
+	public static void slabMaterialBlock(BlockStateProvider bsp, SlabBlock block, String name, String extra,
+			String rendertype, MATERIAL_TYPES type) {
+
+		bsp.getVariantBuilder(block).partialState().with(SlabBlock.TYPE, SlabType.BOTTOM)
+				.addModels(new ConfiguredModel(bsp.models()
+						.withExistingParent("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name
+								+ extra + "_slab_bottom", Compendium.modLoc("small_logs_slab_bottom"))))
+				.partialState().with(SlabBlock.TYPE, SlabType.TOP)
+				.addModels(new ConfiguredModel(bsp.models()
+						.withExistingParent("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name
+								+ extra + "_slab_top", Compendium.modLoc("small_logs_slab_top"))))
+				.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE)
+				.addModels(new ConfiguredModel(
+						bsp.models().withExistingParent("block/material/" + type.toString().toLowerCase() + "/" + name
+								+ "/" + name + extra + "_slab_full", Compendium.modLoc("small_logs_slab_full"))));
+	}
+
+	public static void stairsMaterialBlock(BlockStateProvider bsp, StairBlock block, String name, String extra,
+			String rendertype, MATERIAL_TYPES type) {
+
+		ModelFile stairs = bsp.models().withExistingParent(
+				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_stairs",
+				Compendium.modLoc("small_logs_stairs"));
+		ModelFile stairsOuter = bsp.models().withExistingParent(
+				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_outer_stairs",
+				Compendium.modLoc("small_logs_outer_stairs"));
+		ModelFile stairsInner = bsp.models().withExistingParent(
+				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_inner_stairs",
+				Compendium.modLoc("small_logs_inner_stairs"));
+
+		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
+			Direction facing = state.getValue(StairBlock.FACING);
+			Half half = state.getValue(StairBlock.HALF);
+			StairsShape shape = state.getValue(StairBlock.SHAPE);
+			int yRot = (int) facing.getClockWise().toYRot(); // Stairs model is rotated 90 degrees clockwise for some
+																// reason
+			if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
+				yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
+			}
+			if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
+				yRot += 90; // Top stairs are rotated 90 degrees clockwise
+			}
+			yRot %= 360;
+			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+			return ConfiguredModel.builder()
+					.modelFile(shape == StairsShape.STRAIGHT ? stairs
+							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
+									: stairsOuter)
+					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).build();
+		}, StairBlock.WATERLOGGED);
+	}
+
+	public static void basicMaterialBow(ItemModelProvider tmp, Item item, String name, MATERIAL_TYPES type) {
 		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
 
 		tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld")).texture("layer0",
-				ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/" + name + "/" + rc.getPath()));
+				ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + rc.getPath()));
 		tmp.getBuilder(item.toString() + "_pulling_0").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
-						"item/material/" + name + "/" + rc.getPath() + "_pulling_0"));
+				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
+						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_0"));
 		tmp.getBuilder(item.toString() + "_pulling_1").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
-						"item/material/" + name + "/" + rc.getPath() + "_pulling_1"));
+				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
+						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_1"));
 		tmp.getBuilder(item.toString() + "_pulling_2").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
-						"item/material/" + name + "/" + rc.getPath() + "_pulling_2"));
+				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
+						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_2"));
 	}
 }

@@ -7,12 +7,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
+import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.styleblock.StyleItem;
 
 import net.minecraft.core.component.DataComponents;
@@ -110,10 +109,11 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 //
 //						.build();
 				return ConfiguredModel.builder()
-						.modelFile(
-								bsp.models()
-										.cubeAll(base.name + "_tile_" + suffix, bsp.modLoc("block/material/" + base.name
-												+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")))
+						.modelFile(bsp.models().cubeAll(
+								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
+										+ base.name + "_tile_" + suffix + "_block",
+								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+										+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")))
 						.build();
 
 			});
@@ -124,8 +124,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-//			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("item/generated"))
-//					.customLoader(MaterialSwapElementsUnbakedModel.Loader::builder);
+			DataUtil.basicMaterialBlockItem(tmp, TILE_ITEM, base.name, "tile_full", base.getType());
 		}
 	}
 

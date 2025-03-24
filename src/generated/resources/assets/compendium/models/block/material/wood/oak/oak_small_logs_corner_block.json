@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/small_logs_corner",
+  "textures": {
+    "1": "compendium:block/material/wood/oak/oak_small_logs_corner"
+  }
+}

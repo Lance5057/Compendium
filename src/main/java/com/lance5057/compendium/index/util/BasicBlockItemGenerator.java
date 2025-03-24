@@ -52,13 +52,13 @@ public class BasicBlockItemGenerator implements IQuickBuildItem {
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.enabled())
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), base.name, "_" + name, "");
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), base.name, "_" + name, "", base.getType());
 	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.enabled())
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, base.name, "_" + name);
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, base.name, "_" + name, base.getType());
 	}
 
 	@Override

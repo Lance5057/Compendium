@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compendium:block/material/metal/iron/tile/iron_dented_segment_tile_block"
+  }
+}

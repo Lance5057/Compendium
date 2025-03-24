@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "compendium:block/furniture/chair/basic_chair_legs",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "compendium:block/furniture/chair/basic_chair_legs"
+    },
+    "facing=south": {
+      "model": "compendium:block/furniture/chair/basic_chair_legs",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "compendium:block/furniture/chair/basic_chair_legs",
+      "y": 270
+    }
+  }
+}

@@ -14,7 +14,7 @@
       "parent": "minecraft:block/cube_all",
       "render_type": "minecraft:cutout",
       "textures": {
-        "all": "compendium:block/material/invalid/window_trim"
+        "all": "compendium:block/material/metal/invalid/window_trim"
       }
     }
   }

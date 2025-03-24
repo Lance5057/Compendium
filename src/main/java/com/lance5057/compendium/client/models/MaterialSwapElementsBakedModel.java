@@ -95,7 +95,8 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 			}
 		} else {
 			BasicIndexQuad q = quads.get("tin");
-			if (q.quads != null) {
+
+			if (q != null && q.quads != null) {
 				List<BakedQuad> r = q.quads.get(side);
 				if (r != null)
 					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))

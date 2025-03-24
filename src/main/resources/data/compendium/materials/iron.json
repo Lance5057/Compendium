@@ -18,7 +18,7 @@
       "loadPrybar": true,
       "loadHammer": true,
       "loadSaw": true,
-      "loadShears": true,
+      "loadShears": false,
       "loadZweihander": true,
       "loadBow": true
     },

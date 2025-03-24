@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/material/tin/tin_zweihander"
+    "layer0": "compendium:item/material/metal/tin/tin_zweihander"
   }
 }

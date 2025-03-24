@@ -100,7 +100,7 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void blockModel(BlockStateProvider bsp) {
 		if (this.loadStorageBlock)
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name);
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, this.getType());
 
 		this.extensions.forEach(i -> i.blockModel(this, bsp));
 	}
@@ -108,11 +108,11 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadNugget)
-			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), name);
+			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), name, this.getType());
 		if (this.loadIngot)
-			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), name);
+			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), name, this.getType());
 		if (this.loadStorageBlock)
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name);
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
@@ -139,7 +139,9 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		blp.dropSelf(this.BLOCK.get());
+		if (this.loadStorageBlock)
+			blp.dropSelf(this.BLOCK.get());
+
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 

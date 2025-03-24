@@ -1,34 +1,34 @@
 {
   "variants": {
     "style=0": {
-      "model": "compendium:block/tin_tile_full"
+      "model": "compendium:block/material/metal/tin/tin_tile_full_block"
     },
     "style=1": {
-      "model": "compendium:block/tin_tile_half"
+      "model": "compendium:block/material/metal/tin/tin_tile_half_block"
     },
     "style=2": {
-      "model": "compendium:block/tin_tile_vertical_half"
+      "model": "compendium:block/material/metal/tin/tin_tile_vertical_half_block"
     },
     "style=3": {
-      "model": "compendium:block/tin_tile_quarter"
+      "model": "compendium:block/material/metal/tin/tin_tile_quarter_block"
     },
     "style=4": {
-      "model": "compendium:block/tin_tile_offset_half"
+      "model": "compendium:block/material/metal/tin/tin_tile_offset_half_block"
     },
     "style=5": {
-      "model": "compendium:block/tin_tile_offset_quarter"
+      "model": "compendium:block/material/metal/tin/tin_tile_offset_quarter_block"
     },
     "style=6": {
-      "model": "compendium:block/tin_tile_indented"
+      "model": "compendium:block/material/metal/tin/tin_tile_indented_block"
     },
     "style=7": {
-      "model": "compendium:block/tin_tile_indented_segment"
+      "model": "compendium:block/material/metal/tin/tin_tile_indented_segment_block"
     },
     "style=8": {
-      "model": "compendium:block/tin_tile_dented"
+      "model": "compendium:block/material/metal/tin/tin_tile_dented_block"
     },
     "style=9": {
-      "model": "compendium:block/tin_tile_dented_segment"
+      "model": "compendium:block/material/metal/tin/tin_tile_dented_segment_block"
     }
   }
 }

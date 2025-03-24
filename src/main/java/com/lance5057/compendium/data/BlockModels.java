@@ -72,13 +72,16 @@ public class BlockModels extends BlockStateProvider {
 					.modelFile(models().getBuilder("window").customLoader(MaterialSwapModelBuilder::begin)
 							.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"))
 							.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.METAL,
-									models().cubeAll("window_trim", modLoc("block/material/invalid/window_trim"))
+									models().cubeAll("window_trim", modLoc("block/material/metal/invalid/window_trim"))
 											.renderType("cutout")))
 							.end())
 
 					.build();
 
 		});
+
+		this.horizontalBlock(CompendiumBlocks.CHAIR.get(),
+				models().getExistingFile(modLoc("block/furniture/chair/basic_chair_legs")));
 	}
 
 }

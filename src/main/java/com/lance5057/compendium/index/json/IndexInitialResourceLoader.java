@@ -30,11 +30,13 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
 import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extentions.metal.ExtensionExtraMetalBlocks;
+import com.lance5057.compendium.index.material.extentions.wood.ExtensionExtraLogs;
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.fml.ModList;
@@ -46,11 +48,10 @@ public class IndexInitialResourceLoader {
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 	private static final Gson GSON = MaterialTypeRegistry.setupGson().create();
-	private static Path resourcePackPath = Path
-			.of(".\\resourcepacks\\Compendium\\src\\main\\resources\\data\\materials");
+	private static Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
 
 	public static void init() {
-//		buildDefaults();
+		buildDefaults();
 		readOtherMods();
 		readResourcePacks();
 	}
@@ -102,10 +103,12 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
 		buildDefault(new MaterialMetal("iron", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
+				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true))
 				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
-		buildDefault(new MaterialGlass("glass", true, true));
+		buildDefault(new MaterialGlass("glass", false, false));
+
+		buildDefault(new MaterialWood("oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {
@@ -114,13 +117,13 @@ public class IndexInitialResourceLoader {
 			Files.createDirectories(resourcePackPath);
 			Path p = resourcePackPath.resolve(mat.name + ".json");
 			if (Files.exists(p))
-				return;
-			else {
-				Writer w = Files.newBufferedWriter(p);
-				String g = GSON.toJson(mat);
-				w.write(g);
-				w.close();
-			}
+				Files.delete(p);
+//			else {
+			Writer w = Files.newBufferedWriter(p);
+			String g = GSON.toJson(mat);
+			w.write(g);
+			w.close();
+//			}
 
 		} catch (JsonIOException e) {
 			LOGGER.error(e.getLocalizedMessage());

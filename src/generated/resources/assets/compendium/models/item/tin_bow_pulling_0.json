@@ -1,6 +1,6 @@
 {
   "parent": "compendium:tin_bow",
   "textures": {
-    "layer0": "compendium:item/material/tin/tin_bow_pulling_0"
+    "layer0": "compendium:item/material/metal/tin/tin_bow_pulling_0"
   }
 }

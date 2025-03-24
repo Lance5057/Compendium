@@ -93,7 +93,7 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public void blockModel(BlockStateProvider bsp) {
 		if (this.loadBlock)
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, "", "transparent");
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, "", "transparent", this.getType());
 		if (this.loadPane)
 			bsp.paneBlock(this.PANE.get(), DataUtil.standardResource(name, "block"),
 					DataUtil.standardResource(name, "pane_top"));
@@ -104,7 +104,7 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadBlock)
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name);
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
 	}
 
 	@Override
@@ -127,8 +127,10 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		blp.dropSelf(this.BLOCK.get());
-		blp.dropSelf(this.PANE.get());
+		if (this.loadBlock)
+			blp.dropSelf(this.BLOCK.get());
+		if (this.loadPane)
+			blp.dropSelf(this.PANE.get());
 
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}

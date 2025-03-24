@@ -2,6 +2,7 @@ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,6 +11,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -43,7 +45,7 @@ public class MaterialWood extends _MaterialBase {
 
 		this.loadPlanks = planks;
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.name;
@@ -57,24 +59,32 @@ public class MaterialWood extends _MaterialBase {
 			PLANKS_ITEM = CompendiumIndex.ITEMS.register(this.name + "_planks_item",
 					() -> new BlockItem(PLANKS.get(), new Item.Properties()));
 		}
+
+		this.extensions.forEach(i -> i.setup(this));
 	}
 
 	@Override
 	public void tab(Output output) {
 		if (this.loadPlanks)
 			output.accept(PLANKS_ITEM);
+
+		this.extensions.forEach(i -> i.tab(this, output));
 	}
 
 	@Override
 	public void blockModel(BlockStateProvider bsp) {
 		if (this.loadPlanks)
 			bsp.simpleBlock(PLANKS.get());
+
+		this.extensions.forEach(i -> i.blockModel(this, bsp));
 	}
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadPlanks)
 			ItemModels.forBlockItem(tmp, PLANKS_ITEM, name);
+
+		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
 
 	@Override
@@ -82,18 +92,18 @@ public class MaterialWood extends _MaterialBase {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
 		if (this.loadPlanks)
 			lp.add(this.PLANKS_ITEM.get(), locName + " Planks");
+
+		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		// TODO Auto-generated method stub
-
+		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
+		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 
 	@Override
@@ -120,7 +130,16 @@ public class MaterialWood extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			boolean plank = j.get("loadPlanks").getAsBoolean();
 
-			return new MaterialWood(name, plank);
+			MaterialWood w = new MaterialWood(name, plank);
+
+			JsonArray extensionsArray = j.getAsJsonArray("extensions");
+
+			if (extensionsArray != null)
+				for (JsonElement extensionElement : extensionsArray) {
+					w.addExtension(context.deserialize(extensionElement, _MaterialExtension.class));
+				}
+
+			return w;
 		}
 
 		@Override
@@ -131,6 +150,13 @@ public class MaterialWood extends _MaterialBase {
 			j.addProperty("type", type);
 			j.addProperty("loadPlanks", src.loadPlanks);
 
+			JsonArray ext = new JsonArray();
+
+			for (_MaterialExtension e : src.extensions)
+				ext.add(context.serialize(e));
+
+			j.add("extensions", ext);
+
 			return j;
 		}
 
@@ -138,8 +164,7 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setupClient(FMLClientSetupEvent event) {
-		// TODO Auto-generated method stub
-
+		this.extensions.forEach(i -> i.setupClient(this, event));
 	}
 
 	@Override
