@@ -34,6 +34,7 @@ public class Compendium {
 		CompendiumBlocks.BLOCKS.register(bus);
 		CompendiumItems.ITEMS.register(bus);
 		CompendiumBlockEntities.BLOCK_ENTITIES.register(bus);
+		CompendiumEntities.ENTITIES.register(bus);
 
 		CompendiumTabs.TABS.register(bus);
 		bus.addListener(this::setupClient);

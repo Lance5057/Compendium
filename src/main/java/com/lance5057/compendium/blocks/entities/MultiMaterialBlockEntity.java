@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.client.models.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
@@ -17,21 +16,33 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-public class MultiMaterialBlockEntity extends BlockEntity {
+public abstract class MultiMaterialBlockEntity extends BlockEntity {
 
 	List<String> materials;
 
-	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState) {
-		this(pos, blockState, List.of());
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos,
+			BlockState blockState) {
+		this(type, pos, blockState, List.of());
 	}
 
-	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState, List<String> list) {
-		super(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState);
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState,
+			List<String> list) {
+		super(type, pos, blockState);
 		this.materials = list;
 	}
+
+//	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState, List<String> list) {
+//		super(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState);
+//		this.materials = list;
+//	}
+//
+//	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState) {
+//		this(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState, List.of());
+//	}
 
 	@Override
 	public ModelData getModelData() {
@@ -74,6 +85,7 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 			for (int i = 0; i < count; i++)
 				materials.add(nbt.getString("material_" + i));
 		}
+		readNBTExtra(nbt, registries);
 	}
 
 	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
@@ -83,6 +95,7 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 		for (int i = 0; i < materials.size(); i++)
 			mats.putString("material_" + i, materials.get(i).toString());
 		tag.put("materials", mats);
+		writeNBTExtra(mats, registries);
 
 		return tag;
 	}
@@ -114,4 +127,11 @@ public class MultiMaterialBlockEntity extends BlockEntity {
 		}
 	}
 
+	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
+
+	}
+
+	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
+
+	}
 }

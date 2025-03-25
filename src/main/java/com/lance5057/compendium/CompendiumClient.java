@@ -10,6 +10,7 @@ import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.MaterialSwapElementsUnbakedModel;
+import com.lance5057.compendium.client.renderer.blockentity.SeatRenderer;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
@@ -91,6 +92,12 @@ public class CompendiumClient {
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
 //		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
-		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID, new MaterialSwapElementsUnbakedModel.Loader());
+		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID,
+				new MaterialSwapElementsUnbakedModel.Loader());
+	}
+
+	@SubscribeEvent
+	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+		event.registerEntityRenderer(CompendiumEntities.SEAT.get(), c -> new SeatRenderer(c));
 	}
 }

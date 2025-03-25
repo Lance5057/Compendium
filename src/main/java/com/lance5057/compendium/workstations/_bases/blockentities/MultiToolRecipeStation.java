@@ -284,7 +284,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		CompoundTag tag = pkt.getTag();
 		readInventory(tag, registries);
 		readNBT(tag, registries);
-		readNBTExtra(tag, registries);
+//		readNBTExtra(tag, registries);
 	}
 
 	void writeInventory(CompoundTag nbt, HolderLookup.Provider registries) {

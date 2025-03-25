@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks;
 
-import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -16,7 +14,7 @@ public class BasicDecorativeBlock extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new MultiMaterialBlockEntity(pos, state);
+		return new WindowBlockEntity(pos, state);
 	}
 
 }

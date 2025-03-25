@@ -1,8 +1,9 @@
 package com.lance5057.compendium;
 
+import com.lance5057.compendium.blocks.WindowBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
-import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.ChairBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -45,7 +46,11 @@ public class CompendiumBlockEntities {
 			.register("component_drawer", () -> BlockEntityType.Builder
 					.of(ComponentDrawerBlockEntity::new, CompendiumBlocks.COMPONENT_DRAWER.get()).build(null));
 
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MultiMaterialBlockEntity>> MULTIMATERIAL = BLOCK_ENTITIES
-			.register("multimaterial", () -> BlockEntityType.Builder
-					.of(MultiMaterialBlockEntity::new, CompendiumBlocks.WINDOW.get()).build(null));
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WindowBlockEntity>> WINDOW = BLOCK_ENTITIES
+			.register("window", () -> BlockEntityType.Builder.of(WindowBlockEntity::new, CompendiumBlocks.WINDOW.get())
+					.build(null));
+
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> CHAIR = BLOCK_ENTITIES
+			.register("chair",
+					() -> BlockEntityType.Builder.of(ChairBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
 }
