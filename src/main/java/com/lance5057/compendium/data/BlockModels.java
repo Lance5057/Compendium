@@ -80,8 +80,7 @@ public class BlockModels extends BlockStateProvider {
 
 		});
 
-		this.horizontalBlock(CompendiumBlocks.CHAIR.get(),
-				models().getExistingFile(modLoc("block/furniture/chair/basic_chair_legs")));
+		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));
 	}
 
 }

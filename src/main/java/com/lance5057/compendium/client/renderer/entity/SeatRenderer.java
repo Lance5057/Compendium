@@ -1,4 +1,4 @@
-package com.lance5057.compendium.client.renderer.blockentity;
+package com.lance5057.compendium.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
