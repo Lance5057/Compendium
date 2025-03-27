@@ -65,49 +65,44 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			for (IIndexEntry i : CompendiumIndex.index) {
 				if (i instanceof _MaterialBase mb) {
 					if (mb.getType() == im.type) {
-						BlockModel bm = im.getModel();
-						List<BlockElement> e = bm.getElements();
-						for (BlockElement element : e) {
+						replaceAndBake(spriteGetter, modelState, quads, im, mb.name);
 
-//						BakedModel bm = im.getModel().bake(baker, spriteGetter, modelState);
-							BasicIndexQuad biq = new BasicIndexQuad(mb.name);
-
-							for (Direction d : Direction.values()) {
-								List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
-								BlockElementFace face = element.faces.get(d);
-//							List<BakedQuad> q = new ArrayList<BakedQuad>();
-//							ResourceLocation atlas = quad.getSprite().atlasLocation();
-								Material mat = bm.getMaterial(face.texture());
-								String s = mat.texture().toString().replace("invalid", mb.name);
-								ResourceLocation r = ResourceLocation.parse(s);
-								Material newMat = new Material(mat.atlasLocation(), r);
-								TextureAtlasSprite sprite = spriteGetter.apply(newMat);
-
-								BakedQuad quad = BlockModel.bakeFace(element, face, sprite, d, modelState);
-
-//							for (BakedQuad quad : q) {
-//
-//								// grab the sprite and change it!
-//								
-//
-//								BakedQuad bq = new BakedQuad(quad.getVertices(), quad.getTintIndex(),
-//										quad.getDirection(), tas, quad.isShade());
-//
-								indexQuads.add(quad);
-								biq.quads.put(d, indexQuads);
-//							}
-
-							}
-							
-							quads.put(mb.name, biq);
-						}
-						
 					}
 				}
 			}
+
+			// add invalid
+			replaceAndBake(spriteGetter, modelState, quads, im, "invalid");
 		}
 
 		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), quads);
+	}
+
+	private void replaceAndBake(Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState,
+			Map<String, BasicIndexQuad> quads, IndexModel im, String name) {
+		BlockModel bm = im.getModel();
+		List<BlockElement> e = bm.getElements();
+		BasicIndexQuad biq = new BasicIndexQuad(name);
+		for (BlockElement element : e) {
+
+			for (Direction d : Direction.values()) {
+				List<BakedQuad> indexQuads = new ArrayList<BakedQuad>();
+				BlockElementFace face = element.faces.get(d);
+
+				Material mat = bm.getMaterial(face.texture());
+				String s = mat.texture().toString().replace("invalid", name);
+				ResourceLocation r = ResourceLocation.parse(s);
+				Material newMat = new Material(mat.atlasLocation(), r);
+				TextureAtlasSprite sprite = spriteGetter.apply(newMat);
+
+				BakedQuad quad = BlockModel.bakeFace(element, face, sprite, d, modelState);
+
+				indexQuads.add(quad);
+				biq.addAll(d, indexQuads);
+			}
+
+		}
+		quads.put(name, biq);
 	}
 
 	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {

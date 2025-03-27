@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks;
 
-import java.awt.Shape;
-
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.blocks.entities.ChairBlockEntity;
 import com.mojang.serialization.MapCodec;
@@ -29,9 +27,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
 	protected static final VoxelShape BASE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+
 	protected static final VoxelShape BACKN = Block.box(2.0D, 7.0D, 2.0D, 14.0D, 16.0D, 4.0D);
-	protected static final VoxelShape BACKE = Block.box(2.0D, 7.0D, 2.0D, 4.0D, 16.0D, 14.0D);
-	protected static final VoxelShape BACKS = Block.box(2.0D, 7.0D, 2.0D, 14.0D, 16.0D, 4.0D);
+	protected static final VoxelShape BACKE = Block.box(12.0D, 7.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+	protected static final VoxelShape BACKS = Block.box(2.0D, 7.0D, 12.0D, 14.0D, 16.0D, 14.0D);
 	protected static final VoxelShape BACKW = Block.box(2.0D, 7.0D, 2.0D, 4.0D, 16.0D, 14.0D);
 
 	public static final MapCodec<ChairBlock> CODEC = simpleCodec(ChairBlock::new);
@@ -69,11 +68,6 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		Direction d = state.getValue(HorizontalDirectionalBlock.FACING);
-
-		VoxelShape BACKN = Block.box(2.0D, 7.0D, 2.0D, 14.0D, 16.0D, 4.0D);
-		VoxelShape BACKE = Block.box(2.0D, 7.0D, 2.0D, 4.0D, 16.0D, 14.0D);
-		VoxelShape BACKS = Block.box(2.0D, 7.0D, 2.0D, 14.0D, 16.0D, 4.0D);
-		VoxelShape BACKW = Block.box(2.0D, 7.0D, 2.0D, 4.0D, 16.0D, 14.0D);
 
 		switch (d) {
 		case Direction.NORTH:

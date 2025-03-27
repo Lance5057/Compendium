@@ -1,0 +1,16 @@
+{
+  "base": {
+    "parent": "minecraft:block/air"
+  },
+  "count": 1,
+  "loader": "compendium:material_swap",
+  "model_0": {
+    "type": "WOOD",
+    "model": {
+      "parent": "compendium:extra/furniture/chair/basic_chair_legs",
+      "textures": {
+        "0": "compendium:block/material/wood/invalid/planks"
+      }
+    }
+  }
+}

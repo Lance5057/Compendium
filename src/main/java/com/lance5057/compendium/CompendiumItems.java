@@ -54,7 +54,8 @@ public class CompendiumItems {
 			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
-			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()));
+			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(List.of()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()

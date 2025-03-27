@@ -81,6 +81,19 @@ public class BlockModels extends BlockStateProvider {
 		});
 
 		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));
+
+//		getVariantBuilder(CompendiumBlocks.CHAIR.get()).forAllStates(state -> {
+//			return ConfiguredModel.builder().modelFile(models().getBuilder("chair_back")
+//					.customLoader(MaterialSwapModelBuilder::begin)
+//					.base(models().withExistingParent("chair_base", mcLoc("air")))
+//					.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.WOOD,
+//							models().withExistingParent("index_basic_chair_back", modLoc("extra/furniture/chair/basic_chair_back"))
+//									.texture("0", modLoc("block/material/wood/invalid/planks"))))
+//					.end())
+//
+//					.build();
+//
+//		});
 	}
 
 }

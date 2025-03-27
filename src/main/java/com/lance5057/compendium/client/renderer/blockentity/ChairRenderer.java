@@ -20,11 +20,11 @@ import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 	final ModelResourceLocation legs = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/basic_chair_legs"));
+			.standalone(Compendium.modLoc("extra/furniture/chair/chair_legs"));
 	final ModelResourceLocation seat = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/basic_chair_seat"));
+			.standalone(Compendium.modLoc("extra/furniture/chair/chair_seat"));
 	final ModelResourceLocation back = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/basic_chair_back"));
+			.standalone(Compendium.modLoc("extra/furniture/chair/chair_back"));
 
 	public ChairRenderer(BlockEntityRendererProvider.Context cxt) {
 
