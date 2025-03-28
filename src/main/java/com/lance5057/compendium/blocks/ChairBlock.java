@@ -26,12 +26,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
-	protected static final VoxelShape BASE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+	protected static final VoxelShape BASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 7.0D, 13.0D);
 
-	protected static final VoxelShape BACKN = Block.box(2.0D, 7.0D, 2.0D, 14.0D, 16.0D, 4.0D);
-	protected static final VoxelShape BACKE = Block.box(12.0D, 7.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-	protected static final VoxelShape BACKS = Block.box(2.0D, 7.0D, 12.0D, 14.0D, 16.0D, 14.0D);
-	protected static final VoxelShape BACKW = Block.box(2.0D, 7.0D, 2.0D, 4.0D, 16.0D, 14.0D);
+	protected static final VoxelShape BACKN = Block.box(3.0D, 7.0D, 3.0D, 13.0D, 16.0D, 3.0D);
+	protected static final VoxelShape BACKE = Block.box(13.0D, 7.0D, 3.0D, 14.0D, 16.0D, 13.0D);
+	protected static final VoxelShape BACKS = Block.box(3.0D, 7.0D, 13.0D, 14.0D, 16.0D, 14.0D);
+	protected static final VoxelShape BACKW = Block.box(3.0D, 7.0D, 3.0D, 4.0D, 16.0D, 13.0D);
 
 	public static final MapCodec<ChairBlock> CODEC = simpleCodec(ChairBlock::new);
 

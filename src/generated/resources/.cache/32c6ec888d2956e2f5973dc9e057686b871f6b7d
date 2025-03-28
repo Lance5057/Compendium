@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-27T12:01:24.0414759	Block States: compendium
+// 1.21.1	2025-03-28T13:25:51.5879358	Block States: compendium
 3dff9e1ec59415779195d2abfa9f07bc17b428a1 assets/compendium/blockstates/chair.json
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
 f58fc8fe05666719489fdf5b061670327ea573ec assets/compendium/blockstates/drawer.json
@@ -45,6 +45,5 @@ e3cd5d8ce041e21c32a6a0d82f10e0bb0a1e4988 assets/compendium/models/block/material
 f404908fa2b7b647c2c2429fabc2dde2e30ee63f assets/compendium/models/block/material/wood/oak/oak_small_logs_stairs_inner_stairs.json
 899dc48e309addad6df76c691ab69f98c33c5e31 assets/compendium/models/block/material/wood/oak/oak_small_logs_stairs_outer_stairs.json
 c54e0c2f1f752890747b26e6deb2cc87296b0211 assets/compendium/models/block/material/wood/oak/oak_small_logs_stairs_stairs.json
-df84d048497ea251e966e2150c81b59b8eab03a5 assets/compendium/models/block/window.json
+b9a5ca85e5546678f88c0a0dec2905849d914575 assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json
-03ec9ad3dda0ca231e1d622223e80edec9eb51c5 assets/compendium/models/block/window_trim.json

@@ -8,14 +8,8 @@
   },
   "count": 1,
   "loader": "compendium:material_swap",
-  "model_0": {
+  "model": {
     "type": "METAL",
-    "model": {
-      "parent": "minecraft:block/cube_all",
-      "render_type": "minecraft:cutout",
-      "textures": {
-        "all": "compendium:block/material/metal/invalid/window_trim"
-      }
-    }
+    "model": "compendium:block/material/metal/invalid/window_trim"
   }
 }

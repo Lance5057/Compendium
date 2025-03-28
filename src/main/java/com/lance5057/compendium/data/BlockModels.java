@@ -6,6 +6,8 @@ import com.lance5057.compendium.client.models.IndexModelBuilder;
 import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.data.PackOutput;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.Half;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -68,16 +71,20 @@ public class BlockModels extends BlockStateProvider {
 		});
 
 		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
-			return ConfiguredModel.builder()
-					.modelFile(models().getBuilder("window").customLoader(MaterialSwapModelBuilder::begin)
-							.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"))
-							.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.METAL,
-									models().cubeAll("window_trim", modLoc("block/material/metal/invalid/window_trim"))
-											.renderType("cutout")))
-							.end())
+			Builder<?> b = ConfiguredModel.builder();
+			MaterialSwapModelBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
+					.customLoader(MaterialSwapModelBuilder::begin);
+			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"));
 
-					.build();
+//			for (IIndexEntry i : CompendiumIndex.index) {
+//				if (i instanceof _MaterialBase mb)
+//					if (mb.getType() == MATERIAL_TYPES.METAL)
+			msmb.add(new IndexModelBuilder(MATERIAL_TYPES.METAL, modLoc("block/material/metal/invalid/window_trim")));
+//			}
 
+			BlockModelBuilder bmb = msmb.end();
+			b.modelFile(bmb);
+			return b.build();
 		});
 
 		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));

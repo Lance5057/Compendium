@@ -3,13 +3,14 @@ package com.lance5057.compendium.client.models;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
-import net.neoforged.neoforge.client.model.generators.ModelBuilder;
+import net.minecraft.resources.ResourceLocation;
 
-public class IndexModelBuilder<T extends ModelBuilder<T>> {
+public class IndexModelBuilder {
 	MATERIAL_TYPES type;
-	T model;
+	ResourceLocation model;
+	String material;
 
-	public IndexModelBuilder(MATERIAL_TYPES t, T b) {
+	public IndexModelBuilder(MATERIAL_TYPES t, ResourceLocation b) {
 		this.type = t;
 		this.model = b;
 	}
@@ -18,9 +19,9 @@ public class IndexModelBuilder<T extends ModelBuilder<T>> {
 		JsonObject j = new JsonObject();
 
 		j.addProperty("type", type.toString());
-		j.add("model", model.toJson());
+		j.addProperty("model", model.toString());
 
-		jo.add("model_" + i, j);
+		jo.add("model", j);
 
 		return jo;
 	}

@@ -24,10 +24,10 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 
 	private final BakedModel base;
-	Map<String, BasicIndexQuad> quads = new HashMap<String, BasicIndexQuad>();
+	Map<String, BasicIndexModel> quads = new HashMap<String, BasicIndexModel>();
 
 	@SuppressWarnings("deprecation")
-	public MaterialSwapElementsBakedModel(BakedModel base, Map<String, BasicIndexQuad> quads) {
+	public MaterialSwapElementsBakedModel(BakedModel base, Map<String, BasicIndexModel> quads) {
 		this.base = base;
 		this.quads = quads;
 
@@ -85,18 +85,18 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
 		if (mats != null && mats.length > 0) {
-			BasicIndexQuad q = quads.get(mats[0]);
-			if (q.get(side) != null) {
-				List<BakedQuad> r = q.get(side);
+			BasicIndexModel q = quads.get(mats[0]);
+			if (q.model != null) {
+				List<BakedQuad> r = q.model.getQuads(state, side, rand, extraData, renderType);
 				if (r != null)
 					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
 						l.addAll(r);
 			}
 		} else {
-			BasicIndexQuad q = quads.get("invalid");
+			BasicIndexModel q = quads.get("invalid");
 
-			if (q != null && q.get(side) != null) {
-				List<BakedQuad> r = q.get(side);
+			if (q.model != null) {
+				List<BakedQuad> r = q.model.getQuads(state, side, rand, extraData, renderType);
 				if (r != null)
 					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
 						l.addAll(r);
