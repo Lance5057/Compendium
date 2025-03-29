@@ -19,12 +19,12 @@ import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
 import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
-	final ModelResourceLocation legs = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/chair_legs"));
-	final ModelResourceLocation seat = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/chair_seat"));
-	final ModelResourceLocation back = ModelResourceLocation
-			.standalone(Compendium.modLoc("extra/furniture/chair/chair_back"));
+//	final ModelResourceLocation legs = ModelResourceLocation
+//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_legs"));
+//	final ModelResourceLocation seat = ModelResourceLocation
+//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_seat"));
+//	final ModelResourceLocation back = ModelResourceLocation
+//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_back"));
 
 	public ChairRenderer(BlockEntityRendererProvider.Context cxt) {
 
@@ -34,6 +34,13 @@ public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 	public void render(ChairBlockEntity blockEntity, float partialTick, PoseStack poseStack,
 			MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
+		ModelResourceLocation legs = ModelResourceLocation
+				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_legs"));
+		ModelResourceLocation seat = ModelResourceLocation
+				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_seat"));
+		ModelResourceLocation back = ModelResourceLocation
+				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_back"));
+		
 		IRenderable<ModelData> l = BakedModelRenderable.of(legs).withModelDataContext();
 		IRenderable<ModelData> s = BakedModelRenderable.of(seat).withModelDataContext();
 		IRenderable<ModelData> b = BakedModelRenderable.of(back).withModelDataContext();

@@ -3,6 +3,7 @@ package com.lance5057.compendium.gui;
 import java.util.function.Consumer;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
@@ -26,64 +27,87 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 		super(menu, playerInventory, title);
 	}
 
+	private BlockPos pos = BlockPos.ZERO;
+	private MODES mode = MODES.NONE;
+
+	public void setMode(MODES mode) {
+		this.mode = mode;
+	}
+
+	// STATION
 	AnimatedFloatVector3Widget loc;
 	AnimatedFloatVector3Widget rot;
 	AnimatedFloatVector3Widget scale;
 	AnimatedFloatVector3Widget pivot;
 
-	private BlockPos pos = BlockPos.ZERO;
 	private MultiToolRecipeStation<?> station;
+
+	// MULTIMATERIAL
+	public EditBox box;
 
 	@Override
 	public void init() {
 		super.init();
 
-		loc = new AnimatedFloatVector3Widget();
-		rot = new AnimatedFloatVector3Widget();
-		scale = new AnimatedFloatVector3Widget();
-		pivot = new AnimatedFloatVector3Widget();
+		if (this.mode == MODES.STATION) {
+			loc = new AnimatedFloatVector3Widget();
+			rot = new AnimatedFloatVector3Widget();
+			scale = new AnimatedFloatVector3Widget();
+			pivot = new AnimatedFloatVector3Widget();
 
-		loc.init(this, 180, -25);
-		rot.init(this, 180, 30);
-		scale.init(this, 180, 85);
-		pivot.init(this, 180, 140);
+			loc.init(this, 180, -25);
+			rot.init(this, 180, 30);
+			scale.init(this, 180, 85);
+			pivot.init(this, 180, 140);
+		} else if (this.mode == MODES.MULTIMATERIAL) {
+			box = new EditBox(font, this.leftPos + 100, this.topPos + 100, 40, 14, playerInventoryTitle);
+		}
 	}
 
 	protected void setup() {
-		BlockEntity e = this.minecraft.level.getBlockEntity(pos);
-		if (e != null && e instanceof MultiToolRecipeStation)
-			station = (MultiToolRecipeStation<?>) e;
+		if (this.mode == MODES.STATION) {
+			BlockEntity e = this.minecraft.level.getBlockEntity(pos);
+			if (e != null && e instanceof MultiToolRecipeStation)
+				station = (MultiToolRecipeStation<?>) e;
 
-		if (station != null)
-			if (station.getCurrentTool() != null) {
-				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+			if (station != null)
+				if (station.getCurrentTool() != null) {
+					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
 
-			}
+				}
+		}
 	}
 
 	@Override
 	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
-		if (station == null) {
-			BlockEntity e = this.minecraft.level.getBlockEntity(pos);
-			if (e != null && e instanceof MultiToolRecipeStation) {
-				station = (MultiToolRecipeStation<?>) e;
+		if (this.mode == MODES.STATION) {
+			if (station == null) {
+				BlockEntity e = this.minecraft.level.getBlockEntity(pos);
+				if (e != null && e instanceof MultiToolRecipeStation) {
+					station = (MultiToolRecipeStation<?>) e;
 
-				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
 
-				loc.set(aft.getLocation());
-				rot.set(aft.getRotation());
-				scale.set(aft.getScale());
-				pivot.set(aft.getPivot());
+					loc.set(aft.getLocation());
+					rot.set(aft.getRotation());
+					scale.set(aft.getScale());
+					pivot.set(aft.getPivot());
+				}
+			} else if (station != null) {
+				if (station.getCurrentTool() != null) {
+					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+
+					aft.setLocation(loc.get());
+					aft.setRotation(rot.get());
+					aft.setScale(scale.get());
+					aft.setPivot(pivot.get());
+				}
 			}
-		} else if (station != null) {
-			if (station.getCurrentTool() != null) {
-				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
-
-				aft.setLocation(loc.get());
-				aft.setRotation(rot.get());
-				aft.setScale(scale.get());
-				aft.setPivot(pivot.get());
-			}
+		}
+		else if(this.mode == MODES.MULTIMATERIAL)
+		{
+			if(box == null)
+				box = this.addRenderableWidget(new EditBox(font, this.leftPos + 1, this.topPos + 1, 160, 24, playerInventoryTitle));
 		}
 	}
 

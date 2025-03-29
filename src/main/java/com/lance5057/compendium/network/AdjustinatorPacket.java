@@ -1,8 +1,8 @@
 package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
-import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -14,13 +14,13 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPacketPayload {
+public record AdjustinatorPacket(int containerId, BlockPos pos, String mode) implements CustomPacketPayload {
 
-	public static final Type<StyleSyncPacket> id = new CustomPacketPayload.Type<StyleSyncPacket>(
-			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "style_packet"));
+	public static final Type<AdjustinatorPacket> id = new CustomPacketPayload.Type<AdjustinatorPacket>(
+			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "adjustinator_packet"));
 
-	public StyleSyncPacket(FriendlyByteBuf buf) {
-		this(buf.readInt(), buf.readBlockPos());
+	public AdjustinatorPacket(FriendlyByteBuf buf) {
+		this(buf.readInt(), buf.readBlockPos(), buf.readUtf());
 	}
 
 //	@Override
@@ -29,16 +29,16 @@ public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPa
 //		buf.writeBlockPos(pos);
 //	}
 //
-	public static void handle(StyleSyncPacket message, IPayloadContext ctx) {
+	public static void handle(AdjustinatorPacket message, IPayloadContext ctx) {
 		if (ctx.flow().isClientbound()) {
 			ctx.enqueueWork(new Runnable() {
 
 				@Override
 				public void run() {
 					if (Minecraft.getInstance().screen != null)
-						if (Minecraft.getInstance().screen instanceof CosmeticToolboxScreen screen) {
+						if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
 							screen.setPos(message.pos());
-
+							screen.setMode(MODES.valueOf(message.mode));
 						}
 				}
 
@@ -46,8 +46,9 @@ public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPa
 		}
 	}
 
-	public static StreamCodec<ByteBuf, StyleSyncPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
-			StyleSyncPacket::containerId, BlockPos.STREAM_CODEC, StyleSyncPacket::pos, StyleSyncPacket::new);
+	public static StreamCodec<ByteBuf, AdjustinatorPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
+			AdjustinatorPacket::containerId, BlockPos.STREAM_CODEC, AdjustinatorPacket::pos, ByteBufCodecs.STRING_UTF8,
+			AdjustinatorPacket::mode, AdjustinatorPacket::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

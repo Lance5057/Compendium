@@ -14,12 +14,12 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomLoaderBuilder<T> {
 	T baseModel;
-	List<IndexModelBuilder> models;
+	List<IndexModelBuilder> indexModels;
 	MATERIAL_TYPES type;
 
 	protected MaterialSwapModelBuilder(T parent, ExistingFileHelper existingFileHelper) {
 		super(Compendium.modLoc("material_swap"), parent, existingFileHelper, false);
-		models = new ArrayList<IndexModelBuilder>();
+		indexModels = new ArrayList<IndexModelBuilder>();
 	}
 
 	public MaterialSwapModelBuilder<T> base(T model) {
@@ -30,7 +30,7 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 	public MaterialSwapModelBuilder<T> add(IndexModelBuilder model) {
 		Preconditions.checkNotNull(model, "model must not be null");
-		models.add(model);
+		indexModels.add(model);
 		return this;
 	}
 
@@ -43,12 +43,12 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 		json.add("base", baseModel.toJson());
 
-		if (models != null) {
-			for (int i = 0; i < models.size(); i++)
-				models.get(i).toJson(json, i);
+		if (indexModels != null) {
+			for (int i = 0; i < indexModels.size(); i++)
+				indexModels.get(i).toJson(json, i);
 		}
 
-		json.addProperty("count", models.size());
+//		json.addProperty("count", models.size());
 		json.addProperty("loader", loaderId.toString());
 
 		return json;

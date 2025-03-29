@@ -2,6 +2,7 @@ package com.lance5057.compendium.client.models;
 
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
+import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
 
 public class IndexModel {
@@ -11,14 +12,19 @@ public class IndexModel {
 		return type;
 	}
 
-	public ResourceLocation getModel() {
-		return model;
+	public ResourceLocation getRC() {
+		return modelRC;
 	}
 
-	public ResourceLocation model;
+	public ResourceLocation modelRC;
+	public UnbakedModel model;
+
+	public void setModel(UnbakedModel model) {
+		this.model = model;
+	}
 
 	public IndexModel(MATERIAL_TYPES t, ResourceLocation b) {
 		this.type = t;
-		this.model = b;
+		this.modelRC = b;
 	}
 }

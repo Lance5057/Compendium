@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:extra/furniture/chair/basic_chair_seat",
-  "textures": {
-    "0": "compendium:block/material/wood/invalid/planks"
-  }
-}

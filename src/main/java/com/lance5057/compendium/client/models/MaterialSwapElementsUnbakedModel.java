@@ -31,24 +31,25 @@ import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
 	private final BlockModel baseModel;
-	private final List<IndexModel> models;
+	private final List<IndexModel> indexModels;
 
 	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2) {
 		this.baseModel = baseModel2;
-		this.models = List.of();
+		this.indexModels = List.of();
 	}
 
 	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<IndexModel> models) {
 		this.baseModel = baseModel2;
-		this.models = models;
+		this.indexModels = models;
 	}
 
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
 		this.baseModel.resolveParents(modelGetter);
-//		for (IndexModel im : models) {
-//			im.model.resolveParents(modelGetter);
-//		}
+		for (IndexModel im : indexModels) {
+			im.model = modelGetter.apply(im.modelRC);
+			im.model.resolveParents(modelGetter);
+		}
 	}
 
 	@Override
@@ -56,7 +57,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 		Map<String, BasicIndexModel> quads = new HashMap<String, BasicIndexModel>();
 
-		for (IndexModel im : models) {
+		for (IndexModel im : indexModels) {
 
 			for (IIndexEntry i : CompendiumIndex.index) {
 				if (i instanceof _MaterialBase mb) {
@@ -76,9 +77,9 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 
 	private void replaceAndBake(Function<Material, TextureAtlasSprite> spriteGetter, ModelBaker baker,
 			ModelState modelState, Map<String, BasicIndexModel> quads, IndexModel im, String name) {
-		ResourceLocation r = ResourceLocation.parse(im.getModel().toString().replace("invalid", name));
-		BlockModel bm = (BlockModel) baker.getModel(r);
-		BakedModel baked = bm.bake(baker, spriteGetter, modelState);
+		ResourceLocation r = ResourceLocation.parse(im.getRC().toString().replace("invalid", name));
+//		BlockModel bm = (BlockModel) baker.getModel(r);
+		BakedModel baked = im.model.bake(baker, spriteGetter, modelState);
 
 		BasicIndexModel bim = new BasicIndexModel(name, baked);
 //		List<BlockElement> e = bm.getElements();
@@ -120,24 +121,24 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 					BlockModel.class);
 
 //			MATERIAL_TYPES type = MATERIAL_TYPES.INVALID;
-			if (jsonObject.has("count")) {
-				int count = jsonObject.get("count").getAsInt();
-
-				List<IndexModel> models = new ArrayList<IndexModel>();
+//			if (jsonObject.has("count")) {
+//				int count = jsonObject.get("count").getAsInt();
+//
+			List<IndexModel> models = new ArrayList<IndexModel>();
 
 //				for (int i = 0; i < count; i++) {
-				if (jsonObject.has("model")) {
-					JsonObject m = jsonObject.getAsJsonObject("model");
+			if (jsonObject.has("model")) {
+				JsonObject m = jsonObject.getAsJsonObject("model");
 
-					String s = m.get("type").getAsString();
-					MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-					String mat = m.get("model").getAsString();
+				String s = m.get("type").getAsString();
+				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
+				String mat = m.get("model").getAsString();
 
 //					BlockModel b = deserializationContext.deserialize(GsonHelper.getAsJsonObject(m, "model"),
 //							BlockModel.class);
 
-					models.add(new IndexModel(t, ResourceLocation.parse(mat)));
-				}
+				models.add(new IndexModel(t, ResourceLocation.parse(mat)));
+//				}
 //				}
 				return new MaterialSwapElementsUnbakedModel(base, models);
 			}

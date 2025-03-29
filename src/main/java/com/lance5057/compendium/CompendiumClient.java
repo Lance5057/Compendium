@@ -79,6 +79,10 @@ public class CompendiumClient {
 					return p_215600_.getPath().endsWith(".json");
 				});
 
+//		rrs.putAll(Minecraft.getInstance().getResourceManager().listResources("models/block/material", (p_215600_) -> {
+//			return p_215600_.getPath().endsWith(".json");
+//		}));
+
 		rrs.forEach((rl, r) -> {
 			String s = rl.toString();
 

@@ -1,6 +1,8 @@
 package com.lance5057.compendium.items;
 
+import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.gui.AdjustinatorMenu;
+import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
 import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
 
 import net.minecraft.network.chat.CommonComponents;
@@ -20,12 +22,21 @@ public class Adjustinator extends Item {
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (pContext.getPlayer().isCrouching()) {
-			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationGuiless s) {
+			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationGuiless) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
 						return new AdjustinatorMenu(p_57074_, p_57075_,
 								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
-								pContext.getClickedPos());
+								pContext.getClickedPos(), MODES.STATION);
+					}, CommonComponents.EMPTY));
+				return InteractionResult.PASS;
+			}
+			if (pContext.getLevel().getBlockEntity(pContext.getClickedPos()) instanceof MultiMaterialBlockEntity) {
+				if (!pContext.getLevel().isClientSide())
+					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
+						return new AdjustinatorMenu(p_57074_, p_57075_,
+								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
+								pContext.getClickedPos(), MODES.MULTIMATERIAL);
 					}, CommonComponents.EMPTY));
 				return InteractionResult.PASS;
 			}
