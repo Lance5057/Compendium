@@ -96,19 +96,57 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-		buildDefault(new MaterialMetal("tin", true, true, true)
-				.addExtension(new ExtensionVanillaTools(true, true, true, true, true))
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1))
-				.addExtension(new ExtensionExtraMetalBlocks(true)));
+//		buildDefault(new MaterialMetal("tin", true, true, true)
+//				.addExtension(new ExtensionVanillaTools(true, true, true, true, true))
+//				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
+//				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1))
+//				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
 		buildDefault(new MaterialMetal("iron", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true))
 				.addExtension(new ExtensionExtraMetalBlocks(true)));
+		buildDefault(new MaterialMetal("gold", false, false, false)
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraMetalBlocks(true)));
+		buildDefault(new MaterialMetal("copper", false, false, false)
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraMetalBlocks(true)));
+		buildDefault(new MaterialMetal("netherite", false, false, false)
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
 		buildDefault(new MaterialGlass("glass", false, false));
+		buildDefault(new MaterialGlass("white_glass", false, false));
+		buildDefault(new MaterialGlass("light_gray_glass", false, false));
+		buildDefault(new MaterialGlass("gray_glass", false, false));
+		buildDefault(new MaterialGlass("black_glass", false, false));
+		buildDefault(new MaterialGlass("brown_glass", false, false));
+		buildDefault(new MaterialGlass("red_glass", false, false));
+		buildDefault(new MaterialGlass("orange_glass", false, false));
+		buildDefault(new MaterialGlass("yellow_glass", false, false));
+		buildDefault(new MaterialGlass("lime_glass", false, false));
+		buildDefault(new MaterialGlass("green_glass", false, false));
+		buildDefault(new MaterialGlass("cyan_glass", false, false));
+		buildDefault(new MaterialGlass("light_blue_glass", false, false));
+		buildDefault(new MaterialGlass("blue_glass", false, false));
+		buildDefault(new MaterialGlass("purple_glass", false, false));
+		buildDefault(new MaterialGlass("magenta_glass", false, false));
+		buildDefault(new MaterialGlass("pink_glass", false, false));
+		buildDefault(new MaterialGlass("tinted_glass", true, false));
 
 		buildDefault(new MaterialWood("oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("spruce", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("jungle", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("acacia", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("dark_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("mangrove", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("cherry", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		//buildDefault(new MaterialWood("pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+
 	}
 
 	static void buildDefault(_MaterialBase mat) {
