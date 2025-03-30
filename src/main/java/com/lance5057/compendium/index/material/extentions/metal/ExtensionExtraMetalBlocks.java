@@ -111,9 +111,9 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 				return ConfiguredModel.builder()
 						.modelFile(bsp.models().cubeAll(
 								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-										+ base.name + "_tile_" + suffix + "_block",
+										+ "_tile_" + suffix + "_block",
 								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-										+ "/tile/" + base.name + "_" + suffix.toLowerCase() + "_tile_block")))
+										+ "/tile/" + suffix.toLowerCase() + "_tile_block")))
 						.build();
 
 			});

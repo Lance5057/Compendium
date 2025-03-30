@@ -108,9 +108,9 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadNugget)
-			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), name, this.getType());
+			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), this, "nugget", this.getType());
 		if (this.loadIngot)
-			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), name, this.getType());
+			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), this, "ingot", this.getType());
 		if (this.loadStorageBlock)
 			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
 

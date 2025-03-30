@@ -4,12 +4,14 @@ import java.util.Objects;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -29,16 +31,27 @@ public class DataUtil {
 		return Compendium.modLoc("item/material/" + name + "/" + path);
 	}
 
-	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, String name,
+//	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, String name,
+//			MATERIAL_TYPES type) {
+//		return basicMaterialItem(tmp, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)), name, type);
+//	}
+
+	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, Item item, _MaterialBase base, String name,
 			MATERIAL_TYPES type) {
-		return basicMaterialItem(tmp, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)), name, type);
+		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
+		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
+				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+						"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/" + name));
 	}
 
-	public static ItemModelBuilder basicMaterialItem(ItemModelProvider tmp, ResourceLocation item, String name,
-			MATERIAL_TYPES type) {
+	public static ItemModelBuilder basicMaterialItemWithExtraLayer(ItemModelProvider tmp, Item item, _MaterialBase base,
+			String name, MATERIAL_TYPES type, ResourceLocation extra) {
+		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
 		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(item.getNamespace(),
-						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + item.getPath()));
+				.texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/" + name))
+				.texture("layer1", extra);
 	}
 
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
@@ -132,28 +145,34 @@ public class DataUtil {
 			}
 			yRot %= 360;
 			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
-			return ConfiguredModel.builder()
-					.modelFile(shape == StairsShape.STRAIGHT ? stairs
-							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
-									: stairsOuter)
+			return ConfiguredModel.builder().modelFile(shape == StairsShape.STRAIGHT ? stairs
+					: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner : stairsOuter)
 					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).build();
 		}, StairBlock.WATERLOGGED);
 	}
 
-	public static void basicMaterialBow(ItemModelProvider tmp, Item item, String name, MATERIAL_TYPES type) {
+	public static void basicMaterialBow(ItemModelProvider tmp, Item item, _MaterialBase base, MATERIAL_TYPES type) {
 		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
 
-		tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld")).texture("layer0",
-				ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
-						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + rc.getPath()));
+		tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
+				.texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/bow"))
+				.texture("layer1", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/bow_base"));
 		tmp.getBuilder(item.toString() + "_pulling_0").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
-						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_0"));
+				.texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/bow_pulling_0"))
+				.texture("layer1", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/bow_base_pulling_0"));
 		tmp.getBuilder(item.toString() + "_pulling_1").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
-						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_1"));
+				.texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/bow_pulling_1"))
+				.texture("layer1", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/bow_base_pulling_1"));
 		tmp.getBuilder(item.toString() + "_pulling_2").parent(new ModelFile.UncheckedModelFile(item.toString()))
-				.texture("layer0", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/material/"
-						+ type.toString().toLowerCase() + "/" + name + "/" + rc.getPath() + "_pulling_2"));
+				.texture("layer0",
+						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/bow_pulling_2"))
+				.texture("layer1", ResourceLocation.fromNamespaceAndPath(rc.getNamespace(), "item/bow_base_pulling_2"));
 	}
 }

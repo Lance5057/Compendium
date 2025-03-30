@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:gold_bow",
+  "textures": {
+    "layer0": "compendium:item/material/metal/gold/bow_pulling_2",
+    "layer1": "compendium:item/bow_base_pulling_2"
+  }
+}

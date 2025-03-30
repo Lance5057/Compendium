@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "compendium:block/material/wood/stripped_spruce/stripped_spruce_small_logs_slab_bottom"
+    },
+    "type=double": {
+      "model": "compendium:block/material/wood/stripped_spruce/stripped_spruce_small_logs_slab_full"
+    },
+    "type=top": {
+      "model": "compendium:block/material/wood/stripped_spruce/stripped_spruce_small_logs_slab_top"
+    }
+  }
+}

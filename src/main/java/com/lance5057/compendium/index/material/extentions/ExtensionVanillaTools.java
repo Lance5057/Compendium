@@ -91,15 +91,15 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadAxe)
-			DataUtil.basicMaterialItem(tmp, this.AXE.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.AXE.get(), base, "axe", base.getType());
 		if (this.loadHoe)
-			DataUtil.basicMaterialItem(tmp, this.HOE.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.HOE.get(), base, "hoe", base.getType());
 		if (this.loadPickaxe)
-			DataUtil.basicMaterialItem(tmp, this.PICKAXE.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.PICKAXE.get(), base, "pickaxe", base.getType());
 		if (this.loadShovel)
-			DataUtil.basicMaterialItem(tmp, this.SHOVEL.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.SHOVEL.get(), base, "shovel", base.getType());
 		if (this.loadSword)
-			DataUtil.basicMaterialItem(tmp, this.SWORD.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.SWORD.get(), base, "sword", base.getType());
 	}
 
 	@Override

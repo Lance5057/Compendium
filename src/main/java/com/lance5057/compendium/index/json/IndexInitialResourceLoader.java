@@ -115,24 +115,24 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
-		buildDefault(new MaterialGlass("glass", false, false));
-		buildDefault(new MaterialGlass("white_glass", false, false));
-		buildDefault(new MaterialGlass("light_gray_glass", false, false));
-		buildDefault(new MaterialGlass("gray_glass", false, false));
-		buildDefault(new MaterialGlass("black_glass", false, false));
-		buildDefault(new MaterialGlass("brown_glass", false, false));
-		buildDefault(new MaterialGlass("red_glass", false, false));
-		buildDefault(new MaterialGlass("orange_glass", false, false));
-		buildDefault(new MaterialGlass("yellow_glass", false, false));
-		buildDefault(new MaterialGlass("lime_glass", false, false));
-		buildDefault(new MaterialGlass("green_glass", false, false));
-		buildDefault(new MaterialGlass("cyan_glass", false, false));
-		buildDefault(new MaterialGlass("light_blue_glass", false, false));
-		buildDefault(new MaterialGlass("blue_glass", false, false));
-		buildDefault(new MaterialGlass("purple_glass", false, false));
-		buildDefault(new MaterialGlass("magenta_glass", false, false));
-		buildDefault(new MaterialGlass("pink_glass", false, false));
-		buildDefault(new MaterialGlass("tinted_glass", true, false));
+//		buildDefault(new MaterialGlass("glass", false, false));
+//		buildDefault(new MaterialGlass("white_glass", false, false));
+//		buildDefault(new MaterialGlass("light_gray_glass", false, false));
+//		buildDefault(new MaterialGlass("gray_glass", false, false));
+//		buildDefault(new MaterialGlass("black_glass", false, false));
+//		buildDefault(new MaterialGlass("brown_glass", false, false));
+//		buildDefault(new MaterialGlass("red_glass", false, false));
+//		buildDefault(new MaterialGlass("orange_glass", false, false));
+//		buildDefault(new MaterialGlass("yellow_glass", false, false));
+//		buildDefault(new MaterialGlass("lime_glass", false, false));
+//		buildDefault(new MaterialGlass("green_glass", false, false));
+//		buildDefault(new MaterialGlass("cyan_glass", false, false));
+//		buildDefault(new MaterialGlass("light_blue_glass", false, false));
+//		buildDefault(new MaterialGlass("blue_glass", false, false));
+//		buildDefault(new MaterialGlass("purple_glass", false, false));
+//		buildDefault(new MaterialGlass("magenta_glass", false, false));
+//		buildDefault(new MaterialGlass("pink_glass", false, false));
+//		buildDefault(new MaterialGlass("tinted_glass", true, false));
 
 		buildDefault(new MaterialWood("oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
@@ -142,10 +142,23 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialWood("dark_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("mangrove", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("cherry", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		//buildDefault(new MaterialWood("pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		
+		buildDefault(new MaterialWood("stripped_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_spruce", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_jungle", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_acacia", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_dark_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_mangrove", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_cherry", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("stripped_warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		//buildDefault(new MaterialWood("stripped_pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 
 	}
 

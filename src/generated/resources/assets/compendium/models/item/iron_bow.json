@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/material/metal/iron/iron_bow"
+    "layer0": "compendium:item/material/metal/iron/bow",
+    "layer1": "compendium:item/bow_base"
   }
 }

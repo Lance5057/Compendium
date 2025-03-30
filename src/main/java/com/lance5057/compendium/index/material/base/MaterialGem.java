@@ -73,9 +73,9 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
 		if (this.loadShard)
-			DataUtil.basicMaterialItem(tmp, this.SHARD.get(), name, this.getType());
+			DataUtil.basicMaterialItem(tmp, this.SHARD.get(), this, "shard", this.getType());
 		if (this.loadGem)
-			DataUtil.basicMaterialItem(tmp, this.GEM.get(), name, this.getType());
+			DataUtil.basicMaterialItem(tmp, this.GEM.get(), this, "gem", this.getType());
 		if (this.loadStorageBlock)
 			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
 	}

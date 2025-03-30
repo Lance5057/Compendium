@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "style=0": {
+      "model": "compendium:block/material/metal/netherite/_tile_full_block"
+    },
+    "style=1": {
+      "model": "compendium:block/material/metal/netherite/_tile_half_block"
+    },
+    "style=2": {
+      "model": "compendium:block/material/metal/netherite/_tile_vertical_half_block"
+    },
+    "style=3": {
+      "model": "compendium:block/material/metal/netherite/_tile_quarter_block"
+    },
+    "style=4": {
+      "model": "compendium:block/material/metal/netherite/_tile_offset_half_block"
+    },
+    "style=5": {
+      "model": "compendium:block/material/metal/netherite/_tile_offset_quarter_block"
+    },
+    "style=6": {
+      "model": "compendium:block/material/metal/netherite/_tile_indented_block"
+    },
+    "style=7": {
+      "model": "compendium:block/material/metal/netherite/_tile_indented_segment_block"
+    },
+    "style=8": {
+      "model": "compendium:block/material/metal/netherite/_tile_dented_block"
+    },
+    "style=9": {
+      "model": "compendium:block/material/metal/netherite/_tile_dented_segment_block"
+    }
+  }
+}

@@ -14,6 +14,7 @@ import com.lance5057.compendium.index.material.extentions.MaterialExtensionSeria
 import com.lance5057.compendium.index.material.extentions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -25,9 +26,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -106,60 +111,169 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
-		if (this.smallLogs) {
-			DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
-		}
-		if (this.smallLogsCorner) {
+		if (this.autoGenBlockModel) {
+			if (this.smallLogs) {
+				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
+			}
+			if (this.smallLogsCorner) {
 
-			bsp.axisBlock(SMALL_LOGS_CORNER.get(),
-					bsp.models()
-							.withExistingParent(
-									"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-											+ base.name + "_small_logs_corner" + "_block",
-									Compendium.modLoc("small_logs_corner"))
-							.texture("1",
-									Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
-											+ base.name + "/" + base.name + "_small_logs_corner")),
+				bsp.axisBlock(SMALL_LOGS_CORNER.get(),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_corner" + "_block",
+										Compendium.modLoc("small_logs_corner"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
+								.texture("2",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs")),
 
-					bsp.models()
-							.withExistingParent(
-									"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-											+ base.name + "_small_logs_corner_side" + "_block",
-									Compendium.modLoc("small_logs_corner_side"))
-							.texture("1", Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-									+ "/" + base.name + "/" + base.name + "_small_logs_corner")));
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_corner_side" + "_block",
+										Compendium.modLoc("small_logs_corner_side"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
+								.texture("2",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs")));
+			}
+			if (this.smallLogsSlab) {
+				bsp.slabBlock(SMALL_LOGS_SLAB.get(),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_slab_bottom",
+										Compendium.modLoc("small_logs_slab_bottom"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_slab_top",
+										Compendium.modLoc("small_logs_slab_top"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_slab_full",
+										Compendium.modLoc("small_logs_slab_full"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_slab")));
+//				DataUtil.slabMaterialBlock(bsp, SMALL_LOGS_SLAB.get(), base.name, "_small_logs_slab", "solid",
+//						base.getType());
+			}
+			if (this.smallLogsStairs) {
+//				DataUtil.stairsMaterialBlock(bsp, SMALL_LOGS_STAIRS.get(), base.name, "_small_logs_stairs", "solid",
+//						base.getType());
+				stairsBlock(SMALL_LOGS_STAIRS.get(), bsp.models()
+						.withExistingParent("block/material/" + base.getType().toString().toLowerCase() + "/"
+								+ base.name + "/" + base.name + "_small_logs_stairs",
+								Compendium.modLoc("small_logs_stairs"))
+						.texture("0",
+								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
+										+ base.name + "/" + base.name + "_small_logs_corner"))
+						.texture("1",
+								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
+										+ base.name + "/" + base.name + "_small_logs_turned"))
+						.texture("2",
+								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
+										+ base.name + "/" + base.name + "_small_logs_slab")),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_inner_stairs",
+										Compendium.modLoc("small_logs_inner_stairs"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
+								.texture("2",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_turned"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_outer_stairs",
+										Compendium.modLoc("small_logs_outer_stairs"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_turned")),
+						bsp);
+			}
 		}
-		if (this.smallLogsSlab) {
-			DataUtil.slabMaterialBlock(bsp, SMALL_LOGS_SLAB.get(), base.name, "_small_logs_slab", "solid",
-					base.getType());
-		}
-		if (this.smallLogsStairs) {
-			DataUtil.stairsMaterialBlock(bsp, SMALL_LOGS_STAIRS.get(), base.name, "_small_logs_stairs", "solid",
-					base.getType());
-		}
+	}
+
+	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
+			BlockStateProvider bsp) {
+		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
+			Direction facing = state.getValue(StairBlock.FACING);
+			Half half = state.getValue(StairBlock.HALF);
+			StairsShape shape = state.getValue(StairBlock.SHAPE);
+			int yRot = (int) facing.getClockWise().toYRot(); // Stairs model is rotated 90 degrees clockwise for some
+																// reason
+			if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
+				yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
+			}
+			if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
+				yRot += 90; // Top stairs are rotated 90 degrees clockwise
+			}
+			yRot %= 360;
+			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+			return ConfiguredModel.builder()
+					.modelFile(shape == StairsShape.STRAIGHT ? stairs
+							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
+									: stairsOuter)
+					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(false).build();
+		}, StairBlock.WATERLOGGED);
 	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-		if (this.smallLogs) {
-			DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_ITEM, base.name, "small_logs", base.getType());
-		}
-		if (this.smallLogsCorner) {
-			DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_CORNER_ITEM, base.name, "small_logs_corner",
-					base.getType());
-		}
-		if (this.smallLogsSlab) {
-			DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB_ITEM, base.name, "small_logs_slab", base.getType());
-		}
-		if (this.smallLogsStairs) {
-			DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_STAIRS_ITEM, base.name, "small_logs_stairs",
-					base.getType());
+		if (this.autoGenItemModel) {
+			if (this.smallLogs) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_ITEM, base.name, "small_logs", base.getType());
+			}
+			if (this.smallLogsCorner) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_CORNER_ITEM, base.name, "small_logs_corner",
+						base.getType());
+			}
+			if (this.smallLogsSlab) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB_ITEM, base.name, "small_logs_slab",
+						base.getType());
+			}
+			if (this.smallLogsStairs) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_STAIRS_ITEM, base.name, "small_logs_stairs",
+						base.getType());
+			}
 		}
 	}
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
-
+		lp.add(this.SMALL_LOGS.asItem(), base.name.substring(0, 1).toUpperCase() + " Small Logs");
 	}
 
 	@Override

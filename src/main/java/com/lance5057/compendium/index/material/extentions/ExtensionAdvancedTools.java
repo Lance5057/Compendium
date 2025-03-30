@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -24,6 +25,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ShearsItem;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -101,17 +103,29 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadPrybar)
-			DataUtil.basicMaterialItem(tmp, this.PRYBAR.get(), base.name, base.getType());
+			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.PRYBAR.get(), base, "prybar", base.getType(),
+					Compendium.modLoc("item/prybar_base"));
 		if (this.loadHammer)
-			DataUtil.basicMaterialItem(tmp, this.HAMMER.get(), base.name, base.getType());
+			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.HAMMER.get(), base, "hammer", base.getType(),
+					Compendium.modLoc("item/hammer_base"));
 		if (this.loadSaw)
-			DataUtil.basicMaterialItem(tmp, this.SAW.get(), base.name, base.getType());
+			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.SAW.get(), base, "saw", base.getType(),
+					Compendium.modLoc("item/saw_base"));
 		if (this.loadShears)
-			DataUtil.basicMaterialItem(tmp, this.SHEARS.get(), base.name, base.getType());
+			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.SHEARS.get(), base, "shears", base.getType(),
+					Compendium.modLoc("item/shears_base"));
 		if (this.loadZweihander)
-			DataUtil.basicMaterialItem(tmp, this.ZWEIHANDER.get(), base.name, base.getType());
+			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.ZWEIHANDER.get(), base, "zweihander", base.getType(),
+					Compendium.modLoc("item/zweihander_base")).transforms()
+					.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).translation(1.13f, 3.2f, 1.13f)
+					.rotation(0, -90, -55).scale(1.5f, 1.5f, 0.85f).end()
+					.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).translation(1.13f, 3.2f, 1.13f)
+					.rotation(0, 90, 55).scale(1.5f, 1.5f, 0.85f).end()
+					.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).translation(0, 6, 0.5f).rotation(0, -90, -25)
+					.scale(1.5f, 1.5f, 0.85f).end().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+					.translation(0, 6, 0.5f).rotation(0, 90, 25).scale(1.5f, 1.5f, 0.85f).end().end();
 		if (this.loadBow) {
-			DataUtil.basicMaterialBow(tmp, this.BOW.get(), base.name, base.getType());
+			DataUtil.basicMaterialBow(tmp, this.BOW.get(), base, base.getType());
 
 		}
 	}

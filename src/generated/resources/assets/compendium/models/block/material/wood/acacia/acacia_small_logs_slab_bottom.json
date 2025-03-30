@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/small_logs_slab_bottom",
+  "textures": {
+    "0": "compendium:block/material/wood/acacia/acacia_small_logs",
+    "1": "compendium:block/material/wood/acacia/acacia_small_logs_slab"
+  }
+}

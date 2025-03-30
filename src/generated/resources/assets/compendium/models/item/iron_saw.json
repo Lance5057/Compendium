@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "compendium:item/material/metal/iron/iron_saw"
+    "layer0": "compendium:item/material/metal/iron/saw",
+    "layer1": "compendium:item/saw_base"
   }
 }

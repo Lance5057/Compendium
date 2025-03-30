@@ -6,7 +6,6 @@
       "all": "minecraft:block/glass"
     }
   },
-  "count": 1,
   "loader": "compendium:material_swap",
   "model": {
     "type": "METAL",

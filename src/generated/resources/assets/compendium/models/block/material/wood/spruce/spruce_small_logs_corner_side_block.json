@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/small_logs_corner_side",
+  "textures": {
+    "1": "compendium:block/material/wood/spruce/spruce_small_logs_corner",
+    "2": "compendium:block/material/wood/spruce/spruce_small_logs"
+  }
+}

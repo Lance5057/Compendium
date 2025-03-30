@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "compendium:block/material/metal/tin/tile/tin_half_tile_block"
-  }
-}

@@ -1,6 +1,77 @@
 {
   "parent": "minecraft:item/handheld",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        -55
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        0.85
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        55
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        0.85
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        -25
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        0.85
+      ],
+      "translation": [
+        0,
+        6,
+        0.5
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        25
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        0.85
+      ],
+      "translation": [
+        0,
+        6,
+        0.5
+      ]
+    }
+  },
   "textures": {
-    "layer0": "compendium:item/material/metal/iron/iron_zweihander"
+    "layer0": "compendium:item/material/metal/iron/zweihander",
+    "layer1": "compendium:item/zweihander_base"
   }
 }

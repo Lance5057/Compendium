@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_slab_bottom"
+      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_bottom"
     },
     "type=double": {
-      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_slab_full"
+      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_full"
     },
     "type=top": {
-      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_slab_top"
+      "model": "compendium:block/material/wood/oak/oak_small_logs_slab_top"
     }
   }
 }

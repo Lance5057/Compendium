@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "compendium:block/material/metal/iron/tile/iron_offset_half_tile_block"
-  }
-}

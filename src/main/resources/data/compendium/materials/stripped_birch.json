@@ -1,0 +1,14 @@
+{
+  "name": "stripped_birch",
+  "type": "WOOD",
+  "loadPlanks": false,
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLogs": true,
+      "loadSmallCornerLogs": true,
+      "loadSmallLogsSlab": true,
+      "loadSmallLogsStairs": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/small_logs_outer_stairs",
+  "textures": {
+    "0": "compendium:block/material/wood/oak/oak_small_logs_turned",
+    "1": "compendium:block/material/wood/oak/oak_small_logs_corner"
+  }
+}

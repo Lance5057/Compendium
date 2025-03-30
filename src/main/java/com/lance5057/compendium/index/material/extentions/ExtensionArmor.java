@@ -125,10 +125,10 @@ public class ExtensionArmor extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadArmor) {
-			DataUtil.basicMaterialItem(tmp, this.HELM.get(), base.name, base.getType());
-			DataUtil.basicMaterialItem(tmp, this.CHESTPLATE.get(), base.name, base.getType());
-			DataUtil.basicMaterialItem(tmp, this.LEGGINGS.get(), base.name, base.getType());
-			DataUtil.basicMaterialItem(tmp, this.BOOTS.get(), base.name, base.getType());
+			DataUtil.basicMaterialItem(tmp, this.HELM.get(), base, "helm", base.getType());
+			DataUtil.basicMaterialItem(tmp, this.CHESTPLATE.get(), base, "breastplate", base.getType());
+			DataUtil.basicMaterialItem(tmp, this.LEGGINGS.get(), base, "grieves", base.getType());
+			DataUtil.basicMaterialItem(tmp, this.BOOTS.get(), base, "sabatons", base.getType());
 		}
 //		if (this.loadShield)
 //			DataUtil.basicMaterialItem(tmp, this.SHIELD.get(), base.name);

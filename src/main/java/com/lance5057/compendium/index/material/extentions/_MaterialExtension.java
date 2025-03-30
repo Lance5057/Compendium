@@ -25,7 +25,21 @@ public abstract class _MaterialExtension {
 
 	public abstract void tab(_MaterialBase base, Output output);
 
+	protected boolean autoGenBlockModel = true;
+
+	public _MaterialExtension noAutoGenBlockModel() {
+		this.autoGenBlockModel = false;
+		return this;
+	}
+
 	public abstract void blockModel(_MaterialBase base, BlockStateProvider bsp);
+
+	protected boolean autoGenItemModel = true;
+
+	public _MaterialExtension noAutoGenItemModel() {
+		this.autoGenItemModel = false;
+		return this;
+	}
 
 	public abstract void itemModel(_MaterialBase base, ItemModelProvider tmp);
 
@@ -67,7 +81,5 @@ public abstract class _MaterialExtension {
 		}
 
 	}
-	
-
 
 }

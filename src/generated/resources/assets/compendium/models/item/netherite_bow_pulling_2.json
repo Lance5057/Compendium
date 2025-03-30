@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:netherite_bow",
+  "textures": {
+    "layer0": "compendium:item/material/metal/netherite/bow_pulling_2",
+    "layer1": "compendium:item/bow_base_pulling_2"
+  }
+}
