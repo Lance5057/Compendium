@@ -28,13 +28,11 @@ import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
-import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
-import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
-import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extentions.metal.ExtensionExtraMetalBlocks;
 import com.lance5057.compendium.index.material.extentions.wood.ExtensionExtraLogs;
 import com.mojang.logging.LogUtils;
@@ -159,6 +157,8 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialWood("stripped_crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("stripped_warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		//buildDefault(new MaterialWood("stripped_pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		
+		buildDefault(new MaterialStone("stone", false, false, false));
 
 	}
 
