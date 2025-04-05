@@ -147,7 +147,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_bottom",
+												+ "/" + base.name + "_small_logs_slab_bottom_block",
 										Compendium.modLoc("small_logs_slab_bottom"))
 								.texture("0",
 										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
@@ -158,7 +158,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_top",
+												+ "/" + base.name + "_small_logs_slab_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
 								.texture("0",
 										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
@@ -169,7 +169,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_full",
+												+ "/" + base.name + "_small_logs_slab_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
 								.texture("0",
 										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
@@ -185,7 +185,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 //						base.getType());
 				stairsBlock(SMALL_LOGS_STAIRS.get(), bsp.models()
 						.withExistingParent("block/material/" + base.getType().toString().toLowerCase() + "/"
-								+ base.name + "/" + base.name + "_small_logs_stairs",
+								+ base.name + "/" + base.name + "_small_logs_stairs_block",
 								Compendium.modLoc("small_logs_stairs"))
 						.texture("0",
 								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
@@ -199,7 +199,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_inner_stairs",
+												+ "/" + base.name + "_small_logs_inner_stairs_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
 								.texture("0",
 										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
@@ -213,7 +213,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_outer_stairs",
+												+ "/" + base.name + "_small_logs_outer_stairs_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
 								.texture("1",
 										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
@@ -261,7 +261,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						base.getType());
 			}
 			if (this.smallLogsSlab) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB_ITEM, base.name, "small_logs_slab",
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB_ITEM, base.name, "small_logs_slab_bottom",
 						base.getType());
 			}
 			if (this.smallLogsStairs) {

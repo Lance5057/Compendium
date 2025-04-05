@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_bottom"
+      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_bottom_block"
     },
     "type=double": {
-      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_full"
+      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_full_block"
     },
     "type=top": {
-      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_top"
+      "model": "compendium:block/material/wood/stripped_acacia/stripped_acacia_small_logs_slab_top_block"
     }
   }
 }

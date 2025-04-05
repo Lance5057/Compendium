@@ -110,7 +110,10 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 					Compendium.modLoc("item/hammer_base"));
 		if (this.loadSaw)
 			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.SAW.get(), base, "saw", base.getType(),
-					Compendium.modLoc("item/saw_base"));
+					Compendium.modLoc("item/saw_base")).transforms()
+					.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).translation(0, -0.75f, -4.25f)
+					.rotation(0, 90, -40).end().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+					.translation(0, -0.75f, -4.25f).rotation(0, -90, 40).end().end();
 		if (this.loadShears)
 			DataUtil.basicMaterialItemWithExtraLayer(tmp, this.SHEARS.get(), base, "shears", base.getType(),
 					Compendium.modLoc("item/shears_base"));
