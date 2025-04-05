@@ -1,7 +1,6 @@
 package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.gui.AdjustinatorScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 
 import io.netty.buffer.ByteBuf;

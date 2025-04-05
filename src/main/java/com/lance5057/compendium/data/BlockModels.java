@@ -6,8 +6,6 @@ import com.lance5057.compendium.client.models.IndexModelBuilder;
 import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.IIndexEntry;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.data.PackOutput;

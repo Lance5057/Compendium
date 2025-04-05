@@ -11,7 +11,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.material.extentions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;

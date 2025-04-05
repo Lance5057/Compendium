@@ -8,7 +8,6 @@ import com.lance5057.compendium.items.HandedAbilityTool;
 import com.lance5057.compendium.util.ToolUtil;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;

@@ -11,13 +11,13 @@ import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
-import com.lance5057.compendium.index.material.extentions.ExtensionArmor;
-import com.lance5057.compendium.index.material.extentions.ExtensionVanillaTools;
-import com.lance5057.compendium.index.material.extentions.MaterialExtensionSerializer;
-import com.lance5057.compendium.index.material.extentions._MaterialExtension;
-import com.lance5057.compendium.index.material.extentions.metal.ExtensionExtraMetalBlocks;
-import com.lance5057.compendium.index.material.extentions.wood.ExtensionExtraLogs;
+import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.ExtensionArmor;
+import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
+import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
+import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionExtraMetalBlocks;
+import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 
 public class MaterialTypeRegistry {
 	private static Map<Class<?>, MaterialTypeSerializer<?>> serializers = new HashMap<>();

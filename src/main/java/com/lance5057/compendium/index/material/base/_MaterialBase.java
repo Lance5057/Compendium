@@ -12,7 +12,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
-import com.lance5057.compendium.index.material.extentions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;

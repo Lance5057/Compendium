@@ -32,9 +32,9 @@ import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.extentions.ExtensionAdvancedTools;
-import com.lance5057.compendium.index.material.extentions.metal.ExtensionExtraMetalBlocks;
-import com.lance5057.compendium.index.material.extentions.wood.ExtensionExtraLogs;
+import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionExtraMetalBlocks;
+import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.fml.ModList;
