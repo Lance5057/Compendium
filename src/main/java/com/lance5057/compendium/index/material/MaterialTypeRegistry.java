@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.lance5057.compendium.index.material.base.MaterialGem;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -59,6 +60,7 @@ public class MaterialTypeRegistry {
 		serializers.put(MaterialWood.class, new MaterialWood.Serializer());
 		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
 		serializers.put(MaterialGlass.class, new MaterialGlass.Serializer());
+		serializers.put(MaterialStone.class, new MaterialStone.Serializer());
 
 		extensions.put(_MaterialExtension.class, new _MaterialExtension.Serializer());
 		extensions.put(ExtensionVanillaTools.class, new ExtensionVanillaTools.Serializer());

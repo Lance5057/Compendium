@@ -1,0 +1,8 @@
+{
+  "name": "stone",
+  "type": "STONE",
+  "loadCobblestone": false,
+  "loadSmooth": false,
+  "loadStone": false,
+  "extensions": []
+}
