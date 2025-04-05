@@ -273,7 +273,23 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
-		lp.add(this.SMALL_LOGS.asItem(), base.name.substring(0, 1).toUpperCase() + " Small Logs");
+		StringBuilder material_name = new StringBuilder();
+		for (String word : base.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			material_name.append(word).append(" ");
+		}
+		if (this.smallLogs) {
+			lp.add(this.SMALL_LOGS.asItem(), material_name + "Small Logs");
+		}
+		if (this.smallLogsCorner) {
+			lp.add(this.SMALL_LOGS_CORNER.asItem(), material_name + "Small Logs Corner");
+		}
+		if (this.smallLogsSlab) {
+			lp.add(this.SMALL_LOGS_SLAB.asItem(), material_name + "Small Logs Slab");
+		}
+		if (this.smallLogsStairs) {
+			lp.add(this.SMALL_LOGS_STAIRS.asItem(), material_name + "Small Logs Stairs");
+		}
 	}
 
 	@Override
