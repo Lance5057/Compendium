@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -111,7 +112,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 				return ConfiguredModel.builder()
 						.modelFile(bsp.models().cubeAll(
 								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-										+ "_tile_" + suffix + "_block",
+										+ base.name + "_tile_" + suffix + "_block",
 								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
 										+ "/tile/" + suffix.toLowerCase() + "_tile_block")))
 						.build();
@@ -130,8 +131,15 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
+		StringBuilder material_name = new StringBuilder();
+		for (String word : base.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			material_name.append(word).append(" ");
+		}
 		if (this.loadTile) {
-
+			lp.add(this.TILE.asItem(), material_name + "Tile");
+			lp.add(Compendium.MOD_ID + ".tooltip."+ base.name +".style.0", material_name + "Full Tile");
+			lp.add(Compendium.MOD_ID + ".tooltip."+ base.name +".style.1", material_name + "Half Tile");
 		}
 	}
 

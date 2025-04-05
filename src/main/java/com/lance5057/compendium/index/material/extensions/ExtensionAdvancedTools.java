@@ -135,8 +135,29 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
-		// TODO Auto-generated method stub
-
+		StringBuilder material_name = new StringBuilder();
+		for (String word : base.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			material_name.append(word).append(" ");
+		}
+		if (this.loadPrybar) {
+			lp.add(this.PRYBAR.asItem(), material_name + "Prybar");
+		}
+		if (this.loadHammer) {
+			lp.add(this.HAMMER.asItem(), material_name + "Hammer");
+		}
+		if (this.loadSaw) {
+			lp.add(this.SAW.asItem(), material_name + "Saw");
+		}
+		if (this.loadShears) {
+			lp.add(this.SHEARS.asItem(), material_name + "Shears");
+		}
+		if (this.loadZweihander) {
+			lp.add(this.ZWEIHANDER.asItem(), material_name + "Zweihänder");
+		}
+		if (this.loadBow) {
+			lp.add(this.BOW.asItem(), material_name + "Bow");
+		}
 	}
 
 	@Override
