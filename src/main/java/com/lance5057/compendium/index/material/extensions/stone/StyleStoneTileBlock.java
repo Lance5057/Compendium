@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.extensions.metal;
+package com.lance5057.compendium.index.material.extensions.stone;
 
 import com.lance5057.compendium.styleblock.StyleBlock;
 
@@ -19,15 +19,15 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.HitResult;
 
-public class StyleMetalTileBlock extends StyleBlock {
+public class StyleStoneTileBlock extends StyleBlock {
 	public static enum Styles {
-		FULL, HALF, VERTICAL_HALF, QUARTER, OFFSET_HALF, OFFSET_QUARTER, INDENTED, INDENTED_SEGMENT, DENTED,
-		DENTED_SEGMENT
+		FULL, HALF, VERTICAL_HALF, QUARTER, INDENTED, INDENTED_SEGMENT, DENTED, DENTED_SEGMENT, TILTED_SMALL, DIAMOND,
+		EIGHTH, PANEL
 	};
 
 	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, Styles.values().length - 1);
 
-	public StyleMetalTileBlock(Properties properties) {
+	public StyleStoneTileBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(STYLE, 0));
 	}
@@ -39,7 +39,7 @@ public class StyleMetalTileBlock extends StyleBlock {
 
 	@Override
 	public int numStyles() {
-		return 10;
+		return Styles.values().length - 1;
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class StyleMetalTileBlock extends StyleBlock {
 		for (int i = 0; i < 10; i++)
 			level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state), pos.getX() + 0.5f, pos.getY() + 0.5f,
 					pos.getZ() + 0.5f, 0, 0, 0);
-		level.playSound(null, pos, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
+		level.playSound(null, pos, SoundEvents.STONE_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
 
 		BlockState nextState = state.setValue(STYLE, next);
 		level.setBlock(pos, nextState, 3);
@@ -84,7 +84,7 @@ public class StyleMetalTileBlock extends StyleBlock {
 		for (int i = 0; i < 10; i++)
 			level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state), pos.getX() + 0.5f, pos.getY() + 0.5f,
 					pos.getZ() + 0.5f, 0, 0, 0);
-		level.playSound(null, pos, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
+		level.playSound(null, pos, SoundEvents.STONE_HIT, SoundSource.BLOCKS, 1.0F, 1.0F);
 
 		BlockState nextState = state.setValue(STYLE, next);
 		level.setBlock(pos, nextState, 3);

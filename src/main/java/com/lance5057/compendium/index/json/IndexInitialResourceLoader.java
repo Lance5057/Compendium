@@ -33,7 +33,8 @@ import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
-import com.lance5057.compendium.index.material.extensions.metal.ExtensionExtraMetalBlocks;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
+import com.lance5057.compendium.index.material.extensions.stone.ExtensionStoneStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.mojang.logging.LogUtils;
 
@@ -102,16 +103,16 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialMetal("iron", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true))
-				.addExtension(new ExtensionExtraMetalBlocks(true)));
+				.addExtension(new ExtensionMetalStyleBlocks(true)));
 		buildDefault(new MaterialMetal("gold", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionExtraMetalBlocks(true)));
+				.addExtension(new ExtensionMetalStyleBlocks(true)));
 		buildDefault(new MaterialMetal("copper", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionExtraMetalBlocks(true)));
+				.addExtension(new ExtensionMetalStyleBlocks(true)));
 		buildDefault(new MaterialMetal("netherite", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionExtraMetalBlocks(true)));
+				.addExtension(new ExtensionMetalStyleBlocks(true)));
 
 //		buildDefault(new MaterialGlass("glass", false, false));
 //		buildDefault(new MaterialGlass("white_glass", false, false));
@@ -157,9 +158,21 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialWood("stripped_crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("stripped_warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		//buildDefault(new MaterialWood("stripped_pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		
-		buildDefault(new MaterialStone("stone", false, false, false));
 
+		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("red_sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

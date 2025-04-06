@@ -35,7 +35,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class ExtensionExtraMetalBlocks extends _MaterialExtension {
+public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 
 	boolean loadTile = false;
 	public DeferredBlock<StyleMetalTileBlock> TILE;
@@ -44,7 +44,7 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 	private TagKey<Item> blockItemTag;
 	private TagKey<Block> blockTag;
 
-	public ExtensionExtraMetalBlocks(boolean loadTile) {
+	public ExtensionMetalStyleBlocks(boolean loadTile) {
 		this.loadTile = loadTile;
 	}
 
@@ -178,14 +178,14 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 		}
 	}
 
-	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraMetalBlocks> {
+	public static class Serializer extends MaterialExtensionSerializer<ExtensionMetalStyleBlocks> {
 
 		public Serializer() {
 			super("EXTRAMETALBLOCKS");
 		}
 
 		@Override
-		public JsonElement serialize(ExtensionExtraMetalBlocks src, Type typeOfSrc, JsonSerializationContext context) {
+		public JsonElement serialize(ExtensionMetalStyleBlocks src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
@@ -195,13 +195,13 @@ public class ExtensionExtraMetalBlocks extends _MaterialExtension {
 		}
 
 		@Override
-		public ExtensionExtraMetalBlocks deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+		public ExtensionMetalStyleBlocks deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
 			boolean loadTile = j.get("loadTile").getAsBoolean();
 
-			return new ExtensionExtraMetalBlocks(loadTile);
+			return new ExtensionMetalStyleBlocks(loadTile);
 		}
 
 	}
