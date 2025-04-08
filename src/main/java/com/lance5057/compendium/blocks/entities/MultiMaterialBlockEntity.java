@@ -2,6 +2,7 @@ package com.lance5057.compendium.blocks.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 
@@ -24,13 +25,21 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 
 	List<String> materials;
 
-	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos,
-			BlockState blockState) {
+	public List<String> getMaterials() {
+		return materials;
+	}
+
+	public abstract int getMaterialsCount();
+
+	public void setMaterial(int index, String s) {
+		materials.set(index, s);
+	}
+
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
 		this(type, pos, blockState, List.of());
 	}
 
-	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState,
-			List<String> list) {
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, List<String> list) {
 		super(type, pos, blockState);
 		this.materials = list;
 	}
@@ -82,8 +91,10 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 			int count = mats.getInt("count");
 			this.materials = new ArrayList<String>();
 
-			for (int i = 0; i < count; i++)
-				materials.add(nbt.getString("material_" + i));
+			for (int i = 0; i < count; i++) {
+				String s = mats.getString("material_" + i);
+				materials.add(s);
+			}
 		}
 		readNBTExtra(nbt, registries);
 	}

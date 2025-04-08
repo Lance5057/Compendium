@@ -1,7 +1,6 @@
 package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
 import com.lance5057.compendium.gui.AdjustinatorScreen;
 
 import io.netty.buffer.ByteBuf;
@@ -14,13 +13,13 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record AdjustinatorPacket(int containerId, BlockPos pos, String mode) implements CustomPacketPayload {
+public record AdjustinatorPacket(int containerId, BlockPos pos) implements CustomPacketPayload {
 
 	public static final Type<AdjustinatorPacket> id = new CustomPacketPayload.Type<AdjustinatorPacket>(
 			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "adjustinator_packet"));
 
 	public AdjustinatorPacket(FriendlyByteBuf buf) {
-		this(buf.readInt(), buf.readBlockPos(), buf.readUtf());
+		this(buf.readInt(), buf.readBlockPos());
 	}
 
 //	@Override
@@ -38,7 +37,6 @@ public record AdjustinatorPacket(int containerId, BlockPos pos, String mode) imp
 					if (Minecraft.getInstance().screen != null)
 						if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
 							screen.setPos(message.pos());
-							screen.setMode(MODES.valueOf(message.mode));
 						}
 				}
 
@@ -47,8 +45,7 @@ public record AdjustinatorPacket(int containerId, BlockPos pos, String mode) imp
 	}
 
 	public static StreamCodec<ByteBuf, AdjustinatorPacket> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.INT,
-			AdjustinatorPacket::containerId, BlockPos.STREAM_CODEC, AdjustinatorPacket::pos, ByteBufCodecs.STRING_UTF8,
-			AdjustinatorPacket::mode, AdjustinatorPacket::new);
+			AdjustinatorPacket::containerId, BlockPos.STREAM_CODEC, AdjustinatorPacket::pos, AdjustinatorPacket::new);
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

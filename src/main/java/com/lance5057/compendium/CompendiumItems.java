@@ -1,6 +1,7 @@
 package com.lance5057.compendium;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.annotation.Nullable;
 
@@ -54,8 +55,9 @@ public class CompendiumItems {
 			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
-			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()
-					.component(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(List.of()))));
+			() -> new BlockItem(CompendiumBlocks.CHAIR.get(),
+					new Item.Properties().component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of("invalid", "invalid", "invalid").toList()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()

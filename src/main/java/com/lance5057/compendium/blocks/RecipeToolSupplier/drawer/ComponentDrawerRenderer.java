@@ -1,5 +1,7 @@
 package com.lance5057.compendium.blocks.RecipeToolSupplier.drawer;
 
+import org.joml.Quaternionf;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
@@ -40,9 +42,11 @@ public class ComponentDrawerRenderer implements BlockEntityRenderer<ComponentDra
 				poseStack.pushPose();
 				float uniscale = 0.25f;
 				
-				poseStack.translate(0.28f, 0.28, 0.5f);
-//				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
-				poseStack.translate(0.0, 0.0, 0.0001);
+				
+				
+				poseStack.translate(0.5f, 0.28, 0.5f);
+				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()-90), 0));
+				poseStack.translate(-0.225, 0.0, 0.0001f);
 				
 				if (i % 2 != 0) {
 					poseStack.translate(0.44, 0.0, 0);
