@@ -1,13 +1,17 @@
 package com.lance5057.compendium.gui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Checkbox;
@@ -19,6 +23,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu> {
@@ -30,10 +35,6 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 	private BlockPos pos = BlockPos.ZERO;
 	private MODES mode = MODES.NONE;
 
-	public void setMode(MODES mode) {
-		this.mode = mode;
-	}
-
 	// STATION
 	AnimatedFloatVector3Widget loc;
 	AnimatedFloatVector3Widget rot;
@@ -43,40 +44,7 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 	private MultiToolRecipeStation<?> station;
 
 	// MULTIMATERIAL
-	public EditBox box;
-
-	@Override
-	public void init() {
-		super.init();
-
-		if (this.mode == MODES.STATION) {
-			loc = new AnimatedFloatVector3Widget();
-			rot = new AnimatedFloatVector3Widget();
-			scale = new AnimatedFloatVector3Widget();
-			pivot = new AnimatedFloatVector3Widget();
-
-			loc.init(this, 180, -25);
-			rot.init(this, 180, 30);
-			scale.init(this, 180, 85);
-			pivot.init(this, 180, 140);
-		} else if (this.mode == MODES.MULTIMATERIAL) {
-			box = new EditBox(font, this.leftPos + 100, this.topPos + 100, 40, 14, playerInventoryTitle);
-		}
-	}
-
-	protected void setup() {
-		if (this.mode == MODES.STATION) {
-			BlockEntity e = this.minecraft.level.getBlockEntity(pos);
-			if (e != null && e instanceof MultiToolRecipeStation)
-				station = (MultiToolRecipeStation<?>) e;
-
-			if (station != null)
-				if (station.getCurrentTool() != null) {
-					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
-
-				}
-		}
-	}
+	public List<EditBox> boxes = new ArrayList<EditBox>();
 
 	@Override
 	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
@@ -103,11 +71,10 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 					aft.setPivot(pivot.get());
 				}
 			}
-		}
-		else if(this.mode == MODES.MULTIMATERIAL)
-		{
-			if(box == null)
-				box = this.addRenderableWidget(new EditBox(font, this.leftPos + 1, this.topPos + 1, 160, 24, playerInventoryTitle));
+		} else if (this.mode == MODES.MULTIMATERIAL) {
+			if (boxes == null) {
+
+			}
 		}
 	}
 
@@ -118,6 +85,32 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+	}
+
+	@Override
+	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+		InputConstants.Key mouseKey = InputConstants.getKey(keyCode, scanCode);
+		if (super.keyPressed(keyCode, scanCode, modifiers)) {
+			return true;
+		} else {
+			boolean handled = this.checkHotbarKeyPressed(keyCode, scanCode);// Forge MC-146650: Needs to return true
+																			// when the key is handled
+			if (this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
+				if (this.minecraft.options.keyPickItem.isActiveAndMatches(mouseKey)) {
+					this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, 0, ClickType.CLONE);
+					handled = true;
+				} else if (this.minecraft.options.keyDrop.isActiveAndMatches(mouseKey)) {
+					this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, hasControlDown() ? 1 : 0,
+							ClickType.THROW);
+					handled = true;
+				}
+			} else if (this.minecraft.options.keyDrop.isActiveAndMatches(mouseKey)) {
+				handled = true; // Forge MC-146650: Emulate MC bug, so we don't drop from hotbar when pressing
+								// drop without hovering over a item.
+			}
+
+			return handled;
+		}
 	}
 
 	protected class AnimatedFloatVector3Widget {
@@ -319,8 +312,52 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 		}
 	}
 
-	public void setPos(BlockPos pos2) {
-		this.pos = pos2;
+	public void setPos(BlockPos pos) {
+		this.pos = pos;
+		BlockEntity e = this.minecraft.level.getBlockEntity(this.pos);
+		if (e != null) {
+			if (e instanceof MultiToolRecipeStation mtrs) {
+				this.mode = MODES.STATION;
+				station = mtrs;
+
+				loc = new AnimatedFloatVector3Widget();
+				rot = new AnimatedFloatVector3Widget();
+				scale = new AnimatedFloatVector3Widget();
+				pivot = new AnimatedFloatVector3Widget();
+
+				loc.init(this, 180, -25);
+				rot.init(this, 180, 30);
+				scale.init(this, 180, 85);
+				pivot.init(this, 180, 140);
+
+				if (station.getCurrentTool() != null) {
+					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+
+				}
+			} else if (e instanceof MultiMaterialBlockEntity mmbe) {
+				this.mode = MODES.MULTIMATERIAL;
+
+				for (int i = 0; i < mmbe.getMaterialsCount(); i++) {
+					EditBox b = addRenderableWidget(new EditBox(font, this.leftPos + 1, this.topPos + 1 + (25 * i), 160,
+							24, playerInventoryTitle));
+
+					List<String> mats = mmbe.getMaterials();
+
+					if (mats != null && mats.size() > i) {
+						b.insertText(mats.get(i));
+					}
+
+					final int index = i;
+					b.setResponder(s -> setMaterialFromBox(index, s, mmbe));
+
+					boxes.add(b);
+				}
+			}
+		}
+	}
+
+	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
+		mmbe.setMaterial(index, s);
 	}
 
 }

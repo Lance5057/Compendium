@@ -12,4 +12,9 @@ public class WindowBlockEntity extends MultiMaterialBlockEntity {
 		super(CompendiumBlockEntities.WINDOW.get(), pos, blockState);
 	}
 
+	@Override
+	public int getMaterialsCount() {
+		return 1;
+	}
+
 }

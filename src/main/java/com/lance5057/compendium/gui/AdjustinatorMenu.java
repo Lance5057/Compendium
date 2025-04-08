@@ -59,7 +59,7 @@ public class AdjustinatorMenu extends AbstractContainerMenu {
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();
 		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new AdjustinatorPacket(this.containerId, this.pos, this.mode.toString()));
+			serverPlayer.connection.send(new AdjustinatorPacket(this.containerId, this.pos));
 	}
 
 }

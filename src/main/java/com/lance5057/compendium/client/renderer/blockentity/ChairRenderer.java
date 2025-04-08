@@ -1,5 +1,7 @@
 package com.lance5057.compendium.client.renderer.blockentity;
 
+import java.util.List;
+
 import org.joml.Quaternionf;
 
 import com.lance5057.compendium.Compendium;
@@ -34,17 +36,19 @@ public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 	public void render(ChairBlockEntity blockEntity, float partialTick, PoseStack poseStack,
 			MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 
-		ModelResourceLocation legs = ModelResourceLocation
-				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_legs"));
-		ModelResourceLocation seat = ModelResourceLocation
-				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_seat"));
-		ModelResourceLocation back = ModelResourceLocation
-				.standalone(Compendium.modLoc("extra/material/wood/oak/basic_chair_back"));
-		
+		List<String> mats = blockEntity.getMaterials();
+
+		ModelResourceLocation legs = ModelResourceLocation.standalone(Compendium
+				.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase() + "/basic_chair_legs"));
+		ModelResourceLocation seat = ModelResourceLocation.standalone(Compendium
+				.modLoc("extra/material/wood/" + (mats.size() > 1 ? mats.get(1) : "invalid").toLowerCase() + "/basic_chair_seat"));
+		ModelResourceLocation back = ModelResourceLocation.standalone(Compendium
+				.modLoc("extra/material/wood/" + (mats.size() > 2 ? mats.get(2) : "invalid").toLowerCase() + "/basic_chair_back"));
+
 		IRenderable<ModelData> l = BakedModelRenderable.of(legs).withModelDataContext();
 		IRenderable<ModelData> s = BakedModelRenderable.of(seat).withModelDataContext();
 		IRenderable<ModelData> b = BakedModelRenderable.of(back).withModelDataContext();
-		
+
 		BlockState blockstate = blockEntity.getBlockState();
 		Direction dir = blockstate.getValue(HorizontalDirectionalBlock.FACING);
 
@@ -54,13 +58,13 @@ public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 			poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
 			poseStack.translate(-0.5, 0, -0.5);
 			poseStack.scale(1, 1, 1);
-			
-			l.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay, partialTick,
-					ModelData.EMPTY);
-			s.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay, partialTick,
-					ModelData.EMPTY);
-			b.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay, partialTick,
-					ModelData.EMPTY);
+
+			l.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay,
+					partialTick, ModelData.EMPTY);
+			s.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay,
+					partialTick, ModelData.EMPTY);
+			b.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight, packedOverlay,
+					partialTick, ModelData.EMPTY);
 		}
 		poseStack.popPose();
 	}

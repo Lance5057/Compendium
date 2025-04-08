@@ -1,14 +1,11 @@
 package com.lance5057.compendium.blocks.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Stream;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.entities.SeatEntity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -19,10 +16,11 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class ChairBlockEntity extends MultiMaterialBlockEntity {
 
-	List<String> types = new ArrayList<String>();
+//	List<String> types = new ArrayList<String>();
 
 	public ChairBlockEntity(BlockPos pos, BlockState blockState) {
-		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState);
+		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState,
+				Stream.of("invalid", "invalid", "invalid").toList());
 	}
 
 	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,
@@ -43,25 +41,30 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity {
 		return InteractionResult.CONSUME;
 	}
 
-	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
-		if (nbt.contains("types")) {
-			CompoundTag tag = nbt.getCompound("types");
-
-			for (int i = 0; i < tag.getInt("size"); i++) {
-				types.add(tag.getString("type" + i));
-			}
-		}
+	@Override
+	public int getMaterialsCount() {
+		return 3;
 	}
 
-	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
-		CompoundTag tag = new CompoundTag();
-
-		for (int i = 0; i < types.size(); i++) {
-			tag.putString("type" + i, types.get(i));
-		}
-
-		tag.putInt("size", types.size());
-
-		nbt.put("types", tag);
-	}
+//	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
+//		if (nbt.contains("types")) {
+//			CompoundTag tag = nbt.getCompound("types");
+//
+//			for (int i = 0; i < tag.getInt("size"); i++) {
+//				types.add(tag.getString("type" + i));
+//			}
+//		}
+//	}
+//
+//	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
+//		CompoundTag tag = new CompoundTag();
+//
+//		for (int i = 0; i < types.size(); i++) {
+//			tag.putString("type" + i, types.get(i));
+//		}
+//
+//		tag.putInt("size", types.size());
+//
+//		nbt.put("types", tag);
+//	}
 }
