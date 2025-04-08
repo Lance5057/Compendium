@@ -90,24 +90,27 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
 		InputConstants.Key mouseKey = InputConstants.getKey(keyCode, scanCode);
-
-		boolean handled = this.checkHotbarKeyPressed(keyCode, scanCode);// Forge MC-146650: Needs to return true
-																		// when the key is handled
-		if (this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
-			if (this.minecraft.options.keyPickItem.isActiveAndMatches(mouseKey)) {
-				this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, 0, ClickType.CLONE);
-				handled = true;
+		if (super.keyPressed(keyCode, scanCode, modifiers)) {
+			return true;
+		} else {
+			boolean handled = this.checkHotbarKeyPressed(keyCode, scanCode);// Forge MC-146650: Needs to return true
+																			// when the key is handled
+			if (this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
+				if (this.minecraft.options.keyPickItem.isActiveAndMatches(mouseKey)) {
+					this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, 0, ClickType.CLONE);
+					handled = true;
+				} else if (this.minecraft.options.keyDrop.isActiveAndMatches(mouseKey)) {
+					this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, hasControlDown() ? 1 : 0,
+							ClickType.THROW);
+					handled = true;
+				}
 			} else if (this.minecraft.options.keyDrop.isActiveAndMatches(mouseKey)) {
-				this.slotClicked(this.hoveredSlot, this.hoveredSlot.index, hasControlDown() ? 1 : 0, ClickType.THROW);
-				handled = true;
+				handled = true; // Forge MC-146650: Emulate MC bug, so we don't drop from hotbar when pressing
+								// drop without hovering over a item.
 			}
-		} else if (this.minecraft.options.keyDrop.isActiveAndMatches(mouseKey)) {
-			handled = true; // Forge MC-146650: Emulate MC bug, so we don't drop from hotbar when pressing
-							// drop without hovering over a item.
+
+			return handled;
 		}
-
-		return handled;
-
 	}
 
 	protected class AnimatedFloatVector3Widget {
