@@ -90,6 +90,9 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
 		InputConstants.Key mouseKey = InputConstants.getKey(keyCode, scanCode);
+		if (this.minecraft.options.keyInventory.isActiveAndMatches(mouseKey)) {
+			return true;
+		}
 		if (super.keyPressed(keyCode, scanCode, modifiers)) {
 			return true;
 		} else {
@@ -358,6 +361,13 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 
 	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
 		mmbe.setMaterial(index, s);
+	}
+
+	@Override
+	public void onClose() {
+		this.minecraft.level.blockEntityChanged(pos);
+		this.minecraft.player.closeContainer();
+		super.onClose();
 	}
 
 }

@@ -21,12 +21,12 @@ import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
 import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
-//	final ModelResourceLocation legs = ModelResourceLocation
-//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_legs"));
-//	final ModelResourceLocation seat = ModelResourceLocation
-//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_seat"));
-//	final ModelResourceLocation back = ModelResourceLocation
-//			.standalone(Compendium.modLoc("extra/furniture/chair/chair_back"));
+	final ModelResourceLocation fallback_legs = ModelResourceLocation
+			.standalone(Compendium.modLoc("extra/material/wood/invalid/chair/basic/legs"));
+	final ModelResourceLocation fallback_seat = ModelResourceLocation
+			.standalone(Compendium.modLoc("extra/material/wood/invalid/chair/basic/seat"));
+	final ModelResourceLocation fallback_back = ModelResourceLocation
+			.standalone(Compendium.modLoc("extra/material/wood/invalid/chair/basic/back"));
 
 	public ChairRenderer(BlockEntityRendererProvider.Context cxt) {
 
@@ -38,12 +38,22 @@ public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 
 		List<String> mats = blockEntity.getMaterials();
 
-		ModelResourceLocation legs = ModelResourceLocation.standalone(Compendium
-				.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase() + "/basic_chair_legs"));
-		ModelResourceLocation seat = ModelResourceLocation.standalone(Compendium
-				.modLoc("extra/material/wood/" + (mats.size() > 1 ? mats.get(1) : "invalid").toLowerCase() + "/basic_chair_seat"));
-		ModelResourceLocation back = ModelResourceLocation.standalone(Compendium
-				.modLoc("extra/material/wood/" + (mats.size() > 2 ? mats.get(2) : "invalid").toLowerCase() + "/basic_chair_back"));
+		ModelResourceLocation legs = ModelResourceLocation.standalone(
+				Compendium.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase()
+						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/legs"));
+		ModelResourceLocation seat = ModelResourceLocation.standalone(
+				Compendium.modLoc("extra/material/wood/" + (mats.size() > 1 ? mats.get(1) : "invalid").toLowerCase()
+						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/seat"));
+		ModelResourceLocation back = ModelResourceLocation.standalone(
+				Compendium.modLoc("extra/material/wood/" + (mats.size() > 2 ? mats.get(2) : "invalid").toLowerCase()
+						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/back"));
+
+		if (legs == null)
+			legs = fallback_legs;
+		if (seat == null)
+			seat = fallback_seat;
+		if (back == null)
+			back = fallback_back;
 
 		IRenderable<ModelData> l = BakedModelRenderable.of(legs).withModelDataContext();
 		IRenderable<ModelData> s = BakedModelRenderable.of(seat).withModelDataContext();

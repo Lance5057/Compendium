@@ -106,7 +106,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 		for (int i = 0; i < materials.size(); i++)
 			mats.putString("material_" + i, materials.get(i).toString());
 		tag.put("materials", mats);
-		writeNBTExtra(mats, registries);
+		writeNBTExtra(tag, registries);
 
 		return tag;
 	}
