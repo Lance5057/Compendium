@@ -1,5 +1,7 @@
 package com.lance5057.compendium.gui;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -42,6 +44,7 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 	AnimatedFloatVector3Widget pivot;
 
 	private MultiToolRecipeStation<?> station;
+	// Copy datagen/json to clipboard!
 
 	// MULTIMATERIAL
 	public List<EditBox> boxes = new ArrayList<EditBox>();
@@ -114,6 +117,18 @@ public class AdjustinatorScreen extends AbstractContainerScreen<AdjustinatorMenu
 
 			return handled;
 		}
+	}
+
+	void saveJsonToClipboard() {
+		String s = null; // json code here
+		StringSelection select = new StringSelection(s);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
+	}
+
+	void saveDataGenToClipboard() {
+		String s = null; // datagen code here
+		StringSelection select = new StringSelection(s);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
 	}
 
 	protected class AnimatedFloatVector3Widget {
