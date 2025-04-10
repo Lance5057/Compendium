@@ -35,6 +35,8 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity {
 	}
 
 	public LEGS legsStyles = LEGS.BASIC;
+	
+	
 
 	public ChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState,

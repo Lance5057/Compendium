@@ -44,15 +44,6 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 		this.materials = list;
 	}
 
-//	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState, List<String> list) {
-//		super(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState);
-//		this.materials = list;
-//	}
-//
-//	public MultiMaterialBlockEntity(BlockPos pos, BlockState blockState) {
-//		this(CompendiumBlockEntities.MULTIMATERIAL.get(), pos, blockState, List.of());
-//	}
-
 	@Override
 	public ModelData getModelData() {
 		return MultiMaterialModelData.builder(materials.toArray(new String[0])).build();
