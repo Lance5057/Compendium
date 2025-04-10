@@ -33,6 +33,12 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 
 	public void setMaterial(int index, String s) {
 		materials.set(index, s);
+		this.setChanged();
+	}
+
+	public void setMaterial(String[] s) {
+		materials = Stream.of(s).toList();
+		this.setChanged();
 	}
 
 	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {

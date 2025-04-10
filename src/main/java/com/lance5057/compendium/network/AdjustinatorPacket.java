@@ -23,12 +23,6 @@ public record AdjustinatorPacket(int containerId, BlockPos pos) implements Custo
 		this(buf.readInt(), buf.readBlockPos());
 	}
 
-//	@Override
-//	public void write(FriendlyByteBuf buf) {
-//		buf.writeInt(containerId);
-//		buf.writeBlockPos(pos);
-//	}
-//
 	public static void handle(AdjustinatorPacket message, IPayloadContext ctx) {
 		if (ctx.flow().isClientbound()) {
 			ctx.enqueueWork(new Runnable() {

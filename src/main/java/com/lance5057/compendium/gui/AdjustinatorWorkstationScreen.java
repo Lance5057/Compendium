@@ -349,10 +349,6 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 		}
 	}
 
-	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
-		mmbe.setMaterial(index, s);
-	}
-
 	@Override
 	public void onClose() {
 //		this.minecraft.level.blockEntityChanged(pos);

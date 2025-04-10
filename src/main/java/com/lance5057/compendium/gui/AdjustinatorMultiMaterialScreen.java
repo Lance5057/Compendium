@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.network.AdjustinatorCallBackPacket;
 import com.mojang.blaze3d.platform.InputConstants;
 
 import net.minecraft.client.gui.GuiGraphics;
@@ -14,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<AdjustinatorMultiMaterialMenu> {
 	private BlockPos pos = BlockPos.ZERO;
@@ -108,7 +110,11 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 	@Override
 	public void onClose() {
-		this.menu.markDirty();
+		String s = "";
+		for (EditBox b : boxes) {
+			s += b.getValue() + ":";
+		}
+		PacketDistributor.sendToServer(new AdjustinatorCallBackPacket(s, pos));
 //		this.minecraft.level.blockEntityChanged(pos);
 		this.minecraft.player.closeContainer();
 		super.onClose();

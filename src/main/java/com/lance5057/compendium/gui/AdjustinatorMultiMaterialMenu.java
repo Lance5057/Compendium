@@ -61,8 +61,10 @@ public class AdjustinatorMultiMaterialMenu extends AbstractContainerMenu {
 			serverPlayer.connection.send(new AdjustinatorPacket(this.containerId, this.pos));
 	}
 
-	public void markDirty() {
-		this.access.execute((l, b) -> l.getBlockEntity(b).setChanged());
+	public void syncBlockFromRemote(String s) {
+		String[] materials = s.split(":");
+
+		this.multimaterial.setMaterial(materials);
 	}
 
 }
