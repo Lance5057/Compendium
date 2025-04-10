@@ -1,8 +1,8 @@
 package com.lance5057.compendium.items;
 
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
-import com.lance5057.compendium.gui.AdjustinatorMenu;
-import com.lance5057.compendium.gui.AdjustinatorMenu.MODES;
+import com.lance5057.compendium.gui.AdjustinatorMultiMaterialMenu;
+import com.lance5057.compendium.gui.AdjustinatorWorkstationMenu;
 import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
 
 import net.minecraft.network.chat.CommonComponents;
@@ -22,21 +22,21 @@ public class Adjustinator extends Item {
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (pContext.getPlayer().isCrouching()) {
-			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationGuiless) {
+			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationGuiless sg) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
-						return new AdjustinatorMenu(p_57074_, p_57075_,
+						return new AdjustinatorWorkstationMenu(p_57074_, p_57075_,
 								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
-								pContext.getClickedPos(), MODES.STATION);
+								pContext.getClickedPos(), sg);
 					}, CommonComponents.EMPTY));
 				return InteractionResult.PASS;
 			}
-			if (pContext.getLevel().getBlockEntity(pContext.getClickedPos()) instanceof MultiMaterialBlockEntity) {
+			else if (pContext.getLevel().getBlockEntity(pContext.getClickedPos()) instanceof MultiMaterialBlockEntity mmbe) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
-						return new AdjustinatorMenu(p_57074_, p_57075_,
+						return new AdjustinatorMultiMaterialMenu(p_57074_, p_57075_,
 								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
-								pContext.getClickedPos(), MODES.MULTIMATERIAL);
+								pContext.getClickedPos(), mmbe);
 					}, CommonComponents.EMPTY));
 				return InteractionResult.PASS;
 			}

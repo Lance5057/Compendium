@@ -12,7 +12,8 @@ import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.MaterialSwapElementsUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.ChairRenderer;
 import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
-import com.lance5057.compendium.gui.AdjustinatorScreen;
+import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
+import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
@@ -67,7 +68,8 @@ public class CompendiumClient {
 	public static void registerClient(RegisterMenuScreensEvent event) {
 		event.register(CompendiumMenus.STYLE_MENU.get(), CosmeticToolboxScreen::new);
 		event.register(CompendiumMenus.PLACED_STYLE_MENU.get(), CosmeticToolboxPlacedScreen::new);
-		event.register(CompendiumMenus.ADJUSTINATOR_MENU.get(), AdjustinatorScreen::new);
+		event.register(CompendiumMenus.ADJUSTINATOR_WORKSTATION_MENU.get(), AdjustinatorWorkstationScreen::new);
+		event.register(CompendiumMenus.ADJUSTINATOR_MULTIMATERIAL_MENU.get(), AdjustinatorMultiMaterialScreen::new);
 		event.register(CompendiumMenus.WORKBENCH_MENU.get(), WorkbenchScreen::new);
 		event.register(CompendiumMenus.COMPONENT_DRAWER_MENU.get(), ComponentDrawerScreen::new);
 	}

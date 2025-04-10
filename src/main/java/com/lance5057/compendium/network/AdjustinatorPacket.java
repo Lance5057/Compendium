@@ -1,7 +1,8 @@
 package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.gui.AdjustinatorScreen;
+import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
+import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -35,7 +36,9 @@ public record AdjustinatorPacket(int containerId, BlockPos pos) implements Custo
 				@Override
 				public void run() {
 					if (Minecraft.getInstance().screen != null)
-						if (Minecraft.getInstance().screen instanceof AdjustinatorScreen screen) {
+						if (Minecraft.getInstance().screen instanceof AdjustinatorWorkstationScreen screen) {
+							screen.setPos(message.pos());
+						} else if (Minecraft.getInstance().screen instanceof AdjustinatorMultiMaterialScreen screen) {
 							screen.setPos(message.pos());
 						}
 				}

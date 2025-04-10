@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "style=0": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_full_tile_block"
+    },
+    "style=1": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_half_tile_block"
+    },
+    "style=10": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_brick_block"
+    },
+    "style=11": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_brick_vertical_block"
+    },
+    "style=12": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_aligned_brick_block"
+    },
+    "style=13": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_aligned_brick_vertical_block"
+    },
+    "style=14": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_basketweave_bricks_block"
+    },
+    "style=15": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_big_brick_block"
+    },
+    "style=16": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_herringbone_bricks_block"
+    },
+    "style=17": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_hex_brick_block"
+    },
+    "style=18": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_slats_block"
+    },
+    "style=19": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_slats_vertical_block"
+    },
+    "style=2": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_half_tile_vertical_block"
+    },
+    "style=3": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_indented_block"
+    },
+    "style=4": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_indented_segmented_block"
+    },
+    "style=5": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_dented_block"
+    },
+    "style=6": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_dented_segmented_block"
+    },
+    "style=7": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_tilted_small_tile_block"
+    },
+    "style=8": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_diamond_tile_block"
+    },
+    "style=9": {
+      "model": "compendium:block/material/stone/diorite/diorite_tile_eighth_tiles_block"
+    }
+  }
+}

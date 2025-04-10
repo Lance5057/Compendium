@@ -3,7 +3,8 @@ package com.lance5057.compendium;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerMenu;
-import com.lance5057.compendium.gui.AdjustinatorMenu;
+import com.lance5057.compendium.gui.AdjustinatorMultiMaterialMenu;
+import com.lance5057.compendium.gui.AdjustinatorWorkstationMenu;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedMenu;
 import com.lance5057.compendium.workstations.workbench.WorkbenchMenu;
@@ -27,8 +28,12 @@ public class CompendiumMenus {
 	public static final Supplier<MenuType<CosmeticToolboxPlacedMenu>> PLACED_STYLE_MENU = MENU_TYPES
 			.register("style_placed", () -> IMenuTypeExtension.create(CosmeticToolboxPlacedMenu::new));
 
-	public static final Supplier<MenuType<AdjustinatorMenu>> ADJUSTINATOR_MENU = MENU_TYPES.register("adjustinator",
-			() -> IMenuTypeExtension.create(AdjustinatorMenu::new));
+	public static final Supplier<MenuType<AdjustinatorWorkstationMenu>> ADJUSTINATOR_WORKSTATION_MENU = MENU_TYPES
+			.register("adjustinator_workstation", () -> IMenuTypeExtension.create(AdjustinatorWorkstationMenu::new));
+
+	public static final Supplier<MenuType<AdjustinatorMultiMaterialMenu>> ADJUSTINATOR_MULTIMATERIAL_MENU = MENU_TYPES
+			.register("adjustinator_multimaterial",
+					() -> IMenuTypeExtension.create(AdjustinatorMultiMaterialMenu::new));
 
 	public static final Supplier<MenuType<ComponentDrawerMenu>> COMPONENT_DRAWER_MENU = MENU_TYPES
 			.register("component_drawer", () -> IMenuTypeExtension.create(ComponentDrawerMenu::new));
