@@ -114,7 +114,7 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
 										+ base.name + "_tile_" + suffix + "_block",
 								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-										+ "/" + suffix.toLowerCase() + "_tile_block")))
+										+ "/" + suffix.toLowerCase())))
 						.build();
 
 			});
