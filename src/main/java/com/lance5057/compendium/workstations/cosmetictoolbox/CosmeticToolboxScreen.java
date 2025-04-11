@@ -1,5 +1,8 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.styleblock.StyleBlock;
 import com.mojang.blaze3d.platform.Lighting;
@@ -8,6 +11,9 @@ import com.mojang.math.Axis;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -34,12 +40,17 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = Compendium.modLoc("highlighted_style_recipe_bar");
 	private static final ResourceLocation RECIPE_SPRITE = Compendium.modLoc("style_recipe_bar");
 
+	private static final WidgetSprites tab_sprites = new WidgetSprites(Compendium.modLoc("tab"),
+			Compendium.modLoc("tab_highlighted"));
+
 	private float scrollOffs;
 	private boolean scrolling;
 	private int startIndex;
 
 	private BlockPos pos = BlockPos.ZERO;
 	private StyleBlock style;
+
+	List<Button> tabs = new ArrayList<Button>();
 
 	public CosmeticToolboxScreen(CosmeticToolboxMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
@@ -133,6 +144,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		Block block = this.minecraft.level.getBlockState(pos).getBlock();
 		if (block instanceof StyleBlock style)
 			this.style = style;
+
+		tabs.add(this.addRenderableWidget(new ImageButton(0, 0, 32, 32, tab_sprites, b -> {
+		})));
 	}
 
 	void renderBlock(GuiGraphics guiGraphics, BlockState state) {
