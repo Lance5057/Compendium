@@ -1,9 +1,11 @@
 package com.lance5057.compendium.styleblock;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -12,7 +14,7 @@ public class MultiStyle {
 	private int current = 0;
 
 	public MultiStyle(String... styles) {
-		this.types.addAll(Stream.of(styles).toList());
+		this.types = Arrays.asList(styles);
 	}
 
 	public int numStyles() {
@@ -44,5 +46,18 @@ public class MultiStyle {
 
 	public boolean isPatreonStyle(int style) {
 		return false;
+	}
+
+	public CompoundTag writeNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		CompoundTag tag = new CompoundTag();
+
+		tag.putInt("current", current);
+
+		return tag;
+	}
+
+	public void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		this.current = nbt.getInt("current");
+
 	}
 }

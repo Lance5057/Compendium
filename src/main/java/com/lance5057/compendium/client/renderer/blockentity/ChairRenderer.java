@@ -40,13 +40,13 @@ public class ChairRenderer implements BlockEntityRenderer<ChairBlockEntity> {
 
 		ModelResourceLocation legs = ModelResourceLocation.standalone(
 				Compendium.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase()
-						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/legs"));
+						+ "/chair/" + blockEntity.legsStyles.getCurrentStyle().toLowerCase() + "/legs"));
 		ModelResourceLocation seat = ModelResourceLocation.standalone(
 				Compendium.modLoc("extra/material/wood/" + (mats.size() > 1 ? mats.get(1) : "invalid").toLowerCase()
-						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/seat"));
+						+ "/chair/" + blockEntity.legsStyles.getCurrentStyle().toLowerCase() + "/seat"));
 		ModelResourceLocation back = ModelResourceLocation.standalone(
 				Compendium.modLoc("extra/material/wood/" + (mats.size() > 2 ? mats.get(2) : "invalid").toLowerCase()
-						+ "/chair/" + blockEntity.legsStyles.toString().toLowerCase() + "/back"));
+						+ "/chair/" + blockEntity.legsStyles.getCurrentStyle().toLowerCase() + "/back"));
 
 		if (legs == null)
 			legs = fallback_legs;

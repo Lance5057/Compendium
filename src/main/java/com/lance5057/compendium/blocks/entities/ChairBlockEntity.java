@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.entities.SeatEntity;
+import com.lance5057.compendium.styleblock.MultiStyle;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -18,25 +19,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class ChairBlockEntity extends MultiMaterialBlockEntity {
 
-	public static enum BACK {
-		BASIC
-	}
-
-	public BACK backStyles = BACK.BASIC;
-
-	public static enum SEAT {
-		BASIC
-	}
-
-	public SEAT seatStyles = SEAT.BASIC;
-
-	public static enum LEGS {
-		BASIC
-	}
-
-	public LEGS legsStyles = LEGS.BASIC;
-	
-	
+	public MultiStyle backStyles = new MultiStyle("basic");
+	public MultiStyle seatStyles = new MultiStyle("basic");
+	public MultiStyle legsStyles = new MultiStyle("basic");
 
 	public ChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState,
@@ -70,18 +55,18 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity {
 		if (nbt.contains("types")) {
 			CompoundTag tag = nbt.getCompound("types");
 
-			backStyles = BACK.valueOf(tag.get("back").getAsString());
-			seatStyles = SEAT.valueOf(tag.get("seat").getAsString());
-			legsStyles = LEGS.valueOf(tag.get("legs").getAsString());
+			backStyles.readNBT(tag.getCompound("back"), registries);
+			seatStyles.readNBT(tag.getCompound("seat"), registries);
+			legsStyles.readNBT(tag.getCompound("legs"), registries);
 		}
 	}
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		CompoundTag tag = new CompoundTag();
 
-		tag.putString("back", backStyles.toString());
-		tag.putString("seat", seatStyles.toString());
-		tag.putString("legs", legsStyles.toString());
+		tag.put("back", backStyles.writeNBT(nbt, registries));
+		tag.put("seat", seatStyles.writeNBT(nbt, registries));
+		tag.put("legs", legsStyles.writeNBT(nbt, registries));
 
 		nbt.put("types", tag);
 	}

@@ -21,12 +21,13 @@ import net.minecraft.world.phys.HitResult;
 
 public class StyleStoneTileBlock extends StyleBlock {
 	public static enum Styles {
-		FULL_TILE, HALF_TILE/*, OFFSET_HALF_TILE*/, HALF_TILE_VERTICAL/*, QUARTER*/, INDENTED, INDENTED_SEGMENTED, DENTED, DENTED_SEGMENTED, TILTED_SMALL_TILE, DIAMOND_TILE,
-		EIGHTH_TILES/*, OFFSET_EIGHTH_TILES*/, BRICK, BRICK_VERTICAL, ALIGNED_BRICK, ALIGNED_BRICK_VERTICAL, BASKETWEAVE_BRICKS, BIG_BRICK/*, HALF_BRICK*/,
+		FULL_TILE, HALF_TILE/* , OFFSET_HALF_TILE */, HALF_TILE_VERTICAL/* , QUARTER */, INDENTED, INDENTED_SEGMENTED,
+		DENTED, DENTED_SEGMENTED, TILTED_SMALL_TILE, DIAMOND_TILE, EIGHTH_TILES/* , OFFSET_EIGHTH_TILES */, BRICK,
+		BRICK_VERTICAL, ALIGNED_BRICK, ALIGNED_BRICK_VERTICAL, BASKETWEAVE_BRICKS, BIG_BRICK/* , HALF_BRICK */,
 		HERRINGBONE_BRICKS, HEX_BRICK, SLATS, SLATS_VERTICAL
 	};
 
-	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, Styles.values().length - 1);
+	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, Styles.values().length-1);
 
 	public StyleStoneTileBlock(Properties properties) {
 		super(properties);
@@ -40,7 +41,7 @@ public class StyleStoneTileBlock extends StyleBlock {
 
 	@Override
 	public int numStyles() {
-		return Styles.values().length - 1;
+		return Styles.values().length;
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class StyleStoneTileBlock extends StyleBlock {
 	@Override
 	public void setNextStyle(Level level, BlockPos pos, BlockState state) {
 		int next = state.getValue(STYLE) + 1;
-		if (state.getValue(STYLE) >= numStyles() - 1) {
+		if (state.getValue(STYLE) >= numStyles()) {
 			next = 0;
 		}
 
