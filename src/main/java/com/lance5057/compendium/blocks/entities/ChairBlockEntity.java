@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class ChairBlockEntity extends MultiMaterialBlockEntity {
 
-	public MultiStyle backStyles = new MultiStyle("basic");
+	public MultiStyle backStyles = new MultiStyle("basic", "runged");
 	public MultiStyle seatStyles = new MultiStyle("basic");
 	public MultiStyle legsStyles = new MultiStyle("basic");
 

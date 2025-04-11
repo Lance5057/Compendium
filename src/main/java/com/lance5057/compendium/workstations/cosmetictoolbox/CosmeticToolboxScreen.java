@@ -199,10 +199,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			}
 		}
 
-		i = this.leftPos + 119;
+		i = this.leftPos + 155 + 6;
 		j = this.topPos + 9;
 		if (p_99318_ >= (double) i && p_99318_ < (double) (i + 12) && p_99319_ >= (double) j
-				&& p_99319_ < (double) (j + 54)) {
+				&& p_99319_ < (double) (j + 144)) {
 			this.scrolling = true;
 		}
 
@@ -213,10 +213,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	public boolean mouseDragged(double p_99322_, double p_99323_, int p_99324_, double p_99325_, double p_99326_) {
 		if (this.scrolling && this.isScrollBarActive()) {
 			int i = this.topPos + 14;
-			int j = i + 54;
+			int j = i + 144;
 			this.scrollOffs = ((float) p_99323_ - (float) i - 7.5F) / ((float) (j - i) - 15.0F);
 			this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
-			this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5) * 4;
+			this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5);
 			return true;
 		} else {
 			return super.mouseDragged(p_99322_, p_99323_, p_99324_, p_99325_, p_99326_);
@@ -229,7 +229,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			int i = this.getOffscreenRows();
 			float f = (float) p_295672_ / (float) i;
 			this.scrollOffs = Mth.clamp(this.scrollOffs - f, 0.0F, 1.0F);
-			this.startIndex = (int) ((this.scrollOffs * (float) i) + 0.5) * 4;
+			this.startIndex = (int) ((this.scrollOffs * (float) i) + 0.5);
 		}
 
 		return true;
