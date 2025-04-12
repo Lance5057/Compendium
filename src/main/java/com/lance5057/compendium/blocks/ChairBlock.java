@@ -1,7 +1,11 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.List;
+
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.blocks.entities.ChairBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyleBlockEntity;
+import com.lance5057.compendium.styleblock.IStyleBlock;
+import com.lance5057.compendium.styleblock.MultiStyle;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -24,7 +28,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock, IStyleBlock {
 
 	protected static final VoxelShape BASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 
@@ -54,7 +58,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
 			BlockHitResult hitResult) {
 		BlockEntity blockentity = level.getBlockEntity(pos);
-		if (blockentity instanceof ChairBlockEntity be) {
+		if (blockentity instanceof StyleBlockEntity be) {
 			return be.attemptSit(state, level, pos, player, hitResult);
 		}
 		return InteractionResult.CONSUME;
@@ -62,7 +66,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.CHAIR.get().create(pos, state);
+		return CompendiumBlockEntities.STYLE.get().create(pos, state);
 	}
 
 	@Override
@@ -93,6 +97,24 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		if (context.getPlayer().isCrouching())
 			return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+	}
+
+	@Override
+	public List<MultiStyle> getStyles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNumOfMaterials() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<String> getMaterialTypes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

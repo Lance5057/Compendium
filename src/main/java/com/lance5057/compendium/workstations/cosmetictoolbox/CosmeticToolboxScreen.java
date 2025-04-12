@@ -41,7 +41,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private static final ResourceLocation RECIPE_SPRITE = Compendium.modLoc("style_recipe_bar");
 
 	private static final WidgetSprites tab_sprites = new WidgetSprites(Compendium.modLoc("tab"),
-			Compendium.modLoc("tab_highlighted"));
+			Compendium.modLoc("tab_highlight"));
 
 	private float scrollOffs;
 	private boolean scrolling;
@@ -145,8 +145,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		if (block instanceof StyleBlock style)
 			this.style = style;
 
-		tabs.add(this.addRenderableWidget(new ImageButton(0, 0, 32, 32, tab_sprites, b -> {
-		})));
+		for (int i = 0; i < 3; i++)
+			tabs.add(this.addRenderableWidget(
+					new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
+					})));
 	}
 
 	void renderBlock(GuiGraphics guiGraphics, BlockState state) {

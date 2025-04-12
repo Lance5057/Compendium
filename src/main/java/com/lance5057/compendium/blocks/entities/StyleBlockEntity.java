@@ -1,6 +1,6 @@
 package com.lance5057.compendium.blocks.entities;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.entities.SeatEntity;
@@ -17,15 +17,31 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class ChairBlockEntity extends MultiMaterialBlockEntity {
+public class StyleBlockEntity extends MultiMaterialBlockEntity {
+	String name;
 
-	public MultiStyle backStyles = new MultiStyle("basic", "runged");
-	public MultiStyle seatStyles = new MultiStyle("basic");
-	public MultiStyle legsStyles = new MultiStyle("basic");
+	public String getName() {
+		return name;
+	}
 
-	public ChairBlockEntity(BlockPos pos, BlockState blockState) {
-		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState,
-				Stream.of("invalid", "invalid", "invalid").toList());
+	List<MultiStyle> styles;
+
+	public List<MultiStyle> getStyles() {
+		return styles;
+	}
+
+	// public MultiStyle backStyles = new MultiStyle("basic", "runged");
+//	public MultiStyle seatStyles = new MultiStyle("basic");
+//	public MultiStyle legsStyles = new MultiStyle("basic");
+	public StyleBlockEntity(BlockPos pos, BlockState blockState) {
+		this(pos, blockState, "", List.of(), List.of());
+	}
+
+	public StyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<String> list,
+			List<MultiStyle> styles) {
+		super(CompendiumBlockEntities.STYLE.get(), pos, blockState, list);
+		this.styles = styles;
+		this.name = name;
 	}
 
 	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,
@@ -55,18 +71,24 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity {
 		if (nbt.contains("types")) {
 			CompoundTag tag = nbt.getCompound("types");
 
-			backStyles.readNBT(tag.getCompound("back"), registries);
-			seatStyles.readNBT(tag.getCompound("seat"), registries);
-			legsStyles.readNBT(tag.getCompound("legs"), registries);
+			for (int i = 0; i < styles.size(); i++) {
+				styles.get(i).readNBT(tag.getCompound("style" + i), registries);
+			}
+//			backStyles.readNBT(tag.getCompound("back"), registries);
+//			seatStyles.readNBT(tag.getCompound("seat"), registries);
+//			legsStyles.readNBT(tag.getCompound("legs"), registries);
 		}
 	}
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		CompoundTag tag = new CompoundTag();
 
-		tag.put("back", backStyles.writeNBT(nbt, registries));
-		tag.put("seat", seatStyles.writeNBT(nbt, registries));
-		tag.put("legs", legsStyles.writeNBT(nbt, registries));
+		for (int i = 0; i < styles.size(); i++) {
+			tag.put("style" + i, styles.get(i).writeNBT(nbt, registries));
+		}
+//		tag.put("back", backStyles.writeNBT(nbt, registries));
+//		tag.put("seat", seatStyles.writeNBT(nbt, registries));
+//		tag.put("legs", legsStyles.writeNBT(nbt, registries));
 
 		nbt.put("types", tag);
 	}

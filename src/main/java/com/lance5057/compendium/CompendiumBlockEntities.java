@@ -3,7 +3,7 @@ package com.lance5057.compendium;
 import com.lance5057.compendium.blocks.WindowBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
-import com.lance5057.compendium.blocks.entities.ChairBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyleBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -50,7 +50,7 @@ public class CompendiumBlockEntities {
 			.register("window", () -> BlockEntityType.Builder.of(WindowBlockEntity::new, CompendiumBlocks.WINDOW.get())
 					.build(null));
 
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> CHAIR = BLOCK_ENTITIES
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("chair",
-					() -> BlockEntityType.Builder.of(ChairBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
+					() -> BlockEntityType.Builder.of(StyleBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
 }

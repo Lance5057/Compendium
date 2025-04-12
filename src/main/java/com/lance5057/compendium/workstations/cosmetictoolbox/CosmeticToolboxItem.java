@@ -3,7 +3,7 @@ package com.lance5057.compendium.workstations.cosmetictoolbox;
 import java.util.List;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.styleblock.StyleBlock;
+import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
@@ -29,7 +29,7 @@ public class CosmeticToolboxItem extends BlockItem {
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (!pContext.getPlayer().isCrouching()) {
-			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StyleBlock s) {
+			if (pContext.getLevel().getBlockEntity(pContext.getClickedPos()) instanceof MultiMaterialBlockEntity s) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
 						return new CosmeticToolboxMenu(p_57074_, p_57075_,

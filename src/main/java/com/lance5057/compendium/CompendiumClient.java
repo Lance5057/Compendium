@@ -10,7 +10,7 @@ import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.MaterialSwapElementsUnbakedModel;
-import com.lance5057.compendium.client.renderer.blockentity.ChairRenderer;
+import com.lance5057.compendium.client.renderer.blockentity.StyleBlockRenderer;
 import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
 import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
 import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
@@ -61,7 +61,7 @@ public class CompendiumClient {
 		BlockEntityRenderers.register(CompendiumBlockEntities.WORKBENCH.get(), WorkbenchRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.TOOLRACK.get(), ToolRackRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.COMPONENT_DRAWER.get(), ComponentDrawerRenderer::new);
-		BlockEntityRenderers.register(CompendiumBlockEntities.CHAIR.get(), ChairRenderer::new);
+		BlockEntityRenderers.register(CompendiumBlockEntities.STYLE.get(), StyleBlockRenderer::new);
 	}
 
 	@SubscribeEvent

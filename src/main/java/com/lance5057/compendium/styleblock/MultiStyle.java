@@ -10,10 +10,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MultiStyle {
+	private String name;
+	public String getName() {
+		return name;
+	}
+
 	private List<String> types;
 	private int current = 0;
 
-	public MultiStyle(String... styles) {
+	public MultiStyle(String name, String... styles) {
+		this.name = name;
 		this.types = Arrays.asList(styles);
 	}
 
