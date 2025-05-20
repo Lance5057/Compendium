@@ -39,30 +39,31 @@ public class StyleBlockRenderer implements BlockEntityRenderer<StyleBlockEntity>
 
 		List<String> mats = blockEntity.getMaterials();
 
-		for (int i = 0; i < blockEntity.getMaterialsCount(); i++) {
-			MultiStyle style = blockEntity.getStyles().get(i);
-			ModelResourceLocation legs = ModelResourceLocation.standalone(Compendium.modLoc("extra/material/wood/"
-					+ (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase() + "/" + blockEntity.getName() + "/"
-					+ style.getCurrentStyle().toLowerCase() + "/" + style.getName()));
+		if (blockEntity.getStyles().size() > 0) {
+			for (int i = 0; i < blockEntity.getMaterialsCount(); i++) {
+				MultiStyle style = blockEntity.getStyles().get(i);
+				ModelResourceLocation legs = ModelResourceLocation.standalone(Compendium.modLoc("extra/material/wood/"
+						+ (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase() + "/" + blockEntity.getName() + "/"
+						+ style.getCurrentStyle().toLowerCase() + "/" + style.getName()));
 
-			IRenderable<ModelData> l = BakedModelRenderable.of(legs).withModelDataContext();
+				IRenderable<ModelData> l = BakedModelRenderable.of(legs).withModelDataContext();
 
-			BlockState blockstate = blockEntity.getBlockState();
-			Direction dir = blockstate.getValue(HorizontalDirectionalBlock.FACING);
+				BlockState blockstate = blockEntity.getBlockState();
+				Direction dir = blockstate.getValue(HorizontalDirectionalBlock.FACING);
 
-			poseStack.pushPose();
-			{
-				poseStack.translate(0.5, 0, 0.5);
-				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
-				poseStack.translate(-0.5, 0, -0.5);
-				poseStack.scale(1, 1, 1);
+				poseStack.pushPose();
+				{
+					poseStack.translate(0.5, 0, 0.5);
+					poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
+					poseStack.translate(-0.5, 0, -0.5);
+					poseStack.scale(1, 1, 1);
 
-				l.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight,
-						packedOverlay, partialTick, ModelData.EMPTY);
+					l.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight,
+							packedOverlay, partialTick, ModelData.EMPTY);
 
+				}
+				poseStack.popPose();
 			}
-			poseStack.popPose();
-		}
 //		ModelResourceLocation legs = ModelResourceLocation.standalone(
 //				Compendium.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase()
 //						+ "/chair/" + blockEntity.legsStyles.getCurrentStyle().toLowerCase() + "/legs"));
@@ -102,6 +103,6 @@ public class StyleBlockRenderer implements BlockEntityRenderer<StyleBlockEntity>
 //					partialTick, ModelData.EMPTY);
 //		}
 //		poseStack.popPose();
+		}
 	}
-
 }

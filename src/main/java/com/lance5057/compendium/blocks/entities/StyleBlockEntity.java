@@ -13,11 +13,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class StyleBlockEntity extends MultiMaterialBlockEntity {
+public class StyleBlockEntity extends BlockEntity {
 	String name;
 
 	public String getName() {
@@ -34,12 +35,11 @@ public class StyleBlockEntity extends MultiMaterialBlockEntity {
 //	public MultiStyle seatStyles = new MultiStyle("basic");
 //	public MultiStyle legsStyles = new MultiStyle("basic");
 	public StyleBlockEntity(BlockPos pos, BlockState blockState) {
-		this(pos, blockState, "", List.of(), List.of());
+		this(pos, blockState, "", List.of());
 	}
 
-	public StyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<String> list,
-			List<MultiStyle> styles) {
-		super(CompendiumBlockEntities.STYLE.get(), pos, blockState, list);
+	public StyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<MultiStyle> styles) {
+		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
 		this.styles = styles;
 		this.name = name;
 	}
@@ -60,11 +60,6 @@ public class StyleBlockEntity extends MultiMaterialBlockEntity {
 		}
 
 		return InteractionResult.CONSUME;
-	}
-
-	@Override
-	public int getMaterialsCount() {
-		return 3;
 	}
 
 	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
