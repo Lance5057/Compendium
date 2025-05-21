@@ -2,8 +2,8 @@ package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
-import com.lance5057.compendium.client.models.IndexModelBuilder;
-import com.lance5057.compendium.client.models.MaterialSwapModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.model.IndexModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;

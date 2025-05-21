@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 
 import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.client.models.MultiMaterialModelData;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 
 import net.minecraft.core.BlockPos;

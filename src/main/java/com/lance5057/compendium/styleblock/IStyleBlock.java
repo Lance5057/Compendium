@@ -7,5 +7,5 @@ public interface IStyleBlock {
 
 	public List<String> getMaterialTypes();
 
-	public List<MultiStyle> getStyles();
+	public List<StyleType> getStyles();
 }

@@ -1,5 +1,7 @@
 package com.lance5057.compendium.blocks;
 
+import com.lance5057.compendium.blocks.entities.WindowBlockEntity;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;

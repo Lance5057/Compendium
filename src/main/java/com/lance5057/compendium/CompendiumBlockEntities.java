@@ -1,9 +1,9 @@
 package com.lance5057.compendium;
 
-import com.lance5057.compendium.blocks.WindowBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
-import com.lance5057.compendium.blocks.entities.StyleBlockEntity;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.blocks.entities.WindowBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -17,10 +17,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class CompendiumBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
 			.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Compendium.MOD_ID);
-
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WorkbenchBlockEntity>> WORKSTATION = TILES
-//			.register("workbench", () -> BlockEntityType.Builder
-//					.of(WorkbenchBlockEntity::new, CompendiumBlocks.WORKBENCH.get()).build(null));
 //
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = BLOCK_ENTITIES
 			.register("hammering_station", () -> BlockEntityType.Builder
@@ -50,7 +46,7 @@ public class CompendiumBlockEntities {
 			.register("window", () -> BlockEntityType.Builder.of(WindowBlockEntity::new, CompendiumBlocks.WINDOW.get())
 					.build(null));
 
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyleBlockEntity>> STYLE = BLOCK_ENTITIES
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("chair",
-					() -> BlockEntityType.Builder.of(StyleBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
+					() -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
 }

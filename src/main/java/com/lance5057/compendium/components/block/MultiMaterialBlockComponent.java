@@ -19,8 +19,8 @@ public record MultiMaterialBlockComponent(List<String> types) implements Tooltip
 			.group(Codec.list(Codec.STRING).fieldOf("types").forGetter(MultiMaterialBlockComponent::types))
 			.apply(p_337946_, MultiMaterialBlockComponent::new));
 
-	public static final StreamCodec<ByteBuf, MultiMaterialBlockComponent> UNIT_STREAM_CODEC = StreamCodec
-			.unit(new MultiMaterialBlockComponent(List.of()));
+//	public static final StreamCodec<ByteBuf, MultiMaterialBlockComponent> UNIT_STREAM_CODEC = StreamCodec
+//			.unit(new MultiMaterialBlockComponent(List.of()));
 
 	public static final StreamCodec<ByteBuf, MultiMaterialBlockComponent> STREAM_CODEC = StreamCodec.composite(
 			ByteBufCodecs.STRING_UTF8.apply(ByteBufCodecs.list()), MultiMaterialBlockComponent::types,

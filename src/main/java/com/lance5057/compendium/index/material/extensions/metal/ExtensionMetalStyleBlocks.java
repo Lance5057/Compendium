@@ -15,7 +15,6 @@ import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.styleblock.StyleItem;
 
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -23,7 +22,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -51,35 +49,9 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
-				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)) {
-					@Override
-					public String getStyleFromBlock(BlockItemStateProperties bisp) {
-						if (bisp != null)
-							return base.name + ".style." + bisp.get(StyleMetalTileBlock.STYLE);
-						return base.name + "style.0";
-					}
-
-					@Override
-					public String getStyleFromBlock(int i) {
-						return base.name + ".style." + i;
-					}
-				});
+				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
-				() -> new StyleItem(TILE.get(), new Item.Properties().component(DataComponents.BLOCK_STATE,
-						BlockItemStateProperties.EMPTY.with(StyleMetalTileBlock.STYLE, 0))) {
-					@Override
-					public String getStyleFromBlock(BlockItemStateProperties bisp) {
-						if (bisp != null)
-							return base.name + ".style." + bisp.get(StyleMetalTileBlock.STYLE);
-						return base.name + "style.0";
-					}
-
-					@Override
-					public String getStyleFromBlock(int i) {
-						return base.name + ".style." + i;
-					}
-
-				});
+				() -> new StyleItem(TILE.get(), new Item.Properties()));
 	}
 
 	@Override
@@ -94,30 +66,30 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		if (this.loadTile) {
 
 //			ModelFile test = 
-			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
-//				return ConfiguredModel.builder().modelFile(test).build();
-				int style = state.getValue(StyleMetalTileBlock.STYLE);
-
-				String suffix = (StyleMetalTileBlock.Styles.values()[style] + "").toLowerCase();
-//				return ConfiguredModel.builder()
-//						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix + "_base",
-//								bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
-//										+ suffix.toLowerCase() + "_tile_block")))
-//						.modelFile(bsp.models()
-//								.withExistingParent(base.name + "_tile_" + suffix,
-//										bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
-//								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.METAL).end())
+//			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
+////				return ConfiguredModel.builder().modelFile(test).build();
+//				int style = state.getValue(StyleMetalTileBlock.STYLE);
 //
+//				String suffix = (StyleMetalTileBlock.Styles.values()[style] + "").toLowerCase();
+////				return ConfiguredModel.builder()
+////						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix + "_base",
+////								bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
+////										+ suffix.toLowerCase() + "_tile_block")))
+////						.modelFile(bsp.models()
+////								.withExistingParent(base.name + "_tile_" + suffix,
+////										bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
+////								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.METAL).end())
+////
+////						.build();
+//				return ConfiguredModel.builder()
+//						.modelFile(bsp.models().cubeAll(
+//								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
+//										+ base.name + "_tile_" + suffix + "_block",
+//								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+//										+ "/tile/" + suffix.toLowerCase() + "_tile_block")))
 //						.build();
-				return ConfiguredModel.builder()
-						.modelFile(bsp.models().cubeAll(
-								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-										+ base.name + "_tile_" + suffix + "_block",
-								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-										+ "/tile/" + suffix.toLowerCase() + "_tile_block")))
-						.build();
-
-			});
+//
+//			});
 
 		}
 	}

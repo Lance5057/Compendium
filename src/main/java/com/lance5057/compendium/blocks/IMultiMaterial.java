@@ -17,7 +17,7 @@ public interface IMultiMaterial {
 
 	public void setMaterial(String[] s);
 
-	default List<String> readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+	default List<String> readMaterialNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		if (nbt.contains("materials")) {
 			CompoundTag mats = nbt.getCompound("materials");
 
@@ -35,7 +35,7 @@ public interface IMultiMaterial {
 		return null;
 	}
 
-	default CompoundTag writeNBT(List<String> materials, CompoundTag tag, HolderLookup.Provider registries) {
+	default CompoundTag writeMaterialNBT(List<String> materials, CompoundTag tag, HolderLookup.Provider registries) {
 
 		CompoundTag mats = new CompoundTag();
 		mats.putInt("count", materials.size());

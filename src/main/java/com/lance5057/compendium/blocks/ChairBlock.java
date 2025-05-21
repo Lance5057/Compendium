@@ -3,9 +3,9 @@ package com.lance5057.compendium.blocks;
 import java.util.List;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.blocks.entities.StyleBlockEntity;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.styleblock.IStyleBlock;
-import com.lance5057.compendium.styleblock.MultiStyle;
+import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -58,9 +58,9 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
 			BlockHitResult hitResult) {
 		BlockEntity blockentity = level.getBlockEntity(pos);
-		if (blockentity instanceof StyleBlockEntity be) {
-			return be.attemptSit(state, level, pos, player, hitResult);
-		}
+//		if (blockentity instanceof SimpleStyleBlockEntity be) {
+//			return be.attemptSit(state, level, pos, player, hitResult);
+//		}
 		return InteractionResult.CONSUME;
 	}
 
@@ -100,7 +100,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	}
 
 	@Override
-	public List<MultiStyle> getStyles() {
+	public List<StyleType> getStyles() {
 		// TODO Auto-generated method stub
 		return null;
 	}
