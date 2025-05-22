@@ -46,7 +46,7 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 		if (indexModels != null) {
 			for (int i = 0; i < indexModels.size(); i++)
-				indexModels.get(i).toJson(json, i);
+				indexModels.get(i).toJson(json);
 		}
 
 //		json.addProperty("count", models.size());

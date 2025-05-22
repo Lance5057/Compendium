@@ -8,6 +8,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
+import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -25,8 +28,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -50,6 +55,8 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
 				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+
+		CompendiumBlockEntities.validStyleBlocks.add(TILE);
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
 				() -> new StyleItem(TILE.get(), new Item.Properties()));
 	}
@@ -64,6 +71,21 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.loadTile) {
+
+			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
+				Builder<?> b = ConfiguredModel.builder();
+				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(base.name + "_tile")
+						.customLoader(StyleBlockModelBuilder::begin);
+				msmb.base(bsp.models().cubeAll("window_base", bsp.mcLoc("block/glass")).renderType("cutout"));
+
+				for (String s : StyleMetalTileBlock.style.getStyles())
+					msmb.add(new StyleModelBuilder(s, bsp.modLoc("block/material/" + base.getType().name().toLowerCase()
+							+ "/" + base.name.toLowerCase() + "/tile/" + s.toLowerCase())));
+
+				BlockModelBuilder bmb = msmb.end();
+				b.modelFile(bmb);
+				return b.build();
+			});
 
 //			ModelFile test = 
 //			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
@@ -110,8 +132,8 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		}
 		if (this.loadTile) {
 			lp.add(this.TILE.asItem(), material_name + "Tile");
-			lp.add(Compendium.MOD_ID + ".tooltip."+ base.name +".style.0", material_name + "Full Tile");
-			lp.add(Compendium.MOD_ID + ".tooltip."+ base.name +".style.1", material_name + "Half Tile");
+			lp.add(Compendium.MOD_ID + ".tooltip." + base.name + ".style.0", material_name + "Full Tile");
+			lp.add(Compendium.MOD_ID + ".tooltip." + base.name + ".style.1", material_name + "Half Tile");
 		}
 	}
 

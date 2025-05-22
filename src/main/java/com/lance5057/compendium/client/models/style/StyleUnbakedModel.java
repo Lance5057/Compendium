@@ -7,13 +7,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
-import com.lance5057.compendium.client.models.multimaterial.model.IndexModel;
 import com.lance5057.compendium.client.models.style.model.StyleModel;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -21,34 +19,35 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
-	private final BlockModel baseModel;
+	private UnbakedModel missing;
 	private final List<StyleModel> indexModels;
 
-	public StyleUnbakedModel(BlockModel baseModel2) {
-		this.baseModel = baseModel2;
+	public StyleUnbakedModel() {
 		this.indexModels = List.of();
 	}
 
-	public StyleUnbakedModel(BlockModel baseModel2, List<StyleModel> models) {
-		this.baseModel = baseModel2;
+	public StyleUnbakedModel(List<StyleModel> models) {
 		this.indexModels = models;
 	}
 
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
-		this.baseModel.resolveParents(modelGetter);
+		missing = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+
 		for (StyleModel im : indexModels) {
 			im.model = modelGetter.apply(im.modelRC);
 			im.model.resolveParents(modelGetter);
+			if (im.model == null)
+				im.model = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
 		}
 	}
 
@@ -61,7 +60,7 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 			replaceAndBake(spriteGetter, baker, modelState, quads, im);
 		}
 
-		return new StyleBakedModel(baseModel.bake(baker, spriteGetter, modelState), quads);
+		return new StyleBakedModel(missing.bake(baker, spriteGetter, modelState), quads);
 	}
 
 	private void replaceAndBake(Function<Material, TextureAtlasSprite> spriteGetter, ModelBaker baker,
@@ -74,35 +73,39 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 		quads.put(im.style, baked);
 	}
 
-	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {
-		public static ResourceLocation ID = Compendium.modLoc("material_swap");
+	public static final class Loader implements IGeometryLoader<StyleUnbakedModel> {
+		public static ResourceLocation ID = Compendium.modLoc("style");
 		public static final Loader INSTANCE = new Loader();
 
 		public Loader() {
 		}
 
 		@Override
-		public MaterialSwapElementsUnbakedModel read(JsonObject jsonObject,
-				JsonDeserializationContext deserializationContext) throws JsonParseException {
+		public StyleUnbakedModel read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
+				throws JsonParseException {
 
-			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
-					BlockModel.class);
+			List<StyleModel> models = new ArrayList<StyleModel>();
 
-			List<IndexModel> models = new ArrayList<IndexModel>();
+//			if (jsonObject.has("model")) {
+//				JsonObject m = jsonObject.getAsJsonObject("model");
+//
+//				String s = m.get("style").getAsString();
+//				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
+				int count = jsonObject.get("count").getAsInt();
 
-			if (jsonObject.has("model")) {
-				JsonObject m = jsonObject.getAsJsonObject("model");
+				for (int i = 0; i < count; i++) {
+					JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
+					
+					String s = mat.get("style").getAsString();
+					String m = mat.get("model").getAsString();
 
-				String s = m.get("type").getAsString();
-				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-				String mat = m.get("model").getAsString();
+					models.add(new StyleModel(s, ResourceLocation.parse(m)));
+				}
 
-				models.add(new IndexModel(t, ResourceLocation.parse(mat)));
-
-				return new MaterialSwapElementsUnbakedModel(base, models);
-			}
-
-			return new MaterialSwapElementsUnbakedModel(base, List.of());
+				return new StyleUnbakedModel(models);
+//			}
+//
+//			return new StyleUnbakedModel(List.of());
 		}
 	}
 

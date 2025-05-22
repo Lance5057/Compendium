@@ -10,6 +10,7 @@ import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
+import com.lance5057.compendium.client.models.style.StyleUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRenderer;
 import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
 import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
@@ -102,6 +103,7 @@ public class CompendiumClient {
 //		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
 		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID,
 				new MaterialSwapElementsUnbakedModel.Loader());
+		registerGeometryLoaders.register(StyleUnbakedModel.Loader.ID, new StyleUnbakedModel.Loader());
 	}
 
 	@SubscribeEvent

@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions.metal;
 
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
@@ -9,10 +10,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class StyleMetalTileBlock extends Block implements EntityBlock /* extends StyleBlock */ {
-	public static enum Styles {
-		FULL, HALF, VERTICAL_HALF, QUARTER, OFFSET_HALF, OFFSET_QUARTER, INDENTED, INDENTED_SEGMENT, DENTED,
-		DENTED_SEGMENT
-	};
+//	public static enum Styles {
+//		FULL, HALF, VERTICAL_HALF, QUARTER, OFFSET_HALF, OFFSET_QUARTER, INDENTED, INDENTED_SEGMENT, DENTED,
+//		DENTED_SEGMENT
+//	};
+
+	public static StyleType style = new StyleType("base", "FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
+			"OFFSET_QUARTER", "INDENTED", "INDENTED_SEGMENT", "DENTED", "DENTED_SEGMENT");
 
 //	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, Styles.values().length - 1);
 
@@ -99,7 +103,7 @@ public class StyleMetalTileBlock extends Block implements EntityBlock /* extends
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state);
+		return new SimpleStyleBlockEntity(pos, state, "metal_tile", style);
 	}
 
 }

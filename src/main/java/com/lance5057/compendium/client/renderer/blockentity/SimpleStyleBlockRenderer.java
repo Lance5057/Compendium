@@ -1,25 +1,11 @@
 package com.lance5057.compendium.client.renderer.blockentity;
 
-import java.util.List;
-
-import org.joml.Quaternionf;
-
-import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
-import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.Direction;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.model.data.ModelData;
-import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
-import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class SimpleStyleBlockRenderer implements BlockEntityRenderer<SimpleStyleBlockEntity> {
 //	final ModelResourceLocation fallback_legs = ModelResourceLocation

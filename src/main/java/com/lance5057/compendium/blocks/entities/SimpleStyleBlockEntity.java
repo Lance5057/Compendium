@@ -5,6 +5,7 @@ import java.util.List;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
+import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.BlockPos;
@@ -36,19 +37,20 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 //	public MultiStyle seatStyles = new MultiStyle("basic");
 //	public MultiStyle legsStyles = new MultiStyle("basic");
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
-		this(pos, blockState, "", List.of());
+		this(pos, blockState, "");
 	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<StyleType> styles) {
+	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, StyleType... styles) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		this.styles = styles.get(0);
+		if (styles != null)
+			this.styles = styles[0];
 		this.name = name;
 	}
 
 	@Override
 	public ModelData getModelData() {
 
-		return MultiMaterialModelData.builder(styles.getStyles().toArray(new String[0])).build();
+		return StyleModelData.builder(styles.getStyles().toArray(new String[0])).build();
 	}
 
 //	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,

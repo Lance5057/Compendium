@@ -1,5 +1,9 @@
 package com.lance5057.compendium;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
@@ -10,7 +14,9 @@ import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockE
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlockEntity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -46,7 +52,10 @@ public class CompendiumBlockEntities {
 			.register("window", () -> BlockEntityType.Builder.of(WindowBlockEntity::new, CompendiumBlocks.WINDOW.get())
 					.build(null));
 
+	public static List<DeferredBlock<?>> validStyleBlocks = new ArrayList<DeferredBlock<?>>();
+
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
-			.register("chair",
-					() -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
+			.register("style", () -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new,
+					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
+					.build(null));
 }
