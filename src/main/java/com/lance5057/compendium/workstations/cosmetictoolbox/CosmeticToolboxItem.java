@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class CosmeticToolboxItem extends BlockItem {
 
@@ -29,7 +31,8 @@ public class CosmeticToolboxItem extends BlockItem {
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (!pContext.getPlayer().isCrouching()) {
-			if (pContext.getLevel().getBlockEntity(pContext.getClickedPos()) instanceof MultiMaterialBlockEntity s) {
+			BlockEntity pos = pContext.getLevel().getBlockEntity(pContext.getClickedPos());
+			if (pos instanceof MultiMaterialBlockEntity || pos instanceof SimpleStyleBlockEntity) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
 						return new CosmeticToolboxMenu(p_57074_, p_57075_,

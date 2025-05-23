@@ -71,6 +71,10 @@ public class StyleType {
 	public String getCurrentStyle() {
 		return types.get(current);
 	}
+	
+	public int getCurrentStyleIndex() {
+		return current;
+	}
 
 	public void setNextStyle(Level level, BlockPos pos, BlockState state) {
 		if (current + 1 >= types.size())
@@ -110,5 +114,19 @@ public class StyleType {
 	public void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.current = nbt.getInt("current");
 
+	}
+	
+	public StyleType copy()
+	{
+		StyleType s = new StyleType(name, types);
+		s.current = this.current;
+		return s;
+	}
+	
+	public StyleType copy(int index)
+	{
+		StyleType s = new StyleType(name, types);
+		s.current = index;
+		return s;
 	}
 }

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.styleblock.StyleBlock;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.math.Axis;
@@ -24,7 +26,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolboxMenu> {
@@ -48,7 +50,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private int startIndex;
 
 	private BlockPos pos = BlockPos.ZERO;
-	private StyleBlock style;
+	private StyleType style;
 
 	List<Button> tabs = new ArrayList<Button>();
 
@@ -62,8 +64,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		if (this.minecraft == null)
 			return;
 
-		BlockState state = this.minecraft.level.getBlockState(this.pos);
-		if (state != null) {
+		BlockEntity ent = this.minecraft.level.getBlockEntity(pos);
+		BlockState state = this.minecraft.level.getBlockState(pos);
+		if (ent != null) {
 
 			int i = this.leftPos + 8;
 			int j = this.topPos;
@@ -76,7 +79,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			ResourceLocation resourcelocation = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
 			gui.blitSprite(resourcelocation, i + 155, j + k + 8, 12, 15);
 
-			if (state.getBlock() instanceof StyleBlock style) {
+			if (ent instanceof SimpleStyleBlockEntity ssbe) {
 				int j1 = this.startIndex + 8;
 				this.renderButtons(gui, mouseX, mouseY, i + 8, j + 7, j1);
 
@@ -86,7 +89,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 				gui.pose().pushPose();
 				{
-					renderRecipes(gui, 24, 13, j1);
+					renderRecipes(gui, 24, 13, j1, state);
 				}
 				gui.pose().popPose();
 
@@ -98,7 +101,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
 					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-					renderBlock(gui, state);
+					renderBlock(gui, state, style.getCurrentStyleIndex());
 
 				}
 				gui.pose().popPose();
@@ -107,7 +110,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	}
 
-	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_) {
+	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_, BlockState state) {
 
 		for (int i = this.startIndex; i < p_283352_ && i < style.numStyles(); ++i) {
 			int j = i - this.startIndex;
@@ -124,12 +127,12 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 				gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
 				gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-				renderBlock(gui, style.getState(i));
+				renderBlock(gui, state, i);
 
 			}
 			gui.pose().popPose();
 //			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.getStyleFromBlock(bisp));
-			gui.drawString(this.font, Component.translatable(style.getStyleFromBlock(i)), k + 10, i1, 0xFFFFFF, true);
+//			gui.drawString(this.font, Component.translatable(style.getStyleFromBlock(i)), k + 10, i1, 0xFFFFFF, true);
 		}
 	}
 
@@ -141,9 +144,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	public void setPos(BlockPos pos) {
 		this.pos = pos;
-		Block block = this.minecraft.level.getBlockState(pos).getBlock();
-		if (block instanceof StyleBlock style)
-			this.style = style;
+		BlockEntity block = this.minecraft.level.getBlockEntity(pos);
+		if (block instanceof SimpleStyleBlockEntity s)
+			this.style = s.getStyles().get(0);
 
 		for (int i = 0; i < 3; i++)
 			tabs.add(this.addRenderableWidget(
@@ -151,7 +154,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 					})));
 	}
 
-	void renderBlock(GuiGraphics guiGraphics, BlockState state) {
+	void renderBlock(GuiGraphics guiGraphics, BlockState state, int cur) {
 		guiGraphics.pose().pushPose();
 
 		RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
@@ -162,9 +165,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		guiGraphics.pose().pushPose();
 		guiGraphics.pose().translate(0, 0.5, 0);
 		guiGraphics.pose().scale(1f, -1f, 1f);
-
+		
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY);
+				OverlayTexture.NO_OVERLAY, StyleModelData.builder(style.copy(cur)).build(), null);
 
 		buffers.endBatch();
 
@@ -174,21 +177,22 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
 			int p_282688_) {
-		for (int i = this.startIndex; i < p_282688_ && i < style.numStyles(); ++i) {
-			int j = i - this.startIndex;
-			int k = p_281987_;
+		if (style != null)
+			for (int i = this.startIndex; i < p_282688_ && i < style.numStyles(); ++i) {
+				int j = i - this.startIndex;
+				int k = p_281987_;
 //			int l = j / 4;
-			int i1 = p_281276_ + j * 18 + 2;
-			ResourceLocation resourcelocation;
-			if (p_282136_ >= k && p_282147_ >= i1 && p_282136_ < k + 145 && p_282147_ < i1 + 18) {
-				resourcelocation = RECIPE_HIGHLIGHTED_SPRITE;
-			} else {
-				resourcelocation = RECIPE_SPRITE;
+				int i1 = p_281276_ + j * 18 + 2;
+				ResourceLocation resourcelocation;
+				if (p_282136_ >= k && p_282147_ >= i1 && p_282136_ < k + 145 && p_282147_ < i1 + 18) {
+					resourcelocation = RECIPE_HIGHLIGHTED_SPRITE;
+				} else {
+					resourcelocation = RECIPE_SPRITE;
+				}
+
+				p_282733_.blitSprite(resourcelocation, k, i1 - 1, 145, 18);
+
 			}
-
-			p_282733_.blitSprite(resourcelocation, k, i1 - 1, 145, 18);
-
-		}
 	}
 
 	@Override

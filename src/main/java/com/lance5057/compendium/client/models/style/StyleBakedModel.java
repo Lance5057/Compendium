@@ -8,6 +8,8 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.styleblock.StyleType;
+
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -79,10 +81,10 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-		String[] mats = extraData.get(StyleModelData.STYLE);
+		@Nullable StyleType mats = extraData.get(StyleModelData.STYLES);
 
-		if (mats != null && mats.length > 0) {
-			BakedModel q = models.get(mats[0]);
+		if (mats != null) {
+			BakedModel q = models.get(mats.getCurrentStyle());
 			if (q != null) {
 				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 				if (r != null) {

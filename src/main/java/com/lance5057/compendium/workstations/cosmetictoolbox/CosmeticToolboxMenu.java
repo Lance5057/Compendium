@@ -1,8 +1,8 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox;
 
 import com.lance5057.compendium.CompendiumMenus;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.network.StyleSyncPacket;
-import com.lance5057.compendium.styleblock.StyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class CosmeticToolboxMenu extends AbstractContainerMenu {
 	private final ContainerLevelAccess access;
@@ -39,9 +39,11 @@ public class CosmeticToolboxMenu extends AbstractContainerMenu {
 	@Override
 	public boolean clickMenuButton(Player p_39465_, int p_39466_) {
 		this.access.execute((level, pos) -> {
-			BlockState state = level.getBlockState(pos);
-			if (state.getBlock() instanceof StyleBlock s) {
-				s.setStyle(level, pos, state, p_39466_);
+			BlockEntity state = level.getBlockEntity(pos);
+			if (state instanceof SimpleStyleBlockEntity s) {
+				s.getStyles().get(0).setStyle(p_39466_);
+				s.requestModelDataUpdate();
+				s.setChanged();
 			}
 		});
 

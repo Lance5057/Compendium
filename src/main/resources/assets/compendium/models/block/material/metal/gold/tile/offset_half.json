@@ -1,6 +1,5 @@
 {
   "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:cutout",
   "textures": {
     "all": "compendium:block/material/metal/gold/tile/offset_half_tile_block"
   }
