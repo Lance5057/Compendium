@@ -37,18 +37,19 @@ public class SimpleStyleBlockRenderer implements BlockEntityRenderer<SimpleStyle
 //				BlockState blockstate = blockEntity.getBlockState();
 //				Direction dir = blockstate.getValue(HorizontalDirectionalBlock.FACING);
 //
-//				poseStack.pushPose();
-//				{
-//					poseStack.translate(0.5, 0, 0.5);
-//					poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
-//					poseStack.translate(-0.5, 0, -0.5);
-//					poseStack.scale(1, 1, 1);
+//		poseStack.pushPose();
+//		{
+//			poseStack.translate(0.5, 1, 0.5);
+////					poseStack.mulPose(new Quaternionf().rotateXYZ(0, 0), 0));
+//			poseStack.translate(-0.5, 0, -0.5);
+//			poseStack.scale(1, 1, 1);
 //
-//					l.render(poseStack, bufferSource, texture -> RenderType.entitySolid(texture), packedLight,
-//							packedOverlay, partialTick, ModelData.EMPTY);
+//			BakedModel bakedmodel = Minecraft.getInstance().getItemRenderer().getModel(new ItemStack(Items.STICK), null, null, 0);
+//			Minecraft.getInstance().getItemRenderer().render(new ItemStack(Items.STICK), ItemDisplayContext.FIXED,
+//					false, poseStack, bufferSource, packedLight, packedOverlay, bakedmodel);
 //
-//				}
-//				poseStack.popPose();
+//		}
+//		poseStack.popPose();
 //			}
 //		ModelResourceLocation legs = ModelResourceLocation.standalone(
 //				Compendium.modLoc("extra/material/wood/" + (mats.size() > 0 ? mats.get(0) : "invalid").toLowerCase()

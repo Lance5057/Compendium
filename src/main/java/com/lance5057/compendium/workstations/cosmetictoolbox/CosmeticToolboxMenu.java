@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class CosmeticToolboxMenu extends AbstractContainerMenu {
@@ -42,8 +43,7 @@ public class CosmeticToolboxMenu extends AbstractContainerMenu {
 			BlockEntity state = level.getBlockEntity(pos);
 			if (state instanceof SimpleStyleBlockEntity s) {
 				s.getStyles().get(0).setStyle(p_39466_);
-				s.requestModelDataUpdate();
-				s.setChanged();
+				s.getLevel().sendBlockUpdated(pos, s.getBlockState(), s.getBlockState(), Block.UPDATE_ALL);
 			}
 		});
 

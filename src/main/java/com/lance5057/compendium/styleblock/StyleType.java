@@ -71,7 +71,7 @@ public class StyleType {
 	public String getCurrentStyle() {
 		return types.get(current);
 	}
-	
+
 	public int getCurrentStyleIndex() {
 		return current;
 	}
@@ -106,25 +106,35 @@ public class StyleType {
 	public CompoundTag writeNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		CompoundTag tag = new CompoundTag();
 
+		tag.putInt("count", types.size());
+
+		for (int i = 0; i < types.size(); i++) {
+			tag.putString("style" + i, types.get(i));
+		}
+
 		tag.putInt("current", current);
 
 		return tag;
 	}
 
 	public void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		int index = nbt.getInt("count");
+
+		this.types = new ArrayList<String>();
+		for (int i = 0; i < index; i++)
+			types.add(nbt.getString("style" + i));
+
 		this.current = nbt.getInt("current");
 
 	}
-	
-	public StyleType copy()
-	{
+
+	public StyleType copy() {
 		StyleType s = new StyleType(name, types);
 		s.current = this.current;
 		return s;
 	}
-	
-	public StyleType copy(int index)
-	{
+
+	public StyleType copy(int index) {
 		StyleType s = new StyleType(name, types);
 		s.current = index;
 		return s;

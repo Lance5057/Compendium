@@ -18,6 +18,7 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
@@ -32,7 +33,9 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	StyleType styles;
 
 	public List<StyleType> getStyles() {
-		return List.of(styles);
+		if (styles != null)
+			return List.of(styles);
+		return new ArrayList<StyleType>();
 	}
 
 	@Override
@@ -44,13 +47,13 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 //	public MultiStyle seatStyles = new MultiStyle("basic");
 //	public MultiStyle legsStyles = new MultiStyle("basic");
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
-		this(pos, blockState, "");
+		this(pos, blockState, "", null);
 	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, StyleType... styles) {
+	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, StyleType styles) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
 		if (styles != null)
-			this.styles = styles[0];
+			this.styles = styles.copy();
 		this.name = name;
 	}
 
@@ -70,7 +73,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.styles = m.styles().get(0);
+			this.styles = m.styles().get(0).copy();
 		}
 	}
 
@@ -108,6 +111,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		this.requestModelDataUpdate();
+
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
@@ -116,6 +121,13 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		CompoundTag tag = pkt.getTag();
 		// InteractionHandle your Data
 		readNBT(tag, registries);
+		
+		setChanged();
+		if (getLevel() != null) {
+			BlockState state = getLevel().getBlockState(getBlockPos());
+			requestModelDataUpdate();
+			getLevel().sendBlockUpdated(getBlockPos(), state, state, 3);
+		}
 	}
 
 	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {

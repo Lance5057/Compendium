@@ -1,5 +1,6 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.styleblock.StyleType;
@@ -14,11 +15,19 @@ public interface IStyleable {
 
 	public default void readStyleNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		if (nbt.contains("types")) {
+			List<StyleType> style = new ArrayList<StyleType>();
+			
 			CompoundTag tag = nbt.getCompound("types");
+			
+			int count = nbt.getInt("count");
 
-			for (int i = 0; i < getStyles().size(); i++) {
-				getStyles().get(i).readNBT(tag.getCompound("style" + i), registries);
+			for (int i = 0; i < count; i++) {
+				StyleType s = new StyleType("", "");
+				s.readNBT(tag.getCompound("style" + i), registries);
+				style.add(s);
 			}
+			
+			setStyles(style);
 		}
 	}
 
@@ -28,6 +37,8 @@ public interface IStyleable {
 		for (int i = 0; i < styles.size(); i++) {
 			tag.put("style" + i, styles.get(i).writeNBT(nbt, registries));
 		}
+		
+		nbt.putInt("count", styles.size());
 
 		nbt.put("types", tag);
 	}

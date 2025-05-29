@@ -212,6 +212,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			double d1 = p_99319_ - (double) (j + i1 * 18);
 			if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0
 					&& this.menu.clickMenuButton(this.minecraft.player, l)) {
+				this.style.setStyle(l);
 				Minecraft.getInstance().getSoundManager()
 						.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
 				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);

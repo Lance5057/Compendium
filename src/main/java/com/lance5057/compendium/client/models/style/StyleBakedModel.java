@@ -16,15 +16,20 @@ import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
+import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class StyleBakedModel implements IDynamicBakedModel {
+	private static final ModelProperty<StyleModelData> DATA = new ModelProperty<>();
 	private final BakedModel missing;
+	String current = "";
 	Map<String, BakedModel> models = new HashMap<String, BakedModel>();
 
 	@SuppressWarnings("deprecation")
@@ -81,7 +86,8 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-		@Nullable StyleType mats = extraData.get(StyleModelData.STYLES);
+		@Nullable
+		StyleType mats = extraData.get(StyleModelData.STYLES);
 
 		if (mats != null) {
 			BakedModel q = models.get(mats.getCurrentStyle());
@@ -99,6 +105,15 @@ public class StyleBakedModel implements IDynamicBakedModel {
 
 		return l;
 
+	}
+
+	@Override
+	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
+		StyleModelData data = new StyleModelData();
+		
+		
+		
+		return modelData.derive().with(DATA, data).build();
 	}
 
 }
