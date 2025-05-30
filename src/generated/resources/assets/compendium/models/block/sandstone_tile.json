@@ -1,0 +1,80 @@
+{
+  "count": 19,
+  "loader": "compendium:style",
+  "model0": {
+    "model": "compendium:block/material/stone/sandstone/tile/full_tile",
+    "style": "FULL_TILE"
+  },
+  "model1": {
+    "model": "compendium:block/material/stone/sandstone/tile/half_tile",
+    "style": "HALF_TILE"
+  },
+  "model10": {
+    "model": "compendium:block/material/stone/sandstone/tile/brick_vertical",
+    "style": "BRICK_VERTICAL"
+  },
+  "model11": {
+    "model": "compendium:block/material/stone/sandstone/tile/aligned_brick",
+    "style": "ALIGNED_BRICK"
+  },
+  "model12": {
+    "model": "compendium:block/material/stone/sandstone/tile/aligned_brick_vertical",
+    "style": "ALIGNED_BRICK_VERTICAL"
+  },
+  "model13": {
+    "model": "compendium:block/material/stone/sandstone/tile/basketweave_bricks",
+    "style": "BASKETWEAVE_BRICKS"
+  },
+  "model14": {
+    "model": "compendium:block/material/stone/sandstone/tile/big_brick",
+    "style": "BIG_BRICK"
+  },
+  "model15": {
+    "model": "compendium:block/material/stone/sandstone/tile/herringbone_bricks",
+    "style": "HERRINGBONE_BRICKS"
+  },
+  "model16": {
+    "model": "compendium:block/material/stone/sandstone/tile/hex_brick",
+    "style": "HEX_BRICK"
+  },
+  "model17": {
+    "model": "compendium:block/material/stone/sandstone/tile/slats",
+    "style": "SLATS"
+  },
+  "model18": {
+    "model": "compendium:block/material/stone/sandstone/tile/slats_vertical",
+    "style": "SLATS_VERTICAL"
+  },
+  "model2": {
+    "model": "compendium:block/material/stone/sandstone/tile/half_tile_vertical",
+    "style": "HALF_TILE_VERTICAL"
+  },
+  "model3": {
+    "model": "compendium:block/material/stone/sandstone/tile/indented",
+    "style": "INDENTED"
+  },
+  "model4": {
+    "model": "compendium:block/material/stone/sandstone/tile/indented_segmented",
+    "style": "INDENTED_SEGMENTED"
+  },
+  "model5": {
+    "model": "compendium:block/material/stone/sandstone/tile/dented",
+    "style": "DENTED"
+  },
+  "model6": {
+    "model": "compendium:block/material/stone/sandstone/tile/dented_segmented",
+    "style": "DENTED_SEGMENTED"
+  },
+  "model7": {
+    "model": "compendium:block/material/stone/sandstone/tile/diamond_tile",
+    "style": "DIAMOND_TILE"
+  },
+  "model8": {
+    "model": "compendium:block/material/stone/sandstone/tile/eighth_tiles",
+    "style": "EIGHTH_TILES"
+  },
+  "model9": {
+    "model": "compendium:block/material/stone/sandstone/tile/brick",
+    "style": "BRICK"
+  }
+}

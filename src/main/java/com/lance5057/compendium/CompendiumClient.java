@@ -9,6 +9,7 @@ import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
+import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
 import com.lance5057.compendium.client.models.style.StyleUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRenderer;
@@ -100,10 +101,10 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
-//		registerGeometryLoaders.register(MetalTileGeometryLoader.ID, new MetalTileGeometryLoader());
 		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID,
 				new MaterialSwapElementsUnbakedModel.Loader());
 		registerGeometryLoaders.register(StyleUnbakedModel.Loader.ID, new StyleUnbakedModel.Loader());
+		registerGeometryLoaders.register(BlockStateItemGeometryLoader.ID, new BlockStateItemGeometryLoader());
 	}
 
 	@SubscribeEvent

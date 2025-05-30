@@ -27,7 +27,7 @@ public class BlockModels extends BlockStateProvider {
 	@Override
 	protected void registerStatesAndModels() {
 		CompendiumIndex.index.forEach(i -> {
-			i.blockModel(this);
+			i.blockStateModel(this);
 		});
 
 		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(),

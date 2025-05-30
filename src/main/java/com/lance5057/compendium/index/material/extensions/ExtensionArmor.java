@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -117,7 +118,7 @@ public class ExtensionArmor extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		// TODO Auto-generated method stub
 
 	}
@@ -220,6 +221,12 @@ public class ExtensionArmor extends _MaterialExtension {
 			return new ExtensionArmor(armor, shield, helm, chest, leg, boot, tough, enchant, knockback);
 		}
 
+	}
+
+	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

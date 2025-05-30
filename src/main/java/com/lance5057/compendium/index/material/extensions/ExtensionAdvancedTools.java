@@ -9,6 +9,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -96,7 +97,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 
 	}
 
@@ -239,6 +240,12 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			return new ExtensionAdvancedTools(prybar, hammer, saw, shears, zweihander, bow);
 		}
 
+	}
+
+	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

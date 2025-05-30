@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -65,7 +66,7 @@ public class MaterialGem extends _MaterialBase {
 	}
 
 	@Override
-	public void blockModel(BlockStateProvider bsp) {
+	public void blockStateModel(BlockStateProvider bsp) {
 		if (this.loadStorageBlock)
 			bsp.simpleBlock(this.BLOCK.get());
 	}
@@ -176,6 +177,11 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public void blockModel(IndexBlockModelProvider ibmp) {
+		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 }

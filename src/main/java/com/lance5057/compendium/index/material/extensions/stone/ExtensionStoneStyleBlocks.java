@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions.stone;
 
 import java.lang.reflect.Type;
+import java.util.stream.Stream;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -8,12 +9,20 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.blocks.SimpleStyleBlock;
+import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
+import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
+import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
-import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.styleblock.StyleItem;
+import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -27,18 +36,28 @@ import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionStoneStyleBlocks extends _MaterialExtension {
+	
+	public static StyleType style = new StyleType("base",
+			"FULL_TILE", "HALF_TILE", /* "OFFSET_HALF_TILE", */ "HALF_TILE_VERTICAL", /* "QUARTER", */
+			"INDENTED", "INDENTED_SEGMENTED", "DENTED", "DENTED_SEGMENTED", /* "TILTED_SMALL_TILE", */
+			"DIAMOND_TILE", "EIGHTH_TILES", /* "OFFSET_EIGHTH_TILES", */ "BRICK", "BRICK_VERTICAL",
+			"ALIGNED_BRICK", "ALIGNED_BRICK_VERTICAL", "BASKETWEAVE_BRICKS", "BIG_BRICK",
+			/* "HALF_BRICK", */ "HERRINGBONE_BRICKS", "HEX_BRICK", "SLATS", "SLATS_VERTICAL");
 
 	boolean loadTile = false;
-	public DeferredBlock<StyleStoneTileBlock> TILE;
+	public DeferredBlock<SimpleStyleBlock> TILE;
 	public DeferredItem<StyleItem> TILE_ITEM;
 
 	private TagKey<Item> blockItemTag;
@@ -51,35 +70,12 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
-				() -> new StyleStoneTileBlock(Block.Properties.ofFullCopy(Blocks.STONE)) {
-					@Override
-					public String getStyleFromBlock(BlockItemStateProperties bisp) {
-						if (bisp != null)
-							return base.name + ".style." + bisp.get(StyleStoneTileBlock.STYLE);
-						return base.name + "style.0";
-					}
-
-					@Override
-					public String getStyleFromBlock(int i) {
-						return base.name + ".style." + i;
-					}
-				});
+				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK), style));
+		CompendiumBlockEntities.validStyleBlocks.add(TILE);
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
-				() -> new StyleItem(TILE.get(), new Item.Properties().component(DataComponents.BLOCK_STATE,
-						BlockItemStateProperties.EMPTY.with(StyleStoneTileBlock.STYLE, 0))) {
-					@Override
-					public String getStyleFromBlock(BlockItemStateProperties bisp) {
-						if (bisp != null)
-							return base.name + ".style." + bisp.get(StyleStoneTileBlock.STYLE);
-						return base.name + "style.0";
-					}
-
-					@Override
-					public String getStyleFromBlock(int i) {
-						return base.name + ".style." + i;
-					}
-
-				});
+				() -> new StyleItem(TILE.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(style).toList()))
+								.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 
 	@Override
@@ -90,42 +86,46 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.loadTile) {
 
-//			ModelFile test = 
 			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
-//				return ConfiguredModel.builder().modelFile(test).build();
-				int style = state.getValue(StyleStoneTileBlock.STYLE);
+				Builder<?> b = ConfiguredModel.builder();
+				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(base.name + "_tile")
+						.customLoader(StyleBlockModelBuilder::begin);
+				msmb.base(bsp.models().cubeAll("window_base", bsp.mcLoc("block/glass")).renderType("cutout"));
 
-				String suffix = (StyleStoneTileBlock.Styles.values()[style] + "").toLowerCase();
-//				return ConfiguredModel.builder()
-//						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix + "_base",
-//								bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
-//										+ suffix.toLowerCase() + "_tile_block")))
-//						.modelFile(bsp.models()
-//								.withExistingParent(base.name + "_tile_" + suffix,
-//										bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
-//								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.Stone).end())
-//
-//						.build();
-				return ConfiguredModel.builder()
-						.modelFile(bsp.models().cubeAll(
-								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-										+ base.name + "_tile_" + suffix + "_block",
-								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-										+ "/" + suffix.toLowerCase())))
-						.build();
+				for (String s : ((SimpleStyleBlock) state.getBlock()).style.getStyles())
+					msmb.add(new StyleModelBuilder(s, bsp.modLoc("block/material/" + base.getType().name().toLowerCase()
+							+ "/" + base.name.toLowerCase() + "/tile/" + s.toLowerCase())));
 
+				BlockModelBuilder bmb = msmb.end();
+				b.modelFile(bmb);
+				return b.build();
 			});
 
 		}
 	}
 
 	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		if (this.loadTile) {
+			StyleType s = TILE.get().style;
+			for (int i = 0; i < s.numStyles(); i++)
+				ibmp.cubeAll(
+						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
+								+ "/tile/" + s.getStyles().get(i).toLowerCase(),
+						ibmp.modLoc("block/material/" + base.getType().name().toLowerCase() + "/"
+								+ base.name.toLowerCase() + "/tile/" + s.getStyles().get(i).toLowerCase()));
+		}
+	}
+
+	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-			DataUtil.basicMaterialBlockItem(tmp, TILE_ITEM, base.name, "tile_full", base.getType());
+			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("block/block"))
+					.customLoader(BlockStateItemGeometryLoader::builder);
+
 		}
 	}
 
@@ -205,4 +205,5 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 		}
 
 	}
+
 }

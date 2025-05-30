@@ -19,7 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 public class StyleType {
 	public static final Codec<StyleType> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
 			.group(Codec.STRING.fieldOf("name").forGetter(StyleType::getName),
-					Codec.list(Codec.STRING).fieldOf("types").forGetter(StyleType::getStyles))
+					Codec.list(Codec.STRING).fieldOf("types").forGetter(StyleType::getStyles),
+					Codec.INT.fieldOf("current").forGetter(StyleType::getCurrentStyleIndex))
 			.apply(p_337946_, StyleType::new));
 
 	public static final StreamCodec<ByteBuf, StyleType> STREAM_CODEC = new StreamCodec<ByteBuf, StyleType>() {
@@ -32,7 +33,9 @@ public class StyleType {
 			for (int i = 0; i < count; i++)
 				s.add(ByteBufCodecs.STRING_UTF8.decode(p_320431_));
 
-			return new StyleType(n, s);
+			int current = ByteBufCodecs.INT.decode(p_320431_);
+
+			return new StyleType(n, s, current);
 		}
 
 		public void encode(ByteBuf p_320258_, StyleType p_320532_) {
@@ -42,6 +45,8 @@ public class StyleType {
 			for (int i = 0; i < p_320532_.numStyles(); i++) {
 				ByteBufCodecs.STRING_UTF8.encode(p_320258_, p_320532_.getStyles().get(i));
 			}
+
+			ByteBufCodecs.INT.encode(p_320258_, p_320532_.current);
 		}
 	};
 
@@ -52,7 +57,7 @@ public class StyleType {
 	}
 
 	private List<String> types;
-	private int current = 0;
+	public int current = 0;
 
 	public StyleType(String name, String... styles) {
 		this.name = name;
@@ -62,6 +67,12 @@ public class StyleType {
 	public StyleType(String name, List<String> styles) {
 		this.name = name;
 		this.types = styles;
+	}
+
+	public StyleType(String name, List<String> styles, int cur) {
+		this.name = name;
+		this.types = styles;
+		this.current = cur;
 	}
 
 	public int numStyles() {

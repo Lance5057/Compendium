@@ -15,9 +15,11 @@ import com.lance5057.compendium.styleblock.StyleType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,7 +36,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	public List<StyleType> getStyles() {
 		if (styles != null)
-			return List.of(styles);
+			return List.of(styles.copy());
 		return new ArrayList<StyleType>();
 	}
 
@@ -65,7 +67,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
-		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(List.of(styles)));
+		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(List.of(styles.copy())));
+		builder.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
 	}
 
 	@Override

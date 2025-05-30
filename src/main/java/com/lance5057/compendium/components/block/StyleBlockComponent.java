@@ -16,6 +16,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
 
 public record StyleBlockComponent(List<StyleType> styles) implements TooltipProvider {
+//	public static final StyleBlockComponent EMPTY = new StyleBlockComponent(new ArrayList<StyleType>());
 	public static final Codec<StyleBlockComponent> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
 			.group(Codec.list(StyleType.CODEC).fieldOf("types").forGetter(StyleBlockComponent::styles))
 			.apply(p_337946_, StyleBlockComponent::new));

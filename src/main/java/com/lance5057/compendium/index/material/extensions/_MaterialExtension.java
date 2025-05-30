@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
@@ -32,7 +33,9 @@ public abstract class _MaterialExtension {
 		return this;
 	}
 
-	public abstract void blockModel(_MaterialBase base, BlockStateProvider bsp);
+	public abstract void blockStateModel(_MaterialBase base, BlockStateProvider bsp);
+	
+	public abstract void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp);
 
 	protected boolean autoGenItemModel = true;
 

@@ -1,3 +1,4 @@
 {
-  "parent": "compendium:block/material/stone/sandstone/sandstone_tile_full_block"
+  "parent": "minecraft:block/block",
+  "loader": "compendium:blockstateitem"
 }

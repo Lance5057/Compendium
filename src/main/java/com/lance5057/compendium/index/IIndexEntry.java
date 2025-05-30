@@ -1,5 +1,7 @@
 package com.lance5057.compendium.index;
 
+import com.lance5057.compendium.data.IndexBlockModelProvider;
+
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -17,7 +19,9 @@ public interface IIndexEntry {
 
 	public void tab(Output output);
 
-	public void blockModel(BlockStateProvider bsp);
+	public void blockStateModel(BlockStateProvider bsp);
+	
+	public void blockModel(IndexBlockModelProvider ibmp);
 
 	public void itemModel(ItemModelProvider tmp);
 

@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.material.base;
 
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -39,7 +40,7 @@ public class MaterialTextile extends _MaterialBase {
 	}
 
 	@Override
-	public void blockModel(BlockStateProvider bsp) {
+	public void blockStateModel(BlockStateProvider bsp) {
 		// TODO Auto-generated method stub
 
 	}
@@ -95,6 +96,11 @@ public class MaterialTextile extends _MaterialBase {
 	@Override
 	public MATERIAL_TYPES getType() {
 		return MATERIAL_TYPES.TEXTILE;
+	}
+
+	@Override
+	public void blockModel(IndexBlockModelProvider ibmp) {
+		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 }

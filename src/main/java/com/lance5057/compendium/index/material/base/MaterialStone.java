@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -96,7 +97,7 @@ public class MaterialStone extends _MaterialBase {
 	}
 
 	@Override
-	public void blockModel(BlockStateProvider bsp) {
+	public void blockStateModel(BlockStateProvider bsp) {
 		if (this.loadCobblestone)
 			bsp.simpleBlock(COBBLESTONE.get());
 		if (this.loadSmooth)
@@ -104,7 +105,7 @@ public class MaterialStone extends _MaterialBase {
 		if (this.loadStone)
 			bsp.simpleBlock(STONE.get());
 
-		this.extensions.forEach(i -> i.blockModel(this, bsp));
+		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
 	@Override
@@ -215,6 +216,11 @@ public class MaterialStone extends _MaterialBase {
 	@Override
 	public MATERIAL_TYPES getType() {
 		return MATERIAL_TYPES.STONE;
+	}
+
+	@Override
+	public void blockModel(IndexBlockModelProvider ibmp) {
+		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 }

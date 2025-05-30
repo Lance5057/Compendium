@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -110,7 +111,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
 			if (this.smallLogs) {
 				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
@@ -360,5 +361,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			return new ExtensionExtraLogs(loadSmallLogs, loadSmallCornerLogs, loadSmallLogsSlab, loadSmallLogsStairs);
 		}
 
+	}
+
+	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
 	}
 }

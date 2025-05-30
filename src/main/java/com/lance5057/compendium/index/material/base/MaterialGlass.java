@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -91,14 +92,14 @@ public class MaterialGlass extends _MaterialBase {
 	}
 
 	@Override
-	public void blockModel(BlockStateProvider bsp) {
+	public void blockStateModel(BlockStateProvider bsp) {
 		if (this.loadBlock)
 			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, "", "transparent", this.getType());
 		if (this.loadPane)
 			bsp.paneBlock(this.PANE.get(), DataUtil.standardResource(name, "block"),
 					DataUtil.standardResource(name, "pane_top"));
 
-		this.extensions.forEach(i -> i.blockModel(this, bsp));
+		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
 	@Override
@@ -213,6 +214,11 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public void blockModel(IndexBlockModelProvider ibmp) {
+		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 }

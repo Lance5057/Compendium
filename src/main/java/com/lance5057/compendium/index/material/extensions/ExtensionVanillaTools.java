@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -83,7 +84,7 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		// TODO Auto-generated method stub
 
 	}
@@ -180,6 +181,12 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 			return new ExtensionVanillaTools(sword, axe, shovel, hoe, pickaxe);
 		}
 
+	}
+
+	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

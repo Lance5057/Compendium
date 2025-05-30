@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions.metal;
 
 import java.lang.reflect.Type;
+import java.util.stream.Stream;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -9,15 +10,21 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.blocks.SimpleStyleBlock;
+import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
-import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.styleblock.StyleItem;
+import com.lance5057.compendium.styleblock.StyleType;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -25,6 +32,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -33,15 +41,18 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionMetalStyleBlocks extends _MaterialExtension {
+	public static StyleType style = new StyleType("base", "FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
+			"OFFSET_QUARTER", "INDENTED", "INDENTED_SEGMENT", "DENTED", "DENTED_SEGMENT");
 
 	boolean loadTile = false;
-	public DeferredBlock<StyleMetalTileBlock> TILE;
+	public DeferredBlock<SimpleStyleBlock> TILE;
 	public DeferredItem<StyleItem> TILE_ITEM;
 
 	private TagKey<Item> blockItemTag;
@@ -54,11 +65,13 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
-				() -> new StyleMetalTileBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK), style));
 
 		CompendiumBlockEntities.validStyleBlocks.add(TILE);
-		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
-				() -> new StyleItem(TILE.get(), new Item.Properties()));
+		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item", () -> new StyleItem(TILE.get(),
+				new Item.Properties()
+						.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(style).toList()))
+						.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 
 	@Override
@@ -69,7 +82,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, BlockStateProvider bsp) {
+	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.loadTile) {
 
 			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
@@ -78,7 +91,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll("window_base", bsp.mcLoc("block/glass")).renderType("cutout"));
 
-				for (String s : StyleMetalTileBlock.style.getStyles())
+				for (String s : ((SimpleStyleBlock) state.getBlock()).style.getStyles())
 					msmb.add(new StyleModelBuilder(s, bsp.modLoc("block/material/" + base.getType().name().toLowerCase()
 							+ "/" + base.name.toLowerCase() + "/tile/" + s.toLowerCase())));
 
@@ -119,7 +132,9 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.loadTile) {
-			DataUtil.basicMaterialBlockItem(tmp, TILE_ITEM, base.name, "tile_full", base.getType());
+//			DataUtil.basicMaterialBlockItem(tmp, TILE_ITEM, base.name, "tile_full", base.getType());
+			tmp.getBuilder(TILE_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile("block/block"))
+					.customLoader(BlockStateItemGeometryLoader::builder);
 		}
 	}
 
@@ -198,5 +213,19 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 			return new ExtensionMetalStyleBlocks(loadTile);
 		}
 
+	}
+
+	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		if (this.loadTile) {
+			StyleType s = TILE.get().style;
+			for (int i = 0; i < s.numStyles(); i++)
+				ibmp.cubeAll(
+						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
+								+ "/tile/" + s.getStyles().get(i).toLowerCase(),
+						ibmp.modLoc(
+								"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
+										+ "/tile/" + s.getStyles().get(i).toLowerCase() + "_tile_block"));
+		}
 	}
 }
