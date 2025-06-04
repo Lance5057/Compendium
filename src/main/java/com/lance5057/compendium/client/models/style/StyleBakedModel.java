@@ -110,9 +110,7 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	@Override
 	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
 		StyleModelData data = new StyleModelData();
-		
-		
-		
+
 		return modelData.derive().with(DATA, data).build();
 	}
 

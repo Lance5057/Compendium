@@ -23,7 +23,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public abstract class MultiMaterialBlockEntity extends BlockEntity {
 
-	List<String> materials;
+	List<String> materials = new ArrayList<String>();
 
 	public List<String> getMaterials() {
 		return materials;
@@ -32,7 +32,8 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 	public abstract int getMaterialsCount();
 
 	public void setMaterial(int index, String s) {
-		materials.set(index, s);
+		if (materials.size() > index)
+			materials.set(index, s);
 		this.setChanged();
 	}
 
@@ -52,7 +53,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 
 	@Override
 	public ModelData getModelData() {
-		return MultiMaterialModelData.builder(materials.toArray(new String[0])).build();
+		return MultiMaterialModelData.builder(materials).build();
 	}
 
 	@Override

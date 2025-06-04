@@ -82,12 +82,12 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-		String[] mats = extraData.get(MultiMaterialModelData.STATE);
+		@Nullable List<String> mats = extraData.get(MultiMaterialModelData.STATE);
 
 		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
-		if (mats != null && mats.length > 0) {
-			BasicIndexModel q = quads.get(mats[0]);
+		if (mats != null && mats.size() > 0) {
+			BasicIndexModel q = quads.get(mats.get(0));
 			if (q.model != null) {
 				List<BakedQuad> r = q.model.getQuads(state, side, rand, extraData, renderType);
 				if (r != null)

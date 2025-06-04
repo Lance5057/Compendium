@@ -36,7 +36,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	public List<StyleType> getStyles() {
 		if (styles != null)
-			return List.of(styles.copy());
+			return List.of(styles);
 		return new ArrayList<StyleType>();
 	}
 
@@ -124,7 +124,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		CompoundTag tag = pkt.getTag();
 		// InteractionHandle your Data
 		readNBT(tag, registries);
-		
+
 		setChanged();
 		if (getLevel() != null) {
 			BlockState state = getLevel().getBlockState(getBlockPos());

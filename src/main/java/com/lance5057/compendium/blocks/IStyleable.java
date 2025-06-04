@@ -38,8 +38,10 @@ public interface IStyleable {
 			tag.put("style" + i, styles.get(i).writeNBT(nbt, registries));
 		}
 		
+		nbt.put("types", tag);
+		
 		nbt.putInt("count", styles.size());
 
-		nbt.put("types", tag);
+		
 	}
 }
