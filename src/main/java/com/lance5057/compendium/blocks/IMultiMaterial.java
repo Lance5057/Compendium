@@ -3,29 +3,32 @@ package com.lance5057.compendium.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 
 public interface IMultiMaterial {
-	public List<String> getMaterials();
+	public List<MultiMaterialType> getMaterials();
 
-	public void setMaterials(List<String> materials);
+	public void setMaterials(List<MultiMaterialType> materials);
 
 	public abstract int getMaterialsCount();
 
 	public void setMaterial(int index, String s);
 
-	public void setMaterial(String[] s);
+	public void setMaterial(MultiMaterialType[] s);
 
-	default List<String> readMaterialNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+	default List<MultiMaterialType> readMaterialNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		if (nbt.contains("materials")) {
 			CompoundTag mats = nbt.getCompound("materials");
 
 			int count = mats.getInt("count");
-			List<String> materials = new ArrayList<String>();
+			List<MultiMaterialType> materials = new ArrayList<MultiMaterialType>();
 
 			for (int i = 0; i < count; i++) {
-				String s = mats.getString("material_" + i);
+				CompoundTag m = mats.getCompound("material" + i);
+				MultiMaterialType s = MultiMaterialType.readNBT(m, registries);
 				materials.add(s);
 			}
 
@@ -35,14 +38,17 @@ public interface IMultiMaterial {
 		return null;
 	}
 
-	default void writeMaterialNBT(List<String> materials, CompoundTag tag, HolderLookup.Provider registries) {
+	default void writeMaterialNBT(List<MultiMaterialType> materials, CompoundTag tag,
+			HolderLookup.Provider registries) {
 
 		CompoundTag mats = new CompoundTag();
 		mats.putInt("count", materials.size());
-		for (int i = 0; i < materials.size(); i++)
-			mats.putString("material_" + i, materials.get(i).toString());
-		tag.put("materials", mats);
+		for (int i = 0; i < materials.size(); i++) {
+			CompoundTag m = new CompoundTag();
+			MultiMaterialType.writeNBT(materials.get(i), m, registries);
+			mats.put("material" + i, m);
+		}
 
-//		return tag;
+		tag.put("materials", mats);
 	}
 }

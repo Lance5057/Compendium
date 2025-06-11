@@ -12,7 +12,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 
 public class AdjustinatorMultiMaterialMenu extends AbstractContainerMenu {
 
@@ -65,7 +64,8 @@ public class AdjustinatorMultiMaterialMenu extends AbstractContainerMenu {
 	public void syncBlockFromRemote(String s) {
 		String[] materials = s.split(":");
 
-		this.multimaterial.setMaterial(materials);
+		for (int i = 0; i < materials.length; i++)
+			this.multimaterial.setMaterial(i, materials[i]);
 	}
 
 }

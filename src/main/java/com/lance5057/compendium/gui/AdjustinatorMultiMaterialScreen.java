@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.lance5057.compendium.network.AdjustinatorCallBackPacket;
 import com.mojang.blaze3d.platform.InputConstants;
 
@@ -60,7 +61,10 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 					EditBox b = addRenderableWidget(new EditBox(font, this.leftPos + 1, this.topPos + 1 + (25 * i), 160,
 							24, playerInventoryTitle));
 
-					List<String> mats = mtrs.getMaterials();
+					List<String> mats = new ArrayList<String>();
+					for (MultiMaterialType m : mtrs.getMaterials())
+						mats.add(m.getCurrentMaterial());
+//					mtrs.getMaterials().forEach(i -> mats.add(i.getCurrentMaterial()));
 
 					if (mats != null && mats.size() > i) {
 						b.insertText(mats.get(i));

@@ -1,26 +1,24 @@
 package com.lance5057.compendium.client.models.multimaterial;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.base.Preconditions;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.model.IndexModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomLoaderBuilder<T> {
 	T baseModel;
-	List<IndexModelBuilder> indexModels;
+//	List<IndexModelBuilder> indexModels;
+	ResourceLocation invalid;
 	MATERIAL_TYPES type;
 
 	protected MaterialSwapModelBuilder(T parent, ExistingFileHelper existingFileHelper) {
 		super(Compendium.modLoc("material_swap"), parent, existingFileHelper, false);
-		indexModels = new ArrayList<IndexModelBuilder>();
+//		indexModels = new ArrayList<IndexModelBuilder>();
 	}
 
 	public MaterialSwapModelBuilder<T> base(T model) {
@@ -29,9 +27,9 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 		return this;
 	}
 
-	public MaterialSwapModelBuilder<T> add(IndexModelBuilder model) {
-		Preconditions.checkNotNull(model, "model must not be null");
-		indexModels.add(model);
+	public MaterialSwapModelBuilder<T> addInvalidLocation(ResourceLocation rc) {
+//		Preconditions.checkNotNull(model, "model must not be null");
+		invalid = rc;
 		return this;
 	}
 
@@ -44,12 +42,12 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 		json.add("base", baseModel.toJson());
 
-		if (indexModels != null) {
-			for (int i = 0; i < indexModels.size(); i++)
-				indexModels.get(i).toJson(json, i);
-		}
+//		if (indexModels != null) {
+//			for (int i = 0; i < indexModels.size(); i++)
+//				indexModels.get(i).toJson(json, i);
+//		}
 
-		json.addProperty("count", indexModels.size());
+//		json.addProperty("count", indexModels.size());
 		json.addProperty("loader", loaderId.toString());
 
 		return json;

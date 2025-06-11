@@ -10,6 +10,7 @@ import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IMultiMaterial;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -25,9 +26,9 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public abstract class MultiMaterialBlockEntity extends BlockEntity implements IMultiMaterial {
 
-	List<String> materials = new ArrayList<String>();
+	List<MultiMaterialType> materials = new ArrayList<MultiMaterialType>();
 
-	public List<String> getMaterials() {
+	public List<MultiMaterialType> getMaterials() {
 		return materials;
 	}
 
@@ -35,18 +36,18 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 
 	public void setMaterial(int index, String s) {
 		if (materials.size() > index)
-			materials.set(index, s);
+			materials.get(index).setCurrentMaterial(s);
 		this.setChanged();
 	}
 
-	public void setMaterial(String[] s) {
+	public void setMaterial(MultiMaterialType[] s) {
 		materials = Stream.of(s).toList();
 		this.setChanged();
 		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 	}
 
 	@Override
-	public void setMaterials(List<String> materials) {
+	public void setMaterials(List<MultiMaterialType> materials) {
 		this.materials = materials;
 	}
 
@@ -54,7 +55,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		this(type, pos, blockState, List.of());
 	}
 
-	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, List<String> list) {
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, List<MultiMaterialType> list) {
 		super(type, pos, blockState);
 		this.materials = list;
 	}
@@ -146,7 +147,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		super.applyImplicitComponents(input);
 		MultiMaterialBlockComponent m = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (m != null) {
-			this.materials = new ArrayList<String>(m.types());
+			this.materials = new ArrayList<MultiMaterialType>(m.types());
 		}
 	}
 
