@@ -1,6 +1,7 @@
 package com.lance5057.compendium.blocks.entities;
 
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
@@ -12,9 +13,9 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class WindowBlockEntity extends MultiMaterialBlockEntity {
 
 	public WindowBlockEntity(BlockPos pos, BlockState blockState) {
-		super(CompendiumBlockEntities.WINDOW.get(), pos, blockState, Stream.of("invalid").toList());
+		super(CompendiumBlockEntities.WINDOW.get(), pos, blockState, new ArrayList<String>(List.of("invalid")));
 	}
-	
+
 	@Override
 	public ModelData getModelData() {
 		return MultiMaterialModelData.builder(this.materials).build();
@@ -24,4 +25,5 @@ public class WindowBlockEntity extends MultiMaterialBlockEntity {
 	public int getMaterialsCount() {
 		return 1;
 	}
+
 }

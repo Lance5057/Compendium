@@ -6,9 +6,31 @@
       "all": "minecraft:block/glass"
     }
   },
+  "count": 5,
   "loader": "compendium:material_swap",
-  "model": {
+  "model0": {
     "type": "METAL",
+    "material": "netherite",
+    "model": "compendium:block/material/metal/netherite/window_trim"
+  },
+  "model1": {
+    "type": "METAL",
+    "material": "copper",
+    "model": "compendium:block/material/metal/copper/window_trim"
+  },
+  "model2": {
+    "type": "METAL",
+    "material": "gold",
+    "model": "compendium:block/material/metal/gold/window_trim"
+  },
+  "model3": {
+    "type": "METAL",
+    "material": "iron",
+    "model": "compendium:block/material/metal/iron/window_trim"
+  },
+  "model4": {
+    "type": "INVALID",
+    "material": "invalid",
     "model": "compendium:block/material/metal/invalid/window_trim"
   }
 }

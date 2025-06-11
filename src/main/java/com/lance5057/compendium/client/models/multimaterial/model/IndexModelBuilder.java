@@ -8,20 +8,22 @@ import net.minecraft.resources.ResourceLocation;
 public class IndexModelBuilder {
 	MATERIAL_TYPES type;
 	ResourceLocation model;
-//	String material;
+	String material;
 
-	public IndexModelBuilder(MATERIAL_TYPES t, ResourceLocation b) {
+	public IndexModelBuilder(MATERIAL_TYPES t, ResourceLocation b, String m) {
 		this.type = t;
 		this.model = b;
+		this.material = m;
 	}
 
-	public JsonObject toJson(JsonObject jo) {
+	public JsonObject toJson(JsonObject jo, int i) {
 		JsonObject j = new JsonObject();
 
 		j.addProperty("type", type.toString());
 		j.addProperty("model", model.toString());
+		j.addProperty("material", material);
 
-		jo.add("model", j);
+		jo.add("model" + i, j);
 
 		return jo;
 	}

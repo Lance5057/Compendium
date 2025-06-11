@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.blocks.IMultiMaterial;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 
@@ -16,12 +17,13 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-public abstract class MultiMaterialBlockEntity extends BlockEntity {
+public abstract class MultiMaterialBlockEntity extends BlockEntity implements IMultiMaterial {
 
 	List<String> materials = new ArrayList<String>();
 
@@ -40,6 +42,12 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 	public void setMaterial(String[] s) {
 		materials = Stream.of(s).toList();
 		this.setChanged();
+		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+	}
+
+	@Override
+	public void setMaterials(List<String> materials) {
+		this.materials = materials;
 	}
 
 	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
@@ -80,30 +88,36 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 		CompoundTag tag = pkt.getTag();
 		// InteractionHandle your Data
 		readNBT(tag, registries);
+		if (getLevel() != null) {
+			BlockState state = getLevel().getBlockState(getBlockPos());
+			requestModelDataUpdate();
+			getLevel().sendBlockUpdated(getBlockPos(), state, state, 3);
+		}
 	}
 
 	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
-		if (nbt.contains("materials")) {
-			CompoundTag mats = nbt.getCompound("materials");
-
-			int count = mats.getInt("count");
-			this.materials = new ArrayList<String>();
-
-			for (int i = 0; i < count; i++) {
-				String s = mats.getString("material_" + i);
-				materials.add(s);
-			}
-		}
+		this.materials = this.readMaterialNBT(nbt, registries);
+//		if (nbt.contains("materials")) {
+//			CompoundTag mats = nbt.getCompound("materials");
+//
+//			int count = mats.getInt("count");
+//			this.materials = new ArrayList<String>();
+//
+//			for (int i = 0; i < count; i++) {
+//				String s = mats.getString("material_" + i);
+//				materials.add(s);
+//			}
+//		}
 		readNBTExtra(nbt, registries);
 	}
 
 	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
-
-		CompoundTag mats = new CompoundTag();
-		mats.putInt("count", materials.size());
-		for (int i = 0; i < materials.size(); i++)
-			mats.putString("material_" + i, materials.get(i).toString());
-		tag.put("materials", mats);
+		this.writeMaterialNBT(materials, tag, registries);
+//		CompoundTag mats = new CompoundTag();
+//		mats.putInt("count", materials.size());
+//		for (int i = 0; i < materials.size(); i++)
+//			mats.putString("material_" + i, materials.get(i).toString());
+//		tag.put("materials", mats);
 		writeNBTExtra(tag, registries);
 
 		return tag;
@@ -132,7 +146,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity {
 		super.applyImplicitComponents(input);
 		MultiMaterialBlockComponent m = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (m != null) {
-			this.materials = m.types();
+			this.materials = new ArrayList<String>(m.types());
 		}
 	}
 

@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
@@ -51,6 +52,8 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 		for (IndexModel im : indexModels) {
 			im.model = modelGetter.apply(im.modelRC);
 			im.model.resolveParents(modelGetter);
+			if (im.model == null)
+				im.model = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
 		}
 	}
 
@@ -61,18 +64,20 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 
 		for (IndexModel im : indexModels) {
 
-			for (IIndexEntry i : CompendiumIndex.index) {
-				if (i instanceof _MaterialBase mb) {
-					if (mb.getType() == im.type) {
-						replaceAndBake(spriteGetter, baker, modelState, quads, im, mb.name);
+//			for (IIndexEntry i : CompendiumIndex.index) {
+//				if (i instanceof _MaterialBase mb) {
+//					if (mb.getType() == im.type) {
+						replaceAndBake(spriteGetter, baker, modelState, quads, im, im.material);
 
-					}
-				}
-			}
+//					}
+//				}
+//			}
 
 			// add invalid
-			replaceAndBake(spriteGetter, baker, modelState, quads, im, "invalid");
+			
 		}
+		
+//		replaceAndBake(spriteGetter, baker, modelState, quads, im, "invalid");
 
 		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), quads);
 	}
@@ -103,19 +108,19 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 
 			List<IndexModel> models = new ArrayList<IndexModel>();
 
-			if (jsonObject.has("model")) {
-				JsonObject m = jsonObject.getAsJsonObject("model");
+			int count = jsonObject.get("count").getAsInt();
 
-				String s = m.get("type").getAsString();
-				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-				String mat = m.get("model").getAsString();
+			for (int i = 0; i < count; i++) {
+				JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
+				
+				MATERIAL_TYPES s = MATERIAL_TYPES.valueOf(mat.get("type").getAsString());
+				String t = mat.get("material").getAsString();
+				String m = mat.get("model").getAsString();
 
-				models.add(new IndexModel(t, ResourceLocation.parse(mat)));
-
-				return new MaterialSwapElementsUnbakedModel(base, models);
+				models.add(new IndexModel(s, t, ResourceLocation.parse(m)));
 			}
 
-			return new MaterialSwapElementsUnbakedModel(base, List.of());
+			return new MaterialSwapElementsUnbakedModel(base, models);
 		}
 	}
 

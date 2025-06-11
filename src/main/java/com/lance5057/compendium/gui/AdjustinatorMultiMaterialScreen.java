@@ -14,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.network.PacketDistributor;
 
@@ -106,6 +107,7 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
 		mmbe.setMaterial(index, s);
+		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
 	}
 
 	@Override

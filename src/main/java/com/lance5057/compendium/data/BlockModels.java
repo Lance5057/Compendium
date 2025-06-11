@@ -6,6 +6,8 @@ import com.lance5057.compendium.client.models.multimaterial.MaterialSwapModelBui
 import com.lance5057.compendium.client.models.multimaterial.model.IndexModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.data.PackOutput;
@@ -74,11 +76,15 @@ public class BlockModels extends BlockStateProvider {
 					.customLoader(MaterialSwapModelBuilder::begin);
 			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"));
 
-//			for (IIndexEntry i : CompendiumIndex.index) {
-//				if (i instanceof _MaterialBase mb)
-//					if (mb.getType() == MATERIAL_TYPES.METAL)
-			msmb.add(new IndexModelBuilder(MATERIAL_TYPES.METAL, modLoc("block/material/metal/invalid/window_trim")));
-//			}
+			for (IIndexEntry i : CompendiumIndex.index) {
+				if (i instanceof _MaterialBase mb)
+					if (mb.getType() == MATERIAL_TYPES.METAL)
+						msmb.add(new IndexModelBuilder(MATERIAL_TYPES.METAL,
+								modLoc("block/material/metal/" + mb.name + "/window_trim"), i.getName()));
+			}
+
+			msmb.add(new IndexModelBuilder(MATERIAL_TYPES.INVALID, modLoc("block/material/metal/invalid/window_trim"),
+					"invalid"));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);

@@ -15,6 +15,8 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 	@Override
 	protected void registerModels() {
+		
+		
 		CompendiumIndex.index.forEach(i -> {
 			i.blockModel(this);
 		});

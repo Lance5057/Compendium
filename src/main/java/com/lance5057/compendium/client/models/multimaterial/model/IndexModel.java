@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class IndexModel {
 	public MATERIAL_TYPES type;
+	public String material;
 
 	public MATERIAL_TYPES getType() {
 		return type;
@@ -23,8 +24,9 @@ public class IndexModel {
 //		this.model = model;
 //	}
 
-	public IndexModel(MATERIAL_TYPES t, ResourceLocation b) {
+	public IndexModel(MATERIAL_TYPES t, String m, ResourceLocation b) {
 		this.type = t;
 		this.modelRC = b;
+		this.material = m;
 	}
 }

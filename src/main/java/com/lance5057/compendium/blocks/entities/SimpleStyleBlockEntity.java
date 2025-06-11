@@ -68,7 +68,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
 		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(List.of(styles.copy())));
-		builder.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
+//		builder.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
 	}
 
 	@Override

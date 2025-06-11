@@ -60,6 +60,7 @@ public class CompendiumItems {
 							new MultiMaterialBlockComponent(Stream.of("invalid", "invalid", "invalid").toList()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
-			() -> new BlockItem(CompendiumBlocks.WINDOW.get(), new Item.Properties()
-					.component(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(List.of()))));
+			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),
+					new Item.Properties().component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of("iron").toList()))));
 }

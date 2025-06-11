@@ -35,7 +35,7 @@ public interface IMultiMaterial {
 		return null;
 	}
 
-	default CompoundTag writeMaterialNBT(List<String> materials, CompoundTag tag, HolderLookup.Provider registries) {
+	default void writeMaterialNBT(List<String> materials, CompoundTag tag, HolderLookup.Provider registries) {
 
 		CompoundTag mats = new CompoundTag();
 		mats.putInt("count", materials.size());
@@ -43,6 +43,6 @@ public interface IMultiMaterial {
 			mats.putString("material_" + i, materials.get(i).toString());
 		tag.put("materials", mats);
 
-		return tag;
+//		return tag;
 	}
 }
