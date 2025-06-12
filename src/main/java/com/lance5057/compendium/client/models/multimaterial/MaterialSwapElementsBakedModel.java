@@ -1,15 +1,13 @@
 package com.lance5057.compendium.client.models.multimaterial;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import com.lance5057.compendium.client.models.multimaterial.model.BasicIndexModel;
-import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
 
 import net.minecraft.client.renderer.RenderType;
@@ -31,12 +29,12 @@ import net.neoforged.neoforge.client.model.data.ModelProperty;
 public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<MultiMaterialModelData> DATA = new ModelProperty<>();
 	private final BakedModel base;
-	Map<String, BasicIndexModel> quads = new HashMap<String, BasicIndexModel>();
+	List<BakedLayer> layers = new ArrayList<BakedLayer>();
 
 	@SuppressWarnings("deprecation")
-	public MaterialSwapElementsBakedModel(BakedModel base, Map<String, BasicIndexModel> quads) {
+	public MaterialSwapElementsBakedModel(BakedModel base, List<BakedLayer> bakedLayers) {
 		this.base = base;
-		this.quads = quads;
+		this.layers = bakedLayers;
 
 	}
 
@@ -87,33 +85,9 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-
-		@Nullable
-		List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
-
 		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
-		if (mats != null && mats.size() > 0) {
-			for (int i = 0; i < mats.size(); i++) {
-				BasicIndexModel q = quads.get(mats.get(0).getCurrentMaterial());
-				if (q != null && q.model != null) {
-					List<BakedQuad> r = q.model.getQuads(state, side, rand, extraData, renderType);
-					if (r != null)
-						if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-							l.addAll(r);
-				}
-			}
-		} else {
-			BasicIndexModel q = quads.get("invalid");
-
-			if (q != null)
-				if (q.model != null) {
-					List<BakedQuad> r = q.model.getQuads(state, side, rand, extraData, renderType);
-					if (r != null)
-						if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-							l.addAll(r);
-				}
-		}
+		layers.forEach(i -> l.addAll(i.getQuads(state, side, rand, extraData, renderType, base)));
 
 		return l;
 
@@ -126,4 +100,44 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 		return modelData.derive().with(DATA, data).build();
 	}
 
+	public static class BakedLayer {
+		public final List<MATERIAL_TYPES> validTypes;
+		public final Map<String, BakedModel> models;
+
+		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, BakedModel> models) {
+			this.validTypes = validTypes;
+			this.models = models;
+
+		}
+
+		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
+				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
+			@Nullable
+			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
+			List<BakedQuad> l = new ArrayList<BakedQuad>();
+			if (mats != null && mats.size() > 0) {
+				for (int i = 0; i < mats.size(); i++) {
+					BakedModel q = models.get(mats.get(0).getCurrentMaterial());
+					if (q != null) {
+						List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
+						if (r != null)
+							if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+								l.addAll(r);
+					}
+				}
+			} else {
+				BakedModel q = models.get("invalid");
+
+				if (q != null) {
+					List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
+					if (r != null)
+						if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+							l.addAll(r);
+				}
+
+			}
+
+			return l;
+		}
+	}
 }

@@ -6,6 +6,19 @@
       "all": "minecraft:block/glass"
     }
   },
-  "count": 5,
-  "loader": "compendium:material_swap"
+  "layer0": {
+    "valid": [
+      "GLASS"
+    ]
+  },
+  "layer1": {
+    "valid": [
+      "METAL",
+      "WOOD"
+    ]
+  },
+  "layer_count": 2,
+  "loader": "compendium:material_swap",
+  "mod": "compendium",
+  "model": "window_trim"
 }

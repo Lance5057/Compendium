@@ -1,13 +1,13 @@
 package com.lance5057.compendium.data;
 
+import java.util.List;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Layer;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapModelBuilder;
-import com.lance5057.compendium.client.models.multimaterial.model.IndexModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.IIndexEntry;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.data.PackOutput;
@@ -76,15 +76,12 @@ public class BlockModels extends BlockStateProvider {
 					.customLoader(MaterialSwapModelBuilder::begin);
 			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"));
 
-			for (IIndexEntry i : CompendiumIndex.index) {
-				if (i instanceof _MaterialBase mb)
-					if (mb.getType() == MATERIAL_TYPES.METAL)
-						msmb.add(new IndexModelBuilder(MATERIAL_TYPES.METAL,
-								modLoc("block/material/metal/" + mb.name + "/window_trim"), i.getName()));
-			}
+//			msmb.addInvalidLocation(modLoc("block/material/invalid/invalid/window_trim"));
+//			msmb.addModelName("window_trim");
+//			msmb.addModName(Compendium.MOD_ID);
 
-			msmb.add(new IndexModelBuilder(MATERIAL_TYPES.INVALID, modLoc("block/material/metal/invalid/window_trim"),
-					"invalid"));
+			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.GLASS), "window"));
+			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "window_trim"));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);

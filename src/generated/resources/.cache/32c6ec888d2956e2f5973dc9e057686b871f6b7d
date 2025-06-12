@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-11T13:36:03.2525559	Block States: compendium
+// 1.21.1	2025-06-12T13:45:58.5877462	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -304,5 +304,5 @@ f335524822d0b54ea9a0062f733d14ac03f60ac0 assets/compendium/models/block/material
 fb1d87a0d3f4fc8475fce0d4f025a883ea95f2fd assets/compendium/models/block/sandstone_tile.json
 e70295fb811b7142d7306613819b4fbef7a307e2 assets/compendium/models/block/stone_tile.json
 83a06ba4cc7919a1e3189bcf3ccc1df13e82a8db assets/compendium/models/block/tuff_tile.json
-c5bedf2a6bbc32a2fe4c0869bac597b111b469c7 assets/compendium/models/block/window.json
+2a55960fdc779341f5d05f556ee309c13c235e6b assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json

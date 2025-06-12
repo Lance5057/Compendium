@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.model.BasicIndexModel;
-import com.lance5057.compendium.client.models.multimaterial.model.IndexModel;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel.BakedLayer;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
@@ -34,62 +34,119 @@ import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
 	private final BlockModel baseModel;
-	private final List<IndexModel> indexModels;
 
-	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2) {
-		this.baseModel = baseModel2;
-		this.indexModels = List.of();
-	}
+	private List<Layer> layers = new ArrayList<Layer>();
 
-	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<IndexModel> models) {
+//	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2) {
+//		this.baseModel = baseModel2;
+//		this.indexModels = List.of();
+//	}
+
+	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
 		this.baseModel = baseModel2;
-		this.indexModels = models;
+		this.layers = layers;
 	}
 
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
 		this.baseModel.resolveParents(modelGetter);
-		for (IndexModel im : indexModels) {
-			im.model = modelGetter.apply(im.modelRC);
-			im.model.resolveParents(modelGetter);
-			if (im.model == null)
-				im.model = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
-		}
+
+		this.layers.forEach(l -> l.resolveParents(modelGetter, context));
+
+//		for (IndexModel im : indexModels) {
+//			im.model = modelGetter.apply(im.modelRC);
+//			im.model.resolveParents(modelGetter);
+//			if (im.model == null)
+//				im.model = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+//		}
 	}
 
 	@Override
 	public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
-		Map<String, BasicIndexModel> quads = new HashMap<String, BasicIndexModel>();
 
-		for (IndexModel im : indexModels) {
+		List<BakedLayer> bakedLayers = new ArrayList<BakedLayer>();
 
-//			for (IIndexEntry i : CompendiumIndex.index) {
-//				if (i instanceof _MaterialBase mb) {
-//					if (mb.getType() == im.type) {
-						replaceAndBake(spriteGetter, baker, modelState, quads, im, im.material);
-
-//					}
-//				}
-//			}
-
-			// add invalid
-			
+		for (int i = 0; i < layers.size(); i++) {
+			bakedLayers.add(layers.get(i).bake(context, baker, spriteGetter, modelState, overrides));
 		}
-		
-//		replaceAndBake(spriteGetter, baker, modelState, quads, im, "invalid");
 
-		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), quads);
+		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
 	}
 
-	private void replaceAndBake(Function<Material, TextureAtlasSprite> spriteGetter, ModelBaker baker,
-			ModelState modelState, Map<String, BasicIndexModel> quads, IndexModel im, String name) {
+	public static class Layer {
+		private final String model;
+		public final List<MATERIAL_TYPES> validTypes;
+		public Map<String, ResourceLocation> locations = new HashMap<String, ResourceLocation>();
+		public Map<String, UnbakedModel> models = new HashMap<String, UnbakedModel>();
 
-		BakedModel baked = im.model.bake(baker, spriteGetter, modelState);
+		public Layer(List<MATERIAL_TYPES> validTypes, String model) {
+			this.model = model;
+			this.validTypes = validTypes;
 
-		BasicIndexModel bim = new BasicIndexModel(name, baked);
+		}
 
-		quads.put(name, bim);
+		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
+				IGeometryBakingContext context) {
+			for (IIndexEntry i : CompendiumIndex.index) {
+				if (i instanceof _MaterialBase mb) {
+					if (validTypes.contains(mb.getType())) {
+						ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/"
+								+ mb.getType().toString().toLowerCase() + "/" + mb.name + "/" + model);
+
+						locations.put(mb.name, rc);
+					}
+				}
+			}
+
+			locations.forEach((k, v) -> {
+				UnbakedModel um = modelGetter.apply(v);
+				if (um == null)
+					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+				else
+					um.resolveParents(modelGetter);
+				models.put(k, um);
+			});
+		}
+
+		public BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
+				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
+
+			Map<String, BakedModel> bakedModels = new HashMap<String, BakedModel>();
+			models.forEach((k, v) -> {
+				BakedModel baked = v.bake(baker, spriteGetter, modelState);
+
+				bakedModels.put(k, baked);
+			});
+			return new BakedLayer(validTypes, bakedModels);
+		}
+
+		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
+				throws JsonParseException {
+//			String inv = jsonObject.get("invalid").getAsString();
+//			ResourceLocation invalid = ResourceLocation.parse(inv);
+
+			List<MATERIAL_TYPES> ty = new ArrayList<MATERIAL_TYPES>();
+
+			JsonArray t = jsonObject.getAsJsonArray("valid");
+			t.asList().forEach(i -> ty.add(MATERIAL_TYPES.valueOf(i.getAsString())));
+
+			String model = jsonObject.get("model").getAsString();
+
+			return new Layer(ty, model);
+		}
+
+		public void toJson(JsonObject json, int layerID) {
+			JsonObject l = new JsonObject();
+
+			JsonArray t = new JsonArray();
+
+			validTypes.forEach(i -> t.add(i.toString()));
+
+			l.add("valid", t);
+
+			json.add("layer" + layerID, l);
+		}
 	}
 
 	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {
@@ -106,21 +163,14 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
 					BlockModel.class);
 
-			List<IndexModel> models = new ArrayList<IndexModel>();
-
-			int count = jsonObject.get("count").getAsInt();
-
+			int count = jsonObject.get("layer_count").getAsInt();
+			List<Layer> l = new ArrayList<Layer>();
 			for (int i = 0; i < count; i++) {
-				JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
-				
-				MATERIAL_TYPES s = MATERIAL_TYPES.valueOf(mat.get("type").getAsString());
-				String t = mat.get("material").getAsString();
-				String m = mat.get("model").getAsString();
-
-				models.add(new IndexModel(s, t, ResourceLocation.parse(m)));
+				JsonObject j = jsonObject.get("layer" + i).getAsJsonObject();
+				l.add(Layer.read(j, deserializationContext));
 			}
 
-			return new MaterialSwapElementsUnbakedModel(base, models);
+			return new MaterialSwapElementsUnbakedModel(base, l);
 		}
 	}
 
