@@ -7,18 +7,18 @@
     }
   },
   "layer0": {
+    "model": "window",
     "valid": [
       "GLASS"
     ]
   },
   "layer1": {
+    "model": "window_trim",
     "valid": [
       "METAL",
       "WOOD"
     ]
   },
   "layer_count": 2,
-  "loader": "compendium:material_swap",
-  "mod": "compendium",
-  "model": "window_trim"
+  "loader": "compendium:material_swap"
 }

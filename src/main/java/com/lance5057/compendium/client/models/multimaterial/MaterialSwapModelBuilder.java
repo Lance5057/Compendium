@@ -58,7 +58,7 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 
 //		json.addProperty("count", indexModels.size());
 		json.addProperty("loader", loaderId.toString());
-		json.addProperty("mod", mod);
+//		json.addProperty("mod", mod);
 		json.addProperty("model", model);
 
 		json.addProperty("layer_count", types.size());

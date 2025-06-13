@@ -28,6 +28,7 @@ import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
+import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialWood;
@@ -114,24 +115,24 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
 				.addExtension(new ExtensionMetalStyleBlocks(true)));
 
-//		buildDefault(new MaterialGlass("glass", false, false));
-//		buildDefault(new MaterialGlass("white_glass", false, false));
-//		buildDefault(new MaterialGlass("light_gray_glass", false, false));
-//		buildDefault(new MaterialGlass("gray_glass", false, false));
-//		buildDefault(new MaterialGlass("black_glass", false, false));
-//		buildDefault(new MaterialGlass("brown_glass", false, false));
-//		buildDefault(new MaterialGlass("red_glass", false, false));
-//		buildDefault(new MaterialGlass("orange_glass", false, false));
-//		buildDefault(new MaterialGlass("yellow_glass", false, false));
-//		buildDefault(new MaterialGlass("lime_glass", false, false));
-//		buildDefault(new MaterialGlass("green_glass", false, false));
-//		buildDefault(new MaterialGlass("cyan_glass", false, false));
-//		buildDefault(new MaterialGlass("light_blue_glass", false, false));
-//		buildDefault(new MaterialGlass("blue_glass", false, false));
-//		buildDefault(new MaterialGlass("purple_glass", false, false));
-//		buildDefault(new MaterialGlass("magenta_glass", false, false));
-//		buildDefault(new MaterialGlass("pink_glass", false, false));
-//		buildDefault(new MaterialGlass("tinted_glass", true, false));
+		buildDefault(new MaterialGlass("clear_glass", false, false));
+		buildDefault(new MaterialGlass("white_glass", false, false));
+		buildDefault(new MaterialGlass("light_gray_glass", false, false));
+		buildDefault(new MaterialGlass("gray_glass", false, false));
+		buildDefault(new MaterialGlass("black_glass", false, false));
+		buildDefault(new MaterialGlass("brown_glass", false, false));
+		buildDefault(new MaterialGlass("red_glass", false, false));
+		buildDefault(new MaterialGlass("orange_glass", false, false));
+		buildDefault(new MaterialGlass("yellow_glass", false, false));
+		buildDefault(new MaterialGlass("lime_glass", false, false));
+		buildDefault(new MaterialGlass("green_glass", false, false));
+		buildDefault(new MaterialGlass("cyan_glass", false, false));
+		buildDefault(new MaterialGlass("light_blue_glass", false, false));
+		buildDefault(new MaterialGlass("blue_glass", false, false));
+		buildDefault(new MaterialGlass("purple_glass", false, false));
+		buildDefault(new MaterialGlass("magenta_glass", false, false));
+		buildDefault(new MaterialGlass("pink_glass", false, false));
+//		buildDefault(new MaterialGlass("tinted_glass", false, false));
 
 		buildDefault(new MaterialWood("oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
@@ -178,8 +179,8 @@ public class IndexInitialResourceLoader {
 	static void buildDefault(_MaterialBase mat) {
 
 		try {
-			Files.createDirectories(resourcePackPath);
-			Path p = resourcePackPath.resolve(mat.name + ".json");
+			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/"));
+			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/").resolve(mat.name + ".json");
 			if (Files.exists(p))
 				Files.delete(p);
 //			else {

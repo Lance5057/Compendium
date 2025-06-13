@@ -144,6 +144,8 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			validTypes.forEach(i -> t.add(i.toString()));
 
 			l.add("valid", t);
+			
+			l.addProperty("model", this.model);
 
 			json.add("layer" + layerID, l);
 		}

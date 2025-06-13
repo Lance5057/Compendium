@@ -1,4 +1,21 @@
-// 1.21.1	2025-05-30T12:20:41.8839782	Block Models: compendium
+// 1.21.1	2025-06-13T00:19:38.825826	Block Models: compendium
+48e56e46a7d115eddda69f2978849961ba8f10f2 assets/compendium/models/block/material/glass/black_glass/window.json
+ac659a80db2d32b1d68e64d50c3e8b3e4b64c791 assets/compendium/models/block/material/glass/blue_glass/window.json
+575f845492f73ee812aa80739d0ea38130f4ad0c assets/compendium/models/block/material/glass/brown_glass/window.json
+338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/material/glass/clear_glass/window.json
+168a25d00d818da856c2ae81b9bd14d297b72809 assets/compendium/models/block/material/glass/cyan_glass/window.json
+d99a0cebc9185c4ae5694f55d92e183528ba8e8f assets/compendium/models/block/material/glass/gray_glass/window.json
+0dd2e2c1466916bc09e3394e48c594363e367415 assets/compendium/models/block/material/glass/green_glass/window.json
+de87b43c77542609d92f65f4215dfe46dec161ff assets/compendium/models/block/material/glass/light_blue_glass/window.json
+d82e6a2c24ce90b69914ec391de62f72033e779f assets/compendium/models/block/material/glass/light_gray_glass/window.json
+39fdfd38ae13e11e4a14cbeae751a27c9d207751 assets/compendium/models/block/material/glass/lime_glass/window.json
+4d8af4d07a15a1b5808bbbb1e6884085ef0a8e32 assets/compendium/models/block/material/glass/magenta_glass/window.json
+6fde46e1267d48b3b0806995df529ff41b93f70e assets/compendium/models/block/material/glass/orange_glass/window.json
+3f718efc3f6cab2cb1f953148594b89ba0542b9c assets/compendium/models/block/material/glass/pink_glass/window.json
+85a3a8fa8d652e5c0f5cdc5146651a532f7985bd assets/compendium/models/block/material/glass/purple_glass/window.json
+419d6a4f614197c71028ba91b149f637858116ff assets/compendium/models/block/material/glass/red_glass/window.json
+338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/material/glass/white_glass/window.json
+57bd8cfa705bc39df6d8207f153c4101bcdcd3fa assets/compendium/models/block/material/glass/yellow_glass/window.json
 e16db83758f328f879d86ef9c2bbdcd43a8e06e7 assets/compendium/models/block/material/metal/copper/tile/dented.json
 8289cd4d5fc3f5f102ead9f49a3e346ed58a1c9d assets/compendium/models/block/material/metal/copper/tile/dented_segment.json
 c95c46ad82baa4317c53259c713e70182b8a6e18 assets/compendium/models/block/material/metal/copper/tile/full.json
