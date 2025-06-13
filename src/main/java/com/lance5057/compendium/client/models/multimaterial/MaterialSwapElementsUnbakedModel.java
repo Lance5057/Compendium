@@ -99,6 +99,11 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				}
 			}
 
+			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
+
+			locations.put("invalid", rc);
+
 			locations.forEach((k, v) -> {
 				UnbakedModel um = modelGetter.apply(v);
 				if (um == null)
@@ -144,7 +149,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			validTypes.forEach(i -> t.add(i.toString()));
 
 			l.add("valid", t);
-			
+
 			l.addProperty("model", this.model);
 
 			json.add("layer" + layerID, l);

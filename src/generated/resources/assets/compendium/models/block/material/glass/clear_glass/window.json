@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "compendium:block/slightlysmallerblock",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "minecraft:block/glass"
+    "0": "minecraft:block/glass"
   }
 }

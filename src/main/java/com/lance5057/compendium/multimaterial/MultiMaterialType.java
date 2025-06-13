@@ -46,6 +46,14 @@ public class MultiMaterialType {
 
 	List<MATERIAL_TYPES> types;
 	String currentMaterial;
+	
+	public MultiMaterialType copy()
+	{
+		MultiMaterialType c = new MultiMaterialType();
+		c.types = types;
+		c.currentMaterial = currentMaterial;
+		return c;
+	}
 
 	public List<MATERIAL_TYPES> getType() {
 		return types;
@@ -67,6 +75,11 @@ public class MultiMaterialType {
 
 	public void setCurrentMaterial(String m) {
 		this.currentMaterial = m;
+	}
+	
+	private MultiMaterialType()
+	{
+		
 	}
 
 	public MultiMaterialType(MATERIAL_TYPES... t) {

@@ -13,9 +13,10 @@ public class CompendiumComponents {
 			.createDataComponents(Compendium.MOD_ID);
 
 	public static Supplier<DataComponentType<MultiMaterialBlockComponent>> MULTI_MATERIAL = COMPONENTS
-			.registerComponentType("multi_material_block",
-					builder -> builder.persistent(MultiMaterialBlockComponent.CODEC)
-							.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC));
+			.register("multi_material_block",
+					() -> DataComponentType.<MultiMaterialBlockComponent>builder()
+							.persistent(MultiMaterialBlockComponent.CODEC)
+							.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC).cacheEncoding().build());
 
 	public static Supplier<DataComponentType<StyleBlockComponent>> STYLE = COMPONENTS
 			.registerComponentType("style_block", builder -> builder.persistent(StyleBlockComponent.CODEC)

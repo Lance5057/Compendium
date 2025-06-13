@@ -26,7 +26,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public abstract class MultiMaterialBlockEntity extends BlockEntity implements IMultiMaterial {
 
-	List<MultiMaterialType> materials = new ArrayList<MultiMaterialType>();
+	List<MultiMaterialType> materials;
 
 	public List<MultiMaterialType> getMaterials() {
 		return materials;
@@ -52,10 +52,11 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 	}
 
 	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
-		this(type, pos, blockState, List.of());
+		this(type, pos, blockState, new ArrayList<MultiMaterialType>());
 	}
 
-	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, List<MultiMaterialType> list) {
+	public MultiMaterialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState,
+			List<MultiMaterialType> list) {
 		super(type, pos, blockState);
 		this.materials = list;
 	}
@@ -147,7 +148,8 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		super.applyImplicitComponents(input);
 		MultiMaterialBlockComponent m = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (m != null) {
-			this.materials = new ArrayList<MultiMaterialType>(m.types());
+			this.materials = new ArrayList<MultiMaterialType>();
+			m.types().forEach(i -> materials.add(i.copy()));
 		}
 	}
 

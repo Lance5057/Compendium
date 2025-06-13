@@ -80,8 +80,9 @@ public class BlockModels extends BlockStateProvider {
 //			msmb.addModelName("window_trim");
 //			msmb.addModName(Compendium.MOD_ID);
 
-			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.GLASS), "window"));
 			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "window_trim"));
+			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.GLASS), "window"));
+			
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);

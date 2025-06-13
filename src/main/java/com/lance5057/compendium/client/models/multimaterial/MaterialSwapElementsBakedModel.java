@@ -16,10 +16,8 @@ import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
@@ -78,27 +76,29 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
 			@NotNull ModelData data) {
 
-		return this.base.getRenderTypes(state, rand, data);
+		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.translucent());
+//		return this.base.getRenderTypes(state, rand, data);
 	}
 
 	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
+//		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
-		layers.forEach(i -> l.addAll(i.getQuads(state, side, rand, extraData, renderType, base)));
+		for (int i = 0; i < layers.size(); i++)
+			l.addAll(layers.get(i).getQuads(state, side, rand, extraData, renderType, base, i));
 
 		return l;
 
 	}
 
-	@Override
-	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
-		MultiMaterialModelData data = new MultiMaterialModelData();
-
-		return modelData.derive().with(DATA, data).build();
-	}
+//	@Override
+//	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
+//		MultiMaterialModelData data = new MultiMaterialModelData();
+//
+//		return modelData.derive().with(DATA, data).build();
+//	}
 
 	public static class BakedLayer {
 		public final List<MATERIAL_TYPES> validTypes;
@@ -111,30 +111,39 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 		}
 
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
-				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
+				ModelData extraData, @Nullable RenderType renderType, BakedModel base, int index) {
 			@Nullable
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
-			if (mats != null && mats.size() > 0) {
-				for (int i = 0; i < mats.size(); i++) {
-					BakedModel q = models.get(mats.get(0).getCurrentMaterial());
-					if (q != null) {
-						List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-						if (r != null)
-							if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-								l.addAll(r);
-					}
-				}
-			} else {
-				BakedModel q = models.get("invalid");
-
+			if (mats != null && mats.size() >= index) {
+				BakedModel q = models.get(mats.get(index).getCurrentMaterial());
 				if (q != null) {
 					List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-					if (r != null)
-						if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+					if (r != null) {
+						if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
 							l.addAll(r);
-				}
+					} else
+						l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
+				} else
+					l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
+			} else {
+				l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
+			}
 
+			return l;
+		}
+
+		public List<BakedQuad> getInvalid(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
+				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
+			List<BakedQuad> l = new ArrayList<BakedQuad>();
+
+			BakedModel q = models.get("invalid");
+
+			if (q != null) {
+				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
+				if (r != null)
+					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
+						l.addAll(r);
 			}
 
 			return l;
