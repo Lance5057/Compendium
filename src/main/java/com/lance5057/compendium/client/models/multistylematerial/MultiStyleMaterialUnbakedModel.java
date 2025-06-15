@@ -12,15 +12,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel.BakedLayer;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Layer;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Loader;
-import com.lance5057.compendium.client.models.multistylematerial.models.MultiStyleMaterialUnbakedModel;
-import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -28,7 +21,6 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
@@ -81,41 +73,41 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
 				IGeometryBakingContext context) {
 
-			Map<String, MultiStyleMaterialUnbakedModel> locations = new HashMap<String, MultiStyleMaterialUnbakedModel>();
-			for (IIndexEntry i : CompendiumIndex.index) {
-				if (i instanceof _MaterialBase mb) {
-					if (validTypes.contains(mb.getType())) {
-						
-
-						locations.put(mb.name, rc);
-					}
-				}
-			}
-
-			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
-
-			locations.put("invalid", rc);
-
-			locations.forEach((k, v) -> {
-				UnbakedModel um = modelGetter.apply(v);
-				if (um == null)
-					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
-				else
-					um.resolveParents(modelGetter);
-				models.put(k, um);
-			});
+//			Map<String, MultiStyleMaterialUnbakedModel> locations = new HashMap<String, MultiStyleMaterialUnbakedModel>();
+//			for (IIndexEntry i : CompendiumIndex.index) {
+//				if (i instanceof _MaterialBase mb) {
+//					if (validTypes.contains(mb.getType())) {
+//						
+//
+//						locations.put(mb.name, rc);
+//					}
+//				}
+//			}
+//
+//			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+//					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
+//
+//			locations.put("invalid", rc);
+//
+//			locations.forEach((k, v) -> {
+//				UnbakedModel um = modelGetter.apply(v);
+//				if (um == null)
+//					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+//				else
+//					um.resolveParents(modelGetter);
+//				models.put(k, um);
+//			});
 		}
 
 		public BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
 				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
 			Map<String, BakedModel> bakedModels = new HashMap<String, BakedModel>();
-			models.forEach((k, v) -> {
-				BakedModel baked = v.bake(baker, spriteGetter, modelState);
-
-				bakedModels.put(k, baked);
-			});
+//			models.forEach((k, v) -> {
+//				BakedModel baked = v.bake(baker, spriteGetter, modelState);
+//
+//				bakedModels.put(k, baked);
+//			});
 			return new BakedLayer(validTypes, bakedModels);
 		}
 

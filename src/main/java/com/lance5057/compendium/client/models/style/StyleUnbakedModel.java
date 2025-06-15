@@ -7,13 +7,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.models.style.model.StyleModel;
 
-import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -86,23 +84,31 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 
 			List<StyleModel> models = new ArrayList<StyleModel>();
 
+			jsonObject.entrySet().forEach(i -> {
+				if (i.getValue().isJsonObject()) {
+					JsonObject jo = i.getValue().getAsJsonObject();
+					if (jo.has("model")) {
+						models.add(new StyleModel(i.getKey(), ResourceLocation.parse(jo.get("model").getAsString())));
+					}
+				}
+			});
 //			if (jsonObject.has("model")) {
 //				JsonObject m = jsonObject.getAsJsonObject("model");
 //
 //				String s = m.get("style").getAsString();
 //				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-				int count = jsonObject.get("count").getAsInt();
+//				int count = jsonObject.get("count").getAsInt();
+//
+//				for (int i = 0; i < count; i++) {
+//					JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
+//					
+//					String s = mat.get("style").getAsString();
+//					String m = mat.get("model").getAsString();
+//
+//					models.add(new StyleModel(s, ResourceLocation.parse(m)));
+//				}
 
-				for (int i = 0; i < count; i++) {
-					JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
-					
-					String s = mat.get("style").getAsString();
-					String m = mat.get("model").getAsString();
-
-					models.add(new StyleModel(s, ResourceLocation.parse(m)));
-				}
-
-				return new StyleUnbakedModel(models);
+			return new StyleUnbakedModel(models);
 //			}
 //
 //			return new StyleUnbakedModel(List.of());

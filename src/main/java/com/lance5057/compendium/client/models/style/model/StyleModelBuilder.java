@@ -17,10 +17,10 @@ public class StyleModelBuilder {
 	public JsonObject toJson(JsonObject jo, int i) {
 		JsonObject j = new JsonObject();
 
-		j.addProperty("style", style.toString());
+//		j.addProperty("style", );
 		j.addProperty("model", model.toString());
 
-		jo.add("model" + i, j);
+		jo.add(style.toString(), j);
 
 		return jo;
 	}

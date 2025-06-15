@@ -115,7 +115,7 @@ public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
 			@Nullable
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
-			if (mats != null && mats.size() >= index) {
+			if (mats != null && mats.size() >= index + 1) {
 				BakedModel q = models.get(mats.get(index).getCurrentMaterial());
 				if (q != null) {
 					List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);

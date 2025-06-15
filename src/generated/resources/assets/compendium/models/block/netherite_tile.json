@@ -1,44 +1,34 @@
 {
+  "DENTED": {
+    "model": "compendium:block/material/metal/netherite/tile/dented"
+  },
+  "DENTED_SEGMENT": {
+    "model": "compendium:block/material/metal/netherite/tile/dented_segment"
+  },
+  "FULL": {
+    "model": "compendium:block/material/metal/netherite/tile/full"
+  },
+  "HALF": {
+    "model": "compendium:block/material/metal/netherite/tile/half"
+  },
+  "INDENTED": {
+    "model": "compendium:block/material/metal/netherite/tile/indented"
+  },
+  "INDENTED_SEGMENT": {
+    "model": "compendium:block/material/metal/netherite/tile/indented_segment"
+  },
+  "OFFSET_HALF": {
+    "model": "compendium:block/material/metal/netherite/tile/offset_half"
+  },
+  "OFFSET_QUARTER": {
+    "model": "compendium:block/material/metal/netherite/tile/offset_quarter"
+  },
+  "QUARTER": {
+    "model": "compendium:block/material/metal/netherite/tile/quarter"
+  },
+  "VERTICAL_HALF": {
+    "model": "compendium:block/material/metal/netherite/tile/vertical_half"
+  },
   "count": 10,
-  "loader": "compendium:style",
-  "model0": {
-    "model": "compendium:block/material/metal/netherite/tile/full",
-    "style": "FULL"
-  },
-  "model1": {
-    "model": "compendium:block/material/metal/netherite/tile/half",
-    "style": "HALF"
-  },
-  "model2": {
-    "model": "compendium:block/material/metal/netherite/tile/vertical_half",
-    "style": "VERTICAL_HALF"
-  },
-  "model3": {
-    "model": "compendium:block/material/metal/netherite/tile/quarter",
-    "style": "QUARTER"
-  },
-  "model4": {
-    "model": "compendium:block/material/metal/netherite/tile/offset_half",
-    "style": "OFFSET_HALF"
-  },
-  "model5": {
-    "model": "compendium:block/material/metal/netherite/tile/offset_quarter",
-    "style": "OFFSET_QUARTER"
-  },
-  "model6": {
-    "model": "compendium:block/material/metal/netherite/tile/indented",
-    "style": "INDENTED"
-  },
-  "model7": {
-    "model": "compendium:block/material/metal/netherite/tile/indented_segment",
-    "style": "INDENTED_SEGMENT"
-  },
-  "model8": {
-    "model": "compendium:block/material/metal/netherite/tile/dented",
-    "style": "DENTED"
-  },
-  "model9": {
-    "model": "compendium:block/material/metal/netherite/tile/dented_segment",
-    "style": "DENTED_SEGMENT"
-  }
+  "loader": "compendium:style"
 }
