@@ -16,10 +16,6 @@ public class StyleModel {
 
 	public ResourceLocation modelRC;
 	public UnbakedModel model;
-//
-//	public void setModel(UnbakedModel model) {
-//		this.model = model;
-//	}
 
 	public StyleModel(String t, ResourceLocation b) {
 		this.style = t;

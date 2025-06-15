@@ -1,4 +1,4 @@
-package com.lance5057.compendium.client.models.multimaterial;
+package com.lance5057.compendium.client.models.multistylematerial;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +11,15 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
 import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel.BakedLayer;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel.Layer;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Layer;
+import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Loader;
+import com.lance5057.compendium.client.models.multistylematerial.models.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -33,12 +37,12 @@ import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
-public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
+public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiStyleMaterialUnbakedModel> {
 	private final BlockModel baseModel;
 
 	private List<Layer> layers = new ArrayList<Layer>();
 
-	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
+	public MultiStyleMaterialUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
 		this.baseModel = baseModel2;
 		this.layers = layers;
 	}
@@ -66,7 +70,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 	public static class Layer {
 		private final String model;
 		public final List<MATERIAL_TYPES> validTypes;
-		public Map<String, UnbakedModel> models = new HashMap<String, UnbakedModel>();
+		public Map<String, Map<String, UnbakedModel>> models = new HashMap<String, Map<String, UnbakedModel>>();
 
 		public Layer(List<MATERIAL_TYPES> validTypes, String model) {
 			this.model = model;
@@ -77,12 +81,11 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
 				IGeometryBakingContext context) {
 
-			Map<String, ResourceLocation> locations = new HashMap<String, ResourceLocation>();
+			Map<String, MultiStyleMaterialUnbakedModel> locations = new HashMap<String, MultiStyleMaterialUnbakedModel>();
 			for (IIndexEntry i : CompendiumIndex.index) {
 				if (i instanceof _MaterialBase mb) {
 					if (validTypes.contains(mb.getType())) {
-						ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/material/"
-								+ mb.getType().toString().toLowerCase() + "/" + mb.name + "/" + model);
+						
 
 						locations.put(mb.name, rc);
 					}
@@ -145,16 +148,16 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			json.add("layer" + layerID, l);
 		}
 	}
-
-	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {
-		public static ResourceLocation ID = Compendium.modLoc("material_swap");
+	
+	public static final class Loader implements IGeometryLoader<MultiStyleMaterialUnbakedModel> {
+		public static ResourceLocation ID = Compendium.modLoc("multistylematerial");
 		public static final Loader INSTANCE = new Loader();
 
 		public Loader() {
 		}
 
 		@Override
-		public MaterialSwapElementsUnbakedModel read(JsonObject jsonObject,
+		public MultiStyleMaterialUnbakedModel read(JsonObject jsonObject,
 				JsonDeserializationContext deserializationContext) throws JsonParseException {
 
 			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
@@ -167,8 +170,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				l.add(Layer.read(j, deserializationContext));
 			}
 
-			return new MaterialSwapElementsUnbakedModel(base, l);
+			return new MultiStyleMaterialUnbakedModel(base, l);
 		}
 	}
-
 }
