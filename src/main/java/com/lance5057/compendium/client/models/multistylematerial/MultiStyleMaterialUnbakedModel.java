@@ -11,9 +11,11 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel.BakedLayer;
+import com.lance5057.compendium.client.models.multistylematerial.models.MultiStyleMaterialModel;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -32,9 +34,9 @@ import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiStyleMaterialUnbakedModel> {
 	private final BlockModel baseModel;
 
-	private List<Layer> layers = new ArrayList<Layer>();
+	private List<MultiStyleMaterialUnbakedModel.Layer> layers = new ArrayList<MultiStyleMaterialUnbakedModel.Layer>();
 
-	public MultiStyleMaterialUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
+	public MultiStyleMaterialUnbakedModel(BlockModel baseModel2, List<MultiStyleMaterialUnbakedModel.Layer> layers) {
 		this.baseModel = baseModel2;
 		this.layers = layers;
 	}
@@ -50,13 +52,13 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 	public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
-		List<BakedLayer> bakedLayers = new ArrayList<BakedLayer>();
+		List<MultiStyleMaterialBakedModel.BakedLayer> bakedLayers = new ArrayList<MultiStyleMaterialBakedModel.BakedLayer>();
 
 		for (int i = 0; i < layers.size(); i++) {
 			bakedLayers.add(layers.get(i).bake(context, baker, spriteGetter, modelState, overrides));
 		}
 
-		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
+		return new MultiStyleMaterialBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
 	}
 
 	public static class Layer {
@@ -73,16 +75,15 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
 				IGeometryBakingContext context) {
 
-//			Map<String, MultiStyleMaterialUnbakedModel> locations = new HashMap<String, MultiStyleMaterialUnbakedModel>();
-//			for (IIndexEntry i : CompendiumIndex.index) {
-//				if (i instanceof _MaterialBase mb) {
-//					if (validTypes.contains(mb.getType())) {
-//						
-//
-//						locations.put(mb.name, rc);
-//					}
-//				}
-//			}
+			Map<String, MultiStyleMaterialModel.Unbaked> locations = new HashMap<String, MultiStyleMaterialModel.Unbaked>();
+			for (IIndexEntry i : CompendiumIndex.index) {
+				if (i instanceof _MaterialBase mb) {
+					if (validTypes.contains(mb.getType())) {
+
+						locations.put(mb.name, new MultiStyleMaterialModel.Unbaked(mb, model, null));
+					}
+				}
+			}
 //
 //			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 //					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
@@ -99,7 +100,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 //			});
 		}
 
-		public BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
+		public MultiStyleMaterialBakedModel.BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
 				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
 			Map<String, BakedModel> bakedModels = new HashMap<String, BakedModel>();
@@ -108,7 +109,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 //
 //				bakedModels.put(k, baked);
 //			});
-			return new BakedLayer(validTypes, bakedModels);
+			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels);
 		}
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
@@ -140,7 +141,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			json.add("layer" + layerID, l);
 		}
 	}
-	
+
 	public static final class Loader implements IGeometryLoader<MultiStyleMaterialUnbakedModel> {
 		public static ResourceLocation ID = Compendium.modLoc("multistylematerial");
 		public static final Loader INSTANCE = new Loader();

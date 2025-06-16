@@ -42,7 +42,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public void setStyles(List<StyleType> style) {
-		styles = style.get(0);
+		if (style != null && !style.isEmpty())
+			styles = style.get(0);
 	}
 
 	// public MultiStyle backStyles = new MultiStyle("basic", "runged");

@@ -56,6 +56,7 @@ public class CompendiumBlockEntities {
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("style", () -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new,
-					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
-					.build(null));
+
+					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0])
+					).build(null));
 }
