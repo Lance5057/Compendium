@@ -11,7 +11,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsBakedModel.BakedLayer;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialBakedModel.BakedLayer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -33,12 +33,12 @@ import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
-public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<MaterialSwapElementsUnbakedModel> {
+public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterialUnbakedModel> {
 	private final BlockModel baseModel;
 
 	private List<Layer> layers = new ArrayList<Layer>();
 
-	public MaterialSwapElementsUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
+	public MultiMaterialUnbakedModel(BlockModel baseModel2, List<Layer> layers) {
 		this.baseModel = baseModel2;
 		this.layers = layers;
 	}
@@ -60,7 +60,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 			bakedLayers.add(layers.get(i).bake(context, baker, spriteGetter, modelState, overrides));
 		}
 
-		return new MaterialSwapElementsBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
+		return new MultiMaterialBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
 	}
 
 	public static class Layer {
@@ -146,15 +146,15 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 		}
 	}
 
-	public static final class Loader implements IGeometryLoader<MaterialSwapElementsUnbakedModel> {
-		public static ResourceLocation ID = Compendium.modLoc("material_swap");
+	public static final class Loader implements IGeometryLoader<MultiMaterialUnbakedModel> {
+		public static ResourceLocation ID = Compendium.modLoc("multi_material");
 		public static final Loader INSTANCE = new Loader();
 
 		public Loader() {
 		}
 
 		@Override
-		public MaterialSwapElementsUnbakedModel read(JsonObject jsonObject,
+		public MultiMaterialUnbakedModel read(JsonObject jsonObject,
 				JsonDeserializationContext deserializationContext) throws JsonParseException {
 
 			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
@@ -167,7 +167,7 @@ public class MaterialSwapElementsUnbakedModel implements IUnbakedGeometry<Materi
 				l.add(Layer.read(j, deserializationContext));
 			}
 
-			return new MaterialSwapElementsUnbakedModel(base, l);
+			return new MultiMaterialUnbakedModel(base, l);
 		}
 	}
 

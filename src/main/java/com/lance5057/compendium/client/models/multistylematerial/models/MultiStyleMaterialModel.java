@@ -8,8 +8,11 @@ import java.util.function.Function;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.client.models.style.model.StyleModel;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -30,11 +33,11 @@ import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 public class MultiStyleMaterialModel {
 	public static class Unbaked {
 		Map<String, ResourceLocation> multistyles = new HashMap<String, ResourceLocation>();
-		Map<String, UnbakedModel> models = new HashMap<String, UnbakedModel>();
+		Map<String, StyleModel> models = new HashMap<String, StyleModel>();
 
-		public Unbaked(_MaterialBase mb, String model, List<String> styles) {
+		public Unbaked(String name, String type, String model, List<String> styles) {
 			styles.forEach(s -> multistyles.put(s, ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-					"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/" + model)));
+					"block/material/" + type + "/" + name + "/" + model)));
 		}
 
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
@@ -46,11 +49,27 @@ public class MultiStyleMaterialModel {
 				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 			Map<String, BakedModel> bakedModels = new HashMap<String, BakedModel>();
 			models.forEach((k, v) -> {
-				BakedModel baked = v.bake(baker, spriteGetter, modelState);
+				BakedModel baked = v.model.bake(baker, spriteGetter, modelState);
 
 				bakedModels.put(k, baked);
 			});
 			return new Baked(bakedModels);
+		}
+
+		public static Unbaked read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
+				throws JsonParseException {
+			List<StyleModel> models = new ArrayList<StyleModel>();
+
+			jsonObject.entrySet().forEach(i -> {
+				if (i.getValue().isJsonObject()) {
+					JsonObject jo = i.getValue().getAsJsonObject();
+					if (jo.has("model")) {
+						models.add(new StyleModel(i.getKey(), ResourceLocation.parse(jo.get("model").getAsString())));
+					}
+				}
+			});
+
+			return new Unbaked(null, null, null, null);
 		}
 	}
 

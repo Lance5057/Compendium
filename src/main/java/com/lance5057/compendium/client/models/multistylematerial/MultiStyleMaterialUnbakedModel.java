@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
@@ -64,7 +65,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 	public static class Layer {
 		private final String model;
 		public final List<MATERIAL_TYPES> validTypes;
-		public Map<String, Map<String, UnbakedModel>> models = new HashMap<String, Map<String, UnbakedModel>>();
+		public Map<String, MultiStyleMaterialModel.Unbaked> models = new HashMap<String, MultiStyleMaterialModel.Unbaked>();
 
 		public Layer(List<MATERIAL_TYPES> validTypes, String model) {
 			this.model = model;
@@ -80,24 +81,24 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 				if (i instanceof _MaterialBase mb) {
 					if (validTypes.contains(mb.getType())) {
 
-						locations.put(mb.name, new MultiStyleMaterialModel.Unbaked(mb, model, null));
+						locations.put(mb.name, MultiStyleMaterialModel.Unbaked.read(null, null));
 					}
 				}
 			}
-//
-//			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-//					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
-//
-//			locations.put("invalid", rc);
-//
-//			locations.forEach((k, v) -> {
-//				UnbakedModel um = modelGetter.apply(v);
-//				if (um == null)
-//					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
-//				else
-//					um.resolveParents(modelGetter);
-//				models.put(k, um);
-//			});
+
+			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
+
+			locations.put("invalid", rc);
+
+			locations.forEach((k, v) -> {
+				UnbakedModel um = modelGetter.apply(v);
+				if (um == null)
+					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+				else
+					um.resolveParents(modelGetter);
+				models.put(k, um);
+			});
 		}
 
 		public MultiStyleMaterialBakedModel.BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,

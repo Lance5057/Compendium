@@ -10,7 +10,8 @@ import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.client.models.style.StyleUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRenderer;
 import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
@@ -101,10 +102,11 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
-		registerGeometryLoaders.register(MaterialSwapElementsUnbakedModel.Loader.ID,
-				new MaterialSwapElementsUnbakedModel.Loader());
+		registerGeometryLoaders.register(MultiMaterialUnbakedModel.Loader.ID,
+				new MultiMaterialUnbakedModel.Loader());
 		registerGeometryLoaders.register(StyleUnbakedModel.Loader.ID, new StyleUnbakedModel.Loader());
 		registerGeometryLoaders.register(BlockStateItemGeometryLoader.ID, new BlockStateItemGeometryLoader());
+		registerGeometryLoaders.register(MultiStyleMaterialUnbakedModel.Loader.ID, new MultiStyleMaterialUnbakedModel.Loader());
 	}
 
 	@SubscribeEvent

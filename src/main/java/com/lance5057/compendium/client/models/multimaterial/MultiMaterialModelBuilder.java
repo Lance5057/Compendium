@@ -6,13 +6,13 @@ import java.util.List;
 import com.google.common.base.Preconditions;
 import com.google.gson.JsonObject;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Layer;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 
 import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomLoaderBuilder<T> {
+public class MultiMaterialModelBuilder<T extends ModelBuilder<T>> extends CustomLoaderBuilder<T> {
 	T baseModel;
 //	List<IndexModelBuilder> indexModels;
 //	ResourceLocation invalid;
@@ -20,24 +20,24 @@ public class MaterialSwapModelBuilder<T extends ModelBuilder<T>> extends CustomL
 	String mod;
 	List<Layer> types = new ArrayList<Layer>();
 
-	protected MaterialSwapModelBuilder(T parent, ExistingFileHelper existingFileHelper) {
-		super(Compendium.modLoc("material_swap"), parent, existingFileHelper, false);
+	protected MultiMaterialModelBuilder(T parent, ExistingFileHelper existingFileHelper) {
+		super(Compendium.modLoc("multi_material"), parent, existingFileHelper, false);
 //		indexModels = new ArrayList<IndexModelBuilder>();
 	}
 
-	public MaterialSwapModelBuilder<T> base(T model) {
+	public MultiMaterialModelBuilder<T> base(T model) {
 		Preconditions.checkNotNull(model, "model must not be null");
 		baseModel = model;
 		return this;
 	}
 
-	public MaterialSwapModelBuilder<T> addLayer(Layer l) {
+	public MultiMaterialModelBuilder<T> addLayer(Layer l) {
 		types.add(l);
 		return this;
 	}
 
-	public static <T extends ModelBuilder<T>> MaterialSwapModelBuilder<T> begin(T parent, ExistingFileHelper helper) {
-		return new MaterialSwapModelBuilder<>(parent, helper);
+	public static <T extends ModelBuilder<T>> MultiMaterialModelBuilder<T> begin(T parent, ExistingFileHelper helper) {
+		return new MultiMaterialModelBuilder<>(parent, helper);
 	}
 
 	@Override

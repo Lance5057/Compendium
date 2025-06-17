@@ -24,14 +24,14 @@ import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelProperty;
 
-public class MaterialSwapElementsBakedModel implements IDynamicBakedModel {
+public class MultiMaterialBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<MultiMaterialModelData> DATA = new ModelProperty<>();
 	private final BakedModel base;
-	List<MaterialSwapElementsBakedModel.BakedLayer> layers = new ArrayList<MaterialSwapElementsBakedModel.BakedLayer>();
+	List<MultiMaterialBakedModel.BakedLayer> layers = new ArrayList<MultiMaterialBakedModel.BakedLayer>();
 
 	@SuppressWarnings("deprecation")
-	public MaterialSwapElementsBakedModel(BakedModel base,
-			List<MaterialSwapElementsBakedModel.BakedLayer> bakedLayers) {
+	public MultiMaterialBakedModel(BakedModel base,
+			List<MultiMaterialBakedModel.BakedLayer> bakedLayers) {
 		this.base = base;
 		this.layers = bakedLayers;
 

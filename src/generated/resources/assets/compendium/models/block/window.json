@@ -20,5 +20,5 @@
     ]
   },
   "layer_count": 2,
-  "loader": "compendium:material_swap"
+  "loader": "compendium:multi_material"
 }

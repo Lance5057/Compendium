@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapElementsUnbakedModel.Layer;
-import com.lance5057.compendium.client.models.multimaterial.MaterialSwapModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
@@ -72,8 +72,8 @@ public class BlockModels extends BlockStateProvider {
 
 		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 			Builder<?> b = ConfiguredModel.builder();
-			MaterialSwapModelBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
-					.customLoader(MaterialSwapModelBuilder::begin);
+			MultiMaterialModelBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
+					.customLoader(MultiMaterialModelBuilder::begin);
 			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"));
 
 //			msmb.addInvalidLocation(modLoc("block/material/invalid/invalid/window_trim"));
