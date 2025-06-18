@@ -11,7 +11,6 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.client.models.multistylematerial.models.MultiStyleMaterialModel;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
@@ -63,12 +62,15 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 	}
 
 	public static class Layer {
-		private final String model;
+		public final String modelBase;
 		public final List<MATERIAL_TYPES> validTypes;
-		public Map<String, MultiStyleMaterialModel.Unbaked> models = new HashMap<String, MultiStyleMaterialModel.Unbaked>();
+		public final List<String> styles;
 
-		public Layer(List<MATERIAL_TYPES> validTypes, String model) {
-			this.model = model;
+		public Map<String, Map<String, UnbakedModel>> models = new HashMap<String, Map<String, UnbakedModel>>();
+
+		public Layer(String modelBase, List<MATERIAL_TYPES> validTypes, List<String> styles) {
+			this.modelBase = modelBase;
+			this.styles = styles;
 			this.validTypes = validTypes;
 
 		}
@@ -76,28 +78,38 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
 				IGeometryBakingContext context) {
 
-			Map<String, MultiStyleMaterialModel.Unbaked> locations = new HashMap<String, MultiStyleMaterialModel.Unbaked>();
+			Map<String, Map<String, ResourceLocation>> locations = new HashMap<String, Map<String, ResourceLocation>>();
 			for (IIndexEntry i : CompendiumIndex.index) {
 				if (i instanceof _MaterialBase mb) {
 					if (validTypes.contains(mb.getType())) {
+						Map<String, ResourceLocation> l = new HashMap<String, ResourceLocation>();
 
-						locations.put(mb.name, MultiStyleMaterialModel.Unbaked.read(null, null));
+						for (String s : styles) {
+							ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/"
+											+ modelBase + "/" + s);
+
+							l.put(s, rc);
+						}
+
+						locations.put(mb.name, l);
 					}
 				}
 			}
 
-			ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-					"block/material/" + validTypes.get(0).toString().toLowerCase() + "/invalid/" + model);
-
-			locations.put("invalid", rc);
-
 			locations.forEach((k, v) -> {
-				UnbakedModel um = modelGetter.apply(v);
-				if (um == null)
-					um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
-				else
-					um.resolveParents(modelGetter);
-				models.put(k, um);
+				Map<String, UnbakedModel> m = new HashMap<String, UnbakedModel>();
+
+				v.forEach((key, value) -> {
+					UnbakedModel um = modelGetter.apply(value);
+					if (um == null)
+						um = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+					else
+						um.resolveParents(modelGetter);
+
+					m.put(key, um);
+				});
+				models.put(k, m);
 			});
 		}
 
@@ -115,17 +127,19 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
 				throws JsonParseException {
-//			String inv = jsonObject.get("invalid").getAsString();
-//			ResourceLocation invalid = ResourceLocation.parse(inv);
 
 			List<MATERIAL_TYPES> ty = new ArrayList<MATERIAL_TYPES>();
+			List<String> st = new ArrayList<String>();
 
 			JsonArray t = jsonObject.getAsJsonArray("valid");
 			t.asList().forEach(i -> ty.add(MATERIAL_TYPES.valueOf(i.getAsString())));
 
+			JsonArray s = jsonObject.getAsJsonArray("styles");
+			s.asList().forEach(i -> st.add(i.getAsString()));
+
 			String model = jsonObject.get("model").getAsString();
 
-			return new Layer(ty, model);
+			return new Layer(model, ty, st);
 		}
 
 		public void toJson(JsonObject json, int layerID) {
@@ -137,7 +151,13 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 			l.add("valid", t);
 
-			l.addProperty("model", this.model);
+			JsonArray v = new JsonArray();
+
+			styles.forEach(i -> v.add(i.toString()));
+
+			l.add("styles", v);
+
+			l.addProperty("modelBase", this.modelBase);
 
 			json.add("layer" + layerID, l);
 		}

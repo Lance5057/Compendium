@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
-import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
@@ -91,18 +93,24 @@ public class BlockModels extends BlockStateProvider {
 
 		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));
 
-//		getVariantBuilder(CompendiumBlocks.CHAIR.get()).forAllStates(state -> {
-//			return ConfiguredModel.builder().modelFile(models().getBuilder("chair_back")
-//					.customLoader(MaterialSwapModelBuilder::begin)
-//					.base(models().withExistingParent("chair_base", mcLoc("air")))
-//					.add(new IndexModelBuilder<BlockModelBuilder>(MATERIAL_TYPES.WOOD,
-//							models().withExistingParent("index_basic_chair_back", modLoc("extra/furniture/chair/basic_chair_back"))
-//									.texture("0", modLoc("block/material/wood/invalid/planks"))))
-//					.end())
-//
-//					.build();
-//
-//		});
+		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
+			Builder<?> b = ConfiguredModel.builder();
+			MultiStyleMaterialBuilder<BlockModelBuilder> msmb = models().getBuilder("chair")
+					.customLoader(MultiStyleMaterialBuilder::begin);
+			msmb.base(models().cubeAll("chair_base", mcLoc("block/block")));
+
+//			msmb.addInvalidLocation(modLoc("block/material/invalid/invalid/window_trim"));
+//			msmb.addModelName("window_trim");
+//			msmb.addModName(Compendium.MOD_ID);
+
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("back", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("seat", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("legs", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
+
+			BlockModelBuilder bmb = msmb.end();
+			b.modelFile(bmb);
+			return b.build();
+		});
 	}
 
 }

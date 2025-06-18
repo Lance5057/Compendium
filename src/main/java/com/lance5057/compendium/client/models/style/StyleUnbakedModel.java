@@ -92,26 +92,8 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 					}
 				}
 			});
-//			if (jsonObject.has("model")) {
-//				JsonObject m = jsonObject.getAsJsonObject("model");
-//
-//				String s = m.get("style").getAsString();
-//				MATERIAL_TYPES t = MATERIAL_TYPES.valueOf(s);
-//				int count = jsonObject.get("count").getAsInt();
-//
-//				for (int i = 0; i < count; i++) {
-//					JsonObject mat = jsonObject.get("model" + i).getAsJsonObject();
-//					
-//					String s = mat.get("style").getAsString();
-//					String m = mat.get("model").getAsString();
-//
-//					models.add(new StyleModel(s, ResourceLocation.parse(m)));
-//				}
 
 			return new StyleUnbakedModel(models);
-//			}
-//
-//			return new StyleUnbakedModel(List.of());
 		}
 	}
 
