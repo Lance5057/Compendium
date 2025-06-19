@@ -28,7 +28,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock, IStyleBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
 	protected static final VoxelShape BASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 
@@ -61,12 +61,12 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 //		if (blockentity instanceof SimpleStyleBlockEntity be) {
 //			return be.attemptSit(state, level, pos, player, hitResult);
 //		}
-		return InteractionResult.CONSUME;
+		return InteractionResult.PASS;
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.STYLE.get().create(pos, state);
+		return CompendiumBlockEntities.CHAIR.get().create(pos, state);
 	}
 
 	@Override
@@ -97,24 +97,6 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		if (context.getPlayer().isCrouching())
 			return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
-	}
-
-	@Override
-	public List<StyleType> getStyles() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getNumOfMaterials() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<String> getMaterialTypes() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

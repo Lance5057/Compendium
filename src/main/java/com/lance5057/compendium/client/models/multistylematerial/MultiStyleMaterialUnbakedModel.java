@@ -86,7 +86,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 						for (String s : styles) {
 							ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/"
+									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/chair/"
 											+ modelBase + "/" + s);
 
 							l.put(s, rc);
@@ -116,12 +116,16 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public MultiStyleMaterialBakedModel.BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
 				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
-			Map<String, BakedModel> bakedModels = new HashMap<String, BakedModel>();
-//			models.forEach((k, v) -> {
-//				BakedModel baked = v.bake(baker, spriteGetter, modelState);
-//
-//				bakedModels.put(k, baked);
-//			});
+			Map<String, Map<String, BakedModel>> bakedModels = new HashMap<String, Map<String, BakedModel>>();
+			models.forEach((k, v) -> {
+				Map<String, BakedModel> bm = new HashMap<String, BakedModel>();
+				v.forEach((key, value) -> {
+					BakedModel baked = value.bake(baker, spriteGetter, modelState);
+					bm.put(key, baked);
+				});
+
+				bakedModels.put(k, bm);
+			});
 			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels);
 		}
 
@@ -137,7 +141,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			JsonArray s = jsonObject.getAsJsonArray("styles");
 			s.asList().forEach(i -> st.add(i.getAsString()));
 
-			String model = jsonObject.get("model").getAsString();
+			String model = jsonObject.get("modelBase").getAsString();
 
 			return new Layer(model, ty, st);
 		}
@@ -164,7 +168,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 	}
 
 	public static final class Loader implements IGeometryLoader<MultiStyleMaterialUnbakedModel> {
-		public static ResourceLocation ID = Compendium.modLoc("multistylematerial");
+		public static ResourceLocation ID = Compendium.modLoc("multi_style_material");
 		public static final Loader INSTANCE = new Loader();
 
 		public Loader() {

@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
-      "model": "minecraft:block/air"
+    "facing=east": {
+      "model": "compendium:block/chair"
+    },
+    "facing=north": {
+      "model": "compendium:block/chair"
+    },
+    "facing=south": {
+      "model": "compendium:block/chair"
+    },
+    "facing=west": {
+      "model": "compendium:block/chair"
     }
   }
 }

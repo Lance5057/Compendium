@@ -147,18 +147,18 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialWood("warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		//buildDefault(new MaterialWood("pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		
-		buildDefault(new MaterialWood("stripped_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_spruce", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_jungle", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_acacia", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_dark_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_mangrove", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_cherry", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-//		buildDefault(new MaterialWood("stripped_bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("stripped_warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		//buildDefault(new MaterialWood("stripped_pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_birch", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_spruce", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_jungle", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_acacia", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_dark_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_mangrove", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_cherry", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+////		buildDefault(new MaterialWood("stripped_bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_crimson", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("stripped_warped", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		//buildDefault(new MaterialWood("stripped_pale_oak", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 
 		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 		buildDefault(new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));

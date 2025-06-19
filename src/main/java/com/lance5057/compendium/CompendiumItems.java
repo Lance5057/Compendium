@@ -5,10 +5,12 @@ import java.util.stream.Stream;
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.items.Adjustinator;
 import com.lance5057.compendium.items.MegalithStoneItem;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
+import com.lance5057.compendium.styleblock.StyleType;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxItem;
 
 import net.minecraft.world.item.BlockItem;
@@ -57,12 +59,17 @@ public class CompendiumItems {
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
 			() -> new BlockItem(CompendiumBlocks.CHAIR.get(),
-					new Item.Properties().component(CompendiumComponents.MULTI_MATERIAL.get(),
-							new MultiMaterialBlockComponent(Stream
-									.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-									.toList()))));
+					new Item.Properties()
+							.component(CompendiumComponents.MULTI_MATERIAL.get(),
+									new MultiMaterialBlockComponent(Stream
+											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
+											.toList()))
+							.component(CompendiumComponents.STYLE,
+									new StyleBlockComponent(Stream
+											.of(new StyleType("basic"), new StyleType("basic"), new StyleType("basic"))
+											.toList()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),

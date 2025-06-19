@@ -100,32 +100,6 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 				return b.build();
 			});
 
-//			ModelFile test = 
-//			bsp.getVariantBuilder(TILE.get()).forAllStates(state -> {
-////				return ConfiguredModel.builder().modelFile(test).build();
-//				int style = state.getValue(StyleMetalTileBlock.STYLE);
-//
-//				String suffix = (StyleMetalTileBlock.Styles.values()[style] + "").toLowerCase();
-////				return ConfiguredModel.builder()
-////						.modelFile(bsp.models().cubeAll(base.name + "_tile_" + suffix + "_base",
-////								bsp.modLoc("block/material/" + base.name + "/tile/" + base.name + "_"
-////										+ suffix.toLowerCase() + "_tile_block")))
-////						.modelFile(bsp.models()
-////								.withExistingParent(base.name + "_tile_" + suffix,
-////										bsp.modLoc(base.name + "_tile_" + suffix + "_base"))
-////								.customLoader(MaterialSwapModelBuilder::begin).setType(MATERIAL_TYPES.METAL).end())
-////
-////						.build();
-//				return ConfiguredModel.builder()
-//						.modelFile(bsp.models().cubeAll(
-//								"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name + "/"
-//										+ base.name + "_tile_" + suffix + "_block",
-//								bsp.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-//										+ "/tile/" + suffix.toLowerCase() + "_tile_block")))
-//						.build();
-//
-//			});
-
 		}
 	}
 

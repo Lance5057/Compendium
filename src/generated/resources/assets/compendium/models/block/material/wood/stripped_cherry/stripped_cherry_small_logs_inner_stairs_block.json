@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/small_logs_inner_stairs",
-  "textures": {
-    "0": "compendium:block/material/wood/stripped_cherry/stripped_cherry_small_logs_corner",
-    "1": "compendium:block/material/wood/stripped_cherry/stripped_cherry_small_logs_slab",
-    "2": "compendium:block/material/wood/stripped_cherry/stripped_cherry_small_logs_turned"
-  }
-}

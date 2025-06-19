@@ -1,0 +1,40 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "modelBase": "back",
+    "styles": [
+      "basic"
+    ],
+    "valid": [
+      "METAL",
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "modelBase": "seat",
+    "styles": [
+      "basic"
+    ],
+    "valid": [
+      "METAL",
+      "WOOD"
+    ]
+  },
+  "layer2": {
+    "modelBase": "legs",
+    "styles": [
+      "basic"
+    ],
+    "valid": [
+      "METAL",
+      "WOOD"
+    ]
+  },
+  "layer_count": 3,
+  "loader": "compendium:multi_style_material"
+}

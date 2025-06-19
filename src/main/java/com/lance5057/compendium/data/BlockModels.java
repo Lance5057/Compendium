@@ -84,28 +84,26 @@ public class BlockModels extends BlockStateProvider {
 
 			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "window_trim"));
 			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.GLASS), "window"));
-			
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);
 			return b.build();
 		});
 
-		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));
+//		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("air")));
 
-		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
+		getVariantBuilder(CompendiumBlocks.CHAIR.get()).forAllStates(state -> {
 			Builder<?> b = ConfiguredModel.builder();
 			MultiStyleMaterialBuilder<BlockModelBuilder> msmb = models().getBuilder("chair")
 					.customLoader(MultiStyleMaterialBuilder::begin);
-			msmb.base(models().cubeAll("chair_base", mcLoc("block/block")));
+			msmb.base(models().cubeAll("chair_base", mcLoc("block/oak_planks")));
 
-//			msmb.addInvalidLocation(modLoc("block/material/invalid/invalid/window_trim"));
-//			msmb.addModelName("window_trim");
-//			msmb.addModName(Compendium.MOD_ID);
-
-			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("back", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
-			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("seat", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
-			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("legs", List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), null));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("back",
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("seat",
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("legs",
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);

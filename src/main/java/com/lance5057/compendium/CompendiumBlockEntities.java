@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
+import com.lance5057.compendium.blocks.chair.StyleChairBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.blocks.entities.WindowBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
@@ -52,11 +53,15 @@ public class CompendiumBlockEntities {
 			.register("window", () -> BlockEntityType.Builder.of(WindowBlockEntity::new, CompendiumBlocks.WINDOW.get())
 					.build(null));
 
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyleChairBlockEntity>> CHAIR = BLOCK_ENTITIES
+			.register("chair", () -> BlockEntityType.Builder
+					.of(StyleChairBlockEntity::new, CompendiumBlocks.CHAIR.get()).build(null));
+ 
 	public static List<DeferredBlock<?>> validStyleBlocks = new ArrayList<DeferredBlock<?>>();
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("style", () -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new,
 
-					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0])
-					).build(null));
+					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
+					.build(null));
 }

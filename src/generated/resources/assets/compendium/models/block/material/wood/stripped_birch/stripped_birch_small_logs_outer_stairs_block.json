@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/small_logs_outer_stairs",
-  "textures": {
-    "0": "compendium:block/material/wood/stripped_birch/stripped_birch_small_logs_turned",
-    "1": "compendium:block/material/wood/stripped_birch/stripped_birch_small_logs_corner"
-  }
-}

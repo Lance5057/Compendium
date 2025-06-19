@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations.cosmetictoolbox;
 import java.util.List;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 
@@ -32,7 +33,7 @@ public class CosmeticToolboxItem extends BlockItem {
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (!pContext.getPlayer().isCrouching()) {
 			BlockEntity pos = pContext.getLevel().getBlockEntity(pContext.getClickedPos());
-			if (pos instanceof MultiMaterialBlockEntity || pos instanceof SimpleStyleBlockEntity) {
+			if (pos instanceof MultiMaterialBlockEntity || pos instanceof IStyleable) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
 						return new CosmeticToolboxMenu(p_57074_, p_57075_,
