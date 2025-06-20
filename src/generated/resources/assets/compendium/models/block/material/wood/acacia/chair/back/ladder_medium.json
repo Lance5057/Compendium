@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/ladder_medium",
+  "textures": {
+    "0": "minecraft:block/acacia_planks"
+  }
+}

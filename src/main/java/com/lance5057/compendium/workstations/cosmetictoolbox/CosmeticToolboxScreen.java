@@ -174,8 +174,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		guiGraphics.pose().translate(0, 0.5, 0);
 		guiGraphics.pose().scale(1f, -1f, 1f);
 
+		//style.get(curStyleType).copy(cur)
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY, StyleModelData.builder(style.get(curStyleType).copy(cur)).build(), null);
+				OverlayTexture.NO_OVERLAY, StyleModelData.builder(style).build(), null);
 
 		buffers.endBatch();
 

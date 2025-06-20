@@ -43,6 +43,20 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							modLoc("block/furniture/chair/back/basic_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
 					withExistingParent("block/material/wood/"+mb.name+"/chair/seat/basic_light",
 							modLoc("block/furniture/chair/seat/basic_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/rails_heavy",
+							modLoc("block/furniture/chair/legs/rails_heavy")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/rails_medium",
+							modLoc("block/furniture/chair/legs/rails_medium")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/rails_light",
+							modLoc("block/furniture/chair/legs/rails_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/ladder_heavy",
+							modLoc("block/furniture/chair/back/ladder_heavy")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/ladder_medium",
+							modLoc("block/furniture/chair/back/ladder_medium")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/ladder_light",
+							modLoc("block/furniture/chair/back/ladder_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
 				}
 			}
 		});

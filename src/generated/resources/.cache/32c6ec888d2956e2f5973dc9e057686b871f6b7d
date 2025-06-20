@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-19T21:42:00.4816933	Block States: compendium
+// 1.21.1	2025-06-20T13:20:46.9990022	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -70,7 +70,7 @@ fe868889a9888f7cef1cff2d50153676ef76e241 assets/compendium/models/block/andesite
 4af2ef60170f3464d6de4fb312ef84b2cc6641af assets/compendium/models/block/basalt_tile.json
 1f64d470eaf4e2205ca28cf30132e479a1863e1d assets/compendium/models/block/blackstone_tile.json
 3df865bb0c87c4346ca806738400c79ae617c480 assets/compendium/models/block/calcite_tile.json
-381d2bdd02b5316536851c2d367fd6a81cd43600 assets/compendium/models/block/chair.json
+2d10ec9add12bebf1f71dffa583e6c53c3a6d7cd assets/compendium/models/block/chair.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/chair_base.json
 09117765b7a32aa13555160c25e043613a9d3067 assets/compendium/models/block/copper_tile.json
 11ff2f71ccabb7fe6d0d3adef85afef26824935d assets/compendium/models/block/deepslate_tile.json

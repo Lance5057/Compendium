@@ -62,7 +62,10 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public ModelData getModelData() {
-		return StyleModelData.builder(styles).build();
+
+		List<StyleType> t = new ArrayList<StyleType>();
+		t.add(styles.copy());
+		return StyleModelData.builder(t).build();
 	}
 
 	@Override

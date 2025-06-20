@@ -1,5 +1,4 @@
 {
-	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
@@ -37,17 +36,18 @@
 		},
 		{
 			"name": "back panel",
-			"from": [1, 16, 10],
+			"from": [1, 16, 11],
 			"to": [15, 23, 15],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11, 16, 11]},
 			"faces": {
 				"north": {"uv": [0, 1, 14, 8], "texture": "#0"},
-				"east": {"uv": [0, 1, 5, 8], "texture": "#0"},
+				"east": {"uv": [0, 1, 4, 8], "texture": "#0"},
 				"south": {"uv": [0, 9, 14, 16], "texture": "#0"},
-				"west": {"uv": [5, 1, 10, 8], "texture": "#0"},
-				"up": {"uv": [0, 1, 14, 6], "texture": "#0"},
-				"down": {"uv": [0, 1, 14, 6], "texture": "#0"}
+				"west": {"uv": [5, 1, 9, 8], "texture": "#0"},
+				"up": {"uv": [0, 1, 14, 5], "texture": "#0"},
+				"down": {"uv": [0, 1, 14, 5], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"format_version": "1.21.6"
 }

@@ -10,7 +10,21 @@
     "styles": [
       "basic_heavy",
       "basic_medium",
-      "basic_light"
+      "basic_light",
+      "ladder_heavy",
+      "ladder_medium",
+      "ladder_light",
+      "cross",
+      "full",
+      "live_edge",
+      "open",
+      "panel",
+      "panel_weave",
+      "slats",
+      "turned_panel",
+      "turned_panel_weave",
+      "weave",
+      "windsor"
     ],
     "valid": [
       "METAL",
@@ -34,7 +48,10 @@
     "styles": [
       "basic_heavy",
       "basic_medium",
-      "basic_light"
+      "basic_light",
+      "rails_heavy",
+      "rails_medium",
+      "rails_light"
     ],
     "valid": [
       "METAL",

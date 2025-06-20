@@ -93,7 +93,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 				if (mats != null && mats.size() >= index + 1) {
 					Map<String, BakedModel> m = models.get(mats.get(index).getCurrentMaterial());
 					if (m != null) {
-						BakedModel q = m.getOrDefault(s.getCurrentStyle(), null);
+						BakedModel q = m.getOrDefault(s.get(index).getCurrentStyle(), null);
 						if (q != null) {
 							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 							if (r != null) {

@@ -1,9 +1,9 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.BasicDecorativeBlock;
-import com.lance5057.compendium.blocks.ChairBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
+import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;

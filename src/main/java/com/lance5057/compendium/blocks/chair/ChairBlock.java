@@ -1,4 +1,4 @@
-package com.lance5057.compendium.blocks;
+package com.lance5057.compendium.blocks.chair;
 
 import java.util.List;
 
