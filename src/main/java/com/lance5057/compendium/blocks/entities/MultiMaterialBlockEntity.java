@@ -26,7 +26,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public abstract class MultiMaterialBlockEntity extends BlockEntity implements IMultiMaterial {
 
-	List<MultiMaterialType> materials;
+	protected List<MultiMaterialType> materials;
 
 	public List<MultiMaterialType> getMaterials() {
 		return materials;
