@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import com.lance5057.compendium.network.AdjustinatorCallBackPacket;
 import com.lance5057.compendium.network.AdjustinatorPacket;
+import com.lance5057.compendium.network.StyleSetPacket;
 import com.lance5057.compendium.network.StyleSyncPacket;
 
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -16,5 +17,6 @@ public class CompendiumNetworkHandler {
 
 		registrar.playToServer(AdjustinatorCallBackPacket.id, AdjustinatorCallBackPacket.STREAM_CODEC,
 				AdjustinatorCallBackPacket::handle);
+		registrar.playToServer(StyleSetPacket.id, StyleSetPacket.STREAM_CODEC, StyleSetPacket::handle);
 	}
 }

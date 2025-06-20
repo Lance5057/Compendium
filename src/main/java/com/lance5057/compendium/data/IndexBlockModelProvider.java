@@ -23,12 +23,26 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 			if (i instanceof _MaterialBase mb) {
 				if (mb.getType() == MATERIAL_TYPES.WOOD) {
-					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/basic",
-							modLoc("block/furniture/chair/basic_chair_legs")).texture("0", mcLoc("block/"+mb.name+"_planks"));
-					withExistingParent("block/material/wood/"+mb.name+"/chair/back/basic",
-							modLoc("block/furniture/chair/basic_chair_back")).texture("0", mcLoc("block/"+mb.name+"_planks"));
-					withExistingParent("block/material/wood/"+mb.name+"/chair/seat/basic",
-							modLoc("block/furniture/chair/basic_chair_seat")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/basic_heavy",
+							modLoc("block/furniture/chair/legs/basic_heavy")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/basic_heavy",
+							modLoc("block/furniture/chair/back/basic_heavy")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/seat/basic_heavy",
+							modLoc("block/furniture/chair/seat/basic_heavy")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/basic_medium",
+							modLoc("block/furniture/chair/legs/basic_medium")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/basic_medium",
+							modLoc("block/furniture/chair/back/basic_medium")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/seat/basic_medium",
+							modLoc("block/furniture/chair/seat/basic_medium")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					
+					withExistingParent("block/material/wood/"+mb.name+"/chair/legs/basic_light",
+							modLoc("block/furniture/chair/legs/basic_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/back/basic_light",
+							modLoc("block/furniture/chair/back/basic_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
+					withExistingParent("block/material/wood/"+mb.name+"/chair/seat/basic_light",
+							modLoc("block/furniture/chair/seat/basic_light")).texture("0", mcLoc("block/"+mb.name+"_planks"));
 				}
 			}
 		});

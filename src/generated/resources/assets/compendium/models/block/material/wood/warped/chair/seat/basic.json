@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/basic_chair_seat",
-  "textures": {
-    "0": "minecraft:block/warped_planks"
-  }
-}

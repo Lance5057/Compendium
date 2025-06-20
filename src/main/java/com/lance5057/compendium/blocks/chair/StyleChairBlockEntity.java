@@ -12,9 +12,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
-	public StyleType back = new StyleType("back", "basic");
-	public StyleType seat = new StyleType("seat", "basic");
-	public StyleType legs = new StyleType("legs", "basic");
+	public static StyleType back = new StyleType("back", "basic_heavy","basic_medium", "basic_light");
+	public static StyleType seat = new StyleType("seat", "basic_heavy","basic_medium", "basic_light");
+	public static StyleType legs = new StyleType("legs", "basic_heavy","basic_medium", "basic_light");
 
 	List<StyleType> styles = new ArrayList<StyleType>();
 

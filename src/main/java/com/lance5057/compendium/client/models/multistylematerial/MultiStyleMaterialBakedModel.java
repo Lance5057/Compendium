@@ -7,8 +7,10 @@ import java.util.Map;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
+import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
+import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -85,11 +87,12 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 				ModelData extraData, @Nullable RenderType renderType, BakedModel base, int index) {
 			@Nullable
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
+			StyleType s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
 			if (mats != null && mats.size() >= index + 1) {
 				Map<String, BakedModel> m = models.get(mats.get(index).getCurrentMaterial());
 				if (m != null) {
-					BakedModel q = m.getOrDefault("basic", null);
+					BakedModel q = m.getOrDefault(s.getCurrentStyle(), null);
 					if (q != null) {
 						List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 						if (r != null) {

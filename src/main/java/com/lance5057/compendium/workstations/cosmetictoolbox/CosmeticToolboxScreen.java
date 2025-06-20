@@ -6,6 +6,7 @@ import java.util.List;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.network.StyleSetPacket;
 import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -28,6 +29,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolboxMenu> {
 
@@ -151,8 +153,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			this.style = s.getStyles();
 
 		if (style.size() > 1)
-			for (int i = 0; i < style.size(); i++)
-			{
+			for (int i = 0; i < style.size(); i++) {
 				int j = i;
 				tabs.add(this.addRenderableWidget(
 						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
@@ -217,12 +218,12 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			int i1 = l - this.startIndex;
 			double d0 = p_99318_ - (double) (i);
 			double d1 = p_99319_ - (double) (j + i1 * 18);
-			if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0
-					&& this.menu.clickMenuButton(this.minecraft.player, l)) {
+			if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
 				this.style.get(curStyleType).setStyle(l);
 				Minecraft.getInstance().getSoundManager()
 						.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
-				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);
+//				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);
+				PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, this.curStyleType, l));
 				return true;
 			}
 		}

@@ -37,17 +37,14 @@ public class CosmeticToolboxMenu extends AbstractContainerMenu {
 
 	}
 
-	@Override
-	public boolean clickMenuButton(Player p_39465_, int p_39466_) {
+	public void setStyle(int section, int style) {
 		this.access.execute((level, pos) -> {
 			BlockEntity state = level.getBlockEntity(pos);
 			if (state instanceof IStyleable s) {
-				s.getStyles().get(0).setStyle(p_39466_);
+				s.getStyles().get(section).setStyle(style);
 				state.getLevel().sendBlockUpdated(pos, state.getBlockState(), state.getBlockState(), Block.UPDATE_ALL);
 			}
 		});
-
-		return true;
 	}
 
 	@Override

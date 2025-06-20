@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 import javax.annotation.Nullable;
 
+import com.lance5057.compendium.blocks.chair.StyleChairBlockEntity;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -58,18 +59,15 @@ public class CompendiumItems {
 			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
-			() -> new BlockItem(CompendiumBlocks.CHAIR.get(),
-					new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(Stream
-											.of(new StyleType("basic"), new StyleType("basic"), new StyleType("basic"))
-											.toList()))));
+			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(
+									Stream.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream
+							.of(StyleChairBlockEntity.back, StyleChairBlockEntity.legs, StyleChairBlockEntity.seat)
+							.toList()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),

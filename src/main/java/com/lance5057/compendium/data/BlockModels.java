@@ -99,11 +99,11 @@ public class BlockModels extends BlockStateProvider {
 			msmb.base(models().cubeAll("chair_base", mcLoc("block/oak_planks")));
 
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("back",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic_heavy", "basic_medium", "basic_light")));
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("seat",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic_heavy", "basic_medium", "basic_light")));
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("legs",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic")));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), List.of("basic_heavy", "basic_medium", "basic_light")));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);
