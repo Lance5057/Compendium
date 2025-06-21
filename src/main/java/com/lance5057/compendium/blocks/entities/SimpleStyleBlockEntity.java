@@ -15,64 +15,74 @@ import com.lance5057.compendium.styleblock.StyleType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.item.component.BlockItemStateProperties;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
+
+	public static List<String> style = List.of("base", "FULL_TILE", "HALF_TILE",
+			/* "OFFSET_HALF_TILE", */ "HALF_TILE_VERTICAL", /* "QUARTER", */
+			"INDENTED", "INDENTED_SEGMENTED", "DENTED", "DENTED_SEGMENTED", /* "TILTED_SMALL_TILE", */
+			"DIAMOND_TILE", "EIGHTH_TILES", /* "OFFSET_EIGHTH_TILES", */ "BRICK", "BRICK_VERTICAL", "ALIGNED_BRICK",
+			"ALIGNED_BRICK_VERTICAL", "BASKETWEAVE_BRICKS", "BIG_BRICK", /* "HALF_BRICK", */ "HERRINGBONE_BRICKS",
+			"HEX_BRICK", "SLATS", "SLATS_VERTICAL");
 	String name;
+
+	List<List<String>> styles = List.of(style);
 
 	public String getName() {
 		return name;
 	}
 
-	StyleType styles;
+//	List<List<String>> styles; // Immutable!
 
-	public List<StyleType> getStyles() {
-		if (styles != null)
-			return List.of(styles);
-		return new ArrayList<StyleType>();
-	}
+	List<Integer> current_styles = new ArrayList<Integer>();
 
 	@Override
-	public void setStyles(List<StyleType> style) {
-		if (style != null && !style.isEmpty())
-			styles = style.get(0);
+	public List<List<String>> getStyles() {
+		return styles;
 	}
 
-	// public MultiStyle backStyles = new MultiStyle("basic", "runged");
-//	public MultiStyle seatStyles = new MultiStyle("basic");
-//	public MultiStyle legsStyles = new MultiStyle("basic");
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
 		this(pos, blockState, "", null);
 	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, StyleType styles) {
+	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<List<String>> styles) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
 		if (styles != null)
-			this.styles = styles.copy();
+			this.styles = styles;
 		this.name = name;
 	}
 
 	@Override
-	public ModelData getModelData() {
+	public int getCurrent(int index) {
+		return current_styles.get(index);
+	}
 
-		List<StyleType> t = new ArrayList<StyleType>();
-		t.add(styles.copy());
-		return StyleModelData.builder(t).build();
+	@Override
+	public void setCurrent(int index, int c) {
+		current_styles.set(index, c);
+	}
+
+	@Override
+	public int getStyleCount() {
+		return 1;
+	}
+
+	@Override
+	public ModelData getModelData() {
+		return ModelData.builder().with(StyleModelData.STYLES, current_styles).build();
 	}
 
 	@Override
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
-		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(List.of(styles.copy())));
-//		builder.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
+
+		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(current_styles));
 	}
 
 	@Override
@@ -80,27 +90,9 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.styles = m.styles().get(0).copy();
+			this.current_styles = m.styles();
 		}
 	}
-
-//	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,
-//			BlockHitResult hitResult) {
-//
-//		if (this.level.getEntities(null,
-//				new AABB(this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ(),
-//						this.worldPosition.getX() + 1, this.worldPosition.getY() + 1, this.worldPosition.getZ() + 1))
-//				.isEmpty()) {
-//			SeatEntity s = new SeatEntity(level, this.worldPosition,
-//					this.getBlockState().getValue(HorizontalDirectionalBlock.FACING), -0.0f);
-//			level.addFreshEntity(s);
-//
-//			player.startRiding(s);
-//			return InteractionResult.SUCCESS;
-//		}
-//
-//		return InteractionResult.CONSUME;
-//	}
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
@@ -163,31 +155,10 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.readStyleNBT(nbt, registries);
-//		if (nbt.contains("types")) {
-//			CompoundTag tag = nbt.getCompound("types");
-//
-//			for (int i = 0; i < styles.size(); i++) {
-//				styles.get(i).readNBT(tag.getCompound("style" + i), registries);
-//			}
-////			backStyles.readNBT(tag.getCompound("back"), registries);
-////			seatStyles.readNBT(tag.getCompound("seat"), registries);
-////			legsStyles.readNBT(tag.getCompound("legs"), registries);
-//		}
 	}
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.writeStyleNBT(nbt, registries);
 	}
-//		CompoundTag tag = new CompoundTag();
-//
-//		for (int i = 0; i < styles.size(); i++) {
-//			tag.put("style" + i, styles.get(i).writeNBT(nbt, registries));
-//		}
-////		tag.put("back", backStyles.writeNBT(nbt, registries));
-////		tag.put("seat", seatStyles.writeNBT(nbt, registries));
-////		tag.put("legs", legsStyles.writeNBT(nbt, registries));
-//
-//		nbt.put("types", tag);
-//	}
 
 }

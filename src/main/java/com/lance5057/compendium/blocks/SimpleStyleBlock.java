@@ -25,13 +25,13 @@ public class SimpleStyleBlock extends Block implements EntityBlock /* extends St
 //		DENTED_SEGMENT
 //	};
 
-	public final StyleType style;
+//	public final List<List<String>> style;
 
 //	public static final IntegerProperty STYLE = IntegerProperty.create("style", 0, Styles.values().length - 1);
 
-	public SimpleStyleBlock(Properties properties, StyleType s) {
+	public SimpleStyleBlock(Properties properties) {
 		super(properties);
-		this.style = s;
+//		this.style = s;
 	}
 
 //	@Override
@@ -102,20 +102,20 @@ public class SimpleStyleBlock extends Block implements EntityBlock /* extends St
 //		pBuilder.add(STYLE);
 //	}
 //
-	@Override
-	public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos,
-			Player player) {
-		ItemStack stack = new ItemStack(this);
-		if (level.getBlockEntity(pos) != null && level.getBlockEntity(pos) instanceof SimpleStyleBlockEntity ssbe) {
-			stack.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
-			stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(ssbe.getStyles()));
-		}
-		return stack;
-	}
+//	@Override
+//	public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos,
+//			Player player) {
+//		ItemStack stack = new ItemStack(this);
+//		if (level.getBlockEntity(pos) != null && level.getBlockEntity(pos) instanceof SimpleStyleBlockEntity ssbe) {
+//			stack.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
+//			stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(ssbe.getStyles()));
+//		}
+//		return stack;
+//	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state, "metal_tile", style);
+		return new SimpleStyleBlockEntity(pos, state);
 	}
 
 }

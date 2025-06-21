@@ -12,6 +12,7 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
@@ -65,13 +66,14 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		TILE = CompendiumIndex.BLOCKS.register(base.name + "_tile",
-				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK), style));
+				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 
 		CompendiumBlockEntities.validStyleBlocks.add(TILE);
-		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item", () -> new StyleItem(TILE.get(),
-				new Item.Properties()
-						.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(style).toList()))
-						.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
+		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
+				() -> new StyleItem(TILE.get(),
+						new Item.Properties()
+								.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(0).toList()))
+								.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 
 	@Override
@@ -91,7 +93,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll("window_base", bsp.mcLoc("block/glass")).renderType("cutout"));
 
-				for (String s : ((SimpleStyleBlock) state.getBlock()).style.getStyles())
+				for (String s : SimpleStyleBlockEntity.style)
 					msmb.add(new StyleModelBuilder(s, bsp.modLoc("block/material/" + base.getType().name().toLowerCase()
 							+ "/" + base.name.toLowerCase() + "/tile/" + s.toLowerCase())));
 
@@ -192,14 +194,12 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		if (this.loadTile) {
-			StyleType s = TILE.get().style;
-			for (int i = 0; i < s.numStyles(); i++)
+			for (String s : SimpleStyleBlockEntity.style)
 				ibmp.cubeAll(
 						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
-								+ "/tile/" + s.getStyles().get(i).toLowerCase(),
-						ibmp.modLoc(
-								"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
-										+ "/tile/" + s.getStyles().get(i).toLowerCase() + "_tile_block"));
+								+ "/tile/" + s.toLowerCase(),
+						ibmp.modLoc("block/material/" + base.getType().name().toLowerCase() + "/"
+								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase() + "_tile_block"));
 		}
 	}
 }

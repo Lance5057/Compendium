@@ -117,25 +117,24 @@ public class StyleType {
 	public CompoundTag writeNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		CompoundTag tag = new CompoundTag();
 
-		tag.putInt("count", types.size());
-
-		for (int i = 0; i < types.size(); i++) {
-			tag.putString("style" + i, types.get(i));
-		}
-
-		tag.putInt("current", current);
+//		tag.putInt("count", types.size());
+//
+//		for (int i = 0; i < types.size(); i++) {
+//			tag.putString("style" + i, types.get(i));
+//		}
+		tag.putString("current", getCurrentStyle());
 
 		return tag;
 	}
 
 	public void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
-		int index = nbt.getInt("count");
-
-		this.types = new ArrayList<String>();
-		for (int i = 0; i < index; i++)
-			types.add(nbt.getString("style" + i));
-
-		this.current = nbt.getInt("current");
+//		int index = nbt.getInt("count");
+//
+//		this.types = new ArrayList<String>();
+//		for (int i = 0; i < index; i++)
+//			types.add(nbt.getString("style" + i));
+		
+		this.current = this.types.indexOf(nbt.getString("current"));
 
 	}
 

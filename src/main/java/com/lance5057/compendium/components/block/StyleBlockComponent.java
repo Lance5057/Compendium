@@ -15,10 +15,10 @@ import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
 
-public record StyleBlockComponent(List<StyleType> styles) implements TooltipProvider {
+public record StyleBlockComponent(List<Integer> styles) implements TooltipProvider {
 //	public static final StyleBlockComponent EMPTY = new StyleBlockComponent(new ArrayList<StyleType>());
 	public static final Codec<StyleBlockComponent> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
-			.group(Codec.list(StyleType.CODEC).fieldOf("types").forGetter(StyleBlockComponent::styles))
+			.group(Codec.list(Codec.INT).fieldOf("current").forGetter(StyleBlockComponent::styles))
 			.apply(p_337946_, StyleBlockComponent::new));
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, StyleBlockComponent> STREAM_CODEC = StreamCodec
@@ -31,11 +31,11 @@ public record StyleBlockComponent(List<StyleType> styles) implements TooltipProv
 	}
 
 	private static StyleBlockComponent read(RegistryFriendlyByteBuf buffer) {
-		List<StyleType> s = new ArrayList<StyleType>();
+		List<Integer> s = new ArrayList<Integer>();
 
 		int c = buffer.readInt();
 		for (int i = 0; i < c; i++) {
-			s.add(StyleType.STREAM_CODEC.decode(buffer));
+			s.add(buffer.readInt());
 		}
 
 		return new StyleBlockComponent(s);
@@ -45,7 +45,7 @@ public record StyleBlockComponent(List<StyleType> styles) implements TooltipProv
 		buffer.writeInt(bm.styles.size());
 
 		for (int i = 0; i < bm.styles.size(); i++) {
-			StyleType.STREAM_CODEC.encode(buffer, bm.styles.get(i));
+			buffer.writeInt(bm.styles.get(i));
 		}
 	}
 

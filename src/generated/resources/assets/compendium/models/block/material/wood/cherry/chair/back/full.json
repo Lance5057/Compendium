@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/full",
+  "textures": {
+    "0": "minecraft:block/cherry_planks"
+  }
+}

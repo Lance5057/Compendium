@@ -24,7 +24,19 @@
       "turned_panel",
       "turned_panel_weave",
       "weave",
-      "windsor"
+      "windsor",
+      "cross_heavy",
+      "cross_light",
+      "cross_medium",
+      "panel_heavy",
+      "panel_medium",
+      "panel_light",
+      "slat_heavy",
+      "slat_light",
+      "slat_medium",
+      "solid_heavy",
+      "solid_light",
+      "solid_medium"
     ],
     "valid": [
       "METAL",

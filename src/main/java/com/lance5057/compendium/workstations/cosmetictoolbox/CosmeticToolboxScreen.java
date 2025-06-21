@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -54,7 +55,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private BlockPos pos = BlockPos.ZERO;
 
 	private int curStyleType = 0;
-	private List<StyleType> style;
+	private List<Integer> style;
 
 	List<Button> tabs = new ArrayList<Button>();
 
@@ -135,8 +136,8 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 			}
 			gui.pose().popPose();
-//			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.getStyleFromBlock(bisp));
-//			gui.drawString(this.font, Component.translatable(style.getStyleFromBlock(i)), k + 10, i1, 0xFFFFFF, true);
+//			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.get(curStyleType).getCurrentStyle());
+			gui.drawString(this.font, Component.translatable(style.get(curStyleType).getStyles().get(i)), k + 10, i1, 0xFFFFFF, true);
 		}
 	}
 

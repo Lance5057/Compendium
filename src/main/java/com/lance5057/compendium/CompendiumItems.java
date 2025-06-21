@@ -65,9 +65,7 @@ public class CompendiumItems {
 									Stream.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
 											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
 											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD)).toList()))
-					.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream
-							.of(StyleChairBlockEntity.back, StyleChairBlockEntity.legs, StyleChairBlockEntity.seat)
-							.toList()))));
+					.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(0, 0, 0).toList()))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),
