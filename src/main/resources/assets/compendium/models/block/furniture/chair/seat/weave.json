@@ -1,6 +1,8 @@
 {
+	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
+	"render_type": "cutout",
 	"textures": {
 		"0": "block/acacia_planks",
 		"1": "compendium:block/material/wood/acacia/weave",
@@ -8,6 +10,7 @@
 	},
 	"elements": [
 		{
+			"name": "frame front",
 			"from": [4, 9, 2],
 			"to": [12, 11, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, 7, 0]},
@@ -21,6 +24,7 @@
 			}
 		},
 		{
+			"name": "frame back",
 			"from": [4, 9, 12],
 			"to": [12, 11, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, 7, 10]},
@@ -34,6 +38,7 @@
 			}
 		},
 		{
+			"name": "frame right",
 			"from": [12, 9, 2],
 			"to": [14, 11, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, 7, 0]},
@@ -47,6 +52,7 @@
 			}
 		},
 		{
+			"name": "frame left",
 			"from": [2, 9, 2],
 			"to": [4, 11, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [-10, 7, 0]},
@@ -60,6 +66,7 @@
 			}
 		},
 		{
+			"name": "weave",
 			"from": [4, 10.5, 4],
 			"to": [12, 10.5, 12],
 			"rotation": {"angle": 0, "axis": "y", "origin": [-10, 6.5, 0]},
