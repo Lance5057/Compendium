@@ -2,6 +2,8 @@ package com.lance5057.compendium.blocks.chair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
+
 	public static List<String> back = List.of("back", "basic", "basic_panel", "cross", "cross_framed", "fan",
 			"full", "ladder", "live_edge", "open", "panel",	"panel_weave", "slats", "slats_chunky", "solid",
 			"turned_panel",	"turned_panel_weave", "weave", "windsor");
@@ -30,10 +33,11 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 
 	List<List<String>> styles = List.of(back, seat, legs); // Immutable!
 
-	List<Integer> current_styles = new ArrayList<Integer>();
+	List<Integer> currentStyles = new ArrayList<Integer>();
 
 	public StyleChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState);
+		currentStyles = new ArrayList<Integer>(List.of(0, 0, 0));
 	}
 
 	@Override
@@ -47,13 +51,25 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 	}
 
 	@Override
+	public List<Integer> getCurrentAll() {
+		return this.currentStyles;
+	}
+
+	@Override
 	public int getCurrent(int index) {
-		return current_styles.get(index);
+		if (currentStyles.size() > index)
+			return currentStyles.get(index);
+		return 0;
 	}
 
 	@Override
 	public void setCurrent(int index, int c) {
-		current_styles.set(index, c);
+		currentStyles.set(index, c);
+	}
+
+	@Override
+	public List<String> getCurrentAllString() {
+		return List.of(back.get(this.getCurrent(0)), seat.get(this.getCurrent(1)), legs.get(this.getCurrent(2)));
 	}
 
 	@Override
@@ -64,14 +80,14 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 	@Override
 	public ModelData getModelData() {
 		return ModelData.builder().with(MultiMaterialModelData.STATE, materials)
-				.with(StyleModelData.STYLES, current_styles).build();
+				.with(StyleModelData.STYLES, getCurrentAllString()).build();
 	}
 
 	@Override
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
 
-		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(current_styles));
+		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(currentStyles));
 	}
 
 	@Override
@@ -79,7 +95,7 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.current_styles = m.styles();
+			this.currentStyles = m.styles();
 		}
 	}
 

@@ -1,7 +1,9 @@
 package com.lance5057.compendium.index.material.extensions.metal;
 
 import java.lang.reflect.Type;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -49,7 +51,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionMetalStyleBlocks extends _MaterialExtension {
-	public static StyleType style = new StyleType("base", "FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
+	public static StyleType style = new StyleType("FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
 			"OFFSET_QUARTER", "INDENTED", "INDENTED_SEGMENT", "DENTED", "DENTED_SEGMENT");
 
 	boolean loadTile = false;
@@ -72,7 +74,8 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
 				() -> new StyleItem(TILE.get(),
 						new Item.Properties()
-								.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(0).toList()))
+								.component(CompendiumComponents.STYLE,
+										new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 								.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 
@@ -199,7 +202,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
 								+ "/tile/" + s.toLowerCase(),
 						ibmp.modLoc("block/material/" + base.getType().name().toLowerCase() + "/"
-								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase() + "_tile_block"));
+								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase()));
 		}
 	}
 }

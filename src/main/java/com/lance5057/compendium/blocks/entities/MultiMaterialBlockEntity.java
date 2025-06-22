@@ -87,10 +87,10 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 
 	@Override
 	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-		CompoundTag tag = pkt.getTag();
-		// InteractionHandle your Data
-		readNBT(tag, registries);
+		super.onDataPacket(net, pkt, registries);
 		if (getLevel() != null) {
+			CompoundTag tag = pkt.getTag();
+			readNBT(tag, registries);
 			BlockState state = getLevel().getBlockState(getBlockPos());
 			requestModelDataUpdate();
 			getLevel().sendBlockUpdated(getBlockPos(), state, state, 3);

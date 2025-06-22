@@ -1,33 +1,9 @@
 {
-  "ALIGNED_BRICK": {
-    "model": "compendium:block/material/stone/andesite/tile/aligned_brick"
-  },
-  "ALIGNED_BRICK_VERTICAL": {
-    "model": "compendium:block/material/stone/andesite/tile/aligned_brick_vertical"
-  },
-  "BASKETWEAVE_BRICKS": {
-    "model": "compendium:block/material/stone/andesite/tile/basketweave_bricks"
-  },
-  "BIG_BRICK": {
-    "model": "compendium:block/material/stone/andesite/tile/big_brick"
-  },
-  "BRICK": {
-    "model": "compendium:block/material/stone/andesite/tile/brick"
-  },
-  "BRICK_VERTICAL": {
-    "model": "compendium:block/material/stone/andesite/tile/brick_vertical"
-  },
   "DENTED": {
     "model": "compendium:block/material/stone/andesite/tile/dented"
   },
   "DENTED_SEGMENTED": {
     "model": "compendium:block/material/stone/andesite/tile/dented_segmented"
-  },
-  "DIAMOND_TILE": {
-    "model": "compendium:block/material/stone/andesite/tile/diamond_tile"
-  },
-  "EIGHTH_TILES": {
-    "model": "compendium:block/material/stone/andesite/tile/eighth_tiles"
   },
   "FULL_TILE": {
     "model": "compendium:block/material/stone/andesite/tile/full_tile"
@@ -35,27 +11,15 @@
   "HALF_TILE": {
     "model": "compendium:block/material/stone/andesite/tile/half_tile"
   },
-  "HALF_TILE_VERTICAL": {
-    "model": "compendium:block/material/stone/andesite/tile/half_tile_vertical"
-  },
-  "HERRINGBONE_BRICKS": {
-    "model": "compendium:block/material/stone/andesite/tile/herringbone_bricks"
-  },
-  "HEX_BRICK": {
-    "model": "compendium:block/material/stone/andesite/tile/hex_brick"
-  },
   "INDENTED": {
     "model": "compendium:block/material/stone/andesite/tile/indented"
   },
   "INDENTED_SEGMENTED": {
     "model": "compendium:block/material/stone/andesite/tile/indented_segmented"
   },
-  "SLATS": {
-    "model": "compendium:block/material/stone/andesite/tile/slats"
+  "VERTICAL_HALF_TILE": {
+    "model": "compendium:block/material/stone/andesite/tile/vertical_half_tile"
   },
-  "SLATS_VERTICAL": {
-    "model": "compendium:block/material/stone/andesite/tile/slats_vertical"
-  },
-  "count": 19,
+  "count": 7,
   "loader": "compendium:style"
 }

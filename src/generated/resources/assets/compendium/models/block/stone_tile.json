@@ -1,33 +1,9 @@
 {
-  "ALIGNED_BRICK": {
-    "model": "compendium:block/material/stone/stone/tile/aligned_brick"
-  },
-  "ALIGNED_BRICK_VERTICAL": {
-    "model": "compendium:block/material/stone/stone/tile/aligned_brick_vertical"
-  },
-  "BASKETWEAVE_BRICKS": {
-    "model": "compendium:block/material/stone/stone/tile/basketweave_bricks"
-  },
-  "BIG_BRICK": {
-    "model": "compendium:block/material/stone/stone/tile/big_brick"
-  },
-  "BRICK": {
-    "model": "compendium:block/material/stone/stone/tile/brick"
-  },
-  "BRICK_VERTICAL": {
-    "model": "compendium:block/material/stone/stone/tile/brick_vertical"
-  },
   "DENTED": {
     "model": "compendium:block/material/stone/stone/tile/dented"
   },
   "DENTED_SEGMENTED": {
     "model": "compendium:block/material/stone/stone/tile/dented_segmented"
-  },
-  "DIAMOND_TILE": {
-    "model": "compendium:block/material/stone/stone/tile/diamond_tile"
-  },
-  "EIGHTH_TILES": {
-    "model": "compendium:block/material/stone/stone/tile/eighth_tiles"
   },
   "FULL_TILE": {
     "model": "compendium:block/material/stone/stone/tile/full_tile"
@@ -35,27 +11,15 @@
   "HALF_TILE": {
     "model": "compendium:block/material/stone/stone/tile/half_tile"
   },
-  "HALF_TILE_VERTICAL": {
-    "model": "compendium:block/material/stone/stone/tile/half_tile_vertical"
-  },
-  "HERRINGBONE_BRICKS": {
-    "model": "compendium:block/material/stone/stone/tile/herringbone_bricks"
-  },
-  "HEX_BRICK": {
-    "model": "compendium:block/material/stone/stone/tile/hex_brick"
-  },
   "INDENTED": {
     "model": "compendium:block/material/stone/stone/tile/indented"
   },
   "INDENTED_SEGMENTED": {
     "model": "compendium:block/material/stone/stone/tile/indented_segmented"
   },
-  "SLATS": {
-    "model": "compendium:block/material/stone/stone/tile/slats"
+  "VERTICAL_HALF_TILE": {
+    "model": "compendium:block/material/stone/stone/tile/vertical_half_tile"
   },
-  "SLATS_VERTICAL": {
-    "model": "compendium:block/material/stone/stone/tile/slats_vertical"
-  },
-  "count": 19,
+  "count": 7,
   "loader": "compendium:style"
 }

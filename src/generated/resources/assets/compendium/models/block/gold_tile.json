@@ -2,33 +2,24 @@
   "DENTED": {
     "model": "compendium:block/material/metal/gold/tile/dented"
   },
-  "DENTED_SEGMENT": {
-    "model": "compendium:block/material/metal/gold/tile/dented_segment"
+  "DENTED_SEGMENTED": {
+    "model": "compendium:block/material/metal/gold/tile/dented_segmented"
   },
-  "FULL": {
-    "model": "compendium:block/material/metal/gold/tile/full"
+  "FULL_TILE": {
+    "model": "compendium:block/material/metal/gold/tile/full_tile"
   },
-  "HALF": {
-    "model": "compendium:block/material/metal/gold/tile/half"
+  "HALF_TILE": {
+    "model": "compendium:block/material/metal/gold/tile/half_tile"
   },
   "INDENTED": {
     "model": "compendium:block/material/metal/gold/tile/indented"
   },
-  "INDENTED_SEGMENT": {
-    "model": "compendium:block/material/metal/gold/tile/indented_segment"
+  "INDENTED_SEGMENTED": {
+    "model": "compendium:block/material/metal/gold/tile/indented_segmented"
   },
-  "OFFSET_HALF": {
-    "model": "compendium:block/material/metal/gold/tile/offset_half"
+  "VERTICAL_HALF_TILE": {
+    "model": "compendium:block/material/metal/gold/tile/vertical_half_tile"
   },
-  "OFFSET_QUARTER": {
-    "model": "compendium:block/material/metal/gold/tile/offset_quarter"
-  },
-  "QUARTER": {
-    "model": "compendium:block/material/metal/gold/tile/quarter"
-  },
-  "VERTICAL_HALF": {
-    "model": "compendium:block/material/metal/gold/tile/vertical_half"
-  },
-  "count": 10,
+  "count": 7,
   "loader": "compendium:style"
 }

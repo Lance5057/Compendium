@@ -40,8 +40,8 @@ public class CosmeticToolboxMenu extends AbstractContainerMenu {
 	public void setStyle(int section, int style) {
 		this.access.execute((level, pos) -> {
 			BlockEntity state = level.getBlockEntity(pos);
-			if (state instanceof IStyleable s) {
-				s.getStyles().get(section).setStyle(style);
+			if (state instanceof IStyleable istyle) {
+				istyle.setCurrent(section, style);
 				state.getLevel().sendBlockUpdated(pos, state.getBlockState(), state.getBlockState(), Block.UPDATE_ALL);
 			}
 		});

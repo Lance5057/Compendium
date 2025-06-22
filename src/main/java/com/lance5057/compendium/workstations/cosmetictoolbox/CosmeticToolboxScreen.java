@@ -53,9 +53,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private int startIndex;
 
 	private BlockPos pos = BlockPos.ZERO;
+	private IStyleable entity;
 
 	private int curStyleType = 0;
-	private List<Integer> style;
+//	private List<Integer> style;
 
 	List<Button> tabs = new ArrayList<Button>();
 
@@ -106,7 +107,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
 					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-					renderBlock(gui, state, style.get(curStyleType).getCurrentStyleIndex());
+//					renderBlock(gui, state, entity.getCurrent(j1));
 
 				}
 				gui.pose().popPose();
@@ -117,7 +118,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_, BlockState state) {
 
-		for (int i = this.startIndex; i < p_283352_ && i < style.get(curStyleType).numStyles(); ++i) {
+		for (int i = this.startIndex; i < p_283352_ && i < entity.getCurrent(curStyleType); ++i) {
 			int j = i - this.startIndex;
 			int k = this.leftPos + p_282658_;
 //			int l = j / 4;
@@ -137,13 +138,14 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			}
 			gui.pose().popPose();
 //			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.get(curStyleType).getCurrentStyle());
-			gui.drawString(this.font, Component.translatable(style.get(curStyleType).getStyles().get(i)), k + 10, i1, 0xFFFFFF, true);
+			gui.drawString(this.font, Component.translatable(entity.getStyles().get(curStyleType).get(i)), k + 10, i1,
+					0xFFFFFF, true);
 		}
 	}
 
 	private boolean isScrollBarActive() {
-		if (style != null)
-			return style.get(curStyleType).numStyles() > 8;
+		if (entity != null)
+			return entity.getStyles().get(curStyleType).size() > 8;
 		return false;
 	}
 
@@ -151,10 +153,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		this.pos = pos;
 		BlockEntity block = this.minecraft.level.getBlockEntity(pos);
 		if (block instanceof IStyleable s)
-			this.style = s.getStyles();
+			this.entity = s;
 
-		if (style.size() > 1)
-			for (int i = 0; i < style.size(); i++) {
+		if (entity.getStyles().size() > 1)
+			for (int i = 0; i < entity.getStyles().size(); i++) {
 				int j = i;
 				tabs.add(this.addRenderableWidget(
 						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
@@ -175,9 +177,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		guiGraphics.pose().translate(0, 0.5, 0);
 		guiGraphics.pose().scale(1f, -1f, 1f);
 
-		//style.get(curStyleType).copy(cur)
+		
+		
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY, StyleModelData.builder(style).build(), null);
+				OverlayTexture.NO_OVERLAY, StyleModelData.builder(entity.getCurrentAllString()).build(), null);
 
 		buffers.endBatch();
 
@@ -187,8 +190,8 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
 			int p_282688_) {
-		if (style != null)
-			for (int i = this.startIndex; i < p_282688_ && i < style.get(curStyleType).numStyles(); ++i) {
+		if (entity != null)
+			for (int i = this.startIndex; i < p_282688_ && i < entity.getStyles().get(curStyleType).size(); ++i) {
 				int j = i - this.startIndex;
 				int k = p_281987_;
 //			int l = j / 4;
@@ -221,7 +224,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			double d0 = p_99318_ - (double) (i);
 			double d1 = p_99319_ - (double) (j + i1 * 18);
 			if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
-				this.style.get(curStyleType).setStyle(l);
+				entity.setCurrent(this.curStyleType, l);
 				Minecraft.getInstance().getSoundManager()
 						.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
 //				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);
@@ -267,6 +270,6 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	}
 
 	protected int getOffscreenRows() {
-		return this.style.get(curStyleType).numStyles() - 8;
+		return entity.getStyles().get(curStyleType).size() - 8;
 	}
 }
