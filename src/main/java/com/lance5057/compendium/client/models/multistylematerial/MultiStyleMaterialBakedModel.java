@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
-import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -20,6 +20,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
@@ -63,6 +64,13 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 	}
 
 	@Override
+	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
+			@NotNull ModelData data) {
+
+		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.solid());
+	}
+
+	@Override
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
@@ -85,7 +93,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 				ModelData extraData, @Nullable RenderType renderType, BakedModel base, int index) {
-			
+
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
@@ -96,7 +104,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 						BakedModel q = m.getOrDefault(s.get(index), null);
 						if (q != null) {
 							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-							if (r != null) {
+							if (r != null && !r.isEmpty()) {
 								if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
 									l.addAll(r);
 							}

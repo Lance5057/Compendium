@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/seat/basic_light",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

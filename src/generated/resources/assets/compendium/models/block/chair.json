@@ -8,36 +8,24 @@
   "layer0": {
     "modelBase": "back",
     "styles": [
-      "back",
-      "basic_heavy",
-      "basic_medium",
-      "basic_light",
-      "ladder_heavy",
-      "ladder_medium",
-      "ladder_light",
+      "basic",
+      "basic_panel",
       "cross",
+      "cross_framed",
+      "fan",
       "full",
+      "ladder",
       "live_edge",
       "open",
       "panel",
       "panel_weave",
       "slats",
+      "slats_chunky",
+      "solid",
       "turned_panel",
       "turned_panel_weave",
       "weave",
-      "windsor",
-      "cross_heavy",
-      "cross_light",
-      "cross_medium",
-      "panel_heavy",
-      "panel_medium",
-      "panel_light",
-      "slat_heavy",
-      "slat_light",
-      "slat_medium",
-      "solid_heavy",
-      "solid_light",
-      "solid_medium"
+      "windsor"
     ],
     "valid": [
       "METAL",
@@ -47,10 +35,10 @@
   "layer1": {
     "modelBase": "seat",
     "styles": [
-      "seat",
-      "basic_heavy",
-      "basic_medium",
-      "basic_light"
+      "basic",
+      "tilted",
+      "tilted_weave",
+      "weave"
     ],
     "valid": [
       "METAL",
@@ -60,13 +48,19 @@
   "layer2": {
     "modelBase": "legs",
     "styles": [
-      "legs",
-      "basic_heavy",
-      "basic_medium",
-      "basic_light",
-      "rails_heavy",
-      "rails_medium",
-      "rails_light"
+      "basic",
+      "angled",
+      "pedestal",
+      "pedestal_cross",
+      "pedestal_x",
+      "rails_connected",
+      "rails_end",
+      "rails_full",
+      "rails_full_offset",
+      "rails_side",
+      "solid",
+      "solid_ends",
+      "solid_sides"
     ],
     "valid": [
       "METAL",

@@ -1,5 +1,6 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.core.HolderLookup;
@@ -9,16 +10,17 @@ public interface IStyleable {
 	public List<List<String>> getStyles();
 
 	public int getCurrent(int index);
-	
+
 	public List<Integer> getCurrentAll();
-	
+
 	public List<String> getCurrentAllString();
 
 	public void setCurrent(int index, int c);
 
 	public int getStyleCount();
 
-	public default void readStyleNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+	public default List<Integer> readStyleNBT(CompoundTag nbt, HolderLookup.Provider registries) {
+		List<Integer> l = new ArrayList<Integer>();
 		if (nbt.contains("types")) {
 
 			CompoundTag tag = nbt.getCompound("types");
@@ -26,9 +28,12 @@ public interface IStyleable {
 			int count = tag.getInt("count");
 
 			for (int i = 0; i < count; i++) {
-				setCurrent(i, tag.getInt("style" + i));
+				l.add(tag.getInt("style" + i));
 			}
+
 		}
+
+		return l;
 	}
 
 	public default void writeStyleNBT(CompoundTag nbt, HolderLookup.Provider registries) {

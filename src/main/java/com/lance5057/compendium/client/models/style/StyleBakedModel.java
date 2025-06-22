@@ -87,7 +87,7 @@ public class StyleBakedModel implements IDynamicBakedModel {
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
 		List<String> mats = extraData.get(StyleModelData.STYLES);
-
+ 
 		if (mats != null) {
 			BakedModel q = models.get(mats.get(0));
 			if (q != null) {

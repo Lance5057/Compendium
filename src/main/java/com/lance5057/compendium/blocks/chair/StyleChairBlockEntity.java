@@ -2,8 +2,6 @@ package com.lance5057.compendium.blocks.chair;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
@@ -12,7 +10,6 @@ import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
-import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -23,13 +20,13 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> back = List.of("back", "basic", "basic_panel", "cross", "cross_framed", "fan",
-			"full", "ladder", "live_edge", "open", "panel",	"panel_weave", "slats", "slats_chunky", "solid",
-			"turned_panel",	"turned_panel_weave", "weave", "windsor");
-	public static List<String> seat = List.of("seat", "basic", "tilted", "tilted_weave", "weave");
-	public static List<String> legs = List.of("legs", "basic", "angled", "pedestal", "pedestal_cross",
-			"pedestal_X", "rails_connected", "rails_end", "rails_full", "rails_full_offset", "rails_side", "solid",
-			"solid_ends", "solid_sides");
+	public static List<String> back = List.of("basic", "basic_panel", "cross", "cross_framed", "fan", "full", "ladder",
+			"live_edge", "open", "panel", "panel_weave", "slats", "slats_chunky", "solid", "turned_panel",
+			"turned_panel_weave", "weave", "windsor");
+	public static List<String> seat = List.of("basic", "tilted", "tilted_weave", "weave");
+	public static List<String> legs = List.of("basic", "angled", "pedestal", "pedestal_cross", "pedestal_x",
+			"rails_connected", "rails_end", "rails_full", "rails_full_offset", "rails_side", "solid", "solid_ends",
+			"solid_sides");
 
 	List<List<String>> styles = List.of(back, seat, legs); // Immutable!
 
@@ -37,7 +34,7 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 
 	public StyleChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState);
-		currentStyles = new ArrayList<Integer>(List.of(0, 0, 0));
+//		currentStyles = new ArrayList<Integer>(List.of(0, 0, 0));
 	}
 
 	@Override
@@ -95,13 +92,13 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.currentStyles = m.styles();
+			this.currentStyles = new ArrayList<Integer>(m.styles());
 		}
 	}
 
 	@Override
 	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
-		this.readStyleNBT(nbt, registries);
+		this.currentStyles = new ArrayList<Integer>(this.readStyleNBT(nbt, registries));
 	}
 
 	@Override

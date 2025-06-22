@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/solid_heavy",
-  "textures": {
-    "0": "minecraft:block/crimson_planks"
-  }
-}

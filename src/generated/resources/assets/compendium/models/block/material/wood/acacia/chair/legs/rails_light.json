@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_light",
-  "textures": {
-    "0": "minecraft:block/acacia_planks"
-  }
-}
