@@ -1,6 +1,8 @@
 {
+	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
+	"render_type": "cutout",
 	"textures": {
 		"0": "block/acacia_planks",
 		"1": "compendium:block/material/wood/acacia/weave",
@@ -8,7 +10,7 @@
 	},
 	"elements": [
 		{
-			"name": "left upright",
+			"name": "frame left",
 			"from": [3, 15, 12],
 			"to": [5, 21, 14],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
@@ -22,7 +24,7 @@
 			}
 		},
 		{
-			"name": "right upright",
+			"name": "frame right",
 			"from": [11, 15, 12],
 			"to": [13, 21, 14],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
@@ -36,7 +38,7 @@
 			}
 		},
 		{
-			"name": "back panel",
+			"name": "frame top",
 			"from": [3, 21, 12],
 			"to": [13, 23, 14],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
@@ -50,7 +52,7 @@
 			}
 		},
 		{
-			"name": "back panel",
+			"name": "centre panel",
 			"from": [5, 15, 13],
 			"to": [11, 21, 13],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
@@ -60,7 +62,7 @@
 			}
 		},
 		{
-			"name": "back panel",
+			"name": "frame bottom",
 			"from": [3, 13, 12],
 			"to": [13, 15, 14],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
@@ -74,7 +76,7 @@
 			}
 		},
 		{
-			"name": "back panel",
+			"name": "right upright",
 			"from": [10.001, 11.001, 12.001],
 			"to": [11.999, 14.999, 13.999],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11, 17, 13]},
@@ -88,7 +90,7 @@
 			}
 		},
 		{
-			"name": "back panel",
+			"name": "left upright",
 			"from": [4.001, 11.001, 12.001],
 			"to": [5.999, 14.999, 13.999],
 			"rotation": {"angle": 0, "axis": "y", "origin": [5, 17, 13]},
@@ -101,6 +103,5 @@
 				"down": {"uv": [0, 3, 2, 5], "texture": "#0"}
 			}
 		}
-	],
-	"format_version": "1.21.6"
+	]
 }

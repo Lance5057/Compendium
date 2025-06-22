@@ -1,4 +1,5 @@
 {
+	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
@@ -7,7 +8,7 @@
 	},
 	"elements": [
 		{
-			"name": "left upright",
+			"name": "back panel",
 			"from": [2, 4, 12],
 			"to": [14, 20, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [2, 11, 11]},
@@ -21,7 +22,7 @@
 			}
 		},
 		{
-			"name": "left upright",
+			"name": "bottom bit",
 			"from": [2, 0, 12],
 			"to": [14, 4, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [2, 7, 11]},
@@ -34,6 +35,5 @@
 				"down": {"uv": [0, 1, 2, 13], "rotation": 90, "texture": "#0"}
 			}
 		}
-	],
-	"format_version": "1.21.6"
+	]
 }

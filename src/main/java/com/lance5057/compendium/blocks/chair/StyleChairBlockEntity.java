@@ -22,14 +22,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
-	public static List<String> back = List.of("basic_heavy", "basic_medium", "basic_light", "ladder_heavy",
-			"ladder_medium", "ladder_light", "cross", "full", "live_edge", "open", "panel", "panel_weave", "slats",
-			"turned_panel", "turned_panel_weave", "weave", "windsor", "cross_heavy", "cross_light", "cross_medium",
-			"panel_heavy", "panel_medium", "panel_light", "slat_heavy", "slat_light", "slat_medium", "solid_heavy",
-			"solid_light", "solid_medium");
-	public static List<String> seat = List.of("basic_heavy", "basic_medium", "basic_light");
-	public static List<String> legs = List.of("basic_heavy", "basic_medium", "basic_light", "rails_heavy",
-			"rails_medium", "rails_light");
+
+	public static List<String> back = List.of("back", "basic", "basic_panel", "cross", "cross_framed", "fan",
+			"full", "ladder", "live_edge", "open", "panel",	"panel_weave", "slats", "slats_chunky", "solid",
+			"turned_panel",	"turned_panel_weave", "weave", "windsor");
+	public static List<String> seat = List.of("seat", "basic", "tilted", "tilted_weave", "weave");
+	public static List<String> legs = List.of("legs", "basic", "angled", "pedestal", "pedestal_cross",
+			"pedestal_X", "rails_connected", "rails_end", "rails_full", "rails_full_offset", "rails_side", "solid",
+			"solid_ends", "solid_sides");
 
 	List<List<String>> styles = List.of(back, seat, legs); // Immutable!
 
