@@ -1,6 +1,7 @@
 package com.lance5057.compendium.blocks.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,7 +52,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		currentStyles = Stream.of(0, 0, 0).collect(Collectors.toCollection(ArrayList::new));
+		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
 	}
 
 //	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<List<String>> styles) {
@@ -126,12 +127,14 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-		CompoundTag tag = pkt.getTag();
+
 		// InteractionHandle your Data
-		readNBT(tag, registries);
 
 		setChanged();
 		if (getLevel() != null) {
+			CompoundTag tag = pkt.getTag();
+			readNBT(tag, registries);
+
 			BlockState state = getLevel().getBlockState(getBlockPos());
 			requestModelDataUpdate();
 			getLevel().sendBlockUpdated(getBlockPos(), state, state, 3);

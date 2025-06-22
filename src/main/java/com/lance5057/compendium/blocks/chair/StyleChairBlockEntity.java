@@ -37,7 +37,7 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 
 	public StyleChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState);
-		currentStyles = Stream.of(0, 0, 0).collect(Collectors.toCollection(ArrayList::new));
+		currentStyles = new ArrayList<Integer>(List.of(0, 0, 0));
 	}
 
 	@Override

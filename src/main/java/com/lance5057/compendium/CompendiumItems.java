@@ -1,7 +1,8 @@
 package com.lance5057.compendium;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.annotation.Nullable;
@@ -67,8 +68,8 @@ public class CompendiumItems {
 													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
 													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
 											.toList()))
-							.component(CompendiumComponents.STYLE, new StyleBlockComponent(
-									Stream.of(0, 0, 0).collect(Collectors.toCollection(ArrayList::new))))));
+							.component(CompendiumComponents.STYLE,
+									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),

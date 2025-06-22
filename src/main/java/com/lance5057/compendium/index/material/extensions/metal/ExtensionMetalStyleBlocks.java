@@ -1,7 +1,9 @@
 package com.lance5057.compendium.index.material.extensions.metal;
 
 import java.lang.reflect.Type;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -72,7 +74,8 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
 				() -> new StyleItem(TILE.get(),
 						new Item.Properties()
-								.component(CompendiumComponents.STYLE, new StyleBlockComponent(Stream.of(0).toList()))
+								.component(CompendiumComponents.STYLE,
+										new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 								.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 

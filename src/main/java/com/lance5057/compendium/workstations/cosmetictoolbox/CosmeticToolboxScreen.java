@@ -107,7 +107,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
 					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-					renderBlock(gui, state, entity.getCurrent(i));
+//					renderBlock(gui, state, entity.getCurrent(j1));
 
 				}
 				gui.pose().popPose();
