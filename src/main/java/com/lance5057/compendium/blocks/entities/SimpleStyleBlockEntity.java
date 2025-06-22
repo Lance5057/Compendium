@@ -21,6 +21,7 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
@@ -70,6 +71,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	public void setCurrent(int index, int c) {
 		currentStyles.set(index, c);
+		this.setChanged();
+		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 	}
 
 	@Override

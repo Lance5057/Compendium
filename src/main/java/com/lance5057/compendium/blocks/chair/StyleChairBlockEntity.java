@@ -15,6 +15,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
@@ -62,6 +63,8 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 	@Override
 	public void setCurrent(int index, int c) {
 		currentStyles.set(index, c);
+		this.setChanged();
+		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 	}
 
 	@Override
