@@ -8,9 +8,11 @@ import net.minecraft.nbt.CompoundTag;
 public interface IStyleable {
 	public List<List<String>> getStyles();
 
-//	public void setStyles(List<List<String>> style);
-
 	public int getCurrent(int index);
+	
+	public List<Integer> getCurrentAll();
+	
+	public List<String> getCurrentAllString();
 
 	public void setCurrent(int index, int c);
 
@@ -21,7 +23,7 @@ public interface IStyleable {
 
 			CompoundTag tag = nbt.getCompound("types");
 
-			int count = nbt.getInt("count");
+			int count = tag.getInt("count");
 
 			for (int i = 0; i < count; i++) {
 				setCurrent(i, tag.getInt("style" + i));

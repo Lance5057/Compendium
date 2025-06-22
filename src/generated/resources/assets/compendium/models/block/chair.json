@@ -8,6 +8,7 @@
   "layer0": {
     "modelBase": "back",
     "styles": [
+      "back",
       "basic_heavy",
       "basic_medium",
       "basic_light",
@@ -46,6 +47,7 @@
   "layer1": {
     "modelBase": "seat",
     "styles": [
+      "seat",
       "basic_heavy",
       "basic_medium",
       "basic_light"
@@ -58,6 +60,7 @@
   "layer2": {
     "modelBase": "legs",
     "styles": [
+      "legs",
       "basic_heavy",
       "basic_medium",
       "basic_light",

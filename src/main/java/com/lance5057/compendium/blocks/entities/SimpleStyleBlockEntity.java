@@ -2,6 +2,8 @@ package com.lance5057.compendium.blocks.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 
@@ -24,23 +26,23 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
-	public static List<String> style = List.of("base", "FULL_TILE", "HALF_TILE",
-			/* "OFFSET_HALF_TILE", */ "HALF_TILE_VERTICAL", /* "QUARTER", */
-			"INDENTED", "INDENTED_SEGMENTED", "DENTED", "DENTED_SEGMENTED", /* "TILTED_SMALL_TILE", */
-			"DIAMOND_TILE", "EIGHTH_TILES", /* "OFFSET_EIGHTH_TILES", */ "BRICK", "BRICK_VERTICAL", "ALIGNED_BRICK",
-			"ALIGNED_BRICK_VERTICAL", "BASKETWEAVE_BRICKS", "BIG_BRICK", /* "HALF_BRICK", */ "HERRINGBONE_BRICKS",
-			"HEX_BRICK", "SLATS", "SLATS_VERTICAL");
-	String name;
+	public static List<String> style = List.of("FULL_TILE", "HALF_TILE",
+			/* "OFFSET_HALF_TILE", */ "VERTICAL_HALF_TILE", /* "QUARTER", */
+			"INDENTED", "INDENTED_SEGMENTED", "DENTED", "DENTED_SEGMENTED"/* , */ /* "TILTED_SMALL_TILE", */
+//			/*"DIAMOND_TILE"*/, /*"EIGHTH_TILES"*/, /* "OFFSET_EIGHTH_TILES", */ /*"BRICK", "BRICK_VERTICAL", "ALIGNED_BRICK",*/
+//			"ALIGNED_BRICK_VERTICAL", "BASKETWEAVE_BRICKS", "BIG_BRICK", /* "HALF_BRICK", */ "HERRINGBONE_BRICKS",
+	/* "HEX_BRICK", "SLATS", "SLATS_VERTICAL" */);
+//	String name;
 
 	List<List<String>> styles = List.of(style);
 
-	public String getName() {
-		return name;
-	}
+//	public String getName() {
+//		return name;
+//	}
 
 //	List<List<String>> styles; // Immutable!
 
-	List<Integer> current_styles = new ArrayList<Integer>();
+	List<Integer> currentStyles = new ArrayList<Integer>();
 
 	@Override
 	public List<List<String>> getStyles() {
@@ -48,24 +50,30 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	}
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
-		this(pos, blockState, "", null);
+		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
+		currentStyles = Stream.of(0, 0, 0).collect(Collectors.toCollection(ArrayList::new));
 	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<List<String>> styles) {
-		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		if (styles != null)
-			this.styles = styles;
-		this.name = name;
-	}
+//	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<List<String>> styles) {
+//		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
+//		if (styles != null)
+//			this.styles = styles;
+//		this.name = name;
+//	}
 
 	@Override
 	public int getCurrent(int index) {
-		return current_styles.get(index);
+		return currentStyles.get(index);
 	}
 
 	@Override
 	public void setCurrent(int index, int c) {
-		current_styles.set(index, c);
+		currentStyles.set(index, c);
+	}
+
+	@Override
+	public List<String> getCurrentAllString() {
+		return List.of(style.get(this.getCurrent(0)));
 	}
 
 	@Override
@@ -75,14 +83,15 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public ModelData getModelData() {
-		return ModelData.builder().with(StyleModelData.STYLES, current_styles).build();
+
+		return ModelData.builder().with(StyleModelData.STYLES, getCurrentAllString()).build();
 	}
 
 	@Override
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
 
-		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(current_styles));
+		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(currentStyles));
 	}
 
 	@Override
@@ -90,7 +99,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.current_styles = m.styles();
+			this.currentStyles = m.styles();
 		}
 	}
 
@@ -159,6 +168,11 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.writeStyleNBT(nbt, registries);
+	}
+
+	@Override
+	public List<Integer> getCurrentAll() {
+		return this.currentStyles;
 	}
 
 }

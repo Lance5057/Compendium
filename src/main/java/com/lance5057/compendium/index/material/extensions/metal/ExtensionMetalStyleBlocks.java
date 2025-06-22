@@ -49,7 +49,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionMetalStyleBlocks extends _MaterialExtension {
-	public static StyleType style = new StyleType("base", "FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
+	public static StyleType style = new StyleType("FULL", "HALF", "VERTICAL_HALF", "QUARTER", "OFFSET_HALF",
 			"OFFSET_QUARTER", "INDENTED", "INDENTED_SEGMENT", "DENTED", "DENTED_SEGMENT");
 
 	boolean loadTile = false;
@@ -199,7 +199,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
 								+ "/tile/" + s.toLowerCase(),
 						ibmp.modLoc("block/material/" + base.getType().name().toLowerCase() + "/"
-								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase() + "_tile_block"));
+								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase()));
 		}
 	}
 }
