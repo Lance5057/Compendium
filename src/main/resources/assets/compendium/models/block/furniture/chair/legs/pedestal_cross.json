@@ -10,13 +10,13 @@
 		{
 			"name": "pedestal",
 			"from": [7, 0, 7],
-			"to": [9, 9, 9],
+			"to": [9, 9.1, 9],
 			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
 			"faces": {
-				"north": {"uv": [0, 1, 9, 3], "rotation": 90, "texture": "#0"},
-				"east": {"uv": [0, 13, 9, 15], "rotation": 90, "texture": "#0"},
-				"south": {"uv": [0, 9, 9, 11], "rotation": 90, "texture": "#0"},
-				"west": {"uv": [0, 5, 9, 7], "rotation": 90, "texture": "#0"},
+				"north": {"uv": [0, 1, 10, 3], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 13, 10, 15], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 9, 10, 11], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 5, 10, 7], "rotation": 90, "texture": "#0"},
 				"up": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"},
 				"down": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"}
 			}
@@ -75,6 +75,20 @@
 				"west": {"uv": [6, 8, 11, 10], "texture": "#0"},
 				"up": {"uv": [6, 0, 11, 2], "rotation": 90, "texture": "#0"},
 				"down": {"uv": [6, 0, 11, 2], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "top connector",
+			"from": [4, 9.1, 6.5],
+			"to": [12, 9.999, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 7, 0]},
+			"faces": {
+				"north": {"uv": [0, 1, 8, 1.899], "texture": "#0"},
+				"east": {"uv": [0, 5, 3, 5.899], "texture": "#0"},
+				"south": {"uv": [0, 5, 8, 5.899], "texture": "#0"},
+				"west": {"uv": [0, 5, 3, 5.899], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 3], "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 3], "texture": "#0"}
 			}
 		}
 	]

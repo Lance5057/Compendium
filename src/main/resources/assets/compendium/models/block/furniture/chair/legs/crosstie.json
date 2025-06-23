@@ -1,0 +1,67 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "block/acacia_planks",
+		"particle": "block/acacia_planks"
+	},
+	"elements": [
+		{
+			"name": "front left leg",
+			"from": [2.001, 0, 2],
+			"to": [4.001, 14.85, 4],
+			"rotation": {"angle": 45, "axis": "x", "origin": [3, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 1, 14.85, 3], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 13, 14.85, 15], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 9, 14.85, 11], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 5, 14.85, 7], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "front right leg",
+			"from": [11.999, 0, 2],
+			"to": [13.999, 14.85, 4],
+			"rotation": {"angle": 45, "axis": "x", "origin": [13, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 5, 14.85, 7], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 1, 14.85, 3], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 13, 14.85, 15], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 9, 14.85, 11], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "back right leg",
+			"from": [11.998, 0, 12],
+			"to": [13.998, 14.85, 14],
+			"rotation": {"angle": -45, "axis": "x", "origin": [13, 0, 14]},
+			"faces": {
+				"north": {"uv": [0, 9, 14.85, 11], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 5, 14.85, 7], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 1, 14.85, 3], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 13, 14.85, 15], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "back left leg",
+			"from": [2.002, 0, 12],
+			"to": [4.002, 14.85, 14],
+			"rotation": {"angle": -45, "axis": "x", "origin": [3, 0, 14]},
+			"faces": {
+				"north": {"uv": [0, 13, 14.85, 15], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 9, 14.85, 11], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 5, 14.85, 7], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 1, 14.85, 3], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 1, 2, 3], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}
