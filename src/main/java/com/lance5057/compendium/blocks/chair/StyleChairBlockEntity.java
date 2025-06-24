@@ -10,22 +10,29 @@ import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.entities.SeatEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary",
-			"contemporary_slats", "cross", "cross_framed", "fan", "flat", "flat_extra", "full", "laced", "ladder",
-			"ladder_tall", "lath", "lattice", "live_edge", "open", "panel", "panel_weave", "planks_horizontal",
-			"planks_horizontal_angled", "slats", "slats_chunky", "solid", "splat", "splat_double", "splat_slat",
-			"turned_panel",	"turned_panel_weave", "vienna", "weave", "windsor");
+	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary", "contemporary_slats",
+			"cross", "cross_framed", "fan", "flat", "flat_extra", "full", "laced", "ladder", "ladder_tall", "lath",
+			"lattice", "live_edge", "open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled",
+			"slats", "slats_chunky", "solid", "splat", "splat_double", "splat_slat", "turned_panel",
+			"turned_panel_weave", "vienna", "weave", "windsor");
 	public static List<String> seat = List.of("basic", "planks_horizontal", "planks_horizontal_angled", "tilted",
 			"tilted_weave", "weave");
 	public static List<String> legs = List.of("basic", "angled", "crosstie", "pedestal", "pedestal_cross",
@@ -78,6 +85,24 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 	@Override
 	public int getStyleCount() {
 		return 3;
+	}
+
+	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,
+			BlockHitResult hitResult) {
+
+		if (this.level.getEntities(null,
+				new AABB(this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ(),
+						this.worldPosition.getX() + 1, this.worldPosition.getY() + 1, this.worldPosition.getZ() + 1))
+				.isEmpty()) {
+			SeatEntity s = new SeatEntity(level, this.worldPosition,
+					this.getBlockState().getValue(HorizontalDirectionalBlock.FACING), 0.2f);
+			level.addFreshEntity(s);
+
+			player.startRiding(s);
+			return InteractionResult.SUCCESS;
+		}
+
+		return InteractionResult.CONSUME;
 	}
 
 	@Override

@@ -118,7 +118,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_, BlockState state) {
 
-		for (int i = this.startIndex; i < p_283352_ && i < entity.getCurrent(curStyleType); ++i) {
+		for (int i = this.startIndex; i < p_283352_ && i < entity.getStyles().get(this.curStyleType).size(); ++i) {
 			int j = i - this.startIndex;
 			int k = this.leftPos + p_282658_;
 //			int l = j / 4;

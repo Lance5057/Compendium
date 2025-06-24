@@ -31,20 +31,18 @@ public class CosmeticToolboxItem extends BlockItem {
 
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
-		if (!pContext.getPlayer().isCrouching()) {
-			BlockEntity pos = pContext.getLevel().getBlockEntity(pContext.getClickedPos());
-			if (pos instanceof MultiMaterialBlockEntity || pos instanceof IStyleable) {
-				if (!pContext.getLevel().isClientSide())
-					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
-						return new CosmeticToolboxMenu(p_57074_, p_57075_,
-								ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
-								pContext.getClickedPos());
-					}, CommonComponents.EMPTY));
-				return InteractionResult.PASS;
-			}
+		BlockEntity pos = pContext.getLevel().getBlockEntity(pContext.getClickedPos());
+		if (pos instanceof MultiMaterialBlockEntity || pos instanceof IStyleable) {
+
+			pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
+				return new CosmeticToolboxMenu(p_57074_, p_57075_,
+						ContainerLevelAccess.create(pContext.getLevel(), pContext.getClickedPos()),
+						pContext.getClickedPos());
+			}, CommonComponents.EMPTY));
+			return InteractionResult.SUCCESS;
+
 		} else
 			return super.useOn(pContext);
-		return InteractionResult.CONSUME;
 	}
 
 	@Override
