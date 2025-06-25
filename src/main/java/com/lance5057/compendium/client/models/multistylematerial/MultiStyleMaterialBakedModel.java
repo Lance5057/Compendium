@@ -60,7 +60,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 	@Override
 	public ItemOverrides getOverrides() {
-		return base.getOverrides();
+		return new MultiStyleMaterialOverrides();
 	}
 
 	@Override

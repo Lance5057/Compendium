@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-23T23:28:07.163674	Block States: compendium
+// 1.21.1	2025-06-25T12:04:30.8356006	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -11,7 +11,7 @@ e82f7f05a36896ee61a85930c4c0d34524761cd2 assets/compendium/blockstates/birch_sma
 a39034e724899b377f20b110bce39b419a9cb9a7 assets/compendium/blockstates/birch_small_logs_stairs.json
 fa08fe9f796420917a8bb77e39b7f992c6e807af assets/compendium/blockstates/blackstone_tile.json
 3c1a39f7b38a3336e41c9321cc6a3bf6b7214312 assets/compendium/blockstates/calcite_tile.json
-eb0e30df23e0d7640518ed23e433c3f4326d5d63 assets/compendium/blockstates/chair.json
+549032d6d53be688c99846300564b5d8cc1d3f88 assets/compendium/blockstates/chair.json
 7df495d15006239dd48d5a1c0bc35f3660ab3453 assets/compendium/blockstates/cherry_small_logs.json
 bc127f47b5abeea1301ef42fe412ce54e056e82c assets/compendium/blockstates/cherry_small_logs_corner.json
 d99127b133b8628f93beb296307729ec469637e8 assets/compendium/blockstates/cherry_small_logs_slab.json

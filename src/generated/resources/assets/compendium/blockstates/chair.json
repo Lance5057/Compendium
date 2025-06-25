@@ -1,16 +1,19 @@
 {
   "variants": {
     "facing=east": {
-      "model": "compendium:block/chair"
+      "model": "compendium:block/chair",
+      "y": 270
     },
     "facing=north": {
-      "model": "compendium:block/chair"
+      "model": "compendium:block/chair",
+      "y": 180
     },
     "facing=south": {
       "model": "compendium:block/chair"
     },
     "facing=west": {
-      "model": "compendium:block/chair"
+      "model": "compendium:block/chair",
+      "y": 90
     }
   }
 }

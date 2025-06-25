@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.chair.StyleChairBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
@@ -108,7 +109,7 @@ public class BlockModels extends BlockStateProvider {
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);
-			return b.build();
+			return b.rotationY(((int) state.getValue(ChairBlock.FACING).toYRot()) % 360).build();
 		});
 	}
 

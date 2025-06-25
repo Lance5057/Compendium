@@ -27,12 +27,16 @@ import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
 import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
 import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiStyleMaterialUnbakedModel> {
-	private final BlockModel baseModel;
+	private ResourceLocation parent;
+	private BlockModel baseModel;
 
 	private List<MultiStyleMaterialUnbakedModel.Layer> layers = new ArrayList<MultiStyleMaterialUnbakedModel.Layer>();
 
@@ -41,8 +45,22 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		this.layers = layers;
 	}
 
+	public MultiStyleMaterialUnbakedModel(ResourceLocation p) {
+		this.parent = p;
+	}
+
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
+		if (this.parent != null) {
+			UnbakedModel um = modelGetter.apply(parent);
+			
+			if(um instanceof MultiStyleMaterialUnbakedModel msm)
+			{
+				this.baseModel = msm.baseModel;
+				this.layers = msm.layers;
+			}
+		}
+
 		this.baseModel.resolveParents(modelGetter);
 
 		this.layers.forEach(l -> l.resolveParents(modelGetter, context));
@@ -86,8 +104,8 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 						for (String s : styles) {
 							ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/chair/"
-											+ modelBase + "/" + s);
+									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name
+											+ "/chair/" + modelBase + "/" + s);
 
 							l.put(s, rc);
 						}
@@ -178,17 +196,29 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public MultiStyleMaterialUnbakedModel read(JsonObject jsonObject,
 				JsonDeserializationContext deserializationContext) throws JsonParseException {
 
-			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
-					BlockModel.class);
+			if (!jsonObject.has("base")) {
+				ResourceLocation p = ResourceLocation.parse(jsonObject.get("parent").getAsString());
+				return new MultiStyleMaterialUnbakedModel(p);
+			} else {
+				BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
+						BlockModel.class);
 
-			int count = jsonObject.get("layer_count").getAsInt();
-			List<Layer> l = new ArrayList<Layer>();
-			for (int i = 0; i < count; i++) {
-				JsonObject j = jsonObject.get("layer" + i).getAsJsonObject();
-				l.add(Layer.read(j, deserializationContext));
+				int count = jsonObject.get("layer_count").getAsInt();
+				List<Layer> l = new ArrayList<Layer>();
+				for (int i = 0; i < count; i++) {
+					JsonObject j = jsonObject.get("layer" + i).getAsJsonObject();
+					l.add(Layer.read(j, deserializationContext));
+				}
+
+				return new MultiStyleMaterialUnbakedModel(base, l);
 			}
 
-			return new MultiStyleMaterialUnbakedModel(base, l);
+		}
+
+		public static <T extends ModelBuilder<T>> CustomLoaderBuilder<T> builder(T parent,
+				ExistingFileHelper existingFileHelper) {
+			return new CustomLoaderBuilder<T>(ID, parent, existingFileHelper, true) {
+			};
 		}
 	}
 }
