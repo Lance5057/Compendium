@@ -35,8 +35,8 @@ import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiStyleMaterialUnbakedModel> {
-	private ResourceLocation parent;
-	private BlockModel baseModel;
+
+	private UnbakedModel baseModel;
 
 	private List<MultiStyleMaterialUnbakedModel.Layer> layers = new ArrayList<MultiStyleMaterialUnbakedModel.Layer>();
 
@@ -45,25 +45,18 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		this.layers = layers;
 	}
 
-	public MultiStyleMaterialUnbakedModel(ResourceLocation p) {
-		this.parent = p;
-	}
-
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
-		if (this.parent != null) {
-			UnbakedModel um = modelGetter.apply(parent);
-			
-			if(um instanceof MultiStyleMaterialUnbakedModel msm)
-			{
-				this.baseModel = msm.baseModel;
-				this.layers = msm.layers;
-			}
+		if (baseModel != null)
+			this.baseModel.resolveParents(modelGetter);
+		else
+		{
+			this.baseModel = modelGetter.apply(ResourceLocation.fromNamespaceAndPath("minecraft", "block/block"));
+			this.baseModel.resolveParents(modelGetter);
 		}
 
-		this.baseModel.resolveParents(modelGetter);
-
-		this.layers.forEach(l -> l.resolveParents(modelGetter, context));
+		if (layers != null)
+			this.layers.forEach(l -> l.resolveParents(modelGetter, context));
 	}
 
 	@Override
@@ -71,11 +64,11 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
 
 		List<MultiStyleMaterialBakedModel.BakedLayer> bakedLayers = new ArrayList<MultiStyleMaterialBakedModel.BakedLayer>();
-
-		for (int i = 0; i < layers.size(); i++) {
-			bakedLayers.add(layers.get(i).bake(context, baker, spriteGetter, modelState, overrides));
+		if (layers != null) {
+			for (int i = 0; i < layers.size(); i++) {
+				bakedLayers.add(layers.get(i).bake(context, baker, spriteGetter, modelState, overrides));
+			}
 		}
-
 		return new MultiStyleMaterialBakedModel(baseModel.bake(baker, spriteGetter, modelState), bakedLayers);
 	}
 
@@ -196,10 +189,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 		public MultiStyleMaterialUnbakedModel read(JsonObject jsonObject,
 				JsonDeserializationContext deserializationContext) throws JsonParseException {
 
-			if (!jsonObject.has("base")) {
-				ResourceLocation p = ResourceLocation.parse(jsonObject.get("parent").getAsString());
-				return new MultiStyleMaterialUnbakedModel(p);
-			} else {
+			if (jsonObject.has("base")) {
 				BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
 						BlockModel.class);
 
@@ -212,7 +202,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 				return new MultiStyleMaterialUnbakedModel(base, l);
 			}
-
+			return new MultiStyleMaterialUnbakedModel(null, null);
 		}
 
 		public static <T extends ModelBuilder<T>> CustomLoaderBuilder<T> builder(T parent,

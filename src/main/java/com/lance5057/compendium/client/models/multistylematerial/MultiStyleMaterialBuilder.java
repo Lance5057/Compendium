@@ -23,7 +23,7 @@ public class MultiStyleMaterialBuilder<T extends ModelBuilder<T>> extends Custom
 	}
 	
 	public MultiStyleMaterialBuilder<T> base(T model) {
-		Preconditions.checkNotNull(model, "model must not be null");
+		Preconditions.checkNotNull(model, "base model must not be null");
 		baseModel = model;
 		return this;
 	}

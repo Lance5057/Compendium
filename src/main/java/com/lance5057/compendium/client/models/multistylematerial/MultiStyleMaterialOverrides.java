@@ -3,16 +3,17 @@ package com.lance5057.compendium.client.models.multistylematerial;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.BlockItemStateProperties;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class MultiStyleMaterialOverrides extends ItemOverrides {
 	@Override
@@ -21,16 +22,14 @@ public class MultiStyleMaterialOverrides extends ItemOverrides {
 	public BakedModel resolve(BakedModel pModel, ItemStack pStack, @Nullable ClientLevel pLevel,
 			@Nullable LivingEntity pEntity, int pSeed) {
 		if (pStack.getItem() instanceof BlockItem bi) {
-			if (pStack.has(DataComponents.BLOCK_STATE)) {
-				BlockItemStateProperties bisp = pStack.get(DataComponents.BLOCK_STATE);
+			BakedModel bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
 
-				BlockState bs = bisp.apply(bi.getBlock().defaultBlockState());
+			MultiMaterialBlockComponent mmc = pStack.get(CompendiumComponents.MULTI_MATERIAL);
+			StyleBlockComponent sc = pStack.get(CompendiumComponents.STYLE);
 
-				BakedModel bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bs);
+			
 
-				return bm;
-			} else
-				return Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
+			return bm;
 		}
 		return pModel;
 	}
