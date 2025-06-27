@@ -48,25 +48,24 @@ public abstract class MultiStyleMaterialItemRenderer extends BlockEntityWithoutL
 			ps.translate(0, 0.35, -0.17f);
 		} else {
 			ps.translate(0, 0.25f, 0f);
+		}
 
-			if (stack.getItem() instanceof BlockItem bi) {
-				BakedModel bm = Minecraft.getInstance().getBlockRenderer()
-						.getBlockModel(bi.getBlock().defaultBlockState());
+		if (stack.getItem() instanceof BlockItem bi) {
+			BakedModel bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
 
-				@Nullable
-				MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);
-				@Nullable
-				StyleBlockComponent s = stack.get(CompendiumComponents.STYLE);
+			@Nullable
+			MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);
+			@Nullable
+			StyleBlockComponent s = stack.get(CompendiumComponents.STYLE);
 
-				Builder md = ModelData.builder();
+			Builder md = ModelData.builder();
 
-				if (mmt != null)
-					md.with(MultiMaterialModelData.STATE, mmt.types());
-				if (s != null)
-					md.with(StyleModelData.STYLES, getStyles(s.styles()));
+			if (mmt != null)
+				md.with(MultiMaterialModelData.STATE, mmt.types());
+			if (s != null)
+				md.with(StyleModelData.STYLES, getStyles(s.styles()));
 
-				BakedModelRenderable.of(bm).withContext(md.build());
-			}
+			BakedModelRenderable.of(bm).withContext(md.build()).render(ps, mbs, null, packedLight, overlay, overlay, null);
 		}
 
 		ps.popPose();

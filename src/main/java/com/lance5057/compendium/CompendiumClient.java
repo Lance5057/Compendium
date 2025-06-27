@@ -5,6 +5,7 @@ import java.util.Map;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
+import com.lance5057.compendium.blocks.chair.ChairItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
@@ -27,6 +28,7 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
@@ -37,6 +39,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class CompendiumClient {
@@ -112,5 +116,18 @@ public class CompendiumClient {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(CompendiumEntities.SEAT.get(), c -> new SeatRenderer(c));
+	}
+	
+	@SubscribeEvent
+	public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+
+		event.registerItem(new IClientItemExtensions() {
+
+			@Override
+			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+				return ChairItemRenderer.getInstance();
+			}
+		}, CompendiumItems.CHAIR.get());
+
 	}
 }

@@ -39,8 +39,7 @@ public class ItemModels extends ItemModelProvider {
 		forBlockItem(CompendiumItems.SCRAPPING_TABLE,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
 
-		getBuilder(CompendiumItems.CHAIR.getId().getPath()).parent(new ModelFile.UncheckedModelFile("compendium:block/chair"))
-				.customLoader(MultiStyleMaterialUnbakedModel.Loader::builder);
+//		getBuilder(CompendiumItems.CHAIR.getId().getPath()).parent(new ModelFile.UncheckedModelFile("compendium:block/chair"));
 	}
 
 	public static void forBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name) {

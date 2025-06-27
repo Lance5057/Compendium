@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-25T13:29:01.5566277	Item Models: compendium
+// 1.21.1	2025-06-26T15:40:51.6527593	Item Models: compendium
 e42feab6c935cc7f92fc078662cac2e15e6770a8 assets/compendium/models/item/acacia_small_logs_corner_item.json
 c968f23bf1664d9a58e1b44c8e4e9afedab0d58e assets/compendium/models/item/acacia_small_logs_item.json
 a6b295ddddf2faee3ba18d395bc7b67da4d8e343 assets/compendium/models/item/acacia_small_logs_slab_item.json
@@ -12,7 +12,6 @@ d90d4036009644ff9d83ec2e8bf681d855db1391 assets/compendium/models/item/birch_sma
 4d4a89514f2082f5b34e613d112352b73df6bc54 assets/compendium/models/item/birch_small_logs_stairs_item.json
 46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/blackstone_tile_item.json
 46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/calcite_tile_item.json
-b0d9dc7c038f128e67ed37bd21a677228bd865b6 assets/compendium/models/item/chair.json
 966adaef14a055bf2396f6089fd1813a6c81a6bd assets/compendium/models/item/cherry_small_logs_corner_item.json
 e8efaabdc735a2a20160d05eb9baacec1d38377e assets/compendium/models/item/cherry_small_logs_item.json
 113b6b8948d7f071e593952ee9596bbd27e6460c assets/compendium/models/item/cherry_small_logs_slab_item.json
