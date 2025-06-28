@@ -28,16 +28,19 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary", "contemporary_slats",
-			"cross", "cross_framed", "fan", "flat", "flat_extra", "full", "laced", "ladder", "ladder_tall", "lath",
-			"lattice", "live_edge", "open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled",
-			"slats", "slats_chunky", "solid", "splat", "splat_double", "splat_slat", "turned_panel",
-			"turned_panel_weave", "vienna", "weave", "windsor");
+	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary",
+			"contemporary_slats", "cross", "cross_framed", "fan", "fancy", "flat", "flat_extra", "full", "laced",
+			"laced_tall", "ladder", "ladder_tall", "lath", "lath_extra", "lattice", "live_edge", "open", "panel",
+			"panel_weave", "planks_horizontal", "planks_horizontal_angled",	"slats", "slats_chunky", "solid", "splat",
+			"splat_double", "splat_slat", "turned_panel", "turned_panel_weave", "vienna", "weave", "windsor");
 	public static List<String> seat = List.of("basic", "planks_horizontal", "planks_horizontal_angled", "tilted",
 			"tilted_weave", "weave");
 	public static List<String> legs = List.of("basic", "angled", "crosstie", "pedestal", "pedestal_cross",
-			"pedestal_cross_tilted", "rails_connected", "rails_end", "rails_full", "rails_full_offset", "rails_side",
-			"solid", "solid_ends", "solid_sides");
+			"pedestal_cross_tilted", "rails_connected", "rails_connected_fine", "rails_connected_double_fine",
+			"rails_connected_side", "rails_connected_side_fine", "rails_double_fine", "rails_double_triple_fine",
+			"rails_end", "rails_end_fine", "rails_full", "rails_full_fine", "rails_full_offset",
+			"rails_full_offset_fine", "rails_side", "rails_side_fine", "rails_side_lath", "rails_side_lath_connected",
+			"rails_single_double", "rails_single_double_fine", "solid", "solid_ends", "solid_sides");
 
 	List<List<String>> styles = List.of(back, seat, legs); // Immutable!
 
