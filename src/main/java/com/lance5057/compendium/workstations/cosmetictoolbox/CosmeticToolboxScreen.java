@@ -5,9 +5,10 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.IStyleable;
+import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.network.StyleSetPacket;
-import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.math.Axis;
@@ -23,13 +24,14 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.model.data.ModelData;
+import net.neoforged.neoforge.client.model.data.ModelData.Builder;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolboxMenu> {
@@ -71,7 +73,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			return;
 
 		BlockEntity ent = this.minecraft.level.getBlockEntity(pos);
-		BlockState state = this.minecraft.level.getBlockState(pos);
+		BlockState state = this.minecraft.level.getBlockState(pos).getBlock().defaultBlockState();
 		if (ent != null) {
 
 			int i = this.leftPos + 8;
@@ -107,7 +109,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
 					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-//					renderBlock(gui, state, entity.getCurrent(j1));
+					renderBlock(gui, state, -1);
 
 				}
 				gui.pose().popPose();
@@ -161,6 +163,8 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 				tabs.add(this.addRenderableWidget(
 						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
 							this.curStyleType = j;
+							this.startIndex = 0;
+							this.scrollOffs = 0;
 						})));
 			}
 	}
@@ -177,10 +181,23 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 		guiGraphics.pose().translate(0, 0.5, 0);
 		guiGraphics.pose().scale(1f, -1f, 1f);
 
-		
-		
+//		List<String> t = entity.getCurrentAllString();
+//		if (cur != -1)
+//			t.set(curStyleType, entity.getStyles().get(curStyleType).get(cur));
+
+		Builder md = ModelData.builder();
+
+		List<String> l = entity.getCurrentAllString();
+		if (cur != -1)
+			l.set(curStyleType, entity.getStyles().get(curStyleType).get(cur));
+		md.with(StyleModelData.STYLES, l);
+
+		if (entity instanceof MultiMaterialBlockEntity mmb) {
+			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
+		}
+
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY, StyleModelData.builder(entity.getCurrentAllString()).build(), null);
+				OverlayTexture.NO_OVERLAY, md.build(), null);
 
 		buffers.endBatch();
 

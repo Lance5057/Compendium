@@ -77,7 +77,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public List<String> getCurrentAllString() {
-		return List.of(style.get(this.getCurrent(0)));
+		return style;
 	}
 
 	@Override

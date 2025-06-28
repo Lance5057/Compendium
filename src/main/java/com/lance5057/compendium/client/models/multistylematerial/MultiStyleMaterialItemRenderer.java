@@ -5,6 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -40,7 +42,16 @@ public abstract class MultiStyleMaterialItemRenderer extends BlockEntityWithoutL
 			int packedLight, int overlay) {
 		ps.pushPose();
 		if (stack.getItem() instanceof BlockItem bi) {
-			BakedModel bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
+			BakedModel bm;
+			if (displayContext != ItemDisplayContext.GUI)
+				bm = Minecraft.getInstance().getBlockRenderer()
+						.getBlockModel(bi.getBlock().defaultBlockState().setValue(ChairBlock.FACING, Direction.EAST));
+			else {
+				bm = Minecraft.getInstance().getBlockRenderer()
+						.getBlockModel(bi.getBlock().defaultBlockState().setValue(ChairBlock.FACING, Direction.WEST));
+				ps.scale(0.75f, 0.75f, 0.75f);
+				ps.translate(0.4, -0.1, 0);
+			}
 
 			@Nullable
 			MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);

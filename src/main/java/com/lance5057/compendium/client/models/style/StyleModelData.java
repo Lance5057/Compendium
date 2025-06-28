@@ -16,4 +16,3 @@ public class StyleModelData {
 		return ModelData.builder().with(STYLES, s);
 	}
 }
- 
