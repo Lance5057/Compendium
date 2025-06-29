@@ -81,7 +81,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 			RenderSystem.setShaderTexture(0, BACKGROUND);
 			gui.blit(BACKGROUND, i, j, 0, 0, 176, 256);
-//			gui.blit(BACKGROUND, i - 81, j, 175, 0, 81, 81);
+			gui.blit(BACKGROUND, i - 81, j, 175, 0, 81, 81);
 
 			int k = (int) (129.0F * this.scrollOffs);
 			ResourceLocation resourcelocation = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
