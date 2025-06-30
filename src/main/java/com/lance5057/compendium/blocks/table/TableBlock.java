@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class TableBlock extends Block implements EntityBlock {
 
-	public static final BooleanProperty NW = BooleanProperty.create("nw");
+	public static final BooleanProperty NW_LEG = BooleanProperty.create("nw_leg");
 
 	public TableBlock(Properties properties) {
 		super(properties);
