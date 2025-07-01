@@ -71,6 +71,17 @@ public class CompendiumItems {
 							.component(CompendiumComponents.STYLE,
 									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
+	public static final DeferredItem<Item> TABLE = ITEMS
+			.register("table",
+					() -> new BlockItem(CompendiumBlocks.TABLE.get(), new Item.Properties()
+							.component(CompendiumComponents.MULTI_MATERIAL.get(),
+									new MultiMaterialBlockComponent(Stream
+											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
+											.toList()))
+							.component(CompendiumComponents.STYLE,
+									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+
 	public static final DeferredItem<Item> WINDOW = ITEMS.register("window",
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),
 					new Item.Properties().component(CompendiumComponents.MULTI_MATERIAL.get(),

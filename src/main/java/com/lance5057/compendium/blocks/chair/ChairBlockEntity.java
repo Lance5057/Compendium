@@ -9,6 +9,7 @@ import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.entities.SeatEntity;
 
@@ -26,7 +27,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
-public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
+public class ChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
 	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary", "contemporary_slats",
 			"cross", "cross_framed", "fan", "fancy", "flat", "flat_extra", "full", "laced", "laced_tall", "ladder",
@@ -46,7 +47,7 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 
 	List<Integer> currentStyles = new ArrayList<Integer>();
 
-	public StyleChairBlockEntity(BlockPos pos, BlockState blockState) {
+	public ChairBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.CHAIR.get(), pos, blockState);
 //		currentStyles = new ArrayList<Integer>(List.of(0, 0, 0));
 	}
@@ -82,8 +83,8 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 
 	@Override
 	public List<String> getCurrentAllString() {
-
 		List<String> l = new ArrayList<>();
+
 		l.add(back.get(this.getCurrent(0)));
 		l.add(seat.get(this.getCurrent(1)));
 		l.add(legs.get(this.getCurrent(2)));
@@ -125,6 +126,7 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 		super.collectImplicitComponents(builder);
 
 		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(currentStyles));
+		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(materials));
 	}
 
 	@Override
@@ -133,6 +135,11 @@ public class StyleChairBlockEntity extends MultiMaterialBlockEntity implements I
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
 			this.currentStyles = new ArrayList<Integer>(m.styles());
+		}
+		MultiMaterialBlockComponent mm = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
+		if(mm != null)
+		{
+			this.setMaterials(mm.types());
 		}
 	}
 

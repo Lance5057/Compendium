@@ -1,7 +1,7 @@
 package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.blocks.chair.StyleChairBlockEntity;
+import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -24,19 +24,19 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 			if (i instanceof _MaterialBase mb) {
 				if (mb.getType() == MATERIAL_TYPES.WOOD) {
-					StyleChairBlockEntity.back.forEach(b -> {
+					ChairBlockEntity.back.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
-					StyleChairBlockEntity.legs.forEach(b -> {
+					ChairBlockEntity.legs.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
-					StyleChairBlockEntity.seat.forEach(b -> {
+					ChairBlockEntity.seat.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));

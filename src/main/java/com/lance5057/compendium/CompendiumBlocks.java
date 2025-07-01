@@ -4,6 +4,7 @@ import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
+import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
@@ -37,6 +38,9 @@ public class CompendiumBlocks {
 
 	public static final DeferredBlock<Block> CHAIR = BLOCKS.register("chair",
 			() -> new ChairBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+	
+	public static final DeferredBlock<Block> TABLE = BLOCKS.register("table",
+			() -> new TableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
 			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.GLASS)));

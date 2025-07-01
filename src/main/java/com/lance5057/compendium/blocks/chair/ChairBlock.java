@@ -63,7 +63,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
 			BlockHitResult hitResult) {
 		BlockEntity blockentity = level.getBlockEntity(pos);
-		if (blockentity instanceof StyleChairBlockEntity be) {
+		if (blockentity instanceof ChairBlockEntity be) {
 			return be.attemptSit(state, level, pos, player, hitResult);
 		}
 		return InteractionResult.PASS;

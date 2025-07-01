@@ -5,7 +5,7 @@ import java.util.List;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
-import com.lance5057.compendium.blocks.chair.StyleChairBlockEntity;
+import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
@@ -101,11 +101,11 @@ public class BlockModels extends BlockStateProvider {
 			msmb.base(models().cubeAll("chair_base", mcLoc("block/oak_planks")));
 
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("back",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleChairBlockEntity.back));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), ChairBlockEntity.back));
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("seat",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleChairBlockEntity.seat));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), ChairBlockEntity.seat));
 			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("legs",
-					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleChairBlockEntity.legs));
+					List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), ChairBlockEntity.legs));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);
