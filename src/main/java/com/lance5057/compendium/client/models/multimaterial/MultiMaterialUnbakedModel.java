@@ -67,10 +67,12 @@ public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterial
 		private final String model;
 		public final List<MATERIAL_TYPES> validTypes;
 		public Map<String, UnbakedModel> models = new HashMap<String, UnbakedModel>();
+		public final int materialLayer;
 
-		public Layer(List<MATERIAL_TYPES> validTypes, String model) {
+		public Layer(List<MATERIAL_TYPES> validTypes, String model, int materialLayer) {
 			this.model = model;
 			this.validTypes = validTypes;
+			this.materialLayer = materialLayer;
 
 		}
 
@@ -113,7 +115,7 @@ public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterial
 
 				bakedModels.put(k, baked);
 			});
-			return new BakedLayer(validTypes, bakedModels);
+			return new BakedLayer(validTypes, bakedModels, this.materialLayer);
 		}
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
@@ -127,8 +129,9 @@ public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterial
 			t.asList().forEach(i -> ty.add(MATERIAL_TYPES.valueOf(i.getAsString())));
 
 			String model = jsonObject.get("model").getAsString();
+			int matLayer = jsonObject.get("materialLayer").getAsInt();
 
-			return new Layer(ty, model);
+			return new Layer(ty, model, matLayer);
 		}
 
 		public void toJson(JsonObject json, int layerID) {
@@ -141,6 +144,7 @@ public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterial
 			l.add("valid", t);
 
 			l.addProperty("model", this.model);
+			l.addProperty("materialLayer", this.materialLayer);
 
 			json.add("layer" + layerID, l);
 		}

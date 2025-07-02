@@ -77,7 +77,7 @@ public class MultiMaterialBakedModel implements IDynamicBakedModel {
 	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
 			@NotNull ModelData data) {
 
-		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.translucent());
+		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.translucent(), RenderType.solid());
 //		return this.base.getRenderTypes(state, rand, data);
 	}
 
@@ -88,7 +88,7 @@ public class MultiMaterialBakedModel implements IDynamicBakedModel {
 //		l.addAll(this.base.getQuads(state, side, rand, extraData, renderType));
 
 		for (int i = 0; i < layers.size(); i++)
-			l.addAll(layers.get(i).getQuads(state, side, rand, extraData, renderType, base, i));
+			l.addAll(layers.get(i).getQuads(state, side, rand, extraData, renderType, base));
 
 		return l;
 
@@ -104,31 +104,29 @@ public class MultiMaterialBakedModel implements IDynamicBakedModel {
 	public static class BakedLayer {
 		public final List<MATERIAL_TYPES> validTypes;
 		public final Map<String, BakedModel> models;
+		public final int materialLayer;
 
-		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, BakedModel> models) {
+		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, BakedModel> models, int materialLayer) {
 			this.validTypes = validTypes;
 			this.models = models;
+			this.materialLayer = materialLayer;
 
 		}
 
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
-				ModelData extraData, @Nullable RenderType renderType, BakedModel base, int index) {
+				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
 			@Nullable
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
-			if (mats != null && mats.size() >= index + 1) {
-				BakedModel q = models.get(mats.get(index).getCurrentMaterial());
+			if (mats != null && mats.size() >= materialLayer) {
+				BakedModel q = models.get(mats.get(materialLayer).getCurrentMaterial());
 				if (q != null) {
 					List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 					if (r != null) {
 						if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
 							l.addAll(r);
-					} else
-						l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
-				} else
-					l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
-			} else {
-				l.addAll(getInvalid(state, side, rand, extraData, renderType, base));
+					}
+				}
 			}
 
 			return l;

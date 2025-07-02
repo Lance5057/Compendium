@@ -1,14 +1,21 @@
 package com.lance5057.compendium.data;
 
+import java.util.List;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class IndexBlockModelProvider extends BlockModelProvider {
@@ -19,6 +26,27 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 	@Override
 	protected void registerModels() {
+		ConfiguredModel.builder()
+				.modelFile(getBuilder("block/furniture/table/legs/bar_leg").customLoader(MultiMaterialModelBuilder::begin)
+						.base(cubeAll("bar_leg_base", mcLoc("block/oak_planks")).renderType("cutout"))
+
+//		msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
+						.addLayer(
+								new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_leg", 1))
+
+						.end())
+				.build();
+
+		ConfiguredModel.builder()
+				.modelFile(getBuilder("block/furniture/table/legs/bar_side").customLoader(MultiMaterialModelBuilder::begin)
+						.base(cubeAll("bar_side_base", mcLoc("block/oak_planks")).renderType("cutout"))
+
+//				msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
+						.addLayer(
+								new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0))
+
+						.end())
+				.build();
 
 		CompendiumIndex.index.forEach(i -> {
 			i.blockModel(this);
@@ -48,12 +76,21 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								modLoc("block/furniture/table/legs/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
-					
+
 					TableBlockEntity.top.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
 								modLoc("block/furniture/table/top/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
+
+					// special cases!
+					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_leg",
+							modLoc("block/furniture/table/legs/bar/bar_leg"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_side",
+							modLoc("block/furniture/table/legs/bar/bar_side"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 				}
 			}
 		});

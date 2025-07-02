@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/legs/bar/bar_side",
+  "textures": {
+    "0": "minecraft:block/birch_planks"
+  }
+}

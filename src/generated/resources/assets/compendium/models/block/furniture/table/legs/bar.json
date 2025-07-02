@@ -3,24 +3,17 @@
     "parent": "minecraft:block/cube_all",
     "render_type": "minecraft:cutout",
     "textures": {
-      "all": "minecraft:block/glass"
+      "all": "minecraft:block/oak_planks"
     }
   },
   "layer0": {
-    "materialLayer": 0,
-    "model": "window_trim",
+    "materialLayer": 1,
+    "model": "table/legs/bar_leg",
     "valid": [
       "METAL",
       "WOOD"
     ]
   },
-  "layer1": {
-    "materialLayer": 1,
-    "model": "window",
-    "valid": [
-      "GLASS"
-    ]
-  },
-  "layer_count": 2,
+  "layer_count": 1,
   "loader": "compendium:multi_material"
 }

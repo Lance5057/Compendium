@@ -86,8 +86,7 @@ public class MultiMaterialType {
 		types = new ArrayList<MATERIAL_TYPES>();
 		for (int i = 0; i < t.length; i++)
 			this.types.add(t[i]);
-//		this.types = MATERIAL_TYPES.valueOf(t);
-		this.currentMaterial = "invalid";
+		this.currentMaterial = "oak";
 	}
 
 	public MultiMaterialType(List<MATERIAL_TYPES> t, String m) {
@@ -110,7 +109,7 @@ public class MultiMaterialType {
 		for (String s : t)
 			this.types.add(MATERIAL_TYPES.valueOf(s.toUpperCase()));
 //		this.types = MATERIAL_TYPES.valueOf(t);
-		this.currentMaterial = "invalid";
+		this.currentMaterial = "oak";
 	}
 
 //	public MultiMaterialType(List<MATERIAL_TYPES> t, String m) {

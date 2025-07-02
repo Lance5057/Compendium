@@ -67,7 +67,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
 			@NotNull ModelData data) {
 
-		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.solid());
+		return ChunkRenderTypeSet.of(RenderType.cutout(), RenderType.translucent(), RenderType.solid());
 	}
 
 	@Override
