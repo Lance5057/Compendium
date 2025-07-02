@@ -84,10 +84,13 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 	public static class BakedLayer {
 		public final List<MATERIAL_TYPES> validTypes;
 		public final Map<String, Map<String, BakedModel>> models;
+		public final int materialLayer;
 
-		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, Map<String, BakedModel>> bakedModels) {
+		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, Map<String, BakedModel>> bakedModels,
+				int materialLayer) {
 			this.validTypes = validTypes;
 			this.models = bakedModels;
+			this.materialLayer = materialLayer;
 
 		}
 
@@ -98,10 +101,10 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
 			if (s != null && s.size() > 0)
-				if (mats != null && mats.size() >= index + 1) {
-					Map<String, BakedModel> m = models.get(mats.get(index).getCurrentMaterial());
+				if (mats != null && mats.size() >= materialLayer) {
+					Map<String, BakedModel> m = models.get(mats.get(materialLayer).getCurrentMaterial());
 					if (m != null) {
-						BakedModel q = m.getOrDefault(s.get(index), null);
+						BakedModel q = m.getOrDefault(s.get(materialLayer), null);
 						if (q != null) {
 							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 							if (r != null && !r.isEmpty()) {

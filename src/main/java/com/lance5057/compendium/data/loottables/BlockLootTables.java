@@ -43,6 +43,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.CHAIR.get());
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());
 		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
+		this.dropSelf(CompendiumBlocks.TABLE.get());
 		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMultiMaterialDrop(p_248609_));
 	}
 

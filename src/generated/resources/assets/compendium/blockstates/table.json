@@ -1,0 +1,52 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/table_top"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 90
+      },
+      "when": {
+        "e": "false",
+        "n": "false",
+        "ne": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 180
+      },
+      "when": {
+        "e": "false",
+        "s": "false",
+        "se": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 270
+      },
+      "when": {
+        "s": "false",
+        "sw": "false",
+        "w": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs"
+      },
+      "when": {
+        "n": "false",
+        "nw": "false",
+        "w": "false"
+      }
+    }
+  ]
+}

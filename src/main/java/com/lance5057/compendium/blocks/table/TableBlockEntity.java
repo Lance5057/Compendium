@@ -22,8 +22,8 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class TableBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> top = List.of("basic");
-	public static List<String> legs = List.of("basic");
+	public static List<String> top = List.of("basic", "trimmed");
+	public static List<String> legs = List.of("basic", "bar");
 
 	List<List<String>> styles = List.of(top, legs);
 
@@ -53,7 +53,7 @@ public class TableBlockEntity extends MultiMaterialBlockEntity implements IStyle
 	@Override
 	public List<String> getCurrentAllString() {
 		List<String> l = new ArrayList<>();
-		
+
 		l.add(top.get(this.getCurrent(0)));
 		l.add(legs.get(this.getCurrent(1)));
 
@@ -98,10 +98,9 @@ public class TableBlockEntity extends MultiMaterialBlockEntity implements IStyle
 		if (m != null) {
 			this.currentStyles = new ArrayList<Integer>(m.styles());
 		}
-		
+
 		MultiMaterialBlockComponent mm = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
-		if(mm != null)
-		{
+		if (mm != null) {
 			this.setMaterials(mm.types());
 		}
 	}

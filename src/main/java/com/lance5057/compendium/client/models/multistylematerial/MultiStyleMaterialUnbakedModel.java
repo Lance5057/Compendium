@@ -49,8 +49,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
 		if (baseModel != null)
 			this.baseModel.resolveParents(modelGetter);
-		else
-		{
+		else {
 			this.baseModel = modelGetter.apply(ResourceLocation.fromNamespaceAndPath("minecraft", "block/block"));
 			this.baseModel.resolveParents(modelGetter);
 		}
@@ -74,16 +73,20 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 	public static class Layer {
 		public final String modelBase;
+		public final String modelPart;
 		public final List<MATERIAL_TYPES> validTypes;
 		public final List<String> styles;
+		public final int materialLayer;
 
 		public Map<String, Map<String, UnbakedModel>> models = new HashMap<String, Map<String, UnbakedModel>>();
 
-		public Layer(String modelBase, List<MATERIAL_TYPES> validTypes, List<String> styles) {
+		public Layer(String modelBase, String modelPart, List<MATERIAL_TYPES> validTypes, List<String> styles,
+				int materialLayer) {
 			this.modelBase = modelBase;
+			this.modelPart = modelPart;
 			this.styles = styles;
 			this.validTypes = validTypes;
-
+			this.materialLayer = materialLayer;
 		}
 
 		public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter,
@@ -97,8 +100,8 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 						for (String s : styles) {
 							ResourceLocation rc = ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name
-											+ "/chair/" + modelBase + "/" + s);
+									"block/material/" + mb.getType().toString().toLowerCase() + "/" + mb.name + "/"
+											+ modelBase + "/" + modelPart + "/" + s);
 
 							l.put(s, rc);
 						}
@@ -137,7 +140,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 				bakedModels.put(k, bm);
 			});
-			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels);
+			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels, this.materialLayer);
 		}
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
@@ -153,8 +156,11 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			s.asList().forEach(i -> st.add(i.getAsString()));
 
 			String model = jsonObject.get("modelBase").getAsString();
+			String modelP = jsonObject.get("modelPart").getAsString();
 
-			return new Layer(model, ty, st);
+			int matLayer = jsonObject.get("materialLayer").getAsInt();
+
+			return new Layer(model, modelP, ty, st, matLayer);
 		}
 
 		public void toJson(JsonObject json, int layerID) {
@@ -173,6 +179,8 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			l.add("styles", v);
 
 			l.addProperty("modelBase", this.modelBase);
+			l.addProperty("modelPart", this.modelPart);
+			l.addProperty("materialLayer", this.materialLayer);
 
 			json.add("layer" + layerID, l);
 		}

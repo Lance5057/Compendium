@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-28T03:14:59.6635403	Block States: compendium
+// 1.21.1	2025-07-01T23:43:34.3136563	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -58,6 +58,7 @@ f0854893a95b3a47187624169b6094b0afd55887 assets/compendium/blockstates/saw_buck.
 97bf8a524ec3d90ba79898c21fa01f6b081fbbf1 assets/compendium/blockstates/spruce_small_logs_slab.json
 96a2541a893ba52a43f9806be4e8f3be00ba017e assets/compendium/blockstates/spruce_small_logs_stairs.json
 acd740b7f358f620e23c96584118bb192d07da53 assets/compendium/blockstates/stone_tile.json
+98c92fbe2978ef9be8ff5ab30bde5d0bd18800a4 assets/compendium/blockstates/table.json
 19a85d6aafc43ffb2ae213114c927c7ccdaafbe8 assets/compendium/blockstates/toolrack.json
 49a8484225a17cae42450afb60aa70a79598ba10 assets/compendium/blockstates/tuff_tile.json
 d1a2f659fe0a3779c21aa2859d10ef44e53c6e36 assets/compendium/blockstates/warped_small_logs.json
@@ -70,7 +71,7 @@ cd980d1d2d3cc7936e87539eeefb4008b09dbeb1 assets/compendium/blockstates/window.js
 dd0554dc226706d66eae7a1883ec3e7542eda2d5 assets/compendium/models/block/basalt_tile.json
 67e1a257b243a8f993b3758c11b1839fec25cd4f assets/compendium/models/block/blackstone_tile.json
 a617059a59ee7fe72ed8ff222f075e58503f9ff4 assets/compendium/models/block/calcite_tile.json
-284f4540fb1f326d859680606fcb4037c7cdbe58 assets/compendium/models/block/chair.json
+518af4132207cf80694ab03d79f7b3f549c99dcf assets/compendium/models/block/chair.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/chair_base.json
 197097f70eab2477d726ea8b7593131100c7b821 assets/compendium/models/block/copper_tile.json
 f8ce690dd220c0985a36326078ecb3d64cede849 assets/compendium/models/block/deepslate_tile.json
@@ -175,6 +176,10 @@ a959c5822e42c80f64116cf8a9a824ac3d6278bc assets/compendium/models/block/netherit
 edfe420ddd18834f0ba834c6d34c1d30898e84a9 assets/compendium/models/block/red_sandstone_tile.json
 96281473bab38d77dfb8235790c2b8c7a74fa56e assets/compendium/models/block/sandstone_tile.json
 ef4b2dc2bb74b87597c9dd6af4f3928e25d57a66 assets/compendium/models/block/stone_tile.json
+241fcbb82fb8ee8346bdd76bc5704f145b53017c assets/compendium/models/block/table_legs.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_legs_model.json
+711dce156b40c32b6b7e34fa96ae524f3a2d1659 assets/compendium/models/block/table_top.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_top_model.json
 68ae5477b023dfa757f6256443518da2cbc3dfa5 assets/compendium/models/block/tuff_tile.json
 373563077cd3518285863e17cd6ceb0371cae01a assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json
