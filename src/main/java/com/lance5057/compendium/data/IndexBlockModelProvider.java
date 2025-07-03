@@ -12,10 +12,8 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class IndexBlockModelProvider extends BlockModelProvider {
@@ -26,27 +24,29 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 	@Override
 	protected void registerModels() {
-		ConfiguredModel.builder()
-				.modelFile(getBuilder("block/furniture/table/legs/bar_leg").customLoader(MultiMaterialModelBuilder::begin)
-						.base(cubeAll("bar_leg_base", mcLoc("block/oak_planks")).renderType("cutout"))
+//		ConfiguredModel.builder()
+//				.modelFile(
+//						getBuilder("block/furniture/table/legs/bar").customLoader(MultiMaterialModelBuilder::begin)
+//								.base(cubeAll("bar_leg_base", mcLoc("block/oak_planks")).renderType("cutout"))
+//
+////		msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
+//								.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+//										"table/legs/bar", 1))
+//
+//								.end())
+//				.build();
 
-//		msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
-						.addLayer(
-								new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_leg", 1))
-
-						.end())
-				.build();
-
-		ConfiguredModel.builder()
-				.modelFile(getBuilder("block/furniture/table/legs/bar_side").customLoader(MultiMaterialModelBuilder::begin)
-						.base(cubeAll("bar_side_base", mcLoc("block/oak_planks")).renderType("cutout"))
-
-//				msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
-						.addLayer(
-								new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0))
-
-						.end())
-				.build();
+//		ConfiguredModel.builder()
+//				.modelFile(
+//						getBuilder("block/furniture/table/legs/side/bar").customLoader(MultiMaterialModelBuilder::begin)
+//								.base(cubeAll("bar_side_base", mcLoc("block/oak_planks")).renderType("cutout"))
+//
+////				msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), "table/legs/bar_side", 0));
+//								.addLayer(new Layer(List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+//										"table/legs/side/bar", 0))
+//
+//								.end())
+//				.build();
 
 		CompendiumIndex.index.forEach(i -> {
 			i.blockModel(this);
@@ -73,7 +73,11 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 					TableBlockEntity.legs.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase(),
-								modLoc("block/furniture/table/legs/" + b.toLowerCase()))
+								modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg"))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+						withExistingParent("block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase(),
+								modLoc("block/furniture/table/legs/side/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
@@ -84,13 +88,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					});
 
 					// special cases!
-					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_leg",
-							modLoc("block/furniture/table/legs/bar/bar_leg"))
-							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_side",
-							modLoc("block/furniture/table/legs/bar/bar_side"))
-							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+//					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_side",
+//							modLoc("block/furniture/table/legs/bar/bar_side"))
+//							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 				}
 			}
 		});

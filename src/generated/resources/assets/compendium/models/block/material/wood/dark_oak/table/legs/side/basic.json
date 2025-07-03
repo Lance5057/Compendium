@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/furniture/table/legs/bar/bar_leg",
+  "parent": "compendium:block/furniture/table/legs/side/basic",
   "textures": {
     "0": "minecraft:block/dark_oak_planks"
   }

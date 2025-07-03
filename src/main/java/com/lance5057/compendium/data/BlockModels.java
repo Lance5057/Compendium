@@ -173,14 +173,14 @@ public class BlockModels extends BlockStateProvider {
 						.end())
 				.rotationY(270).addModel().condition(TableBlock.SW, false).condition(TableBlock.W, true)
 				.condition(TableBlock.S, true)
-//				.end()
-//				.part()
-//				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
-//						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
-//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-//								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), TableBlockEntity.legs, 0))
-//						.end())
-//				.rotationY(270).addModel().condition(TableBlock.S, true)
+				.end()
+				.part()
+				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
+								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), TableBlockEntity.legs, 0))
+						.end())
+				.rotationY(270).addModel().condition(TableBlock.S, true)
 				.end();
 	}
 

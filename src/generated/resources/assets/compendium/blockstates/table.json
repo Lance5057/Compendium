@@ -90,6 +90,15 @@
         "sw": "false",
         "w": "true"
       }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_side",
+        "y": 270
+      },
+      "when": {
+        "s": "true"
+      }
     }
   ]
 }

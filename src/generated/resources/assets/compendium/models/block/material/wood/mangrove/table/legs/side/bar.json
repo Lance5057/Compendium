@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/furniture/table/legs/bar/bar_side",
+  "parent": "compendium:block/furniture/table/legs/side/bar",
   "textures": {
     "0": "minecraft:block/mangrove_planks"
   }
