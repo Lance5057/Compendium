@@ -137,8 +137,7 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity implements IStyle
 			this.currentStyles = new ArrayList<Integer>(m.styles());
 		}
 		MultiMaterialBlockComponent mm = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
-		if(mm != null)
-		{
+		if (mm != null) {
 			this.setMaterials(mm.types());
 		}
 	}

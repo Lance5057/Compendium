@@ -12,7 +12,7 @@ public class StyleModelData {
 //		return ModelData.builder().with(STYLES, List.of(s));
 //	}
 
-	public static ModelData.Builder builder(List<String> s) {
+	public static ModelData.Builder builder(List<String> s, List<Integer> i) {
 		return ModelData.builder().with(STYLES, s);
 	}
 }

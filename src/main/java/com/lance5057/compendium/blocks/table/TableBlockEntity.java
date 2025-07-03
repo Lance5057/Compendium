@@ -22,8 +22,8 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class TableBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> top = List.of("basic", "trimmed");
-	public static List<String> legs = List.of("basic", "bar");
+	public static List<String> top = List.of("basic", "trimmed", "smooth");
+	public static List<String> legs = List.of("basic", "bar", "fancy");
 
 	List<List<String>> styles = List.of(top, legs);
 

@@ -33,7 +33,7 @@ public class TableBlock extends Block implements EntityBlock {
 	public static final BooleanProperty SW = BooleanProperty.create("sw");
 	public static final BooleanProperty W = BooleanProperty.create("w");
 
-	protected static final VoxelShape BASE = Block.box(0.0D, 14.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape BASE = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
 	public TableBlock(Properties properties) {
 		super(properties);

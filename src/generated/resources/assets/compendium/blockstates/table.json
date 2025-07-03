@@ -93,11 +93,80 @@
     },
     {
       "apply": {
+        "model": "compendium:block/table_legs"
+      },
+      "when": {
+        "n": "false",
+        "nw": "true",
+        "w": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 90
+      },
+      "when": {
+        "e": "false",
+        "n": "false",
+        "ne": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 180
+      },
+      "when": {
+        "e": "false",
+        "s": "false",
+        "se": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_legs",
+        "y": 270
+      },
+      "when": {
+        "s": "false",
+        "sw": "true",
+        "w": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_side",
+        "y": 180
+      },
+      "when": {
+        "s": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_side"
+      },
+      "when": {
+        "n": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "compendium:block/table_side",
         "y": 270
       },
       "when": {
-        "s": "true"
+        "w": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/table_side",
+        "y": 90
+      },
+      "when": {
+        "e": "false"
       }
     }
   ]

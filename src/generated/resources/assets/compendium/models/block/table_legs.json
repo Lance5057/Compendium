@@ -9,9 +9,11 @@
     "materialLayer": 1,
     "modelBase": "table",
     "modelPart": "legs",
+    "styleLayer": 1,
     "styles": [
       "basic",
-      "bar"
+      "bar",
+      "fancy"
     ],
     "valid": [
       "METAL",

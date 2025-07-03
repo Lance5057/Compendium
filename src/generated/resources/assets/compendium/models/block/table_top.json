@@ -9,9 +9,11 @@
     "materialLayer": 0,
     "modelBase": "table",
     "modelPart": "top",
+    "styleLayer": 0,
     "styles": [
       "basic",
-      "trimmed"
+      "trimmed",
+      "smooth"
     ],
     "valid": [
       "METAL",

@@ -89,9 +89,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 					// special cases!
 
-//					withExistingParent("block/material/wood/" + mb.name + "/table/legs/bar_side",
-//							modLoc("block/furniture/table/legs/bar/bar_side"))
-//							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
+					modLoc("block/furniture/table/top/smooth"))
+					.texture("0", mcLoc("block/" + mb.name + "_planks"))
+					.texture("1", modLoc("block/material/wood/" + mb.name + "/" + mb.name + "_sheet"));
 				}
 			}
 		});

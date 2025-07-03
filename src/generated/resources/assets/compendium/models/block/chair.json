@@ -9,6 +9,7 @@
     "materialLayer": 0,
     "modelBase": "chair",
     "modelPart": "back",
+    "styleLayer": 0,
     "styles": [
       "basic",
       "basic_panel",
@@ -56,6 +57,7 @@
     "materialLayer": 1,
     "modelBase": "chair",
     "modelPart": "seat",
+    "styleLayer": 1,
     "styles": [
       "basic",
       "planks_horizontal",
@@ -73,6 +75,7 @@
     "materialLayer": 2,
     "modelBase": "chair",
     "modelPart": "legs",
+    "styleLayer": 2,
     "styles": [
       "basic",
       "angled",
