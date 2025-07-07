@@ -35,13 +35,13 @@ public class ChairBlockEntity extends MultiMaterialBlockEntity implements IStyle
 			"planks_horizontal", "planks_horizontal_angled", "slats", "slats_chunky", "solid", "splat", "splat_double",
 			"splat_slat", "turned_panel", "turned_panel_weave", "vienna", "weave", "windsor");
 	public static List<String> seat = List.of("basic", "planks_horizontal", "planks_horizontal_angled", "tilted",
-			"tilted_weave", "weave");
+			"tilted_weave", "weave", "framed");
 	public static List<String> legs = List.of("basic", "angled", "crosstie", "pedestal", "pedestal_cross",
 			"pedestal_cross_tilted", "rails_connected", "rails_connected_fine", "rails_connected_double_fine",
 			"rails_connected_side", "rails_connected_side_fine", "rails_double_fine", "rails_double_triple_fine",
 			"rails_end", "rails_end_fine", "rails_full", "rails_full_fine", "rails_full_offset",
 			"rails_full_offset_fine", "rails_side", "rails_side_fine", "rails_side_lath", "rails_side_lath_connected",
-			"rails_single_double", "rails_single_double_fine", "solid", "solid_ends", "solid_sides");
+			"rails_single_double", "rails_single_double_fine", "solid", "solid_ends", "solid_sides", "fancy", "bar");
 
 	List<List<String>> styles = List.of(back, seat, legs); // Immutable!
 
