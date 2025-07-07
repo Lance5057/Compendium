@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-02T16:19:36.0542602	Loot Tables
+// 1.21.1	2025-07-06T15:48:24.0431412	Loot Tables
 d77d7df85970af69b1500b59ba45227d840fe572 data/compendium/loot_table/blocks/acacia_small_logs.json
 c1a28db2cf30eed4d22fa063f59373c93ee40f97 data/compendium/loot_table/blocks/acacia_small_logs_corner.json
 87c6d429ff3d26efd6cc7dd956dc84d25e3187f8 data/compendium/loot_table/blocks/acacia_small_logs_slab.json
@@ -16,6 +16,7 @@ f7fd62b818b150cdeebe4cb147c1461a2ff28435 data/compendium/loot_table/blocks/cherr
 92f2ae60580e563fbc270cd4a50249f8944d5108 data/compendium/loot_table/blocks/cherry_small_logs_corner.json
 bdcbd9cf7c1b60066c7f7fbe2c5135170f15276e data/compendium/loot_table/blocks/cherry_small_logs_slab.json
 c74b4eef610b5798c19b6aa7718f400e3e682fb2 data/compendium/loot_table/blocks/cherry_small_logs_stairs.json
+46a02adefa97a1d08b1d36ff6a065eb1d45b7988 data/compendium/loot_table/blocks/clothed_table.json
 554512d78a7ab6021d3c93c536996634dcd6feeb data/compendium/loot_table/blocks/copper_tile.json
 cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosmetic_toolbox.json
 014d1efa79464f7f433d681538eb5afedb2410da data/compendium/loot_table/blocks/crimson_small_logs.json

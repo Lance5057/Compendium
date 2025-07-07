@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-03T13:35:27.2241739	Block States: compendium
+// 1.21.1	2025-07-06T16:21:40.5078864	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -16,6 +16,7 @@ fa08fe9f796420917a8bb77e39b7f992c6e807af assets/compendium/blockstates/blackston
 bc127f47b5abeea1301ef42fe412ce54e056e82c assets/compendium/blockstates/cherry_small_logs_corner.json
 d99127b133b8628f93beb296307729ec469637e8 assets/compendium/blockstates/cherry_small_logs_slab.json
 9ec2d9e39c249fb66dde316c98e71fbf4dfce048 assets/compendium/blockstates/cherry_small_logs_stairs.json
+5b516c8a9ad8fa2f098469c17ddf4750f48402ba assets/compendium/blockstates/clothed_table.json
 16824eec8321e7e8039ed3a1d96c95c1282c315c assets/compendium/blockstates/copper_tile.json
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
 961ff00343cd7d5f3d58fb895d52bb7623505451 assets/compendium/blockstates/crimson_small_logs.json
@@ -176,6 +177,8 @@ a959c5822e42c80f64116cf8a9a824ac3d6278bc assets/compendium/models/block/netherit
 edfe420ddd18834f0ba834c6d34c1d30898e84a9 assets/compendium/models/block/red_sandstone_tile.json
 96281473bab38d77dfb8235790c2b8c7a74fa56e assets/compendium/models/block/sandstone_tile.json
 ef4b2dc2bb74b87597c9dd6af4f3928e25d57a66 assets/compendium/models/block/stone_tile.json
+fda133d4b7e8de6ccc73fd95df57b7e020ad62ac assets/compendium/models/block/table_cloth.json
+0021ec0a6a012353fc3294979a59e61e7c5c8f27 assets/compendium/models/block/table_cloth_model.json
 4aaae175e3830ea7c1ad5f3944a309953d6ef38a assets/compendium/models/block/table_legs.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_legs_model.json
 ecd4d286d1adc78982145bb8d4f6daeb892fad7a assets/compendium/models/block/table_side.json

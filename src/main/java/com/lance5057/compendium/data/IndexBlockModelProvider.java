@@ -1,19 +1,15 @@
 package com.lance5057.compendium.data;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
+import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
-import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
-import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class IndexBlockModelProvider extends BlockModelProvider {
@@ -90,9 +86,18 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					// special cases!
 
 					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
-					modLoc("block/furniture/table/top/smooth"))
-					.texture("0", mcLoc("block/" + mb.name + "_planks"))
-					.texture("1", modLoc("block/material/wood/" + mb.name + "/" + mb.name + "_sheet"));
+							modLoc("block/furniture/table/top/smooth"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/" + mb.name + "_sheet"));
+				}
+
+				if (mb.getType() == MATERIAL_TYPES.TEXTILE) {
+					ClothedTableBlockEntity.cloth.forEach(b -> {
+						withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
+								modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name));
+					});
+
 				}
 			}
 		});
