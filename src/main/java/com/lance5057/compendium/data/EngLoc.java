@@ -17,6 +17,7 @@ public class EngLoc extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		this.add("itemGroup.compendium.tab", "Compendium");
+		this.add(CompendiumItems.SAWDUST.get(), "Sawdust");
 		this.add(CompendiumItems.ADJUSTINATOR.get(), "Adjustinator");
 		this.add(CompendiumItems.HAMMERING_STATION.get(), "Hammering Station");
 		this.add(CompendiumItems.SAW_BUCK.get(), "Sawbuck");
@@ -26,6 +27,10 @@ public class EngLoc extends LanguageProvider {
 		this.add(CompendiumItems.COMPONENT_DRAWER.get(), "Component Drawer");
 		this.add(CompendiumItems.COSMETIC_TOOLBOX.get(), "Cosmetic Toolbox");
 		this.add(Compendium.MOD_ID + ".tooltip.toolbox", "Right click for style menu. Shift + Right click to place");
+		this.add(CompendiumItems.CHAIR.get(), "Chair");
+		this.add(CompendiumItems.TABLE.get(), "Table");
+		this.add(CompendiumItems.CLOTHED_TABLE.get(), "Table with Cloth");
+		this.add(CompendiumItems.WINDOW.get(), "Window");
 
 		CompendiumIndex.index.forEach(i -> {
 			i.engLoc(this);
