@@ -11,7 +11,12 @@
     "modelPart": "cloth",
     "styleLayer": 2,
     "styles": [
-      "basic"
+      "basic",
+      "long",
+      "short",
+      "angled",
+      "angled_short",
+      "angled_long"
     ],
     "valid": [
       "TEXTILE"

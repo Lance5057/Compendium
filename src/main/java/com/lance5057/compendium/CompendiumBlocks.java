@@ -3,6 +3,7 @@ package com.lance5057.compendium;
 import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
+import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.table.TableBlock;
@@ -42,10 +43,15 @@ public class CompendiumBlocks {
 
 	public static final DeferredBlock<Block> TABLE = BLOCKS.register("table",
 			() -> new TableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+	
+	public static final DeferredBlock<Block> FANCY_BED = BLOCKS.register("fancy_bed",
+			() -> new FancyBedBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> CLOTHED_TABLE = BLOCKS.register("clothed_table",
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
 			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.GLASS)));
+
+	
 }

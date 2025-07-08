@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
 
 import net.minecraft.core.HolderLookup.Provider;
@@ -22,6 +23,8 @@ public class BlockTagGen extends BlockTagsProvider {
 	@Override
 	protected void addTags(Provider pProvider) {
 		tag(CompendiumTags.PRYABLE).add(Blocks.IRON_BLOCK);
+
+		tag(CompendiumTags.TABLE).add(CompendiumBlocks.TABLE.get(), CompendiumBlocks.CLOTHED_TABLE.get());
 	}
 
 }

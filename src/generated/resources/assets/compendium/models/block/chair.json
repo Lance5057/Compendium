@@ -64,7 +64,8 @@
       "planks_horizontal_angled",
       "tilted",
       "tilted_weave",
-      "weave"
+      "weave",
+      "framed"
     ],
     "valid": [
       "METAL",
@@ -104,7 +105,9 @@
       "rails_single_double_fine",
       "solid",
       "solid_ends",
-      "solid_sides"
+      "solid_sides",
+      "fancy",
+      "bar"
     ],
     "valid": [
       "METAL",

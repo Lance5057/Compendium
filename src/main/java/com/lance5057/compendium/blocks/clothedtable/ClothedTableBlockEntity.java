@@ -24,7 +24,7 @@ public class ClothedTableBlockEntity extends MultiMaterialBlockEntity implements
 
 	public static List<String> top = List.of("basic", "trimmed", "smooth");
 	public static List<String> legs = List.of("basic", "bar", "fancy");
-	public static List<String> cloth = List.of("basic");
+	public static List<String> cloth = List.of("basic", "long", "short", "angled", "angled_short", "angled_long");
 
 	List<List<String>> styles = List.of(top, legs, cloth);
 
@@ -55,9 +55,24 @@ public class ClothedTableBlockEntity extends MultiMaterialBlockEntity implements
 	public List<String> getCurrentAllString() {
 		List<String> l = new ArrayList<>();
 
-		l.add(top.get(this.getCurrent(0)));
-		l.add(legs.get(this.getCurrent(1)));
-		l.add(cloth.get(this.getCurrent(2)));
+		int i1 = this.getCurrent(0);
+		int i2 = this.getCurrent(1);
+		int i3 = this.getCurrent(2);
+
+		if (top.size() > i1)
+			l.add(top.get(i1));
+		else
+			l.add(top.get(0));
+
+		if (legs.size() > i2)
+			l.add(legs.get(i2));
+		else
+			l.add(legs.get(0));
+
+		if (cloth.size() > i3)
+			l.add(cloth.get(i3));
+		else
+			l.add(cloth.get(0));
 
 		return l;
 	}

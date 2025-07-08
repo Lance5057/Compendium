@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.CompendiumTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -69,15 +70,15 @@ public class ClothedTableBlock extends Block implements EntityBlock {
 		BlockPos pos = context.getClickedPos();// .relative(context.getClickedFace());
 		Level level = context.getLevel();
 
-		boolean n = level.getBlockState(pos.north()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean s = level.getBlockState(pos.south()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean w = level.getBlockState(pos.west()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean e = level.getBlockState(pos.east()).is(CompendiumBlocks.CLOTHED_TABLE);
+		boolean n = level.getBlockState(pos.north()).is(CompendiumTags.TABLE);
+		boolean s = level.getBlockState(pos.south()).is(CompendiumTags.TABLE);
+		boolean w = level.getBlockState(pos.west()).is(CompendiumTags.TABLE);
+		boolean e = level.getBlockState(pos.east()).is(CompendiumTags.TABLE);
 
-		boolean nw = level.getBlockState(pos.north().west()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean sw = level.getBlockState(pos.south().west()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean ne = level.getBlockState(pos.north().east()).is(CompendiumBlocks.CLOTHED_TABLE);
-		boolean se = level.getBlockState(pos.south().east()).is(CompendiumBlocks.CLOTHED_TABLE);
+		boolean nw = level.getBlockState(pos.north().west()).is(CompendiumTags.TABLE);
+		boolean sw = level.getBlockState(pos.south().west()).is(CompendiumTags.TABLE);
+		boolean ne = level.getBlockState(pos.north().east()).is(CompendiumTags.TABLE);
+		boolean se = level.getBlockState(pos.south().east()).is(CompendiumTags.TABLE);
 
 		return state.setValue(N, n).setValue(S, s).setValue(W, w).setValue(E, e).setValue(NW, nw).setValue(SW, sw)
 				.setValue(NE, ne).setValue(SE, se);
@@ -99,19 +100,15 @@ public class ClothedTableBlock extends Block implements EntityBlock {
 
 			if (nState.is(this)) {
 
-				boolean n = level.getBlockState(blockpos$mutableblockpos.north()).is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean s = level.getBlockState(blockpos$mutableblockpos.south()).is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean w = level.getBlockState(blockpos$mutableblockpos.west()).is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean e = level.getBlockState(blockpos$mutableblockpos.east()).is(CompendiumBlocks.CLOTHED_TABLE);
+				boolean n = level.getBlockState(blockpos$mutableblockpos.north()).is(CompendiumTags.TABLE);
+				boolean s = level.getBlockState(blockpos$mutableblockpos.south()).is(CompendiumTags.TABLE);
+				boolean w = level.getBlockState(blockpos$mutableblockpos.west()).is(CompendiumTags.TABLE);
+				boolean e = level.getBlockState(blockpos$mutableblockpos.east()).is(CompendiumTags.TABLE);
 
-				boolean nw = level.getBlockState(blockpos$mutableblockpos.north().west())
-						.is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean sw = level.getBlockState(blockpos$mutableblockpos.south().west())
-						.is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean ne = level.getBlockState(blockpos$mutableblockpos.north().east())
-						.is(CompendiumBlocks.CLOTHED_TABLE);
-				boolean se = level.getBlockState(blockpos$mutableblockpos.south().east())
-						.is(CompendiumBlocks.CLOTHED_TABLE);
+				boolean nw = level.getBlockState(blockpos$mutableblockpos.north().west()).is(CompendiumTags.TABLE);
+				boolean sw = level.getBlockState(blockpos$mutableblockpos.south().west()).is(CompendiumTags.TABLE);
+				boolean ne = level.getBlockState(blockpos$mutableblockpos.north().east()).is(CompendiumTags.TABLE);
+				boolean se = level.getBlockState(blockpos$mutableblockpos.south().east()).is(CompendiumTags.TABLE);
 
 				level.setBlock(blockpos$mutableblockpos, nState.setValue(N, n).setValue(S, s).setValue(W, w)
 						.setValue(E, e).setValue(NW, nw).setValue(SW, sw).setValue(NE, ne).setValue(SE, se),

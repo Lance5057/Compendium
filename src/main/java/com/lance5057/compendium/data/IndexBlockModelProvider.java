@@ -89,6 +89,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							modLoc("block/furniture/table/top/smooth"))
 							.texture("0", mcLoc("block/" + mb.name + "_planks"))
 							.texture("1", modLoc("block/material/wood/" + mb.name + "/" + mb.name + "_sheet"));
+
 				}
 
 				if (mb.getType() == MATERIAL_TYPES.TEXTILE) {
@@ -97,6 +98,21 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					});
+
+					withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled",
+							modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
+							.texture("1", modLoc("block/material/textile/" + mb.name + "/diagonal_half"))
+							.renderType("cutout");
+
+					withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_short",
+							modLoc("block/furniture/table/cloth/angled_short")).texture("0", mcLoc("block/" + mb.name))
+							.texture("1", modLoc("block/material/textile/" + mb.name + "/diagonal_half"))
+							.renderType("cutout");
+
+					withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_long",
+							modLoc("block/furniture/table/cloth/angled_long")).texture("0", mcLoc("block/" + mb.name))
+							.texture("1", modLoc("block/material/textile/" + mb.name + "/diagonal_half"))
+							.renderType("cutout");
 
 				}
 			}

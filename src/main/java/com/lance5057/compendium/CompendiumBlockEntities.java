@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
+import com.lance5057.compendium.blocks.bed.FancyBedBlockEntity;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
@@ -64,6 +65,10 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClothedTableBlockEntity>> CLOTHED_TABLE = BLOCK_ENTITIES
 			.register("clothed_table", () -> BlockEntityType.Builder
 					.of(ClothedTableBlockEntity::new, CompendiumBlocks.CLOTHED_TABLE.get()).build(null));
+	
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FancyBedBlockEntity>> FANCY_BED = BLOCK_ENTITIES
+			.register("fancy_bed", () -> BlockEntityType.Builder
+					.of(FancyBedBlockEntity::new, CompendiumBlocks.FANCY_BED.get()).build(null));
 
 	public static List<DeferredBlock<?>> validStyleBlocks = new ArrayList<DeferredBlock<?>>();
 
@@ -72,4 +77,5 @@ public class CompendiumBlockEntities {
 
 					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
 					.build(null));
+	
 }
