@@ -1,0 +1,90 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_top_frame"
+      },
+      "when": {
+        "facing": "north",
+        "occupied": "false",
+        "part": "head"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_top_frame",
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "occupied": "false",
+        "part": "head"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_top_frame",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "occupied": "false",
+        "part": "head"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_top_frame",
+        "y": 270
+      },
+      "when": {
+        "facing": "east",
+        "occupied": "false",
+        "part": "head"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_bottom_frame"
+      },
+      "when": {
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_bottom_frame",
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_bottom_frame",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_bottom_frame",
+        "y": 270
+      },
+      "when": {
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    }
+  ]
+}

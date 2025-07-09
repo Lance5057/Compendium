@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-07T17:45:24.0104136	Block Models: compendium
+// 1.21.1	2025-07-09T10:42:44.2565914	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_glass/window.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_glass/window.json
 35c07ae0dd83b55d5615e038fbe7bc433d98b1f2 assets/compendium/models/block/material/glass/brown_glass/window.json
@@ -239,6 +239,8 @@ a85c5540813b004dc71598cededd39a442926d72 assets/compendium/models/block/material
 34644fea37e8c4159292974ac8d7d77c74a0dbf0 assets/compendium/models/block/material/textile/yellow_wool/table/cloth/basic.json
 fa99477e0e4a5d4f71ae85183dd4611e57593e1c assets/compendium/models/block/material/textile/yellow_wool/table/cloth/long.json
 99c23b4a1270e5853df75baae4f140ff6338fa02 assets/compendium/models/block/material/textile/yellow_wool/table/cloth/short.json
+fdab772d625e0f1a81376e7e21bc04caad9a9d0c assets/compendium/models/block/material/wood/acacia/bed/bottom/frame/basic.json
+692ba41a864087232c40af34454b925d7e102ba3 assets/compendium/models/block/material/wood/acacia/bed/top/frame/basic.json
 818549f5a2480c574cc84bbef48a43831897895d assets/compendium/models/block/material/wood/acacia/chair/back/basic.json
 2ced2e3bcd1e6524e0af65b3adb5a1982930827c assets/compendium/models/block/material/wood/acacia/chair/back/basic_panel.json
 21ff00f3875b9e56accd77fd73ed379a8d75ee2a assets/compendium/models/block/material/wood/acacia/chair/back/braced.json
@@ -321,6 +323,8 @@ f366139c9fe5565211cfb88cc688ba449b40e1bb assets/compendium/models/block/material
 5ac8bea081f83f95f8e46a18a4608ed845fb7ae0 assets/compendium/models/block/material/wood/acacia/table/top/basic.json
 0715599927aaf1f4a12f5eab3cdee997058ae266 assets/compendium/models/block/material/wood/acacia/table/top/smooth.json
 844f43fbfcbfd551f16a0e0a25586c2ad1852225 assets/compendium/models/block/material/wood/acacia/table/top/trimmed.json
+c83e10f82e8ffe8b1a973a260cab72e5478dd385 assets/compendium/models/block/material/wood/birch/bed/bottom/frame/basic.json
+a7a943a40e2c54644455fe0bf82d49f531f22e0c assets/compendium/models/block/material/wood/birch/bed/top/frame/basic.json
 8541c8c6ec944ec8519acf44cbb17dc4f0147432 assets/compendium/models/block/material/wood/birch/chair/back/basic.json
 0ef85228eac4efe4d13caae07bc6b0efa69ca933 assets/compendium/models/block/material/wood/birch/chair/back/basic_panel.json
 143aa45d3d868dcdedbe533b93ab796dfbadd963 assets/compendium/models/block/material/wood/birch/chair/back/braced.json
@@ -403,6 +407,8 @@ b4816cbc13a74dba09fbe0ecbf13f6d410541df4 assets/compendium/models/block/material
 58feb94922f7a8301851ff0f26b7318b4210358c assets/compendium/models/block/material/wood/birch/table/top/basic.json
 52b078442dda528e558f3e83368f8fde7f15f228 assets/compendium/models/block/material/wood/birch/table/top/smooth.json
 ed7e96fa280c01db78f31e35ff940e71260ac1c7 assets/compendium/models/block/material/wood/birch/table/top/trimmed.json
+48a3420ab575264564e86d3c82649b7c263b7218 assets/compendium/models/block/material/wood/cherry/bed/bottom/frame/basic.json
+106cf3ca6e2bb2cdcdabc83e5d81925a32bddd6d assets/compendium/models/block/material/wood/cherry/bed/top/frame/basic.json
 0330eb2a8f7ababd407e96653b76b19d98b1aeb7 assets/compendium/models/block/material/wood/cherry/chair/back/basic.json
 02f92ec4f0b136a3de000e742f0cb021d8385b21 assets/compendium/models/block/material/wood/cherry/chair/back/basic_panel.json
 9744ca348a50c636f3909ed62072c4b9aadf8215 assets/compendium/models/block/material/wood/cherry/chair/back/braced.json
@@ -485,6 +491,8 @@ e021c17fc0fa2a3adf0ba94f5f6fec275e1668fc assets/compendium/models/block/material
 32057727789443be2f55a54c93400254c48ed30d assets/compendium/models/block/material/wood/cherry/table/top/basic.json
 ba6e7cd19f44fc08d9d18e36f8b2672601410841 assets/compendium/models/block/material/wood/cherry/table/top/smooth.json
 11f17b2a2498866a7b8352ce3231bb268595ea56 assets/compendium/models/block/material/wood/cherry/table/top/trimmed.json
+068ffd1efb38170db87abbaa58e3db89ebf957fd assets/compendium/models/block/material/wood/crimson/bed/bottom/frame/basic.json
+8e3c55b6685bf48e5605d305afe5126c8a391e2d assets/compendium/models/block/material/wood/crimson/bed/top/frame/basic.json
 870b54f0734a62ebd2eab5899c3f735d6f40bd4b assets/compendium/models/block/material/wood/crimson/chair/back/basic.json
 4a6243d0172ba162cc9300bdce728f2f09e57610 assets/compendium/models/block/material/wood/crimson/chair/back/basic_panel.json
 cf40871d66fe6f6a2e06fe62a4be15b1119c4bf7 assets/compendium/models/block/material/wood/crimson/chair/back/braced.json
@@ -567,6 +575,8 @@ be7424dbd6452a9cc0e24810b8ea1ab1ba89769b assets/compendium/models/block/material
 89eeb5b0a85dde2efc1c715a0df9e776ad72edbe assets/compendium/models/block/material/wood/crimson/table/top/basic.json
 4a25de44583809c2acb563a3a7a43803be7d047e assets/compendium/models/block/material/wood/crimson/table/top/smooth.json
 15d23383dbb35b4d3a17a89261d44eaf70f0dd94 assets/compendium/models/block/material/wood/crimson/table/top/trimmed.json
+9b1fc101d3c0a1108787b20fbeccea01694369ef assets/compendium/models/block/material/wood/dark_oak/bed/bottom/frame/basic.json
+1f28f60146534beef697fdbe1b93caff23f5dda2 assets/compendium/models/block/material/wood/dark_oak/bed/top/frame/basic.json
 3045e1a8fde1f20f3fab8350943a576a9d63d416 assets/compendium/models/block/material/wood/dark_oak/chair/back/basic.json
 d39eed11210cf098e4fda1333760f98fa988163f assets/compendium/models/block/material/wood/dark_oak/chair/back/basic_panel.json
 3e5964c558ded37061da629f07175aeabc19c6ee assets/compendium/models/block/material/wood/dark_oak/chair/back/braced.json
@@ -649,6 +659,8 @@ a6ce14158a4dbfb0b712e16edf3e155416d77144 assets/compendium/models/block/material
 339ec3b40ca0be1dcffb55396051aaf76d2cf917 assets/compendium/models/block/material/wood/dark_oak/table/top/basic.json
 a78a71cdc8ae9bd98eb68194da5601c96d920740 assets/compendium/models/block/material/wood/dark_oak/table/top/smooth.json
 cbcca50fb5887929e51353e12a71dd7880186cfc assets/compendium/models/block/material/wood/dark_oak/table/top/trimmed.json
+7b5f10ebe658492120b874780151cdf7f13c3a69 assets/compendium/models/block/material/wood/jungle/bed/bottom/frame/basic.json
+46842a7590a50f5c39320dde9a5d6d4fdcfcb599 assets/compendium/models/block/material/wood/jungle/bed/top/frame/basic.json
 0ca4ee1e5adbb9074cd7c424f0f882ae213a6535 assets/compendium/models/block/material/wood/jungle/chair/back/basic.json
 be4339ec38d49178a126f703b9cba1404f0ab4e7 assets/compendium/models/block/material/wood/jungle/chair/back/basic_panel.json
 533f8422e765bf408b0da502810e74dfce8098d5 assets/compendium/models/block/material/wood/jungle/chair/back/braced.json
@@ -731,6 +743,8 @@ ac2e5eff66a5f3d6daf4a89497917db648dde134 assets/compendium/models/block/material
 25cbf16d15e7fba5f8566f85ef0b831d10385d9b assets/compendium/models/block/material/wood/jungle/table/top/basic.json
 8656e7d7aa6b0f64090dd6ebcf7c1d12917213a2 assets/compendium/models/block/material/wood/jungle/table/top/smooth.json
 37dd7cb34ec24622b9e327f490a53b7c72506f0a assets/compendium/models/block/material/wood/jungle/table/top/trimmed.json
+dfd7221b00fe0b6e55c7ccf2693979d3054fef74 assets/compendium/models/block/material/wood/mangrove/bed/bottom/frame/basic.json
+45e5ed83ac58c0e1f819b2dd39f0430283164276 assets/compendium/models/block/material/wood/mangrove/bed/top/frame/basic.json
 884827322846f27a7e99d9229b0a0e11c1df783a assets/compendium/models/block/material/wood/mangrove/chair/back/basic.json
 6b3434bdb1d31b2b83170aae658277594fabec1e assets/compendium/models/block/material/wood/mangrove/chair/back/basic_panel.json
 dfceda2ac4066420fc9d0070b23cbfe29cb78dc8 assets/compendium/models/block/material/wood/mangrove/chair/back/braced.json
@@ -813,6 +827,8 @@ eeff5ee184fea29c654c8dc255fb837f74f9b30c assets/compendium/models/block/material
 69897d6f965a0a64b5ea9c3f24e6fe79ac252c0f assets/compendium/models/block/material/wood/mangrove/table/top/basic.json
 64785cec2dde51ee4e067bdb7abd68ca01edb963 assets/compendium/models/block/material/wood/mangrove/table/top/smooth.json
 19852b9f2bba197902c4b33362b77e6135af1e96 assets/compendium/models/block/material/wood/mangrove/table/top/trimmed.json
+74a02389061adba83abf86bb86983409cd6ea567 assets/compendium/models/block/material/wood/oak/bed/bottom/frame/basic.json
+8e405402a14c0329598ab0b3624228d7aa03c366 assets/compendium/models/block/material/wood/oak/bed/top/frame/basic.json
 05881ccc95875dc457808353bf4ad599800180e3 assets/compendium/models/block/material/wood/oak/chair/back/basic.json
 adc3b22757ac594836ae7f91efd677c023135448 assets/compendium/models/block/material/wood/oak/chair/back/basic_panel.json
 e433b36d3f37f84c9d91036a4cfa3c37dc90ec78 assets/compendium/models/block/material/wood/oak/chair/back/braced.json
@@ -895,6 +911,8 @@ ed457a0aa7a567447fc2cbfb3c9d4c12b7164249 assets/compendium/models/block/material
 85b988db3c5fce36b9522bfa081dba9c10a9ef6b assets/compendium/models/block/material/wood/oak/table/top/basic.json
 650d5b2a59ad533f89de6cd0635934c23397d767 assets/compendium/models/block/material/wood/oak/table/top/smooth.json
 ff300256e963ef52931181a9ba225169d9df0475 assets/compendium/models/block/material/wood/oak/table/top/trimmed.json
+c1808ae3ebb5e980134bc5610df6ea1ec8fca9ea assets/compendium/models/block/material/wood/spruce/bed/bottom/frame/basic.json
+e2a3d3b50c32603affa472a18518c697e4dfce38 assets/compendium/models/block/material/wood/spruce/bed/top/frame/basic.json
 5afb64865cfb11b0f70eb5e04416dfac34dca1a8 assets/compendium/models/block/material/wood/spruce/chair/back/basic.json
 31bc55a1c278c24807a2c74158f1b89317e31491 assets/compendium/models/block/material/wood/spruce/chair/back/basic_panel.json
 19a92311d5fc4ec9080c7dc4ae6555b7defaf45e assets/compendium/models/block/material/wood/spruce/chair/back/braced.json
@@ -977,6 +995,8 @@ b2ca3bb035e28459922ea952303bc72a89e97499 assets/compendium/models/block/material
 bef97f4025ed6b8c154ef7e3dedd37393893948e assets/compendium/models/block/material/wood/spruce/table/top/basic.json
 9d89343fd1fd32835456475ebf5d2737047f707c assets/compendium/models/block/material/wood/spruce/table/top/smooth.json
 71e0d156dc5b63ba0fffe0b7860891aa8a68bdda assets/compendium/models/block/material/wood/spruce/table/top/trimmed.json
+6cbfaef15719fe0a0ac638de39c643e38bff6044 assets/compendium/models/block/material/wood/warped/bed/bottom/frame/basic.json
+370ed6b8decbe48aa1d68ac120e53156943412fb assets/compendium/models/block/material/wood/warped/bed/top/frame/basic.json
 4d0a8b3eff83b4d041b9d551348d4aa4b8b00e73 assets/compendium/models/block/material/wood/warped/chair/back/basic.json
 e3df1eb25bf69e194b8d434f91ac216f44fcb28f assets/compendium/models/block/material/wood/warped/chair/back/basic_panel.json
 d24a4e35e4b9fa008bd5417146939e6ea6857772 assets/compendium/models/block/material/wood/warped/chair/back/braced.json

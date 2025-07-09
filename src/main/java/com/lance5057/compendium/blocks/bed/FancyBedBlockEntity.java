@@ -21,13 +21,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class FancyBedBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
-	public static List<String> base = List.of("basic");
+	public static List<String> frame = List.of("basic");
 	public static List<String> mattress = List.of("basic");
 	public static List<String> pillow = List.of("basic");
 	public static List<String> blanket = List.of("basic");
 	public static List<String> sheet = List.of("basic");
 
-	List<List<String>> styles = List.of(base, mattress, pillow, blanket, sheet);
+	List<List<String>> styles = List.of(frame, mattress, pillow, blanket, sheet);
 
 	List<Integer> currentStyles = new ArrayList<Integer>();
 
@@ -62,10 +62,10 @@ public class FancyBedBlockEntity extends MultiMaterialBlockEntity implements ISt
 		int i4 = this.getCurrent(3);
 		int i5 = this.getCurrent(4);
 
-		if (base.size() > i1)
-			l.add(base.get(i1));
+		if (frame.size() > i1)
+			l.add(frame.get(i1));
 		else
-			l.add(base.get(0));
+			l.add(frame.get(0));
 
 		if (mattress.size() > i2)
 			l.add(mattress.get(i2));
@@ -81,7 +81,7 @@ public class FancyBedBlockEntity extends MultiMaterialBlockEntity implements ISt
 			l.add(blanket.get(i4));
 		else
 			l.add(blanket.get(0));
-		
+
 		if (sheet.size() > i5)
 			l.add(sheet.get(i5));
 		else

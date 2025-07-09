@@ -1,6 +1,7 @@
 package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.blocks.bed.FancyBedBlockEntity;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
@@ -80,6 +81,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					TableBlockEntity.top.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
 								modLoc("block/furniture/table/top/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					});
+					
+					FancyBedBlockEntity.frame.forEach(b -> {
+						withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
+								modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+						
+						withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
+								modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
