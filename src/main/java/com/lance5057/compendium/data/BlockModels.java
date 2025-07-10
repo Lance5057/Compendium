@@ -378,13 +378,15 @@ public class BlockModels extends BlockStateProvider {
 
 		getMultipartBuilder(CompendiumBlocks.FANCY_BED.get())
 				// Bed Top
+
+				// Frame
 				.part()
 				.modelFile(models().getBuilder("fancy_bed_top_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_top_frame_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/frame",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), FancyBedBlockEntity.frame, 0, 0))
 						.end())
-				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
 				.modelFile(models().getBuilder("fancy_bed_top_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_top_frame_model", mcLoc("block/oak_planks")))
@@ -398,7 +400,7 @@ public class BlockModels extends BlockStateProvider {
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/frame",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), FancyBedBlockEntity.frame, 0, 0))
 						.end())
-				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
 				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
 				.modelFile(models().getBuilder("fancy_bed_top_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_top_frame_model", mcLoc("block/oak_planks")))
@@ -408,14 +410,140 @@ public class BlockModels extends BlockStateProvider {
 				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end()
 
+				// Mattress
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_top_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_mattress_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/mattress",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_mattress_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/mattress",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_mattress_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/mattress",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_mattress_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/mattress",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end()
+
+				// Sheet
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_top_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end()
+
+				// pillow
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_top_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end()
+				
+				// blanket
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_top_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
+				.modelFile(models().getBuilder("fancy_bed_top_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_top_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "top/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end()
+
 				// Bed Bottom
+
+				// Frame
 				.part()
 				.modelFile(models().getBuilder("fancy_bed_bottom_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_bottom_frame_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/frame",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), FancyBedBlockEntity.frame, 0, 0))
 						.end())
-				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
 				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
 				.modelFile(models().getBuilder("fancy_bed_bottom_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_bottom_frame_model", mcLoc("block/oak_planks")))
@@ -429,12 +557,140 @@ public class BlockModels extends BlockStateProvider {
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/frame",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), FancyBedBlockEntity.frame, 0, 0))
 						.end())
-				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
 				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.FOOT).end().part()
 				.modelFile(models().getBuilder("fancy_bed_bottom_frame").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("fancy_bed_bottom_frame_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/frame",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), FancyBedBlockEntity.frame, 0, 0))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end()
+
+				// Mattress
+				.part()
+				.modelFile(
+						models().getBuilder("fancy_bed_bottom_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+								.base(models().cubeAll("fancy_bed_bottom_mattress_model", mcLoc("block/oak_planks")))
+								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/mattress",
+										List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+								.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(
+						models().getBuilder("fancy_bed_bottom_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+								.base(models().cubeAll("fancy_bed_bottom_mattress_model", mcLoc("block/oak_planks")))
+								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/mattress",
+										List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+								.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(
+						models().getBuilder("fancy_bed_bottom_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+								.base(models().cubeAll("fancy_bed_bottom_mattress_model", mcLoc("block/oak_planks")))
+								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/mattress",
+										List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+								.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.FOOT).end().part()
+				.modelFile(
+						models().getBuilder("fancy_bed_bottom_mattress").customLoader(MultiStyleMaterialBuilder::begin)
+								.base(models().cubeAll("fancy_bed_bottom_mattress_model", mcLoc("block/oak_planks")))
+								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/mattress",
+										List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.mattress, 1, 1))
+								.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end()
+
+				// sheet
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.FOOT).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_sheet").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_sheet_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.sheet, 2, 2))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end()
+
+				// pillow
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.FOOT).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_pillow").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_pillow_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/pillow",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.pillow, 3, 3))
+						.end())
+				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end()
+				
+				// blanket
+				.part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
+				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+						.end())
+				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
+				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.FOOT).end().part()
+				.modelFile(models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
 						.end())
 				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end();
