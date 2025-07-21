@@ -29,11 +29,12 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class ChairBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> back = List.of("basic", "basic_panel", "braced", "contemporary", "contemporary_slats",
-			"cross", "cross_framed", "fan", "fancy", "flat", "flat_extra", "full", "laced", "laced_tall", "ladder",
-			"ladder_tall", "lath", "lath_extra", "lattice", "live_edge", "open", "panel", "panel_weave",
-			"planks_horizontal", "planks_horizontal_angled", "slats", "slats_chunky", "solid", "splat", "splat_double",
-			"splat_slat", "turned_panel", "turned_panel_weave", "vienna", "weave", "windsor");
+	public static List<String> back = List.of("basic", "basic_panel", "branch", "braced", "checker",
+			"contemporary", "contemporary_slats", "criss-cross", "cross", "cross_framed", "fan", "fancy", "flat",
+			"flat_extra", "full", "laced", "laced_tall", "ladder", "ladder_tall", "lath", "lath_extra", "lattice",
+			"live_edge", "lozenge", "open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled",
+			"slats", "slats_chunky", "solid", "splat", "splat_double", "splat_slat", "turned_panel",
+			"turned_panel_weave", "vienna", "weave", "windsor");
 	public static List<String> seat = List.of("basic", "planks_horizontal", "planks_horizontal_angled", "tilted",
 			"tilted_weave", "weave", "framed");
 	public static List<String> legs = List.of("basic", "angled", "crosstie", "pedestal", "pedestal_cross",
