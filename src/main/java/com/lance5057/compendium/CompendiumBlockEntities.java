@@ -11,6 +11,7 @@ import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.blocks.entities.WindowBlockEntity;
+import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
@@ -65,7 +66,7 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClothedTableBlockEntity>> CLOTHED_TABLE = BLOCK_ENTITIES
 			.register("clothed_table", () -> BlockEntityType.Builder
 					.of(ClothedTableBlockEntity::new, CompendiumBlocks.CLOTHED_TABLE.get()).build(null));
-	
+
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FancyBedBlockEntity>> FANCY_BED = BLOCK_ENTITIES
 			.register("fancy_bed", () -> BlockEntityType.Builder
 					.of(FancyBedBlockEntity::new, CompendiumBlocks.FANCY_BED.get()).build(null));
@@ -77,5 +78,8 @@ public class CompendiumBlockEntities {
 
 					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
 					.build(null));
-	
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FancyFenceBlockEntity>> FANCY_FENCE = BLOCK_ENTITIES
+			.register("fancy_fence", () -> BlockEntityType.Builder
+					.of(FancyFenceBlockEntity::new, CompendiumBlocks.FANCY_FENCE.get()).build(null));
+
 }

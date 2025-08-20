@@ -6,6 +6,7 @@ import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
+import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
@@ -46,6 +47,9 @@ public class CompendiumBlocks {
 	
 	public static final DeferredBlock<Block> FANCY_BED = BLOCKS.register("fancy_bed",
 			() -> new FancyBedBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+	
+	public static final DeferredBlock<Block> FANCY_FENCE = BLOCKS.register("fancy_fence",
+			() -> new FancyFenceBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> CLOTHED_TABLE = BLOCKS.register("clothed_table",
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));

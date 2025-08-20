@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-21T16:21:33.0542833	Block States: compendium
+// 1.21.1	2025-08-19T16:03:35.4102793	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -33,6 +33,7 @@ f58fc8fe05666719489fdf5b061670327ea573ec assets/compendium/blockstates/drawer.js
 674d41f92f2543578458cbc1520f534e22101bce assets/compendium/blockstates/dripstone_tile.json
 d10dd29dfdefd68493c14b59fe6284ab4ccbf80a assets/compendium/blockstates/endstone_tile.json
 3b0ab732c0b4605c0828f5807d8437af3e0717ec assets/compendium/blockstates/fancy_bed.json
+0a65d8a07a006d0c368ca647f38adda03cf5017d assets/compendium/blockstates/fancy_fence.json
 31eff3a4eb34a8b6c6494dfd8c9fb13f0ce7dbf5 assets/compendium/blockstates/gold_tile.json
 2ab799c3e3e0ca88d10d45ab23366e9093902f08 assets/compendium/blockstates/granite_tile.json
 06ba1db99efa07423015aeb81ea15a3a35ba475a assets/compendium/blockstates/hammering_station.json
@@ -100,6 +101,10 @@ eda88576d8210645115021edeaa51b2715fd4af7 assets/compendium/models/block/fancy_be
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_bed_top_pillow_model.json
 fc3cdbe89bfbcb061d972544b94a570bf1698356 assets/compendium/models/block/fancy_bed_top_sheet.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_bed_top_sheet_model.json
+54b8ad13273243f35f84532705787a8440ad7e93 assets/compendium/models/block/fancy_fence_post.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_fence_post_model.json
+bba44d456db20ef0dd36a6ce974cdd9f3e4305f3 assets/compendium/models/block/fancy_fence_side.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_fence_side_model.json
 c64b9ee256664fa90525c0deea75070cc128f98a assets/compendium/models/block/gold_tile.json
 4cfa4863b7aaaf6fa71917e810c0461217e20a6d assets/compendium/models/block/granite_tile.json
 ae0560cadceaf27864daa1a5e6075206c63b6dd4 assets/compendium/models/block/iron_tile.json

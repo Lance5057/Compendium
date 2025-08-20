@@ -115,4 +115,12 @@ public class CompendiumItems {
 									.of(new MultiMaterialType(MATERIAL_TYPES.GLASS),
 											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
 									.toList()))));
+
+	public static final DeferredItem<Item> FANCY_FENCE = ITEMS.register("fancy_fence",
+			() -> new BlockItem(CompendiumBlocks.FANCY_FENCE.get(),
+					new Item.Properties().component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream
+									.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+											new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
+									.toList()))));
 }

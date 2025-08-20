@@ -4,6 +4,7 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.bed.FancyBedBlockEntity;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
+import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -83,14 +84,26 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								modLoc("block/furniture/table/top/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
-					
+
 					FancyBedBlockEntity.frame.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
+
 						withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					});
+
+					FancyFenceBlockEntity.post.forEach(b -> {
+						withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
+								modLoc("block/bases/fence/post/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					});
+
+					FancyFenceBlockEntity.side.forEach(b -> {
+						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
+								modLoc("block/bases/fence/side/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
@@ -109,42 +122,45 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					});
-					
+
 					FancyBedBlockEntity.mattress.forEach(b -> {
 						withExistingParent("block/material/textile/" + mb.name + "/bed/top/mattress/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/top/mattress/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
-						
-						withExistingParent("block/material/textile/" + mb.name + "/bed/bottom/mattress/" + b.toLowerCase(),
+
+						withExistingParent(
+								"block/material/textile/" + mb.name + "/bed/bottom/mattress/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/bottom/mattress/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					});
-					
+
 					FancyBedBlockEntity.sheet.forEach(b -> {
 						withExistingParent("block/material/textile/" + mb.name + "/bed/top/sheet/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/top/sheet/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
-						
+
 						withExistingParent("block/material/textile/" + mb.name + "/bed/bottom/sheet/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/bottom/sheet/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					});
-					
+
 					FancyBedBlockEntity.pillow.forEach(b -> {
 						withExistingParent("block/material/textile/" + mb.name + "/bed/top/pillow/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/top/pillow/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
-						
-						withExistingParent("block/material/textile/" + mb.name + "/bed/bottom/pillow/" + b.toLowerCase(),
+
+						withExistingParent(
+								"block/material/textile/" + mb.name + "/bed/bottom/pillow/" + b.toLowerCase(),
 								mcLoc("block/air"));
 					});
-					
+
 					FancyBedBlockEntity.blanket.forEach(b -> {
 						withExistingParent("block/material/textile/" + mb.name + "/bed/top/blanket/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/top/blanket/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
-						
-						withExistingParent("block/material/textile/" + mb.name + "/bed/bottom/blanket/" + b.toLowerCase(),
+
+						withExistingParent(
+								"block/material/textile/" + mb.name + "/bed/bottom/blanket/" + b.toLowerCase(),
 								modLoc("block/furniture/bed/bottom/blanket/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					});
