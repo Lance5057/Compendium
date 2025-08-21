@@ -11,6 +11,7 @@ import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
+import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
@@ -24,10 +25,11 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
@@ -702,8 +704,59 @@ public class BlockModels extends BlockStateProvider {
 								.end())
 				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 				.condition(FancyBedBlock.PART, BedPart.FOOT).condition(FancyBedBlock.OCCUPIED, false).end();
-		
+
 		fence();
+
+		getVariantBuilder(CompendiumBlocks.SHINGLES_SLANTED.get()).forAllStatesExcept(state -> {
+			Direction facing = state.getValue(StairBlock.FACING);
+			Half half = state.getValue(StairBlock.HALF);
+			StairsShape shape = state.getValue(StairBlock.SHAPE);
+			int yRot = (int) facing.getClockWise().toYRot(); // Stairs model is rotated 90 degrees clockwise for some
+																// reason
+			if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
+				yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
+			}
+			if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
+				yRot += 90; // Top stairs are rotated 90 degrees clockwise
+			}
+			yRot %= 360;
+			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+			return ConfiguredModel.builder().modelFile(shape == StairsShape.STRAIGHT
+					? models().getBuilder("shingles_slanted_shingles").customLoader(MultiStyleMaterialBuilder::begin)
+							.base(models().cubeAll("shingles_slanted_shingles_model", mcLoc("block/oak_planks")))
+							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles", "shingles_slanted",
+									List.of(MATERIAL_TYPES.TEXTILE), ShinglesSlantedBlockEntity.shingles, 0, 0))
+							.end()
+					: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT
+							? models().getBuilder("shingles_slanted_shingles")
+									.customLoader(MultiStyleMaterialBuilder::begin)
+									.base(models().cubeAll("shingles_slanted_shingles_model",
+											mcLoc("block/oak_planks")))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles", "shingles_slanted",
+											List.of(MATERIAL_TYPES.TEXTILE), ShinglesSlantedBlockEntity.shingles, 0, 0))
+									.end()
+							: models().getBuilder("shingles_slanted_shingles")
+									.customLoader(MultiStyleMaterialBuilder::begin)
+									.base(models().cubeAll("shingles_slanted_shingles_model",
+											mcLoc("block/oak_planks")))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles", "shingles_slanted",
+											List.of(MATERIAL_TYPES.TEXTILE), ShinglesSlantedBlockEntity.shingles, 0, 0))
+									.end())
+					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(uvlock).build();
+		}, StairBlock.WATERLOGGED);
+
+//		this.stairsBlock(CompendiumBlocks.SHINGLES_SLANTED.get(),
+//				,
+//				models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+//						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+//								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+//						.end(),
+//				models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
+//						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
+//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
+//								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
+//						.end());
 	}
 
 	public void fence() {

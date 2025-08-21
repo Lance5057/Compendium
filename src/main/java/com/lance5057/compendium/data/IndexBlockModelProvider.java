@@ -5,6 +5,7 @@ import com.lance5057.compendium.blocks.bed.FancyBedBlockEntity;
 import com.lance5057.compendium.blocks.chair.ChairBlockEntity;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
+import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -104,6 +105,13 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					FancyFenceBlockEntity.side.forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
 								modLoc("block/bases/fence/side/" + b.toLowerCase()))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					});
+
+					ShinglesSlantedBlockEntity.shingles.forEach(b -> {
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
+								modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 

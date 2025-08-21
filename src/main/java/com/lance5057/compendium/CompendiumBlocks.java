@@ -7,6 +7,7 @@ import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
+import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
@@ -44,10 +45,10 @@ public class CompendiumBlocks {
 
 	public static final DeferredBlock<Block> TABLE = BLOCKS.register("table",
 			() -> new TableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
-	
+
 	public static final DeferredBlock<Block> FANCY_BED = BLOCKS.register("fancy_bed",
 			() -> new FancyBedBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
-	
+
 	public static final DeferredBlock<Block> FANCY_FENCE = BLOCKS.register("fancy_fence",
 			() -> new FancyFenceBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
@@ -57,5 +58,8 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
 			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.GLASS)));
 
-	
+	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
+			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
+					Properties.ofFullCopy(Blocks.TERRACOTTA)));
+
 }

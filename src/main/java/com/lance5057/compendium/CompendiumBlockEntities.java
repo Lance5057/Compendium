@@ -12,6 +12,7 @@ import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.blocks.entities.WindowBlockEntity;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
+import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
@@ -82,4 +83,7 @@ public class CompendiumBlockEntities {
 			.register("fancy_fence", () -> BlockEntityType.Builder
 					.of(FancyFenceBlockEntity::new, CompendiumBlocks.FANCY_FENCE.get()).build(null));
 
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShinglesSlantedBlockEntity>> SLANTED_SHINGLES = BLOCK_ENTITIES
+			.register("shingles_slanted", () -> BlockEntityType.Builder
+					.of(ShinglesSlantedBlockEntity::new, CompendiumBlocks.SHINGLES_SLANTED.get()).build(null));
 }

@@ -9,6 +9,7 @@ import com.lance5057.compendium.CompendiumTags;
 
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -25,6 +26,8 @@ public class BlockTagGen extends BlockTagsProvider {
 		tag(CompendiumTags.PRYABLE).add(Blocks.IRON_BLOCK);
 
 		tag(CompendiumTags.TABLE).add(CompendiumBlocks.TABLE.get(), CompendiumBlocks.CLOTHED_TABLE.get());
+		
+		tag(BlockTags.FENCES).add(CompendiumBlocks.FANCY_FENCE.get());
 	}
 
 }

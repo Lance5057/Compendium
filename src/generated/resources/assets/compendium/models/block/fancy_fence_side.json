@@ -11,7 +11,17 @@
     "modelPart": "side",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "3_spoke",
+      "4_spoke",
+      "diamond",
+      "picket",
+      "privacy",
+      "short",
+      "slats",
+      "slats_concave",
+      "slats_convex",
+      "solid"
     ],
     "valid": [
       "METAL",

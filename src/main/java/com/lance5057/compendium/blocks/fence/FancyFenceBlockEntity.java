@@ -22,8 +22,10 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class FancyFenceBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
-	public static List<String> post = List.of("basic");
-	public static List<String> side = List.of("basic");
+	public static List<String> post = List.of("basic", "none", "pillar", "pillar_bottom", "pillar_double_cap",
+			"pillar_flat_cap", "pillar_top", "thick", "thin");
+	public static List<String> side = List.of("basic", "3_spoke", "4_spoke", "diamond", "picket", "privacy", "short",
+			"slats", "slats_concave", "slats_convex", "solid");
 
 	List<List<String>> styles = List.of(post, side);
 

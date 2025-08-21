@@ -11,7 +11,15 @@
     "modelPart": "post",
     "styleLayer": 0,
     "styles": [
-      "basic"
+      "basic",
+      "none",
+      "pillar",
+      "pillar_bottom",
+      "pillar_double_cap",
+      "pillar_flat_cap",
+      "pillar_top",
+      "thick",
+      "thin"
     ],
     "valid": [
       "METAL",
