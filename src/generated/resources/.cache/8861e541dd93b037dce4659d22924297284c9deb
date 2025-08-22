@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-21T13:57:05.5997979	Block Models: compendium
+// 1.21.1	2025-08-22T10:43:28.6850479	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_glass/window.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_glass/window.json
 35c07ae0dd83b55d5615e038fbe7bc433d98b1f2 assets/compendium/models/block/material/glass/brown_glass/window.json
@@ -467,6 +467,8 @@ adb73ee4305196a0c2fe8c7f8da37cdaf3c8e2c5 assets/compendium/models/block/material
 6f0f3308145542574e6606ee800853f6d9847a5b assets/compendium/models/block/material/wood/acacia/fence/side/slats_convex.json
 21a8c326354840c493c8c32ecb90709f23eb2d08 assets/compendium/models/block/material/wood/acacia/fence/side/solid.json
 11862fc1c828305dfc440f5d982fb1c8ad2cce42 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/basic.json
+a658bff9bb65a6ba472966a18489b55d1f5a2912 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/inner_corner/basic.json
+bda668e182bee064f52bf51f3ab61d8c97a6ab96 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/outer_corner/basic.json
 9a4f363206b45969f79f01cd591e382a489371e6 assets/compendium/models/block/material/wood/acacia/table/legs/bar.json
 90e6ad0a4d2c6e2ec3c2fc8e7907525370374c0b assets/compendium/models/block/material/wood/acacia/table/legs/basic.json
 6079e0bc98fffdf21864f2bf250c2e3e1f87e798 assets/compendium/models/block/material/wood/acacia/table/legs/fancy.json
@@ -576,6 +578,8 @@ eb638c79cfd4653a85c00a25a64d8fad73bead77 assets/compendium/models/block/material
 387cd5a25489ac28d816c6ab4cd6aea2fe5b7ce0 assets/compendium/models/block/material/wood/birch/fence/side/slats_convex.json
 b4ef8bbc52996233d458f8080d7e3589384f8205 assets/compendium/models/block/material/wood/birch/fence/side/solid.json
 c389277907a86ef5bf99ee0c99dc67d99ce34005 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/basic.json
+80bade215a62b99803cba5453f4089491566b904 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/inner_corner/basic.json
+e8777f16693a873785c94be90866b572bff36692 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/outer_corner/basic.json
 1125b470e69ab8eb447701bb411526bfca8d59e0 assets/compendium/models/block/material/wood/birch/table/legs/bar.json
 78a240466e5f9afd07d84c25a1e68a5b4e93158e assets/compendium/models/block/material/wood/birch/table/legs/basic.json
 49c519f5aa340379f9a824d82f3cf8b92d23ae16 assets/compendium/models/block/material/wood/birch/table/legs/fancy.json
@@ -685,6 +689,8 @@ e7b59d0f2ed0eae8e2355e7875ef6cb3188a98fc assets/compendium/models/block/material
 02c82dad046a9df0d53f3f7326654cc7ffe4a058 assets/compendium/models/block/material/wood/cherry/fence/side/slats_convex.json
 9a341cb8776fdf4d1ae0e2f1aa3345118c6e2e06 assets/compendium/models/block/material/wood/cherry/fence/side/solid.json
 d0b3a3226906a1bfc11eeef32ef12f040ce5f057 assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/basic.json
+0c325a2ab3b1519a47c3f52a35815c9bc187cf9b assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/inner_corner/basic.json
+f00460f0d914fd9b4cd0526ef96e5f49026754bb assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/outer_corner/basic.json
 490ac8be74e31b7b150134c56f6585b0b4c15694 assets/compendium/models/block/material/wood/cherry/table/legs/bar.json
 72378620adc392ce8096ca6e1a446effbccb81ec assets/compendium/models/block/material/wood/cherry/table/legs/basic.json
 359a43762e53d7178da73b43a734cd42eb9974a1 assets/compendium/models/block/material/wood/cherry/table/legs/fancy.json
@@ -794,6 +800,8 @@ ad6ad30103376db674bb3e7768679fa667e1d5a0 assets/compendium/models/block/material
 85835d4a85d9ec3ad0f3c00dc3692745cbe2acb9 assets/compendium/models/block/material/wood/crimson/fence/side/slats_convex.json
 87deca9751b250a997973e044dbd23f30cce52dc assets/compendium/models/block/material/wood/crimson/fence/side/solid.json
 363166f85b44375bebbf09f62c2f80d157b33429 assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/basic.json
+f02d77da54dc18fb20b0bf3704d773d9ebfeb55b assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/inner_corner/basic.json
+6f34aab10c8b7f3bac5b23f7f31f0415795073a8 assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/outer_corner/basic.json
 6e4352cc1e5747fa43cc1ba32f24f15d4e98d494 assets/compendium/models/block/material/wood/crimson/table/legs/bar.json
 284a20a952223e1df915e03d3e4bbb07a91472c0 assets/compendium/models/block/material/wood/crimson/table/legs/basic.json
 c3e3a636bf876ac77df6caf8f29faf235f1d53c6 assets/compendium/models/block/material/wood/crimson/table/legs/fancy.json
@@ -903,6 +911,8 @@ ecc1cf672ea421b26e661379814a18532064fb6f assets/compendium/models/block/material
 4825392b316da3b01a102bcefbcdb456081f3e4a assets/compendium/models/block/material/wood/dark_oak/fence/side/slats_convex.json
 81897c8298630af6a87bdae364d3bfaa360ab602 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid.json
 7799ec4a3ddc85468b6f8c58a0d6153e7abaa216 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/basic.json
+19f980b2712d68d7c68d4e7a1c157f4d2b16cd52 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/inner_corner/basic.json
+5b35a7342df5d6d2d10f17ba8046a982a2bdf79d assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/outer_corner/basic.json
 0a72408957423ca7b84b4f981d1903b4395571f7 assets/compendium/models/block/material/wood/dark_oak/table/legs/bar.json
 a6ce14158a4dbfb0b712e16edf3e155416d77144 assets/compendium/models/block/material/wood/dark_oak/table/legs/basic.json
 2400e2fce35095a9df6d82f60839b048c1df54c5 assets/compendium/models/block/material/wood/dark_oak/table/legs/fancy.json
@@ -1012,6 +1022,8 @@ a487727b95df9cefd976fca4e1f53c9a5a799b94 assets/compendium/models/block/material
 e269cf3faaa94f5d2168540c837b38bbc0e22190 assets/compendium/models/block/material/wood/jungle/fence/side/slats_convex.json
 2af78f26307263bb72cff7489eae475132bb3b0d assets/compendium/models/block/material/wood/jungle/fence/side/solid.json
 f7e71865d26b786b7e343e768a0263e9f7bae724 assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/basic.json
+0f299e2fd5c0eacd5bd2a2161dcf3064a8775233 assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/inner_corner/basic.json
+abb57d91d0289e0a1338f44f273e27fe71a1438e assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/outer_corner/basic.json
 395f19f4a2b2cd8a9281835a068ab9a70051c33d assets/compendium/models/block/material/wood/jungle/table/legs/bar.json
 c7eeac0ee8c462616530425861760b2ac3593fb6 assets/compendium/models/block/material/wood/jungle/table/legs/basic.json
 c85a3b8cf248aaf4836b836e0d0fc4ec714c6406 assets/compendium/models/block/material/wood/jungle/table/legs/fancy.json
@@ -1121,6 +1133,8 @@ fe8ef7f89e1882860a95cf7308b9c6054e796ae5 assets/compendium/models/block/material
 c11c455de622e6d0d888ca62f658d39c84fba283 assets/compendium/models/block/material/wood/mangrove/fence/side/slats_convex.json
 d3a5f28fd4976dc48d3a6c1394cc369187515c47 assets/compendium/models/block/material/wood/mangrove/fence/side/solid.json
 4e247ffbb078d5969ee5e5e8f2c7c3fc7acd27a7 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/basic.json
+46380e68ecfdf3354fe41311d51c4eb4f211a651 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/inner_corner/basic.json
+45c709a68bed839a9f984fb7bbb509d30ed44bf3 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/outer_corner/basic.json
 63e48f69dd86d43df2be50209bf9ffb20f13f10d assets/compendium/models/block/material/wood/mangrove/table/legs/bar.json
 859459292785812294e4b439e4075e2c6199214a assets/compendium/models/block/material/wood/mangrove/table/legs/basic.json
 22103bca566cf020b8396b7bf2646a4d41dcac14 assets/compendium/models/block/material/wood/mangrove/table/legs/fancy.json
@@ -1230,6 +1244,8 @@ a49c1cbc2d2c68c66e2c0c5c96f5652e4b8bd9d6 assets/compendium/models/block/material
 5fcb5f73b060e1b5bceacd5d3031d7e4762e8f8d assets/compendium/models/block/material/wood/oak/fence/side/slats_convex.json
 a4332a696d294f510506cd12b9c1b6e832e4936f assets/compendium/models/block/material/wood/oak/fence/side/solid.json
 ee3bd58b7573a3870f7e41cfc5a1cbf36b128680 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/basic.json
+8738fbfad1f8be8b76ef6283c78bb2a5be898a23 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/inner_corner/basic.json
+cedc91742ff842c7811002a4b3e33908177631c3 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/outer_corner/basic.json
 60239e3af22daa8193979edc68772aabfca47d81 assets/compendium/models/block/material/wood/oak/table/legs/bar.json
 b1f4068432e3049cb4d0ef87ebd29f291992f76f assets/compendium/models/block/material/wood/oak/table/legs/basic.json
 600ed27e4b3f544459f652a49561a49df06dcd7e assets/compendium/models/block/material/wood/oak/table/legs/fancy.json
@@ -1339,6 +1355,8 @@ f98eee5d4b37db39f08e6f77a94ae155ed3e5e00 assets/compendium/models/block/material
 32ec4abca3f04f56d8f8d8be9a5014d35138bb44 assets/compendium/models/block/material/wood/spruce/fence/side/slats_convex.json
 e4c9906215737432147bfe9b41a7300596c9483d assets/compendium/models/block/material/wood/spruce/fence/side/solid.json
 dd022907c3d4bdf4d833e0783f2316b8b02adafe assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/basic.json
+e447701065218825702ff3cc5ca108f203c9e158 assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/inner_corner/basic.json
+31241bd6b638e822cdfe07b3107b41d9049bb900 assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/outer_corner/basic.json
 5c7ccffcc34a16a1acb001d3fb7f6ba8248ee3a0 assets/compendium/models/block/material/wood/spruce/table/legs/bar.json
 d89cfa13dcad48333dc6389ccfc37a82d61d3d5b assets/compendium/models/block/material/wood/spruce/table/legs/basic.json
 e90e978404ed75392a8dad2c69bb4d661a122e6a assets/compendium/models/block/material/wood/spruce/table/legs/fancy.json
@@ -1448,6 +1466,8 @@ dc4ecbce193d64e1d1e8e9f89af879b6decba2a1 assets/compendium/models/block/material
 f32c403f30fc610e7b6d0da2242c2e819519d5af assets/compendium/models/block/material/wood/warped/fence/side/slats_convex.json
 8f624b1ce191fe293cc91db6c0a42880d57122dc assets/compendium/models/block/material/wood/warped/fence/side/solid.json
 7b4142600808cf4b818e589e038102607b3d58a1 assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/basic.json
+12efb114d8b6ce01cd03db5de4bce072b5cc559a assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/inner_corner/basic.json
+8eeabcc8ce05b3b07555d18efe13999bea402470 assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/outer_corner/basic.json
 c26a5e0af498ad1740c1ff7401a26e70e90afbe9 assets/compendium/models/block/material/wood/warped/table/legs/bar.json
 7f564c7f116e0e6665d52b1ac3792e09f90c9d0f assets/compendium/models/block/material/wood/warped/table/legs/basic.json
 a3df4f2ca0c42caeddc6117010919151b3783ec6 assets/compendium/models/block/material/wood/warped/table/legs/fancy.json

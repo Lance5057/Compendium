@@ -7,14 +7,14 @@
   },
   "layer0": {
     "materialLayer": 0,
-    "modelBase": "shingles",
-    "modelPart": "shingles_slanted",
+    "modelBase": "shingles_slanted",
+    "modelPart": "shingles/inner_corner",
     "styleLayer": 0,
     "styles": [
       "basic"
     ],
     "valid": [
-      "TEXTILE"
+      "WOOD"
     ]
   },
   "layer_count": 1,

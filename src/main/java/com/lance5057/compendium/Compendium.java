@@ -13,6 +13,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.common.NeoForgeConfig;
 
 @Mod(Compendium.MOD_ID)
 public class Compendium {
@@ -22,6 +23,7 @@ public class Compendium {
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
 	public Compendium(IEventBus bus, ModContainer modContainer) {
+		
 		modContainer.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.spec);
 
 		bus.addListener(CompendiumNetworkHandler::setupPackets);
@@ -49,6 +51,7 @@ public class Compendium {
 			});
 
 			CompendiumClient.setBERenderers();
+			NeoForgeConfig.CLIENT.experimentalForgeLightPipelineEnabled.set(true);
 		});
 	}
 
