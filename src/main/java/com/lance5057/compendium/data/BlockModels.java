@@ -733,6 +733,8 @@ public class BlockModels extends BlockStateProvider {
 							.base(models().cubeAll("shingles_slanted_straight_model", mcLoc("block/oak_planks")))
 							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "shingles",
 									List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support",
+									List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
 							.end()
 					: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT
 							? models().getBuilder("shingles_slanted_inner")
@@ -741,6 +743,8 @@ public class BlockModels extends BlockStateProvider {
 									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
 											"shingles/inner_corner", List.of(MATERIAL_TYPES.WOOD),
 											ShinglesSlantedBlockEntity.shingles, 0, 0))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support/inner_corner",
+											List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
 									.end()
 							: models().getBuilder("shingles_slanted_outer")
 									.customLoader(MultiStyleMaterialBuilder::begin)
@@ -748,6 +752,8 @@ public class BlockModels extends BlockStateProvider {
 									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
 											"shingles/outer_corner", List.of(MATERIAL_TYPES.WOOD),
 											ShinglesSlantedBlockEntity.shingles, 0, 0))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support/outer_corner",
+											List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
 									.end())
 					.rotationX(xRot).rotationY(yRot).build();
 		}, StairBlock.WATERLOGGED);

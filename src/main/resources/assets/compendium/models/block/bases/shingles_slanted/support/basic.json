@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/acacia_small_logs_corner"
+	},
+	"elements": [
+		{
+			"name": "log",
+			"from": [-0.011, -0.011, 7.989],
+			"to": [16.011, 8.011, 16.011],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [7.98, 0, 16, 8.02], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [7.98, 0, 16, 8.02], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 3, 0.5],
+			"color": 0,
+			"children": []
+		},
+		0
+	]
+}

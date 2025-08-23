@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-22T12:06:44.2633544	Block States: compendium
+// 1.21.1	2025-08-23T12:27:51.2755482	Block States: compendium
 fd803b3419a5d5c2b149258d50c104d47a197819 assets/compendium/blockstates/acacia_small_logs.json
 42f75b7089ef85d90c2a7792f7ffd620cc2655ce assets/compendium/blockstates/acacia_small_logs_corner.json
 f5ebc776978d2fb2345d968ea42a0ffedc5312b9 assets/compendium/blockstates/acacia_small_logs_slab.json
@@ -203,11 +203,11 @@ a959c5822e42c80f64116cf8a9a824ac3d6278bc assets/compendium/models/block/netherit
 7659a404c343938f642d2d519fb6b683be5b4f70 assets/compendium/models/block/purpur_tile.json
 edfe420ddd18834f0ba834c6d34c1d30898e84a9 assets/compendium/models/block/red_sandstone_tile.json
 96281473bab38d77dfb8235790c2b8c7a74fa56e assets/compendium/models/block/sandstone_tile.json
-880eea63b60e269e01f366e8c18e9ca09b3a6caa assets/compendium/models/block/shingles_slanted_inner.json
+21f92ccaa07f26b80e45ca2d7bfe6a390c842420 assets/compendium/models/block/shingles_slanted_inner.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/shingles_slanted_inner_model.json
-e27b49987a6033fc4298c8e2d56c639ebfec4a1d assets/compendium/models/block/shingles_slanted_outer.json
+dfba5f7b627ac3ce3dec5cd004ffae671d406b15 assets/compendium/models/block/shingles_slanted_outer.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/shingles_slanted_outer_model.json
-d1be4bfeb80a7acc0cd50ab383e0fa1b0e58f0e2 assets/compendium/models/block/shingles_slanted_straight.json
+639b440f79d21b6894e35e586fe09232fd52419b assets/compendium/models/block/shingles_slanted_straight.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/shingles_slanted_straight_model.json
 ef4b2dc2bb74b87597c9dd6af4f3928e25d57a66 assets/compendium/models/block/stone_tile.json
 ad46fdc54dcfd203c349af7e6b758187e0f4ba96 assets/compendium/models/block/table_cloth.json

@@ -14,6 +14,13 @@ public interface IStyleable {
 	public List<Integer> getCurrentAll();
 
 	public List<String> getCurrentAllString();
+	
+	public default String validateCurrent(List<String> l, int i2) {
+		if (l.size() > i2)
+			return l.get(i2);
+		
+		return l.get(0);
+	}
 
 	public void setCurrent(int index, int c);
 

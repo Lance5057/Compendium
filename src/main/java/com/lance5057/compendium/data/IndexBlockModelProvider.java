@@ -113,16 +113,40 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
+
 						withExistingParent(
-								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/" + b.toLowerCase(),
+								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/"
+										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/shingles/outer_corner/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
+
 						withExistingParent(
-								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/" + b.toLowerCase(),
+								"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/"
+										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/shingles/inner_corner/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					});
+
+					ShinglesSlantedBlockEntity.support.forEach(b -> {
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
+								modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
+								.texture("0", modLoc(
+										"block/material/wood/" + mb.name + "/" + mb.name + "_small_logs_corner"));
+
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/"
+										+ b.toLowerCase(),
+								modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
+								.texture("0", modLoc(
+										"block/material/wood/" + mb.name + "/" + mb.name + "_small_logs_corner"));
+
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/"
+										+ b.toLowerCase(),
+								modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
+								.texture("0", modLoc(
+										"block/material/wood/" + mb.name + "/" + mb.name + "_small_logs_corner"));
 					});
 
 					// special cases!

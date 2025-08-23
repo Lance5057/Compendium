@@ -54,8 +54,8 @@ public class TableBlockEntity extends MultiMaterialBlockEntity implements IStyle
 	public List<String> getCurrentAllString() {
 		List<String> l = new ArrayList<>();
 
-		l.add(top.get(this.getCurrent(0)));
-		l.add(legs.get(this.getCurrent(1)));
+		l.add(validateCurrent(top, this.getCurrent(0)));
+		l.add(validateCurrent(legs, this.getCurrent(1)));
 
 		return l;
 	}
