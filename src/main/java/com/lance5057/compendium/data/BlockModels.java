@@ -761,10 +761,13 @@ public class BlockModels extends BlockStateProvider {
 		}, StairBlock.WATERLOGGED);
 
 		getVariantBuilder(CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).forAllStates(s ->{
-			boolean NORTH = s.getValue(ShinglesCapSlanted.NORTH);
-			boolean SOUTH = s.getValue(ShinglesCapSlanted.SOUTH);
-			boolean WEST = s.getValue(ShinglesCapSlanted.WEST);
-			boolean EAST = s.getValue(ShinglesCapSlanted.EAST);
+			boolean N = s.getValue(ShinglesCapSlanted.NORTH);
+			boolean S = s.getValue(ShinglesCapSlanted.SOUTH);
+			boolean W = s.getValue(ShinglesCapSlanted.WEST);
+			boolean E = s.getValue(ShinglesCapSlanted.EAST);
+			
+			return ConfiguredModel.builder().modelFile(
+					
 		});
 	}
 
