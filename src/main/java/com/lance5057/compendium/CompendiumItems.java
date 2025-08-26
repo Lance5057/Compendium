@@ -143,4 +143,16 @@ public class CompendiumItems {
 											.toList()))
 							.component(CompendiumComponents.STYLE,
 									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+
+	public static final DeferredItem<Item> SHINGLES_CAP_SLANTED = ITEMS
+			.register("shingles_cap_slanted",
+					() -> new BlockItem(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), new Item.Properties()
+							.component(CompendiumComponents.MULTI_MATERIAL.get(),
+									new MultiMaterialBlockComponent(Stream
+											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
+											.toList()))
+							.component(CompendiumComponents.STYLE,
+									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 }

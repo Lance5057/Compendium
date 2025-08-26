@@ -12,6 +12,7 @@ import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlockEntity;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlockEntity;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlockEntity;
+import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.blocks.table.TableBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
@@ -28,6 +29,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -758,18 +760,12 @@ public class BlockModels extends BlockStateProvider {
 					.rotationX(xRot).rotationY(yRot).build();
 		}, StairBlock.WATERLOGGED);
 
-//		this.stairsBlock(CompendiumBlocks.SHINGLES_SLANTED.get(),
-//				,
-//				models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
-//						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
-//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
-//								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
-//						.end(),
-//				models().getBuilder("fancy_bed_bottom_blanket").customLoader(MultiStyleMaterialBuilder::begin)
-//						.base(models().cubeAll("fancy_bed_bottom_blanket_model", mcLoc("block/oak_planks")))
-//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "bottom/blanket",
-//								List.of(MATERIAL_TYPES.TEXTILE), FancyBedBlockEntity.blanket, 4, 4))
-//						.end());
+		getVariantBuilder(CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).forAllStates(s ->{
+			boolean NORTH = s.getValue(ShinglesCapSlanted.NORTH);
+			boolean SOUTH = s.getValue(ShinglesCapSlanted.SOUTH);
+			boolean WEST = s.getValue(ShinglesCapSlanted.WEST);
+			boolean EAST = s.getValue(ShinglesCapSlanted.EAST);
+		});
 	}
 
 	public void fence() {

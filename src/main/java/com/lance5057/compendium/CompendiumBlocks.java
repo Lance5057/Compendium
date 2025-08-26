@@ -61,5 +61,9 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
 					Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
+	
+	public static final DeferredBlock<Block> SHINGLES_CAP_SLANTED = BLOCKS.register("shingles_cap_slanted",
+			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
+					Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
 
 }
