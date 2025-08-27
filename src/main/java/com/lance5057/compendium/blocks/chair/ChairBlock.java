@@ -79,13 +79,13 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		Direction d = state.getValue(HorizontalDirectionalBlock.FACING);
 
 		switch (d) {
-		case Direction.NORTH:
+		case NORTH:
 			return Shapes.joinUnoptimized(BASE, BACKN, BooleanOp.OR);
-		case Direction.EAST:
+		case EAST:
 			return Shapes.joinUnoptimized(BASE, BACKE, BooleanOp.OR);
-		case Direction.SOUTH:
+		case SOUTH:
 			return Shapes.joinUnoptimized(BASE, BACKS, BooleanOp.OR);
-		case Direction.WEST:
+		case WEST:
 			return Shapes.joinUnoptimized(BASE, BACKW, BooleanOp.OR);
 		default:
 			return BASE;

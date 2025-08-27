@@ -139,7 +139,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 
 		VoxelShape s;
 		switch (d) {
-		case Direction.NORTH:
+		case NORTH:
 			s = ShapeUtil.detectCollision(v, SHAPE_TOP_NORTH, SHAPE_BOTTOM_NORTH);
 			if (s != null) {
 				if (s == SHAPE_TOP_NORTH)
@@ -148,7 +148,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 					return 1;
 			}
 			break;
-		case Direction.SOUTH:
+		case SOUTH:
 			s = ShapeUtil.detectCollision(v, SHAPE_TOP_SOUTH, SHAPE_BOTTOM_SOUTH);
 			if (s != null) {
 				if (s == SHAPE_TOP_SOUTH)
@@ -157,7 +157,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 					return 1;
 			}
 			break;
-		case Direction.EAST:
+		case EAST:
 			s = ShapeUtil.detectCollision(v, SHAPE_TOP_EAST, SHAPE_BOTTOM_EAST);
 			if (s != null) {
 				if (s == SHAPE_TOP_EAST)
@@ -166,7 +166,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 					return 1;
 			}
 			break;
-		case Direction.WEST:
+		case WEST:
 			s = ShapeUtil.detectCollision(v, SHAPE_TOP_WEST, SHAPE_BOTTOM_WEST);
 			if (s != null) {
 				if (s == SHAPE_TOP_WEST)

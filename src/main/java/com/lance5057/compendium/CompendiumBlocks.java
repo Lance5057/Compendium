@@ -8,6 +8,7 @@ import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
+import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
@@ -61,9 +62,8 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
 					Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
-	
+
 	public static final DeferredBlock<Block> SHINGLES_CAP_SLANTED = BLOCKS.register("shingles_cap_slanted",
-			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
-					Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
+			() -> new ShinglesCapSlanted(Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
 
 }

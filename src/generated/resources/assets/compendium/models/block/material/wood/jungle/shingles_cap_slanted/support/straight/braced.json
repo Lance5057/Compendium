@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_slanted/support/straight/braced",
+  "textures": {
+    "0": "compendium:block/material/wood/jungle/jungle_small_logs_corner"
+  }
+}

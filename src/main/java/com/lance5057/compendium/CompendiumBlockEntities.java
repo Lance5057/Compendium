@@ -85,5 +85,5 @@ public class CompendiumBlockEntities {
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShinglesSlantedBlockEntity>> SLANTED_SHINGLES = BLOCK_ENTITIES
 			.register("shingles_slanted", () -> BlockEntityType.Builder
-					.of(ShinglesSlantedBlockEntity::new, CompendiumBlocks.SHINGLES_SLANTED.get()).build(null));
+					.of(ShinglesSlantedBlockEntity::new, CompendiumBlocks.SHINGLES_SLANTED.get(), CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).build(null));
 }

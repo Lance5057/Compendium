@@ -239,7 +239,7 @@ public final class MultiToolRecipeShapedPattern {
 			} else if (p_312085_.isEmpty()) {
 				return DataResult.error(() -> "Invalid pattern: empty pattern not allowed");
 			} else {
-				int i = p_312085_.getFirst().length();
+				int i = p_312085_.get(0).length();
 
 				for (String s : p_312085_) {
 					if (s.length() > maxWidth) {

@@ -730,44 +730,79 @@ public class BlockModels extends BlockStateProvider {
 			}
 			yRot %= 360;
 			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
-			return ConfiguredModel.builder().modelFile(shape == StairsShape.STRAIGHT
-					? models().getBuilder("shingles_slanted_straight").customLoader(MultiStyleMaterialBuilder::begin)
-							.base(models().cubeAll("shingles_slanted_straight_model", mcLoc("block/oak_planks")))
-							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "shingles",
-									List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
-							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support",
-									List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
-							.end()
-					: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT
-							? models().getBuilder("shingles_slanted_inner")
+			return ConfiguredModel.builder()
+					.modelFile(shape == StairsShape.STRAIGHT
+							? models().getBuilder("shingles_slanted_straight")
 									.customLoader(MultiStyleMaterialBuilder::begin)
-									.base(models().cubeAll("shingles_slanted_inner_model", mcLoc("block/oak_planks")))
-									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
-											"shingles/inner_corner", List.of(MATERIAL_TYPES.WOOD),
-											ShinglesSlantedBlockEntity.shingles, 0, 0))
-									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support/inner_corner",
+									.base(models().cubeAll("shingles_slanted_straight_model",
+											mcLoc("block/oak_planks")))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "shingles",
+											List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support",
 											List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
 									.end()
-							: models().getBuilder("shingles_slanted_outer")
-									.customLoader(MultiStyleMaterialBuilder::begin)
-									.base(models().cubeAll("shingles_slanted_outer_model", mcLoc("block/oak_planks")))
-									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
-											"shingles/outer_corner", List.of(MATERIAL_TYPES.WOOD),
-											ShinglesSlantedBlockEntity.shingles, 0, 0))
-									.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support/outer_corner",
-											List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
-									.end())
+							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT
+									? models().getBuilder("shingles_slanted_inner")
+											.customLoader(MultiStyleMaterialBuilder::begin)
+											.base(models().cubeAll("shingles_slanted_inner_model",
+													mcLoc("block/oak_planks")))
+											.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
+													"shingles/inner_corner", List.of(MATERIAL_TYPES.WOOD),
+													ShinglesSlantedBlockEntity.shingles, 0, 0))
+											.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
+													"support/inner_corner", List
+															.of(MATERIAL_TYPES.WOOD),
+													ShinglesSlantedBlockEntity.support, 1, 1))
+											.end()
+									: models().getBuilder("shingles_slanted_outer")
+											.customLoader(MultiStyleMaterialBuilder::begin)
+											.base(models().cubeAll("shingles_slanted_outer_model",
+													mcLoc("block/oak_planks")))
+											.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
+													"shingles/outer_corner", List.of(MATERIAL_TYPES.WOOD),
+													ShinglesSlantedBlockEntity.shingles, 0, 0))
+											.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted",
+													"support/outer_corner", List.of(MATERIAL_TYPES.WOOD),
+													ShinglesSlantedBlockEntity.support, 1, 1))
+											.end())
 					.rotationX(xRot).rotationY(yRot).build();
 		}, StairBlock.WATERLOGGED);
 
-		getVariantBuilder(CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).forAllStates(s ->{
+		getVariantBuilder(CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).forAllStates(s -> {
 			boolean N = s.getValue(ShinglesCapSlanted.NORTH);
 			boolean S = s.getValue(ShinglesCapSlanted.SOUTH);
 			boolean W = s.getValue(ShinglesCapSlanted.WEST);
 			boolean E = s.getValue(ShinglesCapSlanted.EAST);
 			
-			return ConfiguredModel.builder().modelFile(
-					
+			if(N && S)
+				return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_straight")
+						.customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("shingles_cap_slanted_straight_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/straight",
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/straight",
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
+						.end()).build();
+			
+			if(E && W)
+				return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_straight")
+						.customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("shingles_cap_slanted_straight_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/straight",
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/straight",
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
+						.end()).rotationY(90).build();
+			
+			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_outer")
+					.customLoader(MultiStyleMaterialBuilder::begin)
+					.base(models().cubeAll("shingles_cap_slanted_all_model", mcLoc("block/oak_planks")))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/all",
+							List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/all",
+							List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
+					.end()).build();
+
 		});
 	}
 
