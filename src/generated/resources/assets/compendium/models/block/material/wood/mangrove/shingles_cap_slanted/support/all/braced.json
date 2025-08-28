@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/support/all/braced",
-  "textures": {
-    "0": "compendium:block/material/wood/mangrove/mangrove_small_logs_corner"
-  }
-}

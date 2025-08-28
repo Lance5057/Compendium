@@ -23,9 +23,7 @@
     "modelPart": "support/inner_corner",
     "styleLayer": 1,
     "styles": [
-      "basic",
-      "braced",
-      "none"
+      "basic"
     ],
     "valid": [
       "WOOD"

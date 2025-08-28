@@ -23,7 +23,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class ShinglesSlantedBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
 	public static List<String> shingles = List.of("basic");
-	public static List<String> support = List.of("basic", "braced", "none");
+	public static List<String> support = List.of("basic"/* , "braced", "none" */);
 	public static List<String> gable = List.of("basic");
 
 	List<List<String>> styles = List.of(shingles, support, gable);

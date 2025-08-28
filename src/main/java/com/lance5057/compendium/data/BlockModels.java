@@ -29,7 +29,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -773,37 +772,50 @@ public class BlockModels extends BlockStateProvider {
 			boolean S = s.getValue(ShinglesCapSlanted.SOUTH);
 			boolean W = s.getValue(ShinglesCapSlanted.WEST);
 			boolean E = s.getValue(ShinglesCapSlanted.EAST);
-			
-			if(N && S)
-				return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_straight")
-						.customLoader(MultiStyleMaterialBuilder::begin)
-						.base(models().cubeAll("shingles_cap_slanted_straight_model", mcLoc("block/oak_planks")))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/straight",
-								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/straight",
-								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
-						.end()).build();
-			
-			if(E && W)
-				return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_straight")
-						.customLoader(MultiStyleMaterialBuilder::begin)
-						.base(models().cubeAll("shingles_cap_slanted_straight_model", mcLoc("block/oak_planks")))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/straight",
-								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/straight",
-								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
-						.end()).rotationY(90).build();
-			
-			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_outer")
-					.customLoader(MultiStyleMaterialBuilder::begin)
-					.base(models().cubeAll("shingles_cap_slanted_all_model", mcLoc("block/oak_planks")))
-					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/all",
-							List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
-					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/all",
-							List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
-					.end()).build();
+
+			int i = N ? 1 : 0;
+			i += S ? 1 : 0;
+			i += W ? 1 : 0;
+			i += E ? 1 : 0;
+
+			switch (i) {
+			case 4:
+				return shingle("all", 0);
+			case 3:
+				return shingle("end", shingleRotation(!N, !S, !W, !E) - 90);
+			case 2:
+				return shingle("straight", N ? 0 : 90);
+			case 1:
+				return shingle("tri", shingleRotation(N, S, W, E) + 180);
+			case 0:
+			default:
+				return shingle("none", 0);
+			}
 
 		});
+	}
+
+	ConfiguredModel[] shingle(String suffix, int rotation) {
+		return ConfiguredModel.builder()
+				.modelFile(models().getBuilder("shingles_cap_slanted_" + suffix)
+						.customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("shingles_cap_slanted_" + suffix + "_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/" + suffix,
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.shingles, 0, 0))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/" + suffix,
+								List.of(MATERIAL_TYPES.WOOD), ShinglesSlantedBlockEntity.support, 1, 1))
+						.end())
+				.rotationY(rotation).build();
+	}
+
+	int shingleRotation(boolean N, boolean S, boolean W, boolean E) {
+		if (N)
+			return 0;
+		if (S)
+			return 180;
+		if (W)
+			return 270;
+		return 90;
 	}
 
 	public void fence() {
