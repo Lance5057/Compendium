@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-27T11:07:22.6092503	Loot Tables
+// 1.21.1	2025-08-29T12:11:46.3989287	Loot Tables
 d77d7df85970af69b1500b59ba45227d840fe572 data/compendium/loot_table/blocks/acacia_small_logs.json
 c1a28db2cf30eed4d22fa063f59373c93ee40f97 data/compendium/loot_table/blocks/acacia_small_logs_corner.json
 87c6d429ff3d26efd6cc7dd956dc84d25e3187f8 data/compendium/loot_table/blocks/acacia_small_logs_slab.json
@@ -33,6 +33,7 @@ c3f4281f8e9eba3c72f304db9b4083cd8ec5694c data/compendium/loot_table/blocks/diori
 fc92a9fb69b683b5a5c43d98d85b8bf1885f260f data/compendium/loot_table/blocks/dripstone_tile.json
 54770eb3bd862514f9e3ff0d934ecce667bfeeb1 data/compendium/loot_table/blocks/endstone_tile.json
 bacd6a3653f2ea1614069a97720ce01f80057c03 data/compendium/loot_table/blocks/fancy_bed.json
+1fe696be19d81735642ac903e954173a256d46a0 data/compendium/loot_table/blocks/fancy_door.json
 f4e4f9e6287b901229d215817c37037f7329297c data/compendium/loot_table/blocks/fancy_fence.json
 1e72481d2ee1ff1079d72527f9ae7889b558e26d data/compendium/loot_table/blocks/gold_tile.json
 dda88d89db92e31d627c1b1df8d166ce0e62c710 data/compendium/loot_table/blocks/granite_tile.json

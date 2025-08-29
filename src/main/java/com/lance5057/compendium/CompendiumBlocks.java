@@ -6,6 +6,7 @@ import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
+import com.lance5057.compendium.blocks.door.FancyDoorBlock;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
@@ -19,6 +20,7 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -66,4 +68,6 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> SHINGLES_CAP_SLANTED = BLOCKS.register("shingles_cap_slanted",
 			() -> new ShinglesCapSlanted(Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
 
+	public static final DeferredBlock<Block> FANCY_DOOR = BLOCKS.register("fancy_door",
+			() -> new FancyDoorBlock(BlockSetType.ACACIA, Properties.ofFullCopy(Blocks.ACACIA_DOOR).noOcclusion()));
 }

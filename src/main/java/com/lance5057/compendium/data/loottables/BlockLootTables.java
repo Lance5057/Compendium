@@ -49,6 +49,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.FANCY_FENCE.get());
 		this.dropSelf(CompendiumBlocks.SHINGLES_SLANTED.get());
 		this.dropSelf(CompendiumBlocks.SHINGLES_CAP_SLANTED.get());
+		this.dropSelf(CompendiumBlocks.FANCY_DOOR.get());
 		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMultiMaterialDrop(p_248609_));
 	}
 

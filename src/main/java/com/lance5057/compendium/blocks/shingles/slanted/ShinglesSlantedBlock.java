@@ -1,5 +1,7 @@
 package com.lance5057.compendium.blocks.shingles.slanted;
 
+import com.lance5057.compendium.CompendiumBlockEntities;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -17,7 +19,7 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock {
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		return new ShinglesSlantedBlockEntity(pos, state);
+		return CompendiumBlockEntities.SLANTED_SHINGLES.get().create(pos, state);
 	}
 
 	@Override

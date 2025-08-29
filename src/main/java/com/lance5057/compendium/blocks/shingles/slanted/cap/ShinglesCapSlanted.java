@@ -1,7 +1,7 @@
 package com.lance5057.compendium.blocks.shingles.slanted.cap;
 
+import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
-import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -30,7 +30,7 @@ public class ShinglesCapSlanted extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new ShinglesSlantedBlockEntity(pos, state);
+		return CompendiumBlockEntities.SLANTED_SHINGLES.get().create(pos, state);
 	}
 
 	@Override
