@@ -40,7 +40,7 @@ public class CompendiumItems {
 
 	public static final DeferredItem<BlockItem> HAMMERING_STATION = ITEMS.register("hammering_station",
 			() -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(), new Item.Properties()));
-
+ 
 	public static final DeferredItem<BlockItem> SAW_BUCK = ITEMS.register("saw_buck",
 			() -> new BlockItem(CompendiumBlocks.SAW_BUCK.get(), new Item.Properties()));
 
