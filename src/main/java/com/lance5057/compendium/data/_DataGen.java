@@ -34,5 +34,6 @@ public class _DataGen {
 		generator.addProvider(true, new Recipes(output, lookupProvider));
 
 		generator.addProvider(true, new LootTables(output, lookupProvider));
+		generator.addProvider(true, new StyleDataGen(output, lookupProvider));
 	}
 }

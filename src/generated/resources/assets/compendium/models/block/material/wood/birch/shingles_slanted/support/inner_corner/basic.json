@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_slanted/support/inner_corner/basic",
-  "textures": {
-    "0": "compendium:block/material/wood/birch/birch_small_logs_corner"
-  }
-}

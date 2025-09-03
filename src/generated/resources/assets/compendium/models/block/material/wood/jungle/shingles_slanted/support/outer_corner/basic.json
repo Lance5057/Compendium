@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_slanted/support/outer_corner/basic",
-  "textures": {
-    "0": "compendium:block/material/wood/jungle/jungle_small_logs_corner"
-  }
-}

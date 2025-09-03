@@ -13,20 +13,20 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.datamaps.DataMapValueRemover;
 
-public record StyleRemover(List<String> styles) implements DataMapValueRemover<Block, List<String>> {
-	public static final Codec<StyleRemover> CODEC = Codec.list(Codec.STRING).xmap(StyleRemover::new,
+public record StyleRemover(List<StyleLayer> styles) implements DataMapValueRemover<Block, List<StyleLayer>> {
+	public static final Codec<StyleRemover> CODEC = Codec.list(StyleLayer.CODEC).xmap(StyleRemover::new,
 			StyleRemover::styles);
 
 	@Override
-	public Optional<List<String>> remove(List<String> value, Registry<Block> registry,
+	public Optional<List<StyleLayer>> remove(List<StyleLayer> value, Registry<Block> registry,
 			Either<TagKey<Block>, ResourceKey<Block>> source, Block object) {
+		List<StyleLayer> newList = new ArrayList<StyleLayer>(value);
 
-		List<String> newList = new ArrayList<String>(value);
-
-		for (String s : styles)
-			newList.remove(s);
+		for (StyleLayer s : styles)
+			newList.remove(s);a wdfasdf bad lance, this doesnt even remotely work
 
 		return Optional.of(newList);
 	}
+
 
 }
