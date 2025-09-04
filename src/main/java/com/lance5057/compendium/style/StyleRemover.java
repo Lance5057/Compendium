@@ -13,20 +13,31 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.datamaps.DataMapValueRemover;
 
-public record StyleRemover(List<StyleLayer> styles) implements DataMapValueRemover<Block, List<StyleLayer>> {
-	public static final Codec<StyleRemover> CODEC = Codec.list(StyleLayer.CODEC).xmap(StyleRemover::new,
+public record StyleRemover(List<StyleData> styles) implements DataMapValueRemover<Block, List<StyleData>> {
+	public static final Codec<StyleRemover> CODEC = Codec.list(StyleData.CODEC).xmap(StyleRemover::new,
 			StyleRemover::styles);
 
 	@Override
-	public Optional<List<StyleLayer>> remove(List<StyleLayer> value, Registry<Block> registry,
+	public Optional<List<StyleData>> remove(List<StyleData> value, Registry<Block> registry,
 			Either<TagKey<Block>, ResourceKey<Block>> source, Block object) {
-		List<StyleLayer> newList = new ArrayList<StyleLayer>(value);
+		List<StyleData> newList = new ArrayList<StyleData>();
 
-		for (StyleLayer s : styles)
-			newList.remove(s);a wdfasdf bad lance, this doesnt even remotely work
+		for (StyleData f : styles) {
+			for (StyleData s : newList) {
+				if (f.name.equals(s.name)) {
+					newList.add(removeEntries(f, s));
+				}
+			}
+		}
 
 		return Optional.of(newList);
 	}
 
+	StyleData removeEntries(StyleData styles, StyleData toRemove) {
+		List<String> newStyles = new ArrayList<String>();
+		newStyles.addAll(styles.getTypes());
+		newStyles.removeAll(toRemove.getTypes());
 
+		return new StyleData(styles.name, newStyles);
+	}
 }

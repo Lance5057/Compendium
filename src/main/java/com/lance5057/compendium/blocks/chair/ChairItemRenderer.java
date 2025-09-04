@@ -16,8 +16,9 @@ public class ChairItemRenderer extends MultiStyleMaterialItemRenderer {
 
 	@Override
 	public List<String> getStyles(List<Integer> curStyles) {
-		return List.of(ChairBlockEntity.back.get(curStyles.get(0)),
-				ChairBlockEntity.seat.get(curStyles.get(1)), ChairBlockEntity.legs.get(curStyles.get(2)));
+		return List.of();
+//				ChairBlockEntity.back.get(curStyles.get(0)),
+//				ChairBlockEntity.seat.get(curStyles.get(1)), ChairBlockEntity.legs.get(curStyles.get(2)));
 	}
 
 	public static MultiStyleMaterialItemRenderer getInstance() {

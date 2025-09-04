@@ -5,16 +5,16 @@ import java.util.List;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-public class StyleLayer {
+public class StyleData {
 	String name;
 	List<String> types;
 
-	public static final Codec<StyleLayer> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
-			.group(Codec.STRING.fieldOf("name").forGetter(StyleLayer::getName),
-					Codec.list(Codec.STRING).fieldOf("types").forGetter(StyleLayer::getTypes))
-			.apply(p_337946_, StyleLayer::new));
+	public static final Codec<StyleData> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
+			.group(Codec.STRING.fieldOf("name").forGetter(StyleData::getName),
+					Codec.list(Codec.STRING).fieldOf("types").forGetter(StyleData::getTypes))
+			.apply(p_337946_, StyleData::new));
 
-	public StyleLayer(String name, List<String> types) {
+	public StyleData(String name, List<String> types) {
 		super();
 		this.name = name;
 		this.types = types;

@@ -2,6 +2,9 @@ package com.lance5057.compendium.blocks.bed;
 
 import javax.annotation.Nullable;
 
+import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
@@ -30,7 +33,7 @@ public class FancyBedBlock extends BedBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new FancyBedBlockEntity(pos, state);
+		return CompendiumBlockEntities.FANCY_BED.get().create(pos, state);
 	}
 
 	@Override
@@ -50,8 +53,9 @@ public class FancyBedBlock extends BedBlock {
 			BlockEntity foot = level.getBlockEntity(pos);
 
 			if (head != null && foot != null) {
-				if (head instanceof FancyBedBlockEntity heade && foot instanceof FancyBedBlockEntity feete) {
-					heade.currentStyles = feete.currentStyles;
+				if (head instanceof StyledMultiMaterialBlockEntity heade
+						&& foot instanceof StyledMultiMaterialBlockEntity feete) {
+					heade.setCurrentStyles(feete.getCurrentAll());
 					heade.setMaterials(feete.getMaterials());
 				}
 			}

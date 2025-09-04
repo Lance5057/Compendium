@@ -1,5 +1,7 @@
 package com.lance5057.compendium.blocks.fence;
 
+import com.lance5057.compendium.CompendiumBlockEntities;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -14,6 +16,6 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new FancyFenceBlockEntity(pos, state);
+		return CompendiumBlockEntities.FANCY_FENCE.get().create(pos, state);
 	}
 }

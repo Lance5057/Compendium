@@ -19,15 +19,11 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 	final int styleCount;
 	final int materialCount;
 
-	@SafeVarargs
-	public StyledMultiMaterialBlockEntity(BlockPos pos, BlockState blockState, int styleCount, int materialCount,
-			List<String>... lists) {
+	public StyledMultiMaterialBlockEntity(BlockPos pos, BlockState blockState, int styleCount, int materialCount) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
 		this.styleCount = styleCount;
 		this.materialCount = materialCount;
-		
-		for(List<String> l : lists)
-			styles.add(l);
+
 	}
 
 	@Override
@@ -45,6 +41,10 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 	@Override
 	public List<Integer> getCurrentAll() {
 		return this.currentStyles;
+	}
+
+	public void setCurrentStyles(List<Integer> currentStyles) {
+		this.currentStyles = currentStyles;
 	}
 
 	@Override

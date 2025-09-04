@@ -1,7 +1,7 @@
 package com.lance5057.compendium.blocks.chair;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.CompendiumItems;
+import com.lance5057.compendium.entities.SeatEntity;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -62,11 +63,25 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
 			BlockHitResult hitResult) {
-		BlockEntity blockentity = level.getBlockEntity(pos);
-		if (blockentity instanceof ChairBlockEntity be) {
-			return be.attemptSit(state, level, pos, player, hitResult);
-		}
+		this.attemptSit(state, level, pos, player, hitResult);
 		return InteractionResult.PASS;
+	}
+
+	public InteractionResult attemptSit(BlockState state, Level level, BlockPos pos, Player player,
+			BlockHitResult hitResult) {
+
+		if (level
+				.getEntities(null,
+						new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1))
+				.isEmpty()) {
+			SeatEntity s = new SeatEntity(level, pos, state.getValue(HorizontalDirectionalBlock.FACING), 0.2f);
+			level.addFreshEntity(s);
+
+			player.startRiding(s);
+			return InteractionResult.SUCCESS;
+		}
+
+		return InteractionResult.CONSUME;
 	}
 
 	@Override

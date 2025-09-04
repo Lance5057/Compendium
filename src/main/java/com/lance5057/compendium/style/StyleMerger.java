@@ -11,16 +11,16 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.datamaps.DataMapValueMerger;
 
-public class StyleMerger implements DataMapValueMerger<Block, List<StyleLayer>> {
+public class StyleMerger implements DataMapValueMerger<Block, List<StyleData>> {
 
 	@Override
-	public List<StyleLayer> merge(Registry<Block> registry, Either<TagKey<Block>, ResourceKey<Block>> first,
-			List<StyleLayer> firstValue, Either<TagKey<Block>, ResourceKey<Block>> second,
-			List<StyleLayer> secondValue) {
+	public List<StyleData> merge(Registry<Block> registry, Either<TagKey<Block>, ResourceKey<Block>> first,
+			List<StyleData> firstValue, Either<TagKey<Block>, ResourceKey<Block>> second,
+			List<StyleData> secondValue) {
 
-		List<StyleLayer> merged = new ArrayList<StyleLayer>();
-		for (StyleLayer f : firstValue) {
-			for (StyleLayer s : secondValue) {
+		List<StyleData> merged = new ArrayList<StyleData>();
+		for (StyleData f : firstValue) {
+			for (StyleData s : secondValue) {
 				if (f.name.equals(s)) {
 					merged.add(combine(f, s));
 				}
@@ -30,12 +30,12 @@ public class StyleMerger implements DataMapValueMerger<Block, List<StyleLayer>> 
 		return merged;
 	}
 
-	StyleLayer combine(StyleLayer first, StyleLayer second) {
+	StyleData combine(StyleData first, StyleData second) {
 		List<String> newStyles = new ArrayList<String>();
 		newStyles.addAll(first.getTypes());
 		newStyles.addAll(second.getTypes());
 
-		return new StyleLayer(first.name, newStyles);
+		return new StyleData(first.name, newStyles);
 	}
 
 }
