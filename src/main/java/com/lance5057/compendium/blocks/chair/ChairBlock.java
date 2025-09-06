@@ -1,7 +1,8 @@
 package com.lance5057.compendium.blocks.chair;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.entities.SeatEntity;
+import com.lance5057.compendium.style.StyleData;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -86,7 +87,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.CHAIR.get().create(pos, state);
+		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.CHAIR_BACK, StyleData.CHAIR_SEAT,
+				StyleData.CHAIR_LEGS);
 	}
 
 	@Override

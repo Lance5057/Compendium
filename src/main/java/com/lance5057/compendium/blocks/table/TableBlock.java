@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -56,7 +58,7 @@ public class TableBlock extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.TABLE.get().create(pos, state);
+		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2, StyleData.TABLE_TOP, StyleData.TABLE_LEGS);
 	}
 
 	@Override

@@ -3,22 +3,24 @@ package com.lance5057.compendium.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lance5057.compendium.style.StyleData;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 
 public interface IStyleable {
-	public List<List<String>> getStyles();
+	public List<StyleData> getStyles();
 
 	public int getCurrent(int index);
 
 	public List<Integer> getCurrentAll();
 
 	public List<String> getCurrentAllString();
-	
+
 	public default String validateCurrent(List<String> l, int i2) {
 		if (l.size() > i2)
 			return l.get(i2);
-		
+
 		return l.get(0);
 	}
 

@@ -1,0 +1,62 @@
+{
+  "variants": {
+    "east=false,north=false,south=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_none"
+    },
+    "east=false,north=false,south=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 450
+    },
+    "east=false,north=false,south=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 360
+    },
+    "east=false,north=false,south=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_straight",
+      "y": 90
+    },
+    "east=false,north=true,south=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 180
+    },
+    "east=false,north=true,south=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_straight"
+    },
+    "east=false,north=true,south=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_straight"
+    },
+    "east=false,north=true,south=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_end"
+    },
+    "east=true,north=false,south=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 270
+    },
+    "east=true,north=false,south=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_straight",
+      "y": 90
+    },
+    "east=true,north=false,south=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_straight",
+      "y": 90
+    },
+    "east=true,north=false,south=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_end",
+      "y": -90
+    },
+    "east=true,north=true,south=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_straight"
+    },
+    "east=true,north=true,south=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_end",
+      "y": 90
+    },
+    "east=true,north=true,south=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end",
+      "y": 180
+    },
+    "east=true,north=true,south=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_all"
+    }
+  }
+}

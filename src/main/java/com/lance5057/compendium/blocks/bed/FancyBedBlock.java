@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,7 +34,8 @@ public class FancyBedBlock extends BedBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.FANCY_BED.get().create(pos, state);
+		return new StyledMultiMaterialBlockEntity(pos, state, 5, 5, StyleData.BED_FRAME, StyleData.BED_MATTRESS,
+				StyleData.BED_PILLOW, StyleData.BED_SHEET, StyleData.BED_BLANKET);
 	}
 
 	@Override

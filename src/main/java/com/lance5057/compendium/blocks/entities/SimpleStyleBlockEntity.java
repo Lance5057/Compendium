@@ -3,8 +3,6 @@ package com.lance5057.compendium.blocks.entities;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 
@@ -13,7 +11,7 @@ import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
-import com.lance5057.compendium.styleblock.StyleType;
+import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -28,15 +26,9 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
-	public static List<String> style = List.of("FULL_TILE", "HALF_TILE",
-			/* "OFFSET_HALF_TILE", */ "VERTICAL_HALF_TILE", /* "QUARTER", */
-			"INDENTED", "INDENTED_SEGMENTED", "DENTED", "DENTED_SEGMENTED"/* , */ /* "TILTED_SMALL_TILE", */
-//			/*"DIAMOND_TILE"*/, /*"EIGHTH_TILES"*/, /* "OFFSET_EIGHTH_TILES", */ /*"BRICK", "BRICK_VERTICAL", "ALIGNED_BRICK",*/
-//			"ALIGNED_BRICK_VERTICAL", "BASKETWEAVE_BRICKS", "BIG_BRICK", /* "HALF_BRICK", */ "HERRINGBONE_BRICKS",
-	/* "HEX_BRICK", "SLATS", "SLATS_VERTICAL" */);
 //	String name;
-
-	List<List<String>> styles = List.of(style);
+//
+//	StyleData style = StyleData.TILES;
 
 //	public String getName() {
 //		return name;
@@ -47,8 +39,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	List<Integer> currentStyles = new ArrayList<Integer>();
 
 	@Override
-	public List<List<String>> getStyles() {
-		return styles;
+	public List<StyleData> getStyles() {
+		return List.of(StyleData.TILES);
 	}
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
@@ -78,7 +70,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	public List<String> getCurrentAllString() {
 		List<String> l = new ArrayList<>();
-		l.add(style.get(this.getCurrent(0)));
+		l.add(StyleData.TILES.getTypes().get(this.getCurrent(0)));
 		return l;
 	}
 

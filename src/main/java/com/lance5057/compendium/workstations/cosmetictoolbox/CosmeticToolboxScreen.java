@@ -120,7 +120,8 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_, BlockState state) {
 
-		for (int i = this.startIndex; i < p_283352_ && i < entity.getStyles().get(this.curStyleType).size(); ++i) {
+		for (int i = this.startIndex; i < p_283352_
+				&& i < entity.getStyles().get(this.curStyleType).getTypes().size(); ++i) {
 			int j = i - this.startIndex;
 			int k = this.leftPos + p_282658_;
 //			int l = j / 4;
@@ -140,14 +141,14 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			}
 			gui.pose().popPose();
 //			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.get(curStyleType).getCurrentStyle());
-			gui.drawString(this.font, Component.translatable(entity.getStyles().get(curStyleType).get(i)), k + 10, i1,
-					0xFFFFFF, true);
+			gui.drawString(this.font, Component.translatable(entity.getStyles().get(curStyleType).getTypes().get(i)),
+					k + 10, i1, 0xFFFFFF, true);
 		}
 	}
 
 	private boolean isScrollBarActive() {
 		if (entity != null)
-			return entity.getStyles().get(curStyleType).size() > 8;
+			return entity.getStyles().get(curStyleType).getTypes().size() > 8;
 		return false;
 	}
 
@@ -189,7 +190,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 		List<String> l = entity.getCurrentAllString();
 		if (cur != -1)
-			l.set(curStyleType, entity.getStyles().get(curStyleType).get(cur));
+			l.set(curStyleType, entity.getStyles().get(curStyleType).getTypes().get(cur));
 		md.with(StyleModelData.STYLES, l);
 
 		if (entity instanceof MultiMaterialBlockEntity mmb) {
@@ -208,7 +209,8 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
 			int p_282688_) {
 		if (entity != null)
-			for (int i = this.startIndex; i < p_282688_ && i < entity.getStyles().get(curStyleType).size(); ++i) {
+			for (int i = this.startIndex; i < p_282688_
+					&& i < entity.getStyles().get(curStyleType).getTypes().size(); ++i) {
 				int j = i - this.startIndex;
 				int k = p_281987_;
 //			int l = j / 4;
@@ -287,6 +289,6 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	}
 
 	protected int getOffscreenRows() {
-		return entity.getStyles().get(curStyleType).size() - 8;
+		return entity.getStyles().get(curStyleType).getTypes().size() - 8;
 	}
 }

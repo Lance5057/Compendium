@@ -12,8 +12,8 @@
     "styleLayer": 0,
     "styles": [
       "basic",
-      "trimmed",
-      "smooth"
+      "bar",
+      "fancy"
     ],
     "valid": [
       "METAL",

@@ -1,6 +1,6 @@
 package com.lance5057.compendium.blocks.door;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.DoorBlock;
@@ -18,7 +18,7 @@ public class FancyDoorBlock extends DoorBlock implements EntityBlock {
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		return CompendiumBlockEntities.FANCY_DOOR.get().create(pos, state);
+		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2);
 	}
 
 }

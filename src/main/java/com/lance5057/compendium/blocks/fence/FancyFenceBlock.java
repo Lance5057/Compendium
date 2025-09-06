@@ -1,6 +1,7 @@
 package com.lance5057.compendium.blocks.fence;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.EntityBlock;
@@ -16,6 +17,6 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return CompendiumBlockEntities.FANCY_FENCE.get().create(pos, state);
+		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2, StyleData.FENCE_POST, StyleData.FENCE_SIDE);
 	}
 }

@@ -25,6 +25,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.StyleItem;
 import com.lance5057.compendium.styleblock.StyleType;
 
@@ -93,7 +94,7 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll("window_base", bsp.mcLoc("block/glass")).renderType("cutout"));
 
-				for (String s : SimpleStyleBlockEntity.style)
+				for (String s : StyleData.TILES.getTypes())
 					msmb.add(new StyleModelBuilder(s, bsp.modLoc("block/material/" + base.getType().name().toLowerCase()
 							+ "/" + base.name.toLowerCase() + "/tile/" + s.toLowerCase())));
 
@@ -108,7 +109,7 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		if (this.loadTile) {
-			for (String s : SimpleStyleBlockEntity.style)
+			for (String s : StyleData.TILES.getTypes())
 				ibmp.cubeAll(
 						"block/material/" + base.getType().name().toLowerCase() + "/" + base.name.toLowerCase()
 								+ "/tile/" + s.toLowerCase(),
