@@ -75,7 +75,7 @@ public abstract class StationGui extends StationBlock implements EntityBlock, Si
 				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
 			} else if (!be.getInventory().isEmpty()) {
-				be.use(pPlayer, pHand, stack);
+				be.use(pLevel, pPlayer, pHand, stack);
 				return ItemInteractionResult.SUCCESS;
 			}
 		}

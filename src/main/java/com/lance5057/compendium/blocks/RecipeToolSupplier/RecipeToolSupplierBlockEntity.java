@@ -53,7 +53,7 @@ public abstract class RecipeToolSupplierBlockEntity extends BlockEntity {
 			}
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	public void searchForWorkstations(Level l) {

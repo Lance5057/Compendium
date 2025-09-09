@@ -68,7 +68,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 					BlockPos pos = new BlockPos(x, y, z);
 					BlockEntity ent = l.getBlockEntity(pos);
 
-					if (ent instanceof RecipeToolSupplierBlockEntity rtsb)
+					if (ent instanceof RecipeToolSupplierBlockEntity)
 						toolSuppliers.add(pos);
 				}
 
@@ -154,14 +154,16 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		return ItemStack.EMPTY;
 	}
 
-	public ItemInteractionResult use(Player player, InteractionHand hand, ItemStack tool) {
+	public ItemInteractionResult use(Level pLevel, Player player, InteractionHand hand, ItemStack tool) {
+
 		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
 		currentRecipe.ifPresent(r -> {
 
 			if (this.curTool == null) {
 				setupStage(r.value(), stage);
+				searchForNextItem(pLevel, player, hand, curTool);
 			}
-			if (this.curTool.test(tool))
+			if (this.curTool.test(tool)) {
 				if (tool.getCount() >= this.toolCount) {
 
 					if (this.progress >= this.maxProgress - 1) {
@@ -183,7 +185,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 						} else {
 							setupStage(r.value(), stage + 1);
-							searchForNextItem(player, hand, curTool);
+							searchForNextItem(pLevel, player, hand, curTool);
 						}
 					} else {
 						if (tool.isDamageableItem())
@@ -193,34 +195,40 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 						progress++;
 					}
-
 				}
+			} else {
+				searchForNextItem(pLevel, player, hand, curTool);
+			}
 		});
 		this.updateInventory();
 
 		return ItemInteractionResult.SUCCESS;
 	}
 
-	public ItemStack searchForNextItem(Player player, InteractionHand hand, Ingredient ing) {
-		for (BlockPos pos : toolSuppliers) {
-			BlockEntity be = level.getBlockEntity(pos);
-			if (be != null) {
-				if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
-					Inventory inv = player.getInventory();
-					int free = inv.getFreeSlot();
-					if (free != -1) {
-						inv.add(free, player.getItemInHand(hand));
-						ItemStack tool = rtsb.supply(player, hand, ing, height);
-						if (tool != ItemStack.EMPTY) {
-							player.setItemInHand(hand, tool);
+	public ItemStack searchForNextItem(Level pLevel, Player player, InteractionHand hand, Ingredient ing) {
+
+		if (!ing.test(player.getItemInHand(hand))) {
+			for (BlockPos pos : toolSuppliers) {
+				BlockEntity be = level.getBlockEntity(pos);
+				if (be != null) {
+					if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
+						Inventory inv = player.getInventory();
+						int free = inv.getFreeSlot();
+						if (free != -1) {
+
+							ItemStack tool = rtsb.supply(player, hand, ing, height);
+							if (tool != null && tool != ItemStack.EMPTY) {
+								inv.add(free, player.getItemInHand(hand));
+								player.setItemInHand(hand, tool);
+							}
 						}
+					} else {
+						// How did you get in here?
+						toolSuppliers.remove(pos);
 					}
 				} else {
-					// How did you get in here?
 					toolSuppliers.remove(pos);
 				}
-			} else {
-				toolSuppliers.remove(pos);
 			}
 		}
 		return ItemStack.EMPTY;
@@ -241,7 +249,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 		return insert;
 	}
-	
+
 	@Override
 	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		super.readNBT(nbt, registries);
@@ -321,7 +329,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 				CompoundTag pos = t.getCompound("pos" + i);
 
 				BlockPos bp = new BlockPos(pos.getInt("x"), pos.getInt("y"), pos.getInt("z"));
-				
+
 				toolSuppliers.add(bp);
 			}
 		}

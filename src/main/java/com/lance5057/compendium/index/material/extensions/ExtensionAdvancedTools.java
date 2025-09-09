@@ -31,6 +31,7 @@ import net.minecraft.world.item.ShearsItem;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -175,8 +176,10 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		if (loadHammer)
+		if (loadHammer) {
 			itp.tag(CompendiumTags.HAMMER).add(this.HAMMER.get());
+			itp.tag(Tags.Items.TOOLS).add(this.HAMMER.get());
+		}
 	}
 
 	@Override
@@ -245,7 +248,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
