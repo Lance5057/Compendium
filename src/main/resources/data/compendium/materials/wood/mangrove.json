@@ -5,10 +5,15 @@
   "extensions": [
     {
       "type": "EXTRALOGS",
+      "loadSmallLog": true,
       "loadSmallLogs": true,
       "loadSmallCornerLogs": true,
       "loadSmallLogsSlab": true,
       "loadSmallLogsStairs": true
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": true
     }
   ]
 }

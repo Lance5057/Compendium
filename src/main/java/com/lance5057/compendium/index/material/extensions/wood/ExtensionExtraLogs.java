@@ -8,6 +8,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -40,10 +42,14 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
+	boolean smallLog;
 	boolean smallLogs;
 	boolean smallLogsSlab;
 	boolean smallLogsCorner;
 	boolean smallLogsStairs;
+
+	public DeferredItem<BlockItem> SMALL_LOG_ITEM;
+	public DeferredBlock<RotatedPillarStyleBlock> SMALL_LOG;
 
 	public DeferredBlock<RotatedPillarBlock> SMALL_LOGS;
 	public DeferredItem<BlockItem> SMALL_LOGS_ITEM;
@@ -57,8 +63,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public DeferredBlock<StairBlock> SMALL_LOGS_STAIRS;
 	public DeferredItem<BlockItem> SMALL_LOGS_STAIRS_ITEM;
 
-	public ExtensionExtraLogs(boolean smallLogs, boolean smallLogsCorner, boolean smallLogsSlab,
+	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsCorner, boolean smallLogsSlab,
 			boolean smallLogsStairs) {
+		this.smallLog = smallLog;
 		this.smallLogs = smallLogs;
 		this.smallLogsCorner = smallLogsCorner;
 		this.smallLogsSlab = smallLogsSlab;
@@ -67,6 +74,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
+		if (smallLog) {
+			SMALL_LOG = CompendiumIndex.BLOCKS.register(base.name + "_small_log",
+					() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+			CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG);
+			SMALL_LOG_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_log_item",
+					() -> new BlockItem(SMALL_LOG.get(), new Item.Properties()));
+		}
 		if (smallLogs) {
 			SMALL_LOGS = CompendiumIndex.BLOCKS.register(base.name + "_small_logs",
 					() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
@@ -96,6 +110,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void tab(_MaterialBase base, Output output) {
+		if (this.smallLog) {
+			output.accept(SMALL_LOG_ITEM);
+		}
 		if (this.smallLogs) {
 			output.accept(SMALL_LOGS_ITEM);
 		}
@@ -113,6 +130,26 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
+			if (this.smallLog) {
+				bsp.axisBlock(SMALL_LOG.get(),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_log" + "_block",
+										Compendium.modLoc("item/small_log"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner")),
+
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_log" + "_block",
+										Compendium.modLoc("item/small_log"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner")));
+			}
 			if (this.smallLogs) {
 				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
 			}
@@ -184,19 +221,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			if (this.smallLogsStairs) {
 //				DataUtil.stairsMaterialBlock(bsp, SMALL_LOGS_STAIRS.get(), base.name, "_small_logs_stairs", "solid",
 //						base.getType());
-				stairsBlock(SMALL_LOGS_STAIRS.get(), bsp.models()
-						.withExistingParent("block/material/" + base.getType().toString().toLowerCase() + "/"
-								+ base.name + "/" + base.name + "_small_logs_stairs_block",
-								Compendium.modLoc("small_logs_stairs"))
-						.texture("0",
-								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
-										+ base.name + "/" + base.name + "_small_logs_corner"))
-						.texture("1",
-								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
-										+ base.name + "/" + base.name + "_small_logs_turned"))
-						.texture("2",
-								Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase() + "/"
-										+ base.name + "/" + base.name + "_small_logs_slab")),
+				stairsBlock(SMALL_LOGS_STAIRS.get(),
+						bsp.models()
+								.withExistingParent(
+										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
+												+ "/" + base.name + "_small_logs_stairs_block",
+										Compendium.modLoc("small_logs_stairs"))
+								.texture("0",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
+								.texture("1",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_turned"))
+								.texture("2",
+										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
+												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
 						bsp.models()
 								.withExistingParent(
 										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
@@ -254,6 +293,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
+			if (this.smallLog) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOG_ITEM, base.name, "small_log", base.getType());
+			}
 			if (this.smallLogs) {
 				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_ITEM, base.name, "small_logs", base.getType());
 			}
@@ -300,6 +342,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
+		if (this.smallLog) {
+			blp.dropSelf(this.SMALL_LOG.get());
+		}
 		if (this.smallLogs) {
 			blp.dropSelf(this.SMALL_LOGS.get());
 		}
@@ -340,6 +385,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
+			j.addProperty("loadSmallLog", src.smallLog);
 			j.addProperty("loadSmallLogs", src.smallLogs);
 			j.addProperty("loadSmallCornerLogs", src.smallLogsCorner);
 			j.addProperty("loadSmallLogsSlab", src.smallLogsSlab);
@@ -353,12 +399,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
+			boolean loadSmallLog = j.get("loadSmallLog").getAsBoolean();
 			boolean loadSmallLogs = j.get("loadSmallLogs").getAsBoolean();
 			boolean loadSmallCornerLogs = j.get("loadSmallCornerLogs").getAsBoolean();
 			boolean loadSmallLogsSlab = j.get("loadSmallLogsSlab").getAsBoolean();
 			boolean loadSmallLogsStairs = j.get("loadSmallLogsStairs").getAsBoolean();
 
-			return new ExtensionExtraLogs(loadSmallLogs, loadSmallCornerLogs, loadSmallLogsSlab, loadSmallLogsStairs);
+			return new ExtensionExtraLogs(loadSmallLog, loadSmallLogs, loadSmallCornerLogs, loadSmallLogsSlab,
+					loadSmallLogsStairs);
 		}
 
 	}
@@ -366,6 +414,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

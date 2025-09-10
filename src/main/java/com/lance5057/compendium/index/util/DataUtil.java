@@ -53,6 +53,11 @@ public class DataUtil {
 				.texture("layer1", extra);
 	}
 
+	public static void basicMaterial3DItem(ItemModelProvider p, Item item, _MaterialBase base,
+			ResourceLocation resourceLocation, MATERIAL_TYPES type, ResourceLocation texture) {
+		p.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile(resourceLocation)).texture("0", texture);
+	}
+
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
 			MATERIAL_TYPES type) {
 		p.getBuilder(item.getId().getPath())

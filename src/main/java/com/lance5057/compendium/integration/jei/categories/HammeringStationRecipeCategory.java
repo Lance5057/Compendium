@@ -28,7 +28,7 @@ public class HammeringStationRecipeCategory implements IRecipeCategory<Hammering
 
 	public HammeringStationRecipeCategory(IGuiHelper guiHelper) {
 		background = guiHelper.createDrawable(
-				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 132, 0, 124, 73);
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 0, 0, 162, 90);
 		localizedName = Component.translatable("compendium.jei.hammering_station");
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK,
 				new ItemStack(CompendiumItems.HAMMERING_STATION.get()));
@@ -56,13 +56,14 @@ public class HammeringStationRecipeCategory implements IRecipeCategory<Hammering
 
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, HammeringStationRecipe recipe, IFocusGroup focuses) {
-		builder.addSlot(RecipeIngredientRole.INPUT, 54, 56).addIngredients(Ingredient.of(recipe.getItemOut()));
 
-		builder.addSlot(RecipeIngredientRole.OUTPUT, 107, 30).addIngredients(recipe.getItemIn());
+		builder.addSlot(RecipeIngredientRole.INPUT, 50, 37).addIngredients(recipe.getItemIn());
+
+		builder.addSlot(RecipeIngredientRole.OUTPUT, 1, 73).addIngredients(Ingredient.of(recipe.getItemOut()));
 
 		int count = 0;
 		for (AnimatedRecipeItemUse aru : recipe.getTools()) {
-			builder.addSlot(RecipeIngredientRole.CATALYST, 70 + (count * 18), 30).addIngredients(aru.tool());
+			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + (count * 18), 1).addIngredients(aru.tool());
 			count++;
 		}
 	}
