@@ -1,16 +1,95 @@
 {
-  "variants": {
-    "axis=x": {
-      "model": "compendium:block/material/wood/dark_oak/dark_oak_small_log_block",
-      "x": 90,
-      "y": 90
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/small_log_horizontal2"
+      },
+      "when": {
+        "OR": [
+          {
+            "north": "true"
+          },
+          {
+            "south": "true"
+          }
+        ]
+      }
     },
-    "axis=y": {
-      "model": "compendium:block/material/wood/dark_oak/dark_oak_small_log_block"
+    {
+      "apply": {
+        "model": "compendium:block/small_log_horizontal"
+      },
+      "when": {
+        "OR": [
+          {
+            "west": "true"
+          },
+          {
+            "east": "true"
+          }
+        ]
+      }
     },
-    "axis=z": {
-      "model": "compendium:block/material/wood/dark_oak/dark_oak_small_log_block",
-      "x": 90
+    {
+      "apply": {
+        "model": "compendium:block/small_log_vertical"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap",
+        "x": 180
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap",
+        "x": 90
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap",
+        "x": 90,
+        "y": -90
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/small_log_cap",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
     }
-  }
+  ]
 }

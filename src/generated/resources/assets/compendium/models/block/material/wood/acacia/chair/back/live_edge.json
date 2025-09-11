@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/live_edge",
   "textures": {
-    "0": "minecraft:block/acacia_planks"
+    "0": "compendium:block/material/wood/acacia/acacia_small_logs_corner"
   }
 }

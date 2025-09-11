@@ -9,7 +9,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
+import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -21,6 +21,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -29,8 +30,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
@@ -42,6 +45,10 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
+	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
+	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
+	public static final VoxelShape smallLogVert = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+
 	boolean smallLog;
 	boolean smallLogs;
 	boolean smallLogsSlab;
@@ -49,7 +56,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	boolean smallLogsStairs;
 
 	public DeferredItem<BlockItem> SMALL_LOG_ITEM;
-	public DeferredBlock<RotatedPillarStyleBlock> SMALL_LOG;
+	public DeferredBlock<PipeStyleBlock> SMALL_LOG;
 
 	public DeferredBlock<RotatedPillarBlock> SMALL_LOGS;
 	public DeferredItem<BlockItem> SMALL_LOGS_ITEM;
@@ -76,7 +83,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		if (smallLog) {
 			SMALL_LOG = CompendiumIndex.BLOCKS.register(base.name + "_small_log",
-					() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+					() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 			CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG);
 			SMALL_LOG_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_log_item",
 					() -> new BlockItem(SMALL_LOG.get(), new Item.Properties()));
@@ -131,24 +138,66 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
 			if (this.smallLog) {
-				bsp.axisBlock(SMALL_LOG.get(),
-						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_log" + "_block",
-										Compendium.modLoc("item/small_log"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner")),
-
-						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_log" + "_block",
-										Compendium.modLoc("item/small_log"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner")));
+				ResourceLocation base_model_horizontal = bsp.modLoc("block/small_log_horizontal");
+				ResourceLocation base_model_horizontal2 = bsp.modLoc("block/small_log_horizontal2");
+				ResourceLocation base_model_vertical = bsp.modLoc("block/small_log_vertical");
+				ResourceLocation model_cap = bsp.modLoc("block/small_log_cap");
+				
+				bsp.getMultipartBuilder(SMALL_LOG.get())
+						.part()
+						.modelFile(bsp.models().getExistingFile(base_model_horizontal2))
+						.addModel().useOr()
+						.condition(BlockStateProperties.NORTH, true)
+						.condition(BlockStateProperties.SOUTH, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(base_model_horizontal))
+						.addModel().useOr()
+						.condition(BlockStateProperties.WEST, true)
+						.condition(BlockStateProperties.EAST, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(base_model_vertical))
+						.addModel()
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.addModel()
+						.condition(BlockStateProperties.UP, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.rotationX(180)
+						.addModel()
+						.condition(BlockStateProperties.DOWN, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.rotationX(90)
+						.addModel()
+						.condition(BlockStateProperties.NORTH, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.rotationX(90)
+						.rotationY(180)
+						.addModel()
+						.condition(BlockStateProperties.SOUTH, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.rotationX(90)
+						.rotationY(-90)
+						.addModel()
+						.condition(BlockStateProperties.WEST, true)
+						.end()
+						.part()
+						.modelFile(bsp.models().getExistingFile(model_cap))
+						.rotationX(90)
+						.rotationY(90)
+						.addModel()
+						.condition(BlockStateProperties.EAST, true)
+						.end();
 			}
 			if (this.smallLogs) {
 				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());

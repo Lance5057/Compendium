@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/solid",
   "textures": {
-    "0": "minecraft:block/oak_planks"
+    "0": "compendium:block/material/wood/oak/oak_small_logs_corner"
   }
 }
