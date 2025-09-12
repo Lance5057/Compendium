@@ -33,6 +33,7 @@
 			}
 		},
 		{
+			"name": "base",
 			"from": [0, 3, 2],
 			"to": [16, 5, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 14]},

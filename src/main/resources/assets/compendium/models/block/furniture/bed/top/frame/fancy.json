@@ -106,7 +106,7 @@
 			}
 		},
 		{
-			"name": "bottom rail",
+			"name": "top rail",
 			"from": [2, 3, 14],
 			"to": [14, 5, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11, 16, 11]},
