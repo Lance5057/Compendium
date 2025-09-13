@@ -3,12 +3,12 @@ package com.lance5057.compendium.client.models.multistylematerial;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
@@ -48,7 +48,7 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 			int packedLight, int overlay) {
 		ps.pushPose();
 		if (stack.getItem() instanceof BlockItem bi) {
-			if (bi.getBlock() instanceof IStyleable st) {
+			if (bi.getBlock() instanceof IStyleBlock st) {
 				BakedModel bm;
 				if (displayContext != ItemDisplayContext.GUI)
 					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(
@@ -70,7 +70,7 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 				if (mmt != null)
 					md.with(MultiMaterialModelData.STATE, mmt.types());
 				if (s != null)
-					md.with(StyleModelData.STYLES, st.getCurrentAllString());
+					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
 				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);
 

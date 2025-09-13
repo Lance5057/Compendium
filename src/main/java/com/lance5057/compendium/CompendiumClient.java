@@ -127,7 +127,9 @@ public class CompendiumClient {
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
 				return MultiStyleMaterialItemRenderer.getInstance();
 			}
-		}, CompendiumItems.CHAIR.get(), CompendiumItems.CLOTHED_TABLE.get(), CompendiumItems.TABLE.get());
+		}, CompendiumItems.CHAIR.get(), CompendiumItems.CLOTHED_TABLE.get(), CompendiumItems.TABLE.get(),
+				CompendiumItems.SHINGLES_CAP_SLANTED.get(), CompendiumItems.SHINGLES_SLANTED.get(),
+				CompendiumItems.FANCY_FENCE.get(), CompendiumItems.FANCY_BED.get());
 
 	}
 }

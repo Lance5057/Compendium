@@ -72,6 +72,10 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 				l.add(s.get(0));
 		}
 
+		if (l.isEmpty()) {
+
+		}
+
 		return l;
 	}
 

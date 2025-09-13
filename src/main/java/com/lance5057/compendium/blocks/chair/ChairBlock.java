@@ -1,8 +1,11 @@
 package com.lance5057.compendium.blocks.chair;
 
+import java.util.List;
+
 import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.entities.SeatEntity;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -29,7 +32,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock, IStyleBlock {
 
 	protected static final VoxelShape BASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 9.0D, 13.0D);
 
@@ -119,6 +122,14 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		if (context.getPlayer().isCrouching())
 			return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+	}
+
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+
+		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
+				StyleData.CHAIR_LEGS.getTypes().get(current.get(1)),
+				StyleData.CHAIR_SEAT.getTypes().get(current.get(2)));
 	}
 
 }
