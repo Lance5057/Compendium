@@ -1,7 +1,6 @@
 package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -25,15 +24,14 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 			if (i instanceof _MaterialBase mb) {
 				if (mb.getType() == MATERIAL_TYPES.WOOD) {
-					withExistingParent("block/material/wood/" + mb.name + "/small_log", modLoc("item/small_log"))
-							.texture("0",
+					withExistingParent("block/material/wood/" + mb.name + "/" + mb.name + "_small_log_block",
+							modLoc("item/small_log")).texture("0",
 									modLoc("block/material/wood/" + mb.name + "/" + mb.name + "_small_logs_corner"));
 
 					StyleData.CHAIR_BACK.getTypes().forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/" + mb.name + "_small_logs_corner"));
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
 
 					StyleData.CHAIR_LEGS.getTypes().forEach(b -> {

@@ -755,7 +755,7 @@ public class BlockModels extends BlockStateProvider {
 				yRot += 90; // Top stairs are rotated 90 degrees clockwise
 			}
 			yRot %= 360;
-			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+//			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
 			return ConfiguredModel.builder().modelFile(shape == StairsShape.STRAIGHT
 					? models().getBuilder("shingles_slanted_straight").customLoader(MultiStyleMaterialBuilder::begin)
 							.base(models().cubeAll("shingles_slanted_straight_model", mcLoc("block/oak_planks")))

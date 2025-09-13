@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions.wood;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -11,20 +12,29 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
+import com.lance5057.compendium.data.Recipes;
+import com.lance5057.compendium.data.loottables.RecipeLootTables;
+import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
+import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -33,8 +43,10 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -138,66 +150,69 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
 			if (this.smallLog) {
-				ResourceLocation base_model_horizontal = bsp.modLoc("block/small_log_horizontal");
-				ResourceLocation base_model_horizontal2 = bsp.modLoc("block/small_log_horizontal2");
-				ResourceLocation base_model_vertical = bsp.modLoc("block/small_log_vertical");
-				ResourceLocation model_cap = bsp.modLoc("block/small_log_cap");
-				
-				bsp.getMultipartBuilder(SMALL_LOG.get())
-						.part()
-						.modelFile(bsp.models().getExistingFile(base_model_horizontal2))
-						.addModel().useOr()
-						.condition(BlockStateProperties.NORTH, true)
-						.condition(BlockStateProperties.SOUTH, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(base_model_horizontal))
-						.addModel().useOr()
-						.condition(BlockStateProperties.WEST, true)
-						.condition(BlockStateProperties.EAST, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(base_model_vertical))
-						.addModel()
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.addModel()
-						.condition(BlockStateProperties.UP, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.rotationX(180)
-						.addModel()
-						.condition(BlockStateProperties.DOWN, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.rotationX(90)
-						.addModel()
-						.condition(BlockStateProperties.NORTH, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.rotationX(90)
-						.rotationY(180)
-						.addModel()
-						.condition(BlockStateProperties.SOUTH, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.rotationX(90)
-						.rotationY(-90)
-						.addModel()
-						.condition(BlockStateProperties.WEST, true)
-						.end()
-						.part()
-						.modelFile(bsp.models().getExistingFile(model_cap))
-						.rotationX(90)
-						.rotationY(90)
-						.addModel()
-						.condition(BlockStateProperties.EAST, true)
-						.end();
+				BlockModelBuilder base_model_horizontal = bsp.models()
+						.withExistingParent(
+								"block/material/wood/" + base.name + "/" + base.name + "_small_log_horizontal",
+								bsp.modLoc("block/small_log_horizontal"))
+						.texture("0", bsp
+								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
+				BlockModelBuilder base_model_horizontal2 = bsp.models()
+						.withExistingParent(
+								"block/material/wood/" + base.name + "/" + base.name + "_small_log_horizontal_rot",
+								bsp.modLoc("block/small_log_horizontal2"))
+						.texture("0", bsp
+								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
+				BlockModelBuilder base_model_vertical = bsp.models()
+						.withExistingParent(
+								"block/material/wood/" + base.name + "/" + base.name + "_small_log_vertical",
+								bsp.modLoc("block/small_log_vertical"))
+						.texture("0", bsp
+								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
+				BlockModelBuilder model_cap = bsp.models()
+						.withExistingParent("block/material/wood/" + base.name + "/" + base.name + "_small_log_cap",
+								bsp.modLoc("block/small_log_cap"))
+						.texture("0", bsp
+								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
+
+				bsp.getMultipartBuilder(SMALL_LOG.get()).part().modelFile(base_model_horizontal2).addModel()
+						.nestedGroup().useOr()
+
+						.nestedGroup().condition(BlockStateProperties.NORTH, false)
+						.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
+						.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+						.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+						.nestedGroup().condition(BlockStateProperties.NORTH, true)
+						.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
+						.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+						.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+						.nestedGroup().condition(BlockStateProperties.NORTH, true)
+						.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+						.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+						.endNestedGroup()
+
+						.nestedGroup().condition(BlockStateProperties.SOUTH, true)
+						.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+						.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+						.endNestedGroup().end().end().part().modelFile(base_model_horizontal).addModel().nestedGroup()
+						.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
+						.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+						.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+						.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+						.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+						.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
+						.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
+						.modelFile(base_model_vertical).addModel().useOr().condition(BlockStateProperties.UP, true)
+						.condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap).addModel()
+						.condition(BlockStateProperties.UP, true).end().part().modelFile(model_cap).rotationX(180)
+						.addModel().condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap)
+						.rotationX(90).addModel().condition(BlockStateProperties.NORTH, true).end().part()
+						.modelFile(model_cap).rotationX(90).rotationY(180).addModel()
+						.condition(BlockStateProperties.SOUTH, true).end().part().modelFile(model_cap).rotationX(90)
+						.rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
+						.modelFile(model_cap).rotationX(90).rotationY(90).addModel()
+						.condition(BlockStateProperties.EAST, true).end();
 			}
 			if (this.smallLogs) {
 				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
@@ -386,7 +401,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-
+		if (smallLog)
+			SawBuckRecipeBuilder.saw(
+					Ingredient.of(
+							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
+					new ItemStack(this.SMALL_LOG, 4), Vec3.ZERO).tool(Ingredient.of(ItemTags.AXES), 4, true,
+							RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
+					.save(consumer);;
 	}
 
 	@Override

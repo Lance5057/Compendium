@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-10T13:38:24.7315307	Loot Tables
+// 1.21.1	2025-09-12T22:50:18.7608388	Loot Tables
 429c3d5b217acbc4e7830561b056526d8e2164fc data/compendium/loot_table/blocks/acacia_small_log.json
 d77d7df85970af69b1500b59ba45227d840fe572 data/compendium/loot_table/blocks/acacia_small_logs.json
 c1a28db2cf30eed4d22fa063f59373c93ee40f97 data/compendium/loot_table/blocks/acacia_small_logs_corner.json
@@ -83,4 +83,5 @@ a632361312e2e7e88a6ce65d553946f2d0712f4c data/compendium/loot_table/blocks/warpe
 78f0ea6801873c1881c7958ad975d2c98507c924 data/compendium/loot_table/blocks/warped_small_logs_stairs.json
 0365e99c1af5f5999bf9184d0e9615c7846dbeac data/compendium/loot_table/blocks/window.json
 ee69408d19ad17c7c39b2b38e63a53566ac10e2e data/compendium/loot_table/blocks/workbench.json
+4d6f9bc4ae9b2aaa0268e1371c98ba1178f5d102 data/compendium/loot_table/sawdust.json
 e57417d8a1e9516296b470e774b506bace9dedde data/compendium/loot_table/stone_to_cobble.json

@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-10T13:38:24.7245154	Item Models: compendium
+// 1.21.1	2025-09-13T00:49:23.7293583	Item Models: compendium
 a9284bdaa0782208bdb1d49e4e171a49c1b08f93 assets/compendium/models/item/acacia_plank.json
 e42feab6c935cc7f92fc078662cac2e15e6770a8 assets/compendium/models/item/acacia_small_logs_corner_item.json
 c968f23bf1664d9a58e1b44c8e4e9afedab0d58e assets/compendium/models/item/acacia_small_logs_item.json
@@ -101,6 +101,7 @@ d1a59fa1f1db605c911d61d5cc5349366661f6b1 assets/compendium/models/item/oak_small
 46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/purpur_tile_item.json
 46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/red_sandstone_tile_item.json
 46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/sandstone_tile_item.json
+fa207b96d8c17882c9c978ca990c1758abfb2c24 assets/compendium/models/item/sawdust.json
 4379b4c99bef71cb0c56f388b78aa1d81a3a82cd assets/compendium/models/item/saw_buck.json
 0a21c283b19246ee38e7f03b0ed9cf5ca1a6392e assets/compendium/models/item/scrapping_table.json
 507f82f3ed1e4dab9291359646d3039326d60e46 assets/compendium/models/item/spruce_plank.json

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/small_log_vertical",
+  "textures": {
+    "0": "compendium:block/material/wood/birch/birch_small_logs_corner"
+  }
+}

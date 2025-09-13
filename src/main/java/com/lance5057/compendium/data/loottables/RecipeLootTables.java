@@ -4,6 +4,7 @@ import java.util.function.BiConsumer;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.core.HolderLookup;
@@ -25,8 +26,12 @@ public class RecipeLootTables implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> STONE_TO_COBBLE = ResourceKey.create(Registries.LOOT_TABLE,
 			TagUtil.modLoc("stone_to_cobble"));
-	
+
+	public static final ResourceKey<LootTable> SAW_DUST = ResourceKey.create(Registries.LOOT_TABLE,
+			TagUtil.modLoc("sawdust"));
+
 	private final HolderLookup.Provider provider;
+
 	public RecipeLootTables(HolderLookup.Provider provider) {
 		this.provider = provider;
 	}
@@ -34,6 +39,7 @@ public class RecipeLootTables implements LootTableSubProvider {
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, Builder> output) {
 		output.accept(STONE_TO_COBBLE, LootTable.lootTable().withPool(createPoolWithItem(Items.COBBLESTONE, 1)));
+		output.accept(SAW_DUST, LootTable.lootTable().withPool(createPoolWithItem(CompendiumItems.SAWDUST.get(), 1)));
 	}
 
 	@NotNull

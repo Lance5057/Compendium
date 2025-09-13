@@ -10,22 +10,30 @@ import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.Mult
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandler;
 
@@ -43,7 +51,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public final int height;
 	public final int numSlots;
 
-	private final BlockEntityItemHandler inventory = createItemHandler();
+	protected final BlockEntityItemHandler inventory = createItemHandler();
 	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
 
 	public HashSet<BlockPos> toolSuppliers = new HashSet<BlockPos>();
@@ -169,23 +177,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 					if (this.progress >= this.maxProgress - 1) {
 
 						if (isFinalStage(r.value())) {
-
-							for (int i = 0; i < 5; i++) {
-								addParticle();
-							}
-							level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
-
-							if (tool.isDamageableItem())
-								tool.hurtAndBreak(1, player, null);
-							else
-								tool.setCount(tool.getCount() - this.toolCount);
-
-							this.finishRecipe(player, r.value());
-							this.zeroProgress();
+							doFinalStage(player, tool, r);
 
 						} else {
-							setupStage(r.value(), stage + 1);
-							searchForNextItem(pLevel, player, hand, curTool);
+							doNextStage(pLevel, player, hand, r);
 						}
 					} else {
 						if (tool.isDamageableItem())
@@ -203,6 +198,46 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.updateInventory();
 
 		return ItemInteractionResult.SUCCESS;
+	}
+
+	private void doNextStage(Level pLevel, Player player, InteractionHand hand, RecipeHolder<V> r) {
+		dropLoot(r.value().getTools().get(stage), player);
+		setupStage(r.value(), stage + 1);
+		searchForNextItem(pLevel, player, hand, curTool);
+	}
+
+	private void dropLoot(AnimatedRecipeItemUse recipeToolsIn, Player player) {
+		if (level != null && !level.isClientSide()) {
+			final LootParams pParams = new LootParams.Builder((ServerLevel) level)
+					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
+					.withParameter(LootContextParams.THIS_ENTITY, player)
+					.withLuck(player.getLuck() + player.getMainHandItem()
+							.getEnchantmentLevel(player.registryAccess().holderOrThrow(Enchantments.FORTUNE)))
+					.create(LootContextParamSets.EMPTY);
+
+			player.getServer().reloadableRegistries()
+					.getLootTable(ResourceKey.create(Registries.LOOT_TABLE, recipeToolsIn.lootTable()))
+					.getRandomItems(pParams).forEach(itemStack -> {
+						level.addFreshEntity(new ItemEntity(level, getBlockPos().getX() + 0.5f,
+								getBlockPos().getY() + 1.5f, getBlockPos().getZ() + 0.5f, itemStack, 0, 0, 0));
+					});
+
+		}
+	}
+
+	private void doFinalStage(Player player, ItemStack tool, RecipeHolder<V> r) {
+		for (int i = 0; i < 5; i++) {
+			addParticle();
+		}
+		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
+
+		if (tool.isDamageableItem())
+			tool.hurtAndBreak(1, player, null);
+		else
+			tool.setCount(tool.getCount() - this.toolCount);
+		dropLoot(r.value().getTools().get(stage), player);
+		this.finishRecipe(player, r.value());
+		this.zeroProgress();
 	}
 
 	public ItemStack searchForNextItem(Level pLevel, Player player, InteractionHand hand, Ingredient ing) {

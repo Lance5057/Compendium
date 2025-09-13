@@ -2,7 +2,6 @@ package com.lance5057.compendium.data;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -39,7 +38,7 @@ public class ItemModels extends ItemModelProvider {
 		forBlockItem(CompendiumItems.SCRAPPING_TABLE,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
 
-//		getBuilder(CompendiumItems.CHAIR.getId().getPath()).parent(new ModelFile.UncheckedModelFile("compendium:block/chair"));
+		forItem(CompendiumItems.SAWDUST, "sawdust");
 	}
 
 	public static void forBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name) {

@@ -44,7 +44,7 @@ public class SawBuckRecipeBuilder implements RecipeBuilder {
 		this.offset = offset;
 	}
 
-	public static SawBuckRecipeBuilder hammer(Ingredient input, ItemStack result, Vec3 offset) {
+	public static SawBuckRecipeBuilder saw(Ingredient input, ItemStack result, Vec3 offset) {
 		return new SawBuckRecipeBuilder(input, result, offset);
 	}
 

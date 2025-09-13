@@ -13,6 +13,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
@@ -27,6 +28,19 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	private final CachedCheck<MultiToolRecipeWrapper, HammeringStationRecipe> quickCheck = RecipeManager
 			.createCheck(WorkstationRecipes.HAMMERINGSTATION_RECIPE.get());
 
+	@Override
+	public ItemStack insertItem(ItemStack item) {
+
+		item = inventory.insertItem(0, item, false);
+		if (item.isEmpty()) {
+			if (matchRecipe().isPresent())
+				return ItemStack.EMPTY;
+			else
+				return extractItem();
+		}
+		return item;
+	}
+	
 	@Override
 	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {

@@ -32,8 +32,9 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialWood extends _MaterialBase {
+	
 	public boolean loadPlanks;
-
+	
 	public DeferredItem<BlockItem> PLANKS_ITEM;
 	public DeferredBlock<Block> PLANKS;
 

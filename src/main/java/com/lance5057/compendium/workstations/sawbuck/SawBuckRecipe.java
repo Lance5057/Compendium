@@ -76,7 +76,7 @@ public class SawBuckRecipe extends MultiToolRecipe
 
 	@Override
 	public ItemStack getItemOut() {
-		return this.output;
+		return this.output.copy();
 	}
 
 	@Override

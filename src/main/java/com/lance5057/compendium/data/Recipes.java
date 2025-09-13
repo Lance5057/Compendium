@@ -8,6 +8,7 @@ import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
@@ -30,11 +31,29 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 	@Override
 	protected void buildRecipes(RecipeOutput consumer) {
+		CompendiumIndex.index.forEach(i -> {
+			i.recipes(consumer);
+		});
+		
 		hammering(consumer);
 		workbench(consumer);
+		sawing(consumer);
+	}
+
+	private void sawing(RecipeOutput consumer) {
+		
 	}
 
 	BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true)))
+						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8, 0))
+								.setY(new AnimatedFloat(10 + yOffset, 0)).setZ(new AnimatedFloat(8, 0)))
+						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
+	}
+	
+	public static BlacklistedModel standardSawBuckAxeModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, false,
 				new AnimationFloatTransform()
 						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true)))

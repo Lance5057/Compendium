@@ -2,42 +2,94 @@
   "multipart": [
     {
       "apply": {
-        "model": "compendium:block/small_log_horizontal2"
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_horizontal_rot"
       },
       "when": {
-        "OR": [
+        "AND": [
           {
-            "north": "true"
-          },
-          {
-            "south": "true"
+            "OR": [
+              {
+                "down": "false",
+                "east": "false",
+                "north": "false",
+                "south": "false",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "north": "true",
+                "south": "true",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "north": "true",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "south": "true",
+                "up": "false",
+                "west": "false"
+              }
+            ]
           }
         ]
       }
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_horizontal"
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_horizontal"
       },
       "when": {
-        "OR": [
+        "AND": [
           {
-            "west": "true"
-          },
-          {
-            "east": "true"
+            "OR": [
+              {
+                "down": "false",
+                "east": "true",
+                "up": "false",
+                "west": "true"
+              },
+              {
+                "down": "false",
+                "east": "true",
+                "up": "false"
+              },
+              {
+                "down": "false",
+                "up": "false",
+                "west": "true"
+              }
+            ]
           }
         ]
       }
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_vertical"
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_vertical"
+      },
+      "when": {
+        "OR": [
+          {
+            "up": "true"
+          },
+          {
+            "down": "true"
+          }
+        ]
       }
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap"
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap"
       },
       "when": {
         "up": "true"
@@ -45,7 +97,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap",
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap",
         "x": 180
       },
       "when": {
@@ -54,7 +106,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap",
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap",
         "x": 90
       },
       "when": {
@@ -63,7 +115,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap",
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap",
         "x": 90,
         "y": 180
       },
@@ -73,7 +125,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap",
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap",
         "x": 90,
         "y": -90
       },
@@ -83,7 +135,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/small_log_cap",
+        "model": "compendium:block/material/wood/jungle/jungle_small_log_cap",
         "x": 90,
         "y": 90
       },

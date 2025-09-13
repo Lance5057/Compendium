@@ -5,13 +5,13 @@ import java.util.Map;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
-import com.lance5057.compendium.blocks.chair.ChairItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialItemRenderer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.client.models.style.StyleUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRenderer;
@@ -106,18 +106,18 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
-		registerGeometryLoaders.register(MultiMaterialUnbakedModel.Loader.ID,
-				new MultiMaterialUnbakedModel.Loader());
+		registerGeometryLoaders.register(MultiMaterialUnbakedModel.Loader.ID, new MultiMaterialUnbakedModel.Loader());
 		registerGeometryLoaders.register(StyleUnbakedModel.Loader.ID, new StyleUnbakedModel.Loader());
 		registerGeometryLoaders.register(BlockStateItemGeometryLoader.ID, new BlockStateItemGeometryLoader());
-		registerGeometryLoaders.register(MultiStyleMaterialUnbakedModel.Loader.ID, new MultiStyleMaterialUnbakedModel.Loader());
+		registerGeometryLoaders.register(MultiStyleMaterialUnbakedModel.Loader.ID,
+				new MultiStyleMaterialUnbakedModel.Loader());
 	}
 
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(CompendiumEntities.SEAT.get(), c -> new SeatRenderer(c));
 	}
-	
+
 	@SubscribeEvent
 	public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
 
@@ -125,9 +125,9 @@ public class CompendiumClient {
 
 			@Override
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return ChairItemRenderer.getInstance();
+				return MultiStyleMaterialItemRenderer.getInstance();
 			}
-		}, CompendiumItems.CHAIR.get());
+		}, CompendiumItems.CHAIR.get(), CompendiumItems.CLOTHED_TABLE.get(), CompendiumItems.TABLE.get());
 
 	}
 }

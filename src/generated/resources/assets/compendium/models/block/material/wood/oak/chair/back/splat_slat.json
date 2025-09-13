@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/splat_slat",
   "textures": {
-    "0": "compendium:block/material/wood/oak/oak_small_logs_corner"
+    "0": "minecraft:block/oak_planks"
   }
 }
