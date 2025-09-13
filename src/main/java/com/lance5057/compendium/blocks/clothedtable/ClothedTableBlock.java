@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,7 +23,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ClothedTableBlock extends Block implements EntityBlock {
+public class ClothedTableBlock extends Block implements EntityBlock, IStyleBlock {
 
 	// connections
 	public static final BooleanProperty NW = BooleanProperty.create("nw");
@@ -121,6 +122,15 @@ public class ClothedTableBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return BASE;
+	}
+
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+
+		return List.of(
+				StyleData.CLOTHED_TABLE_TOP.getTypes().get(current.get(0)),
+				StyleData.CLOTHED_TABLE_LEGS.getTypes().get(current.get(1)),
+				StyleData.CLOTHED_TABLE_CLOTH.getTypes().get(current.get(2)));
 	}
 
 }

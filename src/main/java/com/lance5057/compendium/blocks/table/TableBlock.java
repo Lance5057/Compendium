@@ -3,11 +3,10 @@ package com.lance5057.compendium.blocks.table;
 import java.util.List;
 import java.util.stream.Stream;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -24,7 +23,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class TableBlock extends Block implements EntityBlock {
+public class TableBlock extends Block implements EntityBlock, IStyleBlock {
 
 	// connections
 	public static final BooleanProperty NW = BooleanProperty.create("nw");
@@ -124,4 +123,10 @@ public class TableBlock extends Block implements EntityBlock {
 		return BASE;
 	}
 
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+
+		return List.of(StyleData.TABLE_LEGS.getTypes().get(current.get(0)),
+				StyleData.TABLE_TOP.getTypes().get(current.get(1)));
+	}
 }

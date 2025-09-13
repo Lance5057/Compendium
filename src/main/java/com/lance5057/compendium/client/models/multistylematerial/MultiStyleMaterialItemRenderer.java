@@ -3,7 +3,6 @@ package com.lance5057.compendium.client.models.multistylematerial;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
@@ -18,7 +17,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -51,11 +49,9 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 			if (bi.getBlock() instanceof IStyleBlock st) {
 				BakedModel bm;
 				if (displayContext != ItemDisplayContext.GUI)
-					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(
-							bi.getBlock().defaultBlockState().setValue(ChairBlock.FACING, Direction.EAST));
+					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
 				else {
-					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(
-							bi.getBlock().defaultBlockState().setValue(ChairBlock.FACING, Direction.WEST));
+					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
 					ps.scale(0.75f, 0.75f, 0.75f);
 					ps.translate(0.4, -0.1, 0);
 				}
