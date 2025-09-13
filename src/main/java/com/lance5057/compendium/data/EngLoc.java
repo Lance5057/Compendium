@@ -19,6 +19,7 @@ public class EngLoc extends LanguageProvider {
 		this.add("itemGroup.compendium.tab", "Compendium");
 		this.add(CompendiumItems.SAWDUST.get(), "Sawdust");
 		this.add(CompendiumItems.ADJUSTINATOR.get(), "Adjustinator");
+		this.add(CompendiumItems.MEGALITH_STONE.get(), "Megalith Stone");
 		this.add(CompendiumItems.HAMMERING_STATION.get(), "Hammering Station");
 		this.add(CompendiumItems.SAW_BUCK.get(), "Sawbuck");
 		this.add(CompendiumItems.SCRAPPING_TABLE.get(), "Scrapping Table");
@@ -30,7 +31,11 @@ public class EngLoc extends LanguageProvider {
 		this.add(CompendiumItems.CHAIR.get(), "Chair");
 		this.add(CompendiumItems.TABLE.get(), "Table");
 		this.add(CompendiumItems.CLOTHED_TABLE.get(), "Table with Cloth");
+		this.add(CompendiumItems.FANCY_BED.get(), "Fancy Bed");
 		this.add(CompendiumItems.WINDOW.get(), "Window");
+		this.add(CompendiumItems.FANCY_FENCE.get(), "Fancy Fence");
+		this.add(CompendiumItems.SHINGLES_SLANTED.get(), "Slanted Shingles");
+		this.add(CompendiumItems.SHINGLES_CAP_SLANTED.get(), "Slanted Shingles Cap");
 
 		CompendiumIndex.index.forEach(i -> {
 			i.engLoc(this);

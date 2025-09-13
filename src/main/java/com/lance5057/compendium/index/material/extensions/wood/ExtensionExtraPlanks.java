@@ -71,8 +71,14 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
-		// TODO Auto-generated method stub
-
+		StringBuilder material_name = new StringBuilder();
+		for (String word : base.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			material_name.append(word).append(" ");
+		}
+		if (this.loadPlank) {
+			lp.add(this.PLANK.asItem(), material_name + "Plank");
+		}
 	}
 
 	@Override

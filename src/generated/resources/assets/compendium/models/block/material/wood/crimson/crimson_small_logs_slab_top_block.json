@@ -2,6 +2,7 @@
   "parent": "compendium:block/small_logs_slab_top",
   "textures": {
     "0": "compendium:block/material/wood/crimson/crimson_small_logs",
-    "1": "compendium:block/material/wood/crimson/crimson_small_logs_slab"
+    "1": "compendium:block/material/wood/crimson/crimson_small_logs_slab",
+    "particle": "compendium:block/material/wood/crimson/crimson_small_logs"
   }
 }
