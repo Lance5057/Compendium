@@ -19,6 +19,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.util.TagUtil;
 
@@ -61,14 +62,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
 	public static final VoxelShape smallLogVert = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-	boolean smallLog;
 	boolean smallLogs;
 	boolean smallLogsSlab;
 	boolean smallLogsCorner;
 	boolean smallLogsStairs;
 
-	public DeferredItem<BlockItem> SMALL_LOG_ITEM;
-	public DeferredBlock<PipeStyleBlock> SMALL_LOG;
+//	public DeferredItem<BlockItem> SMALL_LOG_ITEM;
+	public CompendiumBlockHandler SMALL_LOG = new CompendiumBlockHandler("small_log");
 
 	public DeferredBlock<RotatedPillarBlock> SMALL_LOGS;
 	public DeferredItem<BlockItem> SMALL_LOGS_ITEM;
@@ -84,7 +84,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsCorner, boolean smallLogsSlab,
 			boolean smallLogsStairs) {
-		this.smallLog = smallLog;
+		SMALL_LOG.setEnabled(smallLog);
 		this.smallLogs = smallLogs;
 		this.smallLogsCorner = smallLogsCorner;
 		this.smallLogsSlab = smallLogsSlab;
@@ -93,13 +93,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		if (smallLog) {
-			SMALL_LOG = CompendiumIndex.BLOCKS.register(base.name + "_small_log",
-					() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
-			CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG);
-			SMALL_LOG_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_log_item",
-					() -> new BlockItem(SMALL_LOG.get(), new Item.Properties()));
-		}
+		SMALL_LOG.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
+
 		if (smallLogs) {
 			SMALL_LOGS = CompendiumIndex.BLOCKS.register(base.name + "_small_logs",
 					() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
@@ -129,9 +125,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void tab(_MaterialBase base, Output output) {
-		if (this.smallLog) {
-			output.accept(SMALL_LOG_ITEM);
-		}
+		SMALL_LOG.tab(base, output);
 		if (this.smallLogs) {
 			output.accept(SMALL_LOGS_ITEM);
 		}
@@ -147,9 +141,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	}
 
 	@Override
+	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+
+		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
+				ibmp.modLoc(SMALL_LOG.location(base) + "s_corner"));
+	}
+
+	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
-			if (this.smallLog) {
+			if (SMALL_LOG.enabled()) {
 				BlockModelBuilder base_model_horizontal = bsp.models()
 						.withExistingParent(
 								"block/material/wood/" + base.name + "/" + base.name + "_small_log_horizontal",
@@ -174,7 +175,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						.texture("0", bsp
 								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
 
-				bsp.getMultipartBuilder(SMALL_LOG.get()).part().modelFile(base_model_horizontal2).addModel()
+				bsp.getMultipartBuilder(SMALL_LOG.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel()
 						.nestedGroup().useOr()
 
 						.nestedGroup().condition(BlockStateProperties.NORTH, false)
@@ -357,8 +358,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
-			if (this.smallLog) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOG_ITEM, base.name, "small_log", base.getType());
+			if (SMALL_LOG.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log", base.getType());
 			}
 			if (this.smallLogs) {
 				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_ITEM, base.name, "small_logs", base.getType());
@@ -401,20 +402,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-		if (smallLog)
-			SawBuckRecipeBuilder.saw(
-					Ingredient.of(
+		if (SMALL_LOG.enabled())
+			SawBuckRecipeBuilder
+					.saw(Ingredient.of(
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
-					new ItemStack(this.SMALL_LOG, 4), Vec3.ZERO).tool(Ingredient.of(ItemTags.AXES), 4, true,
-							RecipeLootTables.SAW_DUST, List.of(),
+							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
+					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
-					.save(consumer);;
+					.save(consumer);
+		;
 	}
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
-		if (this.smallLog) {
-			blp.dropSelf(this.SMALL_LOG.get());
+		if (SMALL_LOG.enabled()) {
+			blp.dropSelf(SMALL_LOG.BLOCK.get());
 		}
 		if (this.smallLogs) {
 			blp.dropSelf(this.SMALL_LOGS.get());
@@ -456,7 +458,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
-			j.addProperty("loadSmallLog", src.smallLog);
+			j.addProperty("loadSmallLog", src.SMALL_LOG.enabled());
 			j.addProperty("loadSmallLogs", src.smallLogs);
 			j.addProperty("loadSmallCornerLogs", src.smallLogsCorner);
 			j.addProperty("loadSmallLogsSlab", src.smallLogsSlab);
@@ -482,9 +484,4 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	}
 
-	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		// TODO Auto-generated method stub
-
-	}
 }

@@ -33,6 +33,8 @@ public class MaterialWood extends _MaterialBase {
 	public CompendiumBlockHandler PLANKS = new CompendiumBlockHandler("planks");
 	public CompendiumBlockHandler LOG = new CompendiumBlockHandler("log");
 	public CompendiumBlockHandler STRIPPED_LOG = new CompendiumBlockHandler("stripped_log");
+	public CompendiumBlockHandler WOOD = new CompendiumBlockHandler("wood");
+	public CompendiumBlockHandler STRIPPED_WOOD = new CompendiumBlockHandler("stripped_wood");
 
 	public MaterialWood(String name) {
 		this(name, true);
@@ -54,6 +56,8 @@ public class MaterialWood extends _MaterialBase {
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
+		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
 
 		this.extensions.forEach(i -> i.setup(this));
 	}

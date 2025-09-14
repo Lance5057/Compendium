@@ -53,7 +53,7 @@ public abstract class _MaterialBase implements IIndexEntry {
 		}
 		return false;
 	}
-	
+
 	public abstract Ingredient getBaseItem();
 
 	public _MaterialBase addExtension(_MaterialExtension x) {
@@ -78,7 +78,11 @@ public abstract class _MaterialBase implements IIndexEntry {
 
 		return this;
 	}
-	
+
+	public String location() {
+		return "material/" + this.getType().toString().toLowerCase() + "/" + this.getName();
+	}
+
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {

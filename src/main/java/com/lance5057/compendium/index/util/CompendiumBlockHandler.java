@@ -59,4 +59,8 @@ public class CompendiumBlockHandler {
 			output.accept(BLOCK_ITEM);
 	}
 
+	public String location(_MaterialBase base) {
+		return "block/" + base.location() + "/" + base.name + "_" + this.name;
+	}
+
 }
