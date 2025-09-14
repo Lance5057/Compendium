@@ -88,21 +88,18 @@ public class DataUtil {
 								+ "_block")));
 	}
 
-	public static void axisMaterialBlock(BlockStateProvider bsp, RotatedPillarBlock block, String name, String extra,
-			String rendertype, MATERIAL_TYPES type) {
-		bsp.axisBlock(block, bsp.models().cubeColumn(
-				"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_block",
-				Compendium.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra),
-				Compendium.modLoc(
-						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_top"))
-				.renderType(rendertype),
-				bsp.models().cubeColumnHorizontal(
-						"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra + "_block",
-						Compendium.modLoc(
-								"block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + extra),
-						Compendium.modLoc("block/material/" + type.toString().toLowerCase() + "/" + name + "/" + name
-								+ extra + "_top"))
-						.renderType(rendertype));
+	public static void axisMaterialBlock(BlockStateProvider bsp, _MaterialBase base, CompendiumBlockHandler b,
+			String extra, String rendertype, MATERIAL_TYPES type) {
+		if (b.BLOCK.get() instanceof RotatedPillarBlock)
+			bsp.axisBlock((RotatedPillarBlock) b.BLOCK.get(), bsp.models()
+					.cubeColumn(b.location(base) + extra + "_block", Compendium.modLoc(b.location(base) + extra),
+							Compendium.modLoc(b.location(base) + extra + "_top"))
+					.renderType(rendertype),
+					bsp.models()
+							.cubeColumnHorizontal(b.location(base) + extra + "_block",
+									Compendium.modLoc(b.location(base) + extra),
+									Compendium.modLoc(b.location(base) + extra + "_top"))
+							.renderType(rendertype));
 	}
 
 	public static void slabMaterialBlock(BlockStateProvider bsp, SlabBlock block, String name, String extra,

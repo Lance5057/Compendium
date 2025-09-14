@@ -2,6 +2,10 @@
   "name": "crimson",
   "type": "WOOD",
   "loadPlanks": false,
+  "loadLog": false,
+  "loadStrippedLog": false,
+  "loadWood": false,
+  "loadStrippedWood": false,
   "extensions": [
     {
       "type": "EXTRALOGS",
@@ -9,7 +13,12 @@
       "loadSmallLogs": true,
       "loadSmallCornerLogs": true,
       "loadSmallLogsSlab": true,
-      "loadSmallLogsStairs": true
+      "loadSmallLogsStairs": true,
+      "loadStrippedSmallLog": true,
+      "loadStrippedSmallLogs": true,
+      "loadStrippedSmallCornerLogs": true,
+      "loadStrippedSmallLogsSlab": true,
+      "loadStrippedSmallLogsStairs": true
     },
     {
       "type": "EXTRAPLANKS",

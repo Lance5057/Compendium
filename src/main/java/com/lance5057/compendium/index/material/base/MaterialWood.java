@@ -37,10 +37,11 @@ public class MaterialWood extends _MaterialBase {
 	public CompendiumBlockHandler STRIPPED_WOOD = new CompendiumBlockHandler("stripped_wood");
 
 	public MaterialWood(String name) {
-		this(name, true);
+		this(name, true, true, true, true, true);
 	}
 
-	public MaterialWood(String name, boolean planks) {
+	public MaterialWood(String name, boolean planks, boolean log, boolean stripped_log, boolean wood,
+			boolean stripped_wood) {
 		super(name);
 
 		PLANKS.setEnabled(planks);
@@ -57,7 +58,8 @@ public class MaterialWood extends _MaterialBase {
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
 		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
-		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		STRIPPED_WOOD.setup(this,
+				() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
@@ -65,6 +67,10 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void tab(Output output) {
 		PLANKS.tab(this, output);
+		LOG.tab(this, output);
+		STRIPPED_LOG.tab(this, output);
+		WOOD.tab(this, output);
+		STRIPPED_WOOD.tab(this, output);
 
 		this.extensions.forEach(i -> i.tab(this, output));
 	}
@@ -127,8 +133,12 @@ public class MaterialWood extends _MaterialBase {
 
 			String name = j.get("name").getAsString();
 			boolean plank = j.get("loadPlanks").getAsBoolean();
+			boolean log = j.get("loadLog").getAsBoolean();
+			boolean stripped_log = j.get("loadStrippedLog").getAsBoolean();
+			boolean wood = j.get("loadWood").getAsBoolean();
+			boolean stripped_wood = j.get("loadStrippedWood").getAsBoolean();
 
-			MaterialWood w = new MaterialWood(name, plank);
+			MaterialWood w = new MaterialWood(name, plank, log, stripped_log, wood, stripped_wood);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -147,6 +157,10 @@ public class MaterialWood extends _MaterialBase {
 			j.addProperty("name", src.name);
 			j.addProperty("type", type);
 			j.addProperty("loadPlanks", src.PLANKS.enabled());
+			j.addProperty("loadLog", src.LOG.enabled());
+			j.addProperty("loadStrippedLog", src.STRIPPED_LOG.enabled());
+			j.addProperty("loadWood", src.WOOD.enabled());
+			j.addProperty("loadStrippedWood", src.STRIPPED_WOOD.enabled());
 
 			JsonArray ext = new JsonArray();
 

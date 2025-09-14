@@ -1,37 +1,37 @@
 {
   "variants": {
     "facing=east,half=bottom,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 270
     },
     "facing=east,half=bottom,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block"
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block"
     },
     "facing=east,half=bottom,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 270
     },
     "facing=east,half=bottom,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block"
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block"
     },
     "facing=east,half=bottom,shape=straight": {
       "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_block"
     },
     "facing=east,half=top,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180
     },
     "facing=east,half=top,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 90
     },
     "facing=east,half=top,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180
     },
     "facing=east,half=top,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 90
     },
@@ -40,19 +40,19 @@
       "x": 180
     },
     "facing=north,half=bottom,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 180
     },
     "facing=north,half=bottom,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 270
     },
     "facing=north,half=bottom,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 180
     },
     "facing=north,half=bottom,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 270
     },
     "facing=north,half=bottom,shape=straight": {
@@ -60,21 +60,21 @@
       "y": 270
     },
     "facing=north,half=top,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 270
     },
     "facing=north,half=top,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180
     },
     "facing=north,half=top,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 270
     },
     "facing=north,half=top,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180
     },
     "facing=north,half=top,shape=straight": {
@@ -83,17 +83,17 @@
       "y": 270
     },
     "facing=south,half=bottom,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block"
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block"
     },
     "facing=south,half=bottom,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 90
     },
     "facing=south,half=bottom,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block"
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block"
     },
     "facing=south,half=bottom,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 90
     },
     "facing=south,half=bottom,shape=straight": {
@@ -101,22 +101,22 @@
       "y": 90
     },
     "facing=south,half=top,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 90
     },
     "facing=south,half=top,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 180
     },
     "facing=south,half=top,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 90
     },
     "facing=south,half=top,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 180
     },
@@ -126,19 +126,19 @@
       "y": 90
     },
     "facing=west,half=bottom,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 90
     },
     "facing=west,half=bottom,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "y": 180
     },
     "facing=west,half=bottom,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 90
     },
     "facing=west,half=bottom,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "y": 180
     },
     "facing=west,half=bottom,shape=straight": {
@@ -146,22 +146,22 @@
       "y": 180
     },
     "facing=west,half=top,shape=inner_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 180
     },
     "facing=west,half=top,shape=inner_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_inner_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_inner_block",
       "x": 180,
       "y": 270
     },
     "facing=west,half=top,shape=outer_left": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 180
     },
     "facing=west,half=top,shape=outer_right": {
-      "model": "compendium:block/material/wood/cherry/cherry_small_logs_outer_stairs_block",
+      "model": "compendium:block/material/wood/cherry/cherry_small_logs_stairs_outer_block",
       "x": 180,
       "y": 270
     },

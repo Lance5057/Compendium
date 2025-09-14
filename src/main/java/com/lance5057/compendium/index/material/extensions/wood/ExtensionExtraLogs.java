@@ -15,7 +15,6 @@ import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
-import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -31,9 +30,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -54,90 +51,87 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
 	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
 	public static final VoxelShape smallLogVert = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-	boolean smallLogs;
-	boolean smallLogsSlab;
-	boolean smallLogsCorner;
-	boolean smallLogsStairs;
+	public final CompendiumBlockHandler SMALL_LOG;
+	public final CompendiumBlockHandler SMALL_LOGS;
+	public final CompendiumBlockHandler SMALL_LOGS_SLAB;
+	public final CompendiumBlockHandler SMALL_LOGS_CORNER;
+	public final CompendiumBlockHandler SMALL_LOGS_STAIRS;
 
-//	public DeferredItem<BlockItem> SMALL_LOG_ITEM;
-	public CompendiumBlockHandler SMALL_LOG = new CompendiumBlockHandler("small_log");
-
-	public DeferredBlock<RotatedPillarBlock> SMALL_LOGS;
-	public DeferredItem<BlockItem> SMALL_LOGS_ITEM;
-
-	public DeferredBlock<SlabBlock> SMALL_LOGS_SLAB;
-	public DeferredItem<BlockItem> SMALL_LOGS_SLAB_ITEM;
-
-	public DeferredBlock<RotatedPillarBlock> SMALL_LOGS_CORNER;
-	public DeferredItem<BlockItem> SMALL_LOGS_CORNER_ITEM;
-
-	public DeferredBlock<StairBlock> SMALL_LOGS_STAIRS;
-	public DeferredItem<BlockItem> SMALL_LOGS_STAIRS_ITEM;
+	public final CompendiumBlockHandler STRIPPED_SMALL_LOG;
+	public final CompendiumBlockHandler STRIPPED_SMALL_LOGS;
+	public final CompendiumBlockHandler STRIPPED_SMALL_LOGS_SLAB;
+	public final CompendiumBlockHandler STRIPPED_SMALL_LOGS_CORNER;
+	public final CompendiumBlockHandler STRIPPED_SMALL_LOGS_STAIRS;
 
 	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsCorner, boolean smallLogsSlab,
-			boolean smallLogsStairs) {
+			boolean smallLogsStairs, boolean strippedSmallLog, boolean strippedSmallLogs,
+			boolean strippedSmallLogsCorner, boolean strippedSmallLogsSlab, boolean strippedSmallLogsStairs) {
+
+		SMALL_LOG = new CompendiumBlockHandler("small_log");
+		SMALL_LOGS = new CompendiumBlockHandler("small_logs");
+		SMALL_LOGS_SLAB = new CompendiumBlockHandler("small_logs_slab");
+		SMALL_LOGS_CORNER = new CompendiumBlockHandler("small_logs_corner");
+		SMALL_LOGS_STAIRS = new CompendiumBlockHandler("small_logs_stairs");
+
+		STRIPPED_SMALL_LOG = new CompendiumBlockHandler("stripped_small_log");
+		STRIPPED_SMALL_LOGS = new CompendiumBlockHandler("stripped_small_logs");
+		STRIPPED_SMALL_LOGS_SLAB = new CompendiumBlockHandler("stripped_small_logs_slab");
+		STRIPPED_SMALL_LOGS_CORNER = new CompendiumBlockHandler("stripped_small_logs_corner");
+		STRIPPED_SMALL_LOGS_STAIRS = new CompendiumBlockHandler("stripped_small_logs_stairs");
+
 		SMALL_LOG.setEnabled(smallLog);
-		this.smallLogs = smallLogs;
-		this.smallLogsCorner = smallLogsCorner;
-		this.smallLogsSlab = smallLogsSlab;
-		this.smallLogsStairs = smallLogsStairs;
+		SMALL_LOGS.setEnabled(smallLogs);
+		SMALL_LOGS_SLAB.setEnabled(smallLogsSlab);
+		SMALL_LOGS_CORNER.setEnabled(smallLogsCorner);
+		SMALL_LOGS_STAIRS.setEnabled(smallLogsStairs);
+
+		STRIPPED_SMALL_LOG.setEnabled(strippedSmallLog);
+		STRIPPED_SMALL_LOGS.setEnabled(strippedSmallLogs);
+		STRIPPED_SMALL_LOGS_SLAB.setEnabled(strippedSmallLogsSlab);
+		STRIPPED_SMALL_LOGS_CORNER.setEnabled(strippedSmallLogsCorner);
+		STRIPPED_SMALL_LOGS_STAIRS.setEnabled(strippedSmallLogsStairs);
 	}
 
 	@Override
 	public void setup(_MaterialBase base) {
 		SMALL_LOG.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+		SMALL_LOGS.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+		SMALL_LOGS_CORNER.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+		SMALL_LOGS_SLAB.setup(base, () -> new SlabBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
+		SMALL_LOGS_STAIRS.setup(base, () -> new StairBlock(SMALL_LOGS.BLOCK.get().defaultBlockState(),
+				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
 		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
 
-		if (smallLogs) {
-			SMALL_LOGS = CompendiumIndex.BLOCKS.register(base.name + "_small_logs",
-					() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-			SMALL_LOGS_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_logs_item",
-					() -> new BlockItem(SMALL_LOGS.get(), new Item.Properties()));
-		}
-		if (smallLogs) {
-			SMALL_LOGS_CORNER = CompendiumIndex.BLOCKS.register(base.name + "_small_logs_corner",
-					() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-			SMALL_LOGS_CORNER_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_logs_corner_item",
-					() -> new BlockItem(SMALL_LOGS_CORNER.get(), new Item.Properties()));
-		}
-		if (smallLogsSlab) {
-			SMALL_LOGS_SLAB = CompendiumIndex.BLOCKS.register(base.name + "_small_logs_slab",
-					() -> new SlabBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
-			SMALL_LOGS_SLAB_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_logs_slab_item",
-					() -> new BlockItem(SMALL_LOGS_SLAB.get(), new Item.Properties()));
-		}
-		if (smallLogsStairs) {
-			SMALL_LOGS_STAIRS = CompendiumIndex.BLOCKS.register(base.name + "_small_logs_stairs",
-					() -> new StairBlock(SMALL_LOGS.get().defaultBlockState(),
-							Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
-			SMALL_LOGS_STAIRS_ITEM = CompendiumIndex.ITEMS.register(base.name + "_small_logs_stairs_item",
-					() -> new BlockItem(SMALL_LOGS_STAIRS.get(), new Item.Properties()));
-		}
+		STRIPPED_SMALL_LOG.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+		STRIPPED_SMALL_LOGS.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+		STRIPPED_SMALL_LOGS_CORNER.setup(base,
+				() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+		STRIPPED_SMALL_LOGS_SLAB.setup(base, () -> new SlabBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
+		STRIPPED_SMALL_LOGS_STAIRS.setup(base, () -> new StairBlock(SMALL_LOGS.BLOCK.get().defaultBlockState(),
+				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
+		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_SMALL_LOG.BLOCK);
+
 	}
 
 	@Override
 	public void tab(_MaterialBase base, Output output) {
 		SMALL_LOG.tab(base, output);
-		if (this.smallLogs) {
-			output.accept(SMALL_LOGS_ITEM);
-		}
-		if (this.smallLogsCorner) {
-			output.accept(SMALL_LOGS_CORNER_ITEM);
-		}
-		if (this.smallLogsSlab) {
-			output.accept(SMALL_LOGS_SLAB_ITEM);
-		}
-		if (this.smallLogsStairs) {
-			output.accept(SMALL_LOGS_STAIRS_ITEM);
-		}
+		SMALL_LOGS.tab(base, output);
+		SMALL_LOGS_CORNER.tab(base, output);
+		SMALL_LOGS_SLAB.tab(base, output);
+		SMALL_LOGS_STAIRS.tab(base, output);
+
+		STRIPPED_SMALL_LOG.tab(base, output);
+		STRIPPED_SMALL_LOGS.tab(base, output);
+		STRIPPED_SMALL_LOGS_CORNER.tab(base, output);
+		STRIPPED_SMALL_LOGS_SLAB.tab(base, output);
+		STRIPPED_SMALL_LOGS_STAIRS.tab(base, output);
 	}
 
 	@Override
@@ -145,189 +139,193 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
 				ibmp.modLoc(SMALL_LOG.location(base) + "s_corner"));
+
+		ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log"))
+				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "s_corner"));
 	}
 
 	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
-			if (SMALL_LOG.enabled()) {
-				BlockModelBuilder base_model_horizontal = bsp.models()
-						.withExistingParent(
-								"block/material/wood/" + base.name + "/" + base.name + "_small_log_horizontal",
-								bsp.modLoc("block/small_log_horizontal"))
-						.texture("0", bsp
-								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
-				BlockModelBuilder base_model_horizontal2 = bsp.models()
-						.withExistingParent(
-								"block/material/wood/" + base.name + "/" + base.name + "_small_log_horizontal_rot",
-								bsp.modLoc("block/small_log_horizontal2"))
-						.texture("0", bsp
-								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
-				BlockModelBuilder base_model_vertical = bsp.models()
-						.withExistingParent(
-								"block/material/wood/" + base.name + "/" + base.name + "_small_log_vertical",
-								bsp.modLoc("block/small_log_vertical"))
-						.texture("0", bsp
-								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
-				BlockModelBuilder model_cap = bsp.models()
-						.withExistingParent("block/material/wood/" + base.name + "/" + base.name + "_small_log_cap",
-								bsp.modLoc("block/small_log_cap"))
-						.texture("0", bsp
-								.modLoc("block/material/wood/" + base.name + "/" + base.name + "_small_logs_corner"));
-
-				bsp.getMultipartBuilder(SMALL_LOG.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel()
-						.nestedGroup().useOr()
-
-						.nestedGroup().condition(BlockStateProperties.NORTH, false)
-						.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
-						.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
-						.condition(BlockStateProperties.DOWN, false).endNestedGroup()
-
-						.nestedGroup().condition(BlockStateProperties.NORTH, true)
-						.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
-						.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
-						.condition(BlockStateProperties.DOWN, false).endNestedGroup()
-
-						.nestedGroup().condition(BlockStateProperties.NORTH, true)
-						.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
-						.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
-						.endNestedGroup()
-
-						.nestedGroup().condition(BlockStateProperties.SOUTH, true)
-						.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
-						.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
-						.endNestedGroup().end().end().part().modelFile(base_model_horizontal).addModel().nestedGroup()
-						.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
-						.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
-						.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
-						.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
-						.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
-						.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
-						.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
-						.modelFile(base_model_vertical).addModel().useOr().condition(BlockStateProperties.UP, true)
-						.condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap).addModel()
-						.condition(BlockStateProperties.UP, true).end().part().modelFile(model_cap).rotationX(180)
-						.addModel().condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap)
-						.rotationX(90).addModel().condition(BlockStateProperties.NORTH, true).end().part()
-						.modelFile(model_cap).rotationX(90).rotationY(180).addModel()
-						.condition(BlockStateProperties.SOUTH, true).end().part().modelFile(model_cap).rotationX(90)
-						.rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
-						.modelFile(model_cap).rotationX(90).rotationY(90).addModel()
-						.condition(BlockStateProperties.EAST, true).end();
+			smallLogsModel(SMALL_LOG, base, bsp);
+			smallLogsModel(STRIPPED_SMALL_LOG, base, bsp);
+			if (SMALL_LOGS.enabled()) {
+				DataUtil.axisMaterialBlock(bsp, base, SMALL_LOGS, "", "solid", base.getType());
 			}
-			if (this.smallLogs) {
-				DataUtil.axisMaterialBlock(bsp, SMALL_LOGS.get(), base.name, "_small_logs", "solid", base.getType());
+			if (STRIPPED_SMALL_LOGS.enabled()) {
+				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_SMALL_LOGS, "", "solid", base.getType());
 			}
-			if (this.smallLogsCorner) {
+			if (SMALL_LOGS_CORNER.enabled()) {
 
-				bsp.axisBlock(SMALL_LOGS_CORNER.get(),
+				bsp.axisBlock((RotatedPillarBlock) SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_corner" + "_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_block",
 										Compendium.modLoc("small_logs_corner"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
-								.texture("2",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs")),
+								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
+								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base))),
 
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_corner_side" + "_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
-								.texture("2",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs")));
+								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
+								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base))));
 			}
-			if (this.smallLogsSlab) {
-				bsp.slabBlock(SMALL_LOGS_SLAB.get(),
+
+			if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+
+				bsp.axisBlock((RotatedPillarBlock) STRIPPED_SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_bottom_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_block",
+										Compendium.modLoc("small_logs_corner"))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
+
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
+										Compendium.modLoc("small_logs_corner_side"))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))));
+			}
+			if (SMALL_LOGS_SLAB.enabled()) {
+				bsp.slabBlock((SlabBlock) SMALL_LOGS_SLAB.BLOCK.get(),
+						bsp.models()
+								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_bottom_block",
 										Compendium.modLoc("small_logs_slab_bottom"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_top_block",
+								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_slab_full_block",
+								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_slab")));
-//				DataUtil.slabMaterialBlock(bsp, SMALL_LOGS_SLAB.get(), base.name, "_small_logs_slab", "solid",
-//						base.getType());
+								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))));
 			}
-			if (this.smallLogsStairs) {
-//				DataUtil.stairsMaterialBlock(bsp, SMALL_LOGS_STAIRS.get(), base.name, "_small_logs_stairs", "solid",
-//						base.getType());
-				stairsBlock(SMALL_LOGS_STAIRS.get(),
+
+			if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+				bsp.slabBlock((SlabBlock) STRIPPED_SMALL_LOGS_SLAB.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_stairs_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_bottom_block",
+										Compendium.modLoc("small_logs_slab_bottom"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_top_block",
+										Compendium.modLoc("small_logs_slab_top"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_full_block",
+										Compendium.modLoc("small_logs_slab_full"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))));
+			}
+			if (SMALL_LOGS_STAIRS.enabled()) {
+				stairsBlock((StairBlock) SMALL_LOGS_STAIRS.BLOCK.get(),
+						bsp.models()
+								.withExistingParent(SMALL_LOGS_STAIRS.location(base) + "_block",
 										Compendium.modLoc("small_logs_stairs"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_turned"))
-								.texture("2",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_inner_stairs_block",
+								.withExistingParent(SMALL_LOGS_STAIRS.location(base) + "_inner_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
-								.texture("2",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_turned"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_slab")),
+								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
 						bsp.models()
-								.withExistingParent(
-										"block/material/" + base.getType().toString().toLowerCase() + "/" + base.name
-												+ "/" + base.name + "_small_logs_outer_stairs_block",
+								.withExistingParent(SMALL_LOGS_STAIRS.location(base) + "_outer_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
-								.texture("1",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_corner"))
-								.texture("0",
-										Compendium.modLoc("block/material/" + base.getType().toString().toLowerCase()
-												+ "/" + base.name + "/" + base.name + "_small_logs_turned")),
+								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
 						bsp);
 			}
+
+			if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+				stairsBlock((StairBlock) STRIPPED_SMALL_LOGS_STAIRS.BLOCK.get(),
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_STAIRS.location(base) + "_block",
+										Compendium.modLoc("small_logs_stairs"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_STAIRS.location(base) + "_inner_block",
+										Compendium.modLoc("small_logs_inner_stairs"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+						bsp.models()
+								.withExistingParent(STRIPPED_SMALL_LOGS_STAIRS.location(base) + "_outer_block",
+										Compendium.modLoc("small_logs_outer_stairs"))
+								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+						bsp);
+			}
+		}
+	}
+
+	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp) {
+		if (block.enabled()) {
+			BlockModelBuilder base_model_horizontal = bsp.models()
+					.withExistingParent(block.location(base) + "_horizontal", bsp.modLoc("block/small_log_horizontal"))
+					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+			BlockModelBuilder base_model_horizontal2 = bsp.models()
+					.withExistingParent(block.location(base) + "_horizontal_rot",
+							bsp.modLoc("block/small_log_horizontal2"))
+					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+			BlockModelBuilder base_model_vertical = bsp.models()
+					.withExistingParent(block.location(base) + "_vertical", bsp.modLoc("block/small_log_vertical"))
+					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+			BlockModelBuilder model_cap = bsp.models()
+					.withExistingParent(block.location(base) + "_cap", bsp.modLoc("block/small_log_cap"))
+					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+
+			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel().nestedGroup()
+					.useOr()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, false)
+					.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
+					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+					.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
+					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+					.endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.SOUTH, true)
+					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+					.endNestedGroup().end().end().part().modelFile(base_model_horizontal).addModel().nestedGroup()
+					.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
+					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+					.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
+					.modelFile(base_model_vertical).addModel().useOr().condition(BlockStateProperties.UP, true)
+					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap).addModel()
+					.condition(BlockStateProperties.UP, true).end().part().modelFile(model_cap).rotationX(180)
+					.addModel().condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap)
+					.rotationX(90).addModel().condition(BlockStateProperties.NORTH, true).end().part()
+					.modelFile(model_cap).rotationX(90).rotationY(180).addModel()
+					.condition(BlockStateProperties.SOUTH, true).end().part().modelFile(model_cap).rotationX(90)
+					.rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
+					.modelFile(model_cap).rotationX(90).rotationY(90).addModel()
+					.condition(BlockStateProperties.EAST, true).end();
 		}
 	}
 
@@ -361,20 +359,41 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			if (SMALL_LOG.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log", base.getType());
 			}
-			if (this.smallLogs) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_ITEM, base.name, "small_logs", base.getType());
+			if (SMALL_LOGS.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS.BLOCK_ITEM, base.name, "small_logs", base.getType());
 			}
-			if (this.smallLogsCorner) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_CORNER_ITEM, base.name, "small_logs_corner",
+			if (SMALL_LOGS_CORNER.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_CORNER.BLOCK_ITEM, base.name, "small_logs_corner",
 						base.getType());
 			}
-			if (this.smallLogsSlab) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB_ITEM, base.name, "small_logs_slab_bottom",
+			if (SMALL_LOGS_SLAB.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_SLAB.BLOCK_ITEM, base.name, "small_logs_slab_bottom",
 						base.getType());
 			}
-			if (this.smallLogsStairs) {
-				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_STAIRS_ITEM, base.name, "small_logs_stairs",
+			if (SMALL_LOGS_STAIRS.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOGS_STAIRS.BLOCK_ITEM, base.name, "small_logs_stairs",
 						base.getType());
+			}
+
+			if (STRIPPED_SMALL_LOG.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.name, "stripped_small_log",
+						base.getType());
+			}
+			if (STRIPPED_SMALL_LOGS.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_SMALL_LOGS.BLOCK_ITEM, base.name, "stripped_small_logs",
+						base.getType());
+			}
+			if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM, base.name,
+						"stripped_small_logs_corner", base.getType());
+			}
+			if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM, base.name,
+						"stripped_small_logs_slab_bottom", base.getType());
+			}
+			if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM, base.name,
+						"stripped_small_logs_stairs", base.getType());
 			}
 		}
 	}
@@ -386,17 +405,30 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			word = word.substring(0, 1).toUpperCase() + word.substring(1);
 			material_name.append(word).append(" ");
 		}
-		if (this.smallLogs) {
-			lp.add(this.SMALL_LOGS.asItem(), material_name + "Small Logs");
+		if (SMALL_LOGS.enabled()) {
+			lp.add(this.SMALL_LOGS.BLOCK_ITEM.asItem(), material_name + "Small Logs");
 		}
-		if (this.smallLogsCorner) {
-			lp.add(this.SMALL_LOGS_CORNER.asItem(), material_name + "Small Logs Corner");
+		if (SMALL_LOGS_CORNER.enabled()) {
+			lp.add(this.SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), material_name + "Small Logs Corner");
 		}
-		if (this.smallLogsSlab) {
-			lp.add(this.SMALL_LOGS_SLAB.asItem(), material_name + "Small Logs Slab");
+		if (SMALL_LOGS_SLAB.enabled()) {
+			lp.add(this.SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), material_name + "Small Logs Slab");
 		}
-		if (this.smallLogsStairs) {
-			lp.add(this.SMALL_LOGS_STAIRS.asItem(), material_name + "Small Logs Stairs");
+		if (SMALL_LOGS_STAIRS.enabled()) {
+			lp.add(this.SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Small Logs Stairs");
+		}
+
+		if (STRIPPED_SMALL_LOGS.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOGS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs");
+		}
+		if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Corner");
+		}
+		if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Slab");
+		}
+		if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Stairs");
 		}
 	}
 
@@ -418,17 +450,33 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (SMALL_LOG.enabled()) {
 			blp.dropSelf(SMALL_LOG.BLOCK.get());
 		}
-		if (this.smallLogs) {
-			blp.dropSelf(this.SMALL_LOGS.get());
+		if (SMALL_LOGS.enabled()) {
+			blp.dropSelf(this.SMALL_LOGS.BLOCK.get());
 		}
-		if (this.smallLogsCorner) {
-			blp.dropSelf(this.SMALL_LOGS_CORNER.get());
+		if (SMALL_LOGS_CORNER.enabled()) {
+			blp.dropSelf(this.SMALL_LOGS_CORNER.BLOCK.get());
 		}
-		if (this.smallLogsSlab) {
-			blp.dropSelf(this.SMALL_LOGS_SLAB.get());
+		if (SMALL_LOGS_SLAB.enabled()) {
+			blp.dropSelf(this.SMALL_LOGS_SLAB.BLOCK.get());
 		}
-		if (this.smallLogsStairs) {
-			blp.dropSelf(this.SMALL_LOGS_STAIRS.get());
+		if (SMALL_LOGS_STAIRS.enabled()) {
+			blp.dropSelf(this.SMALL_LOGS_STAIRS.BLOCK.get());
+		}
+
+		if (STRIPPED_SMALL_LOG.enabled()) {
+			blp.dropSelf(STRIPPED_SMALL_LOG.BLOCK.get());
+		}
+		if (STRIPPED_SMALL_LOGS.enabled()) {
+			blp.dropSelf(this.STRIPPED_SMALL_LOGS.BLOCK.get());
+		}
+		if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+			blp.dropSelf(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK.get());
+		}
+		if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+			blp.dropSelf(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK.get());
+		}
+		if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+			blp.dropSelf(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK.get());
 		}
 	}
 
@@ -458,11 +506,18 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
+
 			j.addProperty("loadSmallLog", src.SMALL_LOG.enabled());
-			j.addProperty("loadSmallLogs", src.smallLogs);
-			j.addProperty("loadSmallCornerLogs", src.smallLogsCorner);
-			j.addProperty("loadSmallLogsSlab", src.smallLogsSlab);
-			j.addProperty("loadSmallLogsStairs", src.smallLogsStairs);
+			j.addProperty("loadSmallLogs", src.SMALL_LOGS.enabled());
+			j.addProperty("loadSmallCornerLogs", src.SMALL_LOGS_CORNER.enabled());
+			j.addProperty("loadSmallLogsSlab", src.SMALL_LOGS_SLAB.enabled());
+			j.addProperty("loadSmallLogsStairs", src.SMALL_LOGS_STAIRS.enabled());
+
+			j.addProperty("loadStrippedSmallLog", src.STRIPPED_SMALL_LOG.enabled());
+			j.addProperty("loadStrippedSmallLogs", src.STRIPPED_SMALL_LOGS.enabled());
+			j.addProperty("loadStrippedSmallCornerLogs", src.STRIPPED_SMALL_LOGS_CORNER.enabled());
+			j.addProperty("loadStrippedSmallLogsSlab", src.STRIPPED_SMALL_LOGS_SLAB.enabled());
+			j.addProperty("loadStrippedSmallLogsStairs", src.STRIPPED_SMALL_LOGS_STAIRS.enabled());
 
 			return j;
 		}
@@ -478,8 +533,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			boolean loadSmallLogsSlab = j.get("loadSmallLogsSlab").getAsBoolean();
 			boolean loadSmallLogsStairs = j.get("loadSmallLogsStairs").getAsBoolean();
 
+			boolean loadStrippedSmallLog = j.get("loadStrippedSmallLog").getAsBoolean();
+			boolean loadStrippedSmallLogs = j.get("loadStrippedSmallLogs").getAsBoolean();
+			boolean loadStrippedSmallCornerLogs = j.get("loadStrippedSmallCornerLogs").getAsBoolean();
+			boolean loadStrippedSmallLogsSlab = j.get("loadStrippedSmallLogsSlab").getAsBoolean();
+			boolean loadStrippedSmallLogsStairs = j.get("loadStrippedSmallLogsStairs").getAsBoolean();
+
 			return new ExtensionExtraLogs(loadSmallLog, loadSmallLogs, loadSmallCornerLogs, loadSmallLogsSlab,
-					loadSmallLogsStairs);
+					loadSmallLogsStairs, loadStrippedSmallLog, loadStrippedSmallLogs, loadStrippedSmallCornerLogs,
+					loadStrippedSmallLogsSlab, loadStrippedSmallLogsStairs);
 		}
 
 	}

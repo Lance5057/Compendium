@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/small_log_cap",
+  "textures": {
+    "0": "compendium:block/material/wood/oak/oak_stripped_small_logs_corner"
+  }
+}

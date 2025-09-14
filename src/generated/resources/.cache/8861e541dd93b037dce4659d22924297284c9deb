@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-12T23:15:09.7466826	Block Models: compendium
+// 1.21.1	2025-09-14T16:52:15.6482301	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_glass/window.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_glass/window.json
 35c07ae0dd83b55d5615e038fbe7bc433d98b1f2 assets/compendium/models/block/material/glass/brown_glass/window.json
@@ -368,6 +368,7 @@ b2bc8461f213f709d70b9d846c42e1f5b278ec65 assets/compendium/models/block/material
 fa99477e0e4a5d4f71ae85183dd4611e57593e1c assets/compendium/models/block/material/textile/yellow_wool/table/cloth/long.json
 99c23b4a1270e5853df75baae4f140ff6338fa02 assets/compendium/models/block/material/textile/yellow_wool/table/cloth/short.json
 7fe13774ba9c8f6a5764a93cf58097fefe0f8a78 assets/compendium/models/block/material/wood/acacia/acacia_small_log_block.json
+684be6fadebdcb146fc791d8fc81562b9197a2c8 assets/compendium/models/block/material/wood/acacia/acacia_stripped_small_log_block.json
 fdab772d625e0f1a81376e7e21bc04caad9a9d0c assets/compendium/models/block/material/wood/acacia/bed/bottom/frame/basic.json
 692ba41a864087232c40af34454b925d7e102ba3 assets/compendium/models/block/material/wood/acacia/bed/top/frame/basic.json
 818549f5a2480c574cc84bbef48a43831897895d assets/compendium/models/block/material/wood/acacia/chair/back/basic.json
@@ -493,6 +494,7 @@ f366139c9fe5565211cfb88cc688ba449b40e1bb assets/compendium/models/block/material
 c83e10f82e8ffe8b1a973a260cab72e5478dd385 assets/compendium/models/block/material/wood/birch/bed/bottom/frame/basic.json
 a7a943a40e2c54644455fe0bf82d49f531f22e0c assets/compendium/models/block/material/wood/birch/bed/top/frame/basic.json
 49892233c77864746e6d857778c633f843f08de2 assets/compendium/models/block/material/wood/birch/birch_small_log_block.json
+e8329f1559f03091542b84428a6877241e8dc1d2 assets/compendium/models/block/material/wood/birch/birch_stripped_small_log_block.json
 8541c8c6ec944ec8519acf44cbb17dc4f0147432 assets/compendium/models/block/material/wood/birch/chair/back/basic.json
 0ef85228eac4efe4d13caae07bc6b0efa69ca933 assets/compendium/models/block/material/wood/birch/chair/back/basic_panel.json
 143aa45d3d868dcdedbe533b93ab796dfbadd963 assets/compendium/models/block/material/wood/birch/chair/back/braced.json
@@ -691,6 +693,7 @@ d1b6c8237d05afe99864f25a749933e50e4962f1 assets/compendium/models/block/material
 34f71c69ebe331e7d30e26654d4593bfe45bc434 assets/compendium/models/block/material/wood/cherry/chair/seat/planks_horizontal_angled.json
 66613a8f514da153e0d1d306f5b3f5e6b06c102e assets/compendium/models/block/material/wood/cherry/chair/seat/weave.json
 5232d54a166ff15792308ef2e1c411c66da02c5c assets/compendium/models/block/material/wood/cherry/cherry_small_log_block.json
+a2bf44e1d883733972e962f4d1311ce2c9190045 assets/compendium/models/block/material/wood/cherry/cherry_stripped_small_log_block.json
 b0d1e349186c31cadd7f8f9c86e9e70625552b4a assets/compendium/models/block/material/wood/cherry/fence/post/basic.json
 895ebacc87fda4ed80d67a945691b4aad63e0603 assets/compendium/models/block/material/wood/cherry/fence/post/none.json
 d5564e701fe85a000562055b06c51995501196ac assets/compendium/models/block/material/wood/cherry/fence/post/pillar.json
@@ -814,6 +817,7 @@ a1133a8319bb2cee6d5b30177d2a59d3143b00ff assets/compendium/models/block/material
 d5e2a659386c80952770acca05dea934cfb31d51 assets/compendium/models/block/material/wood/crimson/chair/seat/planks_horizontal_angled.json
 d094024939507549f50b9c91a628423ecb2e64d6 assets/compendium/models/block/material/wood/crimson/chair/seat/weave.json
 38c1ca3bd072d09a677c6007282d718a1706dcc1 assets/compendium/models/block/material/wood/crimson/crimson_small_log_block.json
+d250b123366dd5d23168cb86728c386494940c85 assets/compendium/models/block/material/wood/crimson/crimson_stripped_small_log_block.json
 d3f098fd1ff46c98752b342c41e7a5dbb78c4f91 assets/compendium/models/block/material/wood/crimson/fence/post/basic.json
 ab9ade58e34aa2702d44711a7ea513d399253f54 assets/compendium/models/block/material/wood/crimson/fence/post/none.json
 1797c7c685e70308686a69f2af1d3451da7f06f3 assets/compendium/models/block/material/wood/crimson/fence/post/pillar.json
@@ -937,6 +941,7 @@ e1c6bf1fb2452fc1f4c31a31d7c7addd6cf4f92c assets/compendium/models/block/material
 749c7ded9c0d628944e7a5be22879d4dab345ac0 assets/compendium/models/block/material/wood/dark_oak/chair/seat/planks_horizontal_angled.json
 5a9295b24a856f1dd8e30c513125fef9690fd356 assets/compendium/models/block/material/wood/dark_oak/chair/seat/weave.json
 74d31a05d506785b1ef6bf277eaa85f9c7d15cbe assets/compendium/models/block/material/wood/dark_oak/dark_oak_small_log_block.json
+478351511d9b80566697304336621d04951b4e48 assets/compendium/models/block/material/wood/dark_oak/dark_oak_stripped_small_log_block.json
 80d928969d76e65def59105552b0ee2ce43a053e assets/compendium/models/block/material/wood/dark_oak/fence/post/basic.json
 94d674934e748eaa33a459d7ae88e37cd5b940c3 assets/compendium/models/block/material/wood/dark_oak/fence/post/none.json
 5e53c386c531d9e66b7d70d8f0f8561eff526b21 assets/compendium/models/block/material/wood/dark_oak/fence/post/pillar.json
@@ -1080,6 +1085,7 @@ a487727b95df9cefd976fca4e1f53c9a5a799b94 assets/compendium/models/block/material
 e269cf3faaa94f5d2168540c837b38bbc0e22190 assets/compendium/models/block/material/wood/jungle/fence/side/slats_convex.json
 2af78f26307263bb72cff7489eae475132bb3b0d assets/compendium/models/block/material/wood/jungle/fence/side/solid.json
 2b7be2fa8041cd035967aa9f5e3edb376f1012dd assets/compendium/models/block/material/wood/jungle/jungle_small_log_block.json
+f7e049a91b66bbe94912b8f1fc634fba4ad98674 assets/compendium/models/block/material/wood/jungle/jungle_stripped_small_log_block.json
 a45f5153edce859d11b32ed73b2bcaf862edf59f assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/all/basic.json
 20932cac8a06af879d5edfe472182da0d3d2382e assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/end/basic.json
 6251859204ace39692409ba40399199c7fb15ce3 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/none/basic.json
@@ -1203,6 +1209,7 @@ fe8ef7f89e1882860a95cf7308b9c6054e796ae5 assets/compendium/models/block/material
 c11c455de622e6d0d888ca62f658d39c84fba283 assets/compendium/models/block/material/wood/mangrove/fence/side/slats_convex.json
 d3a5f28fd4976dc48d3a6c1394cc369187515c47 assets/compendium/models/block/material/wood/mangrove/fence/side/solid.json
 18c4f845b8678df12e251cf9270e937dfd95ff38 assets/compendium/models/block/material/wood/mangrove/mangrove_small_log_block.json
+7f4c91436d8053fd471fcf82bd4e1a49db8aaf1f assets/compendium/models/block/material/wood/mangrove/mangrove_stripped_small_log_block.json
 0c73ed6119818d1375ce5c7fc05b4522e8f9d85f assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/all/basic.json
 4666b508011d0ef0bdf6939f5f87706053b563ca assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/end/basic.json
 1fb2824ed9432860568cced45351aeeb4811c308 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/none/basic.json
@@ -1326,6 +1333,7 @@ a49c1cbc2d2c68c66e2c0c5c96f5652e4b8bd9d6 assets/compendium/models/block/material
 5fcb5f73b060e1b5bceacd5d3031d7e4762e8f8d assets/compendium/models/block/material/wood/oak/fence/side/slats_convex.json
 a4332a696d294f510506cd12b9c1b6e832e4936f assets/compendium/models/block/material/wood/oak/fence/side/solid.json
 ff8a0714699c1bc10dd8c7252c28d2c3c6764178 assets/compendium/models/block/material/wood/oak/oak_small_log_block.json
+a9f357061b95851a47888efcb5bec739e35e3696 assets/compendium/models/block/material/wood/oak/oak_stripped_small_log_block.json
 8cc87519d0b26de987b5c4a02be3ef3348f9036b assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/all/basic.json
 cf67997e20af7942562cf3d9e0b5a7fa4d06a64e assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/end/basic.json
 4a2bacf577a606163a2379547bb2f92cbb1afdcf assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/none/basic.json
@@ -1465,6 +1473,7 @@ e447701065218825702ff3cc5ca108f203c9e158 assets/compendium/models/block/material
 064b0836e422584b3f8dd078e0ca866871da7c52 assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/inner_corner/basic.json
 f15dccc3e4c5ad6f776b6f43e268bd415b33054a assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/outer_corner/basic.json
 ae3bab8f7ac1fff99f511fe95467539354d4c2b3 assets/compendium/models/block/material/wood/spruce/spruce_small_log_block.json
+b4f3ae2f464c3a80d4948a6c5b9ff69b8b40251c assets/compendium/models/block/material/wood/spruce/spruce_stripped_small_log_block.json
 5c7ccffcc34a16a1acb001d3fb7f6ba8248ee3a0 assets/compendium/models/block/material/wood/spruce/table/legs/bar.json
 d89cfa13dcad48333dc6389ccfc37a82d61d3d5b assets/compendium/models/block/material/wood/spruce/table/legs/basic.json
 e90e978404ed75392a8dad2c69bb4d661a122e6a assets/compendium/models/block/material/wood/spruce/table/legs/fancy.json
@@ -1597,3 +1606,4 @@ a2b8bba491932acc05497db56b98b013ddafcc3a assets/compendium/models/block/material
 56d269ee563a4176e3ca0d7bdc6de63b20908eff assets/compendium/models/block/material/wood/warped/table/top/smooth.json
 e1bb7bac993531f42ec662bfd9f5069236380758 assets/compendium/models/block/material/wood/warped/table/top/trimmed.json
 d8e34b8ae22c8aed5851e033e0f80b52b1ad3efa assets/compendium/models/block/material/wood/warped/warped_small_log_block.json
+fe151dc68b88c2e90bb6df50ab5cd2334a2c9c44 assets/compendium/models/block/material/wood/warped/warped_stripped_small_log_block.json

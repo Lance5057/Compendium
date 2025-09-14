@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/small_logs_slab_top",
+  "textures": {
+    "0": "compendium:block/material/wood/spruce/spruce_stripped_small_logs",
+    "1": "compendium:block/material/wood/spruce/spruce_stripped_small_logs_slab"
+  }
+}
