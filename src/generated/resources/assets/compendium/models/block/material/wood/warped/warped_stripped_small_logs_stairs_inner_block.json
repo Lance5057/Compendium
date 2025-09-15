@@ -3,6 +3,7 @@
   "textures": {
     "0": "compendium:block/material/wood/warped/warped_stripped_small_logs_corner",
     "1": "compendium:block/material/wood/warped/warped_stripped_small_logs_turned",
-    "2": "compendium:block/material/wood/warped/warped_stripped_small_logs_slab"
+    "2": "compendium:block/material/wood/warped/warped_stripped_small_logs_slab",
+    "particle": "compendium:block/material/wood/warped/warped_stripped_small_logs"
   }
 }

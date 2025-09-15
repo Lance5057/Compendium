@@ -162,14 +162,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				bsp.axisBlock((RotatedPillarBlock) SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
 								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
 								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base)))
                                 .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 
 						bsp.models()
-								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
 								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
 								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base)))
@@ -180,14 +180,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				bsp.axisBlock((RotatedPillarBlock) STRIPPED_SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
 								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
                                 .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 
 						bsp.models()
-								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
 								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
@@ -440,17 +440,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			lp.add(this.SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Small Logs Stairs");
 		}
 
+		if (STRIPPED_SMALL_LOG.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOG.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Log");
+		}
 		if (STRIPPED_SMALL_LOGS.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs");
+			lp.add(this.STRIPPED_SMALL_LOGS.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs");
 		}
 		if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Corner");
+			lp.add(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Corner");
 		}
 		if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Slab");
+			lp.add(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Slab");
 		}
 		if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Stairs");
+			lp.add(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Stairs");
 		}
 	}
 
@@ -466,35 +469,77 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.save(consumer);
 		}
 		if(SMALL_LOGS.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, this.SMALL_LOGS_ITEM, 1)
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS.BLOCK_ITEM, 1)
 					.pattern("bb").pattern("bb")
-					.define('b', this.SMALL_LOG_ITEM)
+					.define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(this.SMALL_LOG_ITEM))
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if(SMALL_LOGS_SLAB.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, this.SMALL_LOGS_SLAB_ITEM, 1)
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_SLAB.BLOCK_ITEM, 1)
 					.pattern("bb")
-					.define('b', this.SMALL_LOG_ITEM)
+					.define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(this.SMALL_LOG_ITEM))
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if(SMALL_LOGS_STAIRS.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, this.SMALL_LOGS_STAIRS_ITEM, 1)
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_STAIRS.BLOCK_ITEM, 1)
 					.pattern("b ").pattern("bb")
-					.define('b', this.SMALL_LOG_ITEM)
+					.define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(this.SMALL_LOG_ITEM))
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if(SMALL_LOGS_CORNER.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, this.SMALL_LOGS_CORNER_ITEM, 1)
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_CORNER.BLOCK_ITEM, 1)
 					.pattern("b").pattern("b")
-					.define('b', this.SMALL_LOGS_SLAB_ITEM)
+					.define('b', SMALL_LOGS_SLAB.BLOCK_ITEM)
 					.unlockedBy("has_small_logs_slab",
-							InventoryChangeTrigger.TriggerInstance.hasItems(this.SMALL_LOGS_SLAB_ITEM))
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOGS_SLAB.BLOCK_ITEM))
+					.save(consumer);
+		}
+
+		if (STRIPPED_SMALL_LOG.enabled()) {
+			SawBuckRecipeBuilder
+					.saw(Ingredient.of(
+									TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
+							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
+					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS.BLOCK_ITEM, 1)
+					.pattern("bb").pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM, 1)
+					.pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_striepped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM, 1)
+					.pattern("b ").pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM, 1)
+					.pattern("b").pattern("b")
+					.define('b', STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_logs_slab",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM))
 					.save(consumer);
 		}
 	}

@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_corner_side_block",
+      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_side_block",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_corner_block"
+      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_block"
     },
     "axis=z": {
-      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_corner_side_block",
+      "model": "compendium:block/material/wood/crimson/crimson_stripped_small_logs_corner_side_block",
       "x": 90
     }
   }
