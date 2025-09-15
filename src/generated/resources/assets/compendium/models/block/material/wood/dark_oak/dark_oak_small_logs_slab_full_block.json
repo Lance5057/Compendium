@@ -2,6 +2,7 @@
   "parent": "compendium:block/small_logs_slab_full",
   "textures": {
     "0": "compendium:block/material/wood/dark_oak/dark_oak_small_logs",
-    "1": "compendium:block/material/wood/dark_oak/dark_oak_small_logs_slab"
+    "1": "compendium:block/material/wood/dark_oak/dark_oak_small_logs_slab",
+    "particle": "compendium:block/material/wood/dark_oak/dark_oak_small_logs"
   }
 }

@@ -22,10 +22,13 @@ import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.util.TagUtil;
 
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -159,32 +162,36 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				bsp.axisBlock((RotatedPillarBlock) SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
 								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base))),
+								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 
 						bsp.models()
-								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
+								.withExistingParent(SMALL_LOGS_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
 								.texture("1", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base))));
+								.texture("2", Compendium.modLoc(SMALL_LOGS.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))));
 			}
 
 			if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
 
 				bsp.axisBlock((RotatedPillarBlock) STRIPPED_SMALL_LOGS_CORNER.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 
 						bsp.models()
-								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_corner_side_block",
+								.withExistingParent(STRIPPED_SMALL_LOGS_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))));
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))));
 			}
 			if (SMALL_LOGS_SLAB.enabled()) {
 				bsp.slabBlock((SlabBlock) SMALL_LOGS_SLAB.BLOCK.get(),
@@ -192,17 +199,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_bottom_block",
 										Compendium.modLoc("small_logs_slab_bottom"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(SMALL_LOGS_SLAB.location(base) + "_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))));
+								.texture("1", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))));
 			}
 
 			if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
@@ -211,17 +221,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_bottom_block",
 										Compendium.modLoc("small_logs_slab_bottom"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(STRIPPED_SMALL_LOGS_SLAB.location(base) + "_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))));
+								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))));
 			}
 			if (SMALL_LOGS_STAIRS.enabled()) {
 				stairsBlock((StairBlock) SMALL_LOGS_STAIRS.BLOCK.get(),
@@ -230,19 +243,22 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 										Compendium.modLoc("small_logs_stairs"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(SMALL_LOGS_STAIRS.location(base) + "_inner_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(SMALL_LOGS_STAIRS.location(base) + "_outer_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
 								.texture("0", Compendium.modLoc(SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(SMALL_LOGS.location(base))),
 						bsp);
 			}
 
@@ -253,19 +269,22 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 										Compendium.modLoc("small_logs_stairs"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(STRIPPED_SMALL_LOGS_STAIRS.location(base) + "_inner_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 						bsp.models()
 								.withExistingParent(STRIPPED_SMALL_LOGS_STAIRS.location(base) + "_outer_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
 								.texture("0", Compendium.modLoc(STRIPPED_SMALL_LOGS_CORNER.location(base)))
 								.texture("1", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base))),
+								.texture("2", Compendium.modLoc(STRIPPED_SMALL_LOGS_SLAB.location(base)))
+                                .texture("particle", Compendium.modLoc(STRIPPED_SMALL_LOGS.location(base))),
 						bsp);
 			}
 		}
@@ -405,6 +424,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			word = word.substring(0, 1).toUpperCase() + word.substring(1);
 			material_name.append(word).append(" ");
 		}
+        if (SMALL_LOG.enabled()) {
+            lp.add(this.SMALL_LOG.BLOCK_ITEM.asItem(), material_name + "Small Log");
+        }
 		if (SMALL_LOGS.enabled()) {
 			lp.add(this.SMALL_LOGS.BLOCK_ITEM.asItem(), material_name + "Small Logs");
 		}
@@ -418,23 +440,26 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			lp.add(this.SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Small Logs Stairs");
 		}
 
+		if (STRIPPED_SMALL_LOG.enabled()) {
+			lp.add(this.STRIPPED_SMALL_LOG.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Log");
+		}
 		if (STRIPPED_SMALL_LOGS.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs");
+			lp.add(this.STRIPPED_SMALL_LOGS.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs");
 		}
 		if (STRIPPED_SMALL_LOGS_CORNER.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Corner");
+			lp.add(this.STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Corner");
 		}
 		if (STRIPPED_SMALL_LOGS_SLAB.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Slab");
+			lp.add(this.STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Slab");
 		}
 		if (STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
-			lp.add(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), material_name + "Stripped Small Logs Stairs");
+			lp.add(this.STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Stairs");
 		}
 	}
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-		if (SMALL_LOG.enabled())
+		if (SMALL_LOG.enabled()) {
 			SawBuckRecipeBuilder
 					.saw(Ingredient.of(
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
@@ -442,7 +467,81 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
 					.save(consumer);
-		;
+		}
+		if(SMALL_LOGS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS.BLOCK_ITEM, 1)
+					.pattern("bb").pattern("bb")
+					.define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(SMALL_LOGS_SLAB.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_SLAB.BLOCK_ITEM, 1)
+					.pattern("bb")
+					.define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(SMALL_LOGS_STAIRS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_STAIRS.BLOCK_ITEM, 1)
+					.pattern("b ").pattern("bb")
+					.define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(SMALL_LOGS_CORNER.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, SMALL_LOGS_CORNER.BLOCK_ITEM, 1)
+					.pattern("b").pattern("b")
+					.define('b', SMALL_LOGS_SLAB.BLOCK_ITEM)
+					.unlockedBy("has_small_logs_slab",
+							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOGS_SLAB.BLOCK_ITEM))
+					.save(consumer);
+		}
+
+		if (STRIPPED_SMALL_LOG.enabled()) {
+			SawBuckRecipeBuilder
+					.saw(Ingredient.of(
+									TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
+							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
+					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS.BLOCK_ITEM, 1)
+					.pattern("bb").pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_SLAB.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM, 1)
+					.pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_striepped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_STAIRS.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_STAIRS.BLOCK_ITEM, 1)
+					.pattern("b ").pattern("bb")
+					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
+					.save(consumer);
+		}
+		if(STRIPPED_SMALL_LOGS_CORNER.enabled()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_SMALL_LOGS_CORNER.BLOCK_ITEM, 1)
+					.pattern("b").pattern("b")
+					.define('b', STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM)
+					.unlockedBy("has_stripped_small_logs_slab",
+							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOGS_SLAB.BLOCK_ITEM))
+					.save(consumer);
+		}
 	}
 
 	@Override

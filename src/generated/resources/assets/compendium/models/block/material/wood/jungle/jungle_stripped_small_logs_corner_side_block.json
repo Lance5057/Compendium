@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/small_logs_corner_side",
+  "textures": {
+    "1": "compendium:block/material/wood/jungle/jungle_stripped_small_logs_corner",
+    "2": "compendium:block/material/wood/jungle/jungle_stripped_small_logs",
+    "particle": "compendium:block/material/wood/jungle/jungle_stripped_small_logs"
+  }
+}

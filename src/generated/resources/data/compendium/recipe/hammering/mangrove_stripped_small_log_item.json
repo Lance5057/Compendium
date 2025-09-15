@@ -1,0 +1,76 @@
+{
+  "type": "compendium:sawbuck",
+  "input": {
+    "tag": "minecraft:mangrove_logs"
+  },
+  "loot": "compendium:hammering/mangrove_stripped_small_log_item",
+  "offset": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "ouput": {
+    "count": 4,
+    "id": "compendium:mangrove_stripped_small_log_item"
+  },
+  "tools": [
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:sawdust",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0,
+                "min": -8.0
+              },
+              "y": {
+                "max": 10.0,
+                "min": -10.0
+              },
+              "z": {
+                "max": 8.0,
+                "min": -8.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "loop": true,
+                "max": 45.0,
+                "min": -45.0,
+                "pingpong": true,
+                "speed": 0.5
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_axe"
+        }
+      ],
+      "tool": {
+        "tag": "minecraft:axes"
+      },
+      "uses": 4
+    }
+  ]
+}
