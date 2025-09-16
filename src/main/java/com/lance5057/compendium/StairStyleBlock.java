@@ -1,23 +1,17 @@
-package com.lance5057.compendium.blocks;
+package com.lance5057.compendium;
 
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class RotatedPillarStyleBlock extends RotatedPillarBlock implements EntityBlock {
+public class StairStyleBlock extends StairBlock implements EntityBlock{
 
-	public RotatedPillarStyleBlock(Properties properties) {
-		super(properties);
-	}
-
-	@Override
-	public RenderShape getRenderShape(BlockState pState) {
-		return RenderShape.MODEL;
+	public StairStyleBlock(BlockState baseState, Properties properties) {
+		super(baseState, properties);
 	}
 
 	@Override

@@ -22,7 +22,11 @@
     },
     {
       "type": "EXTRAPLANKS",
-      "loadPlank": true
+      "loadPlank": true,
+      "loadPlankBlock": true,
+      "loadPlankSlab": true,
+      "loadPlankCorner": true,
+      "loadPlankStairs": true
     }
   ]
 }

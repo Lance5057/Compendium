@@ -57,12 +57,10 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock {
 		BlockState south = level.getBlockState(pos.south());
 		BlockState west = level.getBlockState(pos.west());
 
-		return this.defaultBlockState().trySetValue(DOWN, down.getBlock() instanceof PipeStyleBlock)
-				.trySetValue(UP, up.getBlock() instanceof PipeStyleBlock)
-				.trySetValue(NORTH, north.getBlock() instanceof PipeStyleBlock)
-				.trySetValue(EAST, east.getBlock() instanceof PipeStyleBlock)
-				.trySetValue(SOUTH, south.getBlock() instanceof PipeStyleBlock)
-				.trySetValue(WEST, west.getBlock() instanceof PipeStyleBlock);
+		return this.defaultBlockState().trySetValue(DOWN, down.isSolidRender(level, pos))
+				.trySetValue(UP, up.isSolidRender(level, pos)).trySetValue(NORTH, north.isSolidRender(level, pos))
+				.trySetValue(EAST, east.isSolidRender(level, pos)).trySetValue(SOUTH, south.isSolidRender(level, pos))
+				.trySetValue(WEST, west.isSolidRender(level, pos));
 	}
 
 	@Override

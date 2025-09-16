@@ -4,20 +4,14 @@ import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class RotatedPillarStyleBlock extends RotatedPillarBlock implements EntityBlock {
+public class SlabStyleBlock extends SlabBlock  implements EntityBlock {
 
-	public RotatedPillarStyleBlock(Properties properties) {
+	public SlabStyleBlock(Properties properties) {
 		super(properties);
-	}
-
-	@Override
-	public RenderShape getRenderShape(BlockState pState) {
-		return RenderShape.MODEL;
 	}
 
 	@Override
