@@ -163,10 +163,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			smallLogsModel(SMALL_LOG, base, bsp);
 			smallLogsModel(STRIPPED_SMALL_LOG_PIPE, base, bsp);
 			if (LOG.enabled()) {
-				DataUtil.axisMaterialBlock(bsp, base, LOG, "", "solid", base.getType());
+				DataUtil.axisMaterialBlock(bsp, base, LOG, "small_logs", "solid", base.getType());
 			}
 			if (STRIPPED_LOG.enabled()) {
-				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_LOG, "", "solid", base.getType());
+				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_LOG, "stripped_small_logs", "solid", base.getType());
 			}
 			if (LOG_CORNER.enabled()) {
 
@@ -174,16 +174,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(LOG_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
-								.texture("1", Compendium.modLoc(LOG_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(LOG.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
+								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
+								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
+								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")),
 
 						bsp.models()
 								.withExistingParent(LOG_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
-								.texture("1", Compendium.modLoc(LOG_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(LOG.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))));
+								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
+								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
+								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")));
 			}
 
 			if (STRIPPED_LOG_CORNER.enabled()) {
@@ -192,16 +192,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "_block",
 										Compendium.modLoc("small_logs_corner"))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(STRIPPED_LOG.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
+								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
+								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
+								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")),
 
 						bsp.models()
 								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "_side_block",
 										Compendium.modLoc("small_logs_corner_side"))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG_CORNER.location(base)))
-								.texture("2", Compendium.modLoc(STRIPPED_LOG.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))));
+								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
+								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
+								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")));
 			}
 			if (LOG_SLAB.enabled()) {
 				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(),
@@ -303,18 +303,18 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp) {
 		if (block.enabled()) {
 			BlockModelBuilder base_model_horizontal = bsp.models()
-					.withExistingParent(block.location(base) + "_horizontal", bsp.modLoc("block/small_log_horizontal"))
-					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+					.withExistingParent(block.location(base) + "horizontal", bsp.modLoc("block/small_log_horizontal"))
+					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
 			BlockModelBuilder base_model_horizontal2 = bsp.models()
-					.withExistingParent(block.location(base) + "_horizontal_rot",
+					.withExistingParent(block.location(base) + "horizontal_rot",
 							bsp.modLoc("block/small_log_horizontal2"))
-					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
 			BlockModelBuilder base_model_vertical = bsp.models()
-					.withExistingParent(block.location(base) + "_vertical", bsp.modLoc("block/small_log_vertical"))
-					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+					.withExistingParent(base.blockFolder() + "vertical", bsp.modLoc("block/small_log_vertical"))
+					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
 			BlockModelBuilder model_cap = bsp.models()
-					.withExistingParent(block.location(base) + "_cap", bsp.modLoc("block/small_log_cap"))
-					.texture("0", bsp.modLoc(block.location(base) + "s_corner"));
+					.withExistingParent(block.location(base) + "cap", bsp.modLoc("block/small_log_cap"))
+					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
 
 			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel().nestedGroup()
 					.useOr()
@@ -479,20 +479,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 		if (LOG.enabled()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG.BLOCK_ITEM, 1).pattern("bb").pattern("bb")
-					.define('b', SMALL_LOG.BLOCK_ITEM).unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if (LOG_SLAB.enabled()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG_SLAB.BLOCK_ITEM, 1).pattern("bb")
-					.define('b', SMALL_LOG.BLOCK_ITEM).unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if (LOG_STAIRS.enabled()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG_STAIRS.BLOCK_ITEM, 1).pattern("b ")
-					.pattern("bb").define('b', SMALL_LOG.BLOCK_ITEM).unlockedBy("has_small_log",
-							InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
+					.pattern("bb").define('b', SMALL_LOG.BLOCK_ITEM)
+					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
 		if (LOG_CORNER.enabled()) {

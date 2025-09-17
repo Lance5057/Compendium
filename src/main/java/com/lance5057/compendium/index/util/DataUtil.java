@@ -89,16 +89,16 @@ public class DataUtil {
 	}
 
 	public static void axisMaterialBlock(BlockStateProvider bsp, _MaterialBase base, CompendiumBlockHandler b,
-			String extra, String rendertype, MATERIAL_TYPES type) {
+			String texture, String rendertype, MATERIAL_TYPES type) {
 		if (b.BLOCK.get() instanceof RotatedPillarBlock)
 			bsp.axisBlock((RotatedPillarBlock) b.BLOCK.get(), bsp.models()
-					.cubeColumn(b.location(base) + extra + "_block", Compendium.modLoc(b.location(base) + extra),
-							Compendium.modLoc(b.location(base) + extra + "_top"))
+					.cubeColumn(b.location(base) + texture + "_block", Compendium.modLoc(b.location(base) + texture),
+							Compendium.modLoc(b.location(base) + texture + "_top"))
 					.renderType(rendertype),
 					bsp.models()
-							.cubeColumnHorizontal(b.location(base) + extra + "_block",
-									Compendium.modLoc(b.location(base) + extra),
-									Compendium.modLoc(b.location(base) + extra + "_top"))
+							.cubeColumnHorizontal(b.location(base) + texture + "_block",
+									Compendium.modLoc(base.blockFolder() + texture),
+									Compendium.modLoc(base.blockFolder() + texture + "_top"))
 							.renderType(rendertype));
 	}
 

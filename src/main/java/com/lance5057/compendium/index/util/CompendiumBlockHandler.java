@@ -60,7 +60,7 @@ public class CompendiumBlockHandler {
 	}
 
 	public String location(_MaterialBase base) {
-		return "block/" + base.location() + "/" + base.name + "_" + this.name;
+		return base.blockFolder();
 	}
 
 }
