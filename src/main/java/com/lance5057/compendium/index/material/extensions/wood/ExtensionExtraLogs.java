@@ -14,15 +14,19 @@ import com.lance5057.compendium.StairStyleBlock;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
+import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -66,41 +70,41 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public final CompendiumBlockHandler SMALL_LOG;
 	public final CompendiumBlockHandler LOG;
 	public final CompendiumBlockHandler LOG_SLAB;
-	public final CompendiumBlockHandler LOG_CORNER;
+//	public final CompendiumBlockHandler LOG_CORNER;
 	public final CompendiumBlockHandler LOG_STAIRS;
 
 	public final CompendiumBlockHandler STRIPPED_SMALL_LOG_PIPE;
 	public final CompendiumBlockHandler STRIPPED_LOG;
 	public final CompendiumBlockHandler STRIPPED_LOG_SLAB;
-	public final CompendiumBlockHandler STRIPPED_LOG_CORNER;
+//	public final CompendiumBlockHandler STRIPPED_LOG_CORNER;
 	public final CompendiumBlockHandler STRIPPED_LOG_STAIRS;
 
-	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsCorner, boolean smallLogsSlab,
-			boolean smallLogsStairs, boolean strippedSmallLog, boolean strippedSmallLogs,
-			boolean strippedSmallLogsCorner, boolean strippedSmallLogsSlab, boolean strippedSmallLogsStairs) {
+	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsSlab, boolean smallLogsStairs,
+			boolean strippedSmallLog, boolean strippedSmallLogs, boolean strippedSmallLogsSlab,
+			boolean strippedSmallLogsStairs) {
 
 		SMALL_LOG = new CompendiumBlockHandler("small_log");
 		LOG = new CompendiumBlockHandler("logs");
 		LOG_SLAB = new CompendiumBlockHandler("logs_slab");
-		LOG_CORNER = new CompendiumBlockHandler("logs_corner");
+//		LOG_CORNER = new CompendiumBlockHandler("logs_corner");
 		LOG_STAIRS = new CompendiumBlockHandler("logs_stairs");
 
 		STRIPPED_SMALL_LOG_PIPE = new CompendiumBlockHandler("stripped_small_log");
 		STRIPPED_LOG = new CompendiumBlockHandler("stripped_logs");
 		STRIPPED_LOG_SLAB = new CompendiumBlockHandler("stripped_logs_slab");
-		STRIPPED_LOG_CORNER = new CompendiumBlockHandler("stripped_logs_corner");
+//		STRIPPED_LOG_CORNER = new CompendiumBlockHandler("stripped_logs_corner");
 		STRIPPED_LOG_STAIRS = new CompendiumBlockHandler("stripped_logs_stairs");
 
 		SMALL_LOG.setEnabled(smallLog);
 		LOG.setEnabled(smallLogs);
 		LOG_SLAB.setEnabled(smallLogsSlab);
-		LOG_CORNER.setEnabled(smallLogsCorner);
+//		LOG_CORNER.setEnabled(smallLogsCorner);
 		LOG_STAIRS.setEnabled(smallLogsStairs);
 
 		STRIPPED_SMALL_LOG_PIPE.setEnabled(strippedSmallLog);
 		STRIPPED_LOG.setEnabled(strippedSmallLogs);
 		STRIPPED_LOG_SLAB.setEnabled(strippedSmallLogsSlab);
-		STRIPPED_LOG_CORNER.setEnabled(strippedSmallLogsCorner);
+//		STRIPPED_LOG_CORNER.setEnabled(strippedSmallLogsCorner);
 		STRIPPED_LOG_STAIRS.setEnabled(strippedSmallLogsStairs);
 	}
 
@@ -108,26 +112,26 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		SMALL_LOG.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 		LOG.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-		LOG_CORNER.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+//		LOG_CORNER.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
 		LOG_SLAB.setup(base, () -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
 		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
 		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(LOG_CORNER.BLOCK);
+//		CompendiumBlockEntities.validStyleBlocks.add(LOG_CORNER.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG_STAIRS.BLOCK);
 
 		STRIPPED_SMALL_LOG_PIPE.setup(base,
 				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 		STRIPPED_LOG.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-		STRIPPED_LOG_CORNER.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+//		STRIPPED_LOG_CORNER.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
 		STRIPPED_LOG_SLAB.setup(base, () -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
 		STRIPPED_LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_SMALL_LOG_PIPE.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_CORNER.BLOCK);
+//		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_CORNER.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_STAIRS.BLOCK);
 	}
@@ -136,13 +140,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void tab(_MaterialBase base, Output output) {
 		SMALL_LOG.tab(base, output);
 		LOG.tab(base, output);
-		LOG_CORNER.tab(base, output);
+//		LOG_CORNER.tab(base, output);
 		LOG_SLAB.tab(base, output);
 		LOG_STAIRS.tab(base, output);
 
 		STRIPPED_SMALL_LOG_PIPE.tab(base, output);
 		STRIPPED_LOG.tab(base, output);
-		STRIPPED_LOG_CORNER.tab(base, output);
+//		STRIPPED_LOG_CORNER.tab(base, output);
 		STRIPPED_LOG_SLAB.tab(base, output);
 		STRIPPED_LOG_STAIRS.tab(base, output);
 	}
@@ -151,170 +155,189 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 
 		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
-				ibmp.modLoc(SMALL_LOG.location(base) + "s_corner"));
+				ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
 
 		ibmp.withExistingParent(STRIPPED_SMALL_LOG_PIPE.location(base) + "_block", ibmp.modLoc("item/small_log"))
-				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "s_corner"));
+				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "small_logs_corner"));
 	}
 
 	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
-			smallLogsModel(SMALL_LOG, base, bsp);
-			smallLogsModel(STRIPPED_SMALL_LOG_PIPE, base, bsp);
+			smallLogsModel(SMALL_LOG, base, bsp, "");
+			smallLogsModel(STRIPPED_SMALL_LOG_PIPE, base, bsp, "stripped_");
 			if (LOG.enabled()) {
 				DataUtil.axisMaterialBlock(bsp, base, LOG, "small_logs", "solid", base.getType());
 			}
 			if (STRIPPED_LOG.enabled()) {
 				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_LOG, "stripped_small_logs", "solid", base.getType());
 			}
-			if (LOG_CORNER.enabled()) {
-
-				bsp.axisBlock((RotatedPillarBlock) LOG_CORNER.BLOCK.get(),
-						bsp.models()
-								.withExistingParent(LOG_CORNER.location(base) + "_block",
-										Compendium.modLoc("small_logs_corner"))
-								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
-								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
-								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")),
-
-						bsp.models()
-								.withExistingParent(LOG_CORNER.location(base) + "_side_block",
-										Compendium.modLoc("small_logs_corner_side"))
-								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
-								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
-								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")));
-			}
-
-			if (STRIPPED_LOG_CORNER.enabled()) {
-
-				bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG_CORNER.BLOCK.get(),
-						bsp.models()
-								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "_block",
-										Compendium.modLoc("small_logs_corner"))
-								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
-								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
-								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")),
-
-						bsp.models()
-								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "_side_block",
-										Compendium.modLoc("small_logs_corner_side"))
-								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
-								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
-								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")));
-			}
+//			if (LOG_CORNER.enabled()) {
+//
+//				bsp.axisBlock((RotatedPillarBlock) LOG_CORNER.BLOCK.get(),
+//						bsp.models()
+//								.withExistingParent(LOG_CORNER.location(base) + "log_corner_block",
+//										Compendium.modLoc("small_logs_corner"))
+//								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
+//								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
+//								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")),
+//
+//						bsp.models()
+//								.withExistingParent(LOG_CORNER.location(base) + "log_corner_side_block",
+//										Compendium.modLoc("small_logs_corner_side"))
+//								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
+//								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
+//								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")));
+//			}
+//
+//			if (STRIPPED_LOG_CORNER.enabled()) {
+//
+//				bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG_CORNER.BLOCK.get(),
+//						bsp.models().getBuilder("table_top").customLoader(MultiStyleMaterialBuilder::begin)
+//								.base(bsp.models().cubeAll("table_top_model", bsp.mcLoc("block/oak_planks")))
+//								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
+//										List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+//										StyleData.TABLE_TOP.getTypes(), 0, 0))
+//								.end(),
+//						bsp.models().getBuilder("table_top").customLoader(MultiStyleMaterialBuilder::begin)
+//								.base(bsp.models().cubeAll("table_top_model", bsp.mcLoc("block/oak_planks")))
+//								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
+//										List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
+//										StyleData.TABLE_TOP.getTypes(), 0, 0))
+//								.end());
+////								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "stripped_log_corner_block",
+////										Compendium.modLoc("small_logs_corner"))
+////								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
+////								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
+////								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")),
+//
+////						bsp.models()
+////								.withExistingParent(
+////										STRIPPED_LOG_CORNER.location(base) + "stripped_log_corner_side_block",
+////										Compendium.modLoc("small_logs_corner_side"))
+////								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
+////								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
+////								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")));
+//			}
 			if (LOG_SLAB.enabled()) {
 				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "_bottom_block",
+								.withExistingParent(LOG_SLAB.location(base) + "log_corner_bottom_block",
 										Compendium.modLoc("small_logs_slab_bottom"))
-								.texture("0", Compendium.modLoc(LOG.location(base)))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")),
 						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "_top_block",
+								.withExistingParent(LOG_SLAB.location(base) + "log_corner_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
-								.texture("0", Compendium.modLoc(LOG.location(base)))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")),
 						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "_full_block",
+								.withExistingParent(LOG_SLAB.location(base) + "log_corner_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
-								.texture("0", Compendium.modLoc(LOG.location(base)))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))));
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")));
 			}
 
 			if (STRIPPED_LOG_SLAB.enabled()) {
-				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(),
+				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(), bsp.models()
+						.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "stripped_log_corner_bottom_block",
+								Compendium.modLoc("small_logs_slab_bottom"))
+						.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs"))
+						.texture("1", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base) + "stripped_small_logs_slab"))
+						.texture("particle",
+								Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs_slab")),
 						bsp.models()
-								.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "_bottom_block",
-										Compendium.modLoc("small_logs_slab_bottom"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
-						bsp.models()
-								.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "_top_block",
+								.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "stripped_log_corner_top_block",
 										Compendium.modLoc("small_logs_slab_top"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
+								.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs"))
+								.texture("1",
+										Compendium
+												.modLoc(STRIPPED_LOG_SLAB.location(base) + "stripped_small_logs_slab"))
+								.texture("particle",
+										Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs_slab")),
 						bsp.models()
-								.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "_full_block",
+								.withExistingParent(STRIPPED_LOG_SLAB.location(base) + "stripped_log_corner_full_block",
 										Compendium.modLoc("small_logs_slab_full"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))));
+								.texture("0", Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs"))
+								.texture("1",
+										Compendium
+												.modLoc(STRIPPED_LOG_SLAB.location(base) + "stripped_small_logs_slab"))
+								.texture("particle",
+										Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs_slab")));
 			}
 			if (LOG_STAIRS.enabled()) {
 				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(),
-						bsp.models()
-								.withExistingParent(LOG_STAIRS.location(base) + "_block",
-										Compendium.modLoc("small_logs_stairs"))
-								.texture("0", Compendium.modLoc(LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
-						bsp.models()
-								.withExistingParent(LOG_STAIRS.location(base) + "_inner_block",
-										Compendium.modLoc("small_logs_inner_stairs"))
-								.texture("0", Compendium.modLoc(LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
-						bsp.models()
-								.withExistingParent(LOG_STAIRS.location(base) + "_outer_block",
-										Compendium.modLoc("small_logs_outer_stairs"))
-								.texture("0", Compendium.modLoc(LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(LOG.location(base))),
+						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_block",
+								Compendium.modLoc("small_logs_stairs"))
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
+						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_inner_block",
+								Compendium.modLoc("small_logs_inner_stairs"))
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
+						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_outer_block",
+								Compendium.modLoc("small_logs_outer_stairs"))
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
 						bsp);
 			}
 
 			if (STRIPPED_LOG_STAIRS.enabled()) {
 				stairsBlock((StairBlock) STRIPPED_LOG_STAIRS.BLOCK.get(),
 						bsp.models()
-								.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "_block",
+								.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_block",
 										Compendium.modLoc("small_logs_stairs"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp.models()
-								.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "_inner_block",
+								.withExistingParent(
+										STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_inner_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp.models()
-								.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "_outer_block",
+								.withExistingParent(
+										STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_outer_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
-								.texture("0", Compendium.modLoc(STRIPPED_LOG_CORNER.location(base)))
-								.texture("1", Compendium.modLoc(STRIPPED_LOG.location(base) + "_turned"))
-								.texture("2", Compendium.modLoc(STRIPPED_LOG_SLAB.location(base)))
-								.texture("particle", Compendium.modLoc(STRIPPED_LOG.location(base))),
+//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
+								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp);
 			}
 		}
 	}
 
-	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp) {
+	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp,
+			String extra) {
 		if (block.enabled()) {
 			BlockModelBuilder base_model_horizontal = bsp.models()
-					.withExistingParent(block.location(base) + "horizontal", bsp.modLoc("block/small_log_horizontal"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
+					.withExistingParent(block.location(base) + extra + "horizontal",
+							bsp.modLoc("block/small_log_horizontal"))
+					.texture("0", bsp.modLoc(base.blockFolder() + extra + "small_logs_corner"));
 			BlockModelBuilder base_model_horizontal2 = bsp.models()
-					.withExistingParent(block.location(base) + "horizontal_rot",
+					.withExistingParent(block.location(base) + extra + "horizontal_rot",
 							bsp.modLoc("block/small_log_horizontal2"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
+					.texture("0", bsp.modLoc(base.blockFolder() + extra + "small_logs_corner"));
 			BlockModelBuilder base_model_vertical = bsp.models()
-					.withExistingParent(base.blockFolder() + "vertical", bsp.modLoc("block/small_log_vertical"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
+					.withExistingParent(base.blockFolder() + extra + "vertical", bsp.modLoc("block/small_log_vertical"))
+					.texture("0", bsp.modLoc(base.blockFolder() + extra + "small_logs_corner"));
 			BlockModelBuilder model_cap = bsp.models()
-					.withExistingParent(block.location(base) + "cap", bsp.modLoc("block/small_log_cap"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "small_logs_corner"));
+					.withExistingParent(block.location(base) + extra + "cap", bsp.modLoc("block/small_log_cap"))
+					.texture("0", bsp.modLoc(base.blockFolder() + extra + "small_logs_corner"));
 
 			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel().nestedGroup()
 					.useOr()
@@ -390,10 +413,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			if (LOG.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, LOG.BLOCK_ITEM, base.name, "small_logs", base.getType());
 			}
-			if (LOG_CORNER.enabled()) {
-				DataUtil.basicMaterialBlockItem(tmp, LOG_CORNER.BLOCK_ITEM, base.name, "small_logs_corner",
-						base.getType());
-			}
+//			if (LOG_CORNER.enabled()) {
+//				DataUtil.basicMaterialBlockItem(tmp, LOG_CORNER.BLOCK_ITEM, base.name, "small_logs_corner",
+//						base.getType());
+//			}
 			if (LOG_SLAB.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, LOG_SLAB.BLOCK_ITEM, base.name, "small_logs_slab_bottom",
 						base.getType());
@@ -411,10 +434,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG.BLOCK_ITEM, base.name, "stripped_small_logs",
 						base.getType());
 			}
-			if (STRIPPED_LOG_CORNER.enabled()) {
-				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG_CORNER.BLOCK_ITEM, base.name,
-						"stripped_small_logs_corner", base.getType());
-			}
+//			if (STRIPPED_LOG_CORNER.enabled()) {
+//				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG_CORNER.BLOCK_ITEM, base.name,
+//						"stripped_small_logs_corner", base.getType());
+//			}
 			if (STRIPPED_LOG_SLAB.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG_SLAB.BLOCK_ITEM, base.name,
 						"stripped_small_logs_slab_bottom", base.getType());
@@ -439,9 +462,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (LOG.enabled()) {
 			lp.add(this.LOG.BLOCK_ITEM.asItem(), material_name + "Small Logs");
 		}
-		if (LOG_CORNER.enabled()) {
-			lp.add(this.LOG_CORNER.BLOCK_ITEM.asItem(), material_name + "Small Logs Corner");
-		}
+//		if (LOG_CORNER.enabled()) {
+//			lp.add(this.LOG_CORNER.BLOCK_ITEM.asItem(), material_name + "Small Logs Corner");
+//		}
 		if (LOG_SLAB.enabled()) {
 			lp.add(this.LOG_SLAB.BLOCK_ITEM.asItem(), material_name + "Small Logs Slab");
 		}
@@ -455,9 +478,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (STRIPPED_LOG.enabled()) {
 			lp.add(this.STRIPPED_LOG.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs");
 		}
-		if (STRIPPED_LOG_CORNER.enabled()) {
-			lp.add(this.STRIPPED_LOG_CORNER.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Corner");
-		}
+//		if (STRIPPED_LOG_CORNER.enabled()) {
+//			lp.add(this.STRIPPED_LOG_CORNER.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Corner");
+//		}
 		if (STRIPPED_LOG_SLAB.enabled()) {
 			lp.add(this.STRIPPED_LOG_SLAB.BLOCK_ITEM.asItem(), "Stripped " + material_name + "Small Logs Slab");
 		}
@@ -495,12 +518,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
-		if (LOG_CORNER.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG_CORNER.BLOCK_ITEM, 1).pattern("b")
-					.pattern("b").define('b', LOG_SLAB.BLOCK_ITEM).unlockedBy("has_small_logs_slab",
-							InventoryChangeTrigger.TriggerInstance.hasItems(LOG_SLAB.BLOCK_ITEM))
-					.save(consumer);
-		}
+//		if (LOG_CORNER.enabled()) {
+//			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG_CORNER.BLOCK_ITEM, 1).pattern("b")
+//					.pattern("b").define('b', LOG_SLAB.BLOCK_ITEM).unlockedBy("has_small_logs_slab",
+//							InventoryChangeTrigger.TriggerInstance.hasItems(LOG_SLAB.BLOCK_ITEM))
+//					.save(consumer);
+//		}
 
 		if (STRIPPED_SMALL_LOG_PIPE.enabled()) {
 			SawBuckRecipeBuilder
@@ -532,13 +555,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG_PIPE.BLOCK_ITEM))
 					.save(consumer);
 		}
-		if (STRIPPED_LOG_CORNER.enabled()) {
-			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_LOG_CORNER.BLOCK_ITEM, 1).pattern("b")
-					.pattern("b").define('b', STRIPPED_LOG_SLAB.BLOCK_ITEM)
-					.unlockedBy("has_stripped_small_logs_slab",
-							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_LOG_SLAB.BLOCK_ITEM))
-					.save(consumer);
-		}
+//		if (STRIPPED_LOG_CORNER.enabled()) {
+//			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_LOG_CORNER.BLOCK_ITEM, 1).pattern("b")
+//					.pattern("b").define('b', STRIPPED_LOG_SLAB.BLOCK_ITEM)
+//					.unlockedBy("has_stripped_small_logs_slab",
+//							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_LOG_SLAB.BLOCK_ITEM))
+//					.save(consumer);
+//		}
 	}
 
 	@Override
@@ -549,9 +572,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (LOG.enabled()) {
 			blp.dropSelf(this.LOG.BLOCK.get());
 		}
-		if (LOG_CORNER.enabled()) {
-			blp.dropSelf(this.LOG_CORNER.BLOCK.get());
-		}
+//		if (LOG_CORNER.enabled()) {
+//			blp.dropSelf(this.LOG_CORNER.BLOCK.get());
+//		}
 		if (LOG_SLAB.enabled()) {
 			blp.dropSelf(this.LOG_SLAB.BLOCK.get());
 		}
@@ -565,9 +588,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (STRIPPED_LOG.enabled()) {
 			blp.dropSelf(this.STRIPPED_LOG.BLOCK.get());
 		}
-		if (STRIPPED_LOG_CORNER.enabled()) {
-			blp.dropSelf(this.STRIPPED_LOG_CORNER.BLOCK.get());
-		}
+//		if (STRIPPED_LOG_CORNER.enabled()) {
+//			blp.dropSelf(this.STRIPPED_LOG_CORNER.BLOCK.get());
+//		}
 		if (STRIPPED_LOG_SLAB.enabled()) {
 			blp.dropSelf(this.STRIPPED_LOG_SLAB.BLOCK.get());
 		}
@@ -605,13 +628,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			j.addProperty("loadSmallLog", src.SMALL_LOG.enabled());
 			j.addProperty("loadSmallLogs", src.LOG.enabled());
-			j.addProperty("loadSmallCornerLogs", src.LOG_CORNER.enabled());
+//			j.addProperty("loadSmallCornerLogs", src.LOG_CORNER.enabled());
 			j.addProperty("loadSmallLogsSlab", src.LOG_SLAB.enabled());
 			j.addProperty("loadSmallLogsStairs", src.LOG_STAIRS.enabled());
 
 			j.addProperty("loadStrippedSmallLog", src.STRIPPED_SMALL_LOG_PIPE.enabled());
 			j.addProperty("loadStrippedSmallLogs", src.STRIPPED_LOG.enabled());
-			j.addProperty("loadStrippedSmallCornerLogs", src.STRIPPED_LOG_CORNER.enabled());
+//			j.addProperty("loadStrippedSmallCornerLogs", src.STRIPPED_LOG_CORNER.enabled());
 			j.addProperty("loadStrippedSmallLogsSlab", src.STRIPPED_LOG_SLAB.enabled());
 			j.addProperty("loadStrippedSmallLogsStairs", src.STRIPPED_LOG_STAIRS.enabled());
 
@@ -625,19 +648,19 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			boolean loadSmallLog = j.get("loadSmallLog").getAsBoolean();
 			boolean loadSmallLogs = j.get("loadSmallLogs").getAsBoolean();
-			boolean loadSmallCornerLogs = j.get("loadSmallCornerLogs").getAsBoolean();
+//			boolean loadSmallCornerLogs = j.get("loadSmallCornerLogs").getAsBoolean();
 			boolean loadSmallLogsSlab = j.get("loadSmallLogsSlab").getAsBoolean();
 			boolean loadSmallLogsStairs = j.get("loadSmallLogsStairs").getAsBoolean();
 
 			boolean loadStrippedSmallLog = j.get("loadStrippedSmallLog").getAsBoolean();
 			boolean loadStrippedSmallLogs = j.get("loadStrippedSmallLogs").getAsBoolean();
-			boolean loadStrippedSmallCornerLogs = j.get("loadStrippedSmallCornerLogs").getAsBoolean();
+//			boolean loadStrippedSmallCornerLogs = j.get("loadStrippedSmallCornerLogs").getAsBoolean();
 			boolean loadStrippedSmallLogsSlab = j.get("loadStrippedSmallLogsSlab").getAsBoolean();
 			boolean loadStrippedSmallLogsStairs = j.get("loadStrippedSmallLogsStairs").getAsBoolean();
 
-			return new ExtensionExtraLogs(loadSmallLog, loadSmallLogs, loadSmallCornerLogs, loadSmallLogsSlab,
-					loadSmallLogsStairs, loadStrippedSmallLog, loadStrippedSmallLogs, loadStrippedSmallCornerLogs,
-					loadStrippedSmallLogsSlab, loadStrippedSmallLogsStairs);
+			return new ExtensionExtraLogs(loadSmallLog, loadSmallLogs, loadSmallLogsSlab, loadSmallLogsStairs,
+					loadStrippedSmallLog, loadStrippedSmallLogs, loadStrippedSmallLogsSlab,
+					loadStrippedSmallLogsStairs);
 		}
 
 	}

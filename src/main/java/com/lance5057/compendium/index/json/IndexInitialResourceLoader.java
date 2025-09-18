@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
@@ -41,6 +42,8 @@ import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLog
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -137,35 +140,35 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialGlass("tinted_glass", false, false));
 
 		buildDefault(new MaterialWood("oak", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("birch", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("spruce", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("jungle", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("acacia", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("dark_oak", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("mangrove", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("cherry", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 		buildDefault(new MaterialWood("crimson", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		buildDefault(new MaterialWood("warped", false, false, false, false, false)
-				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true, true, true))
+				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true, true)));
 		// buildDefault(new MaterialWood("pale_oak", false).addExtension(new
 		// ExtensionExtraLogs(true, true, true, true)));

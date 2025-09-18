@@ -117,8 +117,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
+		blp.dropSelf(PLANK.BLOCK.get());
+		blp.dropSelf(PLANK_BLOCK.BLOCK.get());
+		blp.dropSelf(PLANK_SLAB.BLOCK.get());
+		blp.dropSelf(PLANK_CORNER.BLOCK.get());
+		blp.dropSelf(PLANK_STAIRS.BLOCK.get());
 	}
 
 	@Override

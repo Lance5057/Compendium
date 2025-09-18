@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/support/tri/basic",
   "textures": {
-    "0": "compendium:block/material/wood/dark_oak/dark_oak_small_logs_corner"
+    "0": "compendium:block/material/wood/dark_oak/small_logs_corner"
   }
 }

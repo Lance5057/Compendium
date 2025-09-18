@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_horizontal_rot"
+        "model": "compendium:block/material/wood/crimson/horizontal_rot"
       },
       "when": {
         "AND": [
@@ -45,7 +45,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_horizontal"
+        "model": "compendium:block/material/wood/crimson/horizontal"
       },
       "when": {
         "AND": [
@@ -74,7 +74,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_vertical"
+        "model": "compendium:block/material/wood/crimson/vertical"
       },
       "when": {
         "OR": [
@@ -89,7 +89,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap"
+        "model": "compendium:block/material/wood/crimson/cap"
       },
       "when": {
         "up": "true"
@@ -97,7 +97,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap",
+        "model": "compendium:block/material/wood/crimson/cap",
         "x": 180
       },
       "when": {
@@ -106,7 +106,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap",
+        "model": "compendium:block/material/wood/crimson/cap",
         "x": 90
       },
       "when": {
@@ -115,7 +115,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap",
+        "model": "compendium:block/material/wood/crimson/cap",
         "x": 90,
         "y": 180
       },
@@ -125,7 +125,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap",
+        "model": "compendium:block/material/wood/crimson/cap",
         "x": 90,
         "y": -90
       },
@@ -135,7 +135,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/material/wood/crimson/crimson_small_log_cap",
+        "model": "compendium:block/material/wood/crimson/cap",
         "x": 90,
         "y": 90
       },

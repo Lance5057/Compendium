@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:item/small_log",
+  "textures": {
+    "0": "compendium:block/material/wood/crimson/small_logs_corner"
+  }
+}

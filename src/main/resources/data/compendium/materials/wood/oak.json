@@ -11,12 +11,10 @@
       "type": "EXTRALOGS",
       "loadSmallLog": true,
       "loadSmallLogs": true,
-      "loadSmallCornerLogs": true,
       "loadSmallLogsSlab": true,
       "loadSmallLogsStairs": true,
       "loadStrippedSmallLog": true,
       "loadStrippedSmallLogs": true,
-      "loadStrippedSmallCornerLogs": true,
       "loadStrippedSmallLogsSlab": true,
       "loadStrippedSmallLogsStairs": true
     },

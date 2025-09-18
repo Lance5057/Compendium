@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "render_type": "minecraft:solid",
+  "textures": {
+    "end": "compendium:block/material/wood/jungle/small_logs_top",
+    "side": "compendium:block/material/wood/jungle/small_logs"
+  }
+}

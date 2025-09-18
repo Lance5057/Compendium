@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/small_logs_outer_stairs",
-  "textures": {
-    "0": "compendium:block/material/wood/mangrove/mangrove_stripped_small_logs_corner",
-    "1": "compendium:block/material/wood/mangrove/mangrove_stripped_small_logs_turned",
-    "2": "compendium:block/material/wood/mangrove/mangrove_stripped_small_logs_slab",
-    "particle": "compendium:block/material/wood/mangrove/mangrove_stripped_small_logs"
-  }
-}

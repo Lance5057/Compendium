@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/material/wood/warped/small_logs_block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/material/wood/warped/small_logs_block"
+    },
+    "axis=z": {
+      "model": "compendium:block/material/wood/warped/small_logs_block",
+      "x": 90
+    }
+  }
+}

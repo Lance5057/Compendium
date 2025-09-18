@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "compendium:block/material/wood/birch/log_corner_bottom_block"
+    },
+    "type=double": {
+      "model": "compendium:block/material/wood/birch/log_corner_full_block"
+    },
+    "type=top": {
+      "model": "compendium:block/material/wood/birch/log_corner_top_block"
+    }
+  }
+}

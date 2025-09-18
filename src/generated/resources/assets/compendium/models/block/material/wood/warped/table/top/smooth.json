@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/table/top/smooth",
   "textures": {
     "0": "minecraft:block/warped_planks",
-    "1": "compendium:block/material/wood/warped/warped_sheet"
+    "1": "compendium:block/material/wood/warped/sheet"
   }
 }

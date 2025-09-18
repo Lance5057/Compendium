@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/small_log_horizontal",
-  "textures": {
-    "0": "compendium:block/material/wood/cherry/cherry_stripped_small_logs_corner"
-  }
-}
