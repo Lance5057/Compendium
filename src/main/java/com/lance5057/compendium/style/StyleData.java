@@ -54,6 +54,10 @@ public class StyleData {
 	public static StyleData SHINGLES = new StyleData("shingles", List.of("basic"));
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
+	
+	public static StyleData LOG = new StyleData("log", List.of("basic", "corner"));
+	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
+	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
 
 	String name;
 	List<String> types;

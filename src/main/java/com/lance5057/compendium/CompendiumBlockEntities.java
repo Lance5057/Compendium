@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlockEntity;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
-import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -56,47 +56,12 @@ public class CompendiumBlockEntities {
 			.register("component_drawer", () -> BlockEntityType.Builder
 					.of(ComponentDrawerBlockEntity::new, CompendiumBlocks.COMPONENT_DRAWER.get()).build(null));
 
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> WINDOW = BLOCK_ENTITIES
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> STYLED_MULTI_MATERIAL = BLOCK_ENTITIES
 			.register("window", () -> BlockEntityType.Builder.of((p, s) -> {
 				return new StyledMultiMaterialBlockEntity(p, s, 0, 0);
 			}, CompendiumBlocks.WINDOW.get(), CompendiumBlocks.CHAIR.get(), CompendiumBlocks.TABLE.get(),
 					CompendiumBlocks.CLOTHED_TABLE.get(), CompendiumBlocks.FANCY_BED.get(),
 					CompendiumBlocks.FANCY_FENCE.get(), CompendiumBlocks.SHINGLES_SLANTED.get(),
 					CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), CompendiumBlocks.FANCY_DOOR.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> CHAIR = BLOCK_ENTITIES
-//			.register("chair", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 3, 3);
-//			}, CompendiumBlocks.CHAIR.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> TABLE = BLOCK_ENTITIES
-//			.register("table", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 2, 2);
-//			}, CompendiumBlocks.TABLE.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> CLOTHED_TABLE = BLOCK_ENTITIES
-//			.register("clothed_table", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 3, 3);
-//			}, CompendiumBlocks.CLOTHED_TABLE.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> FANCY_BED = BLOCK_ENTITIES
-//			.register("fancy_bed", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 3, 3);
-//			}, CompendiumBlocks.FANCY_BED.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> FANCY_FENCE = BLOCK_ENTITIES
-//			.register("fancy_fence", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 2, 2);
-//			}, CompendiumBlocks.FANCY_FENCE.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> SLANTED_SHINGLES = BLOCK_ENTITIES
-//			.register("shingles_slanted", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 3, 3);
-//			}, CompendiumBlocks.SHINGLES_SLANTED.get(), CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).build(null));
-//
-//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> FANCY_DOOR = BLOCK_ENTITIES
-//			.register("fancy_door", () -> BlockEntityType.Builder.of((p, s) -> {
-//				return new StyledMultiMaterialBlockEntity(p, s, 2, 2);
-//			}, CompendiumBlocks.FANCY_DOOR.get()).build(null));
 
 }

@@ -1,4 +1,4 @@
-package com.lance5057.compendium.blocks.entity;
+package com.lance5057.compendium.blocks.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
-import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
@@ -31,7 +30,7 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 
 	public StyledMultiMaterialBlockEntity(BlockPos pos, BlockState blockState, int styleCount, int materialCount,
 			StyleData... styles) {
-		super(CompendiumBlockEntities.WINDOW.get(), pos, blockState);
+		super(CompendiumBlockEntities.STYLED_MULTI_MATERIAL.get(), pos, blockState);
 		this.styleCount = styleCount;
 		this.materialCount = materialCount;
 		this.styles = List.of(styles);

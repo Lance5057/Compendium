@@ -15,7 +15,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class WindowBlockEntity extends MultiMaterialBlockEntity {
 
 	public WindowBlockEntity(BlockPos pos, BlockState blockState) {
-		super(CompendiumBlockEntities.WINDOW.get(), pos, blockState,
+		super(CompendiumBlockEntities.STYLED_MULTI_MATERIAL.get(), pos, blockState,
 				new ArrayList<MultiMaterialType>(List.of(new MultiMaterialType(MATERIAL_TYPES.METAL.toString()))));
 	}
 

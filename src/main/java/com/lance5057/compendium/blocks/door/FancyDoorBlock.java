@@ -1,6 +1,6 @@
 package com.lance5057.compendium.blocks.door;
 
-import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.DoorBlock;

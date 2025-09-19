@@ -3,7 +3,7 @@ package com.lance5057.compendium.blocks.bed;
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;

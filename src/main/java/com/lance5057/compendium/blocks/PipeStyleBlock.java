@@ -1,6 +1,9 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.List;
+
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.style.StyleData;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
@@ -18,17 +21,20 @@ import net.minecraft.world.level.block.state.StateDefinition;
 public class PipeStyleBlock extends PipeBlock implements EntityBlock {
 	public static final MapCodec<PipeStyleBlock> CODEC = simpleCodec(PipeStyleBlock::new);
 
-	public PipeStyleBlock(Properties properties) {
+	public final StyleData[] styles;
+
+	public PipeStyleBlock(Properties properties, StyleData... styles) {
 		super(0.25f, properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false))
 				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false))
 				.setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false))
 				.setValue(DOWN, Boolean.valueOf(false)));
+		this.styles = styles;
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state);
+		return new SimpleStyleBlockEntity(pos, state, styles.length, styles);
 	}
 
 	@Override

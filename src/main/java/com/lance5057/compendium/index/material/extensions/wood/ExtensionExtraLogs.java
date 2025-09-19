@@ -1,6 +1,8 @@
 package com.lance5057.compendium.index.material.extensions.wood;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
@@ -10,12 +12,14 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.StairStyleBlock;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
+import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
@@ -40,7 +44,9 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -57,6 +63,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -110,10 +117,19 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		SMALL_LOG.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
-		LOG.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+		SMALL_LOG.setup(base,
+				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.SMALL_LOG),
+				() -> new BlockItem(SMALL_LOG.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+		LOG.setup(base,
+				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG), StyleData.LOG),
+				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 //		LOG_CORNER.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-		LOG_SLAB.setup(base, () -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
+		LOG_SLAB.setup(base,
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB), StyleData.LOG_SLAB),
+				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
 		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
@@ -159,6 +175,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		ibmp.withExistingParent(STRIPPED_SMALL_LOG_PIPE.location(base) + "_block", ibmp.modLoc("item/small_log"))
 				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "small_logs_corner"));
+
+		StyleData.LOG.getTypes().forEach(b -> {
+			ibmp.withExistingParent(LOG.location(base) + "/" + b,
+					ibmp.modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+					.texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
+		});
 	}
 
 	@Override
@@ -166,8 +188,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (this.autoGenBlockModel) {
 			smallLogsModel(SMALL_LOG, base, bsp, "");
 			smallLogsModel(STRIPPED_SMALL_LOG_PIPE, base, bsp, "stripped_");
+
 			if (LOG.enabled()) {
-				DataUtil.axisMaterialBlock(bsp, base, LOG, "small_logs", "solid", base.getType());
+				bsp.getVariantBuilder(LOG.BLOCK.get()).forAllStates(state -> {
+					Builder<?> b = ConfiguredModel.builder();
+					MultiMaterialModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder("window")
+							.customLoader(MultiMaterialModelBuilder::begin);
+					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+					msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.WOOD), "log", 0));
+
+					BlockModelBuilder bmb = msmb.end();
+					b.modelFile(bmb);
+					return b.build();
+				});
+//				DataUtil.axisMaterialBlock(bsp, base, LOG, "small_logs", "solid", base.getType());
 			}
 			if (STRIPPED_LOG.enabled()) {
 				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_LOG, "stripped_small_logs", "solid", base.getType());

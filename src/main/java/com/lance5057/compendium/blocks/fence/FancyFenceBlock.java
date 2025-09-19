@@ -1,6 +1,6 @@
 package com.lance5057.compendium.blocks.fence;
 
-import com.lance5057.compendium.blocks.entity.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;

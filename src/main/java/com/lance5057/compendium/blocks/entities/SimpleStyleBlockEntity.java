@@ -26,38 +26,35 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
-//	String name;
-//
-//	StyleData style = StyleData.TILES;
+	List<StyleData> styles = new ArrayList<StyleData>();
 
-//	public String getName() {
-//		return name;
-//	}
-
-//	List<List<String>> styles; // Immutable!
+	final int styleCount;
 
 	List<Integer> currentStyles = new ArrayList<Integer>();
 
 	@Override
 	public List<StyleData> getStyles() {
-		return List.of(StyleData.TILES);
+		return styles;
 	}
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
+		this.styleCount = 0;
+		this.styles = new ArrayList<StyleData>();
 	}
 
-//	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, String name, List<List<String>> styles) {
-//		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-//		if (styles != null)
-//			this.styles = styles;
-//		this.name = name;
-//	}
+	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, int styleCount, StyleData... styles) {
+		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
+		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
+		this.styleCount = styleCount;
+		this.styles = List.of(styles);
+	}
 
 	@Override
 	public int getCurrent(int index) {
-		return currentStyles.get(index);
+		if (styles != null && styles.size() > index)
+			return currentStyles.get(index);
+		return 0;
 	}
 
 	@Override
@@ -70,7 +67,21 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	public List<String> getCurrentAllString() {
 		List<String> l = new ArrayList<>();
-		l.add(StyleData.TILES.getTypes().get(this.getCurrent(0)));
+
+		for (int i = 0; i < styles.size(); i++) {
+			int c = this.getCurrent(i);
+
+			List<String> s = styles.get(i).getTypes();
+			if (s.size() > c)
+				l.add(s.get(c));
+			else
+				l.add(s.get(0));
+		}
+
+		if (l.isEmpty()) {
+
+		}
+
 		return l;
 	}
 
