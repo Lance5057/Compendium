@@ -177,9 +177,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "small_logs_corner"));
 
 		StyleData.LOG.getTypes().forEach(b -> {
-			ibmp.withExistingParent(LOG.location(base) + "/" + b,
-					ibmp.modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-					.texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
+
+			ibmp.withExistingParent(LOG.location(base) + "/log/layer/" + b, ibmp.mcLoc("block/cube_column"))
+					.texture("side", ibmp.mcLoc("block/" + base.name + "_planks"))
+					.texture("end", ibmp.mcLoc("block/" + base.name + "_planks"));
 		});
 	}
 
@@ -192,11 +193,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			if (LOG.enabled()) {
 				bsp.getVariantBuilder(LOG.BLOCK.get()).forAllStates(state -> {
 					Builder<?> b = ConfiguredModel.builder();
-					MultiMaterialModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder("window")
-							.customLoader(MultiMaterialModelBuilder::begin);
+					MultiMaterialModelBuilder<BlockModelBuilder> msmb = bsp.models()
+							.getBuilder(LOG.location(base) + "log").customLoader(MultiMaterialModelBuilder::begin);
 					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
-					msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.WOOD), "log", 0));
+					msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.WOOD), "layer", 0));
 
 					BlockModelBuilder bmb = msmb.end();
 					b.modelFile(bmb);

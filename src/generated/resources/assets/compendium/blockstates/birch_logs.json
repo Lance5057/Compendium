@@ -1,13 +1,13 @@
 {
   "variants": {
     "axis=x": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/birch/log"
     },
     "axis=y": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/birch/log"
     },
     "axis=z": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/birch/log"
     }
   }
 }

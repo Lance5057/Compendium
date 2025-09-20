@@ -1,13 +1,13 @@
 {
   "variants": {
     "axis=x": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/jungle/log"
     },
     "axis=y": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/jungle/log"
     },
     "axis=z": {
-      "model": "compendium:block/window"
+      "model": "compendium:block/material/wood/jungle/log"
     }
   }
 }

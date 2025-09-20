@@ -1,0 +1,17 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "model": "layer",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 1,
+  "loader": "compendium:multi_material"
+}
