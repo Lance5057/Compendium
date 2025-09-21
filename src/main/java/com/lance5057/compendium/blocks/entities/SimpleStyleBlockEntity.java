@@ -39,6 +39,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
+		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
 		this.styleCount = 0;
 		this.styles = new ArrayList<StyleData>();
 	}
@@ -88,6 +89,11 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	public int getStyleCount() {
 		return 1;
+	}
+
+	@Override
+	public List<Integer> getCurrentAll() {
+		return this.currentStyles;
 	}
 
 	@Override
@@ -174,16 +180,11 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	}
 
 	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
-		this.readStyleNBT(nbt, registries);
+		this.currentStyles = new ArrayList<Integer>(this.readStyleNBT(nbt, registries));
 	}
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.writeStyleNBT(nbt, registries);
-	}
-
-	@Override
-	public List<Integer> getCurrentAll() {
-		return this.currentStyles;
 	}
 
 }

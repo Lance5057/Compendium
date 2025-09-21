@@ -1,0 +1,10 @@
+{
+  "basic": {
+    "model": "compendium:block/material/wood/warped/log/basic_horizontal"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/warped/log/corner_horizontal"
+  },
+  "count": 2,
+  "loader": "compendium:style"
+}

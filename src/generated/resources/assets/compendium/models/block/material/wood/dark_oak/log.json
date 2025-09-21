@@ -1,17 +1,10 @@
 {
-  "base": {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-      "all": "minecraft:block/oak_planks"
-    }
+  "basic": {
+    "model": "compendium:block/material/wood/dark_oak/log/basic"
   },
-  "layer0": {
-    "materialLayer": 0,
-    "model": "layer",
-    "valid": [
-      "WOOD"
-    ]
+  "corner": {
+    "model": "compendium:block/material/wood/dark_oak/log/corner"
   },
-  "layer_count": 1,
-  "loader": "compendium:multi_material"
+  "count": 2,
+  "loader": "compendium:style"
 }

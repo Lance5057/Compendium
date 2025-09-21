@@ -99,27 +99,13 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 
 	void readNBT(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.materials = this.readMaterialNBT(nbt, registries);
-//		if (nbt.contains("materials")) {
-//			CompoundTag mats = nbt.getCompound("materials");
-//
-//			int count = mats.getInt("count");
-//			this.materials = new ArrayList<String>();
-//
-//			for (int i = 0; i < count; i++) {
-//				String s = mats.getString("material_" + i);
-//				materials.add(s);
-//			}
-//		}
+
 		readNBTExtra(nbt, registries);
 	}
 
 	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
 		this.writeMaterialNBT(materials, tag, registries);
-//		CompoundTag mats = new CompoundTag();
-//		mats.putInt("count", materials.size());
-//		for (int i = 0; i < materials.size(); i++)
-//			mats.putString("material_" + i, materials.get(i).toString());
-//		tag.put("materials", mats);
+		
 		writeNBTExtra(tag, registries);
 
 		return tag;

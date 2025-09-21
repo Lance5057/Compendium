@@ -73,7 +73,8 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 		TILE_ITEM = CompendiumIndex.ITEMS.register(base.name + "_tile_item",
 				() -> new StyleItem(TILE.get(),
 						new Item.Properties()
-								.component(CompendiumComponents.STYLE, new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+								.component(CompendiumComponents.STYLE,
+										new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 								.component(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY)));
 	}
 

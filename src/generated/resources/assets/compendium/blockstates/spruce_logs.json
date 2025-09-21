@@ -1,13 +1,14 @@
 {
   "variants": {
     "axis=x": {
-      "model": "compendium:block/material/wood/spruce/log"
+      "model": "compendium:block/material/wood/spruce/log_horizontal",
+      "y": 90
     },
     "axis=y": {
       "model": "compendium:block/material/wood/spruce/log"
     },
     "axis=z": {
-      "model": "compendium:block/material/wood/spruce/log"
+      "model": "compendium:block/material/wood/spruce/log_horizontal"
     }
   }
 }
