@@ -119,36 +119,45 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	}
 
 	private void renderRecipes(GuiGraphics gui, int p_282658_, int p_282563_, int p_283352_, BlockState state) {
-
-		for (int i = this.startIndex; i < p_283352_
-				&& i < entity.getStyles().get(this.curStyleType).getTypes().size(); ++i) {
-			int j = i - this.startIndex;
-			int k = this.leftPos + p_282658_;
+		if (entity != null)
+			if (entity.getStyles() != null && !entity.getStyles().isEmpty())
+				if (entity.getStyles().get(curStyleType) != null
+						&& entity.getStyles().get(curStyleType).getTypes() != null
+						&& !entity.getStyles().get(curStyleType).getTypes().isEmpty())
+					for (int i = this.startIndex; i < p_283352_
+							&& i < entity.getStyles().get(this.curStyleType).getTypes().size(); ++i) {
+						int j = i - this.startIndex;
+						int k = this.leftPos + p_282658_;
 //			int l = j / 4;
-			int i1 = this.topPos + p_282563_ + j * 18;
+						int i1 = this.topPos + p_282563_ + j * 18;
 
-			gui.pose().pushPose();
-			{
-				gui.pose().translate(k, i1 + 0.5f, 100);
-				float scale = 8.5f;
-				gui.pose().scale(scale, scale, scale);
+						gui.pose().pushPose();
+						{
+							gui.pose().translate(k, i1 + 0.5f, 100);
+							float scale = 8.5f;
+							gui.pose().scale(scale, scale, scale);
 
-				gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
-				gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
+							gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
+							gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-				renderBlock(gui, state, i);
+							renderBlock(gui, state, i);
 
-			}
-			gui.pose().popPose();
+						}
+						gui.pose().popPose();
 //			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.get(curStyleType).getCurrentStyle());
-			gui.drawString(this.font, Component.translatable(entity.getStyles().get(curStyleType).getTypes().get(i)),
-					k + 10, i1, 0xFFFFFF, true);
-		}
+						gui.drawString(this.font,
+								Component.translatable(entity.getStyles().get(curStyleType).getTypes().get(i)), k + 10,
+								i1, 0xFFFFFF, true);
+					}
 	}
 
 	private boolean isScrollBarActive() {
 		if (entity != null)
-			return entity.getStyles().get(curStyleType).getTypes().size() > 8;
+			if (entity.getStyles() != null && !entity.getStyles().isEmpty())
+				if (entity.getStyles().get(curStyleType) != null
+						&& entity.getStyles().get(curStyleType).getTypes() != null
+						&& !entity.getStyles().get(curStyleType).getTypes().isEmpty())
+					return entity.getStyles().get(curStyleType).getTypes().size() > 8;
 		return false;
 	}
 
@@ -209,22 +218,26 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
 			int p_282688_) {
 		if (entity != null)
-			for (int i = this.startIndex; i < p_282688_
-					&& i < entity.getStyles().get(curStyleType).getTypes().size(); ++i) {
-				int j = i - this.startIndex;
-				int k = p_281987_;
+			if (entity.getStyles() != null && !entity.getStyles().isEmpty())
+				if (entity.getStyles().get(curStyleType) != null
+						&& entity.getStyles().get(curStyleType).getTypes() != null
+						&& !entity.getStyles().get(curStyleType).getTypes().isEmpty())
+					for (int i = this.startIndex; i < p_282688_
+							&& i < entity.getStyles().get(curStyleType).getTypes().size(); ++i) {
+						int j = i - this.startIndex;
+						int k = p_281987_;
 //			int l = j / 4;
-				int i1 = p_281276_ + j * 18 + 2;
-				ResourceLocation resourcelocation;
-				if (p_282136_ >= k && p_282147_ >= i1 && p_282136_ < k + 145 && p_282147_ < i1 + 18) {
-					resourcelocation = RECIPE_HIGHLIGHTED_SPRITE;
-				} else {
-					resourcelocation = RECIPE_SPRITE;
-				}
+						int i1 = p_281276_ + j * 18 + 2;
+						ResourceLocation resourcelocation;
+						if (p_282136_ >= k && p_282147_ >= i1 && p_282136_ < k + 145 && p_282147_ < i1 + 18) {
+							resourcelocation = RECIPE_HIGHLIGHTED_SPRITE;
+						} else {
+							resourcelocation = RECIPE_SPRITE;
+						}
 
-				p_282733_.blitSprite(resourcelocation, k, i1 - 1, 145, 18);
+						p_282733_.blitSprite(resourcelocation, k, i1 - 1, 145, 18);
 
-			}
+					}
 	}
 
 	@Override

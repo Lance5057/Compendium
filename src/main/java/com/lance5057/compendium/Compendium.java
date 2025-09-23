@@ -1,5 +1,8 @@
 package com.lance5057.compendium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,12 +11,14 @@ import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForgeConfig;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 @Mod(Compendium.MOD_ID)
 public class Compendium {
@@ -43,6 +48,8 @@ public class Compendium {
 		CompendiumMenus.register(bus);
 		WorkstationRecipes.register(bus);
 	}
+	
+	public static List<DeferredItem<? extends Item>> styleItemRenderers = new ArrayList<DeferredItem<? extends Item>>();
 
 	public void setupClient(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {

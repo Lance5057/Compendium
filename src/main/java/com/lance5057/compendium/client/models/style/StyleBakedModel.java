@@ -84,10 +84,10 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
-		List<String> mats = extraData.get(StyleModelData.STYLES);
+		List<String> styles = extraData.get(StyleModelData.STYLES);
 
-		if (mats != null) {
-			BakedModel q = models.get(mats.get(0));
+		if (styles != null && styles.size() > 0) {
+			BakedModel q = models.get(styles.get(0));
 			if (q != null) {
 				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 				if (r != null) {

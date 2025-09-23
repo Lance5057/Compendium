@@ -23,9 +23,9 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity implements IStyleable {
 
 	List<StyleData> styles = new ArrayList<StyleData>();
-	List<Integer> currentStyles = new ArrayList<Integer>();
+	List<Integer> currentStyles;
 
-	final int styleCount;
+	int styleCount;
 	final int materialCount;
 
 	public StyledMultiMaterialBlockEntity(BlockPos pos, BlockState blockState, int styleCount, int materialCount,
@@ -34,6 +34,7 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 		this.styleCount = styleCount;
 		this.materialCount = materialCount;
 		this.styles = List.of(styles);
+//		currentStyles = new ArrayList<Integer>(Arrays.asList(new Integer[styleCount]));
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 
 	@Override
 	public int getCurrent(int index) {
-		if (currentStyles.size() > index)
+		if (currentStyles != null && currentStyles.size() > index)
 			return currentStyles.get(index);
 		return 0;
 	}
@@ -87,7 +88,10 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 
 	@Override
 	public int getStyleCount() {
+		if (styleCount == 0)
+			styleCount = this.currentStyles.size();
 		return styleCount;
+
 	}
 
 	@Override

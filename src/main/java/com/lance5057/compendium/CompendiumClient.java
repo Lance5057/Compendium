@@ -1,6 +1,9 @@
 package com.lance5057.compendium;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
@@ -33,6 +36,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -41,6 +45,7 @@ import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class CompendiumClient {
@@ -120,6 +125,13 @@ public class CompendiumClient {
 
 	@SubscribeEvent
 	public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+		Compendium.styleItemRenderers.add(CompendiumItems.CHAIR);
+		Compendium.styleItemRenderers.add(CompendiumItems.CLOTHED_TABLE);
+		Compendium.styleItemRenderers.add(CompendiumItems.TABLE);
+		Compendium.styleItemRenderers.add(CompendiumItems.SHINGLES_CAP_SLANTED);
+		Compendium.styleItemRenderers.add(CompendiumItems.SHINGLES_SLANTED);
+		Compendium.styleItemRenderers.add(CompendiumItems.FANCY_FENCE);
+		Compendium.styleItemRenderers.add(CompendiumItems.FANCY_BED);
 
 		event.registerItem(new IClientItemExtensions() {
 
@@ -127,9 +139,7 @@ public class CompendiumClient {
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
 				return MultiStyleMaterialItemRenderer.getInstance();
 			}
-		}, CompendiumItems.CHAIR.get(), CompendiumItems.CLOTHED_TABLE.get(), CompendiumItems.TABLE.get(),
-				CompendiumItems.SHINGLES_CAP_SLANTED.get(), CompendiumItems.SHINGLES_SLANTED.get(),
-				CompendiumItems.FANCY_FENCE.get(), CompendiumItems.FANCY_BED.get());
+		}, Compendium.styleItemRenderers.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Item[0]));
 
 	}
 }

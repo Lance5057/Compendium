@@ -125,7 +125,6 @@ public class TableBlock extends Block implements EntityBlock, IStyleBlock {
 
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-
 		return List.of(StyleData.TABLE_LEGS.getTypes().get(current.get(0)),
 				StyleData.TABLE_TOP.getTypes().get(current.get(1)));
 	}

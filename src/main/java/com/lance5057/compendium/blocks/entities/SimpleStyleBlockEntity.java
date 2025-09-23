@@ -28,32 +28,32 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	List<StyleData> styles = new ArrayList<StyleData>();
 
-	final int styleCount;
+	int styleCount;
 
-	List<Integer> currentStyles = new ArrayList<Integer>();
+	List<Integer> currentStyles;
 
 	@Override
 	public List<StyleData> getStyles() {
 		return styles;
 	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
-		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
-		this.styleCount = 0;
-		this.styles = new ArrayList<StyleData>();
-	}
+//	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
+//		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
+////		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
+//		this.styleCount = 1;
+//		this.styles = new ArrayList<StyleData>();
+//	}
 
 	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, int styleCount, StyleData... styles) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
 		this.styleCount = styleCount;
+//		currentStyles = new ArrayList<Integer>(Arrays.asList(new Integer[styleCount]));
 		this.styles = List.of(styles);
 	}
 
 	@Override
 	public int getCurrent(int index) {
-		if (styles != null && styles.size() > index)
+		if (currentStyles.size() > index)
 			return currentStyles.get(index);
 		return 0;
 	}
@@ -88,7 +88,10 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public int getStyleCount() {
-		return 1;
+		if (styleCount == 0)
+			styleCount = this.currentStyles.size();
+		return styleCount;
+
 	}
 
 	@Override
@@ -114,7 +117,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		super.applyImplicitComponents(input);
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
-			this.currentStyles = m.styles();
+			this.currentStyles = new ArrayList<Integer>(m.styles());
 		}
 	}
 
@@ -141,9 +144,6 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-
-		// InteractionHandle your Data
-
 		setChanged();
 		if (getLevel() != null) {
 			CompoundTag tag = pkt.getTag();

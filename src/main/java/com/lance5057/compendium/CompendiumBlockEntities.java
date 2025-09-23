@@ -27,9 +27,9 @@ public class CompendiumBlockEntities {
 	public static List<DeferredBlock<?>> validStyleBlocks = new ArrayList<DeferredBlock<?>>();
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
-			.register("style", () -> BlockEntityType.Builder.of(SimpleStyleBlockEntity::new,
-
-					validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
+			.register("style", () -> BlockEntityType.Builder.of((p, s) -> {
+				return new SimpleStyleBlockEntity(p, s, 0);
+			}, validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Block[0]))
 					.build(null));
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = BLOCK_ENTITIES
@@ -57,7 +57,7 @@ public class CompendiumBlockEntities {
 					.of(ComponentDrawerBlockEntity::new, CompendiumBlocks.COMPONENT_DRAWER.get()).build(null));
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StyledMultiMaterialBlockEntity>> STYLED_MULTI_MATERIAL = BLOCK_ENTITIES
-			.register("window", () -> BlockEntityType.Builder.of((p, s) -> {
+			.register("styled_multi_material", () -> BlockEntityType.Builder.of((p, s) -> {
 				return new StyledMultiMaterialBlockEntity(p, s, 0, 0);
 			}, CompendiumBlocks.WINDOW.get(), CompendiumBlocks.CHAIR.get(), CompendiumBlocks.TABLE.get(),
 					CompendiumBlocks.CLOTHED_TABLE.get(), CompendiumBlocks.FANCY_BED.get(),

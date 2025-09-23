@@ -13,10 +13,10 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.StairStyleBlock;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
+import com.lance5057.compendium.blocks.StairStyleBlock;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
@@ -76,13 +76,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public final CompendiumBlockHandler SMALL_LOG;
 	public final CompendiumBlockHandler LOG;
 	public final CompendiumBlockHandler LOG_SLAB;
-//	public final CompendiumBlockHandler LOG_CORNER;
 	public final CompendiumBlockHandler LOG_STAIRS;
 
 	public final CompendiumBlockHandler STRIPPED_SMALL_LOG_PIPE;
 	public final CompendiumBlockHandler STRIPPED_LOG;
 	public final CompendiumBlockHandler STRIPPED_LOG_SLAB;
-//	public final CompendiumBlockHandler STRIPPED_LOG_CORNER;
 	public final CompendiumBlockHandler STRIPPED_LOG_STAIRS;
 
 	public ExtensionExtraLogs(boolean smallLog, boolean smallLogs, boolean smallLogsSlab, boolean smallLogsStairs,
@@ -92,25 +90,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		SMALL_LOG = new CompendiumBlockHandler("small_log");
 		LOG = new CompendiumBlockHandler("logs");
 		LOG_SLAB = new CompendiumBlockHandler("logs_slab");
-//		LOG_CORNER = new CompendiumBlockHandler("logs_corner");
 		LOG_STAIRS = new CompendiumBlockHandler("logs_stairs");
 
 		STRIPPED_SMALL_LOG_PIPE = new CompendiumBlockHandler("stripped_small_log");
 		STRIPPED_LOG = new CompendiumBlockHandler("stripped_logs");
 		STRIPPED_LOG_SLAB = new CompendiumBlockHandler("stripped_logs_slab");
-//		STRIPPED_LOG_CORNER = new CompendiumBlockHandler("stripped_logs_corner");
 		STRIPPED_LOG_STAIRS = new CompendiumBlockHandler("stripped_logs_stairs");
 
 		SMALL_LOG.setEnabled(smallLog);
 		LOG.setEnabled(smallLogs);
 		LOG_SLAB.setEnabled(smallLogsSlab);
-//		LOG_CORNER.setEnabled(smallLogsCorner);
 		LOG_STAIRS.setEnabled(smallLogsStairs);
 
 		STRIPPED_SMALL_LOG_PIPE.setEnabled(strippedSmallLog);
 		STRIPPED_LOG.setEnabled(strippedSmallLogs);
 		STRIPPED_LOG_SLAB.setEnabled(strippedSmallLogsSlab);
-//		STRIPPED_LOG_CORNER.setEnabled(strippedSmallLogsCorner);
 		STRIPPED_LOG_STAIRS.setEnabled(strippedSmallLogsStairs);
 	}
 
@@ -124,29 +118,33 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG), StyleData.LOG),
 				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
-//		LOG_CORNER.setup(base, () -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB), StyleData.LOG_SLAB),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+
 		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
+
 		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG.BLOCK);
-//		CompendiumBlockEntities.validStyleBlocks.add(LOG_CORNER.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG_STAIRS.BLOCK);
 
+		Compendium.styleItemRenderers.add(LOG.BLOCK_ITEM);
+
 		STRIPPED_SMALL_LOG_PIPE.setup(base,
 				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+
 		STRIPPED_LOG.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
-//		STRIPPED_LOG_CORNER.setup(base, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG)));
+
 		STRIPPED_LOG_SLAB.setup(base, () -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
+
 		STRIPPED_LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
+
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_SMALL_LOG_PIPE.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG.BLOCK);
-//		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_CORNER.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_STAIRS.BLOCK);
 	}
@@ -480,15 +478,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				DataUtil.basicMaterialBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log", base.getType());
 			}
 			if (LOG.enabled()) {
-				DataUtil.basicMaterialBlockItem(tmp, LOG.BLOCK_ITEM, base.name, "small_logs", base.getType());
+				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
-//			if (LOG_CORNER.enabled()) {
-//				DataUtil.basicMaterialBlockItem(tmp, LOG_CORNER.BLOCK_ITEM, base.name, "small_logs_corner",
-//						base.getType());
-//			}
 			if (LOG_SLAB.enabled()) {
-				DataUtil.basicMaterialBlockItem(tmp, LOG_SLAB.BLOCK_ITEM, base.name, "small_logs_slab_bottom",
-						base.getType());
+
 			}
 			if (LOG_STAIRS.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, LOG_STAIRS.BLOCK_ITEM, base.name, "small_logs_stairs",
@@ -503,10 +496,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG.BLOCK_ITEM, base.name, "stripped_small_logs",
 						base.getType());
 			}
-//			if (STRIPPED_LOG_CORNER.enabled()) {
-//				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG_CORNER.BLOCK_ITEM, base.name,
-//						"stripped_small_logs_corner", base.getType());
-//			}
 			if (STRIPPED_LOG_SLAB.enabled()) {
 				DataUtil.basicMaterialBlockItem(tmp, STRIPPED_LOG_SLAB.BLOCK_ITEM, base.name,
 						"stripped_small_logs_slab_bottom", base.getType());
