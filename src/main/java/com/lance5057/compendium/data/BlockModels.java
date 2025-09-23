@@ -116,6 +116,15 @@ public class BlockModels extends BlockStateProvider {
 			return b.rotationY(((int) state.getValue(ChairBlock.FACING).toYRot()) % 360).build();
 		});
 
+		ConfiguredModel.builder().modelFile(models().getBuilder("table_inventory")
+				.customLoader(MultiStyleMaterialBuilder::begin)
+				.base(models().cubeAll("table_top_model", mcLoc("block/oak_planks")))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
+						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_TOP.getTypes(), 0, 0))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
+						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_TOP.getTypes(), 1, 1))
+				.end()).build();
+
 		getMultipartBuilder(CompendiumBlocks.TABLE.get())
 				// Table Top
 				.part()

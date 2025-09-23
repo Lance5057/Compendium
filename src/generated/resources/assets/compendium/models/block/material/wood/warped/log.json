@@ -1,3 +1,10 @@
 {
-  "parent": "compendium:item/chair"
+  "basic": {
+    "model": "compendium:block/material/wood/warped/log/basic"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/warped/log/corner"
+  },
+  "count": 2,
+  "loader": "compendium:style"
 }

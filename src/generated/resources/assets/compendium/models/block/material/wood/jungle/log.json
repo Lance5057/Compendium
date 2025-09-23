@@ -1,3 +1,10 @@
 {
-  "parent": "compendium:item/chair"
+  "basic": {
+    "model": "compendium:block/material/wood/jungle/log/basic"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/jungle/log/corner"
+  },
+  "count": 2,
+  "loader": "compendium:style"
 }

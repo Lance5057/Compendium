@@ -16,11 +16,11 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
 import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
@@ -47,14 +47,6 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 		ps.pushPose();
 		if (stack.getItem() instanceof BlockItem bi) {
 			if (bi.getBlock() instanceof IStyleBlock st) {
-				BakedModel bm;
-				if (displayContext != ItemDisplayContext.GUI)
-					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
-				else {
-					bm = Minecraft.getInstance().getBlockRenderer().getBlockModel(bi.getBlock().defaultBlockState());
-					ps.scale(0.75f, 0.75f, 0.75f);
-					ps.translate(0.4, -0.1, 0);
-				}
 
 				@Nullable
 				MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);
@@ -68,12 +60,19 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
-				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);
+				BakedModelRenderable bm = BakedModelRenderable.of(ModelResourceLocation
+						.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withSuffix("_inventory")));
+				if (displayContext == ItemDisplayContext.GUI) {
+					ps.scale(0.75f, 0.75f, 0.75f);
+					ps.translate(0.4, -0.1, 0);
+				}
 
-				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
-				if (bmr != null) {
-					bmr.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture),
-							packedLight, overlay, overlay, null);
+//				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);
+
+//				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
+				if (bm != null) {
+					bm.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
+							overlay, overlay, null);
 
 				}
 			}

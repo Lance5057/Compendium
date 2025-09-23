@@ -25,8 +25,6 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			if (i instanceof _MaterialBase mb) {
 				if (mb.getType() == MATERIAL_TYPES.WOOD) {
 
-					
-
 					StyleData.CHAIR_BACK.getTypes().forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
@@ -116,22 +114,19 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						// caps
 						withExistingParent(
@@ -144,8 +139,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/all/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_cap_slanted/support/all/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/straight/"
@@ -157,8 +151,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/straight/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_cap_slanted/support/straight/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/tri/"
@@ -170,8 +163,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/tri/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_cap_slanted/support/tri/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/none/"
@@ -183,8 +175,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/none/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_cap_slanted/support/none/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 
 						withExistingParent(
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/end/"
@@ -196,8 +187,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/end/"
 										+ b.toLowerCase(),
 								modLoc("block/bases/shingles_cap_slanted/support/end/" + b.toLowerCase()))
-								.texture("0", modLoc(
-										"block/material/wood/" + mb.name + "/small_logs_corner"));
+								.texture("0", modLoc("block/material/wood/" + mb.name + "/small_logs_corner"));
 					});
 
 					// special cases!
