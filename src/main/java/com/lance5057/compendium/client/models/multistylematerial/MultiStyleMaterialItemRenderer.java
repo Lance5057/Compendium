@@ -24,6 +24,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
 import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
+import net.neoforged.neoforge.client.model.renderable.IRenderable;
 
 public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRenderer {
 	protected static MultiStyleMaterialItemRenderer instance;
@@ -60,8 +61,10 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
-				BakedModelRenderable bm = BakedModelRenderable.of(ModelResourceLocation
-						.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withSuffix("_inventory")));
+				IRenderable<ModelData> bm = BakedModelRenderable
+						.of(ModelResourceLocation
+								.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withPrefix("extra/")))
+						.withModelDataContext();
 				if (displayContext == ItemDisplayContext.GUI) {
 					ps.scale(0.75f, 0.75f, 0.75f);
 					ps.translate(0.4, -0.1, 0);

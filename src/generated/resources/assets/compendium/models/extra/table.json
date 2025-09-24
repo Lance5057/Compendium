@@ -21,14 +21,14 @@
     ]
   },
   "layer1": {
-    "materialLayer": 0,
+    "materialLayer": 1,
     "modelBase": "table",
     "modelPart": "legs",
-    "styleLayer": 0,
+    "styleLayer": 1,
     "styles": [
       "basic",
-      "trimmed",
-      "smooth"
+      "bar",
+      "fancy"
     ],
     "valid": [
       "METAL",

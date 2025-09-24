@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-23T13:14:10.3508376	Block States: compendium
+// 1.21.1	2025-09-23T20:24:19.419269	Block States: compendium
 7e157ab108a93e09eb2d5dc8cffaefbb5fc9540b assets/compendium/blockstates/acacia_logs.json
 d2773567c0fe7fb54e1c2a271cdf2bf423dab6a0 assets/compendium/blockstates/acacia_logs_slab.json
 c75547dee1c7e054aa02156d68dcd18673bfcd41 assets/compendium/blockstates/acacia_logs_stairs.json
@@ -404,7 +404,6 @@ a16f46196db26450dbe285e60185d3bcf90f9733 assets/compendium/models/block/shingles
 ef4b2dc2bb74b87597c9dd6af4f3928e25d57a66 assets/compendium/models/block/stone_tile.json
 ad46fdc54dcfd203c349af7e6b758187e0f4ba96 assets/compendium/models/block/table_cloth.json
 0021ec0a6a012353fc3294979a59e61e7c5c8f27 assets/compendium/models/block/table_cloth_model.json
-38f2a8d117dd69e3765757972b2ac5e2ba6342b3 assets/compendium/models/block/table_inventory.json
 4aaae175e3830ea7c1ad5f3944a309953d6ef38a assets/compendium/models/block/table_legs.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_legs_model.json
 ecd4d286d1adc78982145bb8d4f6daeb892fad7a assets/compendium/models/block/table_side.json
@@ -414,3 +413,4 @@ ecd4d286d1adc78982145bb8d4f6daeb892fad7a assets/compendium/models/block/table_si
 68ae5477b023dfa757f6256443518da2cbc3dfa5 assets/compendium/models/block/tuff_tile.json
 0a76d026dfe327383d515425e6d03056e4eb2396 assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json
+76030056991cce9bff20a29a3f1cc650bed35d78 assets/compendium/models/extra/table.json
