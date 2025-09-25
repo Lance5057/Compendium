@@ -1,7 +1,6 @@
 package com.lance5057.compendium.blocks.entities;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -53,7 +52,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public int getCurrent(int index) {
-		if (currentStyles.size() > index)
+		if (currentStyles != null && currentStyles.size() > index)
 			return currentStyles.get(index);
 		return 0;
 	}
@@ -88,10 +87,12 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public int getStyleCount() {
-		if (styleCount == 0)
-			styleCount = this.currentStyles.size();
-		return styleCount;
-
+		if (currentStyles != null) {
+			if (styleCount == 0)
+				styleCount = this.currentStyles.size();
+			return styleCount;
+		}
+		return 0;
 	}
 
 	@Override

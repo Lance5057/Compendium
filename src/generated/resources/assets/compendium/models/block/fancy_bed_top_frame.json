@@ -13,6 +13,7 @@
     "styles": [
       "basic"
     ],
+    "suffix": "",
     "valid": [
       "METAL",
       "WOOD"

@@ -38,6 +38,11 @@
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": 180.0,
+                "min": 180.0,
+                "speed": 1.0
+              },
               "z": {
                 "loop": true,
                 "max": 45.0,
@@ -64,13 +69,56 @@
               }
             }
           },
-          "location": "compendium:iron_axe"
+          "location": "minecraft:iron_axe"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0,
+                "min": 8.0,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 10.0,
+                "min": 10.0,
+                "speed": 1.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 45.0,
+                "min": 45.0,
+                "speed": 1.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/split_log_stage_0"
         }
       ],
       "tool": {
         "tag": "minecraft:axes"
       },
-      "uses": 4
+      "uses": 1
     }
   ]
 }

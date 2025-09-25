@@ -38,6 +38,11 @@
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": 180.0,
+                "min": 180.0,
+                "speed": 1.0
+              },
               "z": {
                 "loop": true,
                 "max": 45.0,

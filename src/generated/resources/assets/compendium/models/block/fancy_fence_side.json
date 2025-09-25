@@ -23,6 +23,7 @@
       "slats_convex",
       "solid"
     ],
+    "suffix": "",
     "valid": [
       "METAL",
       "WOOD"

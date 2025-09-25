@@ -30,14 +30,14 @@ public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<Hamme
 			return;
 		}
 
-		ItemStackHandler inv = tileEntityIn.getInventory();
+//		ItemStackHandler inv = tileEntityIn.getInventory();
+//
+//		transform.setScale(0.5f);
+//		transform.setLocation(8f, 20f, 8f);
+//
+//		ItemStack input = inv.getStackInSlot(0);
 
-		transform.setScale(0.5f);
-		transform.setLocation(8f, 20f, 8f);
-
-		ItemStack input = inv.getStackInSlot(0);
-
-		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+//		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
 
 		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
 			matrixStackIn.pushPose();

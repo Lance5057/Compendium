@@ -34,14 +34,14 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		CompendiumIndex.index.forEach(i -> {
 			i.recipes(consumer);
 		});
-		
+
 		hammering(consumer);
 		workbench(consumer);
 		sawing(consumer);
 	}
 
 	private void sawing(RecipeOutput consumer) {
-		
+
 	}
 
 	BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
@@ -52,20 +52,29 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setY(new AnimatedFloat(10 + yOffset, 0)).setZ(new AnimatedFloat(8, 0)))
 						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
 	}
-	
+
 	public static BlacklistedModel standardSawBuckAxeModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, false,
 				new AnimationFloatTransform()
-						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true)))
+						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true))
+								.setY(new AnimatedFloat(180)))
 						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8, 0))
 								.setY(new AnimatedFloat(10 + yOffset, 0)).setZ(new AnimatedFloat(8, 0)))
+						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
+	}
+
+	public static BlacklistedModel standardSawBuckBlockModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, true,
+				new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(45)))
+						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8))
+								.setY(new AnimatedFloat(yOffset)))
 						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
 	}
 
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("tin_hammer"), 0))
+						standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 				.save(consumer);
 	}
 
@@ -73,7 +82,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		WorkbenchRecipeBuilder.shaped(new ItemStack(Items.LIGHT_WEIGHTED_PRESSURE_PLATE))
 				.define('i', Ingredient.of(Items.IRON_INGOT)).pattern("ii")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("tin_hammer"), 0))
+						standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 				.save(consumer);
 	}
 }

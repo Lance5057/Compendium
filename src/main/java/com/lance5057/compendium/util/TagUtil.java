@@ -8,8 +8,12 @@ public class TagUtil {
 	public static ResourceLocation neoTag(String loc) {
 		return ResourceLocation.fromNamespaceAndPath("c", loc);
 	}
-	
+
 	public static ResourceLocation modLoc(String loc) {
 		return ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, loc);
+	}
+
+	public static ResourceLocation mcLoc(String loc) {
+		return ResourceLocation.withDefaultNamespace(loc);
 	}
 }

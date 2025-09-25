@@ -177,7 +177,9 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			int matLayer = jsonObject.get("materialLayer").getAsInt();
 			int styleLayer = jsonObject.get("styleLayer").getAsInt();
 
-			return new Layer(model, modelP, ty, st, matLayer, styleLayer);
+			String suffix = jsonObject.get("suffix").getAsString();
+
+			return new Layer(model, modelP, ty, st, matLayer, styleLayer, suffix);
 		}
 
 		public void toJson(JsonObject json, int layerID) {
@@ -199,6 +201,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 			l.addProperty("modelPart", this.modelPart);
 			l.addProperty("materialLayer", this.materialLayer);
 			l.addProperty("styleLayer", this.styleLayer);
+			l.addProperty("suffix", this.suffix);
 
 			json.add("layer" + layerID, l);
 		}

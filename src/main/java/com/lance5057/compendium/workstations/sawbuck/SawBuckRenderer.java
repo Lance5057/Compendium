@@ -30,22 +30,16 @@ public class SawBuckRenderer extends MultiToolBlockEntityRenderer<SawBuckBlockEn
 			return;
 		}
 
-		ItemStackHandler inv = tileEntityIn.getInventory();
-
-		transform.setScale(1f);
-		transform.setRotation(45, 0, 90); 
-		transform.setLocation(8f, 18f, 8f);
-		
-
-		ItemStack input = inv.getStackInSlot(0);
-
-		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+//		transform.setScale(0.5f);
+//		transform.setRotation(45, 0, 90);
+//		transform.setLocation(8f, 18f, 8f);
 
 		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
 			matrixStackIn.pushPose();
 			matrixStackIn.translate(0.5f, 1, 0.5f);
 			Quaternionf q = tileEntityIn.getBlockState().getValue(HorizontalDirectionalBlock.FACING).getRotation();
 
+			matrixStackIn.scale(0.5f, 0.5f, 0.5f);
 			matrixStackIn.mulPose(q);
 			matrixStackIn.mulPose(RenderUtil.createQuaternion(-90, 0, 0, true));
 

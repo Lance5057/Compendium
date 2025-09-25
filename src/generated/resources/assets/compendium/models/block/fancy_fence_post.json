@@ -21,6 +21,7 @@
       "thick",
       "thin"
     ],
+    "suffix": "",
     "valid": [
       "METAL",
       "WOOD"

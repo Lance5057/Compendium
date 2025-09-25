@@ -12,9 +12,10 @@
     "styleLayer": 0,
     "styles": [
       "basic",
-      "bar",
-      "fancy"
+      "trimmed",
+      "smooth"
     ],
+    "suffix": "",
     "valid": [
       "METAL",
       "WOOD"

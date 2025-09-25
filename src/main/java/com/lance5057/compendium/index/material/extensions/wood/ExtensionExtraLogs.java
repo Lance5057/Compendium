@@ -548,8 +548,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.saw(Ingredient.of(
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
-					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
+					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage_0"),-10))
 					.save(consumer);
 		}
 		if (LOG.enabled()) {

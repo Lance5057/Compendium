@@ -120,23 +120,23 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
 				.addExtension(new ExtensionMetalStyleBlocks(true)));
 
-		buildDefault(new MaterialGlass("clear_glass", false, false));
-		buildDefault(new MaterialGlass("white_glass", false, false));
-		buildDefault(new MaterialGlass("light_gray_glass", false, false));
-		buildDefault(new MaterialGlass("gray_glass", false, false));
-		buildDefault(new MaterialGlass("black_glass", false, false));
-		buildDefault(new MaterialGlass("brown_glass", false, false));
-		buildDefault(new MaterialGlass("red_glass", false, false));
-		buildDefault(new MaterialGlass("orange_glass", false, false));
-		buildDefault(new MaterialGlass("yellow_glass", false, false));
-		buildDefault(new MaterialGlass("lime_glass", false, false));
-		buildDefault(new MaterialGlass("green_glass", false, false));
-		buildDefault(new MaterialGlass("cyan_glass", false, false));
-		buildDefault(new MaterialGlass("light_blue_glass", false, false));
-		buildDefault(new MaterialGlass("blue_glass", false, false));
-		buildDefault(new MaterialGlass("purple_glass", false, false));
-		buildDefault(new MaterialGlass("magenta_glass", false, false));
-		buildDefault(new MaterialGlass("pink_glass", false, false));
+//		buildDefault(new MaterialGlass("clear_glass", false, false));
+//		buildDefault(new MaterialGlass("white_glass", false, false));
+//		buildDefault(new MaterialGlass("light_gray_glass", false, false));
+//		buildDefault(new MaterialGlass("gray_glass", false, false));
+//		buildDefault(new MaterialGlass("black_glass", false, false));
+//		buildDefault(new MaterialGlass("brown_glass", false, false));
+//		buildDefault(new MaterialGlass("red_glass", false, false));
+//		buildDefault(new MaterialGlass("orange_glass", false, false));
+//		buildDefault(new MaterialGlass("yellow_glass", false, false));
+//		buildDefault(new MaterialGlass("lime_glass", false, false));
+//		buildDefault(new MaterialGlass("green_glass", false, false));
+//		buildDefault(new MaterialGlass("cyan_glass", false, false));
+//		buildDefault(new MaterialGlass("light_blue_glass", false, false));
+//		buildDefault(new MaterialGlass("blue_glass", false, false));
+//		buildDefault(new MaterialGlass("purple_glass", false, false));
+//		buildDefault(new MaterialGlass("magenta_glass", false, false));
+//		buildDefault(new MaterialGlass("pink_glass", false, false));
 //		buildDefault(new MaterialGlass("tinted_glass", false, false));
 
 		buildDefault(new MaterialWood("oak", false, false, false, false, false)
@@ -173,32 +173,32 @@ public class IndexInitialResourceLoader {
 		// buildDefault(new MaterialWood("pale_oak", false).addExtension(new
 		// ExtensionExtraLogs(true, true, true, true)));
 
-		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(new MaterialStone("red_sandstone", false, false, false)
-				.addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(
-				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(new MaterialStone("red_sandstone", false, false, false)
+//				.addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
 		buildDefault(new MaterialTextile("white_wool", false, false));
 		buildDefault(new MaterialTextile("light_gray_wool", false, false));

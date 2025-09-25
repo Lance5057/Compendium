@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/slats",
+  "textures": {
+    "0": "minecraft:block/oak_planks"
+  }
+}

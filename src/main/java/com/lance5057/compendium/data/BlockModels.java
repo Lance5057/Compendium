@@ -116,13 +116,28 @@ public class BlockModels extends BlockStateProvider {
 			return b.rotationY(((int) state.getValue(ChairBlock.FACING).toYRot()) % 360).build();
 		});
 
-		ConfiguredModel.builder().modelFile(models().getBuilder("extra/table")
+		ConfiguredModel.builder()
+				.modelFile(models().getBuilder("extra/table").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("table_top_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
+								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_TOP.getTypes(), 0,
+								0, "_inventory"))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
+								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1,
+								1, "_inventory"))
+						.end())
+				.build();
+
+		ConfiguredModel.builder().modelFile(models().getBuilder("extra/chair")
 				.customLoader(MultiStyleMaterialBuilder::begin)
-				.base(models().cubeAll("table_top_model", mcLoc("block/oak_planks")))
-				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
-						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_TOP.getTypes(), 0, 0))
-				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1, 1))
+				.base(models().cubeAll("chair_base", mcLoc("block/oak_planks")))
+
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("chair", "back",
+						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.CHAIR_BACK.getTypes(), 0, 0))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("chair", "seat",
+						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.CHAIR_SEAT.getTypes(), 1, 1))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("chair", "legs",
+						List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.CHAIR_LEGS.getTypes(), 2, 2))
 				.end()).build();
 
 		getMultipartBuilder(CompendiumBlocks.TABLE.get())
@@ -239,28 +254,28 @@ public class BlockModels extends BlockStateProvider {
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 0,
-								1, "_leg"))
+								1))
 						.end())
 				.rotationY(180).addModel().condition(TableBlock.S, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 0,
-								1, "_leg"))
+								1))
 						.end())
 				.rotationY(0).addModel().condition(TableBlock.N, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 0,
-								1, "_leg"))
+								1))
 						.end())
 				.rotationY(270).addModel().condition(TableBlock.W, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 0,
-								1, "_leg"))
+								1))
 						.end())
 				.rotationY(90).addModel().condition(TableBlock.E, false).end();
 
@@ -279,7 +294,7 @@ public class BlockModels extends BlockStateProvider {
 						.base(models().cubeAll("table_top_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 0))
+								StyleData.CLOTHED_TABLE_TOP.getTypes(), 0, 0))
 						.end())
 				.addModel()
 				// Table Legs
@@ -386,28 +401,28 @@ public class BlockModels extends BlockStateProvider {
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1, "_leg"))
+								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1))
 						.end())
 				.rotationY(180).addModel().condition(ClothedTableBlock.S, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1, "_leg"))
+								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1))
 						.end())
 				.rotationY(0).addModel().condition(ClothedTableBlock.N, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1, "_leg"))
+								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1))
 						.end())
 				.rotationY(270).addModel().condition(ClothedTableBlock.W, false).end().part()
 				.modelFile(models().getBuilder("table_side").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("table_side_model", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs/side",
 								List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1, "_leg"))
+								StyleData.CLOTHED_TABLE_LEGS.getTypes(), 0, 1))
 						.end())
 				.rotationY(90).addModel().condition(ClothedTableBlock.E, false).end();
 
