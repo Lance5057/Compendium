@@ -19,12 +19,12 @@ public class AnimatedFloat {
 	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloat> STREAM_CODEC = StreamCodec
 			.of(AnimatedFloat::write, AnimatedFloat::read);
 
-	float iMin;
-	float iMax;
-	float offset;
-	float speed;
-	boolean loop;
-	boolean pingpong;
+	float iMin = 0;
+	float iMax = 0;
+	float offset = 0;
+	float speed = 0;
+	boolean loop = false;
+	boolean pingpong = false;
 
 	public static AnimatedFloat ZERO = new AnimatedFloat(0, 0, 0);
 	public static AnimatedFloat ONE = new AnimatedFloat(1, 1, 1);
@@ -148,4 +148,8 @@ public class AnimatedFloat {
 		buffer.writeBoolean(af.pingpong);
 	}
 
+	public String clipboardData() {
+		return String.format("new AnimatedFloat(%fF, %fF, %fF, %fF, %b, %b)", iMin, iMax, offset, speed, loop,
+				pingpong);
+	}
 }

@@ -17,7 +17,10 @@ public class AnimationFloatTransform {
 	public static final StreamCodec<RegistryFriendlyByteBuf, AnimationFloatTransform> STREAM_CODEC = StreamCodec
 			.of(AnimationFloatTransform::write, AnimationFloatTransform::read);
 
-	AnimatedFloatVector3 loc, scale, rot, pivot;
+	AnimatedFloatVector3 loc = AnimatedFloatVector3.ZERO;
+	AnimatedFloatVector3 scale = AnimatedFloatVector3.ZERO;
+	AnimatedFloatVector3 rot = AnimatedFloatVector3.ZERO;
+	AnimatedFloatVector3 pivot = AnimatedFloatVector3.ZERO;
 
 	public static AnimationFloatTransform ZERO = new AnimationFloatTransform(AnimatedFloatVector3.ZERO,
 			AnimatedFloatVector3.ONE, AnimatedFloatVector3.ZERO, AnimatedFloatVector3.ZERO);
@@ -25,10 +28,10 @@ public class AnimationFloatTransform {
 			AnimatedFloatVector3.ONE, AnimatedFloatVector3.ONE, AnimatedFloatVector3.ONE);
 
 	public AnimationFloatTransform() {
-		loc = AnimatedFloatVector3.ZERO;
-		rot = AnimatedFloatVector3.ZERO;
-		scale = AnimatedFloatVector3.ONE;
-		pivot = AnimatedFloatVector3.ZERO;
+//		loc = AnimatedFloatVector3.ZERO;
+//		rot = AnimatedFloatVector3.ZERO;
+//		scale = AnimatedFloatVector3.ONE;
+//		pivot = AnimatedFloatVector3.ZERO;
 	}
 
 	public AnimationFloatTransform(AnimatedFloatVector3 l, AnimatedFloatVector3 s, AnimatedFloatVector3 r,
@@ -63,7 +66,7 @@ public class AnimationFloatTransform {
 
 		return this;
 	}
-	
+
 	public AnimationFloatTransform setRotation(float x, float y, float z) {
 		rot = new AnimatedFloatVector3(x, y, z);
 
@@ -81,7 +84,7 @@ public class AnimationFloatTransform {
 
 		return this;
 	}
-	
+
 	public AnimationFloatTransform setPivot(AnimatedFloatVector3 in) {
 		pivot = in;
 
@@ -99,7 +102,7 @@ public class AnimationFloatTransform {
 	public AnimatedFloatVector3 getRotation() {
 		return rot;
 	}
-	
+
 	public AnimatedFloatVector3 getPivot() {
 		return pivot;
 	}
@@ -117,5 +120,12 @@ public class AnimationFloatTransform {
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.rot);
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.scale);
 		AnimatedFloatVector3.STREAM_CODEC.encode(buffer, af.pivot);
+	}
+
+	public String clipboardData() {
+		return String.format(
+				"new AnimationFloatTransform().setRotation(%s).setLocation(%s).setScale(%s).setPivot(%s));",
+				this.rot.clipboardData(), this.loc.clipboardData(), this.scale.clipboardData(),
+				this.pivot.clipboardData());
 	}
 }

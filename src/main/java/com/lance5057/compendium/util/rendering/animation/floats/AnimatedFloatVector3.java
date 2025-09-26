@@ -17,7 +17,9 @@ public class AnimatedFloatVector3 {
 	public static final StreamCodec<RegistryFriendlyByteBuf, AnimatedFloatVector3> STREAM_CODEC = StreamCodec
 			.of(AnimatedFloatVector3::write, AnimatedFloatVector3::read);
 
-	AnimatedFloat x, y, z;
+	AnimatedFloat x = AnimatedFloat.ZERO;
+	AnimatedFloat y = AnimatedFloat.ZERO;
+	AnimatedFloat z = AnimatedFloat.ZERO;
 
 	public static AnimatedFloatVector3 ZERO = new AnimatedFloatVector3(AnimatedFloat.ZERO, AnimatedFloat.ZERO,
 			AnimatedFloat.ZERO);
@@ -25,9 +27,9 @@ public class AnimatedFloatVector3 {
 			AnimatedFloat.ONE);
 
 	public AnimatedFloatVector3() {
-		x = AnimatedFloat.ZERO;
-		y = AnimatedFloat.ZERO;
-		z = AnimatedFloat.ZERO;
+//		x = AnimatedFloat.ZERO;
+//		y = AnimatedFloat.ZERO;
+//		z = AnimatedFloat.ZERO;
 	}
 
 	public AnimatedFloatVector3(float in) {
@@ -133,5 +135,10 @@ public class AnimatedFloatVector3 {
 		AnimatedFloat.STREAM_CODEC.encode(buffer, af.x);
 		AnimatedFloat.STREAM_CODEC.encode(buffer, af.y);
 		AnimatedFloat.STREAM_CODEC.encode(buffer, af.z);
+	}
+
+	public String clipboardData() {
+		return String.format(".setX(%s).setY(%s).setZ(%s)", this.x.clipboardData(), this.y.clipboardData(),
+				this.z.clipboardData());
 	}
 }

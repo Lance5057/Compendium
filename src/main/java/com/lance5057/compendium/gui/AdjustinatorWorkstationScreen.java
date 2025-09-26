@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
@@ -18,6 +17,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.BlockPos;
@@ -42,10 +42,69 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 	AnimatedFloatVector3Widget pivot;
 
 	private MultiToolRecipeStation<?> station;
+
 	// Copy datagen/json to clipboard!
 
 	// MULTIMATERIAL
 	public List<EditBox> boxes = new ArrayList<EditBox>();
+
+	EditBox indexBox;
+	Consumer<String> onChanged;
+
+	public ImageButton right_index_button;
+	public ImageButton left_index_button;
+
+	PlainTextButton dataToClipboard;
+
+	private static final WidgetSprites RIGHT_SMALL_BUTTON = new WidgetSprites(
+			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "right_arrow"),
+			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "right_arrow_disabled"));
+	private static final WidgetSprites LEFT_SMALL_BUTTON = new WidgetSprites(
+			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "left_arrow"),
+			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "left_arrow_disabled"));
+
+	AnimationFloatTransform aft;
+
+	@Override
+	protected void init() {
+		super.init();
+
+		indexBox = this.addRenderableWidget(
+				new EditBox(font, this.leftPos - 160, this.topPos + 0, 40, 14, Component.literal("")));
+		indexBox.setValue("0");
+		indexBox.setFilter(s -> {
+			int i = 0;
+			try {
+				i = Integer.parseInt(s);
+			} catch (NumberFormatException exception) {
+				return false;
+			}
+
+			if (i < 0) {
+				return false;
+			} else if (i >= station.getCurrentTool().model().size()) {
+				return false;
+			}
+
+			return true;
+		});
+
+		right_index_button = this.addRenderableWidget(new ImageButton(this.leftPos + 41 - 160, this.topPos + 2, 6, 10,
+				RIGHT_SMALL_BUTTON, (button) -> button(1)));
+		left_index_button = this.addRenderableWidget(new ImageButton(this.leftPos - 7 - 160, this.topPos + 2, 6, 10,
+				LEFT_SMALL_BUTTON, (button) -> button(-1)));
+
+		dataToClipboard = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 40, 80, 14,
+				Component.literal("Export Data to Clipboard"), b -> saveDataGenToClipboard(), font));
+	}
+
+	private void button(int i) {
+		if (station != null)
+			if (station.getCurrentTool() != null)
+				if (station.getCurrentTool().model() != null && !station.getCurrentTool().model().isEmpty()
+						&& station.getCurrentTool().model().size() > Integer.parseInt(indexBox.getValue()) + i)
+					indexBox.setValue(String.format("%d", Integer.parseInt(indexBox.getValue()) + i));
+	}
 
 	@Override
 	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
@@ -55,24 +114,42 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 			if (e != null && e instanceof MultiToolRecipeStation) {
 				station = (MultiToolRecipeStation<?>) e;
 
-				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+//				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
 
-				loc.set(aft.getLocation());
-				rot.set(aft.getRotation());
-				scale.set(aft.getScale());
-				pivot.set(aft.getPivot());
+//				loc.set(aft.getLocation());
+//				rot.set(aft.getRotation());
+//				scale.set(aft.getScale());
+//				pivot.set(aft.getPivot());
 			}
-		} else if (station != null) {
-			if (station.getCurrentTool() != null) {
-				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+		} else if (station.getCurrentTool() != null) {
 
-				aft.setLocation(loc.get());
-				aft.setRotation(rot.get());
-				aft.setScale(scale.get());
-				aft.setPivot(pivot.get());
+			int index = 0;
+			try {
+				index = Integer.parseInt(indexBox.getValue());
+			} catch (NumberFormatException exception) {
+
 			}
 
+			aft = station.getCurrentTool().model().get(index).transform();
+
+			loc.set(aft.getLocation());
+			rot.set(aft.getRotation());
+			scale.set(aft.getScale());
+			pivot.set(aft.getPivot());
+
+			loc.render(this, guiGraphics, -65, -10, partialTick, "Location");
+			rot.render(this, guiGraphics, -65, 40, partialTick, "Rotation");
+			scale.render(this, guiGraphics, -65, 100, partialTick, "Scale");
+			pivot.render(this, guiGraphics, -65, 160, partialTick, "Pivot");
+
+			guiGraphics.drawString(font, "Min", leftPos + 10, topPos - 40, 0xFFFFFF, true);
+			guiGraphics.drawString(font, "Max", leftPos + 90, topPos - 40, 0xFFFFFF, true);
+			guiGraphics.drawString(font, "Speed", leftPos + 160, topPos - 40, 0xFFFFFF, true);
+			guiGraphics.drawString(font, "Offset", leftPos + 240, topPos - 40, 0xFFFFFF, true);
+			guiGraphics.drawString(font, "Loop", leftPos + 290, topPos - 40, 0xFFFFFF, true);
+			guiGraphics.drawString(font, "PingPong", leftPos + 320, topPos - 40, 0xFFFFFF, true);
 		}
+
 	}
 
 	@Override
@@ -116,13 +193,13 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 	void saveJsonToClipboard() {
 		String s = null; // json code here
 		StringSelection select = new StringSelection(s);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, select);
 	}
 
 	void saveDataGenToClipboard() {
-		String s = null; // datagen code here
+		String s = this.aft.clipboardData(); // datagen code here
 		StringSelection select = new StringSelection(s);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, select);
 	}
 
 	protected class AnimatedFloatVector3Widget {
@@ -202,10 +279,12 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 		}
 
 		public AnimatedFloat get() {
-			af.setMax(max.get());
-			af.setMin(min.get());
-			af.setSpeed(speed.get());
-			af.setOffset(offset.get());
+			if (af != null) {
+				af.setMax(max.get());
+				af.setMin(min.get());
+				af.setSpeed(speed.get());
+				af.setOffset(offset.get());
+			}
 
 			return af;
 		}
@@ -336,10 +415,10 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 				scale = new AnimatedFloatVector3Widget();
 				pivot = new AnimatedFloatVector3Widget();
 
-				loc.init(this, 180, -25);
-				rot.init(this, 180, 30);
-				scale.init(this, 180, 85);
-				pivot.init(this, 180, 140);
+				loc.init(this, 0, -25);
+				rot.init(this, 0, 30);
+				scale.init(this, 0, 85);
+				pivot.init(this, 0, 140);
 
 				if (station.getCurrentTool() != null) {
 					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();

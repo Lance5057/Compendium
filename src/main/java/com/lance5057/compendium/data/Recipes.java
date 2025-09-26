@@ -58,16 +58,16 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				new AnimationFloatTransform()
 						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true))
 								.setY(new AnimatedFloat(180)))
-						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8, 0))
-								.setY(new AnimatedFloat(10 + yOffset, 0)).setZ(new AnimatedFloat(8, 0)))
+						.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(10 + yOffset, 0))
+								.setZ(new AnimatedFloat(8, 0)))
 						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
 	}
 
 	public static BlacklistedModel standardSawBuckBlockModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, true,
-				new AnimationFloatTransform().setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(45)))
-						.setLocation(new AnimatedFloatVector3().setX(new AnimatedFloat(8))
-								.setY(new AnimatedFloat(yOffset)))
+				new AnimationFloatTransform()
+						.setLocation(
+								new AnimatedFloatVector3().setX(new AnimatedFloat(8)).setY(new AnimatedFloat(yOffset)))
 						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
 	}
 

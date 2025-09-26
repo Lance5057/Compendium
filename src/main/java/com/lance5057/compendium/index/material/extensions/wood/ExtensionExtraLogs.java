@@ -550,7 +550,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage_0"),-10))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage0"), -18))
+					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage1"), -18))
+					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage2"), -18))
 					.save(consumer);
 		}
 		if (LOG.enabled()) {
