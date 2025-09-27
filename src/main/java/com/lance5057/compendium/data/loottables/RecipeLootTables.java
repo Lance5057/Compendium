@@ -5,6 +5,7 @@ import java.util.function.BiConsumer;
 import org.jetbrains.annotations.NotNull;
 
 import com.lance5057.compendium.CompendiumItems;
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.core.HolderLookup;
@@ -38,6 +39,10 @@ public class RecipeLootTables implements LootTableSubProvider {
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, Builder> output) {
+		CompendiumIndex.index.forEach(i -> {
+			i.otherLoot(this);
+		});
+
 		output.accept(STONE_TO_COBBLE, LootTable.lootTable().withPool(createPoolWithItem(Items.COBBLESTONE, 1)));
 		output.accept(SAW_DUST, LootTable.lootTable().withPool(createPoolWithItem(CompendiumItems.SAWDUST.get(), 1)));
 	}

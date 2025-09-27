@@ -149,7 +149,21 @@ public class AnimatedFloat {
 	}
 
 	public String clipboardData() {
-		return String.format("new AnimatedFloat(%fF, %fF, %fF, %fF, %b, %b)", iMin, iMax, offset, speed, loop,
+		return String.format("new AnimatedFloat(%.3fF, %.3fF, %.3fF, %.3fF, %b, %b)", iMin, iMax, offset, speed, loop,
 				pingpong);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof AnimatedFloat a) {
+			if (this.iMin == a.iMin)
+				if (this.iMax == a.iMax)
+					if (this.speed == a.speed)
+						if (this.offset == a.offset)
+							if (this.loop == a.loop)
+								if (this.pingpong == a.pingpong)
+									return true;
+		}
+		return false;
 	}
 }

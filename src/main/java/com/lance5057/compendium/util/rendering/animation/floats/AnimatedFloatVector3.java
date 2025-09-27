@@ -138,7 +138,25 @@ public class AnimatedFloatVector3 {
 	}
 
 	public String clipboardData() {
-		return String.format(".setX(%s).setY(%s).setZ(%s)", this.x.clipboardData(), this.y.clipboardData(),
-				this.z.clipboardData());
+		String s = "new AnimatedFloatVector3()";
+		if (!this.getX().equals(AnimatedFloat.ZERO))
+			s += String.format(".setX(%s)", this.x.clipboardData());
+		if (!this.getY().equals(AnimatedFloat.ZERO))
+			s += String.format(".setY(%s)", this.y.clipboardData());
+		if (!this.getZ().equals(AnimatedFloat.ZERO))
+			s += String.format(".setZ(%s)", this.z.clipboardData());
+
+		return s;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof AnimatedFloatVector3 f) {
+			if (this.x.equals(f.x))
+				if (this.y.equals(f.y))
+					if (this.z.equals(f.z))
+						return true;
+		}
+		return false;
 	}
 }

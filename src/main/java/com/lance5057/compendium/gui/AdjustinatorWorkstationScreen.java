@@ -1,6 +1,7 @@
 package com.lance5057.compendium.gui;
 
 import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTr
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 import com.mojang.blaze3d.platform.InputConstants;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.EditBox;
@@ -192,14 +194,12 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 	void saveJsonToClipboard() {
 		String s = null; // json code here
-		StringSelection select = new StringSelection(s);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, select);
+		Minecraft.getInstance().keyboardHandler.setClipboard(s);
 	}
 
 	void saveDataGenToClipboard() {
 		String s = this.aft.clipboardData(); // datagen code here
-		StringSelection select = new StringSelection(s);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, select);
+		Minecraft.getInstance().keyboardHandler.setClipboard(s);
 	}
 
 	protected class AnimatedFloatVector3Widget {
@@ -347,7 +347,7 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 			box = screen.addRenderableWidget(
 					new EditBox(font, screen.leftPos + x, screen.topPos + y, 40, 14, playerInventoryTitle));
 
-			box.setFilter(s -> filter(s));
+//			box.setFilter(s -> filter(s));
 			box.setResponder(onChanged);
 
 			right_small_button = screen.addRenderableWidget(new ImageButton(screen.leftPos + 41 + x,

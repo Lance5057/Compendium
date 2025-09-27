@@ -24,44 +24,49 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 7.0
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -5.0,
+                "min": -9.0
+              },
+              "z": {
+                "max": 33.0,
+                "min": -8.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": 8.0
+              }
+            },
             "rotation": {
               "y": {
-                "max": 180.0,
-                "min": 180.0,
-                "speed": 1.0
+                "max": 270.0,
+                "min": 180.0
               },
               "z": {
                 "loop": true,
-                "max": 45.0,
-                "min": -45.0,
+                "max": 64.0,
                 "pingpong": true,
-                "speed": 0.5
+                "speed": 1.5
               }
             },
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },
@@ -72,33 +77,31 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": 8.0,
-                "speed": 1.0
+                "max": -8.0,
+                "min": 8.0
               },
               "y": {
-                "max": -18.0,
-                "min": -18.0,
-                "speed": 1.0
+                "max": -11.6,
+                "min": -18.0
+              },
+              "z": {
+                "max": -8.0
               }
             },
             "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },
@@ -120,44 +123,49 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 7.0
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -5.0,
+                "min": -9.0
+              },
+              "z": {
+                "max": 33.0,
+                "min": -8.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": 8.0
+              }
+            },
             "rotation": {
               "y": {
-                "max": 180.0,
-                "min": 180.0,
-                "speed": 1.0
+                "max": 270.0,
+                "min": 180.0
               },
               "z": {
                 "loop": true,
-                "max": 45.0,
-                "min": -45.0,
+                "max": 64.0,
                 "pingpong": true,
-                "speed": 0.5
+                "speed": 1.5
               }
             },
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },
@@ -168,33 +176,31 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": 8.0,
-                "speed": 1.0
+                "max": -8.0,
+                "min": 8.0
               },
               "y": {
-                "max": -18.0,
-                "min": -18.0,
-                "speed": 1.0
+                "max": -11.6,
+                "min": -18.0
+              },
+              "z": {
+                "max": -8.0
               }
             },
             "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },
@@ -216,44 +222,49 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 7.0
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -5.0,
+                "min": -9.0
+              },
+              "z": {
+                "max": 33.0,
+                "min": -8.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": 8.0
+              }
+            },
             "rotation": {
               "y": {
-                "max": 180.0,
-                "min": 180.0,
-                "speed": 1.0
+                "max": 270.0,
+                "min": 180.0
               },
               "z": {
                 "loop": true,
-                "max": 45.0,
-                "min": -45.0,
+                "max": 64.0,
                 "pingpong": true,
-                "speed": 0.5
+                "speed": 1.5
               }
             },
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },
@@ -264,33 +275,31 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": 8.0,
-                "speed": 1.0
+                "max": -8.0,
+                "min": 8.0
               },
               "y": {
-                "max": -18.0,
-                "min": -18.0,
-                "speed": 1.0
+                "max": -11.6,
+                "min": -18.0
+              },
+              "z": {
+                "max": -8.0
               }
             },
             "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 1.0,
+                "min": 0.5
               }
             }
           },

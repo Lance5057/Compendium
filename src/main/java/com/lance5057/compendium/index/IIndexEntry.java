@@ -1,8 +1,10 @@
 package com.lance5057.compendium.index;
 
 import com.lance5057.compendium.data.IndexBlockModelProvider;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -30,6 +32,8 @@ public interface IIndexEntry {
 	public void recipes(RecipeOutput consumer);
 
 	public void blockLoot(BlockLootSubProvider blp);
+	
+	public abstract void otherLoot(LootTableSubProvider lsp);
 
 	public abstract void setupItemTags(ItemTagsProvider itp);
 

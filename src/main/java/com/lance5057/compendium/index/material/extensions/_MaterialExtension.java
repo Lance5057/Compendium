@@ -12,6 +12,7 @@ import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -51,6 +52,8 @@ public abstract class _MaterialExtension {
 	public abstract void recipes(_MaterialBase base, RecipeOutput consumer);
 
 	public abstract void blockLoot(_MaterialBase base, BlockLootSubProvider blp);
+	
+	public abstract void otherLoot(_MaterialBase base, LootTableSubProvider lsp);
 
 	public abstract void setupItemTags(_MaterialBase base, ItemTagsProvider itp);
 

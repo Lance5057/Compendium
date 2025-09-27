@@ -123,9 +123,15 @@ public class AnimationFloatTransform {
 	}
 
 	public String clipboardData() {
-		return String.format(
-				"new AnimationFloatTransform().setRotation(%s).setLocation(%s).setScale(%s).setPivot(%s));",
-				this.rot.clipboardData(), this.loc.clipboardData(), this.scale.clipboardData(),
-				this.pivot.clipboardData());
+		String s = "new AnimationFloatTransform()";
+		if (!this.rot.equals(AnimatedFloatVector3.ZERO))
+			s += String.format(".setRotation(%s)", this.rot.clipboardData());
+		if (!this.loc.equals(AnimatedFloatVector3.ZERO))
+			s += String.format(".setLocation(%s)", this.loc.clipboardData());
+		if (!this.scale.equals(AnimatedFloatVector3.ZERO))
+			s += String.format(".setScale(%s)", this.scale.clipboardData());
+		if (!this.pivot.equals(AnimatedFloatVector3.ZERO))
+			s += String.format(".setPivot(%s)", this.pivot.clipboardData());
+		return s + ");";
 	}
 }

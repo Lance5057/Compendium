@@ -17,6 +17,7 @@ import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
+import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
@@ -31,6 +32,9 @@ import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.Direction;
@@ -40,6 +44,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -47,6 +52,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -56,6 +62,7 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -549,14 +556,134 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage0"), -18))
+							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
+															true)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))
+											.setPivot(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage0"), true,
+									new AnimationFloatTransform()
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage1"), -18))
+							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
+															true)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))
+											.setPivot(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage1"), true,
+									new AnimationFloatTransform()
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(TagUtil.mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage2"), -18))
+							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
+															true)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))
+											.setPivot(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage2"), true,
+									new AnimationFloatTransform()
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))))
 					.save(consumer);
 		}
 		if (LOG.enabled()) {
@@ -656,6 +783,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (STRIPPED_LOG_STAIRS.enabled()) {
 			blp.dropSelf(this.STRIPPED_LOG_STAIRS.BLOCK.get());
 		}
+
 	}
 
 	@Override
