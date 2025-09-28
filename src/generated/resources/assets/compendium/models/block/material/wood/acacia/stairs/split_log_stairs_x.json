@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/split_log_stairs_x",
-  "textures": {
-    "1": "compendium:block/material/wood/acacia/log_split_side",
-    "2": "minecraft:block/acacia_log",
-    "3": "minecraft:block/acacia_log_top",
-    "particle": "compendium:block/material/wood/acacia/small_logs"
-  }
-}

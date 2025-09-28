@@ -62,9 +62,9 @@ public class StyleData {
 	public static StyleData LOG = new StyleData("log", List.of("basic", "corner"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
 	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
-	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("basic", "small_log_stairs_x",
-			"small_log_stairs_y", "small_log_stairs_z", "split_log_stairs_x", "split_log_stairs_y",
-			"split_log_stairs_z"));
+	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("small_logs", "small_log_rotated_side",
+			"small_log_rotated_front", "small_log_rotated_top", "split_log_rotated_side", "split_log_rotated_front",
+			"split_log_rotated_top"));
 
 	String name;
 	List<String> types;
