@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/stairs/small_logs_stairs_y_inner",
+  "textures": {
+    "1": "compendium:block/material/wood/cherry/small_logs",
+    "2": "compendium:block/material/wood/cherry/small_logs_top",
+    "particle": "compendium:block/material/wood/cherry/small_logs"
+  }
+}

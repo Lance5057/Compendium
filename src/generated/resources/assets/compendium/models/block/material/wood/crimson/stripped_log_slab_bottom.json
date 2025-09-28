@@ -1,25 +1,19 @@
 {
-  "count": 7,
+  "basic": {
+    "model": "compendium:block/material/wood/crimson/slab/basic"
+  },
+  "count": 5,
   "loader": "compendium:style",
-  "small_log_rotated_front": {
-    "model": "compendium:block/material/wood/crimson/slab/small_log_rotated_front"
+  "small": {
+    "model": "compendium:block/material/wood/crimson/slab/small"
   },
-  "small_log_rotated_side": {
-    "model": "compendium:block/material/wood/crimson/slab/small_log_rotated_side"
+  "small_rotated": {
+    "model": "compendium:block/material/wood/crimson/slab/small_rotated"
   },
-  "small_log_rotated_top": {
-    "model": "compendium:block/material/wood/crimson/slab/small_log_rotated_top"
+  "split": {
+    "model": "compendium:block/material/wood/crimson/slab/split"
   },
-  "small_logs": {
-    "model": "compendium:block/material/wood/crimson/slab/small_logs"
-  },
-  "split_log_rotated_front": {
-    "model": "compendium:block/material/wood/crimson/slab/split_log_rotated_front"
-  },
-  "split_log_rotated_side": {
-    "model": "compendium:block/material/wood/crimson/slab/split_log_rotated_side"
-  },
-  "split_log_rotated_top": {
-    "model": "compendium:block/material/wood/crimson/slab/split_log_rotated_top"
+  "split_rotated": {
+    "model": "compendium:block/material/wood/crimson/slab/split_rotated"
   }
 }

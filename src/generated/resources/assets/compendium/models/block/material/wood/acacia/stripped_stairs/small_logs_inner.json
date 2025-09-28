@@ -1,0 +1,9 @@
+{
+  "parent": "compendium:block/bases/stairs/small_logs_stairs_inner",
+  "textures": {
+    "0": "compendium:block/material/wood/acacia/stripped_small_logs_corner",
+    "1": "compendium:block/material/wood/acacia/stripped_small_logs_slab",
+    "2": "compendium:block/material/wood/acacia/stripped_small_logs_turned",
+    "particle": "compendium:block/material/wood/acacia/small_logs"
+  }
+}
