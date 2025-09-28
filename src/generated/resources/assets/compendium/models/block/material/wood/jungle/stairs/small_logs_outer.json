@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/stairs/small_logs_outer_stairs",
+  "parent": "compendium:block/bases/stairs/small_logs_stairs_outer",
   "textures": {
     "0": "compendium:block/material/wood/jungle/small_logs_turned",
     "1": "compendium:block/material/wood/jungle/small_logs",

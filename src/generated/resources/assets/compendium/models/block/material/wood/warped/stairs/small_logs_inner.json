@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/stairs/small_logs_inner_stairs",
+  "parent": "compendium:block/bases/stairs/small_logs_stairs_inner",
   "textures": {
     "0": "compendium:block/material/wood/warped/small_logs_corner",
     "1": "compendium:block/material/wood/warped/small_logs_slab",
