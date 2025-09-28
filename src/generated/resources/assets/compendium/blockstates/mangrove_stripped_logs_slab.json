@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "compendium:block/material/wood/mangrove/stripped_log_corner_bottom_block"
+      "model": "compendium:block/material/wood/mangrove/stripped_log_slab_bottom"
     },
     "type=double": {
-      "model": "compendium:block/material/wood/mangrove/stripped_log_corner_full_block"
+      "model": "compendium:block/material/wood/mangrove/stripped_log_slab_full"
     },
     "type=top": {
-      "model": "compendium:block/material/wood/mangrove/stripped_log_corner_top_block"
+      "model": "compendium:block/material/wood/mangrove/stripped_log_slab_top"
     }
   }
 }
