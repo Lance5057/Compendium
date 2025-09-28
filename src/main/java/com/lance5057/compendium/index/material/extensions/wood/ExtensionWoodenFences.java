@@ -5,6 +5,7 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -78,6 +79,12 @@ public class ExtensionWoodenFences extends _MaterialExtension {
 
 	@Override
 	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 		
 	}

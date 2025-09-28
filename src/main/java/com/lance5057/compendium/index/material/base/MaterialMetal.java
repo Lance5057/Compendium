@@ -15,6 +15,7 @@ import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -260,5 +261,11 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void blockModel(IndexBlockModelProvider ibmp) {
 		this.extensions.forEach(i -> i.blockModel(this, ibmp));
+	}
+
+	@Override
+	public void otherLoot(LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 }

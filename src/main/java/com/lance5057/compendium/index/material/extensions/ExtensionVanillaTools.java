@@ -13,6 +13,7 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.AxeItem;
@@ -185,6 +186,12 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 		
 	}

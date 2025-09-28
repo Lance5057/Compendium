@@ -30,6 +30,7 @@ import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
@@ -205,5 +206,11 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 						ibmp.modLoc("block/material/" + base.getType().name().toLowerCase() + "/"
 								+ base.name.toLowerCase() + "/tile/" + s.toLowerCase()));
 		}
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 }

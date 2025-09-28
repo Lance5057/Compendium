@@ -17,6 +17,7 @@ import com.lance5057.compendium.items.CompendiumArmorItem;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -225,6 +226,12 @@ public class ExtensionArmor extends _MaterialExtension {
 
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 		
 	}

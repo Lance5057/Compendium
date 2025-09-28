@@ -31,6 +31,7 @@ import com.lance5057.compendium.styleblock.StyleType;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
@@ -203,6 +204,12 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 			return new ExtensionStoneStyleBlocks(loadTile);
 		}
 
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

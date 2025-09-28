@@ -14,6 +14,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.BlockItem;
@@ -181,6 +182,12 @@ public class MaterialTextile extends _MaterialBase {
 			return j;
 		}
 
+	}
+
+	@Override
+	public void otherLoot(LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -4,6 +4,7 @@ import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -102,6 +103,12 @@ public class MaterialDust extends _MaterialBase {
 	@Override
 	public void blockModel(IndexBlockModelProvider ibmp) {
 		this.extensions.forEach(i -> i.blockModel(this, ibmp));
+	}
+
+	@Override
+	public void otherLoot(LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

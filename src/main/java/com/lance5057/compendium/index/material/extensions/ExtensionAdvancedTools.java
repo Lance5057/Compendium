@@ -20,6 +20,7 @@ import com.lance5057.compendium.items.tools.ZweihanderItem;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -249,6 +250,12 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
