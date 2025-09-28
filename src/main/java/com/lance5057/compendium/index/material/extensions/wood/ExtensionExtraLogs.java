@@ -76,6 +76,8 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
+import static com.lance5057.compendium.util.TagUtil.mcLoc;
+
 public class ExtensionExtraLogs extends _MaterialExtension {
 	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
@@ -163,13 +165,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void tab(_MaterialBase base, Output output) {
 		SMALL_LOG.tab(base, output);
 		LOG.tab(base, output);
-//		LOG_CORNER.tab(base, output);
 		LOG_SLAB.tab(base, output);
 		LOG_STAIRS.tab(base, output);
 
 		STRIPPED_SMALL_LOG_PIPE.tab(base, output);
 		STRIPPED_LOG.tab(base, output);
-//		STRIPPED_LOG_CORNER.tab(base, output);
 		STRIPPED_LOG_SLAB.tab(base, output);
 		STRIPPED_LOG_STAIRS.tab(base, output);
 	}
@@ -177,8 +177,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 
-		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
-				ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
+		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log"))
+				.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
 
 		ibmp.withExistingParent(STRIPPED_SMALL_LOG_PIPE.location(base) + "_block", ibmp.modLoc("item/small_log"))
 				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "small_logs_corner"));
@@ -201,6 +201,39 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_corner"));
 
+		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_x",
+						ibmp.modLoc("block/bases/small_logs_stairs_x"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
+				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
+
+		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_y",
+						ibmp.modLoc("block/bases/small_logs_stairs_y"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
+				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
+
+		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_z",
+						ibmp.modLoc("block/bases/small_logs_stairs_z"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
+				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
+
+		if (base.name.equals("warped") || base.name.equals("crimson")) {
+			ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/split_log_stairs_x",
+							ibmp.modLoc("block/bases/split_log_stairs_x"))
+					.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side"))
+					.texture("2", mcLoc("block/" + base.name + "_stem"))
+					.texture("3", mcLoc("block/" + base.name + "_stem_top"))
+					.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
+		} else {
+			ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/split_log_stairs_x",
+							ibmp.modLoc("block/bases/split_log_stairs_x"))
+					.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side"))
+					.texture("2", mcLoc("block/" + base.name + "_log"))
+					.texture("3", mcLoc("block/" + base.name + "_log_top"))
+					.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
+		}
 	}
 
 	@Override
@@ -553,7 +586,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+							new BlacklistedModel(mcLoc("iron_axe"), false,
 									new AnimationFloatTransform()
 											.setRotation(new AnimatedFloatVector3()
 													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
@@ -596,7 +629,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
 															false)))))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+							new BlacklistedModel(mcLoc("iron_axe"), false,
 									new AnimationFloatTransform()
 											.setRotation(new AnimatedFloatVector3()
 													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
@@ -639,7 +672,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
 															false)))))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(TagUtil.mcLoc("iron_axe"), false,
+							new BlacklistedModel(mcLoc("iron_axe"), false,
 									new AnimationFloatTransform()
 											.setRotation(new AnimatedFloatVector3()
 													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
