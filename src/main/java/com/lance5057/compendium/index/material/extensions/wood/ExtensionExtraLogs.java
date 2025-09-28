@@ -1,5 +1,7 @@
 package com.lance5057.compendium.index.material.extensions.wood;
 
+import static com.lance5057.compendium.util.TagUtil.mcLoc;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +47,6 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -53,7 +54,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -63,7 +63,6 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -75,8 +74,6 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-
-import static com.lance5057.compendium.util.TagUtil.mcLoc;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
 	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
@@ -133,8 +130,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 
-		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
+		LOG_STAIRS.setup(base,
+				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
 				() -> new BlockItem(LOG_STAIRS.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 
@@ -177,8 +175,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 
-		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log"))
-				.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
+		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
+				ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
 
 		ibmp.withExistingParent(STRIPPED_SMALL_LOG_PIPE.location(base) + "_block", ibmp.modLoc("item/small_log"))
 				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG_PIPE.location(base) + "small_logs_corner"));
@@ -202,33 +200,33 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_corner"));
 
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_x",
-						ibmp.modLoc("block/bases/small_logs_stairs_x"))
+				ibmp.modLoc("block/bases/small_logs_stairs_x"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
 
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_y",
-						ibmp.modLoc("block/bases/small_logs_stairs_y"))
+				ibmp.modLoc("block/bases/small_logs_stairs_y"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
 
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_log_stairs_z",
-						ibmp.modLoc("block/bases/small_logs_stairs_z"))
+				ibmp.modLoc("block/bases/small_logs_stairs_z"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
 
 		if (base.name.equals("warped") || base.name.equals("crimson")) {
 			ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/split_log_stairs_x",
-							ibmp.modLoc("block/bases/split_log_stairs_x"))
+					ibmp.modLoc("block/bases/split_log_stairs_x"))
 					.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side"))
 					.texture("2", mcLoc("block/" + base.name + "_stem"))
 					.texture("3", mcLoc("block/" + base.name + "_stem_top"))
 					.texture("particle", ibmp.modLoc(LOG.location(base) + "small_logs"));
 		} else {
 			ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/split_log_stairs_x",
-							ibmp.modLoc("block/bases/split_log_stairs_x"))
+					ibmp.modLoc("block/bases/split_log_stairs_x"))
 					.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side"))
 					.texture("2", mcLoc("block/" + base.name + "_log"))
 					.texture("3", mcLoc("block/" + base.name + "_log_top"))
@@ -277,78 +275,37 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					return b.build();
 
 				});
-//				DataUtil.axisMaterialBlock(bsp, base, LOG, "small_logs", "solid", base.getType());
 			}
 			if (STRIPPED_LOG.enabled()) {
 				DataUtil.axisMaterialBlock(bsp, base, STRIPPED_LOG, "stripped_small_logs", "solid", base.getType());
 			}
-//			if (LOG_CORNER.enabled()) {
-//
-//				bsp.axisBlock((RotatedPillarBlock) LOG_CORNER.BLOCK.get(),
-//						bsp.models()
-//								.withExistingParent(LOG_CORNER.location(base) + "log_corner_block",
-//										Compendium.modLoc("small_logs_corner"))
-//								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
-//								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
-//								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")),
-//
-//						bsp.models()
-//								.withExistingParent(LOG_CORNER.location(base) + "log_corner_side_block",
-//										Compendium.modLoc("small_logs_corner_side"))
-//								.texture("1", Compendium.modLoc(base.blockFolder() + "small_logs_corner"))
-//								.texture("2", Compendium.modLoc(base.blockFolder() + "small_logs"))
-//								.texture("particle", Compendium.modLoc(base.blockFolder() + "small_logs")));
-//			}
-//
-//			if (STRIPPED_LOG_CORNER.enabled()) {
-//
-//				bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG_CORNER.BLOCK.get(),
-//						bsp.models().getBuilder("table_top").customLoader(MultiStyleMaterialBuilder::begin)
-//								.base(bsp.models().cubeAll("table_top_model", bsp.mcLoc("block/oak_planks")))
-//								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
-//										List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-//										StyleData.TABLE_TOP.getTypes(), 0, 0))
-//								.end(),
-//						bsp.models().getBuilder("table_top").customLoader(MultiStyleMaterialBuilder::begin)
-//								.base(bsp.models().cubeAll("table_top_model", bsp.mcLoc("block/oak_planks")))
-//								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "top",
-//										List.of(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-//										StyleData.TABLE_TOP.getTypes(), 0, 0))
-//								.end());
-////								.withExistingParent(STRIPPED_LOG_CORNER.location(base) + "stripped_log_corner_block",
-////										Compendium.modLoc("small_logs_corner"))
-////								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
-////								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
-////								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")),
-//
-////						bsp.models()
-////								.withExistingParent(
-////										STRIPPED_LOG_CORNER.location(base) + "stripped_log_corner_side_block",
-////										Compendium.modLoc("small_logs_corner_side"))
-////								.texture("1", Compendium.modLoc(base.blockFolder() + "stripped_small_logs_corner"))
-////								.texture("2", Compendium.modLoc(base.blockFolder() + "stripped_small_logs"))
-////								.texture("particle", Compendium.modLoc(base.blockFolder() + "stripped_small_logs")));
-//			}
 			if (LOG_SLAB.enabled()) {
-				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(),
-						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "log_corner_bottom_block",
-										Compendium.modLoc("small_logs_slab_bottom"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")),
-						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "log_corner_top_block",
-										Compendium.modLoc("small_logs_slab_top"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")),
-						bsp.models()
-								.withExistingParent(LOG_SLAB.location(base) + "log_corner_full_block",
-										Compendium.modLoc("small_logs_slab_full"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs_slab"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs_slab")));
+				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
+						.getBuilder(LOG.location(base) + "log_slab_bottom").customLoader(StyleBlockModelBuilder::begin);
+				log_slab_bottom.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_slab_bottom
+							.add(new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "slab/" + s.toLowerCase())));
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
+						.getBuilder(LOG.location(base) + "log_slab_top").customLoader(StyleBlockModelBuilder::begin);
+				log_slab_top.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_slab_top
+							.add(new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "slab/" + s.toLowerCase())));
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
+						.getBuilder(LOG.location(base) + "log_slab_full").customLoader(StyleBlockModelBuilder::begin);
+				log_slab_full.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_slab_full
+							.add(new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "slab/" + s.toLowerCase())));
+
+				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
+						log_slab_full.end());
 			}
 
 			if (STRIPPED_LOG_SLAB.enabled()) {
@@ -379,23 +336,34 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 										Compendium.modLoc(STRIPPED_LOG.location(base) + "stripped_small_logs_slab")));
 			}
 			if (LOG_STAIRS.enabled()) {
-				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(),
-						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_block",
-								Compendium.modLoc("small_logs_stairs"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
-						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_inner_block",
-								Compendium.modLoc("small_logs_inner_stairs"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
-						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_outer_block",
-								Compendium.modLoc("small_logs_outer_stairs"))
-								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
-								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
-						bsp);
+				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
+						.getBuilder(LOG.location(base) + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
+				log_stairs_standard.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_stairs_standard.add(
+							new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase())));
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
+						.getBuilder(LOG.location(base) + "log_stairs_inner")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_stairs_inner.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_stairs_inner.add(
+							new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase())));
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
+						.getBuilder(LOG.location(base) + "log_stairs_outer")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_stairs_outer.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_stairs_outer.add(
+							new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase())));
+
+				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(), log_stairs_inner.end(),
+						log_stairs_outer.end(), bsp);
 			}
 
 			if (STRIPPED_LOG_STAIRS.enabled()) {
@@ -885,7 +853,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
