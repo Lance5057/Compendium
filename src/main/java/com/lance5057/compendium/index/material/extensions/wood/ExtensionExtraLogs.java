@@ -132,7 +132,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 
 		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
+				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
+				() -> new BlockItem(LOG_STAIRS.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 
 		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(LOG.BLOCK);
@@ -347,21 +349,18 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(),
 						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_block",
 								Compendium.modLoc("small_logs_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
 						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_inner_block",
 								Compendium.modLoc("small_logs_inner_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
 						bsp.models().withExistingParent(LOG_STAIRS.location(base) + "log_stairs_outer_block",
 								Compendium.modLoc("small_logs_outer_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs")),
 						bsp);
 			}
@@ -371,25 +370,22 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						bsp.models()
 								.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_block",
 										Compendium.modLoc("small_logs_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp.models()
 								.withExistingParent(
 										STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_inner_block",
 										Compendium.modLoc("small_logs_inner_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp.models()
 								.withExistingParent(
 										STRIPPED_LOG_STAIRS.location(base) + "stripped_log_stairs_outer_block",
 										Compendium.modLoc("small_logs_outer_stairs"))
-//								.texture("0", Compendium.modLoc(LOG_CORNER.location(base) + "stripped_small_logs"))
-								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
-								.texture("2", Compendium.modLoc(LOG_SLAB.location(base) + "stripped_small_logs"))
+								.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+								.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 								.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs")),
 						bsp);
 			}

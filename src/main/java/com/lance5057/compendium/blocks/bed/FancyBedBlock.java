@@ -34,8 +34,9 @@ public class FancyBedBlock extends BedBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 5, 5, StyleData.BED_FRAME, StyleData.BED_MATTRESS,
-				StyleData.BED_PILLOW, StyleData.BED_SHEET, StyleData.BED_BLANKET);
+		return new StyledMultiMaterialBlockEntity(pos, state, 6, 6, StyleData.BED_FRAME,
+				StyleData.BED_BASE, StyleData.BED_MATTRESS,	StyleData.BED_PILLOW, StyleData.BED_SHEET,
+				StyleData.BED_BLANKET);
 	}
 
 	@Override

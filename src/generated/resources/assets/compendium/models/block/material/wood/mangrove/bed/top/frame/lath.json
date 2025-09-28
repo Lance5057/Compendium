@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/top/frame/lath",
+  "textures": {
+    "0": "minecraft:block/mangrove_planks"
+  }
+}

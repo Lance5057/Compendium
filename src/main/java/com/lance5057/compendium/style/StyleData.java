@@ -49,7 +49,11 @@ public class StyleData {
 	public static StyleData BED_PILLOW = new StyleData("pillow", List.of("basic"));
 	public static StyleData BED_SHEET = new StyleData("sheet", List.of("basic"));
 	public static StyleData BED_MATTRESS = new StyleData("mattress", List.of("basic"));
-	public static StyleData BED_FRAME = new StyleData("frame", List.of("basic"));
+	public static StyleData BED_FRAME = new StyleData("frame", List.of("basic", "basic_panel",
+			"contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full", "lath", "lath_extra", "live_edge",
+			"panelled", "slats", "solid", "weave"));
+	public static StyleData BED_BASE = new StyleData("base", List.of("basic", "panelled", "slats", "solid",
+			"weave"));
 
 	public static StyleData SHINGLES = new StyleData("shingles", List.of("basic"));
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
@@ -58,7 +62,9 @@ public class StyleData {
 	public static StyleData LOG = new StyleData("log", List.of("basic", "corner"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
 	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "split", "split_rotated", "small", "small_rotated"));
-	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("basic"));
+	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("basic", "small_log_stairs_x",
+			"small_log_stairs_y", "small_log_stairs_z", "split_log_stairs_x", "split_log_stairs_y",
+			"split_log_stairs_z"));
 
 	String name;
 	List<String> types;
