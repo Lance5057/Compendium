@@ -1,19 +1,22 @@
 {
-  "basic": {
-    "model": "compendium:block/material/wood/dark_oak/slab/basic"
+  "count": 6,
+  "crosscut": {
+    "model": "compendium:block/material/wood/dark_oak/slab/crosscut_top"
   },
-  "count": 5,
+  "crosscut_small": {
+    "model": "compendium:block/material/wood/dark_oak/slab/crosscut_small_top"
+  },
   "loader": "compendium:style",
-  "small": {
-    "model": "compendium:block/material/wood/dark_oak/slab/small"
+  "small_logs": {
+    "model": "compendium:block/material/wood/dark_oak/slab/small_logs_top"
   },
-  "small_rotated": {
-    "model": "compendium:block/material/wood/dark_oak/slab/small_rotated"
+  "small_logs_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/small_logs_rotated_top"
   },
   "split": {
-    "model": "compendium:block/material/wood/dark_oak/slab/split"
+    "model": "compendium:block/material/wood/dark_oak/slab/split_top"
   },
   "split_rotated": {
-    "model": "compendium:block/material/wood/dark_oak/slab/split_rotated"
+    "model": "compendium:block/material/wood/dark_oak/slab/split_rotated_top"
   }
 }

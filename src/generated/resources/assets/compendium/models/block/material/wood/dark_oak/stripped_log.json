@@ -1,0 +1,10 @@
+{
+  "basic": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_log/basic"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_log/corner"
+  },
+  "count": 2,
+  "loader": "compendium:style"
+}

@@ -1,19 +1,22 @@
 {
-  "basic": {
-    "model": "compendium:block/material/wood/crimson/stripped_slab/basic"
+  "count": 6,
+  "crosscut": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/crosscut_full"
   },
-  "count": 5,
+  "crosscut_small": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/crosscut_small_full"
+  },
   "loader": "compendium:style",
-  "small": {
-    "model": "compendium:block/material/wood/crimson/stripped_slab/small"
+  "small_logs": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/small_logs_full"
   },
-  "small_rotated": {
-    "model": "compendium:block/material/wood/crimson/stripped_slab/small_rotated"
+  "small_logs_rotated": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/small_logs_rotated_full"
   },
   "split": {
-    "model": "compendium:block/material/wood/crimson/stripped_slab/split"
+    "model": "compendium:block/material/wood/crimson/stripped_slab/split_full"
   },
   "split_rotated": {
-    "model": "compendium:block/material/wood/crimson/stripped_slab/split_rotated"
+    "model": "compendium:block/material/wood/crimson/stripped_slab/split_rotated_full"
   }
 }

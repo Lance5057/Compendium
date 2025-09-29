@@ -1,0 +1,10 @@
+{
+  "basic": {
+    "model": "compendium:block/material/wood/warped/stripped_log/basic"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/warped/stripped_log/corner"
+  },
+  "count": 2,
+  "loader": "compendium:style"
+}

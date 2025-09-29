@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "block/oak_log",
+		"1": "block/oak_log_top",
+		"2": "compendium:block/material/wood/oak/log_split_side",
+		"particle": "block/oak_log"
+	},
+	"elements": [
+		{
+			"from": [0, 8, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [8, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [8, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"west": {"uv": [8, 0, 16, 16], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#2"}
+			}
+		}
+	]
+}
