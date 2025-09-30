@@ -1,22 +1,22 @@
 {
   "count": 6,
   "crosscut": {
-    "model": "compendium:block/material/wood/cherry/slab/crosscut_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/crosscut_bottom"
   },
   "crosscut_small": {
-    "model": "compendium:block/material/wood/cherry/slab/crosscut_small_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/crosscut_small_bottom"
   },
   "loader": "compendium:style",
   "small_logs": {
-    "model": "compendium:block/material/wood/cherry/slab/small_logs_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/small_logs_bottom"
   },
   "small_logs_rotated": {
-    "model": "compendium:block/material/wood/cherry/slab/small_logs_rotated_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/small_logs_rotated_bottom"
   },
   "split": {
-    "model": "compendium:block/material/wood/cherry/slab/split_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/split_bottom"
   },
   "split_rotated": {
-    "model": "compendium:block/material/wood/cherry/slab/split_rotated_bottom"
+    "model": "compendium:block/material/wood/cherry/stripped_slab/split_rotated_bottom"
   }
 }

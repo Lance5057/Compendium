@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/stairs/small_logs_stairs",
   "textures": {
-    "0": "compendium:block/material/wood/spruce/small_logs",
-    "1": "compendium:block/material/wood/spruce/small_logs_top",
-    "particle": "compendium:block/material/wood/spruce/small_logs"
+    "0": "compendium:block/material/wood/spruce/stripped_small_logs",
+    "1": "compendium:block/material/wood/spruce/stripped_small_logs_top",
+    "particle": "compendium:block/material/wood/spruce/stripped_small_logs"
   }
 }
