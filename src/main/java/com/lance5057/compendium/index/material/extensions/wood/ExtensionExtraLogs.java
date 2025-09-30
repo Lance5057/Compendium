@@ -242,14 +242,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_logs",
 				ibmp.modLoc("block/bases/stairs/small_logs_stairs"))
-				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
-				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
+				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
+				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_logs_inner",
 				ibmp.modLoc("block/bases/stairs/small_logs_stairs_inner"))
-				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_corner"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
-				.texture("2", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_turned"))
+				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs_corner"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("2", Compendium.modLoc(LOG.location(base) + "small_logs_turned"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_STAIRS.location(base) + "/stairs/small_logs_outer",
 				Compendium.modLoc("block/bases/stairs/small_logs_stairs_outer"))
@@ -429,57 +429,57 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_side",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_x"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_side_inner",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_x_inner"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_side_outer",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_x_outer"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_front",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_y"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_front_inner",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_y_inner"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_front_outer",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_y_outer"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_top",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_z"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_top_inner",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_z_inner"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(STRIPPED_LOG_STAIRS.location(base) + "/stripped_stairs/split_log_rotated_top_outer",
 				ibmp.modLoc("block/bases/stairs/split_log_stairs_z_outer"))
-				.texture("1", ibmp.modLoc(LOG.location(base) + "log_split_side")) // make stripped
+				.texture("1", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
 				.texture("2", mcLoc("block/stripped_" + base.name + "_" + logstem))
 				.texture("3", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
@@ -569,6 +569,25 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("2", ibmp.modLoc(LOG.location(base) + "log_split_side"))
 				.texture("particle", mcLoc("block/" + base.name + "_" + logstem));
 
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_bottom",
+				ibmp.modLoc("block/bases/slab/split_log_slab_bottom"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_top",
+				ibmp.modLoc("block/bases/slab/split_log_slab_top"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_full",
+				ibmp.modLoc("block/bases/slab/split_log_slab_full"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/split_rotated_bottom",
 				ibmp.modLoc("block/bases/slab/split_log_rotated_slab_bottom"))
 				.texture("0", mcLoc("block/" + base.name + "_" + logstem))
@@ -587,6 +606,25 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("1", mcLoc("block/" + base.name + "_" + logstem + "_top"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "log_split_side"))
 				.texture("particle", mcLoc("block/" + base.name + "_" + logstem));
+
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_rotated_bottom",
+				ibmp.modLoc("block/bases/slab/split_log_rotated_slab_bottom"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_rotated_top",
+				ibmp.modLoc("block/bases/slab/split_log_rotated_slab_top"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/split_rotated_full",
+				ibmp.modLoc("block/bases/slab/split_log_rotated_slab_full"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
 
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/crosscut_bottom",
 				ibmp.modLoc("block/bases/slab/crosscut_log_slab_bottom"))
@@ -607,6 +645,25 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("2", ibmp.modLoc(LOG.location(base) + "log_split_side"))
 				.texture("particle", mcLoc("block/" + base.name + "_" + logstem));
 
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_bottom",
+						ibmp.modLoc("block/bases/slab/crosscut_log_slab_bottom"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_top",
+						ibmp.modLoc("block/bases/slab/crosscut_log_slab_top"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_full",
+						ibmp.modLoc("block/bases/slab/crosscut_log_slab_full"))
+				.texture("0", mcLoc("block/stripped_" + base.name + "_" + logstem))
+				.texture("1", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "stripped_log_split_side"))
+				.texture("particle", mcLoc("block/stripped_" + base.name + "_" + logstem));
+
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/crosscut_small_bottom",
 				ibmp.modLoc("block/bases/slab/crosscut_small_logs_slab_bottom"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
@@ -622,6 +679,22 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
 				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
+
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_small_bottom",
+				ibmp.modLoc("block/bases/slab/crosscut_small_logs_slab_bottom"))
+				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
+				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_small_top",
+				ibmp.modLoc("block/bases/slab/crosscut_small_logs_slab_top"))
+				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
+				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
+		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/crosscut_small_full",
+				ibmp.modLoc("block/bases/slab/crosscut_small_logs_slab_full"))
+				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
+				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/stairs/split_log_stairs_x_inner",
   "textures": {
-    "1": "compendium:block/material/wood/jungle/log_split_side",
+    "1": "compendium:block/material/wood/jungle/stripped_log_split_side",
     "2": "minecraft:block/stripped_jungle_log",
     "3": "minecraft:block/stripped_jungle_log_top",
     "particle": "minecraft:block/stripped_jungle_log"
