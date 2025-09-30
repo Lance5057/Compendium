@@ -21,10 +21,6 @@
       "loadShears": false,
       "loadZweihander": true,
       "loadBow": true
-    },
-    {
-      "type": "EXTRAMETALBLOCKS",
-      "loadTile": true
     }
   ]
 }

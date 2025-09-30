@@ -10,7 +10,6 @@
     "materialLayer": 0,
     "model": "window_trim",
     "valid": [
-      "METAL",
       "WOOD"
     ]
   },

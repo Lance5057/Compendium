@@ -722,7 +722,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						b.modelFile(bmb);
 						if (axis == Direction.Axis.X)
 							b.rotationY(90);
-						return b.build();
+						return b.rotationX(90).build();
 					}
 
 					Builder<?> b = ConfiguredModel.builder();

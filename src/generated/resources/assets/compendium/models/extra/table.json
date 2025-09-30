@@ -17,7 +17,6 @@
     ],
     "suffix": "_inventory",
     "valid": [
-      "METAL",
       "WOOD"
     ]
   },
@@ -33,7 +32,6 @@
     ],
     "suffix": "_inventory",
     "valid": [
-      "METAL",
       "WOOD"
     ]
   },

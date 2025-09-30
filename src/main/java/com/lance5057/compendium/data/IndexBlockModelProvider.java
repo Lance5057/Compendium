@@ -29,8 +29,9 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
-						withExistingParent("extra/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
@@ -39,8 +40,9 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
-						withExistingParent("extra/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
+
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
@@ -49,8 +51,9 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
 								modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-						
-						withExistingParent("extra/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
@@ -64,18 +67,13 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								modLoc("block/furniture/table/legs/side/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-//						withExistingParent(
-//								"block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase() + "_leg",
-//								modLoc("block/furniture/table/legs/side/" + b.toLowerCase()))
-//								.texture("0", mcLoc("block/" + mb.name + "_planks"));
-//
-//						withExistingParent(
-//								"extra/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase() + "_leg_inventory",
-//								modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
-//								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+						withExistingParent(
+								"block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase() + "_inventory",
+								modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
+								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
 						withExistingParent(
-								"extra/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase() + "_inventory",
+								"block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});
@@ -86,7 +84,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
 						withExistingParent(
-								"extra/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
+								"block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/table/top/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
 					});

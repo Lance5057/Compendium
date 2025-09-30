@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-25T09:27:21.5379215	Item Models: compendium
+// 1.21.1	2025-09-30T14:03:35.704567	Item Models: compendium
 6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/acacia_logs_item.json
 e4f512708adee0ff98d12d00269158176cc58e54 assets/compendium/models/item/acacia_logs_stairs_item.json
 a9284bdaa0782208bdb1d49e4e171a49c1b08f93 assets/compendium/models/item/acacia_plank_item.json
@@ -32,7 +32,6 @@ ceaced8c30eb69ee5b2407a3662d90a3cf7fb975 assets/compendium/models/item/copper_bo
 3740b04f29640e9d04c9363d7a21e92c068b6159 assets/compendium/models/item/copper_prybar.json
 25cdba1100350733446b5e614d53175c8dabda2f assets/compendium/models/item/copper_saw.json
 6b3f029297d7abaf97883984d1b7b91fc43cf0f1 assets/compendium/models/item/copper_shears.json
-46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/copper_tile_item.json
 f8864e47c8395616529d7ef29f21a3225478fdee assets/compendium/models/item/copper_zweihander.json
 3dab4f78a256e5fdbdd90d647de0fe1f6943e358 assets/compendium/models/item/cosmetic_toolbox.json
 6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/crimson_logs_item.json
@@ -59,7 +58,6 @@ a9cc6074c28d2eee0e52dfe38901e079d5c245b4 assets/compendium/models/item/gold_bow_
 74fd084815af3e3bf1d23f7921ce6af4fec9e5a0 assets/compendium/models/item/gold_prybar.json
 b9e4b87d6ecab8c0a7a3ced9dce9c30755af6764 assets/compendium/models/item/gold_saw.json
 276828435ac3ac8f2bd4cfe1711b6603b18a7ba6 assets/compendium/models/item/gold_shears.json
-46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/gold_tile_item.json
 e9c0c23ce3e202a8ab8f6b8cfddc40b87e94de77 assets/compendium/models/item/gold_zweihander.json
 0c469efe2ae61be34c9be7b9ef3c95da2b489df2 assets/compendium/models/item/hammering_station.json
 1cea38390c7d5113640d4a0c10e63fcdd7c43f1c assets/compendium/models/item/iron_bow.json
@@ -69,7 +67,6 @@ e9c0c23ce3e202a8ab8f6b8cfddc40b87e94de77 assets/compendium/models/item/gold_zwei
 ffdf48dc6f056913e86d6b4e6b0f6a0bb8f65842 assets/compendium/models/item/iron_hammer.json
 692c3e3d4e110535b1f0259e3ca11f9b017a5dc8 assets/compendium/models/item/iron_prybar.json
 2716276ccb641454e3021f065f5c05aa5af9ee65 assets/compendium/models/item/iron_saw.json
-46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/iron_tile_item.json
 c466c00a18fdbc0a17c1c0c0c62edf8026b6a5b4 assets/compendium/models/item/iron_zweihander.json
 6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/jungle_logs_item.json
 f260539c73f73b89192c3c92cdfe7c50078a5e36 assets/compendium/models/item/jungle_logs_stairs_item.json
@@ -95,7 +92,6 @@ d5a2d972630fbc0b8758abd8b485be3fc0f09d66 assets/compendium/models/item/netherite
 e76aeec918e4c7936b8890c2a0c981bec81caa5e assets/compendium/models/item/netherite_prybar.json
 b1c084a1fbe31c0e34dd29a053885a6525eca118 assets/compendium/models/item/netherite_saw.json
 11b60a4c2d5a35783cef437ff941bb0cf7ac4f18 assets/compendium/models/item/netherite_shears.json
-46ae1976edfe0f609fa44abe498555f67a958e82 assets/compendium/models/item/netherite_tile_item.json
 97fb7a327e5485ab132024bcad029aa21213e8ef assets/compendium/models/item/netherite_zweihander.json
 6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_logs_item.json
 ee295ad6cce2d412623396ec85ec4ccce8897e34 assets/compendium/models/item/oak_logs_stairs_item.json

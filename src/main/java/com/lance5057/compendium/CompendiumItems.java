@@ -40,7 +40,7 @@ public class CompendiumItems {
 
 	public static final DeferredItem<BlockItem> HAMMERING_STATION = ITEMS.register("hammering_station",
 			() -> new BlockItem(CompendiumBlocks.HAMMERING_STATION.get(), new Item.Properties()));
- 
+
 	public static final DeferredItem<BlockItem> SAW_BUCK = ITEMS.register("saw_buck",
 			() -> new BlockItem(CompendiumBlocks.SAW_BUCK.get(), new Item.Properties()));
 
@@ -59,54 +59,42 @@ public class CompendiumItems {
 	public static final DeferredItem<BlockItem> COSMETIC_TOOLBOX = ITEMS.register("cosmetic_toolbox",
 			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
-	public static final DeferredItem<Item> CHAIR = ITEMS
-			.register("chair",
-					() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair",
+			() -> new BlockItem(CompendiumBlocks.CHAIR.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
-	public static final DeferredItem<Item> TABLE = ITEMS
-			.register("table",
-					() -> new BlockItem(CompendiumBlocks.TABLE.get(), new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+	public static final DeferredItem<Item> TABLE = ITEMS.register("table",
+			() -> new BlockItem(CompendiumBlocks.TABLE.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
-	public static final DeferredItem<Item> CLOTHED_TABLE = ITEMS
-			.register("clothed_table",
-					() -> new BlockItem(CompendiumBlocks.CLOTHED_TABLE.get(),
-							new Item.Properties()
-									.component(CompendiumComponents.MULTI_MATERIAL.get(),
-											new MultiMaterialBlockComponent(Stream.of(
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.TEXTILE)).toList()))
-									.component(CompendiumComponents.STYLE,
-											new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+	public static final DeferredItem<Item> CLOTHED_TABLE = ITEMS.register("clothed_table",
+			() -> new BlockItem(CompendiumBlocks.CLOTHED_TABLE.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.TEXTILE)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
-	public static final DeferredItem<Item> FANCY_BED = ITEMS
-			.register("fancy_bed",
-					() -> new BlockItem(CompendiumBlocks.FANCY_BED.get(),
-							new Item.Properties()
-									.component(CompendiumComponents.MULTI_MATERIAL.get(),
-											new MultiMaterialBlockComponent(Stream.of(
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
-													new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
-													new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
-													new MultiMaterialType(MATERIAL_TYPES.TEXTILE)).toList()))
-									.component(CompendiumComponents.STYLE, new StyleBlockComponent(
-											new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 0))))));
+	public static final DeferredItem<Item> FANCY_BED = ITEMS.register("fancy_bed",
+			() -> new BlockItem(CompendiumBlocks.FANCY_BED.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
+									new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
+									new MultiMaterialType(MATERIAL_TYPES.TEXTILE),
+									new MultiMaterialType(MATERIAL_TYPES.TEXTILE)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 0))))));
 
 	public static final DeferredItem<Item> WINDOW = ITEMS
 			.register("window",
@@ -121,38 +109,29 @@ public class CompendiumItems {
 									.component(CompendiumComponents.STYLE,
 											new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0))))));
 
-	public static final DeferredItem<Item> FANCY_FENCE = ITEMS
-			.register("fancy_fence",
-					() -> new BlockItem(CompendiumBlocks.FANCY_FENCE.get(), new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0))))));
+	public static final DeferredItem<Item> FANCY_FENCE = ITEMS.register("fancy_fence",
+			() -> new BlockItem(CompendiumBlocks.FANCY_FENCE.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0))))));
 
-	public static final DeferredItem<Item> SHINGLES_SLANTED = ITEMS
-			.register("shingles_slanted",
-					() -> new BlockItem(CompendiumBlocks.SHINGLES_SLANTED.get(), new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+	public static final DeferredItem<Item> SHINGLES_SLANTED = ITEMS.register("shingles_slanted",
+			() -> new BlockItem(CompendiumBlocks.SHINGLES_SLANTED.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 
-	public static final DeferredItem<Item> SHINGLES_CAP_SLANTED = ITEMS
-			.register("shingles_cap_slanted",
-					() -> new BlockItem(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), new Item.Properties()
-							.component(CompendiumComponents.MULTI_MATERIAL.get(),
-									new MultiMaterialBlockComponent(Stream
-											.of(new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD),
-													new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD))
-											.toList()))
-							.component(CompendiumComponents.STYLE,
-									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+	public static final DeferredItem<Item> SHINGLES_CAP_SLANTED = ITEMS.register("shingles_cap_slanted",
+			() -> new BlockItem(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), new Item.Properties()
+					.component(CompendiumComponents.MULTI_MATERIAL.get(),
+							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD),
+									new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
+					.component(CompendiumComponents.STYLE,
+							new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
 }

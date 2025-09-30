@@ -66,8 +66,8 @@ public class MultiStyleMaterialItemRenderer extends BlockEntityWithoutLevelRende
 								.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withPrefix("extra/")))
 						.withModelDataContext();
 				if (displayContext == ItemDisplayContext.GUI) {
-					ps.scale(0.75f, 0.75f, 0.75f);
-					ps.translate(0.4, -0.1, 0);
+					ps.scale(0.8f, 0.8f, 0.8f);
+					ps.translate(0.3, 0.1, 0);
 				}
 
 //				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);

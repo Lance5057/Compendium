@@ -2,13 +2,15 @@
   "variants": {
     "axis=x": {
       "model": "compendium:block/material/wood/jungle/log_horizontal",
+      "x": 90,
       "y": 90
     },
     "axis=y": {
       "model": "compendium:block/material/wood/jungle/log"
     },
     "axis=z": {
-      "model": "compendium:block/material/wood/jungle/log_horizontal"
+      "model": "compendium:block/material/wood/jungle/log_horizontal",
+      "x": 90
     }
   }
 }

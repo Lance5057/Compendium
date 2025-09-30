@@ -59,9 +59,11 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	@Override
 	public void setCurrent(int index, int c) {
-		currentStyles.set(index, c);
-		this.setChanged();
-		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+		if (currentStyles != null && currentStyles.size() > index) {
+			currentStyles.set(index, c);
+			this.setChanged();
+			getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+		}
 	}
 
 	@Override

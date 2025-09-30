@@ -108,17 +108,13 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
 		buildDefault(new MaterialMetal("iron", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true))
-				.addExtension(new ExtensionMetalStyleBlocks(true)));
+				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true)));
 		buildDefault(new MaterialMetal("gold", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionMetalStyleBlocks(true)));
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
 		buildDefault(new MaterialMetal("copper", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionMetalStyleBlocks(true)));
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
 		buildDefault(new MaterialMetal("netherite", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true))
-				.addExtension(new ExtensionMetalStyleBlocks(true)));
+				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
 
 //		buildDefault(new MaterialGlass("clear_glass", false, false));
 //		buildDefault(new MaterialGlass("white_glass", false, false));
