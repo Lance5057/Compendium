@@ -489,65 +489,65 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_bottom",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_bottom"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_top",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_top"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_full",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_full"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_bottom",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_bottom"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_top",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_top"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_full",
 				ibmp.modLoc("block/bases/slab/small_logs_slab_full"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_rotated_bottom",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_bottom"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_rotated_top",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_top"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/small_logs_rotated_full",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_full"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "small_logs"));
 
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_rotated_bottom",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_bottom"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_rotated_top",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_top"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/stripped_slab/small_logs_rotated_full",
 				ibmp.modLoc("block/bases/slab/small_logs_rotated_slab_full"))
 				.texture("0", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"))
-				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_slab"))
+				.texture("1", Compendium.modLoc(LOG.location(base) + "stripped_small_logs_top"))
 				.texture("particle", Compendium.modLoc(LOG.location(base) + "stripped_small_logs"));
 
 		ibmp.withExistingParent(LOG_SLAB.location(base) + "/slab/split_bottom",

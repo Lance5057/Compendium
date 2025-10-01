@@ -2,7 +2,7 @@
   "parent": "compendium:block/bases/slab/small_logs_rotated_slab_top",
   "textures": {
     "0": "compendium:block/material/wood/mangrove/stripped_small_logs",
-    "1": "compendium:block/material/wood/mangrove/stripped_small_logs_slab",
+    "1": "compendium:block/material/wood/mangrove/stripped_small_logs_top",
     "particle": "compendium:block/material/wood/mangrove/stripped_small_logs"
   }
 }
