@@ -29,6 +29,7 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 	}
 
 	// MULTIMATERIAL
+	public List<String> labels = new ArrayList<String>();
 	public List<EditBox> boxes = new ArrayList<EditBox>();
 	private MultiMaterialBlockEntity station;
 
@@ -48,6 +49,13 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		if (labels != null) {
+			int count = 0;
+			for (String s : labels) {
+				guiGraphics.drawString(font, s, -80, 10 + (count * 25), 0xFFFFFF, true);
+				count++;
+			}
+		}
 	}
 
 	public void setPos(BlockPos pos) {
@@ -56,6 +64,13 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 		if (e != null) {
 			if (e instanceof MultiMaterialBlockEntity mtrs) {
 				station = mtrs;
+
+				for (MultiMaterialType mmt : mtrs.getMaterials()) {
+					String s = "";
+					for (String st : mmt.getTypeStr())
+						s += st + "/";
+					labels.add(s);
+				}
 
 				for (int i = 0; i < mtrs.getMaterialsCount(); i++) {
 					EditBox b = addRenderableWidget(new EditBox(font, this.leftPos + 1, this.topPos + 1 + (25 * i), 160,

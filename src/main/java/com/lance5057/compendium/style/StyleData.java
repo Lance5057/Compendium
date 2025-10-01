@@ -66,6 +66,8 @@ public class StyleData {
 	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("small_logs", "small_log_rotated_side",
 			"small_log_rotated_front", "small_log_rotated_top", "split_log_rotated_side", "split_log_rotated_front",
 			"split_log_rotated_top"));
+	
+	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 
 	String name;
 	List<String> types;

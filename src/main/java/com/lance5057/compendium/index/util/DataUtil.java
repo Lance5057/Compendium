@@ -58,6 +58,21 @@ public class DataUtil {
 		p.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile(resourceLocation)).texture("0", texture);
 	}
 
+	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
+			String name, MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_inventory")));
+	}
+
+	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
+			String name, String extra, MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_" + extra
+								+ "_inventory")));
+	}
+
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,
 			MATERIAL_TYPES type) {
 		p.getBuilder(item.getId().getPath())
