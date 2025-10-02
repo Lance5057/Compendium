@@ -69,8 +69,7 @@ public class DataUtil {
 			String name, String extra, MATERIAL_TYPES type) {
 		p.getBuilder(item.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_" + extra
-								+ "_inventory")));
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + extra + "_inventory")));
 	}
 
 	public static void basicMaterialBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name,

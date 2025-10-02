@@ -31,6 +31,8 @@ public class ItemModels extends ItemModelProvider {
 
 		forItem(CompendiumItems.ADJUSTINATOR, "adjustinator");
 
+		forBlockItem(CompendiumItems.WORKBENCH,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/workbench_full"));
 		forBlockItem(CompendiumItems.HAMMERING_STATION,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/hammering_station"));
 		forBlockItem(CompendiumItems.SAW_BUCK,
@@ -39,6 +41,14 @@ public class ItemModels extends ItemModelProvider {
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
 
 		forItem(CompendiumItems.SAWDUST, "sawdust");
+
+		for3dItem(CompendiumItems.MEGALITH_STONE,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "item/megalith_stone_item"));
+		
+		forBlockItem(CompendiumItems.TOOLRACK,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/toolrack"));
+		forBlockItem(CompendiumItems.COMPONENT_DRAWER,
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/component_drawer"));
 	}
 
 	public static void forBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item, String name) {
@@ -62,6 +72,10 @@ public class ItemModels extends ItemModelProvider {
 			getBuilder(item.getId().getPath())
 					.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 							"block/" + BuiltInRegistries.BLOCK.getKey(b.getBlock()).getPath())));
+	}
+
+	public void for3dItem(DeferredItem<? extends Item> item, ResourceLocation modelLocation) {
+		getBuilder(item.getId().getPath()).parent(new ModelFile.UncheckedModelFile(modelLocation));
 	}
 
 	public void forBlockItem(DeferredItem<? extends BlockItem> item, ResourceLocation modelLocation) {
