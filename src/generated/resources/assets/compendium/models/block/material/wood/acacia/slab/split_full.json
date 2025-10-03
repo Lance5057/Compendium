@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/slab/split_log_slab_full",
+  "parent": "compendium:block/bases/slab/split_full",
   "textures": {
     "0": "minecraft:block/acacia_log",
     "1": "minecraft:block/acacia_log_top",

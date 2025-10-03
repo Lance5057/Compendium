@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/stairs/small_logs_stairs_y_outer",
-  "textures": {
-    "1": "compendium:block/material/wood/oak/small_logs",
-    "2": "compendium:block/material/wood/oak/small_logs_top",
-    "particle": "compendium:block/material/wood/oak/small_logs"
-  }
-}

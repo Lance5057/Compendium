@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/slab/crosscut_small_logs_slab_top",
+  "parent": "compendium:block/bases/slab/crosscut_small_top",
   "textures": {
     "0": "compendium:block/material/wood/mangrove/small_logs",
     "1": "compendium:block/material/wood/mangrove/small_logs_top",

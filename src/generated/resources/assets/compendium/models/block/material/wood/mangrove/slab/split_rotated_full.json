@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/slab/split_log_rotated_slab_full",
+  "parent": "compendium:block/bases/slab/split_rotated_full",
   "textures": {
     "0": "minecraft:block/mangrove_log",
     "1": "minecraft:block/mangrove_log_top",

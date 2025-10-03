@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/slab/small_logs_rotated_slab_bottom",
+  "parent": "compendium:block/bases/slab/small_logs_rotated_bottom",
   "textures": {
     "0": "compendium:block/material/wood/dark_oak/small_logs",
     "1": "compendium:block/material/wood/dark_oak/small_logs_top",

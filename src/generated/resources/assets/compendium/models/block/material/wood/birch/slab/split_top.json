@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/slab/split_log_slab_top",
+  "parent": "compendium:block/bases/slab/split_top",
   "textures": {
     "0": "minecraft:block/birch_log",
     "1": "minecraft:block/birch_log_top",
