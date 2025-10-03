@@ -1,5 +1,5 @@
 {
-  "count": 6,
+  "count": 10,
   "crosscut": {
     "model": "compendium:block/material/wood/jungle/stripped_slab/crosscut_top"
   },
@@ -13,10 +13,22 @@
   "small_logs_rotated": {
     "model": "compendium:block/material/wood/jungle/stripped_slab/small_logs_rotated_top"
   },
+  "small_wood": {
+    "model": "compendium:block/material/wood/jungle/stripped_slab/small_wood_top"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/jungle/stripped_slab/small_wood_rotated_top"
+  },
   "split": {
     "model": "compendium:block/material/wood/jungle/stripped_slab/split_top"
   },
   "split_rotated": {
     "model": "compendium:block/material/wood/jungle/stripped_slab/split_rotated_top"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/jungle/stripped_slab/wood_top"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/jungle/stripped_slab/wood_rotated_top"
   }
 }

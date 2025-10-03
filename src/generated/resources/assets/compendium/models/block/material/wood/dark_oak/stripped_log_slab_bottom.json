@@ -1,5 +1,5 @@
 {
-  "count": 6,
+  "count": 10,
   "crosscut": {
     "model": "compendium:block/material/wood/dark_oak/stripped_slab/crosscut_bottom"
   },
@@ -13,10 +13,22 @@
   "small_logs_rotated": {
     "model": "compendium:block/material/wood/dark_oak/stripped_slab/small_logs_rotated_bottom"
   },
+  "small_wood": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_slab/small_wood_bottom"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_slab/small_wood_rotated_bottom"
+  },
   "split": {
     "model": "compendium:block/material/wood/dark_oak/stripped_slab/split_bottom"
   },
   "split_rotated": {
     "model": "compendium:block/material/wood/dark_oak/stripped_slab/split_rotated_bottom"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_slab/wood_bottom"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/stripped_slab/wood_rotated_bottom"
   }
 }

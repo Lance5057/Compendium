@@ -1,5 +1,5 @@
 {
-  "count": 7,
+  "count": 11,
   "loader": "compendium:style",
   "small_logs": {
     "model": "compendium:block/material/wood/mangrove/stripped_stairs/small_logs_outer"
@@ -13,6 +13,12 @@
   "small_logs_rotated_top": {
     "model": "compendium:block/material/wood/mangrove/stripped_stairs/small_logs_rotated_top_outer"
   },
+  "small_wood": {
+    "model": "compendium:block/material/wood/mangrove/stripped_stairs/small_wood_outer"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stripped_stairs/small_wood_rotated_outer"
+  },
   "split_log_rotated_front": {
     "model": "compendium:block/material/wood/mangrove/stripped_stairs/split_log_rotated_front_outer"
   },
@@ -21,5 +27,11 @@
   },
   "split_log_rotated_top": {
     "model": "compendium:block/material/wood/mangrove/stripped_stairs/split_log_rotated_top_outer"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/mangrove/stripped_stairs/wood_outer"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stripped_stairs/wood_rotated_outer"
   }
 }

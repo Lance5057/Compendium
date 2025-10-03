@@ -259,6 +259,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		styledModel(base, ibmp, "slab", "split_rotated", "log", "log_top", "log_split_side", true);
 		styledModel(base, ibmp, "slab", "crosscut", "log", "log_top", true);
 		styledModel(base, ibmp, "slab", "crosscut_small", "small_logs", "small_logs_top", true);
+		styledModel(base, ibmp, "slab", "small_wood", "small_logs", "small_logs", true, "small_logs");
+		styledModel(base, ibmp, "slab", "small_wood_rotated", "small_logs", "small_logs", true, "small_logs_rotated");
+		styledModel(base, ibmp, "slab", "wood", "log", "log", true, "small_logs");
+		styledModel(base, ibmp, "slab", "wood_rotated", "log", "log", true, "small_logs_rotated");
 	}
 
 	private void logStairsBlockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
@@ -269,10 +273,19 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		styledModel(base, ibmp, "stairs", "split_log_rotated_side", "log", "log_top", "log_split_side", true);
 		styledModel(base, ibmp, "stairs", "split_log_rotated_front", "log", "log_top", "log_split_side", true);
 		styledModel(base, ibmp, "stairs", "split_log_rotated_top", "log", "log_top", "log_split_side", true);
+		styledModel(base, ibmp, "stairs", "small_wood", "small_logs", "small_logs", true, "small_logs_rotated_side");
+		styledModel(base, ibmp, "stairs", "small_wood_rotated", "small_logs", "small_logs", true, "small_logs_rotated_front");
+		styledModel(base, ibmp, "stairs", "wood", "log", "log", true, "small_logs_rotated_side");
+		styledModel(base, ibmp, "stairs", "wood_rotated", "log", "log", true, "small_logs_rotated_front");
 	}
 
-	private void styledModel(_MaterialBase base, IndexBlockModelProvider ibmp, String block, String modelname, String texture0,
+	private void styledModel(_MaterialBase base, IndexBlockModelProvider ibmp, String block, String modelName, String texture0,
 							 String texture1, Boolean stripped) {
+		styledModel(base, ibmp, block, modelName, texture0, texture1, stripped, modelName);
+	}
+
+	private void styledModel(_MaterialBase base, IndexBlockModelProvider ibmp, String block, String modelName, String texture0,
+							 String texture1, Boolean stripped, String modelSource) {
 		String[] types = new String[0];
 		if (block.equals("slab")) {
 			types = new String[]{"_bottom", "_top", "_full"};
@@ -281,22 +294,22 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		for (String type : types){
-			ibmp.withExistingParent(LOG.location(base) + "/" + block + "/" + modelname + type,
-							ibmp.modLoc("block/bases/" + block + "/" + modelname + type))
+			ibmp.withExistingParent(LOG.location(base) + "/" + block + "/" + modelName + type,
+							ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
 					.texture("particle", textureLocation(texture0, base, false));
 
 			if (stripped) {
-				ibmp.withExistingParent(LOG.location(base) + "/stripped_" + block + "/" + modelname + type,
-								ibmp.modLoc("block/bases/" + block + "/" + modelname + type))
+				ibmp.withExistingParent(LOG.location(base) + "/stripped_" + block + "/" + modelName + type,
+								ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 						.texture("0", textureLocation(texture0, base, true))
 						.texture("1", textureLocation(texture1, base, true))
 						.texture("particle", textureLocation(texture0, base, true));
 			}
 		}
 	}
-	private void styledModel(_MaterialBase base, IndexBlockModelProvider ibmp, String block, String modelname, String texture0,
+	private void styledModel(_MaterialBase base, IndexBlockModelProvider ibmp, String block, String modelName, String texture0,
 							 String texture1, String texture2, Boolean stripped) {
 		String[] types = new String[0];
 		if (block.equals("slab")) {
@@ -306,16 +319,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		for (String type : types){
-			ibmp.withExistingParent(LOG.location(base) + "/" + block + "/" + modelname + type,
-							ibmp.modLoc("block/bases/" + block + "/" + modelname + type))
+			ibmp.withExistingParent(LOG.location(base) + "/" + block + "/" + modelName + type,
+							ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
 					.texture("2", textureLocation(texture2, base, false))
 					.texture("particle", textureLocation(texture0, base, false));
 
 			if (stripped) {
-				ibmp.withExistingParent(LOG.location(base) + "/stripped_" + block + "/" + modelname + type,
-								ibmp.modLoc("block/bases/" + block + "/" + modelname + type))
+				ibmp.withExistingParent(LOG.location(base) + "/stripped_" + block + "/" + modelName + type,
+								ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
 						.texture("0", textureLocation(texture0, base, true))
 						.texture("1", textureLocation(texture1, base, true))
 						.texture("2", textureLocation(texture2, base, true))

@@ -61,11 +61,11 @@ public class StyleData {
 	
 	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("small_logs", "small_logs_rotated",
-			"split", "split_rotated", "crosscut", "crosscut_small"));
+			"split", "split_rotated", "crosscut", "crosscut_small", "small_wood", "small_wood_rotated", "wood", "wood_rotated"));
 	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "offset"));
 	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("small_logs", "small_logs_rotated_side",
 			"small_logs_rotated_front", "small_logs_rotated_top", "split_log_rotated_side", "split_log_rotated_front",
-			"split_log_rotated_top"));
+			"split_log_rotated_top", "small_wood", "small_wood_rotated", "wood", "wood_rotated"));
 	
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 

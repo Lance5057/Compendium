@@ -1,5 +1,5 @@
 {
-  "count": 7,
+  "count": 11,
   "loader": "compendium:style",
   "small_logs": {
     "model": "compendium:block/material/wood/jungle/stairs/small_logs"
@@ -13,6 +13,12 @@
   "small_logs_rotated_top": {
     "model": "compendium:block/material/wood/jungle/stairs/small_logs_rotated_top"
   },
+  "small_wood": {
+    "model": "compendium:block/material/wood/jungle/stairs/small_wood"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/jungle/stairs/small_wood_rotated"
+  },
   "split_log_rotated_front": {
     "model": "compendium:block/material/wood/jungle/stairs/split_log_rotated_front"
   },
@@ -21,5 +27,11 @@
   },
   "split_log_rotated_top": {
     "model": "compendium:block/material/wood/jungle/stairs/split_log_rotated_top"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/jungle/stairs/wood"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/jungle/stairs/wood_rotated"
   }
 }
