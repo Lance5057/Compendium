@@ -34,7 +34,13 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
 								modLoc("block/furniture/chair/back/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
 					});
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/lozenge",
+							modLoc("block/furniture/chair/back/lozenge"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/chair/back/lozenge"));
 
 					StyleData.CHAIR_LEGS.getTypes().forEach(b -> {
 						withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
