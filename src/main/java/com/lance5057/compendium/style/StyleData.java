@@ -59,7 +59,7 @@ public class StyleData {
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
 	
-	public static StyleData LOG = new StyleData("log", List.of("basic", "corner"));
+	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("small_logs", "small_logs_rotated",
 			"split", "split_rotated", "crosscut", "crosscut_small"));
 	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "offset"));

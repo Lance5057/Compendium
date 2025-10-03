@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "compendium:block/material/wood/cherry/small_logs",
+    "side": "compendium:block/material/wood/cherry/small_logs"
+  }
+}

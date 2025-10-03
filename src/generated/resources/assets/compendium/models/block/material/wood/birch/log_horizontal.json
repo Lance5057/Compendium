@@ -5,6 +5,9 @@
   "corner": {
     "model": "compendium:block/material/wood/birch/log/corner_horizontal"
   },
-  "count": 2,
-  "loader": "compendium:style"
+  "count": 3,
+  "loader": "compendium:style",
+  "small_wood": {
+    "model": "compendium:block/material/wood/birch/log/small_wood_horizontal"
+  }
 }

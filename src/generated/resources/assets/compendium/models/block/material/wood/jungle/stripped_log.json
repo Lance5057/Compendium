@@ -5,6 +5,9 @@
   "corner": {
     "model": "compendium:block/material/wood/jungle/stripped_log/corner"
   },
-  "count": 2,
-  "loader": "compendium:style"
+  "count": 3,
+  "loader": "compendium:style",
+  "small_wood": {
+    "model": "compendium:block/material/wood/jungle/stripped_log/small_wood"
+  }
 }
