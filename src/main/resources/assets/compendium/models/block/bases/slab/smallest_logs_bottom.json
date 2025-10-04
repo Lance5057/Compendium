@@ -4,7 +4,7 @@
 	"parent": "block/block",
 	"textures": {
 		"0": "block/acacia_log",
-		"1": "compendium:block/material/wood/acacia/extra_caps",
+		"1": "compendium:block/material/wood/acacia/logs/extra_caps",
 		"particle": "block/acacia_log"
 	},
 	"elements": [
