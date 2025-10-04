@@ -198,26 +198,26 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		ibmp.withExistingParent(PLANK.location(base) + "/planks/big_weave", ibmp.mcLoc("block/cube_all"))
 				.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/big_weave"));
 
-		ibmp.slab(PLANK.location(base) + "/slab/big_weave_bottom",
+		ibmp.slab(PLANK.location(base) + "/slab/big_bottom",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.slabTop(PLANK.location(base) + "/slab/big_weave_top",
+		ibmp.slabTop(PLANK.location(base) + "/slab/big_top",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.cubeAll(PLANK.location(base) + "/slab/big_weave_full",
+		ibmp.cubeAll(PLANK.location(base) + "/slab/big_full",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
 
-		ibmp.stairs(PLANK.location(base) + "/stairs/big_weave",
+		ibmp.stairs(PLANK.location(base) + "/stairs/big",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.stairsInner(PLANK.location(base) + "/stairs/big_weave_inner",
+		ibmp.stairsInner(PLANK.location(base) + "/stairs/big_inner",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.stairsOuter(PLANK.location(base) + "/stairs/big_weave_outer",
+		ibmp.stairsOuter(PLANK.location(base) + "/stairs/big_outer",
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"));
@@ -230,15 +230,15 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		tmp.getBuilder(PLANK_BLOCK.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/planks/big_weave")));
+						"block/material/wood/" + base.name.toLowerCase() + "/planks/big")));
 
 		tmp.getBuilder(PLANK_SLAB.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/slab/big_weave")));
+						"block/material/wood/" + base.name.toLowerCase() + "/slab/big")));
 
 		tmp.getBuilder(PLANK_STAIRS.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/stairs/big_weave")));
+						"block/material/wood/" + base.name.toLowerCase() + "/stairs/big")));
 	}
 
 	@Override

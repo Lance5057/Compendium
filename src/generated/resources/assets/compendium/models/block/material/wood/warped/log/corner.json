@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/small_logs_corner",
   "textures": {
-    "1": "compendium:block/material/wood/warped/small_logs",
-    "2": "compendium:block/material/wood/warped/small_logs_corner"
+    "1": "compendium:block/material/wood/warped/logs/small_logs",
+    "2": "compendium:block/material/wood/warped/logs/small_logs_corner"
   }
 }

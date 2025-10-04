@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "end": "compendium:block/material/wood/birch/stripped_small_logs_top",
-    "side": "compendium:block/material/wood/birch/stripped_small_logs"
+    "end": "compendium:block/material/wood/birch/logs/stripped_small_logs_top",
+    "side": "compendium:block/material/wood/birch/logs/stripped_small_logs"
   }
 }

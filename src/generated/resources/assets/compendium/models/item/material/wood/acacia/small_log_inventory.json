@@ -1,6 +1,6 @@
 {
   "parent": "compendium:item/small_log_inventory",
   "textures": {
-    "0": "compendium:block/material/wood/acacia/small_logs_corner"
+    "0": "compendium:block/material/wood/acacia/logs/small_logs_corner"
   }
 }

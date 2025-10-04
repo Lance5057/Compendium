@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "compendium:block/material/wood/warped/stripped_small_logs_top",
-    "side": "compendium:block/material/wood/warped/stripped_small_logs"
+    "end": "compendium:block/material/wood/warped/logs/stripped_small_logs_top",
+    "side": "compendium:block/material/wood/warped/logs/stripped_small_logs"
   }
 }
