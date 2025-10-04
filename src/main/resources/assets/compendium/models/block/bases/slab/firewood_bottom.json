@@ -5,7 +5,7 @@
 	"textures": {
 		"0": "block/acacia_log",
 		"1": "block/acacia_log_top",
-		"2": "compendium:block/material/wood/acacia/logs/log_split_side",
+		"2": "compendium:block/material/wood/acacia/log_split_side",
 		"particle": "block/acacia_log"
 	},
 	"elements": [
@@ -29,32 +29,6 @@
 				"north": {"uv": [8, 8, 16, 16], "texture": "#1"},
 				"east": {"uv": [0, 0, 8, 16], "rotation": 270, "texture": "#2"},
 				"south": {"uv": [0, 8, 8, 16], "texture": "#1"},
-				"west": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
-				"up": {"uv": [0, 0, 8, 16], "texture": "#2"},
-				"down": {"uv": [0, 0, 8, 16], "texture": "#0"}
-			}
-		},
-		{
-			"from": [8, 8, 0],
-			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [12, 12, 8]},
-			"faces": {
-				"north": {"uv": [8, 8, 16, 16], "texture": "#1"},
-				"east": {"uv": [0, 0, 8, 16], "rotation": 270, "texture": "#2"},
-				"south": {"uv": [0, 8, 8, 16], "texture": "#1"},
-				"west": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
-				"up": {"uv": [0, 0, 8, 16], "texture": "#2"},
-				"down": {"uv": [0, 0, 8, 16], "texture": "#0"}
-			}
-		},
-		{
-			"from": [0, 8, 1],
-			"to": [8, 16, 17],
-			"rotation": {"angle": -45, "axis": "z", "origin": [4, 12, 9]},
-			"faces": {
-				"north": {"uv": [8, 8, 16, 16], "texture": "#1"},
-				"east": {"uv": [0, 0, 8, 16], "rotation": 270, "texture": "#2"},
-				"south": {"uv": [0, 0, 8, 8], "rotation": 270, "texture": "#1"},
 				"west": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#0"},
 				"up": {"uv": [0, 0, 8, 16], "texture": "#2"},
 				"down": {"uv": [0, 0, 8, 16], "texture": "#0"}

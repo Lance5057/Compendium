@@ -1,0 +1,46 @@
+{
+  "big_weave": {
+    "model": "compendium:block/material/wood/oak/slab/big_weave_bottom"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/oak/slab/blocks_bottom"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/oak/slab/blocks_offset_bottom"
+  },
+  "count": 14,
+  "cross": {
+    "model": "compendium:block/material/wood/oak/slab/cross_bottom"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/oak/slab/diagonal_bottom"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/oak/slab/double_herringbone_bottom"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/oak/slab/herringbone_bottom"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/oak/slab/panel_bottom"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/oak/slab/parquet_bottom"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/oak/slab/sheet_bottom"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/oak/slab/small_blocks_bottom"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/oak/slab/small_blocks_offset_bottom"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/oak/slab/vertical_bottom"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/oak/slab/wicker_bottom"
+  }
+}

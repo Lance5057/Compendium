@@ -198,11 +198,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		ibmp.withExistingParent(SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log")).texture("0",
 				ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
 
+		ibmp.withExistingParent(base.itemFolder() + "small_log_inventory", ibmp.modLoc("item/small_log_inventory"))
+				.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "small_logs_corner"));
+
 		ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "_block", ibmp.modLoc("item/small_log"))
 				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "small_logs_corner"));
 
-		ibmp.withExistingParent(base.itemFolder() + "small_log_inventory", ibmp.modLoc("item/small_log_inventory"))
-				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "small_logs_corner"));
+		ibmp.withExistingParent(base.itemFolder() + "stripped_small_log_inventory", ibmp.modLoc("item/small_log_inventory"))
+				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "stripped_small_logs_corner"));
 
 		ibmp.withExistingParent(LOG.location(base) + "/log/basic", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "small_logs"))
@@ -667,7 +670,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			if (STRIPPED_SMALL_LOG.enabled()) {
 				DataUtil.basicMaterialInventoryBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.name,
-						"strippedsmall_log", base.getType());
+						"stripped_small_log", base.getType());
 			}
 			if (STRIPPED_LOG.enabled()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));

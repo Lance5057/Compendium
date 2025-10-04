@@ -1,0 +1,46 @@
+{
+  "big_weave": {
+    "model": "compendium:block/material/wood/jungle/slab/big_weave_top"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/jungle/slab/blocks_top"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/jungle/slab/blocks_offset_top"
+  },
+  "count": 14,
+  "cross": {
+    "model": "compendium:block/material/wood/jungle/slab/cross_top"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/jungle/slab/diagonal_top"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/jungle/slab/double_herringbone_top"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/jungle/slab/herringbone_top"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/jungle/slab/panel_top"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/jungle/slab/parquet_top"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/jungle/slab/sheet_top"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/jungle/slab/small_blocks_top"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/jungle/slab/small_blocks_offset_top"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/jungle/slab/vertical_top"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/jungle/slab/wicker_top"
+  }
+}

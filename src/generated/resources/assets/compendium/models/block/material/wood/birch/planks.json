@@ -1,0 +1,46 @@
+{
+  "big_weave": {
+    "model": "compendium:block/material/wood/birch/planks/big_weave"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/birch/planks/blocks"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/birch/planks/blocks_offset"
+  },
+  "count": 14,
+  "cross": {
+    "model": "compendium:block/material/wood/birch/planks/cross"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/birch/planks/diagonal"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/birch/planks/double_herringbone"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/birch/planks/herringbone"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/birch/planks/panel"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/birch/planks/parquet"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/birch/planks/sheet"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/birch/planks/small_blocks"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/birch/planks/small_blocks_offset"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/birch/planks/vertical"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/birch/planks/wicker"
+  }
+}

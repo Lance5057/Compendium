@@ -5,7 +5,7 @@
 	"textures": {
 		"0": "block/acacia_log",
 		"1": "block/acacia_log_top",
-		"2": "compendium:block/material/wood/acacia/logs/log_split_side",
+		"2": "compendium:block/material/wood/acacia/log_split_side",
 		"particle": "block/acacia_log"
 	},
 	"elements": [
