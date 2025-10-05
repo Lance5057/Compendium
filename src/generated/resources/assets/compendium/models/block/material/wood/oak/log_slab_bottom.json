@@ -1,10 +1,16 @@
 {
-  "count": 10,
+  "campfire": {
+    "model": "compendium:block/material/wood/oak/slab/campfire_bottom"
+  },
+  "count": 16,
   "crosscut": {
     "model": "compendium:block/material/wood/oak/slab/crosscut_bottom"
   },
   "crosscut_small": {
     "model": "compendium:block/material/wood/oak/slab/crosscut_small_bottom"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/oak/slab/firewood_bottom"
   },
   "loader": "compendium:style",
   "small_logs": {
@@ -18,6 +24,18 @@
   },
   "small_wood_rotated": {
     "model": "compendium:block/material/wood/oak/slab/small_wood_rotated_bottom"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/oak/slab/smaller_logs_bottom"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/oak/slab/smaller_logs_rotated_bottom"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/oak/slab/smallest_logs_bottom"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/oak/slab/smallest_logs_rotated_bottom"
   },
   "split": {
     "model": "compendium:block/material/wood/oak/slab/split_bottom"

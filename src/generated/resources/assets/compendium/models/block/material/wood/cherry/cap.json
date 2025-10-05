@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/small_log_cap",
   "textures": {
-    "0": "compendium:block/material/wood/cherry/small_logs_corner"
+    "0": "compendium:block/material/wood/cherry/logs/small_logs_corner"
   }
 }

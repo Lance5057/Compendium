@@ -1,10 +1,16 @@
 {
-  "count": 10,
+  "campfire": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/campfire_full"
+  },
+  "count": 16,
   "crosscut": {
     "model": "compendium:block/material/wood/crimson/stripped_slab/crosscut_full"
   },
   "crosscut_small": {
     "model": "compendium:block/material/wood/crimson/stripped_slab/crosscut_small_full"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/firewood_full"
   },
   "loader": "compendium:style",
   "small_logs": {
@@ -18,6 +24,18 @@
   },
   "small_wood_rotated": {
     "model": "compendium:block/material/wood/crimson/stripped_slab/small_wood_rotated_full"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/smaller_logs_full"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/smaller_logs_rotated_full"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/smallest_logs_full"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/crimson/stripped_slab/smallest_logs_rotated_full"
   },
   "split": {
     "model": "compendium:block/material/wood/crimson/stripped_slab/split_full"

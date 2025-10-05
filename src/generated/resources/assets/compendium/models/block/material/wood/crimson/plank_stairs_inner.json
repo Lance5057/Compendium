@@ -1,0 +1,46 @@
+{
+  "big_weave": {
+    "model": "compendium:block/material/wood/crimson/stairs/big_weave_inner"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/crimson/stairs/blocks_inner"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/crimson/stairs/blocks_offset_inner"
+  },
+  "count": 14,
+  "cross": {
+    "model": "compendium:block/material/wood/crimson/stairs/cross_inner"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/crimson/stairs/diagonal_inner"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/crimson/stairs/double_herringbone_inner"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/crimson/stairs/herringbone_inner"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/crimson/stairs/panel_inner"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/crimson/stairs/parquet_inner"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/crimson/stairs/sheet_inner"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/crimson/stairs/small_blocks_inner"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/crimson/stairs/small_blocks_offset_inner"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/vertical_inner"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/crimson/stairs/wicker_inner"
+  }
+}

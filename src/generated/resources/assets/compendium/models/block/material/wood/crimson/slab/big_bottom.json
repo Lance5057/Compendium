@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/crimson/planks/big",
+    "side": "compendium:block/material/wood/crimson/planks/big",
+    "top": "compendium:block/material/wood/crimson/planks/big"
+  }
+}

@@ -60,12 +60,18 @@ public class StyleData {
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
 	
 	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
-	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("small_logs", "small_logs_rotated",
-			"split", "split_rotated", "crosscut", "crosscut_small", "small_wood", "small_wood_rotated", "wood", "wood_rotated"));
+	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("small_logs",
+			"small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small", "small_wood",
+			"small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
+			"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated"));
 	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "offset"));
 	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("small_logs", "small_logs_rotated_side",
 			"small_logs_rotated_front", "small_logs_rotated_top", "split_log_rotated_side", "split_log_rotated_front",
 			"split_log_rotated_top", "small_wood", "small_wood_rotated", "wood", "wood_rotated"));
+
+	public static StyleData PLANKS = new StyleData("planks", List.of("big_weave", "blocks", "blocks_offset",
+			"cross", "diagonal", "herringbone", "double_herringbone", "panel", "parquet", "sheet", "small_blocks",
+			"small_blocks_offset", "vertical", "wicker"));
 	
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 

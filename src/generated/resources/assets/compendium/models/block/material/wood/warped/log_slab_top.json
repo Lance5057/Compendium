@@ -1,10 +1,16 @@
 {
-  "count": 10,
+  "campfire": {
+    "model": "compendium:block/material/wood/warped/slab/campfire_top"
+  },
+  "count": 16,
   "crosscut": {
     "model": "compendium:block/material/wood/warped/slab/crosscut_top"
   },
   "crosscut_small": {
     "model": "compendium:block/material/wood/warped/slab/crosscut_small_top"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/warped/slab/firewood_top"
   },
   "loader": "compendium:style",
   "small_logs": {
@@ -18,6 +24,18 @@
   },
   "small_wood_rotated": {
     "model": "compendium:block/material/wood/warped/slab/small_wood_rotated_top"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/warped/slab/smaller_logs_top"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/warped/slab/smaller_logs_rotated_top"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/warped/slab/smallest_logs_top"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/warped/slab/smallest_logs_rotated_top"
   },
   "split": {
     "model": "compendium:block/material/wood/warped/slab/split_top"

@@ -1,0 +1,46 @@
+{
+  "big_weave": {
+    "model": "compendium:block/material/wood/cherry/stairs/big_weave_inner"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/cherry/stairs/blocks_inner"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/cherry/stairs/blocks_offset_inner"
+  },
+  "count": 14,
+  "cross": {
+    "model": "compendium:block/material/wood/cherry/stairs/cross_inner"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/cherry/stairs/diagonal_inner"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/cherry/stairs/double_herringbone_inner"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/cherry/stairs/herringbone_inner"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/cherry/stairs/panel_inner"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/cherry/stairs/parquet_inner"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/cherry/stairs/sheet_inner"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/cherry/stairs/small_blocks_inner"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/cherry/stairs/small_blocks_offset_inner"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/cherry/stairs/vertical_inner"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/cherry/stairs/wicker_inner"
+  }
+}
