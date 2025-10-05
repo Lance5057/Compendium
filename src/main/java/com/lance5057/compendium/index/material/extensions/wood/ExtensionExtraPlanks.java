@@ -84,9 +84,15 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
-		PLANK_SLAB.setup(base, () -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)));
-		PLANK_STAIRS.setup(base, () -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
-				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)));
+		PLANK_SLAB.setup(base,
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB)),
+				() -> new BlockItem(PLANK_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+		PLANK_STAIRS.setup(base,
+				() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)),
+				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_SLAB.BLOCK);
@@ -210,10 +216,6 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		for (String s : StyleData.PLANKS.getTypes())
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
-//		ibmp.withExistingParent(PLANK.location(base) + "/planks/big_offset", ibmp.mcLoc("block/cube_all"))
-//				.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/big_offset"));
-//		ibmp.withExistingParent(PLANK.location(base) + "/planks/big_weave", ibmp.mcLoc("block/cube_all")).texture("all",
-//				ibmp.modLoc(PLANK.location(base) + "planks/big_weave"));
 
 		ibmp.slab(PLANK.location(base) + "/slab/big_bottom", ibmp.modLoc(PLANK.location(base) + "planks/big"),
 				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));

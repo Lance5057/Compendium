@@ -129,7 +129,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB), StyleData.LOG_SLAB),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
-
 		LOG_STAIRS.setup(base,
 				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
@@ -266,6 +265,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		styledModel(base, ibmp, "slab", "small_wood_rotated", "small_logs", "small_logs", true, "small_logs_rotated");
 		styledModel(base, ibmp, "slab", "wood", "log", "log", true, "small_logs");
 		styledModel(base, ibmp, "slab", "wood_rotated", "log", "log", true, "small_logs_rotated");
+//		styledModel(base, ibmp, "slab", "campfire", "log", "extra_caps", true);
+		styledModel(base, ibmp, "slab", "firewood", "log", "log_top", "log_split_side", true);
+//		styledModel(base, ibmp, "slab", "smaller_logs", "log", "extra_caps", true);
+//		styledModel(base, ibmp, "slab", "smaller_logs_rotated", "log", "extra_caps", true);
+//		styledModel(base, ibmp, "slab", "smallest_logs", "log", "extra_caps", true);
+//		styledModel(base, ibmp, "slab", "smallest_logs_rotated", "log", "extra_caps", true);
 	}
 
 	private void logStairsBlockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
