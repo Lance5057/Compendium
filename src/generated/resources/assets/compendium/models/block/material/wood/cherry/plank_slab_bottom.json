@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/cherry/slab/big_bottom"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/cherry/slab/big_offset_bottom"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/cherry/slab/big_weave_bottom"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/cherry/slab/blocks_offset_bottom"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/cherry/slab/cross_bottom"
   },

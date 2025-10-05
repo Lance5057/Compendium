@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/crimson/planks/big"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/crimson/planks/big_offset"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/crimson/planks/big_weave"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/crimson/planks/blocks_offset"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/crimson/planks/cross"
   },

@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/spruce/slab/big_full"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/spruce/slab/big_offset_full"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/spruce/slab/big_weave_full"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/spruce/slab/blocks_offset_full"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/spruce/slab/cross_full"
   },

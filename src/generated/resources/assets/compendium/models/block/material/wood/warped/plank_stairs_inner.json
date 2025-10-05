@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/warped/stairs/big_inner"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/warped/stairs/big_offset_inner"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/warped/stairs/big_weave_inner"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/warped/stairs/blocks_offset_inner"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/warped/stairs/cross_inner"
   },

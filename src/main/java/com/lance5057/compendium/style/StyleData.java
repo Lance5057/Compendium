@@ -22,13 +22,13 @@ public class StyleData {
 	public static StyleData TABLE_TOP = new StyleData("top", List.of("basic", "trimmed", "smooth"));
 	public static StyleData TABLE_LEGS = new StyleData("legs", List.of("basic", "bar", "fancy"));
 
-	public static StyleData CHAIR_BACK = new StyleData("back",
-			List.of("basic", "basic_panel", "branch", "braced", "checker", "contemporary", "contemporary_slats",
-					"criss-cross", "cross", "cross_framed", "fan", "fancy", "flat", "flat_extra", "full", "laced",
-					"laced_tall", "ladder", "ladder_tall", "lath", "lath_extra", "lattice", "live_edge", "lozenge",
-					"open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled", "slats",
-					"slats_chunky", "solid", "splat", "splat_double", "splat_slat", "turned_panel",
-					"turned_panel_weave", "vienna", "weave", "windsor"));
+	public static StyleData CHAIR_BACK = new StyleData("back", List.of("basic", "basic_panel", "branch", "braced",
+			"checker", "contemporary", "contemporary_slats", "criss-cross", "cross", "cross_framed", "fan", "fancy",
+			"flat", "flat_extra", "full", "laced", "laced_tall", "ladder", "ladder_tall", "lath", "lath_extra",
+			"lattice", "live_edge", /* "lozenge", */
+			"open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled", "slats", "slats_chunky",
+			"solid", "splat", "splat_double", "splat_slat", "turned_panel", "turned_panel_weave", "vienna", "weave",
+			"windsor"));
 	public static StyleData CHAIR_SEAT = new StyleData("back",
 			List.of("basic", "planks_horizontal", "planks_horizontal_angled", "weave", "framed"));
 	public static StyleData CHAIR_LEGS = new StyleData("back",
@@ -49,30 +49,31 @@ public class StyleData {
 	public static StyleData BED_PILLOW = new StyleData("pillow", List.of("basic"));
 	public static StyleData BED_SHEET = new StyleData("sheet", List.of("basic"));
 	public static StyleData BED_MATTRESS = new StyleData("mattress", List.of("basic"));
-	public static StyleData BED_FRAME = new StyleData("frame", List.of("basic", "basic_panel",
-			"contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full", "lath", "lath_extra", "live_edge",
-			"panelled", "slats", "solid", "weave"));
-	public static StyleData BED_BASE = new StyleData("base", List.of("basic", "panelled", "slats", "solid",
-			"weave"));
+	public static StyleData BED_FRAME = new StyleData("frame",
+			List.of("basic", "basic_panel", "contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full",
+					"lath", "lath_extra", "live_edge", "panelled", "slats", "solid", "weave"));
+	public static StyleData BED_BASE = new StyleData("base", List.of("basic", "panelled", "slats", "solid", "weave"));
 
 	public static StyleData SHINGLES = new StyleData("shingles", List.of("basic"));
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
-	
-	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
-	public static StyleData LOG_SLAB = new StyleData("log_slab", List.of("small_logs",
-			"small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small", "small_wood",
-			"small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
-			"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated"));
-	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "offset"));
-	public static StyleData LOG_STAIRS = new StyleData("log_stairs", List.of("small_logs", "small_logs_rotated_side",
-			"small_logs_rotated_front", "small_logs_rotated_top", "split_log_rotated_side", "split_log_rotated_front",
-			"split_log_rotated_top", "small_wood", "small_wood_rotated", "wood", "wood_rotated"));
 
-	public static StyleData PLANKS = new StyleData("planks", List.of("big_weave", "blocks", "blocks_offset",
-			"cross", "diagonal", "herringbone", "double_herringbone", "panel", "parquet", "sheet", "small_blocks",
-			"small_blocks_offset", "vertical", "wicker"));
-	
+	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
+	public static StyleData LOG_SLAB = new StyleData("log_slab",
+			List.of("small_logs", "small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small",
+					"small_wood", "small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
+					"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated"));
+	public static StyleData SMALL_LOG = new StyleData("log_slab", List.of("basic", "offset"));
+	public static StyleData LOG_STAIRS = new StyleData("log_stairs",
+			List.of("small_logs", "small_logs_rotated_side", "small_logs_rotated_front", "small_logs_rotated_top",
+					"split_log_rotated_side", "split_log_rotated_front", "split_log_rotated_top", "small_wood",
+					"small_wood_rotated", "wood", "wood_rotated"));
+
+	public static StyleData PLANKS = new StyleData("planks",
+			List.of("big", "big_offset", "big_weave", "blocks", "blocks_offset", "cross", "diagonal", "herringbone",
+					"double_herringbone", "panel", "parquet", "sheet", "small_blocks", "small_blocks_offset",
+					"vertical", "wicker"));
+
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 
 	String name;

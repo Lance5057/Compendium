@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/mangrove/slab/big_top"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/mangrove/slab/big_offset_top"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/mangrove/slab/big_weave_top"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/mangrove/slab/blocks_offset_top"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/mangrove/slab/cross_top"
   },

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/lozenge",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

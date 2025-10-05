@@ -1,4 +1,10 @@
 {
+  "big": {
+    "model": "compendium:block/material/wood/dark_oak/stairs/big_outer"
+  },
+  "big_offset": {
+    "model": "compendium:block/material/wood/dark_oak/stairs/big_offset_outer"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/dark_oak/stairs/big_weave_outer"
   },
@@ -8,7 +14,7 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/dark_oak/stairs/blocks_offset_outer"
   },
-  "count": 14,
+  "count": 16,
   "cross": {
     "model": "compendium:block/material/wood/dark_oak/stairs/cross_outer"
   },
