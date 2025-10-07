@@ -5,6 +5,18 @@
   "big_offset": {
     "model": "compendium:block/material/wood/birch/stairs/big_offset"
   },
+  "big_offset_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/big_offset_vertical"
+  },
+  "big_seamless": {
+    "model": "compendium:block/material/wood/birch/stairs/big_seamless"
+  },
+  "big_seamless_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/big_seamless_vertical"
+  },
+  "big_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/big_vertical"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/birch/stairs/big_weave"
   },
@@ -14,12 +26,21 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/birch/stairs/blocks_offset"
   },
-  "count": 16,
+  "box": {
+    "model": "compendium:block/material/wood/birch/stairs/box"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/birch/stairs/chiseled"
+  },
+  "count": 35,
   "cross": {
     "model": "compendium:block/material/wood/birch/stairs/cross"
   },
   "diagonal": {
     "model": "compendium:block/material/wood/birch/stairs/diagonal"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/birch/stairs/diagonal_rotated"
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/birch/stairs/double_herringbone"
@@ -37,14 +58,50 @@
   "sheet": {
     "model": "compendium:block/material/wood/birch/stairs/sheet"
   },
+  "slats": {
+    "model": "compendium:block/material/wood/birch/stairs/slats"
+  },
+  "slats_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/slats_vertical"
+  },
   "small_blocks": {
     "model": "compendium:block/material/wood/birch/stairs/small_blocks"
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/birch/stairs/small_blocks_offset"
   },
+  "straight": {
+    "model": "compendium:block/material/wood/birch/stairs/straight"
+  },
+  "straight_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/straight_vertical"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/birch/stairs/thin"
+  },
+  "thin_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/thin_vertical"
+  },
   "vertical": {
     "model": "compendium:block/material/wood/birch/stairs/vertical"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/birch/stairs/wainscotting_double"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/birch/stairs/wainscotting_grate"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/birch/stairs/wainscotting_seamless"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/birch/stairs/wainscotting_single"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/birch/stairs/walkway"
+  },
+  "walkway_vertical": {
+    "model": "compendium:block/material/wood/birch/stairs/walkway_vertical"
   },
   "wicker": {
     "model": "compendium:block/material/wood/birch/stairs/wicker"

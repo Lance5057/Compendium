@@ -5,6 +5,18 @@
   "big_offset": {
     "model": "compendium:block/material/wood/crimson/stairs/big_offset_outer"
   },
+  "big_offset_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/big_offset_vertical_outer"
+  },
+  "big_seamless": {
+    "model": "compendium:block/material/wood/crimson/stairs/big_seamless_outer"
+  },
+  "big_seamless_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/big_seamless_vertical_outer"
+  },
+  "big_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/big_vertical_outer"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/crimson/stairs/big_weave_outer"
   },
@@ -14,12 +26,21 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/crimson/stairs/blocks_offset_outer"
   },
-  "count": 16,
+  "box": {
+    "model": "compendium:block/material/wood/crimson/stairs/box_outer"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/crimson/stairs/chiseled_outer"
+  },
+  "count": 35,
   "cross": {
     "model": "compendium:block/material/wood/crimson/stairs/cross_outer"
   },
   "diagonal": {
     "model": "compendium:block/material/wood/crimson/stairs/diagonal_outer"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/crimson/stairs/diagonal_rotated_outer"
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/crimson/stairs/double_herringbone_outer"
@@ -37,14 +58,50 @@
   "sheet": {
     "model": "compendium:block/material/wood/crimson/stairs/sheet_outer"
   },
+  "slats": {
+    "model": "compendium:block/material/wood/crimson/stairs/slats_outer"
+  },
+  "slats_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/slats_vertical_outer"
+  },
   "small_blocks": {
     "model": "compendium:block/material/wood/crimson/stairs/small_blocks_outer"
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/crimson/stairs/small_blocks_offset_outer"
   },
+  "straight": {
+    "model": "compendium:block/material/wood/crimson/stairs/straight_outer"
+  },
+  "straight_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/straight_vertical_outer"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/crimson/stairs/thin_outer"
+  },
+  "thin_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/thin_vertical_outer"
+  },
   "vertical": {
     "model": "compendium:block/material/wood/crimson/stairs/vertical_outer"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/crimson/stairs/wainscotting_double_outer"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/crimson/stairs/wainscotting_grate_outer"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/crimson/stairs/wainscotting_seamless_outer"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/crimson/stairs/wainscotting_single_outer"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/crimson/stairs/walkway_outer"
+  },
+  "walkway_vertical": {
+    "model": "compendium:block/material/wood/crimson/stairs/walkway_vertical_outer"
   },
   "wicker": {
     "model": "compendium:block/material/wood/crimson/stairs/wicker_outer"

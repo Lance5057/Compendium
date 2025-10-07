@@ -5,6 +5,18 @@
   "big_offset": {
     "model": "compendium:block/material/wood/cherry/planks/big_offset"
   },
+  "big_offset_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/big_offset_vertical"
+  },
+  "big_seamless": {
+    "model": "compendium:block/material/wood/cherry/planks/big_seamless"
+  },
+  "big_seamless_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/big_seamless_vertical"
+  },
+  "big_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/big_vertical"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/cherry/planks/big_weave"
   },
@@ -14,12 +26,21 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/cherry/planks/blocks_offset"
   },
-  "count": 16,
+  "box": {
+    "model": "compendium:block/material/wood/cherry/planks/box"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/cherry/planks/chiseled"
+  },
+  "count": 35,
   "cross": {
     "model": "compendium:block/material/wood/cherry/planks/cross"
   },
   "diagonal": {
     "model": "compendium:block/material/wood/cherry/planks/diagonal"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/cherry/planks/diagonal_rotated"
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/cherry/planks/double_herringbone"
@@ -37,14 +58,50 @@
   "sheet": {
     "model": "compendium:block/material/wood/cherry/planks/sheet"
   },
+  "slats": {
+    "model": "compendium:block/material/wood/cherry/planks/slats"
+  },
+  "slats_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/slats_vertical"
+  },
   "small_blocks": {
     "model": "compendium:block/material/wood/cherry/planks/small_blocks"
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/cherry/planks/small_blocks_offset"
   },
+  "straight": {
+    "model": "compendium:block/material/wood/cherry/planks/straight"
+  },
+  "straight_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/straight_vertical"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/cherry/planks/thin"
+  },
+  "thin_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/thin_vertical"
+  },
   "vertical": {
     "model": "compendium:block/material/wood/cherry/planks/vertical"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/cherry/planks/wainscotting_double"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/cherry/planks/wainscotting_grate"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/cherry/planks/wainscotting_seamless"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/cherry/planks/wainscotting_single"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/cherry/planks/walkway"
+  },
+  "walkway_vertical": {
+    "model": "compendium:block/material/wood/cherry/planks/walkway_vertical"
   },
   "wicker": {
     "model": "compendium:block/material/wood/cherry/planks/wicker"

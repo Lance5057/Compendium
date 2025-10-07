@@ -5,6 +5,18 @@
   "big_offset": {
     "model": "compendium:block/material/wood/dark_oak/slab/big_offset_full"
   },
+  "big_offset_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/big_offset_vertical_full"
+  },
+  "big_seamless": {
+    "model": "compendium:block/material/wood/dark_oak/slab/big_seamless_full"
+  },
+  "big_seamless_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/big_seamless_vertical_full"
+  },
+  "big_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/big_vertical_full"
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/dark_oak/slab/big_weave_full"
   },
@@ -14,12 +26,21 @@
   "blocks_offset": {
     "model": "compendium:block/material/wood/dark_oak/slab/blocks_offset_full"
   },
-  "count": 16,
+  "box": {
+    "model": "compendium:block/material/wood/dark_oak/slab/box_full"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/dark_oak/slab/chiseled_full"
+  },
+  "count": 35,
   "cross": {
     "model": "compendium:block/material/wood/dark_oak/slab/cross_full"
   },
   "diagonal": {
     "model": "compendium:block/material/wood/dark_oak/slab/diagonal_full"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/diagonal_rotated_full"
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/dark_oak/slab/double_herringbone_full"
@@ -37,14 +58,50 @@
   "sheet": {
     "model": "compendium:block/material/wood/dark_oak/slab/sheet_full"
   },
+  "slats": {
+    "model": "compendium:block/material/wood/dark_oak/slab/slats_full"
+  },
+  "slats_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/slats_vertical_full"
+  },
   "small_blocks": {
     "model": "compendium:block/material/wood/dark_oak/slab/small_blocks_full"
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/dark_oak/slab/small_blocks_offset_full"
   },
+  "straight": {
+    "model": "compendium:block/material/wood/dark_oak/slab/straight_full"
+  },
+  "straight_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/straight_vertical_full"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/dark_oak/slab/thin_full"
+  },
+  "thin_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/thin_vertical_full"
+  },
   "vertical": {
     "model": "compendium:block/material/wood/dark_oak/slab/vertical_full"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/dark_oak/slab/wainscotting_double_full"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/dark_oak/slab/wainscotting_grate_full"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/dark_oak/slab/wainscotting_seamless_full"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/dark_oak/slab/wainscotting_single_full"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/dark_oak/slab/walkway_full"
+  },
+  "walkway_vertical": {
+    "model": "compendium:block/material/wood/dark_oak/slab/walkway_vertical_full"
   },
   "wicker": {
     "model": "compendium:block/material/wood/dark_oak/slab/wicker_full"
