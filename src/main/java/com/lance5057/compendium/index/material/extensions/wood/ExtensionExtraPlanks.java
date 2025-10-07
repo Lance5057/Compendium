@@ -203,32 +203,34 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				yRot += 90; // Top stairs are rotated 90 degrees clockwise
 			}
 			yRot %= 360;
+			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
 			return ConfiguredModel.builder()
 					.modelFile(shape == StairsShape.STRAIGHT ? stairs
 							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
 									: stairsOuter)
-					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(false).build();
+					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(uvlock).build();
 		}, StairBlock.WATERLOGGED);
 	}
 
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		for (String s : StyleData.PLANKS.getTypes())
+		for (String s : StyleData.PLANKS.getTypes()) {
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
-		ibmp.slab(PLANK.location(base) + "/slab/big_bottom", ibmp.modLoc(PLANK.location(base) + "planks/big"),
-				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.slabTop(PLANK.location(base) + "/slab/big_top", ibmp.modLoc(PLANK.location(base) + "planks/big"),
-				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.cubeAll(PLANK.location(base) + "/slab/big_full", ibmp.modLoc(PLANK.location(base) + "planks/big"));
+			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full", ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank one?
 
-		ibmp.stairs(PLANK.location(base) + "/stairs/big", ibmp.modLoc(PLANK.location(base) + "planks/big"),
-				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.stairsInner(PLANK.location(base) + "/stairs/big_inner", ibmp.modLoc(PLANK.location(base) + "planks/big"),
-				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));
-		ibmp.stairsOuter(PLANK.location(base) + "/stairs/big_outer", ibmp.modLoc(PLANK.location(base) + "planks/big"),
-				ibmp.modLoc(PLANK.location(base) + "planks/big"), ibmp.modLoc(PLANK.location(base) + "planks/big"));
+			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+		}
 	}
 
 	@Override
@@ -242,7 +244,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		tmp.getBuilder(PLANK_SLAB.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/slab/big")));
+						"block/material/wood/" + base.name.toLowerCase() + "/slab/big_bottom")));
 
 		tmp.getBuilder(PLANK_STAIRS.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,

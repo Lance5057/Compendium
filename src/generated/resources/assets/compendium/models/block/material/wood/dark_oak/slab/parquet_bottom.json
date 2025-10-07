@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/dark_oak/planks/parquet",
+    "side": "compendium:block/material/wood/dark_oak/planks/parquet",
+    "top": "compendium:block/material/wood/dark_oak/planks/parquet"
+  }
+}
