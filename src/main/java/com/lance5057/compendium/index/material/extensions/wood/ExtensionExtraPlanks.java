@@ -57,6 +57,8 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
+import static com.lance5057.compendium.util.TagUtil.mcLoc;
+
 public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK;
 	public final CompendiumBlockHandler PLANK_BLOCK;
@@ -215,21 +217,37 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		for (String s : StyleData.PLANKS.getTypes()) {
-			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
-					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+			if (s.equals("walkway_vertical")) {
+				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.modLoc("block/cube_all_rotated"))
+						.texture("all", mcLoc("block/" + base.name + "_planks"));
 
-			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full", ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank one?
+				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
+						.texture("all", mcLoc("block/" + base.name + "_planks"));
+				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc("block/bases/slab/slab_rotated_top"))
+						.texture("all", mcLoc("block/" + base.name + "_planks"));
+				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full", ibmp.modLoc("block/cube_all_rotated"))
+						.texture("all", mcLoc("block/" + base.name + "_planks"));
 
-			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc("block/bases/stairs/stairs_rotated"))
+						.texture("all", mcLoc("block/" + base.name + "_planks"));
+
+			} else {
+				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
+						.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+
+				ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full", ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank one?
+
+				ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			}
 		}
 	}
 
