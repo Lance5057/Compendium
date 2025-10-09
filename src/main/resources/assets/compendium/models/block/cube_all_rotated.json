@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"all": "block/acacia_planks",
-		"particle": "block/acacia_planks"
+		"particle": "block/acacia_planks",
+		"all": "block/acacia_planks"
 	},
 	"elements": [
 		{
@@ -12,7 +12,7 @@
 			"to": [16, 16, 16],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 8, 8]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#all"},
+				"north": {"uv": [16, 16, 0, 0], "rotation": 90, "texture": "#all"},
 				"east": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#all"},
 				"south": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#all"},
 				"west": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#all"},

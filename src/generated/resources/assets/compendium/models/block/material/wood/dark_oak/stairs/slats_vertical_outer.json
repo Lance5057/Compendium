@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/dark_oak/planks/slats_vertical",
+    "side": "compendium:block/material/wood/dark_oak/planks/slats_vertical",
+    "top": "compendium:block/material/wood/dark_oak/planks/slats_vertical"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/stairs/stairs_rotated",
+  "textures": {
+    "all": "minecraft:block/warped_planks"
+  }
+}

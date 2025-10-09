@@ -7,23 +7,26 @@
 	},
 	"elements": [
 		{
-			"from": [8, 8, 0],
-			"to": [16, 16, 16],
+			"from": [-8, 8, 0],
+			"to": [0, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-16, 0, 0]},
 			"faces": {
-				"north": {"uv": [0, 8, 8, 16], "rotation": 90, "texture": "#all", "cullface": "north"},
+				"north": {"uv": [8, 16, 16, 8], "rotation": 270, "texture": "#all", "cullface": "north"},
 				"east": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#all", "cullface": "east"},
-				"south": {"uv": [0, 0, 8, 8], "rotation": 90, "texture": "#all", "cullface": "south"},
+				"south": {"uv": [8, 8, 16, 16], "rotation": 270, "texture": "#all", "cullface": "south"},
 				"west": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#all"},
-				"up": {"uv": [16, 8, 0, 0], "rotation": 270, "texture": "#all", "cullface": "up"}
+				"up": {"uv": [16, 0, 0, 8], "rotation": 270, "texture": "#all", "cullface": "up"},
+				"down": {"uv": [0, 0, 8, 16], "texture": "#all"}
 			}
 		},
 		{
-			"from": [0, 0, 0],
-			"to": [16, 8, 16],
+			"from": [-16, 0, 0],
+			"to": [0, 8, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-16, 0, 0]},
 			"faces": {
-				"north": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "north"},
+				"north": {"uv": [0, 16, 8, 0], "rotation": 270, "texture": "#all", "cullface": "north"},
 				"east": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "east"},
-				"south": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "south"},
+				"south": {"uv": [8, 16, 0, 0], "rotation": 90, "texture": "#all", "cullface": "south"},
 				"west": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "west"},
 				"up": {"uv": [16, 16, 0, 0], "rotation": 270, "texture": "#all"},
 				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "down"}
@@ -43,5 +46,13 @@
 		"head": {
 			"rotation": [0, -90, 0]
 		}
-	}
+	},
+	"groups": [
+		{
+			"name": "stairs_west",
+			"origin": [-16, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
 }

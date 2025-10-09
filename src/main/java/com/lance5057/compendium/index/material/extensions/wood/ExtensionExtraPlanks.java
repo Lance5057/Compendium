@@ -205,12 +205,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				yRot += 90; // Top stairs are rotated 90 degrees clockwise
 			}
 			yRot %= 360;
-			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+//			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
 			return ConfiguredModel.builder()
 					.modelFile(shape == StairsShape.STRAIGHT ? stairs
 							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
 									: stairsOuter)
-					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(uvlock).build();
+					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(true).build();
 		}, StairBlock.WATERLOGGED);
 	}
 
