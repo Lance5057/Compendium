@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -10,15 +11,18 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -189,6 +193,30 @@ public class MaterialGem extends _MaterialBase {
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean isIndexItem(ItemStack stack) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<TagKey<Item>> breakDownItem(ItemStack stack) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<TagKey<Item>> buildUpItem(ItemStack stack) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 }

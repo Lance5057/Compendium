@@ -1,13 +1,17 @@
 package com.lance5057.compendium.index;
 
+import java.util.Optional;
+
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -40,5 +44,12 @@ public interface IIndexEntry {
 	public abstract void setupBlockTags(BlockTagsProvider itp);
 
 	public void setupClient(FMLClientSetupEvent event);
+	
+	public boolean isIndexItem(ItemStack stack);
+	
+	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack);
+	
+	public Optional<TagKey<Item>> breakDownItem(ItemStack stack); //ie ingot to nuggets
+	public Optional<TagKey<Item>> buildUpItem(ItemStack stack); //ie ingot to storage block
 
 }

@@ -1,5 +1,11 @@
 package com.lance5057.compendium.index;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 
 import com.lance5057.compendium.Compendium;
@@ -16,7 +22,7 @@ public class CompendiumIndex {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
-	
+
 	public static enum MATERIAL_TYPES {
 		INVALID, METAL, WOOD, GEM, GLASS, TEXTILE, CERAMIC, STONE
 	}
@@ -27,5 +33,21 @@ public class CompendiumIndex {
 		ITEMS.register(bus);
 		BLOCKS.register(bus);
 		ARMOR_MATERIALS.register(bus);
+	}
+
+	public static BigInteger generateChecksum() throws IOException, NoSuchAlgorithmException {
+		ByteArrayOutputStream baos = null;
+		ObjectOutputStream oos = null;
+		try {
+			baos = new ByteArrayOutputStream();
+			oos = new ObjectOutputStream(baos);
+			oos.writeObject(index);
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(baos.toByteArray());
+			return new BigInteger(1, md.digest());
+		} finally {
+			oos.close();
+			baos.close();
+		}
 	}
 }

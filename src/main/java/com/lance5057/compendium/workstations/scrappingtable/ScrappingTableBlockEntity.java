@@ -13,6 +13,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
@@ -29,10 +30,22 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 	@Override
 	public Optional<RecipeHolder<ScrappingTableRecipe>> matchRecipe() {
+		Optional<RecipeHolder<ScrappingTableRecipe>> recipe = Optional.empty();
 		if (this.level != null && this.getInventory() != null) {
-			return this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(this.getInventory()), level);
+			recipe = this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(this.getInventory()), level);
+			if (recipe.isEmpty()) {
+				// search for item's recipe
+				Optional<RecipeHolder<?>> other = this.level.getRecipeManager().getRecipes().stream()
+						.filter(r -> ItemStack.isSameItem(r.value().getResultItem(level.registryAccess()),
+								this.getInventory().getStackInSlot(0)))
+						.findFirst();
+
+				if (other.isPresent()) {
+
+				}
+			}
 		}
-		return Optional.empty();
+		return recipe;
 	}
 
 	@Override
@@ -68,8 +81,7 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 	@Override
 	protected void setupRecipe() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

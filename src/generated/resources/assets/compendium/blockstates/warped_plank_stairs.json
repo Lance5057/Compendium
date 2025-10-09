@@ -6,8 +6,7 @@
       "y": 270
     },
     "facing=east,half=bottom,shape=inner_right": {
-      "model": "compendium:block/material/wood/warped/plank_stairs_inner",
-      "uvlock": true
+      "model": "compendium:block/material/wood/warped/plank_stairs_inner"
     },
     "facing=east,half=bottom,shape=outer_left": {
       "model": "compendium:block/material/wood/warped/plank_stairs_outer",
@@ -15,12 +14,10 @@
       "y": 270
     },
     "facing=east,half=bottom,shape=outer_right": {
-      "model": "compendium:block/material/wood/warped/plank_stairs_outer",
-      "uvlock": true
+      "model": "compendium:block/material/wood/warped/plank_stairs_outer"
     },
     "facing=east,half=bottom,shape=straight": {
-      "model": "compendium:block/material/wood/warped/plank_stairs",
-      "uvlock": true
+      "model": "compendium:block/material/wood/warped/plank_stairs"
     },
     "facing=east,half=top,shape=inner_left": {
       "model": "compendium:block/material/wood/warped/plank_stairs_inner",
@@ -103,8 +100,7 @@
       "y": 270
     },
     "facing=south,half=bottom,shape=inner_left": {
-      "model": "compendium:block/material/wood/warped/plank_stairs_inner",
-      "uvlock": true
+      "model": "compendium:block/material/wood/warped/plank_stairs_inner"
     },
     "facing=south,half=bottom,shape=inner_right": {
       "model": "compendium:block/material/wood/warped/plank_stairs_inner",
@@ -112,8 +108,7 @@
       "y": 90
     },
     "facing=south,half=bottom,shape=outer_left": {
-      "model": "compendium:block/material/wood/warped/plank_stairs_outer",
-      "uvlock": true
+      "model": "compendium:block/material/wood/warped/plank_stairs_outer"
     },
     "facing=south,half=bottom,shape=outer_right": {
       "model": "compendium:block/material/wood/warped/plank_stairs_outer",
