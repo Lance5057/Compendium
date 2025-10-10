@@ -19,7 +19,6 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -207,15 +206,15 @@ public class MaterialTextile extends _MaterialBase {
 	}
 
 	@Override
-	public Optional<TagKey<Item>> breakDownItem(ItemStack stack) {
+	public ItemStack breakDownItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public Optional<TagKey<Item>> buildUpItem(ItemStack stack) {
+	public ItemStack buildUpItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return ItemStack.EMPTY;
 	}
 
 

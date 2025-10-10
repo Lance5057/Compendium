@@ -8,10 +8,9 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -49,7 +48,7 @@ public interface IIndexEntry {
 	
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack);
 	
-	public Optional<TagKey<Item>> breakDownItem(ItemStack stack); //ie ingot to nuggets
-	public Optional<TagKey<Item>> buildUpItem(ItemStack stack); //ie ingot to storage block
+	public ItemStack breakDownItem(Ingredient ingredient); //ie ingot to nuggets
+	public ItemStack buildUpItem(Ingredient ingredient); //ie ingot to storage block
 
 }

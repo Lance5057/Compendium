@@ -15,6 +15,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.DataUtil;
+import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -269,7 +270,7 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -285,14 +286,21 @@ public class MaterialMetal extends _MaterialBase {
 	}
 
 	@Override
-	public Optional<TagKey<Item>> breakDownItem(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public ItemStack breakDownItem(Ingredient ingredient) {
+		ItemStack i = ItemStack.EMPTY;
+		i = ScrappingUtils.convertBasedOnTagOrStack(ingredient, blockItemTag, loadStorageBlock, BLOCK_ITEM, INGOT, 9);
+		if (i.isEmpty())
+			i = ScrappingUtils.convertBasedOnTagOrStack(ingredient, ingotTag, loadIngot, INGOT, NUGGET, 9);
+
+		return i;
 	}
 
 	@Override
-	public Optional<TagKey<Item>> buildUpItem(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public ItemStack buildUpItem(Ingredient ingredient) {
+		if (ingredient.test(this.INGOT.toStack()))
+			return this.BLOCK_ITEM.toStack(1);
+		if (ingredient.test(this.NUGGET.toStack()))
+			return this.INGOT.toStack(1);
+		return ItemStack.EMPTY;
 	}
 }

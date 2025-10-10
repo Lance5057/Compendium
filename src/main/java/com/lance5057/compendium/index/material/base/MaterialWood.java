@@ -9,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -20,10 +21,9 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -203,7 +203,7 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -219,14 +219,18 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	@Override
-	public Optional<TagKey<Item>> breakDownItem(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public ItemStack breakDownItem(Ingredient ingredient) {
+		if (ingredient.test(this.LOG.BLOCK_ITEM.toStack()))
+			return this.PLANKS.BLOCK_ITEM.toStack(4);
+		if (ingredient.test(this.PLANKS.BLOCK_ITEM.toStack()))
+			return new ItemStack(Items.STICK, 4);
+		if (ingredient.test(new ItemStack(Items.STICK)))
+			return CompendiumItems.SAWDUST.toStack(2);
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public Optional<TagKey<Item>> buildUpItem(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public ItemStack buildUpItem(Ingredient ingredient) {
+		return ItemStack.EMPTY;
 	}
 }

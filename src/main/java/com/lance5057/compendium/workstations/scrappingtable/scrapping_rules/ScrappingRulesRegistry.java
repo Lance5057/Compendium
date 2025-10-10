@@ -15,4 +15,8 @@ public class ScrappingRulesRegistry {
 	public static Optional<IScrappingRule> getRule(RecipeHolder<?> recipe) {
 		return rules.stream().filter(r -> r.matches(recipe)).findFirst();
 	}
+
+	static {
+		addRule(new CraftingTableScrappingRule());
+	}
 }

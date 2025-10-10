@@ -8,6 +8,8 @@ import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
+import com.lance5057.compendium.workstations.scrappingtable.scrapping_rules.IScrappingRule;
+import com.lance5057.compendium.workstations.scrappingtable.scrapping_rules.ScrappingRulesRegistry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
@@ -41,7 +43,10 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 						.findFirst();
 
 				if (other.isPresent()) {
-
+					Optional<IScrappingRule> rule = ScrappingRulesRegistry.getRule(other.get());
+					if (rule.isPresent()) {
+						rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
+					}
 				}
 			}
 		}

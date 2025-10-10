@@ -244,15 +244,15 @@ public class MaterialGlass extends _MaterialBase {
 	}
 
 	@Override
-	public Optional<TagKey<Item>> breakDownItem(ItemStack stack) {
+	public ItemStack breakDownItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return ItemStack.EMPTY;
 	}
 
 	@Override
-	public Optional<TagKey<Item>> buildUpItem(ItemStack stack) {
+	public ItemStack buildUpItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return ItemStack.EMPTY;
 	}
 
 }

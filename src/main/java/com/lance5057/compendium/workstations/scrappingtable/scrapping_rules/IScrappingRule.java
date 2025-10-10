@@ -7,5 +7,5 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 
 public interface IScrappingRule {
 	public boolean matches(RecipeHolder<?> recipe);
-	public List<ItemStack> scrap(ItemStack stack);
+	public List<ItemStack> scrap(RecipeHolder<?> recipe, ItemStack itemIn);
 }
