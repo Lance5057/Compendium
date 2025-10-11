@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "compendium:block/bases/slab/slab_rotated_bottom",
   "textures": {
-    "bottom": "compendium:block/material/wood/jungle/planks/diagonal_rotated",
-    "side": "compendium:block/material/wood/jungle/planks/diagonal_rotated",
-    "top": "compendium:block/material/wood/jungle/planks/diagonal_rotated"
+    "all": "compendium:block/material/wood/jungle/planks/diagonal"
   }
 }

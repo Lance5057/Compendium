@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "compendium:block/cube_all_rotated",
   "textures": {
-    "all": "compendium:block/material/wood/crimson/planks/diagonal_rotated"
+    "all": "compendium:block/material/wood/crimson/planks/diagonal"
   }
 }

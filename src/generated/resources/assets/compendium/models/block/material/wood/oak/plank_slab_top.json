@@ -100,8 +100,8 @@
   "walkway": {
     "model": "compendium:block/material/wood/oak/slab/walkway_top"
   },
-  "walkway_vertical": {
-    "model": "compendium:block/material/wood/oak/slab/walkway_vertical_top"
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/oak/slab/walkway_rotated_top"
   },
   "wicker": {
     "model": "compendium:block/material/wood/oak/slab/wicker_top"

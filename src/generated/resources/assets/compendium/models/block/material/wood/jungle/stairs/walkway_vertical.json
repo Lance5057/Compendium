@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/stairs/stairs_rotated",
-  "textures": {
-    "all": "minecraft:block/jungle_planks"
-  }
-}

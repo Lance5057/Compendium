@@ -100,8 +100,8 @@
   "walkway": {
     "model": "compendium:block/material/wood/jungle/slab/walkway_full"
   },
-  "walkway_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/walkway_vertical_full"
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/walkway_rotated_full"
   },
   "wicker": {
     "model": "compendium:block/material/wood/jungle/slab/wicker_full"

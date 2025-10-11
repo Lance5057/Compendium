@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/stairs/stairs_bottom_outer_corner_south_west",
+  "textures": {
+    "all": "compendium:block/material/wood/spruce/planks/walkway"
+  }
+}

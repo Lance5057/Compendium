@@ -166,7 +166,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				for (String s : StyleData.PLANKS.getTypes()) {
 					if (s.endsWith("_rotated")) {
-						styledStairsStraight(plank_stairs_standard, PLANK_STAIRS.BLOCK.get(), PLANK.location(base), s,
+						styledStairsStraight(plank_stairs_standard, PLANK.location(base), s,
 								bsp);
 					} else {
 						plank_stairs_standard.add(new StyleModelBuilder(s,
@@ -181,10 +181,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				for (String s : StyleData.PLANKS.getTypes()) {
 					if (s.endsWith("_rotated")) {
-						styledStairsInner(plank_stairs_inner, PLANK_STAIRS.BLOCK.get(), PLANK.location(base), s, bsp);
+						styledStairsInner(plank_stairs_inner, PLANK.location(base), s, bsp);
 					} else {
 						plank_stairs_inner.add(new StyleModelBuilder(s,
-								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
+								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
 					}
 				}
 
@@ -195,10 +195,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				for (String s : StyleData.PLANKS.getTypes()) {
 					if (s.endsWith("_rotated")) {
-						styledStairsOuter(plank_stairs_outer, PLANK_STAIRS.BLOCK.get(), PLANK.location(base), s, bsp);
+						styledStairsOuter(plank_stairs_outer, PLANK.location(base), s, bsp);
 					} else {
 						plank_stairs_outer.add(new StyleModelBuilder(s,
-								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
+								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
 					}
 				}
 
@@ -208,149 +208,80 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}
 	}
 
-	public void styledStairsStraight(StyleBlockModelBuilder<BlockModelBuilder> model, Block block, String location,
+	public void styledStairsStraight(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
 			String style, BlockStateProvider bsp) {
-//		bsp.getVariantBuilder(block).forAllStates(s -> {
-//		Direction facing = s.getValue(StairStyleBlock.FACING);
-//		Half half = s.getValue(StairStyleBlock.HALF);
-//		StairsShape shape = s.getValue(StairStyleBlock.SHAPE);
-
-//		if (half == Half.TOP) {
-//			switch (shape) {
-//			case StairsShape.STRAIGHT:
-//				switch (facing) {
-//				case Direction.NORTH:
 		stair(model, location, "top_straight_south", style, bsp);
-//				case Direction.SOUTH:
 		stair(model, location, "top_straight_north", style, bsp);
-//				case Direction.EAST:
 		stair(model, location, "top_straight_west", style, bsp);
-//				default:
-//				case Direction.WEST:
 		stair(model, location, "top_straight_east", style, bsp);
-//				}
-//			}
-//		} else {
-//			switch (shape) {
-//			case StairsShape.STRAIGHT:
-//				switch (facing) {
-//				case Direction.NORTH:
 		stair(model, location, "bottom_straight_south", style, bsp);
-//				case Direction.SOUTH:
 		stair(model, location, "bottom_straight_north", style, bsp);
-//				case Direction.EAST:
 		stair(model, location, "bottom_straight_west", style, bsp);
-//				default:
-//				case Direction.WEST:
 		stair(model, location, "bottom_straight_east", style, bsp);
 	}
 
-//			}
-//		}
-//			return null;
-//		});
-//	}
-
-	public void styledStairsInner(StyleBlockModelBuilder<BlockModelBuilder> model, Block block, String location,
+	public void styledStairsInner(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
 			String style, BlockStateProvider bsp) {
-		bsp.getVariantBuilder(block).forAllStates(s -> {
-			Direction facing = s.getValue(StairStyleBlock.FACING);
-			Half half = s.getValue(StairStyleBlock.HALF);
-			StairsShape shape = s.getValue(StairStyleBlock.SHAPE);
-
-			if (half == Half.TOP) {
-				switch (shape) {
-				case StairsShape.INNER_LEFT:
-					switch (facing) {
-					case Direction.NORTH:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					case Direction.SOUTH:
-						stair(model, location, "top_inner_corner_north_west", style, bsp);
-					case Direction.EAST:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					default:
-					case Direction.WEST:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					}
-
-				case StairsShape.INNER_RIGHT:
-					switch (facing) {
-					case Direction.NORTH:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					case Direction.SOUTH:
-						stair(model, location, "top_inner_corner_north_west", style, bsp);
-					case Direction.EAST:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					default:
-					case Direction.WEST:
-						stair(model, location, "top_inner_corner_north_east", style, bsp);
-					}
-				}
-			} else {
-				switch (shape) {
-				case StairsShape.INNER_LEFT:
-					stair(model, location, "bottom_inner_corner_north_east", style, bsp);
-				case StairsShape.INNER_RIGHT:
-					stair(model, location, "bottom_inner_corner_north_west", style, bsp);
-				}
-			}
-			return null;
-		});
+		stair(model, location, "top_inner_corner_north_east", style, bsp);
+		stair(model, location, "top_inner_corner_north_west", style, bsp);
+		stair(model, location, "top_inner_corner_south_east", style, bsp);
+		stair(model, location, "top_inner_corner_south_west", style, bsp);
+		stair(model, location, "bottom_inner_corner_north_east", style, bsp);
+		stair(model, location, "bottom_inner_corner_north_west", style, bsp);
+		stair(model, location, "bottom_inner_corner_south_east", style, bsp);
+		stair(model, location, "bottom_inner_corner_south_west", style, bsp);
 	}
 
-	public void styledStairsOuter(StyleBlockModelBuilder<BlockModelBuilder> model, Block block, String location,
+	public void styledStairsOuter(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
 			String style, BlockStateProvider bsp) {
-		bsp.getVariantBuilder(block).forAllStates(s -> {
-			Direction facing = s.getValue(StairStyleBlock.FACING);
-			Half half = s.getValue(StairStyleBlock.HALF);
-			StairsShape shape = s.getValue(StairStyleBlock.SHAPE);
-
-			if (half == Half.TOP) {
-				switch (shape) {
-				case StairsShape.OUTER_LEFT:
-					switch (facing) {
-					case DOWN:
-						break;
-					case UP:
-						break;
-					case Direction.NORTH:
-						stair(model, location, "top_outer_corner_north_east", style, bsp);
-					case Direction.SOUTH:
-						stair(model, location, "top_outer_corner_north_west", style, bsp);
-					case Direction.EAST:
-						stair(model, location, "top_outer_corner_north_east", style, bsp);
-					default:
-					case Direction.WEST:
-						stair(model, location, "top_outer_corner_north_east", style, bsp);
-					}
-				case StairsShape.OUTER_RIGHT:
-					switch (facing) {
-					case Direction.NORTH:
-						stair(model, location, "top_outer_corner_north_east", style, bsp);
-					case Direction.SOUTH:
-						stair(model, location, "top_outer_corner_north_west", style, bsp);
-					case Direction.EAST:
-						stair(model, location, "top_outer_corner_north_west", style, bsp);
-					default:
-					case Direction.WEST:
-						stair(model, location, "top_outer_corner_north_east", style, bsp);
-					}
-				}
-			} else {
-				switch (shape) {
-				case StairsShape.OUTER_LEFT:
-					stair(model, location, "bottom_outer_corner_south_east", style, bsp);
-				case StairsShape.OUTER_RIGHT:
-					stair(model, location, "bottom_outer_corner_south_west", style, bsp);
-				}
-			}
-			return null;
-		});
+		stair(model, location, "top_outer_corner_north_east", style, bsp);
+		stair(model, location, "top_outer_corner_north_west", style, bsp);
+		stair(model, location, "top_outer_corner_south_east", style, bsp);
+		stair(model, location, "top_outer_corner_south_west", style, bsp);
+		stair(model, location, "bottom_outer_corner_north_east", style, bsp);
+		stair(model, location, "bottom_outer_corner_north_west", style, bsp);
+		stair(model, location, "bottom_outer_corner_south_east", style, bsp);
+		stair(model, location, "bottom_outer_corner_south_west", style, bsp);
 	}
 
 	private void stair(StyleBlockModelBuilder<BlockModelBuilder> model, String location, String suffix, String style,
 			BlockStateProvider bsp) {
 		model.add(new StyleModelBuilder(style, bsp.modLoc(location + "stairs/" + style.toLowerCase() + "_" + suffix)));
+	}
+
+	private void stairModel(_MaterialBase base, String suffix, String style,
+							IndexBlockModelProvider ibmp) {
+		String texture = style.replaceAll("_rotated", "");
+		ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + style,
+						ibmp.modLoc("block/bases/stairs/stairs_" + suffix))
+				.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+	}
+
+	public void styledStairsModels(_MaterialBase base, String style, IndexBlockModelProvider ibmp) {
+		stairModel(base, "top_straight_south", style, ibmp);
+		stairModel(base, "top_straight_north", style, ibmp);
+		stairModel(base, "top_straight_west", style, ibmp);
+		stairModel(base, "top_straight_east", style, ibmp);
+		stairModel(base, "bottom_straight_south", style, ibmp);
+		stairModel(base, "bottom_straight_north", style, ibmp);
+		stairModel(base, "bottom_straight_west", style, ibmp);
+		stairModel(base, "bottom_straight_east", style, ibmp);
+		stairModel(base, "top_inner_corner_north_east", style, ibmp);
+		stairModel(base, "top_inner_corner_north_west", style, ibmp);
+		stairModel(base, "top_inner_corner_south_east", style, ibmp);
+		stairModel(base, "top_inner_corner_south_west", style, ibmp);
+		stairModel(base, "bottom_inner_corner_north_east", style, ibmp);
+		stairModel(base, "bottom_inner_corner_north_west", style, ibmp);
+		stairModel(base, "bottom_inner_corner_south_east", style, ibmp);
+		stairModel(base, "bottom_inner_corner_south_west", style, ibmp);
+		stairModel(base, "top_outer_corner_north_east", style, ibmp);
+		stairModel(base, "top_outer_corner_north_west", style, ibmp);
+		stairModel(base, "top_outer_corner_south_east", style, ibmp);
+		stairModel(base, "top_outer_corner_south_west", style, ibmp);
+		stairModel(base, "bottom_outer_corner_north_east", style, ibmp);
+		stairModel(base, "bottom_outer_corner_north_west", style, ibmp);
+		stairModel(base, "bottom_outer_corner_south_east", style, ibmp);
+		stairModel(base, "bottom_outer_corner_south_west", style, ibmp);
 	}
 
 	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
@@ -380,19 +311,21 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		for (String s : StyleData.PLANKS.getTypes()) {
-			if (s.equals("walkway_vertical")) {
+			if (s.endsWith("_rotated")) {
+				String texture = s.replaceAll("_rotated", "");
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s,
-						ibmp.modLoc("block/cube_all_rotated")).texture("all", mcLoc("block/" + base.name + "_planks"));
+						ibmp.modLoc("block/cube_all_rotated")).texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 
 				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom",
 						ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
-						.texture("all", mcLoc("block/" + base.name + "_planks"));
+						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top",
 						ibmp.modLoc("block/bases/slab/slab_rotated_top"))
-						.texture("all", mcLoc("block/" + base.name + "_planks"));
+						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
-						ibmp.modLoc("block/cube_all_rotated")).texture("all", mcLoc("block/" + base.name + "_planks"));
+						ibmp.modLoc("block/cube_all_rotated")).texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 
+				styledStairsModels(base, s, ibmp);
 //				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
 //						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
 //						.texture("all", mcLoc("block/" + base.name + "_planks"));

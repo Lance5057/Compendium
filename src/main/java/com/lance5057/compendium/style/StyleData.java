@@ -75,7 +75,7 @@ public class StyleData {
 					"herringbone", "double_herringbone", "panel", "parquet", "slats", "slats_vertical", "sheet",
 					"small_blocks", "small_blocks_offset", "straight", "straight_vertical", "thin", "thin_vertical",
 					"vertical", "wainscotting_single", "wainscotting_double", "wainscotting_grate",
-					"wainscotting_seamless", "walkway", "walkway_vertical", "wicker"));
+					"wainscotting_seamless", "walkway", "walkway_rotated", "wicker"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 
