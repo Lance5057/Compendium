@@ -45,8 +45,8 @@ public class MaterialTextile extends _MaterialBase {
 
 	public DeferredItem<Item> STRING;
 
-	public MaterialTextile(String name, boolean block, boolean string) {
-		super(name);
+	public MaterialTextile(String name, String tagNamespace, boolean block, boolean string) {
+		super(name, tagNamespace);
 		this.loadBlock = block;
 		this.loadString = string;
 	}
@@ -150,13 +150,14 @@ public class MaterialTextile extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
-
+			String tagNamespace = j.get("tagNamespace").getAsString();
+			
 			boolean string = j.get("loadString").getAsBoolean();
 			boolean block = j.get("loadBlock").getAsBoolean();
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialTextile m = new MaterialTextile(name, string, block);
+			MaterialTextile m = new MaterialTextile(name, tagNamespace, string, block);
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -171,6 +172,7 @@ public class MaterialTextile extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
 			j.addProperty("type", type);
 			j.addProperty("loadString", src.loadString);
 			j.addProperty("loadBlock", src.loadBlock);

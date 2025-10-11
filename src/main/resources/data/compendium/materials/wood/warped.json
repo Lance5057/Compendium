@@ -1,5 +1,6 @@
 {
   "name": "warped",
+  "tagNamespace": "minecraft",
   "type": "WOOD",
   "loadPlanks": false,
   "loadLog": false,

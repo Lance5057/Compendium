@@ -1,5 +1,6 @@
 {
   "name": "black_wool",
+  "tagNamespace": "minecraft",
   "type": "TEXTILE",
   "loadString": false,
   "loadBlock": false,

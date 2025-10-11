@@ -1,5 +1,6 @@
 {
   "name": "netherite",
+  "tagNamespace": "minecraft",
   "type": "METAL",
   "loadIngot": false,
   "loadStorageBlock": false,

@@ -1,5 +1,6 @@
 {
   "name": "birch",
+  "tagNamespace": "minecraft",
   "type": "WOOD",
   "loadPlanks": false,
   "loadLog": false,

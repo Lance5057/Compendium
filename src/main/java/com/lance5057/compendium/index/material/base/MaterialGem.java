@@ -44,12 +44,12 @@ public class MaterialGem extends _MaterialBase {
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
 
-	public MaterialGem(String name) {
-		this(name, true, true, true);
+	public MaterialGem(String name, String tagNamespace) {
+		this(name, tagNamespace, true, true, true);
 	}
 
-	public MaterialGem(String name, boolean gem, boolean block, boolean shard) {
-		super(name);
+	public MaterialGem(String name, String tagNamespace, boolean gem, boolean block, boolean shard) {
+		super(name, tagNamespace);
 		loadGem = gem;
 		loadStorageBlock = block;
 		loadShard = shard;
@@ -140,11 +140,12 @@ public class MaterialGem extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			String tagNamespace = j.get("tagNamespace").getAsString();
 			boolean loadGem = j.get("loadGem").getAsBoolean();
 			boolean loadStorageBlock = j.get("loadStorageBlock").getAsBoolean();
 			boolean loadShard = j.get("loadShard").getAsBoolean();
 
-			return new MaterialGem(name, loadGem, loadStorageBlock, loadShard);
+			return new MaterialGem(name, tagNamespace, loadGem, loadStorageBlock, loadShard);
 		}
 
 		@Override
@@ -152,6 +153,7 @@ public class MaterialGem extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
 			j.addProperty("type", type);
 			j.addProperty("loadGem", src.loadGem);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
@@ -191,7 +193,7 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

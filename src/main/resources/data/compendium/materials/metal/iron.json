@@ -1,5 +1,6 @@
 {
   "name": "iron",
+  "tagNamespace": "minecraft",
   "type": "METAL",
   "loadIngot": false,
   "loadStorageBlock": false,

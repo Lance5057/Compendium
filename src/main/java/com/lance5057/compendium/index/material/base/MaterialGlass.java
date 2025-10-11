@@ -57,13 +57,13 @@ public class MaterialGlass extends _MaterialBase {
 	private TagKey<Item> blockItemTag;
 	private TagKey<Block> blockTag;
 
-	public MaterialGlass(String name) {
-		super(name);
+	public MaterialGlass(String name, String tagNamespace) {
+		super(name, tagNamespace);
 		// TODO Auto-generated constructor stub
 	}
 
-	public MaterialGlass(String name, boolean pane, boolean block) {
-		super(name);
+	public MaterialGlass(String name, String tagNamespace, boolean pane, boolean block) {
+		super(name, tagNamespace);
 		loadPane = pane;
 		loadBlock = block;
 
@@ -178,13 +178,14 @@ public class MaterialGlass extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			String tagNamespace = j.get("tagNamespace").getAsString();
 
 			boolean pane = j.get("loadPane").getAsBoolean();
 			boolean block = j.get("loadBlock").getAsBoolean();
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialGlass m = new MaterialGlass(name, pane, block);
+			MaterialGlass m = new MaterialGlass(name, tagNamespace, pane, block);
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -199,6 +200,7 @@ public class MaterialGlass extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
 			j.addProperty("type", type);
 			j.addProperty("loadPane", src.loadPane);
 			j.addProperty("loadBlock", src.loadBlock);

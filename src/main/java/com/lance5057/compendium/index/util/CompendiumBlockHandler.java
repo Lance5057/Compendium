@@ -5,6 +5,10 @@ import java.util.function.Supplier;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -19,6 +23,9 @@ public class CompendiumBlockHandler {
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
 
+	public TagKey<Item> itemTag;
+	public TagKey<Block> blockTag;
+
 	public CompendiumBlockHandler(String n) {
 		name = n;
 	}
@@ -31,19 +38,24 @@ public class CompendiumBlockHandler {
 		isEnabled = b;
 	}
 
-	public void setup(_MaterialBase base) {
-		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()));
+	public void setup(_MaterialBase base, String tagNamespace, String tagName) {
+		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
+				tagNamespace, tagName);
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block) {
-		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()));
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, String tagNamespace, String tagName) {
+		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), tagNamespace, tagName);
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item) {
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item,
+			String tagNamespace, String tagName) {
 		if (isEnabled) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
 		}
+
+		itemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
+		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {

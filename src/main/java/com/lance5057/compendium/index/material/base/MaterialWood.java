@@ -16,6 +16,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -42,13 +43,13 @@ public class MaterialWood extends _MaterialBase {
 	public CompendiumBlockHandler WOOD = new CompendiumBlockHandler("wood");
 	public CompendiumBlockHandler STRIPPED_WOOD = new CompendiumBlockHandler("stripped_wood");
 
-	public MaterialWood(String name) {
-		this(name, true, true, true, true, true);
+	public MaterialWood(String name, String tagNamespace) {
+		this(name, tagNamespace, true, true, true, true, true);
 	}
 
-	public MaterialWood(String name, boolean planks, boolean log, boolean stripped_log, boolean wood,
+	public MaterialWood(String name, String tagNamespace, boolean planks, boolean log, boolean stripped_log, boolean wood,
 			boolean stripped_wood) {
-		super(name);
+		super(name, tagNamespace);
 
 		PLANKS.setEnabled(planks);
 	}
@@ -60,12 +61,16 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
-		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
-		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
-		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
-		STRIPPED_WOOD.setup(this,
-				() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.tagNamespace,
+				"planks");
+		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.tagNamespace,
+				"log");
+		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
+				this.tagNamespace, "stripped_log");
+		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
+				this.tagNamespace, "wood");
+		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
+				this.tagNamespace, "stripped_wood");
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
@@ -138,13 +143,14 @@ public class MaterialWood extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			String tagNamespace = j.get("tagNamespace").getAsString();
 			boolean plank = j.get("loadPlanks").getAsBoolean();
 			boolean log = j.get("loadLog").getAsBoolean();
 			boolean stripped_log = j.get("loadStrippedLog").getAsBoolean();
 			boolean wood = j.get("loadWood").getAsBoolean();
 			boolean stripped_wood = j.get("loadStrippedWood").getAsBoolean();
 
-			MaterialWood w = new MaterialWood(name, plank, log, stripped_log, wood, stripped_wood);
+			MaterialWood w = new MaterialWood(name, tagNamespace, plank, log, stripped_log, wood, stripped_wood);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -161,6 +167,7 @@ public class MaterialWood extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
 			j.addProperty("type", type);
 			j.addProperty("loadPlanks", src.PLANKS.enabled());
 			j.addProperty("loadLog", src.LOG.enabled());
@@ -220,13 +227,21 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
-		if (ingredient.test(this.LOG.BLOCK_ITEM.toStack()))
-			return this.PLANKS.BLOCK_ITEM.toStack(4);
-		if (ingredient.test(this.PLANKS.BLOCK_ITEM.toStack()))
-			return new ItemStack(Items.STICK, 4);
-		if (ingredient.test(new ItemStack(Items.STICK)))
-			return CompendiumItems.SAWDUST.toStack(2);
-		return ItemStack.EMPTY;
+		ItemStack i = ItemStack.EMPTY;
+		if (LOG.enabled())
+			i = ScrappingUtils.convertBasedOnStack(ingredient, LOG.BLOCK_ITEM.asItem(), PLANKS.BLOCK_ITEM.asItem(), 4);
+		else
+			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, 4);
+
+		if (i.isEmpty())
+			if (PLANKS.enabled())
+				i = ScrappingUtils.convertBasedOnStack(ingredient, PLANKS.BLOCK_ITEM.asItem(), Items.STICK, 2);
+			else
+				i = ScrappingUtils.convertBasedOnTag(ingredient, PLANKS.itemTag, Items.STICK, 2);
+		if (i.isEmpty())
+			i = ScrappingUtils.convertBasedOnStack(ingredient, Items.STICK, CompendiumItems.SAWDUST.asItem(), 2);
+
+		return i;
 	}
 
 	@Override

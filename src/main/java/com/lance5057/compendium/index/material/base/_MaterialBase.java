@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 
 public abstract class _MaterialBase implements IIndexEntry {
 //	public final String TYPE;
+	public String tagNamespace;
 	public String name;
 
 	protected String premadeTier;
@@ -38,9 +39,10 @@ public abstract class _MaterialBase implements IIndexEntry {
 
 	public List<_MaterialExtension> extensions;
 
-	public _MaterialBase(String name) {
+	public _MaterialBase(String name, String tagNamespace) {
 
 		this.name = name;
+		this.tagNamespace = tagNamespace;
 
 		extensions = new ArrayList<_MaterialExtension>();
 	}
@@ -82,7 +84,7 @@ public abstract class _MaterialBase implements IIndexEntry {
 	public String blockFolder() {
 		return "block/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
 	}
-	
+
 	public String itemFolder() {
 		return "item/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
 	}

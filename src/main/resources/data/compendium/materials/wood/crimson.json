@@ -1,5 +1,6 @@
 {
   "name": "crimson",
+  "tagNamespace": "minecraft",
   "type": "WOOD",
   "loadPlanks": false,
   "loadLog": false,

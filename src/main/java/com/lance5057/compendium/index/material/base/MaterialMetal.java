@@ -57,12 +57,12 @@ public class MaterialMetal extends _MaterialBase {
 	private TagKey<Item> blockItemTag;
 	private TagKey<Block> blockTag;
 
-	public MaterialMetal(String name) {
-		this(name, true, true, true);
+	public MaterialMetal(String name, String tagNamespace) {
+		this(name, tagNamespace, true, true, true);
 	}
 
-	public MaterialMetal(String name, boolean ingot, boolean block, boolean nugget) {
-		super(name);
+	public MaterialMetal(String name, String tagNamespace, boolean ingot, boolean block, boolean nugget) {
+		super(name, tagNamespace);
 		loadIngot = ingot;
 		loadStorageBlock = block;
 		loadNugget = nugget;
@@ -184,6 +184,7 @@ public class MaterialMetal extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			String tagNamespace = j.get("tagNamespace").getAsString();
 
 			boolean ingot = j.get("loadIngot").getAsBoolean();
 			boolean block = j.get("loadStorageBlock").getAsBoolean();
@@ -201,7 +202,7 @@ public class MaterialMetal extends _MaterialBase {
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialMetal m = new MaterialMetal(name, ingot, block, nugget);
+			MaterialMetal m = new MaterialMetal(name, tagNamespace, ingot, block, nugget);
 
 			if (tier != null && !tier.isEmpty())
 				m.setupTier(tier);
@@ -221,6 +222,8 @@ public class MaterialMetal extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
+			
 			j.addProperty("type", type);
 			j.addProperty("loadIngot", src.loadIngot);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
@@ -288,10 +291,16 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
 		ItemStack i = ItemStack.EMPTY;
-		i = ScrappingUtils.convertBasedOnTagOrStack(ingredient, blockItemTag, loadStorageBlock, BLOCK_ITEM, INGOT, 9);
-		if (i.isEmpty())
-			i = ScrappingUtils.convertBasedOnTagOrStack(ingredient, ingotTag, loadIngot, INGOT, NUGGET, 9);
-
+		if (this.loadStorageBlock)
+			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK_ITEM.get(), INGOT.get(), 9);
+		else
+			i = ScrappingUtils.convertBasedOnTag(ingredient, blockItemTag, 9);
+		if (i.isEmpty()) {
+			if (this.loadIngot)
+				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.get(), NUGGET.get(), 9);
+			else
+				i = ScrappingUtils.convertBasedOnTag(ingredient, ingotTag, 9);
+		}
 		return i;
 	}
 

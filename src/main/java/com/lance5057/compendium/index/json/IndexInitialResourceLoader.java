@@ -16,7 +16,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
@@ -29,21 +28,15 @@ import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
-import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
-import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialTextile;
 import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
-import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
-import com.lance5057.compendium.index.material.extensions.stone.ExtensionStoneStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -107,13 +100,13 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1))
 //				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
-		buildDefault(new MaterialMetal("iron", false, false, false)
+		buildDefault(new MaterialMetal("iron", "minecraft", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true)));
-		buildDefault(new MaterialMetal("gold", false, false, false)
+		buildDefault(new MaterialMetal("gold", "minecraft", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
-		buildDefault(new MaterialMetal("copper", false, false, false)
+		buildDefault(new MaterialMetal("copper", "minecraft", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
-		buildDefault(new MaterialMetal("netherite", false, false, false)
+		buildDefault(new MaterialMetal("netherite", "minecraft", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
 
 //		buildDefault(new MaterialGlass("clear_glass", false, false));
@@ -135,35 +128,35 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialGlass("pink_glass", false, false));
 //		buildDefault(new MaterialGlass("tinted_glass", false, false));
 
-		buildDefault(new MaterialWood("oak", false, false, false, false, false)
+		buildDefault(new MaterialWood("oak", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("birch", false, false, false, false, false)
+		buildDefault(new MaterialWood("birch", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("spruce", false, false, false, false, false)
+		buildDefault(new MaterialWood("spruce", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("jungle", false, false, false, false, false)
+		buildDefault(new MaterialWood("jungle", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("acacia", false, false, false, false, false)
+		buildDefault(new MaterialWood("acacia", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("dark_oak", false, false, false, false, false)
+		buildDefault(new MaterialWood("dark_oak", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("mangrove", false, false, false, false, false)
+		buildDefault(new MaterialWood("mangrove", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("cherry", false, false, false, false, false)
+		buildDefault(new MaterialWood("cherry", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("crimson", false, false, false, false, false)
+		buildDefault(new MaterialWood("crimson", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
-		buildDefault(new MaterialWood("warped", false, false, false, false, false)
+		buildDefault(new MaterialWood("warped", "minecraft", false, false, false, false, false)
 				.addExtension(new ExtensionExtraLogs(true, true, true, true, true, true, true, true))
 				.addExtension(new ExtensionExtraPlanks(true, true, true, true)));
 		// buildDefault(new MaterialWood("pale_oak", false).addExtension(new
@@ -196,22 +189,22 @@ public class IndexInitialResourceLoader {
 //				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
-		buildDefault(new MaterialTextile("white_wool", false, false));
-		buildDefault(new MaterialTextile("light_gray_wool", false, false));
-		buildDefault(new MaterialTextile("gray_wool", false, false));
-		buildDefault(new MaterialTextile("black_wool", false, false));
-		buildDefault(new MaterialTextile("brown_wool", false, false));
-		buildDefault(new MaterialTextile("red_wool", false, false));
-		buildDefault(new MaterialTextile("orange_wool", false, false));
-		buildDefault(new MaterialTextile("yellow_wool", false, false));
-		buildDefault(new MaterialTextile("lime_wool", false, false));
-		buildDefault(new MaterialTextile("green_wool", false, false));
-		buildDefault(new MaterialTextile("cyan_wool", false, false));
-		buildDefault(new MaterialTextile("light_blue_wool", false, false));
-		buildDefault(new MaterialTextile("blue_wool", false, false));
-		buildDefault(new MaterialTextile("purple_wool", false, false));
-		buildDefault(new MaterialTextile("magenta_wool", false, false));
-		buildDefault(new MaterialTextile("pink_wool", false, false));
+		buildDefault(new MaterialTextile("white_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("gray_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("black_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("brown_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("red_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("orange_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("yellow_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("lime_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("green_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("cyan_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("blue_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("purple_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("magenta_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("pink_wool", "minecraft", false, false));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

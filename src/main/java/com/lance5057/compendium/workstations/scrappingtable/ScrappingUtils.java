@@ -10,7 +10,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ScrappingUtils {
 	public static ItemStack breakDownItem(Ingredient ingredient) {
@@ -24,16 +23,28 @@ public class ScrappingUtils {
 		return ItemStack.EMPTY;
 	}
 
-	public static ItemStack convertBasedOnTagOrStack(Ingredient ingredient, TagKey<Item> tag, boolean loaded,
-			DeferredItem<? extends Item> itemIn, DeferredItem<? extends Item> itemOut, int countOut) {
-		if (loaded && itemIn != null && itemOut != null) {
-			if (ingredient.test(itemIn.toStack()))
-				return itemOut.toStack(countOut);
-		} else {
+	public static ItemStack convertBasedOnTag(Ingredient ingredient, TagKey<Item> tag, int countOut) {
+		if (tag != null) {
 			Optional<ItemStack> r = Arrays.asList(ingredient.getItems()).stream().filter(i -> i.is(tag)).findFirst();
 			if (r.isPresent())
 				return r.get().copyWithCount(countOut);
 		}
+		return ItemStack.EMPTY;
+	}
+
+	public static ItemStack convertBasedOnTag(Ingredient ingredient, TagKey<Item> tag, Item itemOut, int countOut) {
+		if (tag != null) {
+			Optional<ItemStack> r = Arrays.asList(ingredient.getItems()).stream().filter(i -> i.is(tag)).findFirst();
+			if (r.isPresent())
+				return new ItemStack(itemOut, countOut);
+		}
+		return ItemStack.EMPTY;
+	}
+
+	public static ItemStack convertBasedOnStack(Ingredient ingredient, Item itemIn, Item itemOut, int countOut) {
+		if (ingredient.test(new ItemStack(itemIn)))
+			return new ItemStack(itemOut, countOut);
+
 		return ItemStack.EMPTY;
 	}
 }

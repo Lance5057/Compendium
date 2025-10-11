@@ -1,9 +1,10 @@
 package com.lance5057.compendium.index.material.extensions.wood;
 
+import static com.lance5057.compendium.util.TagUtil.mcLoc;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -14,17 +15,13 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
-import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -57,8 +54,6 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-import static com.lance5057.compendium.util.TagUtil.mcLoc;
-
 public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK;
 	public final CompendiumBlockHandler PLANK_BLOCK;
@@ -81,20 +76,27 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		PLANK.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+		PLANK.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
+				base.tagNamespace, "plank");
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
-						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				base.tagNamespace, "planks");
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_SLAB.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
-						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				base.tagNamespace, "planks/slab");
 		PLANK_STAIRS.setup(base,
 				() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
-						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				base.tagNamespace, "planks/stairs");
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_SLAB.BLOCK);
@@ -190,6 +192,116 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}
 	}
 
+//	public void styledStairs(Block block, String location, BlockStateProvider bsp) {
+//		bsp.getVariantBuilder(block).forAllStates(s -> {
+//			Direction facing = s.getValue(StairStyleBlock.FACING);
+//			Half half = s.getValue(StairStyleBlock.HALF);
+//			StairsShape shape = s.getValue(StairStyleBlock.SHAPE);
+//
+//			if (half == Half.TOP) {
+//				switch (shape) {
+//				case StairsShape.STRAIGHT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "top_straight_south", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "top_straight_north", bsp);
+//					case Direction.EAST:
+//						return stair(location, "top_straight_west", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "top_straight_east", bsp);
+//					}
+//				case StairsShape.INNER_LEFT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "top_inner_corner_north_west", bsp);
+//					case Direction.EAST:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					}
+//
+//				case StairsShape.INNER_RIGHT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "top_inner_corner_north_west", bsp);
+//					case Direction.EAST:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "top_inner_corner_north_east", bsp);
+//					}
+//				case StairsShape.OUTER_LEFT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "top_outer_corner_north_east", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "top_outer_corner_north_west", bsp);
+//					case Direction.EAST:
+//						return stair(location, "top_outer_corner_north_east", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "top_outer_corner_north_east", bsp);
+//					}
+//				case StairsShape.OUTER_RIGHT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "top_outer_corner_north_east", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "top_outer_corner_north_west", bsp);
+//					case Direction.EAST:
+//						return stair(location, "top_outer_corner_north_west", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "top_outer_corner_north_east", bsp);
+//					}
+//				}
+//			} else {
+//				switch (shape) {
+//				case StairsShape.STRAIGHT:
+//					switch (facing) {
+//					case Direction.NORTH:
+//						return stair(location, "bottom_straight_south", bsp);
+//					case Direction.SOUTH:
+//						return stair(location, "bottom_straight_north", bsp);
+//					case Direction.EAST:
+//						return stair(location, "bottom_straight_west", bsp);
+//					default:
+//					case Direction.WEST:
+//						return stair(location, "bottom_straight_east", bsp);
+//					}
+//				case StairsShape.INNER_LEFT:
+//					return stair(location, "bottom_inner_corner_north_east", bsp);
+//				case StairsShape.INNER_RIGHT:
+//					return stair(location, "bottom_inner_corner_north_west", bsp);
+//				case StairsShape.OUTER_LEFT:
+//					return stair(location, "bottom_outer_corner_south_east", bsp);
+//				case StairsShape.OUTER_RIGHT:
+//					return stair(location, "bottom_outer_corner_south_west", bsp);
+//				}
+//			}
+//			return null;
+//		});
+//	}
+
+	private ConfiguredModel[] stair(String location, String suffix, BlockStateProvider bsp) {
+		StyleBlockModelBuilder<BlockModelBuilder> model = bsp.models().getBuilder(location + "_stairs_" + suffix)
+				.customLoader(StyleBlockModelBuilder::begin);
+		model.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+		for (String style : StyleData.PLANKS.getTypes())
+			model.add(new StyleModelBuilder(style,
+					bsp.modLoc(location + "stairs/" + style.toLowerCase() + "_" + suffix)));
+
+		return ConfiguredModel.builder().modelFile(model.end()).build();
+	}
+
 	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
 			BlockStateProvider bsp) {
 		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
@@ -218,35 +330,49 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		for (String s : StyleData.PLANKS.getTypes()) {
 			if (s.equals("walkway_vertical")) {
-				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.modLoc("block/cube_all_rotated"))
-						.texture("all", mcLoc("block/" + base.name + "_planks"));
+				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s,
+						ibmp.modLoc("block/cube_all_rotated")).texture("all", mcLoc("block/" + base.name + "_planks"));
 
-				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
+				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom",
+						ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
 						.texture("all", mcLoc("block/" + base.name + "_planks"));
-				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc("block/bases/slab/slab_rotated_top"))
+				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top",
+						ibmp.modLoc("block/bases/slab/slab_rotated_top"))
 						.texture("all", mcLoc("block/" + base.name + "_planks"));
-				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full", ibmp.modLoc("block/cube_all_rotated"))
-						.texture("all", mcLoc("block/" + base.name + "_planks"));
+				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
+						ibmp.modLoc("block/cube_all_rotated")).texture("all", mcLoc("block/" + base.name + "_planks"));
 
-				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc("block/bases/stairs/stairs_rotated"))
+				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
+						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
 						.texture("all", mcLoc("block/" + base.name + "_planks"));
 
 			} else {
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 						.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
-				ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full", ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank one?
+				ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top",
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank
+																			// one?
 
 				ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer", ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s), ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner",
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+				ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer",
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 			}
 		}
 	}

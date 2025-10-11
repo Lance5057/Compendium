@@ -49,8 +49,8 @@ public class MaterialStone extends _MaterialBase {
 	public DeferredItem<BlockItem> SMOOTH_ITEM;
 	public DeferredBlock<Block> SMOOTH;
 
-	public MaterialStone(String name, boolean cobble, boolean stone, boolean smooth) {
-		super(name);
+	public MaterialStone(String name, String tagNamespace, boolean cobble, boolean stone, boolean smooth) {
+		super(name, tagNamespace);
 
 		this.loadCobblestone = cobble;
 		this.loadSmooth = smooth;
@@ -169,11 +169,12 @@ public class MaterialStone extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
+			String tagNamespace = j.get("tagNamespace").getAsString();
 			boolean cobble = j.get("loadCobblestone").getAsBoolean();
 			boolean smooth = j.get("loadSmooth").getAsBoolean();
 			boolean stone = j.get("loadStone").getAsBoolean();
 
-			MaterialStone w = new MaterialStone(name, cobble, stone, smooth);
+			MaterialStone w = new MaterialStone(name, tagNamespace, cobble, stone, smooth);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -190,6 +191,7 @@ public class MaterialStone extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
+			j.addProperty("tagNamespace", src.tagNamespace);
 			j.addProperty("type", type);
 			j.addProperty("loadCobblestone", src.loadCobblestone);
 			j.addProperty("loadSmooth", src.loadSmooth);
@@ -230,7 +232,7 @@ public class MaterialStone extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

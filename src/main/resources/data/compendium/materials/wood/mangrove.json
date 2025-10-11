@@ -1,5 +1,6 @@
 {
   "name": "mangrove",
+  "tagNamespace": "minecraft",
   "type": "WOOD",
   "loadPlanks": false,
   "loadLog": false,

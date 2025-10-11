@@ -21,8 +21,8 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MaterialDust extends _MaterialBase {
 
-	public MaterialDust(String name) {
-		super(name);
+	public MaterialDust(String name, String tagNamespace) {
+		super(name, tagNamespace);
 		// TODO Auto-generated constructor stub
 	}
 

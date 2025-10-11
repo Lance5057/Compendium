@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.blocks.StairStyleBlock;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
@@ -13,6 +14,8 @@ import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBu
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
+import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
+import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
@@ -843,4 +846,5 @@ public class BlockModels extends BlockStateProvider {
 			}
 		});
 	}
+
 }

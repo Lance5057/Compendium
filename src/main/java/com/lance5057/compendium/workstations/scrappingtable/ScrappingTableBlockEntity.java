@@ -1,12 +1,16 @@
 package com.lance5057.compendium.workstations.scrappingtable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.util.ItemUtil;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
 import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
+import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 import com.lance5057.compendium.workstations.scrappingtable.scrapping_rules.IScrappingRule;
 import com.lance5057.compendium.workstations.scrappingtable.scrapping_rules.ScrappingRulesRegistry;
@@ -16,6 +20,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
@@ -27,13 +32,16 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 		super(1, 1, 1, CompendiumBlockEntities.SCRAPPING_TABLE.get(), pos, state);
 	}
 
+	private List<AnimatedRecipeItemUse> specialRecipe = null;
+	private List<ItemStack> specialCache = null;
+
 	private final CachedCheck<MultiToolRecipeWrapper, ScrappingTableRecipe> quickCheck = RecipeManager
 			.createCheck(WorkstationRecipes.SCRAPPINGTABLE_RECIPE.get());
 
 	@Override
 	public Optional<RecipeHolder<ScrappingTableRecipe>> matchRecipe() {
 		Optional<RecipeHolder<ScrappingTableRecipe>> recipe = Optional.empty();
-		if (this.level != null && this.getInventory() != null) {
+		if (this.level != null && this.getInventory() != null && specialCache == null) {
 			recipe = this.quickCheck.getRecipeFor(MultiToolRecipeWrapper.of(this.getInventory()), level);
 			if (recipe.isEmpty()) {
 				// search for item's recipe
@@ -45,7 +53,13 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 				if (other.isPresent()) {
 					Optional<IScrappingRule> rule = ScrappingRulesRegistry.getRule(other.get());
 					if (rule.isPresent()) {
-						rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
+						specialCache = rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
+						specialRecipe = new ArrayList<AnimatedRecipeItemUse>();
+
+						for (int i = 0; i < level.random.nextInt(3) + 2; i++) {
+							AnimatedRecipeItemUse ariu = new AnimatedRecipeItemUse(level.random.nextInt(3) + 1,
+									getRandomScrappingTool(), 1, true, null, null, null);
+						}
 					}
 				}
 			}
@@ -53,10 +67,23 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 		return recipe;
 	}
 
+	private Ingredient getRandomScrappingTool() {
+		switch (level.random.nextInt(2)) {
+		case 0:
+			return Ingredient.of(CompendiumTags.HAMMER);
+		case 1:
+		default:
+			return Ingredient.of(CompendiumTags.PRYBAR);
+		}
+	}
+
 	@Override
 	protected BlockEntityItemHandler createItemHandler() {
 		return new BlockEntityItemHandler(this, 1) {
-
+			@Override
+			protected void onContentsChanged(int slot) {
+				specialCache = null;
+			}
 		};
 	}
 
