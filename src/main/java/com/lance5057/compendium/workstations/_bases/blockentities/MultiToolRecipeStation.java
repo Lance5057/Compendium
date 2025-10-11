@@ -41,10 +41,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public static final String INVENTORY_TAG = "inv";
 
 	public boolean recipeLocked = false;
-	private ItemStack lastUsed = ItemStack.EMPTY;
-	private int progress;
-	private int maxProgress;
-	private Ingredient curTool;
+	protected ItemStack lastUsed = ItemStack.EMPTY;
+	protected int progress;
+	protected int maxProgress;
+	protected Ingredient curTool;
 	public int toolCount;
 	public int stage = 0;
 	public final int width;
@@ -52,7 +52,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	public final int numSlots;
 
 	protected final BlockEntityItemHandler inventory = createItemHandler();
-	private final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
+	protected final Lazy<BlockEntityItemHandler> itemHandler = Lazy.of(() -> inventory);
 
 	public HashSet<BlockPos> toolSuppliers = new HashSet<BlockPos>();
 
@@ -132,10 +132,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.curTool = r.getTools().get(i).tool();
 		this.toolCount = r.getTools().get(i).count();
 
-		this.stage = i;
+//		this.stage = i;
 	}
 
-	boolean isFinalStage(V r) {
+	protected boolean isFinalStage(V r) {
 		int i = r.getTools().size();
 		if (i - 1 > stage) {
 			return false;
@@ -200,13 +200,13 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		return ItemInteractionResult.SUCCESS;
 	}
 
-	private void doNextStage(Level pLevel, Player player, InteractionHand hand, RecipeHolder<V> r) {
+	protected void doNextStage(Level pLevel, Player player, InteractionHand hand, RecipeHolder<V> r) {
 		dropLoot(r.value().getTools().get(stage), player);
 		setupStage(r.value(), stage + 1);
 		searchForNextItem(pLevel, player, hand, curTool);
 	}
 
-	private void dropLoot(AnimatedRecipeItemUse recipeToolsIn, Player player) {
+	protected void dropLoot(AnimatedRecipeItemUse recipeToolsIn, Player player) {
 		if (level != null && !level.isClientSide()) {
 			final LootParams pParams = new LootParams.Builder((ServerLevel) level)
 					.withParameter(LootContextParams.TOOL, player.getMainHandItem())
@@ -225,7 +225,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		}
 	}
 
-	private void doFinalStage(Player player, ItemStack tool, RecipeHolder<V> r) {
+	protected void doFinalStage(Player player, ItemStack tool, RecipeHolder<V> r) {
 		for (int i = 0; i < 5; i++) {
 			addParticle();
 		}

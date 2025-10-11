@@ -181,6 +181,10 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			itp.tag(CompendiumTags.HAMMER).add(this.HAMMER.get());
 			itp.tag(Tags.Items.TOOLS).add(this.HAMMER.get());
 		}
+		if(loadPrybar) {
+			itp.tag(CompendiumTags.PRYBAR).add(this.PRYBAR.get());
+			itp.tag(Tags.Items.TOOLS).add(this.PRYBAR.get());
+		}
 	}
 
 	@Override
