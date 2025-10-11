@@ -100,8 +100,8 @@
   "walkway": {
     "model": "compendium:block/material/wood/cherry/stairs/walkway_inner"
   },
-  "walkway_vertical": {
-    "model": "compendium:block/material/wood/cherry/stairs/walkway_vertical_inner"
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/cherry/stairs/walkway_rotated_inner"
   },
   "wicker": {
     "model": "compendium:block/material/wood/cherry/stairs/wicker_inner"

@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/stairs/stairs_bottom_outer_corner_south_west",
+  "parent": "compendium:block/bases/stairs/stairs_rotated",
   "textures": {
     "all": "compendium:block/material/wood/warped/planks/walkway"
   }

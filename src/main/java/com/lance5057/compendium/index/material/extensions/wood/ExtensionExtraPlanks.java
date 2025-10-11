@@ -165,13 +165,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-					if (s.endsWith("_rotated")) {
-						styledStairsStraight(plank_stairs_standard, PLANK.location(base), s,
-								bsp);
-					} else {
+//					if (s.endsWith("_rotated")) {
+//						styledStairsStraight(plank_stairs_standard, PLANK.location(base), s,
+//								bsp);
+//					} else {
 						plank_stairs_standard.add(new StyleModelBuilder(s,
 								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
-					}
+//					}
 				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inner = bsp.models()
@@ -180,12 +180,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_inner.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-					if (s.endsWith("_rotated")) {
-						styledStairsInner(plank_stairs_inner, PLANK.location(base), s, bsp);
-					} else {
+//					if (s.endsWith("_rotated")) {
+//						styledStairsInner(plank_stairs_inner, PLANK.location(base), s, bsp);
+//					} else {
 						plank_stairs_inner.add(new StyleModelBuilder(s,
 								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
-					}
+//					}
 				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_outer = bsp.models()
@@ -194,12 +194,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_outer.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-					if (s.endsWith("_rotated")) {
-						styledStairsOuter(plank_stairs_outer, PLANK.location(base), s, bsp);
-					} else {
+//					if (s.endsWith("_rotated")) {
+//						styledStairsOuter(plank_stairs_outer, PLANK.location(base), s, bsp);
+//					} else {
 						plank_stairs_outer.add(new StyleModelBuilder(s,
 								bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
-					}
+//					}
 				}
 
 				stairsBlock((StairBlock) PLANK_STAIRS.BLOCK.get(), plank_stairs_standard.end(),
@@ -208,81 +208,81 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}
 	}
 
-	public void styledStairsStraight(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
-			String style, BlockStateProvider bsp) {
-		stair(model, location, "top_straight_south", style, bsp);
-		stair(model, location, "top_straight_north", style, bsp);
-		stair(model, location, "top_straight_west", style, bsp);
-		stair(model, location, "top_straight_east", style, bsp);
-		stair(model, location, "bottom_straight_south", style, bsp);
-		stair(model, location, "bottom_straight_north", style, bsp);
-		stair(model, location, "bottom_straight_west", style, bsp);
-		stair(model, location, "bottom_straight_east", style, bsp);
-	}
+//	public void styledStairsStraight(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
+//			String style, BlockStateProvider bsp) {
+//		stair(model, location, "top_straight_south", style, bsp);
+//		stair(model, location, "top_straight_north", style, bsp);
+//		stair(model, location, "top_straight_west", style, bsp);
+//		stair(model, location, "top_straight_east", style, bsp);
+//		stair(model, location, "bottom_straight_south", style, bsp);
+//		stair(model, location, "bottom_straight_north", style, bsp);
+//		stair(model, location, "bottom_straight_west", style, bsp);
+//		stair(model, location, "bottom_straight_east", style, bsp);
+//	}
+//
+//	public void styledStairsInner(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
+//			String style, BlockStateProvider bsp) {
+//		stair(model, location, "top_inner_corner_north_east", style, bsp);
+//		stair(model, location, "top_inner_corner_north_west", style, bsp);
+//		stair(model, location, "top_inner_corner_south_east", style, bsp);
+//		stair(model, location, "top_inner_corner_south_west", style, bsp);
+//		stair(model, location, "bottom_inner_corner_north_east", style, bsp);
+//		stair(model, location, "bottom_inner_corner_north_west", style, bsp);
+//		stair(model, location, "bottom_inner_corner_south_east", style, bsp);
+//		stair(model, location, "bottom_inner_corner_south_west", style, bsp);
+//	}
+//
+//	public void styledStairsOuter(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
+//			String style, BlockStateProvider bsp) {
+//		stair(model, location, "top_outer_corner_north_east", style, bsp);
+//		stair(model, location, "top_outer_corner_north_west", style, bsp);
+//		stair(model, location, "top_outer_corner_south_east", style, bsp);
+//		stair(model, location, "top_outer_corner_south_west", style, bsp);
+//		stair(model, location, "bottom_outer_corner_north_east", style, bsp);
+//		stair(model, location, "bottom_outer_corner_north_west", style, bsp);
+//		stair(model, location, "bottom_outer_corner_south_east", style, bsp);
+//		stair(model, location, "bottom_outer_corner_south_west", style, bsp);
+//	}
+//
+//	private void stair(StyleBlockModelBuilder<BlockModelBuilder> model, String location, String suffix, String style,
+//			BlockStateProvider bsp) {
+//		model.add(new StyleModelBuilder(style, bsp.modLoc(location + "stairs/" + style.toLowerCase() + "_" + suffix)));
+//	}
 
-	public void styledStairsInner(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
-			String style, BlockStateProvider bsp) {
-		stair(model, location, "top_inner_corner_north_east", style, bsp);
-		stair(model, location, "top_inner_corner_north_west", style, bsp);
-		stair(model, location, "top_inner_corner_south_east", style, bsp);
-		stair(model, location, "top_inner_corner_south_west", style, bsp);
-		stair(model, location, "bottom_inner_corner_north_east", style, bsp);
-		stair(model, location, "bottom_inner_corner_north_west", style, bsp);
-		stair(model, location, "bottom_inner_corner_south_east", style, bsp);
-		stair(model, location, "bottom_inner_corner_south_west", style, bsp);
-	}
-
-	public void styledStairsOuter(StyleBlockModelBuilder<BlockModelBuilder> model, String location,
-			String style, BlockStateProvider bsp) {
-		stair(model, location, "top_outer_corner_north_east", style, bsp);
-		stair(model, location, "top_outer_corner_north_west", style, bsp);
-		stair(model, location, "top_outer_corner_south_east", style, bsp);
-		stair(model, location, "top_outer_corner_south_west", style, bsp);
-		stair(model, location, "bottom_outer_corner_north_east", style, bsp);
-		stair(model, location, "bottom_outer_corner_north_west", style, bsp);
-		stair(model, location, "bottom_outer_corner_south_east", style, bsp);
-		stair(model, location, "bottom_outer_corner_south_west", style, bsp);
-	}
-
-	private void stair(StyleBlockModelBuilder<BlockModelBuilder> model, String location, String suffix, String style,
-			BlockStateProvider bsp) {
-		model.add(new StyleModelBuilder(style, bsp.modLoc(location + "stairs/" + style.toLowerCase() + "_" + suffix)));
-	}
-
-	private void stairModel(_MaterialBase base, String suffix, String style,
-							IndexBlockModelProvider ibmp) {
-		String texture = style.replaceAll("_rotated", "");
-		ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + style,
-						ibmp.modLoc("block/bases/stairs/stairs_" + suffix))
-				.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-	}
-
-	public void styledStairsModels(_MaterialBase base, String style, IndexBlockModelProvider ibmp) {
-		stairModel(base, "top_straight_south", style, ibmp);
-		stairModel(base, "top_straight_north", style, ibmp);
-		stairModel(base, "top_straight_west", style, ibmp);
-		stairModel(base, "top_straight_east", style, ibmp);
-		stairModel(base, "bottom_straight_south", style, ibmp);
-		stairModel(base, "bottom_straight_north", style, ibmp);
-		stairModel(base, "bottom_straight_west", style, ibmp);
-		stairModel(base, "bottom_straight_east", style, ibmp);
-		stairModel(base, "top_inner_corner_north_east", style, ibmp);
-		stairModel(base, "top_inner_corner_north_west", style, ibmp);
-		stairModel(base, "top_inner_corner_south_east", style, ibmp);
-		stairModel(base, "top_inner_corner_south_west", style, ibmp);
-		stairModel(base, "bottom_inner_corner_north_east", style, ibmp);
-		stairModel(base, "bottom_inner_corner_north_west", style, ibmp);
-		stairModel(base, "bottom_inner_corner_south_east", style, ibmp);
-		stairModel(base, "bottom_inner_corner_south_west", style, ibmp);
-		stairModel(base, "top_outer_corner_north_east", style, ibmp);
-		stairModel(base, "top_outer_corner_north_west", style, ibmp);
-		stairModel(base, "top_outer_corner_south_east", style, ibmp);
-		stairModel(base, "top_outer_corner_south_west", style, ibmp);
-		stairModel(base, "bottom_outer_corner_north_east", style, ibmp);
-		stairModel(base, "bottom_outer_corner_north_west", style, ibmp);
-		stairModel(base, "bottom_outer_corner_south_east", style, ibmp);
-		stairModel(base, "bottom_outer_corner_south_west", style, ibmp);
-	}
+//	private void stairModel(_MaterialBase base, String suffix, String style,
+//							IndexBlockModelProvider ibmp) {
+//		String texture = style.replaceAll("_rotated", "");
+//		ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + style,
+//						ibmp.modLoc("block/bases/stairs/stairs_" + suffix))
+//				.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//	}
+//
+//	public void styledStairsModels(_MaterialBase base, String style, IndexBlockModelProvider ibmp) {
+//		stairModel(base, "top_straight_south", style, ibmp);
+//		stairModel(base, "top_straight_north", style, ibmp);
+//		stairModel(base, "top_straight_west", style, ibmp);
+//		stairModel(base, "top_straight_east", style, ibmp);
+//		stairModel(base, "bottom_straight_south", style, ibmp);
+//		stairModel(base, "bottom_straight_north", style, ibmp);
+//		stairModel(base, "bottom_straight_west", style, ibmp);
+//		stairModel(base, "bottom_straight_east", style, ibmp);
+//		stairModel(base, "top_inner_corner_north_east", style, ibmp);
+//		stairModel(base, "top_inner_corner_north_west", style, ibmp);
+//		stairModel(base, "top_inner_corner_south_east", style, ibmp);
+//		stairModel(base, "top_inner_corner_south_west", style, ibmp);
+//		stairModel(base, "bottom_inner_corner_north_east", style, ibmp);
+//		stairModel(base, "bottom_inner_corner_north_west", style, ibmp);
+//		stairModel(base, "bottom_inner_corner_south_east", style, ibmp);
+//		stairModel(base, "bottom_inner_corner_south_west", style, ibmp);
+//		stairModel(base, "top_outer_corner_north_east", style, ibmp);
+//		stairModel(base, "top_outer_corner_north_west", style, ibmp);
+//		stairModel(base, "top_outer_corner_south_east", style, ibmp);
+//		stairModel(base, "top_outer_corner_south_west", style, ibmp);
+//		stairModel(base, "bottom_outer_corner_north_east", style, ibmp);
+//		stairModel(base, "bottom_outer_corner_north_west", style, ibmp);
+//		stairModel(base, "bottom_outer_corner_south_east", style, ibmp);
+//		stairModel(base, "bottom_outer_corner_south_west", style, ibmp);
+//	}
 
 	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
 			BlockStateProvider bsp) {
@@ -299,7 +299,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				yRot += 90; // Top stairs are rotated 90 degrees clockwise
 			}
 			yRot %= 360;
-//			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
 			return ConfiguredModel.builder()
 					.modelFile(shape == StairsShape.STRAIGHT ? stairs
 							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
@@ -325,10 +325,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
 						ibmp.modLoc("block/cube_all_rotated")).texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 
-				styledStairsModels(base, s, ibmp);
-//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
-//						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
-//						.texture("all", mcLoc("block/" + base.name + "_planks"));
+//				styledStairsModels(base, s, ibmp);
+				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
+						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
+						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 
 			} else {
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))

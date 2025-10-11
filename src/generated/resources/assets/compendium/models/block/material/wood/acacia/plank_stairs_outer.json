@@ -100,8 +100,8 @@
   "walkway": {
     "model": "compendium:block/material/wood/acacia/stairs/walkway_outer"
   },
-  "walkway_vertical": {
-    "model": "compendium:block/material/wood/acacia/stairs/walkway_vertical_outer"
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/walkway_rotated_outer"
   },
   "wicker": {
     "model": "compendium:block/material/wood/acacia/stairs/wicker_outer"

@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/stairs",
+  "parent": "compendium:block/bases/stairs/stairs_rotated",
   "textures": {
-    "bottom": "compendium:block/material/wood/jungle/planks/diagonal_rotated",
-    "side": "compendium:block/material/wood/jungle/planks/diagonal_rotated",
-    "top": "compendium:block/material/wood/jungle/planks/diagonal_rotated"
+    "all": "compendium:block/material/wood/jungle/planks/diagonal"
   }
 }
