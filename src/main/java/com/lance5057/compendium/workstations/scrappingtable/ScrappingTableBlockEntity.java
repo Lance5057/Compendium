@@ -69,8 +69,8 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 						specialRecipeDrops = rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
 						specialRecipe = new ArrayList<AnimatedRecipeItemUse>();
 
-						for (int i = 0; i < level.random.nextInt(3) + 2; i++) {
-							specialRecipe.add(getRandomScrappingTool());
+						for (int i = 0; i < 2; i++) {
+							specialRecipe.add(getRandomScrappingTool(i));
 						}
 					}
 				}
@@ -79,15 +79,15 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 		return recipe;
 	}
 
-	private AnimatedRecipeItemUse getRandomScrappingTool() {
-		switch (level.random.nextInt(2)) {
+	private AnimatedRecipeItemUse getRandomScrappingTool(int i) {
+		switch (i) {
 		case 0:
-			return new AnimatedRecipeItemUse(level.random.nextInt(3) + 2, Ingredient.of(CompendiumTags.HAMMER), 1, true,
-					null, List.of(), List.of(standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0)));
+			return new AnimatedRecipeItemUse(3, Ingredient.of(CompendiumTags.HAMMER), 1, true, null, List.of(),
+					List.of(standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0)));
 		case 1:
 		default:
-			return new AnimatedRecipeItemUse(level.random.nextInt(3) + 2, Ingredient.of(CompendiumTags.PRYBAR), 1, true,
-					null, List.of(), List.of(standardHammeringModel(TagUtil.modLoc("gold_prybar"), 0)));
+			return new AnimatedRecipeItemUse(3, Ingredient.of(CompendiumTags.PRYBAR), 1, true, null, List.of(),
+					List.of(standardHammeringModel(TagUtil.modLoc("gold_prybar"), 0)));
 		}
 	}
 
@@ -206,35 +206,27 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 	@Override
 	protected void readNBTExtra(CompoundTag arg0, Provider arg1) {
-		this.useSpecialRecipe = arg0.getBoolean("isSpecial");
-
-		CompoundTag sDrops = arg0.getCompound("specialDrops");
-		int count = sDrops.getInt("count");
-
-		for (int i = 0; i < count; i++) {
-			ItemStack s = ItemStack.parseOptional(arg1, (CompoundTag) sDrops.get("specialDrop" + i));
-			specialRecipeDrops.add(s);
-		}
-		
-		CompoundTag sRecipe = arg0.getCompound("specialRecipe");
-		int c = sRecipe.getInt("count");
-		
-		for(int i = 0; i < c; i++)
-		{
-
-		}
+//		this.useSpecialRecipe = arg0.getBoolean("isSpecial");
+//
+//		CompoundTag sDrops = arg0.getCompound("specialDrops");
+//		int count = sDrops.getInt("count");
+//
+//		for (int i = 0; i < count; i++) {
+//			ItemStack s = ItemStack.parseOptional(arg1, (CompoundTag) sDrops.get("specialDrop" + i));
+//			specialRecipeDrops.add(s);
+//		}
 
 	}
 
 	@Override
 	protected void writeNBTExtra(CompoundTag arg0, Provider arg1) {
-		arg0.putBoolean("isSpecial", this.useSpecialRecipe);
-
-		CompoundTag sDrops = new CompoundTag();
-		for (int i = 0; i < this.specialRecipeDrops.size(); i++)
-			sDrops.put("specialDrop" + i, specialRecipeDrops.get(i).save(arg1));
-		sDrops.putInt("count", specialRecipeDrops.size());
-		arg0.put("specialDrops", sDrops);
+//		arg0.putBoolean("isSpecial", this.useSpecialRecipe);
+//
+//		CompoundTag sDrops = new CompoundTag();
+//		for (int i = 0; i < this.specialRecipeDrops.size(); i++)
+//			sDrops.put("specialDrop" + i, specialRecipeDrops.get(i).save(arg1));
+//		sDrops.putInt("count", specialRecipeDrops.size());
+//		arg0.put("specialDrops", sDrops);
 	}
 
 	@Override

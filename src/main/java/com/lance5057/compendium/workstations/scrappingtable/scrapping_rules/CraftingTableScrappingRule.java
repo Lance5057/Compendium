@@ -21,14 +21,20 @@ public class CraftingTableScrappingRule implements IScrappingRule {
 				ItemStack s = ScrappingUtils.breakDownItem(i);
 				if (!s.isEmpty())
 					stacks.add(s);
+				else {
+					if (i.getItems() != null && i.getItems().length > 0)
+						stacks.add(i.getItems()[0]);
+				}
 			}
-		}
-		else if(recipe.value() instanceof ShapelessRecipe sr)
-		{
+		} else if (recipe.value() instanceof ShapelessRecipe sr) {
 			for (Ingredient i : sr.getIngredients()) {
 				ItemStack s = ScrappingUtils.breakDownItem(i);
 				if (!s.isEmpty())
 					stacks.add(s);
+				else {
+					if (i.getItems() != null && i.getItems().length > 0)
+						stacks.add(i.getItems()[0]);
+				}
 			}
 		}
 		return stacks;

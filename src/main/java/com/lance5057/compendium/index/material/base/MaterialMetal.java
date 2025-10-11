@@ -223,7 +223,7 @@ public class MaterialMetal extends _MaterialBase {
 
 			j.addProperty("name", src.name);
 			j.addProperty("tagNamespace", src.tagNamespace);
-			
+
 			j.addProperty("type", type);
 			j.addProperty("loadIngot", src.loadIngot);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);
@@ -294,12 +294,12 @@ public class MaterialMetal extends _MaterialBase {
 		if (this.loadStorageBlock)
 			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK_ITEM.get(), INGOT.get(), 9);
 		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, blockItemTag, 9);
+			i = ScrappingUtils.convertBasedOnTag(ingredient, this.blockItemTag, ingotTag, 9);
 		if (i.isEmpty()) {
 			if (this.loadIngot)
 				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.get(), NUGGET.get(), 9);
 			else
-				i = ScrappingUtils.convertBasedOnTag(ingredient, ingotTag, 9);
+				i = ScrappingUtils.convertBasedOnTag(ingredient, ingotTag, nuggetTag, 9);
 		}
 		return i;
 	}

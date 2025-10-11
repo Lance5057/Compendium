@@ -47,8 +47,8 @@ public class MaterialWood extends _MaterialBase {
 		this(name, tagNamespace, true, true, true, true, true);
 	}
 
-	public MaterialWood(String name, String tagNamespace, boolean planks, boolean log, boolean stripped_log, boolean wood,
-			boolean stripped_wood) {
+	public MaterialWood(String name, String tagNamespace, boolean planks, boolean log, boolean stripped_log,
+			boolean wood, boolean stripped_wood) {
 		super(name, tagNamespace);
 
 		PLANKS.setEnabled(planks);
@@ -231,7 +231,7 @@ public class MaterialWood extends _MaterialBase {
 		if (LOG.enabled())
 			i = ScrappingUtils.convertBasedOnStack(ingredient, LOG.BLOCK_ITEM.asItem(), PLANKS.BLOCK_ITEM.asItem(), 4);
 		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, 4);
+			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, PLANKS.itemTag, 4);
 
 		if (i.isEmpty())
 			if (PLANKS.enabled())

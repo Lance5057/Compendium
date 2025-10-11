@@ -23,11 +23,12 @@ public class ScrappingUtils {
 		return ItemStack.EMPTY;
 	}
 
-	public static ItemStack convertBasedOnTag(Ingredient ingredient, TagKey<Item> tag, int countOut) {
-		if (tag != null) {
-			Optional<ItemStack> r = Arrays.asList(ingredient.getItems()).stream().filter(i -> i.is(tag)).findFirst();
+	public static ItemStack convertBasedOnTag(Ingredient ingredient, TagKey<Item> tagIn, TagKey<Item> tagOut,
+			int countOut) {
+		if (tagIn != null) {
+			Optional<ItemStack> r = Arrays.asList(ingredient.getItems()).stream().filter(i -> i.is(tagIn)).findFirst();
 			if (r.isPresent())
-				return r.get().copyWithCount(countOut);
+				return Ingredient.of(tagOut).getItems()[0].copyWithCount(countOut);
 		}
 		return ItemStack.EMPTY;
 	}
