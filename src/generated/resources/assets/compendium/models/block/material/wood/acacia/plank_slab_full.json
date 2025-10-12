@@ -1,22 +1,4 @@
 {
-  "big": {
-    "model": "compendium:block/material/wood/acacia/slab/big_full"
-  },
-  "big_offset": {
-    "model": "compendium:block/material/wood/acacia/slab/big_offset_full"
-  },
-  "big_offset_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/big_offset_vertical_full"
-  },
-  "big_seamless": {
-    "model": "compendium:block/material/wood/acacia/slab/big_seamless_full"
-  },
-  "big_seamless_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/big_seamless_vertical_full"
-  },
-  "big_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/big_vertical_full"
-  },
   "big_weave": {
     "model": "compendium:block/material/wood/acacia/slab/big_weave_full"
   },
@@ -25,6 +7,24 @@
   },
   "blocks_offset": {
     "model": "compendium:block/material/wood/acacia/slab/blocks_offset_full"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_full"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_rotated_full"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_seamless_full"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_seamless_rotated_full"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_stacked_full"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/boards_stacked_rotated_full"
   },
   "box": {
     "model": "compendium:block/material/wood/acacia/slab/box_full"
@@ -55,14 +55,20 @@
   "parquet": {
     "model": "compendium:block/material/wood/acacia/slab/parquet_full"
   },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/acacia/slab/planks_seamless_full"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/planks_seamless_rotated_full"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/acacia/slab/planks_stacked_full"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/planks_stacked_rotated_full"
+  },
   "sheet": {
     "model": "compendium:block/material/wood/acacia/slab/sheet_full"
-  },
-  "slats": {
-    "model": "compendium:block/material/wood/acacia/slab/slats_full"
-  },
-  "slats_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/slats_vertical_full"
   },
   "small_blocks": {
     "model": "compendium:block/material/wood/acacia/slab/small_blocks_full"
@@ -70,17 +76,11 @@
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/acacia/slab/small_blocks_offset_full"
   },
-  "straight": {
-    "model": "compendium:block/material/wood/acacia/slab/straight_full"
-  },
-  "straight_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/straight_vertical_full"
-  },
   "thin": {
     "model": "compendium:block/material/wood/acacia/slab/thin_full"
   },
-  "thin_vertical": {
-    "model": "compendium:block/material/wood/acacia/slab/thin_vertical_full"
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/acacia/slab/thin_rotated_full"
   },
   "vertical": {
     "model": "compendium:block/material/wood/acacia/slab/vertical_full"

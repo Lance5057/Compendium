@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "compendium:block/material/wood/acacia/planks/big_seamless_vertical"
-  }
-}

@@ -70,12 +70,13 @@ public class StyleData {
 					"small_wood_rotated", "wood", "wood_rotated"));
 
 	public static StyleData PLANKS = new StyleData("planks",
-			List.of("big", "big_vertical", "big_offset", "big_offset_vertical", "big_seamless", "big_seamless_vertical",
-					"big_weave", "blocks", "blocks_offset", "box", "chiseled", "cross", "diagonal", "diagonal_rotated",
-					"herringbone", "double_herringbone", "panel", "parquet", "slats", "slats_vertical", "sheet",
-					"small_blocks", "small_blocks_offset", "straight", "straight_vertical", "thin", "thin_vertical",
-					"vertical", "wainscotting_single", "wainscotting_double", "wainscotting_grate",
-					"wainscotting_seamless", "walkway", "walkway_rotated", "wicker"));
+			List.of("big_weave", "blocks", "blocks_offset", "boards", "boards_rotated", "boards_seamless",
+					"boards_seamless_rotated", "boards_stacked", "boards_stacked_rotated", "box", "chiseled", "cross",
+					"diagonal", "diagonal_rotated", "herringbone", "double_herringbone", "panel", "parquet",
+					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
+					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
+					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
+					"wicker"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
 

@@ -1,22 +1,4 @@
 {
-  "big": {
-    "model": "compendium:block/material/wood/jungle/slab/big_bottom"
-  },
-  "big_offset": {
-    "model": "compendium:block/material/wood/jungle/slab/big_offset_bottom"
-  },
-  "big_offset_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/big_offset_vertical_bottom"
-  },
-  "big_seamless": {
-    "model": "compendium:block/material/wood/jungle/slab/big_seamless_bottom"
-  },
-  "big_seamless_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/big_seamless_vertical_bottom"
-  },
-  "big_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/big_vertical_bottom"
-  },
   "big_weave": {
     "model": "compendium:block/material/wood/jungle/slab/big_weave_bottom"
   },
@@ -25,6 +7,24 @@
   },
   "blocks_offset": {
     "model": "compendium:block/material/wood/jungle/slab/blocks_offset_bottom"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_bottom"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_rotated_bottom"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_seamless_bottom"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_seamless_rotated_bottom"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_stacked_bottom"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/boards_stacked_rotated_bottom"
   },
   "box": {
     "model": "compendium:block/material/wood/jungle/slab/box_bottom"
@@ -55,14 +55,20 @@
   "parquet": {
     "model": "compendium:block/material/wood/jungle/slab/parquet_bottom"
   },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/jungle/slab/planks_seamless_bottom"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/planks_seamless_rotated_bottom"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/jungle/slab/planks_stacked_bottom"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/planks_stacked_rotated_bottom"
+  },
   "sheet": {
     "model": "compendium:block/material/wood/jungle/slab/sheet_bottom"
-  },
-  "slats": {
-    "model": "compendium:block/material/wood/jungle/slab/slats_bottom"
-  },
-  "slats_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/slats_vertical_bottom"
   },
   "small_blocks": {
     "model": "compendium:block/material/wood/jungle/slab/small_blocks_bottom"
@@ -70,17 +76,11 @@
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/jungle/slab/small_blocks_offset_bottom"
   },
-  "straight": {
-    "model": "compendium:block/material/wood/jungle/slab/straight_bottom"
-  },
-  "straight_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/straight_vertical_bottom"
-  },
   "thin": {
     "model": "compendium:block/material/wood/jungle/slab/thin_bottom"
   },
-  "thin_vertical": {
-    "model": "compendium:block/material/wood/jungle/slab/thin_vertical_bottom"
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/jungle/slab/thin_rotated_bottom"
   },
   "vertical": {
     "model": "compendium:block/material/wood/jungle/slab/vertical_bottom"

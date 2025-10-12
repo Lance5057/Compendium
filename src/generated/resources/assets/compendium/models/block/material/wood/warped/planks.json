@@ -1,22 +1,4 @@
 {
-  "big": {
-    "model": "compendium:block/material/wood/warped/planks/big"
-  },
-  "big_offset": {
-    "model": "compendium:block/material/wood/warped/planks/big_offset"
-  },
-  "big_offset_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/big_offset_vertical"
-  },
-  "big_seamless": {
-    "model": "compendium:block/material/wood/warped/planks/big_seamless"
-  },
-  "big_seamless_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/big_seamless_vertical"
-  },
-  "big_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/big_vertical"
-  },
   "big_weave": {
     "model": "compendium:block/material/wood/warped/planks/big_weave"
   },
@@ -25,6 +7,24 @@
   },
   "blocks_offset": {
     "model": "compendium:block/material/wood/warped/planks/blocks_offset"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/warped/planks/boards"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/boards_rotated"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/warped/planks/boards_seamless"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/boards_seamless_rotated"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/warped/planks/boards_stacked"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/boards_stacked_rotated"
   },
   "box": {
     "model": "compendium:block/material/wood/warped/planks/box"
@@ -55,14 +55,20 @@
   "parquet": {
     "model": "compendium:block/material/wood/warped/planks/parquet"
   },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/warped/planks/planks_seamless"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/planks_seamless_rotated"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/warped/planks/planks_stacked"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/planks_stacked_rotated"
+  },
   "sheet": {
     "model": "compendium:block/material/wood/warped/planks/sheet"
-  },
-  "slats": {
-    "model": "compendium:block/material/wood/warped/planks/slats"
-  },
-  "slats_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/slats_vertical"
   },
   "small_blocks": {
     "model": "compendium:block/material/wood/warped/planks/small_blocks"
@@ -70,17 +76,11 @@
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/warped/planks/small_blocks_offset"
   },
-  "straight": {
-    "model": "compendium:block/material/wood/warped/planks/straight"
-  },
-  "straight_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/straight_vertical"
-  },
   "thin": {
     "model": "compendium:block/material/wood/warped/planks/thin"
   },
-  "thin_vertical": {
-    "model": "compendium:block/material/wood/warped/planks/thin_vertical"
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/warped/planks/thin_rotated"
   },
   "vertical": {
     "model": "compendium:block/material/wood/warped/planks/vertical"

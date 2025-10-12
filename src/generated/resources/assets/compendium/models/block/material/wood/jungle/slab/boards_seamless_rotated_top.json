@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/slab/slab_rotated_top",
+  "textures": {
+    "all": "compendium:block/material/wood/jungle/planks/boards_seamless"
+  }
+}

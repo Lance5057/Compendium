@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/cube_all_rotated",
+  "textures": {
+    "all": "compendium:block/material/wood/mangrove/planks/planks_seamless"
+  }
+}
