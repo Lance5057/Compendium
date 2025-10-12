@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"particle": "compendium:block/material/wood/acacia/planks/walkway",
-		"all": "compendium:block/material/wood/acacia/planks/walkway"
+		"particle": "compendium:block/material/wood/acacia/planks/straight",
+		"all": "compendium:block/material/wood/acacia/planks/straight"
 	},
 	"elements": [
 		{
@@ -16,8 +16,8 @@
 				"east": {"uv": [16, 0, 0, 16], "rotation": 270, "texture": "#all"},
 				"south": {"uv": [16, 0, 0, 16], "rotation": 270, "texture": "#all"},
 				"west": {"uv": [16, 0, 0, 16], "rotation": 270, "texture": "#all"},
-				"up": {"uv": [16, 16, 0, 0], "rotation": 90, "texture": "#all"},
-				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#all"}
+				"up": {"uv": [16, 0, 0, 16], "rotation": 90, "texture": "#all"},
+				"down": {"uv": [0, 16, 16, 0], "rotation": 270, "texture": "#all"}
 			}
 		}
 	]
