@@ -254,6 +254,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
 						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
 						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_inner",
+						ibmp.modLoc("block/bases/stairs/stairs_rotated_inner"))
+						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_outer",
+						ibmp.modLoc("block/bases/stairs/stairs_rotated_outer"))
+						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 
 			} else {
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
