@@ -1,22 +1,4 @@
 {
-  "big": {
-    "model": "compendium:block/material/wood/warped/stairs/big_inner"
-  },
-  "big_offset": {
-    "model": "compendium:block/material/wood/warped/stairs/big_offset_inner"
-  },
-  "big_offset_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/big_offset_vertical_inner"
-  },
-  "big_seamless": {
-    "model": "compendium:block/material/wood/warped/stairs/big_seamless_inner"
-  },
-  "big_seamless_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/big_seamless_vertical_inner"
-  },
-  "big_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/big_vertical_inner"
-  },
   "big_weave": {
     "model": "compendium:block/material/wood/warped/stairs/big_weave_inner"
   },
@@ -25,6 +7,24 @@
   },
   "blocks_offset": {
     "model": "compendium:block/material/wood/warped/stairs/blocks_offset_inner"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_inner"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_rotated_inner"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_seamless_inner"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_seamless_rotated_inner"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_stacked_inner"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/boards_stacked_rotated_inner"
   },
   "box": {
     "model": "compendium:block/material/wood/warped/stairs/box_inner"
@@ -55,14 +55,20 @@
   "parquet": {
     "model": "compendium:block/material/wood/warped/stairs/parquet_inner"
   },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/warped/stairs/planks_seamless_inner"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/planks_seamless_rotated_inner"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/warped/stairs/planks_stacked_inner"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/planks_stacked_rotated_inner"
+  },
   "sheet": {
     "model": "compendium:block/material/wood/warped/stairs/sheet_inner"
-  },
-  "slats": {
-    "model": "compendium:block/material/wood/warped/stairs/slats_inner"
-  },
-  "slats_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/slats_vertical_inner"
   },
   "small_blocks": {
     "model": "compendium:block/material/wood/warped/stairs/small_blocks_inner"
@@ -70,17 +76,11 @@
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/warped/stairs/small_blocks_offset_inner"
   },
-  "straight": {
-    "model": "compendium:block/material/wood/warped/stairs/straight_inner"
-  },
-  "straight_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/straight_vertical_inner"
-  },
   "thin": {
     "model": "compendium:block/material/wood/warped/stairs/thin_inner"
   },
-  "thin_vertical": {
-    "model": "compendium:block/material/wood/warped/stairs/thin_vertical_inner"
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/warped/stairs/thin_rotated_inner"
   },
   "vertical": {
     "model": "compendium:block/material/wood/warped/stairs/vertical_inner"
