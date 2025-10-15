@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/stairs/stairs_rotated",
   "textures": {
-    "all": "compendium:block/material/wood/mangrove/planks/boards_seamless"
+    "0": "compendium:block/material/wood/mangrove/planks/boards_seamless"
   }
 }

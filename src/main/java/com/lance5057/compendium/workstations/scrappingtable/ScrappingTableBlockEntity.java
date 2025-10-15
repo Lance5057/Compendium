@@ -44,8 +44,7 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 	}
 
 	boolean useSpecialRecipe = false;
-	private List<AnimatedRecipeItemUse> specialRecipe = new ArrayList<AnimatedRecipeItemUse>();
-	private List<ItemStack> specialRecipeDrops = new ArrayList<ItemStack>();
+	private CustomRecipe specialRecipe;
 
 	private final CachedCheck<MultiToolRecipeWrapper, ScrappingTableRecipe> quickCheck = RecipeManager
 			.createCheck(WorkstationRecipes.SCRAPPINGTABLE_RECIPE.get());
@@ -62,16 +61,20 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 								this.getInventory().getStackInSlot(0)))
 						.findFirst();
 
-				if (other.isPresent()) {
+				if (other.isPresent() && this.inventory.getStackInSlot(0).getCount() >= other.get().value()
+						.getResultItem(null).getCount()) {
 					Optional<IScrappingRule> rule = ScrappingRulesRegistry.getRule(other.get());
 					if (rule.isPresent()) {
 						useSpecialRecipe = true;
-						specialRecipeDrops = rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
-						specialRecipe = new ArrayList<AnimatedRecipeItemUse>();
+
+						List<ItemStack> drops = rule.get().scrap(other.get(), this.inventory.getStackInSlot(0));
+						ArrayList<AnimatedRecipeItemUse> tools = new ArrayList<AnimatedRecipeItemUse>();
 
 						for (int i = 0; i < 2; i++) {
-							specialRecipe.add(getRandomScrappingTool(i));
+							tools.add(getScrappingTools(i));
 						}
+
+						this.specialRecipe = new CustomRecipe(other.get(), tools, drops);
 					}
 				}
 			}
@@ -79,16 +82,13 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 		return recipe;
 	}
 
-	private AnimatedRecipeItemUse getRandomScrappingTool(int i) {
-		switch (i) {
-		case 0:
+	private AnimatedRecipeItemUse getScrappingTools(int i) {
+		if (i % 2 == 0)
 			return new AnimatedRecipeItemUse(3, Ingredient.of(CompendiumTags.HAMMER), 1, true, null, List.of(),
 					List.of(standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0)));
-		case 1:
-		default:
+		else
 			return new AnimatedRecipeItemUse(3, Ingredient.of(CompendiumTags.PRYBAR), 1, true, null, List.of(),
 					List.of(standardHammeringModel(TagUtil.modLoc("gold_prybar"), 0)));
-		}
 	}
 
 	BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
@@ -103,7 +103,7 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 	@Override
 	public AnimatedRecipeItemUse getCurrentTool() {
 		if (this.useSpecialRecipe) {
-			return this.specialRecipe.get(stage);
+			return this.specialRecipe.steps.get(stage);
 		} else {
 			Optional<RecipeHolder<ScrappingTableRecipe>> currentRecipe = matchRecipe();
 			if (currentRecipe.isPresent())
@@ -120,9 +120,9 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 			if (this.curTool == null) {
 
 				this.progress = 0;
-				this.maxProgress = specialRecipe.get(stage).uses();
-				this.curTool = specialRecipe.get(stage).tool();
-				this.toolCount = specialRecipe.get(stage).count();
+				this.maxProgress = specialRecipe.steps.get(stage).uses();
+				this.curTool = specialRecipe.steps.get(stage).tool();
+				this.toolCount = specialRecipe.steps.get(stage).count();
 			}
 			searchForNextItem(pLevel, player, hand, curTool);
 			if (this.curTool.test(tool)) {
@@ -130,7 +130,7 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 					if (this.progress >= this.maxProgress - 1) {
 
-						if (stage >= this.specialRecipe.size() - 1) { // final stage
+						if (stage >= this.specialRecipe.steps.size() - 1) { // final stage
 							for (int i = 0; i < 5; i++) {
 								addParticle();
 							}
@@ -141,21 +141,36 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 							else
 								tool.setCount(tool.getCount() - this.toolCount);
 
-							for (ItemStack s : specialRecipeDrops)
+							ItemStack input = this.getInventory().getStackInSlot(0);
+							for (ItemStack s : specialRecipe.drops) {
+								int count = s.getCount();
+								int damage = input.getDamageValue();
+								int max = input.getMaxDamage();
+
+								if (max != 0 && damage != 0) {
+									float divide = (float) damage / (float) max;
+
+									int newcount = Math.round(count * divide);
+									s.setCount(newcount);
+								}
+
 								ItemUtil.giveOrDrop(s, player);
+							}
+							this.getInventory().shrinkAll(
+									specialRecipe.recipe.value().getResultItem(level.registryAccess()).getCount());
+
 							useSpecialRecipe = false;
-							specialRecipe.clear();
-							specialRecipeDrops.clear();
-							this.getInventory().shrinkAll();
+							specialRecipe = null;
+
 							this.zeroProgress();
 
 						} else {
 //							dropLoot(r.value().getTools().get(stage), player);
 							stage++;
 							this.progress = 0;
-							this.maxProgress = specialRecipe.get(stage).uses();
-							this.curTool = specialRecipe.get(stage).tool();
-							this.toolCount = specialRecipe.get(stage).count();
+							this.maxProgress = specialRecipe.steps.get(stage).uses();
+							this.curTool = specialRecipe.steps.get(stage).tool();
+							this.toolCount = specialRecipe.steps.get(stage).count();
 
 							searchForNextItem(pLevel, player, hand, curTool);
 						}
@@ -186,8 +201,7 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 			@Override
 			protected void onContentsChanged(int slot) {
 				useSpecialRecipe = false;
-				specialRecipe.clear();
-				specialRecipeDrops.clear();
+				specialRecipe = null;
 			}
 		};
 	}
@@ -234,4 +248,15 @@ public class ScrappingTableBlockEntity extends MultiToolRecipeStation<ScrappingT
 
 	}
 
+	private class CustomRecipe {
+		public RecipeHolder<?> recipe;
+		public List<AnimatedRecipeItemUse> steps = new ArrayList<AnimatedRecipeItemUse>();
+		public List<ItemStack> drops = new ArrayList<ItemStack>();
+
+		public CustomRecipe(RecipeHolder<?> r, List<AnimatedRecipeItemUse> s, List<ItemStack> d) {
+			this.recipe = r;
+			this.steps = s;
+			this.drops = d;
+		}
+	}
 }

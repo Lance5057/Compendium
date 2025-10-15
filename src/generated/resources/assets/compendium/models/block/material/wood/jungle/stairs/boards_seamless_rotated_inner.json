@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/stairs/stairs_rotated_inner",
+  "textures": {
+    "0": "compendium:block/material/wood/jungle/planks/boards_seamless"
+  }
+}

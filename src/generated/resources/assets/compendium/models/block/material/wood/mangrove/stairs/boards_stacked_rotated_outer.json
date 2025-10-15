@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/stairs/stairs_rotated_outer",
+  "textures": {
+    "0": "compendium:block/material/wood/mangrove/planks/boards_stacked"
+  }
+}

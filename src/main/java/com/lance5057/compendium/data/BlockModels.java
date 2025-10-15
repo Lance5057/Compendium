@@ -52,10 +52,10 @@ public class BlockModels extends BlockStateProvider {
 		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(),
 				models().getExistingFile(modLoc("block/workstations/hammering_station")));
 
-		this.simpleBlock(CompendiumBlocks.SAW_BUCK.get(),
+		this.horizontalBlock(CompendiumBlocks.SAW_BUCK.get(),
 				models().getExistingFile(modLoc("block/workstations/sawbuck")));
 
-		this.simpleBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
+		this.horizontalBlock(CompendiumBlocks.SCRAPPING_TABLE.get(),
 				models().getExistingFile(modLoc("block/workstations/dismantling_table")));
 
 		this.horizontalBlock(CompendiumBlocks.COSMETIC_TOOLBOX.get(),

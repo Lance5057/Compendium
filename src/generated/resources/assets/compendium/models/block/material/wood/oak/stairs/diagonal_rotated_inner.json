@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/stairs/stairs_rotated_inner",
   "textures": {
-    "all": "compendium:block/material/wood/oak/planks/diagonal"
+    "0": "compendium:block/material/wood/oak/planks/diagonal"
   }
 }

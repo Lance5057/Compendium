@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/stairs/stairs_rotated",
   "textures": {
-    "all": "compendium:block/material/wood/acacia/planks/diagonal"
+    "0": "compendium:block/material/wood/acacia/planks/diagonal"
   }
 }
