@@ -153,7 +153,7 @@ public class MaterialGem extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
-			j.addProperty("tagNamespace", src.tagNamespace);
+			j.addProperty("tagNamespace", src.namespace);
 			j.addProperty("type", type);
 			j.addProperty("loadGem", src.loadGem);
 			j.addProperty("loadStorageBlock", src.loadStorageBlock);

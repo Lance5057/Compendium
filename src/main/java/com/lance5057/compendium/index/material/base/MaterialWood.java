@@ -12,6 +12,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -22,6 +23,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -43,15 +45,20 @@ public class MaterialWood extends _MaterialBase {
 	public CompendiumBlockHandler WOOD = new CompendiumBlockHandler("wood");
 	public CompendiumBlockHandler STRIPPED_WOOD = new CompendiumBlockHandler("stripped_wood");
 
-	public MaterialWood(String name, String tagNamespace) {
-		this(name, tagNamespace, true, true, true, true, true);
+	public MaterialWood(String name, String namespace) {
+		this(name, namespace, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+				Generate.GENERATE);
 	}
 
-	public MaterialWood(String name, String tagNamespace, boolean planks, boolean log, boolean stripped_log,
-			boolean wood, boolean stripped_wood) {
-		super(name, tagNamespace);
+	public MaterialWood(String name, String namespace, Generate planks, Generate log, Generate stripped_log,
+			Generate wood, Generate stripped_wood) {
+		super(name, namespace);
 
-		PLANKS.setEnabled(planks);
+		PLANKS.setGenerate(planks);
+		LOG.setGenerate(log);
+		STRIPPED_LOG.setGenerate(stripped_log);
+		WOOD.setGenerate(wood);
+		STRIPPED_WOOD.setGenerate(stripped_wood);
 	}
 
 	@Override
@@ -61,16 +68,23 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.tagNamespace,
-				"planks");
-		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.tagNamespace,
-				"log");
+		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.namespace, "planks",
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"));
+		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
+				"logs", ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_log"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_log"));
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				this.tagNamespace, "stripped_log");
-		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
-				this.tagNamespace, "wood");
+				this.namespace, "stripped_log",
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_log"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_log"));
+		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
+				"wood", ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_wood"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_wood"));
 		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				this.tagNamespace, "stripped_wood");
+				this.namespace, "stripped_wood",
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_wood"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_wood"));
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
@@ -88,7 +102,7 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
-		if (PLANKS.enabled())
+		if (PLANKS.shouldGenerate())
 			bsp.simpleBlock(PLANKS.BLOCK.get());
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
@@ -96,7 +110,7 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
-		if (PLANKS.enabled())
+		if (PLANKS.shouldGenerate())
 			ItemModels.forBlockItem(tmp, PLANKS.BLOCK_ITEM, name);
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
@@ -105,7 +119,7 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
-		if (PLANKS.enabled())
+		if (PLANKS.shouldGenerate())
 			lp.add(this.PLANKS.BLOCK_ITEM.get(), locName + " Planks");
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
@@ -143,14 +157,15 @@ public class MaterialWood extends _MaterialBase {
 			JsonObject j = json.getAsJsonObject();
 
 			String name = j.get("name").getAsString();
-			String tagNamespace = j.get("tagNamespace").getAsString();
-			boolean plank = j.get("loadPlanks").getAsBoolean();
-			boolean log = j.get("loadLog").getAsBoolean();
-			boolean stripped_log = j.get("loadStrippedLog").getAsBoolean();
-			boolean wood = j.get("loadWood").getAsBoolean();
-			boolean stripped_wood = j.get("loadStrippedWood").getAsBoolean();
+			String namespace = j.get("namespace").getAsString();
+			String plank = j.get("loadPlanks").getAsString();
+			String log = j.get("loadLog").getAsString();
+			String stripped_log = j.get("loadStrippedLog").getAsString();
+			String wood = j.get("loadWood").getAsString();
+			String stripped_wood = j.get("loadStrippedWood").getAsString();
 
-			MaterialWood w = new MaterialWood(name, tagNamespace, plank, log, stripped_log, wood, stripped_wood);
+			MaterialWood w = new MaterialWood(name, namespace, Generate.valueOf(plank), Generate.valueOf(log),
+					Generate.valueOf(stripped_log), Generate.valueOf(wood), Generate.valueOf(stripped_wood));
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -167,13 +182,13 @@ public class MaterialWood extends _MaterialBase {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("name", src.name);
-			j.addProperty("tagNamespace", src.tagNamespace);
+			j.addProperty("namespace", src.namespace);
 			j.addProperty("type", type);
-			j.addProperty("loadPlanks", src.PLANKS.enabled());
-			j.addProperty("loadLog", src.LOG.enabled());
-			j.addProperty("loadStrippedLog", src.STRIPPED_LOG.enabled());
-			j.addProperty("loadWood", src.WOOD.enabled());
-			j.addProperty("loadStrippedWood", src.STRIPPED_WOOD.enabled());
+			j.addProperty("loadPlanks", src.PLANKS.getGeneration().toString());
+			j.addProperty("loadLog", src.LOG.getGeneration().toString());
+			j.addProperty("loadStrippedLog", src.STRIPPED_LOG.getGeneration().toString());
+			j.addProperty("loadWood", src.WOOD.getGeneration().toString());
+			j.addProperty("loadStrippedWood", src.STRIPPED_WOOD.getGeneration().toString());
 
 			JsonArray ext = new JsonArray();
 
@@ -228,13 +243,13 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
 		ItemStack i = ItemStack.EMPTY;
-		if (LOG.enabled())
+		if (LOG.getGeneration() != Generate.IGNORE)
 			i = ScrappingUtils.convertBasedOnStack(ingredient, LOG.BLOCK_ITEM.asItem(), PLANKS.BLOCK_ITEM.asItem(), 4);
 		else
 			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, PLANKS.itemTag, 4);
 
 		if (i.isEmpty())
-			if (PLANKS.enabled())
+			if (PLANKS.getGeneration() != Generate.IGNORE)
 				i = ScrappingUtils.convertBasedOnStack(ingredient, PLANKS.BLOCK_ITEM.asItem(), Items.STICK, 2);
 			else
 				i = ScrappingUtils.convertBasedOnTag(ingredient, PLANKS.itemTag, Items.STICK, 2);

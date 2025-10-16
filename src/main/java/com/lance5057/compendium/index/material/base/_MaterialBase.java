@@ -20,8 +20,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
 public abstract class _MaterialBase implements IIndexEntry {
+
 //	public final String TYPE;
-	public String tagNamespace;
+	public String namespace;
 	public String name;
 
 	protected String premadeTier;
@@ -39,10 +40,10 @@ public abstract class _MaterialBase implements IIndexEntry {
 
 	public List<_MaterialExtension> extensions;
 
-	public _MaterialBase(String name, String tagNamespace) {
+	public _MaterialBase(String name, String namespace) {
 
 		this.name = name;
-		this.tagNamespace = tagNamespace;
+		this.namespace = namespace;
 
 		extensions = new ArrayList<_MaterialExtension>();
 	}

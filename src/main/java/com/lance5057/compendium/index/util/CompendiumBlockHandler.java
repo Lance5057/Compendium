@@ -3,6 +3,7 @@ package com.lance5057.compendium.index.util;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +19,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class CompendiumBlockHandler {
 	public String name;
-	boolean isEnabled = false;
+	Generate generate = Generate.IGNORE;
 
 	public DeferredItem<BlockItem> BLOCK_ITEM;
 	public DeferredBlock<Block> BLOCK;
@@ -30,28 +31,38 @@ public class CompendiumBlockHandler {
 		name = n;
 	}
 
-	public boolean enabled() {
-		return isEnabled;
+	public boolean shouldGenerate() {
+		return generate == Generate.GENERATE;
 	}
 
-	public void setEnabled(boolean b) {
-		isEnabled = b;
+	public Generate getGeneration() {
+		return generate;
 	}
 
-	public void setup(_MaterialBase base, String tagNamespace, String tagName) {
+	public void setGenerate(Generate b) {
+		generate = b;
+	}
+
+	public void setup(_MaterialBase base, String tagNamespace, String tagName, ResourceLocation existsItem,
+			ResourceLocation existsBlock) {
 		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
-				tagNamespace, tagName);
+				tagNamespace, tagName, existsItem, existsBlock);
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, String tagNamespace, String tagName) {
-		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), tagNamespace, tagName);
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, String tagNamespace, String tagName,
+			ResourceLocation existsItem, ResourceLocation existsBlock) {
+		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), tagNamespace, tagName, existsItem,
+				existsBlock);
 	}
 
 	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item,
-			String tagNamespace, String tagName) {
-		if (isEnabled) {
+			String tagNamespace, String tagName, ResourceLocation existsItem, ResourceLocation existsBlock) {
+		if (generate == Generate.GENERATE) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
+		} else if (generate == Generate.EXISTS) {
+			BLOCK = DeferredBlock.createBlock(existsBlock);
+			BLOCK_ITEM = DeferredItem.createItem(existsItem);
 		}
 
 		itemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
@@ -67,7 +78,7 @@ public class CompendiumBlockHandler {
 	}
 
 	public void tab(_MaterialBase base, Output output) {
-		if (this.enabled())
+		if (generate == Generate.GENERATE)
 			output.accept(BLOCK_ITEM);
 	}
 

@@ -1,30 +1,30 @@
 {
   "name": "crimson",
-  "tagNamespace": "minecraft",
+  "namespace": "minecraft",
   "type": "WOOD",
-  "loadPlanks": false,
-  "loadLog": false,
-  "loadStrippedLog": false,
-  "loadWood": false,
-  "loadStrippedWood": false,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
   "extensions": [
     {
       "type": "EXTRALOGS",
-      "loadSmallLog": true,
-      "loadSmallLogs": true,
-      "loadSmallLogsSlab": true,
-      "loadSmallLogsStairs": true,
-      "loadStrippedSmallLog": true,
-      "loadStrippedSmallLogs": true,
-      "loadStrippedSmallLogsSlab": true,
-      "loadStrippedSmallLogsStairs": true
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
     },
     {
       "type": "EXTRAPLANKS",
-      "loadPlank": true,
-      "loadPlankBlock": true,
-      "loadPlankSlab": true,
-      "loadPlankStairs": true
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
     }
   ]
 }

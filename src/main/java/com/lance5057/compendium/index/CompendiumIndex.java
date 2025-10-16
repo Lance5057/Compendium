@@ -16,6 +16,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class CompendiumIndex {
+	public static enum Generate {IGNORE, GENERATE, EXISTS};
+	
 	public static HashSet<IIndexEntry> index = new HashSet<IIndexEntry>();
 
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
