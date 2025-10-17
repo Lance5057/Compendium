@@ -29,6 +29,7 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
+import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base.MaterialTextile;
 import com.lance5057.compendium.index.material.base.MaterialWood;
@@ -110,24 +111,24 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialMetal("netherite", "minecraft", false, false, false)
 				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
 
-//		buildDefault(new MaterialGlass("clear_glass", false, false));
-//		buildDefault(new MaterialGlass("white_glass", false, false));
-//		buildDefault(new MaterialGlass("light_gray_glass", false, false));
-//		buildDefault(new MaterialGlass("gray_glass", false, false));
-//		buildDefault(new MaterialGlass("black_glass", false, false));
-//		buildDefault(new MaterialGlass("brown_glass", false, false));
-//		buildDefault(new MaterialGlass("red_glass", false, false));
-//		buildDefault(new MaterialGlass("orange_glass", false, false));
-//		buildDefault(new MaterialGlass("yellow_glass", false, false));
-//		buildDefault(new MaterialGlass("lime_glass", false, false));
-//		buildDefault(new MaterialGlass("green_glass", false, false));
-//		buildDefault(new MaterialGlass("cyan_glass", false, false));
-//		buildDefault(new MaterialGlass("light_blue_glass", false, false));
-//		buildDefault(new MaterialGlass("blue_glass", false, false));
-//		buildDefault(new MaterialGlass("purple_glass", false, false));
-//		buildDefault(new MaterialGlass("magenta_glass", false, false));
-//		buildDefault(new MaterialGlass("pink_glass", false, false));
-//		buildDefault(new MaterialGlass("tinted_glass", false, false));
+		buildDefault(new MaterialGlass("clear", "minecraft", false, false));
+		buildDefault(new MaterialGlass("white_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("light_gray_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("gray_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("black_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("brown_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("red_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("orange_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("yellow_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("lime_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("green_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("cyan_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("light_blue_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("blue_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("purple_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("magenta_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("pink_stained", "minecraft", false, false));
+		buildDefault(new MaterialGlass("tinted", "minecraft", false, false));
 
 		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 				Generate.EXISTS, Generate.EXISTS)

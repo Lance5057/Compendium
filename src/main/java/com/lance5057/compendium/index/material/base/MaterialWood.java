@@ -68,23 +68,29 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setup() {
+		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped"); // swear to god mojang
+
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.namespace, "planks",
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"));
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
-				"logs", ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_log"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_log"));
+				"logs", ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")));
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
 				this.namespace, "stripped_log",
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_log"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_log"));
+				ResourceLocation.fromNamespaceAndPath(namespace,
+						this.name + "_stripped" + (!isNether ? "_log" : "_stem")),
+				ResourceLocation.fromNamespaceAndPath(namespace,
+						this.name + "_stripped" + (!isNether ? "_log" : "_stem")));
 		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
-				"wood", ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_wood"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_wood"));
+				"wood", ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_wood" : "_hyphae")),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_wood" : "_hyphae")));
 		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
 				this.namespace, "stripped_wood",
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_wood"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_stripped_wood"));
+				ResourceLocation.fromNamespaceAndPath(namespace,
+						this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae")),
+				ResourceLocation.fromNamespaceAndPath(namespace,
+						this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae")));
 
 		this.extensions.forEach(i -> i.setup(this));
 	}

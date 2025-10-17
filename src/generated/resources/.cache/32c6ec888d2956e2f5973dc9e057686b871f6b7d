@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-15T10:43:06.7327948	Block States: compendium
+// 1.21.1	2025-10-17T12:28:10.0490099	Block States: compendium
 7a5d749028adb51994c3d6e98898e5cb7fb712e8 assets/compendium/blockstates/acacia_logs.json
 c5cedc156f41a6c7ea9ad2314094a339febc084f assets/compendium/blockstates/acacia_logs_slab.json
 b27fdb8b4d53b6bffd4cac26f3e302be6f5fbae3 assets/compendium/blockstates/acacia_logs_stairs.json
@@ -487,7 +487,7 @@ ceee37e5416de36b8f67dfaec980c9d6c8f76f86 assets/compendium/models/block/table_le
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_side_model.json
 98afe7c24db828c39e5dec58411f6b06e9c31ea1 assets/compendium/models/block/table_top.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_top_model.json
-0f6d8e1ea0b20d69d8f22374d916ec986093ecd8 assets/compendium/models/block/window.json
+f5fce35b30bd5aaa090dadcc7c7c7027a49eb3a6 assets/compendium/models/block/window.json
 338121a386fb80b7350221b2238b1a940869b0c3 assets/compendium/models/block/window_base.json
 42b938aebbf7c9c14720d3447d027b645b78f925 assets/compendium/models/extra/chair.json
 81db7561945e9434333efb423c12f7417c9e3eab assets/compendium/models/extra/table.json

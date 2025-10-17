@@ -1,8 +1,8 @@
 {
   "values": [
-    "compendium:iron_prybar",
-    "compendium:gold_prybar",
     "compendium:netherite_prybar",
-    "compendium:copper_prybar"
+    "compendium:gold_prybar",
+    "compendium:copper_prybar",
+    "compendium:iron_prybar"
   ]
 }

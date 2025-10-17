@@ -1,0 +1,8 @@
+{
+  "name": "red_stained",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "loadPane": false,
+  "loadBlock": false,
+  "extensions": []
+}

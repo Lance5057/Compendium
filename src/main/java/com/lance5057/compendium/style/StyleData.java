@@ -79,7 +79,8 @@ public class StyleData {
 					"wicker"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
-
+	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
+	
 	String name;
 	List<String> types;
 

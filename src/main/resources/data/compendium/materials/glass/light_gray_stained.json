@@ -1,0 +1,8 @@
+{
+  "name": "light_gray_stained",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "loadPane": false,
+  "loadBlock": false,
+  "extensions": []
+}

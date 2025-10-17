@@ -8,18 +8,31 @@
   },
   "layer0": {
     "materialLayer": 0,
-    "model": "window_trim",
-    "valid": [
-      "WOOD"
-    ]
-  },
-  "layer1": {
-    "materialLayer": 1,
-    "model": "window",
+    "modelBase": "window",
+    "modelPart": "glass",
+    "styleLayer": 0,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
     "valid": [
       "GLASS"
     ]
   },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "window",
+    "modelPart": "trim",
+    "styleLayer": 1,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD",
+      "METAL"
+    ]
+  },
   "layer_count": 2,
-  "loader": "compendium:multi_material"
+  "loader": "compendium:multi_style_material"
 }

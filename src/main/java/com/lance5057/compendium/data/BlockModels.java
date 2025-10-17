@@ -4,18 +4,13 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
-import com.lance5057.compendium.blocks.StairStyleBlock;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBlock;
-import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelBuilder;
-import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
-import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
-import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
@@ -89,12 +84,14 @@ public class BlockModels extends BlockStateProvider {
 
 		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 			Builder<?> b = ConfiguredModel.builder();
-			MultiMaterialModelBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
-					.customLoader(MultiMaterialModelBuilder::begin);
+			MultiStyleMaterialBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
+					.customLoader(MultiStyleMaterialBuilder::begin);
 			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("cutout"));
 
-			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.WOOD), "window_trim", 0));
-			msmb.addLayer(new Layer(List.of(MATERIAL_TYPES.GLASS), "window", 1));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "glass", List.of(MATERIAL_TYPES.GLASS),
+					StyleData.WINDOW_GLASS.getTypes(), 0, 0));
+			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "trim",
+					List.of(MATERIAL_TYPES.WOOD, MATERIAL_TYPES.METAL), StyleData.WINDOW_TRIM.getTypes(), 1, 1));
 
 			BlockModelBuilder bmb = msmb.end();
 			b.modelFile(bmb);
