@@ -1,6 +1,8 @@
 {
-  "parent": "compendium:block/bases/slab/slab_rotated_top",
+  "parent": "minecraft:block/slab_top",
   "textures": {
-    "all": "compendium:block/material/wood/birch/planks/walkway"
+    "bottom": "compendium:block/material/wood/birch/planks/walkway_rotated",
+    "side": "compendium:block/material/wood/birch/planks/walkway_rotated",
+    "top": "compendium:block/material/wood/birch/planks/walkway_rotated"
   }
 }

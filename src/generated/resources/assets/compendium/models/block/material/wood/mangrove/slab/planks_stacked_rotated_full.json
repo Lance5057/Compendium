@@ -1,6 +1,6 @@
 {
-  "parent": "compendium:block/cube_all_rotated",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "compendium:block/material/wood/mangrove/planks/planks_stacked"
+    "all": "compendium:block/material/wood/mangrove/planks/planks_stacked_rotated"
   }
 }

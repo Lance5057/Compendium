@@ -1,6 +1,8 @@
 {
-  "parent": "compendium:block/bases/stairs/stairs_rotated",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "0": "compendium:block/material/wood/crimson/planks/boards_stacked"
+    "bottom": "compendium:block/material/wood/crimson/planks/boards_stacked_rotated",
+    "side": "compendium:block/material/wood/crimson/planks/boards_stacked_rotated",
+    "top": "compendium:block/material/wood/crimson/planks/boards_stacked_rotated"
   }
 }

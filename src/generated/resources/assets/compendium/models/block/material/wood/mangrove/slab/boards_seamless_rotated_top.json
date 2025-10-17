@@ -1,6 +1,8 @@
 {
-  "parent": "compendium:block/bases/slab/slab_rotated_top",
+  "parent": "minecraft:block/slab_top",
   "textures": {
-    "all": "compendium:block/material/wood/mangrove/planks/boards_seamless"
+    "bottom": "compendium:block/material/wood/mangrove/planks/boards_seamless_rotated",
+    "side": "compendium:block/material/wood/mangrove/planks/boards_seamless_rotated",
+    "top": "compendium:block/material/wood/mangrove/planks/boards_seamless_rotated"
   }
 }

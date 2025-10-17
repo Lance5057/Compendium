@@ -242,34 +242,34 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		for (String s : StyleData.PLANKS.getTypes()) {
-			if (s.endsWith("_rotated")) {
-				String texture = s.replaceAll("_rotated", "");
-				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s,
-						ibmp.modLoc("block/cube_all_rotated"))
-						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-
-				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom",
-						ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
-						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top",
-						ibmp.modLoc("block/bases/slab/slab_rotated_top"))
-						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
-						ibmp.modLoc("block/cube_all_rotated"))
-						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-
-//				styledStairsModels(base, s, ibmp);
-				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
-						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
-						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_inner",
-						ibmp.modLoc("block/bases/stairs/stairs_rotated_inner"))
-						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_outer",
-						ibmp.modLoc("block/bases/stairs/stairs_rotated_outer"))
-						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-
-			} else {
+//			if (s.endsWith("_rotated")) {
+//				String texture = s.replaceAll("_rotated", "");
+//				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s,
+//						ibmp.modLoc("block/cube_all_rotated"))
+//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//
+//				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom",
+//						ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
+//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top",
+//						ibmp.modLoc("block/bases/slab/slab_rotated_top"))
+//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
+//						ibmp.modLoc("block/cube_all_rotated"))
+//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//
+////				styledStairsModels(base, s, ibmp);
+//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
+//						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
+//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_inner",
+//						ibmp.modLoc("block/bases/stairs/stairs_rotated_inner"))
+//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_outer",
+//						ibmp.modLoc("block/bases/stairs/stairs_rotated_outer"))
+//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
+//
+//			} else {
 				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 						.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
@@ -296,7 +296,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			}
+//			}
 		}
 	}
 
@@ -307,15 +307,15 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		tmp.getBuilder(PLANK_BLOCK.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/planks/big")));
+						"block/material/wood/" + base.name.toLowerCase() + "/planks/boards")));
 
 		tmp.getBuilder(PLANK_SLAB.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/slab/big_bottom")));
+						"block/material/wood/" + base.name.toLowerCase() + "/slab/boards_bottom")));
 
 		tmp.getBuilder(PLANK_STAIRS.BLOCK_ITEM.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/stairs/big")));
+						"block/material/wood/" + base.name.toLowerCase() + "/stairs/boards")));
 	}
 
 	@Override

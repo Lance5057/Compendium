@@ -1,6 +1,8 @@
 {
-  "parent": "compendium:block/bases/stairs/stairs_rotated_outer",
+  "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "0": "compendium:block/material/wood/mangrove/planks/walkway"
+    "bottom": "compendium:block/material/wood/mangrove/planks/walkway_rotated",
+    "side": "compendium:block/material/wood/mangrove/planks/walkway_rotated",
+    "top": "compendium:block/material/wood/mangrove/planks/walkway_rotated"
   }
 }
