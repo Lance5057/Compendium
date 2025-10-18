@@ -58,7 +58,8 @@ public class StyleData {
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
 
-	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood"));
+	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood", "bark_shred_1",
+			"bark_shred_2", "bark_shred_3", "bark_shred_4"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab",
 			List.of("small_logs", "small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small",
 					"small_wood", "small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",

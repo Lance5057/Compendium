@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"top": "block/acacia_log_top",
+		"bottom": "block/stripped_acacia_log_top",
+		"particle": "compendium:block/material/wood/acacia/logs/bark_shred",
+		"side": "compendium:block/material/wood/acacia/logs/bark_shred"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [16, 0, 0, 16], "texture": "#top"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#bottom"}
+			}
+		}
+	]
+}
