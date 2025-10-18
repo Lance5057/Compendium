@@ -261,26 +261,26 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"));
 
-		String[] shreds = {"1", "2", "3", "4"};
+		String[] shreds = { "1", "2", "3", "4" };
 		for (String shred : shreds) {
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-					.texture("top", mcLoc("block/" + base.name + "_" + logstem + "_top"))
-					.texture("bottom", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
+					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"))
+					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
-							ibmp.modLoc("block/cube_column_ends_horizontal"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-					.texture("top", mcLoc("block/" + base.name + "_" + logstem + "_top"))
-					.texture("bottom", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
+					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"))
+					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
 
 			ibmp.withExistingParent(LOG.location(base) + "/stripped_log/bark_shred_" + shred,
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"));
 			ibmp.withExistingParent(LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
-							ibmp.modLoc("block/cube_column_ends_horizontal"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"));
@@ -303,12 +303,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
 
-		ibmp.withExistingParent(LOG.location(base) + "/stripped_log/small_wood",
-						ibmp.mcLoc("block/cube_column"))
+		ibmp.withExistingParent(LOG.location(base) + "/stripped_log/small_wood", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
 		ibmp.withExistingParent(LOG.location(base) + "/stripped_log/small_wood_horizontal",
-						ibmp.mcLoc("block/cube_column_horizontal"))
+				ibmp.mcLoc("block/cube_column_horizontal"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
 
@@ -458,7 +457,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						BlockModelBuilder bmb = msmb.end();
 						b.modelFile(bmb);
 						if (axis == Direction.Axis.X)
-							b.rotationY(90);
+							b.rotationY(-90);
 						return b.rotationX(90).build();
 					}
 

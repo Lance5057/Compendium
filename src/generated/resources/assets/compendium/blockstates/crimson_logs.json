@@ -3,7 +3,7 @@
     "axis=x": {
       "model": "compendium:block/material/wood/crimson/log_horizontal",
       "x": 90,
-      "y": 90
+      "y": -90
     },
     "axis=y": {
       "model": "compendium:block/material/wood/crimson/log"
