@@ -2,9 +2,9 @@
   "name": "iron",
   "tagNamespace": "minecraft",
   "type": "METAL",
-  "loadIngot": false,
-  "loadStorageBlock": false,
-  "loadNugget": false,
+  "loadIngot": "EXISTS",
+  "loadStorageBlock": "EXISTS",
+  "loadNugget": "EXISTS",
   "tier": "DIAMOND",
   "level": 0,
   "uses": 0,
@@ -16,12 +16,12 @@
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
-      "loadPrybar": true,
-      "loadHammer": true,
-      "loadSaw": true,
-      "loadShears": false,
-      "loadZweihander": true,
-      "loadBow": true
+      "loadPrybar": "GENERATE",
+      "loadHammer": "GENERATE",
+      "loadSaw": "GENERATE",
+      "loadShears": "EXISTS",
+      "loadZweihander": "GENERATE",
+      "loadBow": "GENERATE"
     }
   ]
 }

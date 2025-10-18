@@ -157,6 +157,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		CompendiumBlockEntities.validStyleBlocks.add(LOG_STAIRS.BLOCK);
 
 		Compendium.styleItemRenderers.add(LOG.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(LOG_SLAB.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(LOG_STAIRS.BLOCK_ITEM);
 
 		STRIPPED_SMALL_LOG.setup(base,
 				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.SMALL_LOG),

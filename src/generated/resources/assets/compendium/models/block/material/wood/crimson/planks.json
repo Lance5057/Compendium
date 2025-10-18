@@ -1,4 +1,10 @@
 {
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/crimson_planks"
+    }
+  },
   "big_weave": {
     "model": "compendium:block/material/wood/crimson/planks/big_weave"
   },

@@ -2,7 +2,6 @@
   "name": "tinted",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadPane": false,
-  "loadBlock": false,
+  "loadBlock": "EXISTS",
   "extensions": []
 }

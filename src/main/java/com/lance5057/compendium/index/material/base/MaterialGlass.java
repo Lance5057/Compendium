@@ -10,10 +10,11 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -21,105 +22,73 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.TransparentBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialGlass extends _MaterialBase {
 
-	public boolean loadPane;
-	public boolean loadBlock;
-
-	public DeferredItem<BlockItem> PANE_ITEM;
-	public DeferredBlock<IronBarsBlock> PANE;
-	public DeferredItem<BlockItem> BLOCK_ITEM;
-	public DeferredBlock<TransparentBlock> BLOCK;
-
-	private TagKey<Item> paneItemTag;
-	private TagKey<Block> paneTag;
-	private TagKey<Item> blockItemTag;
-	private TagKey<Block> blockTag;
+	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("glass");
 
 	public MaterialGlass(String name, String tagNamespace) {
 		super(name, tagNamespace);
 		// TODO Auto-generated constructor stub
 	}
 
-	public MaterialGlass(String name, String tagNamespace, boolean pane, boolean block) {
+	public MaterialGlass(String name, String tagNamespace, Generate block) {
 		super(name, tagNamespace);
-		loadPane = pane;
-		loadBlock = block;
 
-		blockItemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/pane/" + name));
-		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/pane/" + name));
-		blockItemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/" + name));
-		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/" + name));
+		BLOCK.setGenerate(block);
+//		loadBlock = block;
+//
+//		blockItemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/pane/" + name));
+//		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/pane/" + name));
+//		blockItemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/" + name));
+//		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "glass/" + name));
 
 	}
 
 	@Override
 	public void setup() {
-		if (this.loadBlock) {
-			BLOCK = CompendiumIndex.BLOCKS.register(this.name + "_block",
-					() -> new TransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-			BLOCK_ITEM = CompendiumIndex.ITEMS.register(this.name + "_block_item",
-					() -> new BlockItem(BLOCK.get(), new Item.Properties()));
-		}
-		if (this.loadPane) {
-			PANE = CompendiumIndex.BLOCKS.register(this.name + "_pane",
-					() -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS_PANE)));
-			PANE_ITEM = CompendiumIndex.ITEMS.register(this.name + "_pane_item",
-					() -> new BlockItem(PANE.get(), new Item.Properties()));
-		}
+		BLOCK.setup(this, namespace, name + "_glass",
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_glass"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_glass"));
+
+		this.extensions.forEach(i -> i.setup(this));
 	}
 
 	@Override
 	public void tab(Output output) {
-
+		BLOCK.tab(this, output);
 	}
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
-		if (this.loadBlock)
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, "", "transparent", this.getType());
-		if (this.loadPane)
-			bsp.paneBlock(this.PANE.get(), DataUtil.standardResource(name, "block"),
-					DataUtil.standardResource(name, "pane_top"));
+		if (BLOCK.shouldGenerate())
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.BLOCK.get(), name, "", "transparent", this.getType());
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
-		if (this.loadBlock)
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
+		if (BLOCK.shouldGenerate())
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK.BLOCK_ITEM, name, this.getType());
 	}
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
 
-		if (this.loadBlock)
-			lp.add(this.BLOCK_ITEM.get(), locName + " Block");
-		if (this.loadPane)
-			lp.add(this.PANE_ITEM.get(), locName + " Pane Block");
+		if (BLOCK.shouldGenerate()) {
+			lp.add(this.BLOCK.BLOCK.get(), locName + " Block");
+			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + " Block");
+		}
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}
@@ -132,10 +101,8 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		if (this.loadBlock)
-			blp.dropSelf(this.BLOCK.get());
-		if (this.loadPane)
-			blp.dropSelf(this.PANE.get());
+		if (BLOCK.shouldGenerate())
+			blp.dropSelf(this.BLOCK.BLOCK.get());
 
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
@@ -159,7 +126,7 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public Ingredient getBaseItem() {
-		return Ingredient.of(this.BLOCK_ITEM.get());
+		return Ingredient.of(this.BLOCK.BLOCK_ITEM.get());
 	}
 
 	@Override
@@ -180,12 +147,11 @@ public class MaterialGlass extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			boolean pane = j.get("loadPane").getAsBoolean();
-			boolean block = j.get("loadBlock").getAsBoolean();
+			String block = j.get("loadBlock").getAsString();
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialGlass m = new MaterialGlass(name, tagNamespace, pane, block);
+			MaterialGlass m = new MaterialGlass(name, tagNamespace, Generate.valueOf(block));
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -202,8 +168,7 @@ public class MaterialGlass extends _MaterialBase {
 			j.addProperty("name", src.name);
 			j.addProperty("tagNamespace", src.namespace);
 			j.addProperty("type", type);
-			j.addProperty("loadPane", src.loadPane);
-			j.addProperty("loadBlock", src.loadBlock);
+			j.addProperty("loadBlock", src.BLOCK.getGeneration().toString());
 
 			JsonArray ext = new JsonArray();
 
@@ -230,7 +195,7 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

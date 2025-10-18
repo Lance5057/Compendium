@@ -2,7 +2,7 @@
   "name": "yellow_wool",
   "tagNamespace": "minecraft",
   "type": "TEXTILE",
-  "loadString": false,
-  "loadBlock": false,
+  "loadString": "IGNORE",
+  "loadBlock": "EXISTS",
   "extensions": []
 }

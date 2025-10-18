@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:iron_bow",
+  "parent": "compendium:iron_bow_item",
   "textures": {
     "layer0": "compendium:item/material/metal/iron/bow_pulling_2",
     "layer1": "compendium:item/bow_base_pulling_2"

@@ -10,10 +10,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
@@ -23,55 +25,29 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialMetal extends _MaterialBase {
-	public boolean loadIngot;
-	public boolean loadStorageBlock;
-	public boolean loadNugget;
 
-	public DeferredItem<Item> INGOT;
-	public DeferredItem<Item> NUGGET;
-	public DeferredItem<BlockItem> BLOCK_ITEM;
-	public DeferredBlock<Block> BLOCK;
+	public CompendiumItemHandler INGOT = new CompendiumItemHandler("ingot");
+	public CompendiumItemHandler NUGGET = new CompendiumItemHandler("nugget");
+	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("storage_block");
 
-	private TagKey<Item> ingotTag;
-	private TagKey<Item> nuggetTag;
-	private TagKey<Item> blockItemTag;
-	private TagKey<Block> blockTag;
-
-	public MaterialMetal(String name, String tagNamespace) {
-		this(name, tagNamespace, true, true, true);
-	}
-
-	public MaterialMetal(String name, String tagNamespace, boolean ingot, boolean block, boolean nugget) {
+	public MaterialMetal(String name, String tagNamespace, Generate ingot, Generate block, Generate nugget) {
 		super(name, tagNamespace);
-		loadIngot = ingot;
-		loadStorageBlock = block;
-		loadNugget = nugget;
 
-		ingotTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "ingots/" + name));
-		nuggetTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "nuggets/" + name));
-		blockItemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/" + name));
-		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/" + name));
-
+		INGOT.setGenerate(ingot);
+		BLOCK.setGenerate(block);
+		NUGGET.setGenerate(nugget);
 	}
 
 	@Override
@@ -86,39 +62,35 @@ public class MaterialMetal extends _MaterialBase {
 			tier = Tiers.valueOf(premadeTier);
 		else {
 			useBlockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", useTag));
-			tier = new SimpleTier(useBlockTag, uses, speed, damage, enchantmentValue, () -> Ingredient.of(ingotTag));
+			tier = new SimpleTier(useBlockTag, uses, speed, damage, enchantmentValue,
+					() -> Ingredient.of(INGOT.itemTag));
 		}
 
-		if (this.loadIngot)
-			INGOT = CompendiumIndex.ITEMS.register(this.name + "_ingot", () -> new Item(new Item.Properties()));
-		if (this.loadNugget)
-			NUGGET = CompendiumIndex.ITEMS.register(this.name + "_nugget", () -> new Item(new Item.Properties()));
-		if (this.loadStorageBlock) {
-			BLOCK = CompendiumIndex.BLOCKS.register(this.name + "_block",
-					() -> new Block(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-			BLOCK_ITEM = CompendiumIndex.ITEMS.register(this.name + "_block_item",
-					() -> new BlockItem(BLOCK.get(), new Item.Properties()));
-		}
+		INGOT.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		NUGGET.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
+		BLOCK.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
 		this.extensions.forEach(i -> i.setup(this));
+
 	}
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
-		if (this.loadStorageBlock)
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.get(), name, this.getType());
+		if (BLOCK.shouldGenerate())
+			DataUtil.basicMaterialBlock(bsp, this.BLOCK.BLOCK.get(), name, this.getType());
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
-		if (this.loadNugget)
-			DataUtil.basicMaterialItem(tmp, this.NUGGET.get(), this, "nugget", this.getType());
-		if (this.loadIngot)
-			DataUtil.basicMaterialItem(tmp, this.INGOT.get(), this, "ingot", this.getType());
-		if (this.loadStorageBlock)
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK_ITEM, name, this.getType());
+		if (NUGGET.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.NUGGET.ITEM.get(), this, "nugget", this.getType());
+		if (INGOT.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.INGOT.ITEM.get(), this, "ingot", this.getType());
+		if (BLOCK.shouldGenerate())
+			DataUtil.basicMaterialBlockItem(tmp, BLOCK.BLOCK_ITEM, name, this.getType());
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
@@ -126,12 +98,12 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
-		if (this.loadNugget)
-			lp.add(this.NUGGET.get(), locName + " Nugget");
-		if (this.loadIngot)
-			lp.add(this.INGOT.get(), locName + " Ingot");
-		if (this.loadStorageBlock)
-			lp.add(this.BLOCK_ITEM.get(), locName + " Block");
+		if (NUGGET.shouldGenerate())
+			lp.add(this.NUGGET.ITEM.get(), locName + " Nugget");
+		if (INGOT.shouldGenerate())
+			lp.add(this.INGOT.ITEM.get(), locName + " Ingot");
+		if (BLOCK.shouldGenerate())
+			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + " Block");
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}
@@ -145,20 +117,17 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		if (this.loadStorageBlock)
-			blp.dropSelf(this.BLOCK.get());
+		if (BLOCK.shouldGenerate())
+			blp.dropSelf(this.BLOCK.BLOCK.get());
 
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 
 	@Override
 	public void tab(Output output) {
-		if (this.loadStorageBlock)
-			output.accept(BLOCK_ITEM);
-		if (this.loadIngot)
-			output.accept(INGOT);
-		if (this.loadNugget)
-			output.accept(NUGGET);
+		INGOT.tab(this, output);
+		NUGGET.tab(this, output);
+		BLOCK.tab(this, output);
 
 		this.extensions.forEach(i -> i.tab(this, output));
 	}
@@ -186,9 +155,9 @@ public class MaterialMetal extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			boolean ingot = j.get("loadIngot").getAsBoolean();
-			boolean block = j.get("loadStorageBlock").getAsBoolean();
-			boolean nugget = j.get("loadNugget").getAsBoolean();
+			String ingot = j.get("loadIngot").getAsString();
+			String block = j.get("loadStorageBlock").getAsString();
+			String nugget = j.get("loadNugget").getAsString();
 
 			String tier = j.get("tier").getAsString();
 
@@ -202,7 +171,8 @@ public class MaterialMetal extends _MaterialBase {
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialMetal m = new MaterialMetal(name, tagNamespace, ingot, block, nugget);
+			MaterialMetal m = new MaterialMetal(name, tagNamespace, Generate.valueOf(ingot), Generate.valueOf(block),
+					Generate.valueOf(nugget));
 
 			if (tier != null && !tier.isEmpty())
 				m.setupTier(tier);
@@ -225,9 +195,9 @@ public class MaterialMetal extends _MaterialBase {
 			j.addProperty("tagNamespace", src.namespace);
 
 			j.addProperty("type", type);
-			j.addProperty("loadIngot", src.loadIngot);
-			j.addProperty("loadStorageBlock", src.loadStorageBlock);
-			j.addProperty("loadNugget", src.loadNugget);
+			j.addProperty("loadIngot", src.INGOT.getGeneration().toString());
+			j.addProperty("loadStorageBlock", src.BLOCK.getGeneration().toString());
+			j.addProperty("loadNugget", src.NUGGET.getGeneration().toString());
 
 			j.addProperty("tier", "DIAMOND");
 			j.addProperty("level", 0);
@@ -257,7 +227,7 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public Ingredient getBaseItem() {
-		return Ingredient.of(this.INGOT.get());
+		return Ingredient.of(this.INGOT.ITEM.get());
 	}
 
 	@Override
@@ -291,25 +261,32 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
 		ItemStack i = ItemStack.EMPTY;
-		if (this.loadStorageBlock)
-			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK_ITEM.get(), INGOT.get(), 9);
+		if (!BLOCK.isIgnored())
+			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK.BLOCK_ITEM.get(), INGOT.ITEM.get(), 9);
 		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, this.blockItemTag, ingotTag, 9);
+			i = ScrappingUtils.convertBasedOnTag(ingredient, BLOCK.itemTag, INGOT.itemTag, 9);
 		if (i.isEmpty()) {
-			if (this.loadIngot)
-				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.get(), NUGGET.get(), 9);
+			if (!INGOT.isIgnored())
+				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), NUGGET.ITEM.get(), 9);
 			else
-				i = ScrappingUtils.convertBasedOnTag(ingredient, ingotTag, nuggetTag, 9);
+				i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, NUGGET.itemTag, 9);
 		}
 		return i;
 	}
 
 	@Override
 	public ItemStack buildUpItem(Ingredient ingredient) {
-		if (ingredient.test(this.INGOT.toStack()))
-			return this.BLOCK_ITEM.toStack(1);
-		if (ingredient.test(this.NUGGET.toStack()))
-			return this.INGOT.toStack(1);
-		return ItemStack.EMPTY;
+		ItemStack i = ItemStack.EMPTY;
+		if (!BLOCK.isIgnored())
+			i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), BLOCK.BLOCK_ITEM.get(), 1);
+		else
+			i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, BLOCK.itemTag, 1);
+		if (i.isEmpty()) {
+			if (!INGOT.isIgnored())
+				i = ScrappingUtils.convertBasedOnStack(ingredient, NUGGET.ITEM.get(), INGOT.ITEM.get(), 1);
+			else
+				i = ScrappingUtils.convertBasedOnTag(ingredient, NUGGET.itemTag, INGOT.itemTag, 1);
+		}
+		return i;
 	}
 }

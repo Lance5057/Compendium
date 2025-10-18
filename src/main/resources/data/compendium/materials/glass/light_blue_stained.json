@@ -2,7 +2,6 @@
   "name": "light_blue_stained",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadPane": false,
-  "loadBlock": false,
+  "loadBlock": "EXISTS",
   "extensions": []
 }

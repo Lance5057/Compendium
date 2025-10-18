@@ -68,7 +68,9 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped"); // swear to god mojang
+		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped"); // swear to
+																											// god
+																											// mojang
 
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.namespace, "planks",
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),

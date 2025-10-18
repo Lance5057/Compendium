@@ -26,50 +26,50 @@ import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class StyleBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<StyleModelData> DATA = new ModelProperty<>();
-	private final BakedModel missing;
+	private BakedModel base;
 	String current = "";
 	Map<String, BakedModel> models = new HashMap<String, BakedModel>();
 
 	@SuppressWarnings("deprecation")
 	public StyleBakedModel(BakedModel base, Map<String, BakedModel> quads) {
-		this.missing = base;
+		this.base = base;
 		this.models = quads;
 
 	}
 
 	@Override
 	public boolean useAmbientOcclusion() {
-		return missing.useAmbientOcclusion();
+		return base.useAmbientOcclusion();
 	}
 
 	@Override
 	public boolean isGui3d() {
-		return missing.isGui3d();
+		return base.isGui3d();
 	}
 
 	@Override
 	public boolean usesBlockLight() {
-		return missing.usesBlockLight();
+		return base.usesBlockLight();
 	}
 
 	@Override
 	public boolean isCustomRenderer() {
-		return missing.isCustomRenderer();
+		return base.isCustomRenderer();
 	}
 
 	@Override
 	public TextureAtlasSprite getParticleIcon() {
-		return missing.getParticleIcon();
+		return base.getParticleIcon();
 	}
 
 	@Override
 	public ItemOverrides getOverrides() {
-		return missing.getOverrides();
+		return base.getOverrides();
 	}
 
 	@Override
 	public ItemTransforms getTransforms() {
-		return missing.getTransforms();
+		return base.getTransforms();
 	}
 
 	@Override // FORGE: Get render types based on the selectors matched by the given block
@@ -77,7 +77,7 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	public ChunkRenderTypeSet getRenderTypes(@NotNull BlockState state, @NotNull RandomSource rand,
 			@NotNull ModelData data) {
 
-		return this.missing.getRenderTypes(state, rand, data);
+		return this.base.getRenderTypes(state, rand, data);
 	}
 
 	@Override
@@ -94,11 +94,11 @@ public class StyleBakedModel implements IDynamicBakedModel {
 					if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
 						l.addAll(r);
 				} else
-					l.addAll(missing.getQuads(state, side, rand, extraData, renderType));
+					l.addAll(base.getQuads(state, side, rand, extraData, renderType));
 			} else
-				l.addAll(missing.getQuads(state, side, rand, extraData, renderType));
+				l.addAll(base.getQuads(state, side, rand, extraData, renderType));
 		} else
-			l.addAll(missing.getQuads(state, side, rand, extraData, renderType));
+			l.addAll(base.getQuads(state, side, rand, extraData, renderType));
 
 		return l;
 

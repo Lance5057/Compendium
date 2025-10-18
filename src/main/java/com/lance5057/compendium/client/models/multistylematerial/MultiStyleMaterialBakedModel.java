@@ -17,12 +17,15 @@ import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
+import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 	BakedModel base;
@@ -81,6 +84,14 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 		return l;
 	}
 
+//	@Override
+//	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
+//		StyleModelData data = new StyleModelData();
+//		MultiMaterialModelData data2 = new MultiMaterialModelData();
+//
+//		return modelData.derive().with(STYLE_DATA, data).with(MATERIAL_DATA, data2).build();
+//	}
+
 	public static class BakedLayer {
 		public final List<MATERIAL_TYPES> validTypes;
 		public final Map<String, Map<String, BakedModel>> models;
@@ -120,21 +131,6 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			return l;
 		}
 
-//		public List<BakedQuad> getInvalid(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
-//				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
-//			List<BakedQuad> l = new ArrayList<BakedQuad>();
-//
-//			BakedModel q = models.get("invalid");
-//
-//			if (q != null) {
-//				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-//				if (r != null)
-//					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-//						l.addAll(r);
-//			}
-//
-//			return l;
-//		}
 	}
 
 }

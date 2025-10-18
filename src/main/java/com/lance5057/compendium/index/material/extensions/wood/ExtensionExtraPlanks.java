@@ -59,8 +59,6 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK_SLAB;
 	public final CompendiumBlockHandler PLANK_STAIRS;
 
-	private TagKey<Item> plankTag;
-
 	public ExtensionExtraPlanks(Generate plank, Generate plankBlock, Generate plankSlab, Generate plankStairs) {
 		PLANK = new CompendiumBlockHandler("plank");
 		PLANK_BLOCK = new CompendiumBlockHandler("plank_block");
@@ -103,11 +101,15 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				base.namespace, "planks/stairs",
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
-		
+
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_STAIRS.BLOCK);
+
+		Compendium.styleItemRenderers.add(PLANK_BLOCK.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(PLANK_SLAB.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(PLANK_STAIRS.BLOCK_ITEM);
 	}
 
 	@Override
@@ -125,7 +127,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ConfiguredModel.Builder<?> b = ConfiguredModel.builder();
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
 						.getBuilder(PLANK_BLOCK.location(base) + "planks").customLoader(StyleBlockModelBuilder::begin);
-				msmb.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				msmb.base(bsp.models().cubeAll(base.name + "_plank_base", bsp.mcLoc("block/" + base.name + "_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes())
 					msmb.add(new StyleModelBuilder(s,
@@ -270,32 +272,32 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 //						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
 //
 //			} else {
-				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
-						.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
+					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
-				ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top",
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank
-																			// one?
+			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank
+																		// one?
 
-				ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner",
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-				ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer",
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-						ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+			ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 //			}
 		}
 	}

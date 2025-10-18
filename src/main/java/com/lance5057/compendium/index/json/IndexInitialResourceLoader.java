@@ -102,33 +102,37 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionArmor(true, true, 1, 1, 1, 1, 1, 1, 1))
 //				.addExtension(new ExtensionExtraMetalBlocks(true)));
 
-		buildDefault(new MaterialMetal("iron", "minecraft", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, false, true, true)));
-		buildDefault(new MaterialMetal("gold", "minecraft", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
-		buildDefault(new MaterialMetal("copper", "minecraft", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
-		buildDefault(new MaterialMetal("netherite", "minecraft", false, false, false)
-				.addExtension(new ExtensionAdvancedTools(true, true, true, true, true, true)));
+		buildDefault(new MaterialMetal("iron", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)));
+		buildDefault(new MaterialMetal("gold", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
+		buildDefault(new MaterialMetal("copper", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
+		buildDefault(new MaterialMetal("netherite", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
 
-		buildDefault(new MaterialGlass("clear", "minecraft", false, false));
-		buildDefault(new MaterialGlass("white_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("light_gray_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("gray_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("black_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("brown_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("red_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("orange_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("yellow_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("lime_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("green_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("cyan_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("light_blue_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("blue_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("purple_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("magenta_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("pink_stained", "minecraft", false, false));
-		buildDefault(new MaterialGlass("tinted", "minecraft", false, false));
+		buildDefault(new MaterialGlass("clear", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("white_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("light_gray_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("gray_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("black_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("brown_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("red_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("orange_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("yellow_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("lime_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("green_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("cyan_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("light_blue_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("blue_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("purple_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("magenta_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("pink_stained", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
 
 		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 				Generate.EXISTS, Generate.EXISTS)
@@ -221,22 +225,22 @@ public class IndexInitialResourceLoader {
 //				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
-		buildDefault(new MaterialTextile("white_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("gray_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("black_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("brown_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("red_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("orange_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("yellow_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("lime_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("green_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("cyan_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("blue_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("purple_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("magenta_wool", "minecraft", false, false));
-		buildDefault(new MaterialTextile("pink_wool", "minecraft", false, false));
+		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

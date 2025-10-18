@@ -10,18 +10,19 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.world.item.BlockItem;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -32,23 +33,17 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialTextile extends _MaterialBase {
 
-	boolean loadBlock;
-	boolean loadString;
+	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("block");
+	public CompendiumItemHandler STRING = new CompendiumItemHandler("string");
 
-	public DeferredItem<BlockItem> BLOCK_ITEM;
-	public DeferredBlock<Block> BLOCK;
-
-	public DeferredItem<Item> STRING;
-
-	public MaterialTextile(String name, String tagNamespace, boolean block, boolean string) {
+	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string) {
 		super(name, tagNamespace);
-		this.loadBlock = block;
-		this.loadString = string;
+
+		BLOCK.setGenerate(block);
+		STRING.setGenerate(string);
 	}
 
 	@Override
@@ -58,22 +53,19 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		if (this.loadBlock) {
-			BLOCK = CompendiumIndex.BLOCKS.register(this.name + "_block",
-					() -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
-			BLOCK_ITEM = CompendiumIndex.ITEMS.register(this.name + "_block_item",
-					() -> new BlockItem(BLOCK.get(), new Item.Properties()));
-		}
-		if (this.loadString) {
-			STRING = CompendiumIndex.ITEMS.register(this.name + "_string", () -> new Item(new Item.Properties()));
-		}
+
+		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)), namespace, name,
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
+
+		STRING.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_string"));
 
 	}
 
 	@Override
 	public void tab(Output output) {
-		// TODO Auto-generated method stub
-
+		BLOCK.tab(this, output);
+		STRING.tab(this, output);
 	}
 
 	@Override
@@ -126,7 +118,7 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public Ingredient getBaseItem() {
-		return Ingredient.of(this.BLOCK_ITEM.get());
+		return Ingredient.of(this.BLOCK.BLOCK_ITEM.get());
 	}
 
 	@Override
@@ -138,7 +130,7 @@ public class MaterialTextile extends _MaterialBase {
 	public void blockModel(IndexBlockModelProvider ibmp) {
 		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
-	
+
 	public static class Serializer extends MaterialTypeSerializer<MaterialTextile> {
 		public Serializer() {
 			super("TEXTILE");
@@ -151,13 +143,14 @@ public class MaterialTextile extends _MaterialBase {
 
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
-			
-			boolean string = j.get("loadString").getAsBoolean();
-			boolean block = j.get("loadBlock").getAsBoolean();
+
+			String string = j.get("loadString").getAsString();
+			String block = j.get("loadBlock").getAsString();
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialTextile m = new MaterialTextile(name, tagNamespace, string, block);
+			MaterialTextile m = new MaterialTextile(name, tagNamespace, Generate.valueOf(string),
+					Generate.valueOf(block));
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -174,8 +167,8 @@ public class MaterialTextile extends _MaterialBase {
 			j.addProperty("name", src.name);
 			j.addProperty("tagNamespace", src.namespace);
 			j.addProperty("type", type);
-			j.addProperty("loadString", src.loadString);
-			j.addProperty("loadBlock", src.loadBlock);
+			j.addProperty("loadString", src.STRING.getGeneration().toString());
+			j.addProperty("loadBlock", src.BLOCK.getGeneration().toString());
 
 			JsonArray ext = new JsonArray();
 
@@ -192,7 +185,7 @@ public class MaterialTextile extends _MaterialBase {
 	@Override
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -218,6 +211,5 @@ public class MaterialTextile extends _MaterialBase {
 		// TODO Auto-generated method stub
 		return ItemStack.EMPTY;
 	}
-
 
 }

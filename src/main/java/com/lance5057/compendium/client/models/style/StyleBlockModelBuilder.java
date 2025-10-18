@@ -41,7 +41,7 @@ public class StyleBlockModelBuilder<T extends ModelBuilder<T>> extends CustomLoa
 	@Override
 	public JsonObject toJson(JsonObject json) {
 
-//		json.add("base", baseModel.toJson());
+		json.add("base", baseModel.toJson());
 
 		if (indexModels != null) {
 			for (int i = 0; i < indexModels.size(); i++)

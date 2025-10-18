@@ -1,12 +1,12 @@
 {
   "values": [
-    "compendium:netherite_hammer",
-    "compendium:netherite_prybar",
-    "compendium:gold_hammer",
-    "compendium:gold_prybar",
-    "compendium:copper_hammer",
-    "compendium:copper_prybar",
-    "compendium:iron_hammer",
-    "compendium:iron_prybar"
+    "compendium:copper_hammer_item",
+    "compendium:copper_prybar_item",
+    "compendium:netherite_hammer_item",
+    "compendium:netherite_prybar_item",
+    "compendium:gold_hammer_item",
+    "compendium:gold_prybar_item",
+    "compendium:iron_hammer_item",
+    "compendium:iron_prybar_item"
   ]
 }

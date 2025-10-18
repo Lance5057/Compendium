@@ -43,6 +43,10 @@ public class CompendiumBlockHandler {
 		generate = b;
 	}
 
+	public boolean isIgnored() {
+		return generate == Generate.IGNORE;
+	}
+
 	public void setup(_MaterialBase base, String tagNamespace, String tagName, ResourceLocation existsItem,
 			ResourceLocation existsBlock) {
 		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
