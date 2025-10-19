@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/slab/smaller_logs_rotated_full",
+  "textures": {
+    "0": "minecraft:block/crimson_stem",
+    "1": "compendium:block/material/wood/crimson/logs/extra_caps",
+    "particle": "minecraft:block/crimson_stem"
+  }
+}
