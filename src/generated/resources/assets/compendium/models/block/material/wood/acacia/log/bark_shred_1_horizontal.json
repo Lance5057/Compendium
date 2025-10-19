@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/acacia_log_top",
+    "bottom": "minecraft:block/stripped_acacia_log_top",
     "side": "compendium:block/material/wood/acacia/logs/bark_shred_1",
-    "top": "minecraft:block/stripped_acacia_log_top"
+    "top": "minecraft:block/acacia_log_top"
   }
 }
