@@ -58,8 +58,8 @@ public class StyleData {
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
 	public static StyleData GABLE = new StyleData("gable", List.of("basic"));
 
-	public static StyleData LOG = new StyleData("log", List.of("basic", "corner", "small_wood", "bark_shred_1",
-			"bark_shred_2", "bark_shred_3", "bark_shred_4"));
+	public static StyleData LOG = new StyleData("log",
+			List.of("basic", "corner", "small_wood", "bark_shred_1", "bark_shred_2", "bark_shred_3", "bark_shred_4"));
 	public static StyleData LOG_SLAB = new StyleData("log_slab",
 			List.of("small_logs", "small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small",
 					"small_wood", "small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
@@ -78,7 +78,7 @@ public class StyleData {
 					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
 					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
 					"wicker"));
-	
+
 	public static StyleData PLANK_SLAB = new StyleData("planks",
 			List.of("big_weave", "blocks", "blocks_offset", "boards", "boards_rotated", "boards_seamless",
 					"boards_seamless_rotated", "boards_stacked", "boards_stacked_rotated", "box", "chiseled", "cross",
@@ -88,9 +88,11 @@ public class StyleData {
 					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
 					"wicker", "trellis"));
 
-	public static StyleData WINDOW_TRIM = new StyleData("window_trim", List.of("basic"));
+	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
+			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
+					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
-	
+
 	String name;
 	List<String> types;
 

@@ -170,10 +170,14 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
 				withExistingParent("block/material/wood/" + mb.name + "/window/trim/" + b.toLowerCase(),
-						mcLoc("cube_all")).texture("all", modLoc("block/material/wood/" + mb.name + "/window_trim")).renderType("cutout");
+						mcLoc("cube_all"))
+						.texture("all",
+								modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase()))
+						.renderType("cutout");
 
 				withExistingParent("block/material/wood/" + mb.name + "/window/trim/" + b.toLowerCase() + "_inventory",
-						mcLoc("cube_all")).texture("all", modLoc("block/material/wood/" + mb.name + "/window_trim"))
+						mcLoc("cube_all"))
+						.texture("all", modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase()))
 						.renderType("cutout");
 			});
 

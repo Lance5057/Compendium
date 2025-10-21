@@ -25,7 +25,19 @@
     "modelPart": "trim",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "quarter",
+      "bars",
+      "bars_trimmed",
+      "bars_horizontal",
+      "bars_horizontal_trimmed",
+      "diamond",
+      "diamond_trimmed",
+      "double",
+      "full",
+      "lattice",
+      "lattice_trimmed",
+      "round",
+      "weave"
     ],
     "suffix": "",
     "valid": [

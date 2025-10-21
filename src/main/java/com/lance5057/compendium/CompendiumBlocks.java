@@ -59,7 +59,7 @@ public class CompendiumBlocks {
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.GLASS), 2, 2));
+			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.BLACK_STAINED_GLASS), 2, 2));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),

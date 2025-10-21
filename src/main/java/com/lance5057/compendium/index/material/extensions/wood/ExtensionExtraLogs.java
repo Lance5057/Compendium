@@ -71,6 +71,7 @@ import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
+import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -131,11 +132,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log",
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
+				base.namespace, "log", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(), StyleData.LOG_SLAB),
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						StyleData.LOG_SLAB),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -179,7 +180,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"));
 
 		STRIPPED_LOG_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(), StyleData.LOG_SLAB),
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						StyleData.LOG_SLAB),
 				() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -286,26 +288,26 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"))
 					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"));
 		}
-		shreds = new String[]{"3", "4"};
+		shreds = new String[] { "3", "4" };
 		for (String shred : shreds) {
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"))
 					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom", mcLoc("block/" + base.name + "_" + logstem + "_top"))
 					.texture("top", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
 
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top", mcLoc("block/" + base.name + "_" + logstem + "_top"))
 					.texture("bottom", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
-							ibmp.modLoc("block/cube_column_ends"))
+					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top", mcLoc("block/" + base.name + "_" + logstem + "_top"))
 					.texture("bottom", mcLoc("block/stripped_" + base.name + "_" + logstem + "_top"));
@@ -666,7 +668,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp,
 			String extra) {
 		if (block.shouldGenerate()) {
-			BlockModelBuilder base_model_horizontal = bsp.models()
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
+					.getBuilder(LOG.location(base) + "stripped_log_stairs_inner")
+					.customLoader(StyleBlockModelBuilder::begin);
+			base_model_horizontal.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.LOG_STAIRS.getTypes())
+				base_model_horizontal.add(new StyleModelBuilder(s,
+						bsp.modLoc(LOG.location(base) + "stripped_stairs/" + s.toLowerCase() + "_inner")));
+
+			bsp.models()
 					.withExistingParent(block.location(base) + extra + "horizontal",
 							bsp.modLoc("block/small_log_horizontal"))
 					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));

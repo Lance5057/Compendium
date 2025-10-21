@@ -261,16 +261,16 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
 		ItemStack i = ItemStack.EMPTY;
-		if (!BLOCK.isIgnored())
-			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK.BLOCK_ITEM.get(), INGOT.ITEM.get(), 9);
-		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, BLOCK.itemTag, INGOT.itemTag, 9);
-		if (i.isEmpty()) {
-			if (!INGOT.isIgnored())
-				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), NUGGET.ITEM.get(), 9);
-			else
-				i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, NUGGET.itemTag, 9);
-		}
+//		if (!BLOCK.isIgnored())
+//			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK.BLOCK_ITEM.get(), INGOT.ITEM.get(), 9);
+//		else
+//			i = ScrappingUtils.convertBasedOnTag(ingredient, BLOCK.itemTag, INGOT.itemTag, 9);
+//		if (i.isEmpty()) {
+//			if (!INGOT.isIgnored())
+//				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), NUGGET.ITEM.get(), 9);
+//			else
+//				i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, NUGGET.itemTag, 9);
+//		}
 		return i;
 	}
 
