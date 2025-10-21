@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-19T09:56:55.7958981	Block States: compendium
+// 1.21.1	2025-10-20T17:52:44.691967	Block States: compendium
 7a5d749028adb51994c3d6e98898e5cb7fb712e8 assets/compendium/blockstates/acacia_logs.json
 c5cedc156f41a6c7ea9ad2314094a339febc084f assets/compendium/blockstates/acacia_logs_slab.json
 b27fdb8b4d53b6bffd4cac26f3e302be6f5fbae3 assets/compendium/blockstates/acacia_logs_stairs.json
@@ -170,9 +170,9 @@ e18fb6904603fdf196d01f541b33f90cfb125a11 assets/compendium/models/block/material
 01a31e2e1fc532abbfdfd81e12e7c416d3761056 assets/compendium/models/block/material/wood/acacia/log_stairs_inner.json
 4714a811e2f7c8ecef263612a5010b17434ee889 assets/compendium/models/block/material/wood/acacia/log_stairs_outer.json
 523295bbacd26244e05312c7411af6796131c682 assets/compendium/models/block/material/wood/acacia/planks.json
-4feadd671f7567a14a59dadf649c89e687ef2642 assets/compendium/models/block/material/wood/acacia/plank_slab_bottom.json
-d2324da08a5abae38a13a63999a13bf04e737268 assets/compendium/models/block/material/wood/acacia/plank_slab_full.json
-527ccd5e842489fe788ddda457dd9b7712001fc0 assets/compendium/models/block/material/wood/acacia/plank_slab_top.json
+b460d93a61b6701961e036455b6b749db218be25 assets/compendium/models/block/material/wood/acacia/plank_slab_bottom.json
+f6bf4a9d50cdb03177fb688395e1a185e0341320 assets/compendium/models/block/material/wood/acacia/plank_slab_full.json
+5cf5ca19eb187778b8bd188c458c12367f71763b assets/compendium/models/block/material/wood/acacia/plank_slab_top.json
 fff1dad5a392c31f140337a15cbb9995454649a5 assets/compendium/models/block/material/wood/acacia/plank_stairs.json
 1abb42e9b49619ca877405da65091013919b4d59 assets/compendium/models/block/material/wood/acacia/plank_stairs_inner.json
 f988c36a15d0060773f3d45ad74048d378ce322f assets/compendium/models/block/material/wood/acacia/plank_stairs_outer.json
@@ -201,9 +201,9 @@ a9ebc9e62e963170291c10b6201a2eb9cc412d60 assets/compendium/models/block/material
 21ad9e529a3257abf14a3435ede3a0967b0b21cf assets/compendium/models/block/material/wood/birch/log_stairs_inner.json
 2a17c16ca88923aceeeb3d9f3e380ccd72fefbed assets/compendium/models/block/material/wood/birch/log_stairs_outer.json
 031ea17d6f48ce2a55797287584d610dfc28f355 assets/compendium/models/block/material/wood/birch/planks.json
-c91138ac98061e5e4cf924148827c8ad009dbbc8 assets/compendium/models/block/material/wood/birch/plank_slab_bottom.json
-e0be04fa49df018b5a028d1bf7616294a7eccd87 assets/compendium/models/block/material/wood/birch/plank_slab_full.json
-26c55d965af3274decfcb27ea006bf0e45174b24 assets/compendium/models/block/material/wood/birch/plank_slab_top.json
+68d6aa91c378ee831166ef33856e9a1fd86c1e27 assets/compendium/models/block/material/wood/birch/plank_slab_bottom.json
+e2eac73d6aaf2a2e14f2ea5b88fd54997358c826 assets/compendium/models/block/material/wood/birch/plank_slab_full.json
+f17724a16ff29bbfd1907351d32225aee2b15343 assets/compendium/models/block/material/wood/birch/plank_slab_top.json
 c1b647374175eccad07db1e79c8c3ec8e0df8ea7 assets/compendium/models/block/material/wood/birch/plank_stairs.json
 e4a48715b6fb8dffa885a47bd1638cbb83316dac assets/compendium/models/block/material/wood/birch/plank_stairs_inner.json
 b0f2c382f54e09c97284cb24cb8432b35d02ea76 assets/compendium/models/block/material/wood/birch/plank_stairs_outer.json
@@ -232,9 +232,9 @@ f9bc0fe8c6a09917e6b59dc7d2f136390dc52bd8 assets/compendium/models/block/material
 89fae73914fdea47f6c3f903dfa4ef48da33152d assets/compendium/models/block/material/wood/cherry/log_stairs_inner.json
 2593a5766410a553c5659fc1f6cd1371ac66579a assets/compendium/models/block/material/wood/cherry/log_stairs_outer.json
 1c082fae89c0dd5f6ce933a2bc9ff175fbc35b84 assets/compendium/models/block/material/wood/cherry/planks.json
-fa3e72505ad376a4ebe73cc2170e144d9a590783 assets/compendium/models/block/material/wood/cherry/plank_slab_bottom.json
-62073749fff95217a8180a4b0d0d943776bd7e7c assets/compendium/models/block/material/wood/cherry/plank_slab_full.json
-77109454892dd0e9405ab1741fd34b6a5b57bd37 assets/compendium/models/block/material/wood/cherry/plank_slab_top.json
+3f4dab0ee248ef7096703a0a597f87f78edbeec2 assets/compendium/models/block/material/wood/cherry/plank_slab_bottom.json
+fa4e172b44bb05eeb80983b4521b10eae0d336e0 assets/compendium/models/block/material/wood/cherry/plank_slab_full.json
+2cb80d6390952665c96e905fe13075f80ba28a8d assets/compendium/models/block/material/wood/cherry/plank_slab_top.json
 80b5939f8d171f6de1b21865dc5d948f6a365fc1 assets/compendium/models/block/material/wood/cherry/plank_stairs.json
 4503dc674be63987503d5b55f5691adb1b2fe768 assets/compendium/models/block/material/wood/cherry/plank_stairs_inner.json
 0fb34444fc179ab428177efa1ca69e46ca13be91 assets/compendium/models/block/material/wood/cherry/plank_stairs_outer.json
@@ -263,9 +263,9 @@ bc2f726ec802564c4480e6867b79553d45be945b assets/compendium/models/block/material
 752b7c9a1c052534620f887a9fd015da1870ef91 assets/compendium/models/block/material/wood/crimson/log_stairs_inner.json
 f42e06e45fbf2d26b5255da9fe5f5d2a9cdb0363 assets/compendium/models/block/material/wood/crimson/log_stairs_outer.json
 fe638a03fb0b2bfda0fb4f6877b4460ab8436144 assets/compendium/models/block/material/wood/crimson/planks.json
-3ece59641df32403dd4d4bd8d6c24cfd579f688b assets/compendium/models/block/material/wood/crimson/plank_slab_bottom.json
-b7b249a9b03cd6a17161922daa52dc94930a967e assets/compendium/models/block/material/wood/crimson/plank_slab_full.json
-e5f6587bdfa836f63b4f4a746acc69bbc000bf37 assets/compendium/models/block/material/wood/crimson/plank_slab_top.json
+c3f473fca6b1b0fe5ad71d0d595f72593474416e assets/compendium/models/block/material/wood/crimson/plank_slab_bottom.json
+dc99b7837c5d566cfac98bfc406314fcf11915b1 assets/compendium/models/block/material/wood/crimson/plank_slab_full.json
+3cd25c519358aa1cc5f1af16b3af16ce7c882b8e assets/compendium/models/block/material/wood/crimson/plank_slab_top.json
 0ec6ed83ed87f5d7ab43b0b73c3e1ca8c1acf1b3 assets/compendium/models/block/material/wood/crimson/plank_stairs.json
 b3913772b9109cf44551dd3bbe10b3307c6e186a assets/compendium/models/block/material/wood/crimson/plank_stairs_inner.json
 308ab6b1e4e0ad999d90f6cb5e402c320bb19f21 assets/compendium/models/block/material/wood/crimson/plank_stairs_outer.json
@@ -294,9 +294,9 @@ e2aa4074f1bd76c2d74048c14def542efe6be456 assets/compendium/models/block/material
 29629c2014c7618a3642863cbddad2f51582cf2e assets/compendium/models/block/material/wood/dark_oak/log_stairs_inner.json
 dbe8d9ab743b9d9888d0634effff6fa3e7e42479 assets/compendium/models/block/material/wood/dark_oak/log_stairs_outer.json
 b16a6494d07a19751cdd2e801a548f5f9a9c1f4e assets/compendium/models/block/material/wood/dark_oak/planks.json
-f0fe648cf5adc80c4596f4fb918d1d3108b21d39 assets/compendium/models/block/material/wood/dark_oak/plank_slab_bottom.json
-46feacbe3d2d11ff56132d0ffad76a31b4499ca4 assets/compendium/models/block/material/wood/dark_oak/plank_slab_full.json
-3fdba08066d5fb3cee0d29716bcd70d794093624 assets/compendium/models/block/material/wood/dark_oak/plank_slab_top.json
+31e05d7bae530a32707dce18fbd028c0aa5eda24 assets/compendium/models/block/material/wood/dark_oak/plank_slab_bottom.json
+62bd2439af3b95cd7fd1ff3e8624c3fb659df799 assets/compendium/models/block/material/wood/dark_oak/plank_slab_full.json
+cc7d9ac438777b55559cac56a51a7dae4183a0ed assets/compendium/models/block/material/wood/dark_oak/plank_slab_top.json
 4d08b78e7e5c9d6a2f53d8fa98d0c08fee6d01a9 assets/compendium/models/block/material/wood/dark_oak/plank_stairs.json
 e8cbabc41986ab2a9554803e1bf86e708013099f assets/compendium/models/block/material/wood/dark_oak/plank_stairs_inner.json
 911f6e95fa68df0df1a6fcf36fcb67b6abf65abe assets/compendium/models/block/material/wood/dark_oak/plank_stairs_outer.json
@@ -325,9 +325,9 @@ ea3246fa06a89a98ab7ac2f6b38d748e7edca4bc assets/compendium/models/block/material
 406307e8e24d9e36cad319b879efc64170711fde assets/compendium/models/block/material/wood/jungle/log_stairs_inner.json
 852334759562c165295d1a8ec69591f9abb25eae assets/compendium/models/block/material/wood/jungle/log_stairs_outer.json
 41ac136f9bf783aaa00f51dc48b5945394862a23 assets/compendium/models/block/material/wood/jungle/planks.json
-57042ac10eb3e6e643b900d6bd3c2f3a68203961 assets/compendium/models/block/material/wood/jungle/plank_slab_bottom.json
-6de8824c1f502b2050a96d10ff6ed3d859e32240 assets/compendium/models/block/material/wood/jungle/plank_slab_full.json
-216668b188dccfb031c0c0897783fe8a025e7e8d assets/compendium/models/block/material/wood/jungle/plank_slab_top.json
+d2a01aefa91d8296a80895241857d5951f57c0b8 assets/compendium/models/block/material/wood/jungle/plank_slab_bottom.json
+aa1c263d69a164f8d4f98de335a5bfd91b650676 assets/compendium/models/block/material/wood/jungle/plank_slab_full.json
+e2cd17242f6d7daa52536e9c39e37eadbc837419 assets/compendium/models/block/material/wood/jungle/plank_slab_top.json
 7405713096b4ce557814d965f9201094687fa552 assets/compendium/models/block/material/wood/jungle/plank_stairs.json
 6acb31d941fe14462e07fd3c9492472453646e22 assets/compendium/models/block/material/wood/jungle/plank_stairs_inner.json
 fc1dc9444659b658707544ee8c48f74c0f4254fb assets/compendium/models/block/material/wood/jungle/plank_stairs_outer.json
@@ -356,9 +356,9 @@ b477de9daeb64a59e08c20c7ec839663e4081b19 assets/compendium/models/block/material
 e9776c1e49bccdb3935a0671c190cb954fd6e18a assets/compendium/models/block/material/wood/mangrove/log_stairs_inner.json
 2f953823f7629d03ecc81d18f7f6e3532b989218 assets/compendium/models/block/material/wood/mangrove/log_stairs_outer.json
 05ad6cef0551af8455fb85ba2dbe3aafba80d765 assets/compendium/models/block/material/wood/mangrove/planks.json
-beb2f8e80c650098f6faf0b69e84de9d79d8b663 assets/compendium/models/block/material/wood/mangrove/plank_slab_bottom.json
-187c777da5cfb2a3937907f93052bc97cd74fca9 assets/compendium/models/block/material/wood/mangrove/plank_slab_full.json
-82220bd1dcb5636cb4da00924e1a7984a9654cfe assets/compendium/models/block/material/wood/mangrove/plank_slab_top.json
+1bfd3a0627d61b17b429099bf94ba37c8da2facf assets/compendium/models/block/material/wood/mangrove/plank_slab_bottom.json
+86a20503e23be9a1f735b9a4e1722b9f5159c7f3 assets/compendium/models/block/material/wood/mangrove/plank_slab_full.json
+15ac7fc3c61e5cfff307323202eec416e0f60595 assets/compendium/models/block/material/wood/mangrove/plank_slab_top.json
 c683f11e1dc8bdf636c00bb7a5a9d1cadce4e4f6 assets/compendium/models/block/material/wood/mangrove/plank_stairs.json
 030fd5fdbefe92f1be46f958d847943b9062c3cd assets/compendium/models/block/material/wood/mangrove/plank_stairs_inner.json
 a32fafb3d4374930ca06c3231fc732dad7c58928 assets/compendium/models/block/material/wood/mangrove/plank_stairs_outer.json
@@ -387,9 +387,9 @@ c0a86a4a724b6e58e2dfcbf8a5570cca3cde6c10 assets/compendium/models/block/material
 be7915b1766197f3b0f70ca94e392bab30f9b5e9 assets/compendium/models/block/material/wood/oak/log_stairs_inner.json
 548a1c1b3811c325b660cdf29f68d82838d38fa3 assets/compendium/models/block/material/wood/oak/log_stairs_outer.json
 ef20a9fe7f5bccc6de509d16e5bca4fe5cb90e8a assets/compendium/models/block/material/wood/oak/planks.json
-bd521d8c0b62fb04c9c40d027554b2cf14c4232c assets/compendium/models/block/material/wood/oak/plank_slab_bottom.json
-4d675ee8b6447c37c16afa0e6d39683afa58dd4e assets/compendium/models/block/material/wood/oak/plank_slab_full.json
-11ad7c0fb3eeeffa6bc97bd59132a4d056fb2b99 assets/compendium/models/block/material/wood/oak/plank_slab_top.json
+b87c4a514afc16f2d0d34180b9e766552554d7ad assets/compendium/models/block/material/wood/oak/plank_slab_bottom.json
+97108d3036895186f1f7852f956bea62666b7084 assets/compendium/models/block/material/wood/oak/plank_slab_full.json
+04ca582d7a0d985aab973ee4e51a486f6a9b13fd assets/compendium/models/block/material/wood/oak/plank_slab_top.json
 755cebd3321826e804e92a8d0675eb41dd22a918 assets/compendium/models/block/material/wood/oak/plank_stairs.json
 9817c5ae1a536ef3a653ac30bdb38c44fbf71edc assets/compendium/models/block/material/wood/oak/plank_stairs_inner.json
 1c145a996a3b219936a5d67d7dbcde51641936a6 assets/compendium/models/block/material/wood/oak/plank_stairs_outer.json
@@ -418,9 +418,9 @@ e998121cae2a8abf79140eaebc51c48af78eb436 assets/compendium/models/block/material
 9c506a766c7abdbf8075060395a7658dd491b62a assets/compendium/models/block/material/wood/spruce/log_stairs_inner.json
 e0a489c7f4498a0a3020757a405afee6ce8ff2c4 assets/compendium/models/block/material/wood/spruce/log_stairs_outer.json
 b940ff0390413db5eb6c21d6fa279f590499be5e assets/compendium/models/block/material/wood/spruce/planks.json
-afc75973e4358c352dfa33d28622df04b1484e70 assets/compendium/models/block/material/wood/spruce/plank_slab_bottom.json
-fab111746056c66a8cd4c746aab194b7fd72ecce assets/compendium/models/block/material/wood/spruce/plank_slab_full.json
-996d590e573bf68b610a4f991038580fa701056f assets/compendium/models/block/material/wood/spruce/plank_slab_top.json
+c526e476744c02384792a5bc3e60971f490be407 assets/compendium/models/block/material/wood/spruce/plank_slab_bottom.json
+59c107d7f6b9845d7c21171860664a7a33241506 assets/compendium/models/block/material/wood/spruce/plank_slab_full.json
+008c7f88816244a3dd40d03d4e71e5dae8feffa7 assets/compendium/models/block/material/wood/spruce/plank_slab_top.json
 da546fd70c092cd09ef988ea2b415aa269e63fa9 assets/compendium/models/block/material/wood/spruce/plank_stairs.json
 9072891d207bb4c01779a7989096965ab824d815 assets/compendium/models/block/material/wood/spruce/plank_stairs_inner.json
 b88b97f0e0ea6c3ebb174ada7d29d765ed481ecc assets/compendium/models/block/material/wood/spruce/plank_stairs_outer.json
@@ -449,9 +449,9 @@ be4eb6b16b6d307dcba50c7f1e8447f69c27b2e8 assets/compendium/models/block/material
 400d4986689fb9af1ee3a5cbd61143f8695e794b assets/compendium/models/block/material/wood/warped/log_stairs_inner.json
 e11347897dd9427fb37bba5d3a8ea771b9dd7281 assets/compendium/models/block/material/wood/warped/log_stairs_outer.json
 920eeb5e85344e705e8a5811d04695cc396468b7 assets/compendium/models/block/material/wood/warped/planks.json
-f60b8e5278dc996775e471559c4b38b18fa73585 assets/compendium/models/block/material/wood/warped/plank_slab_bottom.json
-a787e1b8c84763bacb12b7a0a924a9158664c962 assets/compendium/models/block/material/wood/warped/plank_slab_full.json
-c69e4b31acfc8914622bbeeebe330451a9e494ca assets/compendium/models/block/material/wood/warped/plank_slab_top.json
+f1e11c258554272597f6a4ecece8b3e0a4132398 assets/compendium/models/block/material/wood/warped/plank_slab_bottom.json
+a3a40ce7b64ba998d1f05a9bd378249b8cfdcd43 assets/compendium/models/block/material/wood/warped/plank_slab_full.json
+d7c6c7503dc65123bb3a4e5f5d1354f97dbc9313 assets/compendium/models/block/material/wood/warped/plank_slab_top.json
 9abb71fdf7ed89881d84d22da2d23c8f96623fd4 assets/compendium/models/block/material/wood/warped/plank_stairs.json
 379818e0210ff7618226f79d7d73320380cd22db assets/compendium/models/block/material/wood/warped/plank_stairs_inner.json
 c6a51536d3977e13138e70c847151adb34189159 assets/compendium/models/block/material/wood/warped/plank_stairs_outer.json

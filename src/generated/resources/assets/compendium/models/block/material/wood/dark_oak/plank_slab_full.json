@@ -38,7 +38,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/dark_oak/slab/chiseled_full"
   },
-  "count": 35,
+  "count": 36,
   "cross": {
     "model": "compendium:block/material/wood/dark_oak/slab/cross_full"
   },
@@ -87,6 +87,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/dark_oak/slab/thin_rotated_full"
+  },
+  "trellis": {
+    "model": "compendium:block/material/wood/dark_oak/slab/trellis_full"
   },
   "vertical": {
     "model": "compendium:block/material/wood/dark_oak/slab/vertical_full"
