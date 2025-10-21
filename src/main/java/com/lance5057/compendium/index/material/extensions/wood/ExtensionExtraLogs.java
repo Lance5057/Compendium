@@ -131,7 +131,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
+				base.namespace, "log",
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(), StyleData.LOG_SLAB),
