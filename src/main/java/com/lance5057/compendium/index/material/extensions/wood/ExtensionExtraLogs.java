@@ -71,7 +71,6 @@ import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel.Builder;
-import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -227,18 +226,35 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			logstem = "log";
 		}
 
-		ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log_block", ibmp.modLoc("item/small_log"))
-				.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+		for (String s : StyleData.SMALL_LOG.getTypes()) {
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_block",
+					ibmp.modLoc("block/bases/small_log/" + s))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+			
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_block",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+			
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_rot_block",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal2"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+			
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_vertical_block",
+					ibmp.modLoc("block/bases/small_log/" + s + "_vertical"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
 
-		ibmp.withExistingParent(base.itemFolder() + "small_log_inventory", ibmp.modLoc("item/small_log_inventory"))
-				.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "small_log/" + s + "_block",
+					ibmp.modLoc("block/bases/small_log/small_log"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
 
-		ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "small_log_block", ibmp.modLoc("item/small_log"))
-				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+		}
 
-		ibmp.withExistingParent(base.itemFolder() + "stripped_small_log_inventory",
-				ibmp.modLoc("item/small_log_inventory"))
-				.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
+//		ibmp.withExistingParent(base.itemFolder() + "small_log_inventory", ibmp.modLoc("item/small_logs_inventory"))
+//		.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+//		
+//		ibmp.withExistingParent(base.itemFolder() + "stripped_small_log_inventory",
+//				ibmp.modLoc("item/small_log_inventory")).texture("0",
+//						ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
 
 		ibmp.withExistingParent(LOG.location(base) + "/log/basic", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
@@ -248,11 +264,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 
-		ibmp.withExistingParent(LOG.location(base) + "/log/corner", ibmp.modLoc("block/small_logs_corner"))
+		ibmp.withExistingParent(LOG.location(base) + "/log/corner",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
 		ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal",
-				ibmp.modLoc("block/small_logs_corner_horizontal"))
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
 
@@ -322,11 +339,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
 
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner",
-				ibmp.modLoc("block/small_logs_corner"))
+				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal",
-				ibmp.modLoc("block/small_logs_corner_horizontal"))
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
 				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
 
@@ -668,32 +685,53 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp,
 			String extra) {
 		if (block.shouldGenerate()) {
+			extra = extra + "small_log";
 			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
-					.getBuilder(LOG.location(base) + "stripped_log_stairs_inner")
+					.getBuilder(block.location(base) + extra + "horizontal")
 					.customLoader(StyleBlockModelBuilder::begin);
 			base_model_horizontal.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
-			for (String s : StyleData.LOG_STAIRS.getTypes())
+			for (String s : StyleData.SMALL_LOG.getTypes())
 				base_model_horizontal.add(new StyleModelBuilder(s,
-						bsp.modLoc(LOG.location(base) + "stripped_stairs/" + s.toLowerCase() + "_inner")));
+						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
 
-			bsp.models()
-					.withExistingParent(block.location(base) + extra + "horizontal",
-							bsp.modLoc("block/small_log_horizontal"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
-			BlockModelBuilder base_model_horizontal2 = bsp.models()
-					.withExistingParent(block.location(base) + extra + "horizontal_rot",
-							bsp.modLoc("block/small_log_horizontal2"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
-			BlockModelBuilder base_model_vertical = bsp.models()
-					.withExistingParent(base.blockFolder() + extra + "vertical", bsp.modLoc("block/small_log_vertical"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
-			BlockModelBuilder model_cap = bsp.models()
-					.withExistingParent(block.location(base) + extra + "cap", bsp.modLoc("block/small_log_cap"))
-					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal2 = bsp.models()
+					.getBuilder(block.location(base) + extra + "horizontal2")
+					.customLoader(StyleBlockModelBuilder::begin);
+			base_model_horizontal2.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
-			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2).addModel().nestedGroup()
-					.useOr()
+			for (String s : StyleData.SMALL_LOG.getTypes())
+				base_model_horizontal2.add(new StyleModelBuilder(s,
+						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
+
+//			BlockModelBuilder base_model_vertical = bsp.models()
+//					.withExistingParent(base.blockFolder() + extra + "vertical", bsp.modLoc("block/small_log_vertical"))
+//					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
+
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
+					.getBuilder(block.location(base) + extra + "vertical").customLoader(StyleBlockModelBuilder::begin);
+			base_model_vertical.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.SMALL_LOG.getTypes())
+				base_model_vertical.add(new StyleModelBuilder(s,
+						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
+
+//			BlockModelBuilder model_cap = bsp.models()
+//					.withExistingParent(block.location(base) + extra + "cap", bsp.modLoc("block/small_log_cap"))
+//					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
+
+			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
+					.getBuilder(block.location(base) + extra + "cap").customLoader(StyleBlockModelBuilder::begin);
+			model_cap.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.SMALL_LOG.getTypes())
+				model_cap.add(new StyleModelBuilder(s,
+						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
+
+			BlockModelBuilder cap = model_cap.end();
+
+			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2.end()).addModel()
+					.nestedGroup().useOr()
 
 					.nestedGroup().condition(BlockStateProperties.NORTH, false)
 					.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
@@ -713,7 +751,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.nestedGroup().condition(BlockStateProperties.SOUTH, true)
 					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
 					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
-					.endNestedGroup().end().end().part().modelFile(base_model_horizontal).addModel().nestedGroup()
+					.endNestedGroup().end().end().part().modelFile(base_model_horizontal.end()).addModel().nestedGroup()
 					.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
 					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
 					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
@@ -721,16 +759,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
 					.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
 					.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
-					.modelFile(base_model_vertical).addModel().useOr().condition(BlockStateProperties.UP, true)
-					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap).addModel()
-					.condition(BlockStateProperties.UP, true).end().part().modelFile(model_cap).rotationX(180)
-					.addModel().condition(BlockStateProperties.DOWN, true).end().part().modelFile(model_cap)
-					.rotationX(90).addModel().condition(BlockStateProperties.NORTH, true).end().part()
-					.modelFile(model_cap).rotationX(90).rotationY(180).addModel()
-					.condition(BlockStateProperties.SOUTH, true).end().part().modelFile(model_cap).rotationX(90)
-					.rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
-					.modelFile(model_cap).rotationX(90).rotationY(90).addModel()
-					.condition(BlockStateProperties.EAST, true).end();
+					.modelFile(base_model_vertical.end()).addModel().useOr().condition(BlockStateProperties.UP, true)
+					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).addModel()
+					.condition(BlockStateProperties.UP, true).end().part().modelFile(cap).rotationX(180).addModel()
+					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).rotationX(90).addModel()
+					.condition(BlockStateProperties.NORTH, true).end().part().modelFile(cap).rotationX(90)
+					.rotationY(180).addModel().condition(BlockStateProperties.SOUTH, true).end().part().modelFile(cap)
+					.rotationX(90).rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
+					.modelFile(cap).rotationX(90).rotationY(90).addModel().condition(BlockStateProperties.EAST, true)
+					.end();
 		}
 	}
 

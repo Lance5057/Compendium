@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/small_logs_corner_horizontal",
+  "parent": "compendium:block/bases/small_log/small_logs_corner_horizontal",
   "textures": {
     "1": "compendium:block/material/wood/crimson/logs/stripped_small_logs",
     "2": "compendium:block/material/wood/crimson/logs/stripped_small_logs_corner"

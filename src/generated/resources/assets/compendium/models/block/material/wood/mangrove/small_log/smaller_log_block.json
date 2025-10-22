@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/small_log/small_log",
+  "textures": {
+    "0": "compendium:block/material/wood/mangrove/logs/small_logs_corner"
+  }
+}
