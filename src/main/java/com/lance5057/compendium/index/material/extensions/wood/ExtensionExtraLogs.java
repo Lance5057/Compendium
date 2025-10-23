@@ -227,25 +227,39 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		for (String s : StyleData.SMALL_LOG.getTypes()) {
-			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_block",
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s,
 					ibmp.modLoc("block/bases/small_log/" + s))
-					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
-			
-			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_block",
-					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal"))
-					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
-			
-			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_rot_block",
-					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal2"))
-					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
-			
-			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_vertical_block",
-					ibmp.modLoc("block/bases/small_log/" + s + "_vertical"))
-					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
 
-			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "small_log/" + s + "_block",
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_rot",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal2"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_vertical",
+					ibmp.modLoc("block/bases/small_log/" + s + "_vertical"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_cap",
+					ibmp.modLoc("block/bases/small_log/" + s + "_cap"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "small_log/" + s,
 					ibmp.modLoc("block/bases/small_log/small_log"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
+					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
+					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs"));
 
 		}
 
@@ -797,10 +811,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
-			if (SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
-						base.getType());
-			}
+//			if (SMALL_LOG.shouldGenerate()) {
+//				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
+//						base.getType());
+//			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}

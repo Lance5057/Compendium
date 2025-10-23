@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/small_log/small_log_horizontal",
-  "textures": {
-    "0": "compendium:block/material/wood/jungle/logs/small_logs_corner"
-  }
-}

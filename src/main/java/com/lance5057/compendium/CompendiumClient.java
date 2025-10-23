@@ -8,13 +8,13 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
+import com.lance5057.compendium.client.FancyItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
 import com.lance5057.compendium.client.armor.ModelHelm;
 import com.lance5057.compendium.client.armor.ModelSabatons;
 import com.lance5057.compendium.client.models.blockstaterenderer.BlockStateItemGeometryLoader;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialUnbakedModel;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialItemRenderer;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.client.models.style.StyleUnbakedModel;
 import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRenderer;
@@ -137,7 +137,7 @@ public class CompendiumClient {
 
 			@Override
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-				return MultiStyleMaterialItemRenderer.getInstance();
+				return FancyItemRenderer.getInstance();
 			}
 		}, Compendium.styleItemRenderers.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Item[0]));
 
