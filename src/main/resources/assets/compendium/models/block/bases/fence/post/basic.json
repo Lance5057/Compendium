@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "block/acacia_planks",
-		"particle": "block/acacia_planks"
+		"1": "block/oak_planks",
+		"particle": "block/oak_planks"
 	},
 	"elements": [
 		{
