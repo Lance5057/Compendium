@@ -6,6 +6,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -90,4 +92,11 @@ public class CompendiumBlockHandler {
 		return base.blockFolder();
 	}
 
+	public void itemTag(ItemTagsProvider itp) {
+		itp.tag(itemTag).add(BLOCK_ITEM.asItem());
+	}
+
+	public void blockTag(BlockTagsProvider btp) {
+		btp.tag(blockTag).add(BLOCK.get());
+	}
 }

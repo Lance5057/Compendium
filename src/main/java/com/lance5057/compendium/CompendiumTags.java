@@ -16,6 +16,7 @@ public class CompendiumTags {
 	
 	public static TagKey<Item> HAMMER = ItemTags.create(TagUtil.neoTag("hammer"));
 	public static TagKey<Item> PRYBAR = ItemTags.create(TagUtil.neoTag("prybar"));
+	public static TagKey<Item> SAW = ItemTags.create(TagUtil.neoTag("saw"));
 	
 	public static TagKey<Block> TABLE = BlockTags.create(Compendium.modLoc("table"));
 }

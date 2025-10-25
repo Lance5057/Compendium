@@ -168,6 +168,10 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			itp.tag(CompendiumTags.PRYBAR).add(this.PRYBAR.ITEM.get());
 			itp.tag(Tags.Items.TOOLS).add(this.PRYBAR.ITEM.get());
 		}
+		if (!SAW.isIgnored()) {
+			itp.tag(CompendiumTags.SAW).add(this.SAW.ITEM.get());
+			itp.tag(Tags.Items.TOOLS).add(this.SAW.ITEM.get());
+		}
 	}
 
 	@Override

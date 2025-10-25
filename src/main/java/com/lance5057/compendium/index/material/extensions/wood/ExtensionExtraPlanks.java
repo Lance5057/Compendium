@@ -3,6 +3,8 @@ package com.lance5057.compendium.index.material.extensions.wood;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -12,14 +14,19 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
+import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
+import com.lance5057.compendium.data.Recipes;
+import com.lance5057.compendium.data.loottables.RecipeLootTables;
+import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -27,23 +34,37 @@ import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.util.TagUtil;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -85,7 +106,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
 		PLANK_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(), StyleData.PLANK_SLAB),
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						StyleData.PLANK_SLAB),
 				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -304,11 +326,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_bottom",
 				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
 
-		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_top", ibmp.modLoc("block/trellis/trellis_top"))
-				.texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
+		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_top",
+				ibmp.modLoc("block/trellis/trellis_top")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
 
-		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_full", ibmp.modLoc("block/trellis/trellis_full"))
-				.texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
+		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_full",
+				ibmp.modLoc("block/trellis/trellis_full")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
 
 	}
 
@@ -353,8 +375,44 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-		// TODO Auto-generated method stub
+		if (!this.PLANK.isIgnored()) {
+			SawBuckRecipeBuilder
+					.saw(Ingredient.of(TagKey.create(Registries.ITEM,
+							ResourceLocation.withDefaultNamespace("log/small/" + base.name))),
+							new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
+					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
+							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage3"), true,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3().setY(
+													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, -13.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 20.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
+															false)))))
+					.save(consumer);
 
+			ShapelessRecipeBuilder
+					.shapeless(RecipeCategory.DECORATIONS,
+							BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(base.name + "_planks")), 2)
+					.requires(PLANK.BLOCK_ITEM).requires(PLANK.BLOCK_ITEM).requires(PLANK.BLOCK_ITEM)
+					.requires(PLANK.BLOCK_ITEM)
+					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
+							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
+					.save(consumer);
+		}
 	}
 
 	@Override

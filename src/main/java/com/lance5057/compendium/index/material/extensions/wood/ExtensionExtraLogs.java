@@ -123,7 +123,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(SMALL_LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log/small",
+				base.namespace, "log/small/" + base.name,
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
 		LOG.setup(base,
@@ -131,7 +131,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
+				base.namespace, "log/" + base.name,
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
@@ -139,7 +140,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log/slab",
+				base.namespace, "log/slab/" + base.name,
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"));
 		LOG_STAIRS.setup(base,
@@ -148,7 +149,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "log/stairs",
+				base.namespace, "log/stairs/" + base.name,
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
 
@@ -883,134 +884,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(mcLoc("iron_axe"), false,
-									new AnimationFloatTransform()
-											.setRotation(new AnimatedFloatVector3()
-													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
-															true)))
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))
-											.setPivot(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false)))),
-							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage0"), true,
-									new AnimationFloatTransform()
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))))
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(mcLoc("iron_axe"), false,
-									new AnimationFloatTransform()
-											.setRotation(new AnimatedFloatVector3()
-													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
-															true)))
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))
-											.setPivot(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false)))),
-							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage1"), true,
-									new AnimationFloatTransform()
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))))
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							new BlacklistedModel(mcLoc("iron_axe"), false,
-									new AnimationFloatTransform()
-											.setRotation(new AnimatedFloatVector3()
-													.setY(new AnimatedFloat(180.000F, 270.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true,
-															true)))
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-9.000F, -5.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(-8.000F, 33.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))
-											.setPivot(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false,
-															false)))),
-							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage2"), true,
-									new AnimationFloatTransform()
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))))
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage2"), 0))
 					.save(consumer);
 		}
 		if (LOG.shouldGenerate()) {
@@ -1096,12 +977,28 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+		SMALL_LOG.itemTag(itp);
+		LOG.itemTag(itp);
+		LOG_SLAB.itemTag(itp);
+		LOG_STAIRS.itemTag(itp);
 
+		STRIPPED_SMALL_LOG.itemTag(itp);
+		STRIPPED_LOG.itemTag(itp);
+		STRIPPED_LOG_SLAB.itemTag(itp);
+		STRIPPED_LOG_STAIRS.itemTag(itp);
 	}
 
 	@Override
 	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
+		SMALL_LOG.blockTag(itp);
+		LOG.blockTag(itp);
+		LOG_SLAB.blockTag(itp);
+		LOG_STAIRS.blockTag(itp);
 
+		STRIPPED_SMALL_LOG.blockTag(itp);
+		STRIPPED_LOG.blockTag(itp);
+		STRIPPED_LOG_SLAB.blockTag(itp);
+		STRIPPED_LOG_STAIRS.blockTag(itp);
 	}
 
 	@Override

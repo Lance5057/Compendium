@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:dark_oak_plank_item"
+    },
+    {
+      "item": "compendium:dark_oak_plank_item"
+    },
+    {
+      "item": "compendium:dark_oak_plank_item"
+    },
+    {
+      "item": "compendium:dark_oak_plank_item"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:dark_oak_planks"
+  }
+}

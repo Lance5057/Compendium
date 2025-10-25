@@ -56,19 +56,50 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 	public static BlacklistedModel standardSawBuckAxeModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, false,
 				new AnimationFloatTransform()
-						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true))
-								.setY(new AnimatedFloat(180)))
-						.setLocation(new AnimatedFloatVector3().setY(new AnimatedFloat(10 + yOffset, 0))
-								.setZ(new AnimatedFloat(8, 0)))
-						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
+						.setRotation(new AnimatedFloatVector3()
+								.setY(new AnimatedFloat(0.000F, 180.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true, true)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.000F, -16.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false)))
+						.setPivot(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false))));
+	}
+
+	public static BlacklistedModel standardSawBuckSawModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3()
+								.setY(new AnimatedFloat(0.000F, 180.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(-14.000F, -6.000F, 0.000F, 0.100F, true, true))
+								.setY(new AnimatedFloat(0.000F, 0.000F, 0.000F, 0.100F, true, true))
+								.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(1.000F, 1.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(1.000F, 1.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(1.000F, 1.000F, 0.000F, 0.000F, false, false))));
 	}
 
 	public static BlacklistedModel standardSawBuckBlockModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, true,
 				new AnimationFloatTransform()
-						.setLocation(
-								new AnimatedFloatVector3().setX(new AnimatedFloat(8)).setY(new AnimatedFloat(yOffset)))
-						.setScale(new AnimatedFloatVector3().setAll(new AnimatedFloat(0.5f))));
+						.setRotation(new AnimatedFloatVector3()
+								.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(8.000F, -8.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))));
 	}
 
 	private void hammering(RecipeOutput consumer) {

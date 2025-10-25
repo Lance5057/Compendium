@@ -100,7 +100,7 @@ public class SawBuckRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput output, ResourceLocation id) {
-		ResourceLocation recipeId = id.withPrefix("hammering/");
+		ResourceLocation recipeId = id.withPrefix("sawing/");
 		Advancement.Builder advancementBuilder = output.advancement()
 				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
 				.rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "compendium:hammering/mangrove_small_log_item"
+        "recipe": "compendium:sawing/mangrove_small_log_item"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "compendium:hammering/mangrove_small_log_item"
+      "compendium:sawing/mangrove_small_log_item"
     ]
   }
 }

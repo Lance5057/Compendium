@@ -1,8 +1,5 @@
 package com.lance5057.compendium.gui;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -90,6 +87,15 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 			return true;
 		});
+		indexBox.setResponder(s -> {
+
+			aft = station.getCurrentTool().model().get(Integer.parseInt(s)).transform();
+
+			loc.set(aft.getLocation());
+			rot.set(aft.getRotation());
+			scale.set(aft.getScale());
+			pivot.set(aft.getPivot());
+		});
 
 		right_index_button = this.addRenderableWidget(new ImageButton(this.leftPos + 41 - 160, this.topPos + 2, 6, 10,
 				RIGHT_SMALL_BUTTON, (button) -> button(1)));
@@ -104,8 +110,10 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 		if (station != null)
 			if (station.getCurrentTool() != null)
 				if (station.getCurrentTool().model() != null && !station.getCurrentTool().model().isEmpty()
-						&& station.getCurrentTool().model().size() > Integer.parseInt(indexBox.getValue()) + i)
+						&& station.getCurrentTool().model().size() > Integer.parseInt(indexBox.getValue()) + i) {
 					indexBox.setValue(String.format("%d", Integer.parseInt(indexBox.getValue()) + i));
+
+				}
 	}
 
 	@Override
@@ -115,13 +123,6 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 			BlockEntity e = this.minecraft.level.getBlockEntity(pos);
 			if (e != null && e instanceof MultiToolRecipeStation) {
 				station = (MultiToolRecipeStation<?>) e;
-
-//				AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
-
-//				loc.set(aft.getLocation());
-//				rot.set(aft.getRotation());
-//				scale.set(aft.getScale());
-//				pivot.set(aft.getPivot());
 			}
 		} else if (station.getCurrentTool() != null) {
 
@@ -134,10 +135,10 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 			aft = station.getCurrentTool().model().get(index).transform();
 
-			loc.set(aft.getLocation());
-			rot.set(aft.getRotation());
-			scale.set(aft.getScale());
-			pivot.set(aft.getPivot());
+//			loc.set(aft.getLocation());
+//			rot.set(aft.getRotation());
+//			scale.set(aft.getScale());
+//			pivot.set(aft.getPivot());
 
 			loc.render(this, guiGraphics, -65, -10, partialTick, "Location");
 			rot.render(this, guiGraphics, -65, 40, partialTick, "Rotation");
@@ -258,10 +259,38 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 		public Checkbox pingpong;
 
 		public AnimatedFloatWidget() {
-			min = new FloatWidget(s -> af.setMin(Float.parseFloat(s)));
-			max = new FloatWidget(s -> af.setMax(Float.parseFloat(s)));
-			speed = new FloatWidget(s -> af.setSpeed(Float.parseFloat(s)));
-			offset = new FloatWidget(s -> af.setOffset(Float.parseFloat(s)));
+			min = new FloatWidget(s -> {
+				try {
+					af.setMin(Float.parseFloat(s));
+				} catch (NumberFormatException e) {
+
+				}
+
+			});
+			max = new FloatWidget(s -> {
+				try {
+					af.setMax(Float.parseFloat(s));
+				} catch (NumberFormatException e) {
+
+				}
+
+			});
+			speed = new FloatWidget(s -> {
+				try {
+					af.setSpeed(Float.parseFloat(s));
+				} catch (NumberFormatException e) {
+
+				}
+
+			});
+			offset = new FloatWidget(s -> {
+				try {
+					af.setOffset(Float.parseFloat(s));
+				} catch (NumberFormatException e) {
+
+				}
+
+			});
 		}
 
 		public void init(AdjustinatorWorkstationScreen screen, int x, int y) {
@@ -422,6 +451,11 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 				if (station.getCurrentTool() != null) {
 					AnimationFloatTransform aft = station.getCurrentTool().model().get(0).transform();
+
+					loc.set(aft.getLocation());
+					rot.set(aft.getRotation());
+					scale.set(aft.getScale());
+					pivot.set(aft.getPivot());
 
 				}
 			}
