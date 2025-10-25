@@ -90,7 +90,8 @@ public class StyleData {
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
-					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave"));
+					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
+					"diagonal_trimmed"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

@@ -977,28 +977,60 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		SMALL_LOG.itemTag(itp);
-		LOG.itemTag(itp);
-		LOG_SLAB.itemTag(itp);
-		LOG_STAIRS.itemTag(itp);
+		if (!SMALL_LOG.isIgnored()) {
+			SMALL_LOG.itemTag(itp);
+		}
+		if (!LOG.isIgnored()) {
+			LOG.itemTag(itp);
+		}
+		if (!LOG_SLAB.isIgnored()) {
+			LOG_SLAB.itemTag(itp);
+		}
+		if (!LOG_STAIRS.isIgnored()) {
+			LOG_STAIRS.itemTag(itp);
+		}
 
-		STRIPPED_SMALL_LOG.itemTag(itp);
-		STRIPPED_LOG.itemTag(itp);
-		STRIPPED_LOG_SLAB.itemTag(itp);
-		STRIPPED_LOG_STAIRS.itemTag(itp);
+		if (!STRIPPED_SMALL_LOG.isIgnored()) {
+			STRIPPED_SMALL_LOG.itemTag(itp);
+		}
+		if (!STRIPPED_LOG.isIgnored()) {
+			STRIPPED_LOG.itemTag(itp);
+		}
+		if (!STRIPPED_LOG_SLAB.isIgnored()) {
+			STRIPPED_LOG_SLAB.itemTag(itp);
+		}
+		if (!STRIPPED_LOG_STAIRS.isIgnored()) {
+			STRIPPED_LOG_STAIRS.itemTag(itp);
+		}
 	}
 
 	@Override
-	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
-		SMALL_LOG.blockTag(itp);
-		LOG.blockTag(itp);
-		LOG_SLAB.blockTag(itp);
-		LOG_STAIRS.blockTag(itp);
+	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
+		if (!SMALL_LOG.isIgnored()) {
+			SMALL_LOG.blockTag(btp);
+		}
+		if (!LOG.isIgnored()) {
+			LOG.blockTag(btp);
+		}
+		if (!LOG_SLAB.isIgnored()) {
+			LOG_SLAB.blockTag(btp);
+		}
+		if (!LOG_STAIRS.isIgnored()) {
+			LOG_STAIRS.blockTag(btp);
+		}
 
-		STRIPPED_SMALL_LOG.blockTag(itp);
-		STRIPPED_LOG.blockTag(itp);
-		STRIPPED_LOG_SLAB.blockTag(itp);
-		STRIPPED_LOG_STAIRS.blockTag(itp);
+		if (!STRIPPED_SMALL_LOG.isIgnored()) {
+			STRIPPED_SMALL_LOG.blockTag(btp);
+		}
+		if (!STRIPPED_LOG.isIgnored()) {
+			STRIPPED_LOG.blockTag(btp);
+		}
+		if (!STRIPPED_LOG_SLAB.isIgnored()) {
+			STRIPPED_LOG_SLAB.blockTag(btp);
+		}
+		if (!STRIPPED_LOG_STAIRS.isIgnored()) {
+			STRIPPED_LOG_STAIRS.blockTag(btp);
+		}
 	}
 
 	@Override

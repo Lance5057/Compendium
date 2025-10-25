@@ -182,13 +182,25 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.CHAIR_BACK.getTypes().forEach(b -> {
-				withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-						modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				if (b.contains("weave")) {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 
-				withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+				} else {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.CHAIR_LEGS.getTypes().forEach(b -> {
@@ -202,13 +214,25 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.CHAIR_SEAT.getTypes().forEach(b -> {
-				withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
-						modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				if (b.contains("weave")) {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 
-				withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+				} else {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.TABLE_LEGS.getTypes().forEach(b -> {

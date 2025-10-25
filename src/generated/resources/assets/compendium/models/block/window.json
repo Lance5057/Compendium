@@ -37,7 +37,9 @@
       "lattice",
       "lattice_trimmed",
       "round",
-      "weave"
+      "weave",
+      "diagonal",
+      "diagonal_trimmed"
     ],
     "suffix": "",
     "valid": [

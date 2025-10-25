@@ -425,14 +425,34 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		// TODO Auto-generated method stub
-
+		if (!PLANK.isIgnored()) {
+			PLANK.itemTag(itp);
+		}
+		if (!PLANK_BLOCK.isIgnored()) {
+			PLANK_BLOCK.itemTag(itp);
+		}
+		if (!PLANK_SLAB.isIgnored()) {
+			PLANK_SLAB.itemTag(itp);
+		}
+		if (!PLANK_STAIRS.isIgnored()) {
+			PLANK_STAIRS.itemTag(itp);
+		}
 	}
 
 	@Override
-	public void setupBlockTags(_MaterialBase base, BlockTagsProvider itp) {
-		// TODO Auto-generated method stub
-
+	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
+		if (!PLANK.isIgnored()) {
+			PLANK.blockTag(btp);
+		}
+		if (!PLANK_BLOCK.isIgnored()) {
+			PLANK_BLOCK.blockTag(btp);
+		}
+		if (!PLANK_SLAB.isIgnored()) {
+			PLANK_SLAB.blockTag(btp);
+		}
+		if (!PLANK_STAIRS.isIgnored()) {
+			PLANK_STAIRS.blockTag(btp);
+		}
 	}
 
 	@Override

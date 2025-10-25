@@ -149,8 +149,8 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	@Override
-	public void setupBlockTags(BlockTagsProvider itp) {
-		this.extensions.forEach(i -> i.setupBlockTags(this, itp));
+	public void setupBlockTags(BlockTagsProvider btp) {
+		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialWood> {
