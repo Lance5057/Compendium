@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_side_lath_connected",
   "textures": {
-    "0": "minecraft:block/acacia_planks"
+    "0": "minecraft:block/acacia_planks",
+    "1": "compendium:block/material/wood/acacia/slats"
   }
 }

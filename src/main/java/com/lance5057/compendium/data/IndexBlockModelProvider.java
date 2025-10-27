@@ -191,7 +191,27 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
 							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
 							.texture("0", mcLoc("block/" + mb.name + "_planks"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+				} else if (b.equals("windsor") || b.equals("slats")) {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+				} else if (b.equals("lozenge")) {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
 				} else {
 					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
@@ -204,13 +224,25 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.CHAIR_LEGS.getTypes().forEach(b -> {
-				withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
-						modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				if (b.contains("rails_side_lath")) {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
 
-				withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+				} else {
+					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
+							modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/chair/legs/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.CHAIR_SEAT.getTypes().forEach(b -> {
@@ -265,13 +297,35 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.BED_FRAME.getTypes().forEach(b -> {
-				withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
-						modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				if (b.equals("weave")) {
+					withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 
-				withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
-						modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+				} else if (b.equals("slats")) {
+					withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+				} else {
+					withExistingParent("block/material/wood/" + mb.name + "/bed/top/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/top/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/bed/bottom/frame/" + b.toLowerCase(),
+							modLoc("block/furniture/bed/bottom/frame/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.BED_BASE.getTypes().forEach(b -> {

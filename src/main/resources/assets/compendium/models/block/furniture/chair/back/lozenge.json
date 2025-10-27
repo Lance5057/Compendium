@@ -5,7 +5,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"0": "block/acacia_planks",
-		"2": "compendium:block/material/wood/acacia/lozenge",
+		"1": "compendium:block/material/wood/acacia/lozenge",
 		"particle": "block/acacia_planks"
 	},
 	"elements": [
@@ -43,8 +43,8 @@
 			"to": [12, 20, 13],
 			"rotation": {"angle": 0, "axis": "y", "origin": [9, 11, 11]},
 			"faces": {
-				"north": {"uv": [4, 7, 12, 16], "texture": "#2"},
-				"south": {"uv": [4, 7, 12, 16], "texture": "#2"}
+				"north": {"uv": [4, 7, 12, 16], "texture": "#1"},
+				"south": {"uv": [4, 7, 12, 16], "texture": "#1"}
 			}
 		},
 		{

@@ -22,13 +22,12 @@ public class StyleData {
 	public static StyleData TABLE_TOP = new StyleData("top", List.of("basic", "trimmed", "smooth"));
 	public static StyleData TABLE_LEGS = new StyleData("legs", List.of("basic", "bar", "fancy"));
 
-	public static StyleData CHAIR_BACK = new StyleData("back", List.of("basic", "basic_panel", "branch", "braced",
-			"checker", "contemporary", "contemporary_slats", "criss-cross", "cross", "cross_framed", "fan", "fancy",
-			"flat", "flat_extra", "full", "laced", "laced_tall", "ladder", "ladder_tall", "lath", "lath_extra",
-			"lattice", "live_edge", /* "lozenge", */
-			"open", "panel", "panel_weave", "planks_horizontal", "planks_horizontal_angled", "slats", "slats_chunky",
-			"solid", "splat", "splat_double", "splat_slat", "turned_panel", "turned_panel_weave", "vienna", "weave",
-			"windsor"));
+	public static StyleData CHAIR_BACK = new StyleData("back", List.of("basic", "basic_panel", "branch",
+			"braced", /*"checker",*/ "contemporary", "contemporary_slats", "criss-cross", "cross", "cross_framed", "fan",
+			"fancy", "flat", "flat_extra", "full", "laced", "laced_tall", "ladder", "ladder_tall", "lath", "lath_extra",
+			"lattice", "live_edge", "lozenge", "open", "panel", "panel_weave", "planks_horizontal",
+			"planks_horizontal_angled", "slats", "slats_chunky", "solid", "splat", "splat_double", "splat_slat",
+			"turned_panel", "turned_panel_weave", "vienna", "weave", "windsor"));
 	public static StyleData CHAIR_SEAT = new StyleData("back",
 			List.of("basic", "planks_horizontal", "planks_horizontal_angled", "weave", "framed"));
 	public static StyleData CHAIR_LEGS = new StyleData("back",
