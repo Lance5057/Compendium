@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks;
 
-import java.util.List;
-
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 import com.mojang.serialization.MapCodec;
@@ -24,9 +22,13 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock {
 	public final StyleData[] styles;
 
 	public PipeStyleBlock(Properties properties, StyleData... styles) {
-		super(0.25f, properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false))
-				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false))
+		this(0.25f, properties, styles);
+	}
+
+	public PipeStyleBlock(float apothem, Properties properties, StyleData... styles) {
+		super(apothem, properties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true))
+				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(true))
 				.setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false))
 				.setValue(DOWN, Boolean.valueOf(false)));
 		this.styles = styles;

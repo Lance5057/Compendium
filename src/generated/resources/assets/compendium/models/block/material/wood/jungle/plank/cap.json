@@ -5,9 +5,12 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "count": 1,
+  "basic": {
+    "model": "compendium:block/material/wood/jungle/plank/basic_cap"
+  },
+  "count": 2,
   "loader": "compendium:style",
-  "plank": {
-    "model": "compendium:block/material/wood/jungle/plank/plank_cap"
+  "pipe": {
+    "model": "compendium:block/material/wood/jungle/plank/pipe_cap"
   }
 }

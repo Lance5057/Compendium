@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/plank/plank_horizontal",
-  "textures": {
-    "0": "compendium:block/material/wood/cherry/planks/planks_seamless",
-    "1": "compendium:block/material/wood/cherry/planks/planks_seamless"
-  }
-}

@@ -70,7 +70,7 @@ public class StyleData {
 					"split_log_rotated_side", "split_log_rotated_front", "split_log_rotated_top", "small_wood",
 					"small_wood_rotated", "wood", "wood_rotated"));
 
-	public static StyleData PLANK = new StyleData("planks", List.of("plank"));
+	public static StyleData PLANK = new StyleData("planks", List.of("basic", "pipe"));
 	
 	public static StyleData PLANKS = new StyleData("planks",
 			List.of("big_weave", "blocks", "blocks_offset", "boards", "boards_rotated", "boards_seamless",

@@ -1,5 +1,6 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox.placed;
 
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.network.StyleSyncPacket;
 import com.lance5057.compendium.styleblock.StyleBlock;
@@ -54,23 +55,6 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 			this.addSlot(new Slot(pPlayerInventory, c, startX + (c * borderSlotSize), 179));
 		}
 
-	}
-
-	@Override
-	public boolean clickMenuButton(Player p_39465_, int p_39466_) {
-		this.access.execute((level, pos) -> {
-			ItemStack stack = this.slots.get(0).getItem();
-			if (stack != null && !stack.isEmpty() && stack.getItem() instanceof BlockItem bi
-					&& bi.getBlock() instanceof StyleBlock style) {
-				if (stack.has(DataComponents.BLOCK_STATE)) {
-//					BlockState state = stack.get(DataComponents.BLOCK_STATE).apply(style.getState(p_39466_));
-
-					stack.set(DataComponents.BLOCK_STATE, style.getStateProperties(style.getState(p_39466_)));
-				}
-			}
-		});
-
-		return true;
 	}
 
 	@Override

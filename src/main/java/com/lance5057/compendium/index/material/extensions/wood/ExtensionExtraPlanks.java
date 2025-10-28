@@ -95,7 +95,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		PLANK.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
+		PLANK.setup(base,
+				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.PLANK),
 				() -> new BlockItem(PLANK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -353,28 +354,23 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		for (String s : StyleData.PLANK.getTypes()) {
 			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s, ibmp.modLoc("block/bases/plank/" + s))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
-					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
 
 			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal",
 					ibmp.modLoc("block/bases/plank/" + s + "_horizontal"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
-					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
 
 			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal_rot",
 					ibmp.modLoc("block/bases/plank/" + s + "_horizontal2"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
-					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
 
 			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_vertical",
 					ibmp.modLoc("block/bases/plank/" + s + "_vertical"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
-					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
 
 			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_cap",
 					ibmp.modLoc("block/bases/plank/" + s + "_cap"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
-					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
 
 //			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
 //					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"))
