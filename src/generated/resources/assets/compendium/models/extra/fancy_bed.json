@@ -1,0 +1,89 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "modelBase": "bed",
+    "modelPart": "frame",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "basic_panel",
+      "contemporary_slats",
+      "cross",
+      "fancy",
+      "flat",
+      "flat_extra",
+      "full",
+      "lath",
+      "lath_extra",
+      "live_edge",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "bed",
+    "modelPart": "mattress",
+    "styleLayer": 1,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer2": {
+    "materialLayer": 2,
+    "modelBase": "bed",
+    "modelPart": "sheet",
+    "styleLayer": 2,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer3": {
+    "materialLayer": 3,
+    "modelBase": "bed",
+    "modelPart": "pillow",
+    "styleLayer": 3,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer4": {
+    "materialLayer": 4,
+    "modelBase": "bed",
+    "modelPart": "blanket",
+    "styleLayer": 4,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 5,
+  "loader": "compendium:multi_style_material"
+}

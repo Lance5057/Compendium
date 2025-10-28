@@ -62,6 +62,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.phys.Vec3;
@@ -94,8 +95,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		PLANK.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), base.namespace,
-				"plank", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
+		PLANK.setup(base, () -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
+				() -> new BlockItem(PLANK.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				base.namespace, "plank", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.PLANKS),
@@ -145,6 +149,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 		if (this.autoGenBlockModel) {
+			this.plankModel(PLANK, base, bsp, "");
 			if (PLANK_BLOCK.shouldGenerate()) {
 				ConfiguredModel.Builder<?> b = ConfiguredModel.builder();
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
@@ -239,6 +244,86 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}
 	}
 
+	private void plankModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp, String extra) {
+		if (block.shouldGenerate()) {
+			extra = extra + "plank";
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
+					.getBuilder(block.location(base) + extra + "/horizontal")
+					.customLoader(StyleBlockModelBuilder::begin);
+			base_model_horizontal.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.PLANK.getTypes())
+				base_model_horizontal.add(new StyleModelBuilder(s,
+						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
+
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal2 = bsp.models()
+					.getBuilder(block.location(base) + extra + "/horizontal_rot")
+					.customLoader(StyleBlockModelBuilder::begin);
+			base_model_horizontal2.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.PLANK.getTypes())
+				base_model_horizontal2.add(new StyleModelBuilder(s,
+						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
+
+			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
+					.getBuilder(block.location(base) + extra + "/vertical").customLoader(StyleBlockModelBuilder::begin);
+			base_model_vertical.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.PLANK.getTypes())
+				base_model_vertical.add(new StyleModelBuilder(s,
+						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
+
+			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
+					.getBuilder(block.location(base) + extra + "/cap").customLoader(StyleBlockModelBuilder::begin);
+			model_cap.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+			for (String s : StyleData.PLANK.getTypes())
+				model_cap.add(new StyleModelBuilder(s,
+						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
+
+			BlockModelBuilder cap = model_cap.end();
+
+			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2.end()).addModel()
+					.nestedGroup().useOr()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, false)
+					.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
+					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+					.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
+					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+					.endNestedGroup()
+
+					.nestedGroup().condition(BlockStateProperties.SOUTH, true)
+					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+					.endNestedGroup().end().end().part().modelFile(base_model_horizontal.end()).addModel().nestedGroup()
+					.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
+					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+					.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
+					.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
+					.modelFile(base_model_vertical.end()).addModel().useOr().condition(BlockStateProperties.UP, true)
+					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).addModel()
+					.condition(BlockStateProperties.UP, true).end().part().modelFile(cap).rotationX(180).addModel()
+					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).rotationX(90).addModel()
+					.condition(BlockStateProperties.NORTH, true).end().part().modelFile(cap).rotationX(90)
+					.rotationY(180).addModel().condition(BlockStateProperties.SOUTH, true).end().part().modelFile(cap)
+					.rotationX(90).rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
+					.modelFile(cap).rotationX(90).rotationY(90).addModel().condition(BlockStateProperties.EAST, true)
+					.end();
+		}
+	}
+
 	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
 			BlockStateProvider bsp) {
 		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
@@ -265,35 +350,39 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+
+		for (String s : StyleData.PLANK.getTypes()) {
+			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s, ibmp.modLoc("block/bases/plank/" + s))
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
+					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+
+			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal",
+					ibmp.modLoc("block/bases/plank/" + s + "_horizontal"))
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
+					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+
+			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal_rot",
+					ibmp.modLoc("block/bases/plank/" + s + "_horizontal2"))
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
+					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+
+			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_vertical",
+					ibmp.modLoc("block/bases/plank/" + s + "_vertical"))
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
+					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+
+			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_cap",
+					ibmp.modLoc("block/bases/plank/" + s + "_cap"))
+					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"))
+					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/" + "planks_seamless"));
+
+//			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"))
+//					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"));
+
+		}
+
 		for (String s : StyleData.PLANKS.getTypes()) {
-//			if (s.endsWith("_rotated")) {
-//				String texture = s.replaceAll("_rotated", "");
-//				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s,
-//						ibmp.modLoc("block/cube_all_rotated"))
-//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//
-//				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_bottom",
-//						ibmp.modLoc("block/bases/slab/slab_rotated_bottom"))
-//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//				ibmp.withExistingParent(PLANK.location(base) + "/slab/" + s + "_top",
-//						ibmp.modLoc("block/bases/slab/slab_rotated_top"))
-//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//				ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s + "_full",
-//						ibmp.modLoc("block/cube_all_rotated"))
-//						.texture("all", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//
-////				styledStairsModels(base, s, ibmp);
-//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s,
-//						ibmp.modLoc("block/bases/stairs/stairs_rotated"))
-//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_inner",
-//						ibmp.modLoc("block/bases/stairs/stairs_rotated_inner"))
-//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//				ibmp.withExistingParent(PLANK.location(base) + "/stairs/" + s + "_outer",
-//						ibmp.modLoc("block/bases/stairs/stairs_rotated_outer"))
-//						.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + texture));
-//
-//			} else {
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 

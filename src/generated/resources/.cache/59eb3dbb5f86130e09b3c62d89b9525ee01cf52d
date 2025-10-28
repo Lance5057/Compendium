@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-04T23:24:52.3994619	Loot Tables
+// 1.21.1	2025-10-27T23:59:14.0975986	Loot Tables
 b91af22dd925d3a040fd5fd5e81600257fc5f25a data/compendium/loot_table/blocks/acacia_logs.json
 4bf0bf367a27bcb3b43a39db2ed083b037fa667d data/compendium/loot_table/blocks/acacia_logs_slab.json
 18d482893f0d4897e3c624b08dcf407368253ab1 data/compendium/loot_table/blocks/acacia_logs_stairs.json
@@ -64,7 +64,6 @@ d40ed6f600005423bb6ae02f05aa47fbf8029ca6 data/compendium/loot_table/blocks/dark_
 d75d4b8681048b951da7b8ac2ea66c864218b76f data/compendium/loot_table/blocks/dark_oak_stripped_small_log.json
 057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
 bacd6a3653f2ea1614069a97720ce01f80057c03 data/compendium/loot_table/blocks/fancy_bed.json
-1fe696be19d81735642ac903e954173a256d46a0 data/compendium/loot_table/blocks/fancy_door.json
 f4e4f9e6287b901229d215817c37037f7329297c data/compendium/loot_table/blocks/fancy_fence.json
 9673e43f0b1fcad5f36acb6e4b06e4bde0f755ae data/compendium/loot_table/blocks/hammering_station.json
 21fd0feaad613f90f0331e3a06351ae56dbbe615 data/compendium/loot_table/blocks/jungle_logs.json

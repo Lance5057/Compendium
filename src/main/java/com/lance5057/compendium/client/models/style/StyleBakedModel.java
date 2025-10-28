@@ -93,12 +93,9 @@ public class StyleBakedModel implements IDynamicBakedModel {
 				if (r != null) {
 					if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
 						l.addAll(r);
-				} else
-					l.addAll(base.getQuads(state, side, rand, extraData, renderType));
-			} else
-				l.addAll(base.getQuads(state, side, rand, extraData, renderType));
-		} else
-			l.addAll(base.getQuads(state, side, rand, extraData, renderType));
+				}
+			}
+		}
 
 		return l;
 

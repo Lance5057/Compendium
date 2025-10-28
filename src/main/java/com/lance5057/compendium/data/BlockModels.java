@@ -126,6 +126,17 @@ public class BlockModels extends BlockStateProvider {
 						.end())
 				.build();
 
+		ConfiguredModel.builder().modelFile(models().getBuilder("extra/clothed_table")
+				.customLoader(MultiStyleMaterialBuilder::begin)
+				.base(models().cubeAll("table_base", mcLoc("block/oak_planks")))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("clothed_table", "top", List.of(MATERIAL_TYPES.WOOD),
+						StyleData.CLOTHED_TABLE_TOP.getTypes(), 0, 0, "_inventory"))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("clothed_table", "legs", List.of(MATERIAL_TYPES.WOOD),
+						StyleData.CLOTHED_TABLE_LEGS.getTypes(), 1, 1, "_inventory"))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("clothed_table", "cloth", List.of(MATERIAL_TYPES.TEXTILE),
+						StyleData.CLOTHED_TABLE_CLOTH.getTypes(), 1, 1, "_inventory"))
+				.end()).build();
+
 		ConfiguredModel.builder()
 				.modelFile(models().getBuilder("extra/chair").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("chair_base", mcLoc("block/oak_planks")))
@@ -138,6 +149,23 @@ public class BlockModels extends BlockStateProvider {
 								List.of(MATERIAL_TYPES.WOOD), StyleData.CHAIR_LEGS.getTypes(), 2, 2))
 						.end())
 				.build();
+		
+		ConfiguredModel.builder()
+		.modelFile(models().getBuilder("extra/fancy_bed").customLoader(MultiStyleMaterialBuilder::begin)
+				.base(models().cubeAll("bed_base", mcLoc("block/oak_planks")))
+
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "frame",
+						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 0, 0))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "mattress",
+						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_MATTRESS.getTypes(), 1, 1))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "sheet",
+						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_SHEET.getTypes(), 2, 2))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "pillow",
+						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_PILLOW.getTypes(), 3, 3))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "blanket",
+						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_BLANKET.getTypes(), 4, 4))
+				.end())
+		.build();
 
 		getMultipartBuilder(CompendiumBlocks.TABLE.get())
 				// Table Top

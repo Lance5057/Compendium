@@ -68,6 +68,6 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> SHINGLES_CAP_SLANTED = BLOCKS.register("shingles_cap_slanted",
 			() -> new ShinglesCapSlanted(Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
 
-	public static final DeferredBlock<Block> FANCY_DOOR = BLOCKS.register("fancy_door",
-			() -> new FancyDoorBlock(BlockSetType.ACACIA, Properties.ofFullCopy(Blocks.ACACIA_DOOR).noOcclusion()));
+//	public static final DeferredBlock<Block> FANCY_DOOR = BLOCKS.register("fancy_door",
+//			() -> new FancyDoorBlock(BlockSetType.ACACIA, Properties.ofFullCopy(Blocks.ACACIA_DOOR).noOcclusion()));
 }

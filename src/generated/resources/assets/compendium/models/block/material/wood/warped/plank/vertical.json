@@ -1,0 +1,13 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "count": 1,
+  "loader": "compendium:style",
+  "plank": {
+    "model": "compendium:block/material/wood/warped/plank/plank_vertical"
+  }
+}

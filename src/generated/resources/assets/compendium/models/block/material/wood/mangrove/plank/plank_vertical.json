@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/plank/plank_vertical",
+  "textures": {
+    "0": "compendium:block/material/wood/mangrove/planks/planks_seamless",
+    "1": "compendium:block/material/wood/mangrove/planks/planks_seamless"
+  }
+}

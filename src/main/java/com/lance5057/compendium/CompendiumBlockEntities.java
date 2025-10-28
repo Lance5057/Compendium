@@ -62,6 +62,6 @@ public class CompendiumBlockEntities {
 			}, CompendiumBlocks.WINDOW.get(), CompendiumBlocks.CHAIR.get(), CompendiumBlocks.TABLE.get(),
 					CompendiumBlocks.CLOTHED_TABLE.get(), CompendiumBlocks.FANCY_BED.get(),
 					CompendiumBlocks.FANCY_FENCE.get(), CompendiumBlocks.SHINGLES_SLANTED.get(),
-					CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), CompendiumBlocks.FANCY_DOOR.get()).build(null));
+					CompendiumBlocks.SHINGLES_CAP_SLANTED.get()).build(null));
 
 }

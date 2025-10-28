@@ -6,6 +6,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -67,6 +68,10 @@ public class CompendiumItemHandler {
 
 	public boolean isIgnored() {
 		return this.generate == Generate.IGNORE;
+	}
+
+	public void itemTag(ItemTagsProvider itp) {
+		itp.tag(itemTag).add(ITEM.asItem());
 	}
 
 }

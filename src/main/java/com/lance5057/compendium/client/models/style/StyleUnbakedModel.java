@@ -38,6 +38,7 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 
 	@Override
 	public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
+
 		if (baseModel != null)
 			this.baseModel.resolveParents(modelGetter);
 		else {
@@ -50,6 +51,7 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 			im.model.resolveParents(modelGetter);
 			if (im.model == null)
 				im.model = modelGetter.apply(ModelBakery.MISSING_MODEL_LOCATION);
+
 		}
 	}
 
@@ -88,7 +90,7 @@ public class StyleUnbakedModel implements IUnbakedGeometry<StyleUnbakedModel> {
 
 			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
 					BlockModel.class);
-			
+
 			List<StyleModel> models = new ArrayList<StyleModel>();
 
 			jsonObject.entrySet().forEach(i -> {

@@ -30,8 +30,7 @@ public class MultiMaterialBakedModel implements IDynamicBakedModel {
 	List<MultiMaterialBakedModel.BakedLayer> layers = new ArrayList<MultiMaterialBakedModel.BakedLayer>();
 
 	@SuppressWarnings("deprecation")
-	public MultiMaterialBakedModel(BakedModel base,
-			List<MultiMaterialBakedModel.BakedLayer> bakedLayers) {
+	public MultiMaterialBakedModel(BakedModel base, List<MultiMaterialBakedModel.BakedLayer> bakedLayers) {
 		this.base = base;
 		this.layers = bakedLayers;
 
@@ -127,22 +126,6 @@ public class MultiMaterialBakedModel implements IDynamicBakedModel {
 							l.addAll(r);
 					}
 				}
-			}
-
-			return l;
-		}
-
-		public List<BakedQuad> getInvalid(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
-				ModelData extraData, @Nullable RenderType renderType, BakedModel base) {
-			List<BakedQuad> l = new ArrayList<BakedQuad>();
-
-			BakedModel q = models.get("invalid");
-
-			if (q != null) {
-				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-				if (r != null)
-					if (renderType == null || base.getRenderTypes(state, rand, extraData).contains(renderType))
-						l.addAll(r);
 			}
 
 			return l;
