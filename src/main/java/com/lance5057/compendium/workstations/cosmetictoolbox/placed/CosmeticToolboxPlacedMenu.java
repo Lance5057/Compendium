@@ -1,12 +1,9 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox.placed;
 
-import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.network.StyleSyncPacket;
-import com.lance5057.compendium.styleblock.StyleBlock;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,7 +11,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 
 public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {

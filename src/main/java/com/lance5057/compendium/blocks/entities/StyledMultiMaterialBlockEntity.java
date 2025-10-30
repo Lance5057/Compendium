@@ -81,9 +81,11 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 
 	@Override
 	public void setCurrent(int index, int c) {
-		currentStyles.set(index, c);
-		this.setChanged();
-		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+		if (currentStyles != null) {
+			currentStyles.set(index, c);
+			this.setChanged();
+			getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+		}
 	}
 
 	@Override
