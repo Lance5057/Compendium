@@ -1,6 +1,11 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox.placed;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumMenus;
+import com.lance5057.compendium.components.block.StyleBlockComponent;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -85,6 +90,17 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 	@Override
 	public boolean stillValid(Player player) {
 		return true;
+	}
+
+	public void setStyle(int section, int style) {
+		this.access.execute((level, pos) -> {
+			ItemStack s = this.slots.get(0).getItem();
+			StyleBlockComponent c = s.get(CompendiumComponents.STYLE.get());
+
+			List<Integer> l = new ArrayList<Integer>(c.styles());
+			l.set(section, style);
+			s.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(l));
+		});
 	}
 
 //	@Override

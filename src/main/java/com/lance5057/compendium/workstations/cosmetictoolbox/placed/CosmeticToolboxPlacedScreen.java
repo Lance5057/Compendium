@@ -8,7 +8,9 @@ import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
+import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.network.StyleSetPacket;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.math.Axis;
@@ -35,6 +37,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<CosmeticToolboxPlacedMenu> {
 
@@ -209,15 +212,17 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 		Builder md = ModelData.builder();
 
-//		List<String> l = ((IStyleable) entity).getCurrentAllString();
-//		if (cur != -1)
-//			l.set(curStyleType, ((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(cur));
-//		else
-//			for (int i = 0; i < ((IStyleable) entity).getStyleCount(); i++) {
-//				((IStyleable) entity).getStyles().get(i).getTypes().get(0); // This is wrong!
-//			}
+		entity.applyComponentsFromItemStack(menu.slots.get(0).getItem());
 
-//		md.with(StyleModelData.STYLES, l);
+		List<String> l = ((IStyleable) entity).getCurrentAllString();
+		if (cur != -1)
+			l.set(curStyleType, ((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(cur));
+		else
+			for (int i = 0; i < ((IStyleable) entity).getStyleCount(); i++) {
+				((IStyleable) entity).getStyles().get(i).getTypes().get(0); // This is wrong!
+			}
+
+		md.with(StyleModelData.STYLES, l);
 
 		if (entity instanceof MultiMaterialBlockEntity mmb) {
 			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
@@ -276,17 +281,19 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 				double d1 = p_99319_ - (double) (j + i1 * 18);
 				if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
 
-					ItemStack stack = this.menu.slots.get(0).getItem();
+//					ItemStack stack = this.menu.slots.get(0).getItem();
+//
+//					StyleBlockComponent s = stack.get(CompendiumComponents.STYLE.get());
+//					List<Integer> st = new ArrayList<Integer>(s.styles());
+//					st.set(curStyleType, l);
+////					stack.remove(CompendiumComponents.STYLE.get());
+//					stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(st));
+//
+//					entity.applyComponentsFromItemStack(stack);
+//
+//					this.menu.slots.get(0).set(stack);
 
-					StyleBlockComponent s = stack.get(CompendiumComponents.STYLE.get());
-					List<Integer> st = new ArrayList<Integer>(s.styles());
-					st.set(curStyleType, l);
-//					stack.remove(CompendiumComponents.STYLE.get());
-					stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(st));
-
-					entity.applyComponentsFromItemStack(stack);
-
-					this.menu.slots.get(0).set(stack);
+					PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, this.curStyleType, l));
 
 					Minecraft.getInstance().getSoundManager()
 							.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));

@@ -2,6 +2,7 @@ package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxMenu;
+import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedMenu;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.FriendlyByteBuf;
@@ -27,6 +28,9 @@ public record StyleSetPacket(int containerId, int section, int style) implements
 				@Override
 				public void run() {
 					if (ctx.player().containerMenu instanceof CosmeticToolboxMenu ammm) {
+						ammm.setStyle(message.section, message.style);
+					}
+					else if (ctx.player().containerMenu instanceof CosmeticToolboxPlacedMenu ammm) {
 						ammm.setStyle(message.section, message.style);
 					}
 				}
