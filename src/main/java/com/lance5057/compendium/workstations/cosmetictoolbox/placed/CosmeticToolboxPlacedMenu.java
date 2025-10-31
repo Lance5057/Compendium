@@ -1,11 +1,8 @@
 package com.lance5057.compendium.workstations.cosmetictoolbox.placed;
 
 import com.lance5057.compendium.CompendiumMenus;
-import com.lance5057.compendium.network.StyleSyncPacket;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -90,12 +87,12 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 		return true;
 	}
 
-	@Override
-	public void sendAllDataToRemote() {
-		super.sendAllDataToRemote();
-		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new StyleSyncPacket(this.containerId, BlockPos.ZERO));
-	}
+//	@Override
+//	public void sendAllDataToRemote() {
+//		super.sendAllDataToRemote();
+//		if (this.player instanceof ServerPlayer serverPlayer)
+//			serverPlayer.connection.send(new StyleSyncStackPacket(this.containerId, this.slots.get(0).getItem()));
+//	}
 
 	@Override
 	public void removed(Player player) {

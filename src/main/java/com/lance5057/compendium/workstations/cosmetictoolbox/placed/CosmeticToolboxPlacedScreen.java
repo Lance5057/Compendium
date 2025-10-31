@@ -8,7 +8,6 @@ import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
-import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -95,12 +94,18 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 				entity = eb.newBlockEntity(BlockPos.ZERO, state);
 				entity.applyComponentsFromItemStack(stack);
-				tabs.add(this.addRenderableWidget(
-						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
-							this.curStyleType = j;
-							this.startIndex = 0;
-							this.scrollOffs = 0;
-						})));
+
+				if (((IStyleable) entity).getStyles().size() > 1)
+					for (int x = 0; x < ((IStyleable) entity).getStyles().size(); x++) {
+						int y = x;
+						tabs.add(this.addRenderableWidget(new ImageButton(this.leftPos + 184,
+								this.topPos + 4 + (x * 32), 43, 32, tab_sprites, b -> {
+									this.curStyleType = y;
+									this.startIndex = 0;
+									this.scrollOffs = 0;
+								})));
+					}
+
 			}
 			if (stack.has(CompendiumComponents.STYLE)) {
 
@@ -134,8 +139,11 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 				}
 			}
-		} else
-			entity = null;
+		} else {
+			this.renderables.clear();
+			if (entity != null)
+				entity.setRemoved();
+		}
 
 		renderTooltip(gui, mouseX, mouseY);
 	}
@@ -174,8 +182,12 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 	}
 
 	private boolean isScrollBarActive() {
-		if (style != null)
-			return style.styles().size() > 8;
+		if (entity != null)
+			if (((IStyleable) entity).getStyles() != null && !((IStyleable) entity).getStyles().isEmpty())
+				if (((IStyleable) entity).getStyles().get(curStyleType) != null
+						&& ((IStyleable) entity).getStyles().get(curStyleType).getTypes() != null
+						&& !((IStyleable) entity).getStyles().get(curStyleType).getTypes().isEmpty())
+					return ((IStyleable) entity).getStyles().get(curStyleType).getTypes().size() > 8;
 		return false;
 	}
 
@@ -197,15 +209,15 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 		Builder md = ModelData.builder();
 
-		List<String> l = ((IStyleable) entity).getCurrentAllString();
-		if (cur != -1)
-			l.set(curStyleType, ((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(cur));
-		else
-			for (int i = 0; i < ((IStyleable) entity).getStyleCount(); i++) {
-				((IStyleable) entity).getStyles().get(i).getTypes().get(0); // This is wrong!
-			}
+//		List<String> l = ((IStyleable) entity).getCurrentAllString();
+//		if (cur != -1)
+//			l.set(curStyleType, ((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(cur));
+//		else
+//			for (int i = 0; i < ((IStyleable) entity).getStyleCount(); i++) {
+//				((IStyleable) entity).getStyles().get(i).getTypes().get(0); // This is wrong!
+//			}
 
-		md.with(StyleModelData.STYLES, l);
+//		md.with(StyleModelData.STYLES, l);
 
 		if (entity instanceof MultiMaterialBlockEntity mmb) {
 			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
@@ -263,12 +275,18 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 				double d0 = p_99318_ - (double) (i);
 				double d1 = p_99319_ - (double) (j + i1 * 18);
 				if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
+
 					ItemStack stack = this.menu.slots.get(0).getItem();
+
 					StyleBlockComponent s = stack.get(CompendiumComponents.STYLE.get());
-					s.styles().set(curStyleType, l);
-					stack.set(CompendiumComponents.STYLE.get(), s);
+					List<Integer> st = new ArrayList<Integer>(s.styles());
+					st.set(curStyleType, l);
+//					stack.remove(CompendiumComponents.STYLE.get());
+					stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(st));
 
 					entity.applyComponentsFromItemStack(stack);
+
+					this.menu.slots.get(0).set(stack);
 
 					Minecraft.getInstance().getSoundManager()
 							.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
@@ -294,10 +312,10 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 	public boolean mouseDragged(double p_99322_, double p_99323_, int p_99324_, double p_99325_, double p_99326_) {
 		if (this.scrolling && this.isScrollBarActive()) {
 			int i = this.topPos + 14;
-			int j = i + 54;
+			int j = i + 144;
 			this.scrollOffs = ((float) p_99323_ - (float) i - 7.5F) / ((float) (j - i) - 15.0F);
 			this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
-			this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5) * 4;
+			this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5);
 			return true;
 		} else {
 			return super.mouseDragged(p_99322_, p_99323_, p_99324_, p_99325_, p_99326_);
@@ -310,13 +328,13 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 			int i = this.getOffscreenRows();
 			float f = (float) p_295672_ / (float) i;
 			this.scrollOffs = Mth.clamp(this.scrollOffs - f, 0.0F, 1.0F);
-			this.startIndex = (int) ((this.scrollOffs * (float) i) + 0.5) * 4;
+			this.startIndex = (int) ((this.scrollOffs * (float) i) + 0.5);
 		}
 
 		return true;
 	}
 
 	protected int getOffscreenRows() {
-		return this.style.styles().size() - 8;
+		return ((IStyleable) entity).getStyles().get(curStyleType).getTypes().size() - 8;
 	}
 }

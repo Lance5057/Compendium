@@ -18,5 +18,6 @@ public class CompendiumNetworkHandler {
 		registrar.playToServer(AdjustinatorCallBackPacket.id, AdjustinatorCallBackPacket.STREAM_CODEC,
 				AdjustinatorCallBackPacket::handle);
 		registrar.playToServer(StyleSetPacket.id, StyleSetPacket.STREAM_CODEC, StyleSetPacket::handle);
+
 	}
 }

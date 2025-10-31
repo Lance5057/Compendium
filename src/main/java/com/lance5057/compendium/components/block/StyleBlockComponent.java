@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -47,6 +46,11 @@ public record StyleBlockComponent(List<Integer> styles) implements TooltipProvid
 		for (int i = 0; i < bm.styles.size(); i++) {
 			buffer.writeInt(bm.styles.get(i));
 		}
+	}
+
+	public StyleBlockComponent copy() {
+		
+		return new StyleBlockComponent(new ArrayList<Integer>(styles));
 	}
 
 }

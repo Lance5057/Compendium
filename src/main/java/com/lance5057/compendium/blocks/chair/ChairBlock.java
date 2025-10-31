@@ -128,8 +128,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	public List<String> getStyles(List<Integer> current) {
 
 		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
-				StyleData.CHAIR_LEGS.getTypes().get(current.get(1)),
-				StyleData.CHAIR_SEAT.getTypes().get(current.get(2)));
+				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)),
+				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)));
 	}
 
 }

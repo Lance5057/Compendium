@@ -10,6 +10,7 @@ import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelDa
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
@@ -111,8 +112,8 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 	protected void collectImplicitComponents(DataComponentMap.Builder builder) {
 		super.collectImplicitComponents(builder);
 
-		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(currentStyles));
-		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(materials));
+		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(new ArrayList<Integer>(currentStyles)));
+		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(new ArrayList<MultiMaterialType>(materials)));
 	}
 
 	@Override
