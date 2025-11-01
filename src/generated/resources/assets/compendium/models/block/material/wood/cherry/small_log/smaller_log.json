@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/small_log/small_log",
+  "parent": "compendium:block/bases/small_log/smaller_log",
   "textures": {
     "0": "compendium:block/material/wood/cherry/logs/extra_caps",
     "1": "compendium:block/material/wood/cherry/logs/small_logs"

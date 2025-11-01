@@ -19,7 +19,6 @@ import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
-import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
@@ -35,9 +34,6 @@ import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.Direction;
@@ -253,14 +249,39 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
 					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
 
-			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "small_log/" + s,
-					ibmp.modLoc("block/bases/small_log/small_log"))
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s,
+					ibmp.modLoc("block/bases/stripped_small_log/small_log"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal_rot",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal2"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_vertical",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_vertical"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_cap",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_cap"))
 					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
 					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
 
 			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
 					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
 					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs"));
+
+			ibmp.withExistingParent(base.itemFolder() + "stripped_" + s + "_inventory",
+					ibmp.modLoc("item/" + s + "_inventory"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_small_logs"));
 
 		}
 
@@ -276,6 +297,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 		ibmp.withExistingParent(LOG.location(base) + "/log/basic_horizontal",
 				ibmp.mcLoc("block/cube_column_horizontal"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
+		ibmp.withExistingParent(LOG.location(base) + "/log/basic_inventory", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 
@@ -373,6 +397,25 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		logSlabBlockModel(base, ibmp);
 
 		logStairsBlockModel(base, ibmp);
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage0", ibmp.modLoc("extra/split_log_stage0"))
+				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem))
+				.texture("1", ibmp.mcLoc("block/" + base.name + "_" + logstem + "_top"));
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage1", ibmp.modLoc("extra/split_log_stage1"))
+				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem))
+				.texture("1", ibmp.mcLoc("block/" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage2", ibmp.modLoc("extra/split_log_stage2"))
+				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem))
+				.texture("1", ibmp.mcLoc("block/" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage3", ibmp.modLoc("extra/split_log_stage3"))
+				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem))
+				.texture("1", ibmp.mcLoc("block/" + base.name + "_" + logstem + "_top"))
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
 	}
 
 	private void logSlabBlockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
@@ -425,6 +468,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		for (String type : types) {
 			ibmp.withExistingParent(LOG.location(base) + "/" + block + "/" + modelName + type,
+					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
+					.texture("0", textureLocation(texture0, base, false))
+					.texture("1", textureLocation(texture1, base, false))
+					.texture("particle", textureLocation(texture0, base, false));
+
+			ibmp.withExistingParent(base.itemFolder() + "/" + block + "/" + modelName + type + "_inventory",
 					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
@@ -533,6 +582,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					return b.build();
 
 				});
+
+				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+						.getBuilder("item/" + base.name + "_logs_item").customLoader(StyleBlockModelBuilder::begin);
+				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG.getTypes())
+					msmb.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(msmb.end()).build();
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
 				bsp.getVariantBuilder(STRIPPED_LOG.BLOCK.get()).forAllStates(state -> {
@@ -571,6 +630,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					return b.build();
 
 				});
+
+				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+						.getBuilder("item/" + base.name + "_stripped_logs_item")
+						.customLoader(StyleBlockModelBuilder::begin);
+				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG.getTypes())
+					msmb.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(msmb.end()).build();
 			}
 			if (LOG_SLAB.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
@@ -599,6 +669,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
 						log_slab_full.end());
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
+						.getBuilder("item/" + base.name + "_logs_slab_item")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_SLAB.getTypes())
+					log_slab_inventory.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "slab/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
 			}
 
 			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
@@ -631,6 +712,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
 						log_slab_full.end());
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
+						.getBuilder("item/" + base.name + "_stripped_logs_slab_item")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_SLAB.getTypes())
+					log_slab_inventory.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "slab/stripped_" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
 			}
 			if (LOG_STAIRS.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
@@ -661,6 +753,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(), log_stairs_inner.end(),
 						log_stairs_outer.end(), bsp);
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
+						.getBuilder("item/" + base.name + "_logs_stairs_item")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_stairs_inventory.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
 			}
 
 			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
@@ -693,6 +796,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				stairsBlock((StairBlock) STRIPPED_LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(),
 						log_stairs_inner.end(), log_stairs_outer.end(), bsp);
+
+				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
+						.getBuilder("item/" + base.name + "_stripped_logs_stairs_item")
+						.customLoader(StyleBlockModelBuilder::begin);
+				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.LOG_STAIRS.getTypes())
+					log_stairs_inventory.add(new StyleModelBuilder(s,
+							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
 			}
 		}
 	}
@@ -812,10 +926,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
-//			if (SMALL_LOG.shouldGenerate()) {
-//				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
-//						base.getType());
-//			}
+			if (SMALL_LOG.shouldGenerate()) {
+				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
+						base.getType());
+			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
@@ -885,14 +999,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage0"), 0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage0"),
+									0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage1"), 0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage1"),
+									0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage2"), 0))
-					.save(consumer);
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0), Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc(base.extraFolder() + "split_log_stage2"), 0))
+					.save(consumer, base.name + "_small_log");
 		}
 		if (LOG.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG.BLOCK_ITEM, 1).pattern("bb").pattern("bb")
@@ -920,7 +1036,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 4, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_axe"), 0))
-					.save(consumer);
+					.save(consumer, base.name + "_stripped_small_log");
 		}
 		if (STRIPPED_LOG.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_LOG.BLOCK_ITEM, 1).pattern("bb")

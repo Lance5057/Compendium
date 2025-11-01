@@ -89,6 +89,10 @@ public abstract class _MaterialBase implements IIndexEntry {
 	public String itemFolder() {
 		return "item/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
 	}
+	
+	public String extraFolder() {
+		return "extra/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
+	}
 
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 

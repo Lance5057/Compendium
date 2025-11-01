@@ -1,0 +1,58 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "campfire": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_campfire_inventory"
+  },
+  "count": 16,
+  "crosscut": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_crosscut_inventory"
+  },
+  "crosscut_small": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_crosscut_small_inventory"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_firewood_inventory"
+  },
+  "loader": "compendium:style",
+  "small_logs": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_small_logs_inventory"
+  },
+  "small_logs_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_small_logs_rotated_inventory"
+  },
+  "small_wood": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_small_wood_inventory"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_small_wood_rotated_inventory"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_smaller_logs_inventory"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_smaller_logs_rotated_inventory"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_smallest_logs_inventory"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_smallest_logs_rotated_inventory"
+  },
+  "split": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_split_inventory"
+  },
+  "split_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_split_rotated_inventory"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_wood_inventory"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/dark_oak/slab/stripped_wood_rotated_inventory"
+  }
+}

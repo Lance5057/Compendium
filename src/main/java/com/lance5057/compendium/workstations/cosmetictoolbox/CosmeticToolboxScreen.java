@@ -146,8 +146,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 						gui.pose().popPose();
 //			MutableComponent textEmpty = Component.translatable(Compendium.MOD_ID + ".tooltip." + style.get(curStyleType).getCurrentStyle());
 						gui.drawString(this.font,
-								Component.translatable(entity.getStyles().get(curStyleType).getTypes().get(i)), k + 10,
-								i1, 0xFFFFFF, true);
+								Component.translatable("style." + entity.getStyles().get(curStyleType).getName() + "."
+										+ entity.getStyles().get(curStyleType).getTypes().get(i)),
+								k + 10, i1, 0xFFFFFF, true);
 					}
 	}
 

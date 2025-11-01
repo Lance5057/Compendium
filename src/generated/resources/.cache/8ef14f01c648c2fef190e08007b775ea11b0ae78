@@ -1,8 +1,8 @@
-// 1.21.1	2025-10-30T09:36:49.6930732	Tags for minecraft:item mod id compendium
-ade092497c24e39f6d46fae4a4eab99206b6910a data/c/tags/item/hammer.json
-2e2a224063728e129a7d8ee9d07cdda5a321a514 data/c/tags/item/prybar.json
-304ff610e8d00e80002c227f655d43d4b610cf05 data/c/tags/item/saw.json
-5c2573ad387ef67da64d4ae71b2a933b525b3443 data/c/tags/item/tools.json
+// 1.21.1	2025-11-01T03:10:55.5298611	Tags for minecraft:item mod id compendium
+d043b7d3db45e1efc68e8974cfde848c928ed2d0 data/c/tags/item/hammer.json
+36177f1f695a0df10eb9b00ba4835ddf8e3e7f7d data/c/tags/item/prybar.json
+81e269f0907c87ab78c4a586f47ddfdba4619a0c data/c/tags/item/saw.json
+236c43853bed5c32e9b9bc810fe956f4b3c06afe data/c/tags/item/tools.json
 e63eefb247e42ee8641235ece38b16d74b76fb93 data/minecraft/tags/item/log/acacia.json
 91e91c5a1f29d1e2ac1ed878bff9b625313f575e data/minecraft/tags/item/log/birch.json
 13e0e2d71792fa81a1ab9117f54df790411e6b49 data/minecraft/tags/item/log/cherry.json
@@ -43,11 +43,11 @@ b22e0c14d4958aeb1ea92b15588e4305a0eb8651 data/minecraft/tags/item/log/stairs/man
 cc7ff289720a3132ca688cda9d7c266e8dc6a0d6 data/minecraft/tags/item/log/stairs/spruce.json
 87b43178b70da4db52bd334b7e4f613f780b0201 data/minecraft/tags/item/log/stairs/warped.json
 fa6ed8b676ad82a2465ed5aed191082c4578fda7 data/minecraft/tags/item/log/warped.json
-3c081686013caf8a99db931be79c93ad5f414c96 data/minecraft/tags/item/plank.json
-81db42e8c7592f58755e63d529515294a7908fe6 data/minecraft/tags/item/planks.json
-37574edae10840b91a8001738846bd025e72f36c data/minecraft/tags/item/planks/slab.json
-ed46d8094c5c8e0c12edf07cba8d5ff1d15c7ba1 data/minecraft/tags/item/planks/stairs.json
-ef6ab349734b67fc9e189cf3e43b82177c880d56 data/minecraft/tags/item/stripped_log.json
-aad61684a7fc3c4f53c2969831441bfedefb581a data/minecraft/tags/item/stripped_log/slab.json
-af02897129e7b22ced53f6d2f834ecbf59185869 data/minecraft/tags/item/stripped_log/small.json
-829e2df5fdb8f69a84565de30fb4ffe8a6a1c2a9 data/minecraft/tags/item/stripped_log/stairs.json
+efa22e8d23c07048550d06955380672151d44e60 data/minecraft/tags/item/plank.json
+18509e36d6a95f2e74594dad5d0aed1c142f0ab3 data/minecraft/tags/item/planks.json
+5d9e46e5a2b8b1fea69290634db78c02cf74897c data/minecraft/tags/item/planks/slab.json
+059f216686984c3ad6560407f0d7091fd065949e data/minecraft/tags/item/planks/stairs.json
+a8246a0d4eded946fadca9da198b74f9982e998e data/minecraft/tags/item/stripped_log.json
+8518dad2ce1923d9b6c4c5390674a5785cc22658 data/minecraft/tags/item/stripped_log/slab.json
+ba8b7d98dac6ffcd2d057824369d05374281cb0b data/minecraft/tags/item/stripped_log/small.json
+6354b4f771c182981e424a2ca5e9638b6960cccc data/minecraft/tags/item/stripped_log/stairs.json

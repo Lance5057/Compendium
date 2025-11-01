@@ -379,6 +379,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}
 
 		for (String s : StyleData.PLANKS.getTypes()) {
+			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s + "_inventory",
+					ibmp.mcLoc("block/cube_all"))
+					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
@@ -394,6 +398,9 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank
 																		// one?
 
+			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s, ibmp.mcLoc("block/cube_all"))
+					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+
 			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
@@ -405,6 +412,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+
+			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/stairs/" + s + "_inventory",
+					ibmp.mcLoc("block/cube_all"))
+					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 //			}
 		}
 

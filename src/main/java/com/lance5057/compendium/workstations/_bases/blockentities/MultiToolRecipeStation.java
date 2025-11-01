@@ -132,7 +132,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		this.curTool = r.getTools().get(i).tool();
 		this.toolCount = r.getTools().get(i).count();
 
-//		this.stage = i;
+		this.stage = i;
 	}
 
 	protected boolean isFinalStage(V r) {
