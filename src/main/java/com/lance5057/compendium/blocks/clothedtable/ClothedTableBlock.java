@@ -57,8 +57,8 @@ public class ClothedTableBlock extends Block implements EntityBlock, IStyleBlock
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.CLOTHED_TABLE_TOP,
-				StyleData.CLOTHED_TABLE_LEGS, StyleData.CLOTHED_TABLE_CLOTH);
+		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.TABLE_TOP,
+				StyleData.TABLE_LEGS, StyleData.TABLE_CLOTH);
 	}
 
 	@Override
@@ -128,9 +128,9 @@ public class ClothedTableBlock extends Block implements EntityBlock, IStyleBlock
 	public List<String> getStyles(List<Integer> current) {
 
 		return List.of(
-				StyleData.CLOTHED_TABLE_TOP.getTypes().get(current.get(0)),
-				StyleData.CLOTHED_TABLE_LEGS.getTypes().get(current.get(1)),
-				StyleData.CLOTHED_TABLE_CLOTH.getTypes().get(current.get(2)));
+				StyleData.TABLE_TOP.getTypes().get(current.get(0)),
+				StyleData.TABLE_LEGS.getTypes().get(current.get(1)),
+				StyleData.TABLE_CLOTH.getTypes().get(current.get(2)));
 	}
 
 }

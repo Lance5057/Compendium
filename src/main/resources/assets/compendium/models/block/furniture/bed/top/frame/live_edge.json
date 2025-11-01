@@ -3,8 +3,9 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "block/acacia_planks",
-		"particle": "block/acacia_planks"
+		"0": "compendium:block/material/wood/acacia/logs/log_split_side",
+		"1": "block/acacia_log",
+		"particle": "compendium:block/material/wood/acacia/logs/log_split_side"
 	},
 	"elements": [
 		{
@@ -13,12 +14,12 @@
 			"to": [16, 16, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [2, 11, 11]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#0"},
-				"east": {"uv": [0, 13, 16, 15], "rotation": 90, "texture": "#0"},
-				"south": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#0"},
-				"west": {"uv": [0, 5, 16, 7], "rotation": 90, "texture": "#0"},
-				"up": {"uv": [0, 0, 2, 16], "rotation": 90, "texture": "#0"},
-				"down": {"uv": [0, 0, 2, 16], "rotation": 90, "texture": "#0"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [14, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 16, 2, 0], "texture": "#1"},
+				"up": {"uv": [0, 14, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 2], "texture": "#0"}
 			}
 		}
 	]

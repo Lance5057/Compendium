@@ -1,5 +1,5 @@
 {
-	"parent": "compendium:block/furniture/chair/back/live_edge",
+	"parent": "compendium:block/bases/fence/side/solid",
 	"textures": {
 		"0": "compendium:block/material/wood/acacia/acacia_sheet"
 	}

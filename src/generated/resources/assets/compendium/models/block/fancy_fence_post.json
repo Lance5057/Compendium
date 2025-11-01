@@ -15,9 +15,9 @@
       "none",
       "pillar",
       "pillar_bottom",
-      "pillar_double_cap",
-      "pillar_flat_cap",
       "pillar_top",
+      "pillar_flat_cap",
+      "pillar_double_cap",
       "thick",
       "thin"
     ],

@@ -21,7 +21,8 @@
       "slats",
       "slats_concave",
       "slats_convex",
-      "solid"
+      "solid",
+      "solid_sheet"
     ],
     "suffix": "",
     "valid": [

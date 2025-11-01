@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/logs/log_split_side",
+		"particle": "compendium:block/material/wood/acacia/logs/log_split_side"
+	},
+	"elements": [
+		{
+			"from": [2, 9, 2],
+			"to": [14, 11, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 7, 0]},
+			"faces": {
+				"north": {"uv": [2, 4, 14, 6], "texture": "#0"},
+				"east": {"uv": [12, 0, 14, 12], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [2, 12, 14, 14], "texture": "#0"},
+				"west": {"uv": [2, 0, 4, 12], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [2, 0, 14, 12], "texture": "#0"},
+				"down": {"uv": [2, 0, 14, 12], "texture": "#0"}
+			}
+		}
+	]
+}
