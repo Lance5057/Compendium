@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/smaller_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/stripped_dark_oak_log",
-    "1": "compendium:block/material/wood/dark_oak/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_dark_oak_log"
-  }
-}

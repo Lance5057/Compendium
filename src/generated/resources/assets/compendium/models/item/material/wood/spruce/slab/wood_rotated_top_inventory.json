@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/small_logs_rotated_top",
-  "textures": {
-    "0": "minecraft:block/spruce_log",
-    "1": "minecraft:block/spruce_log",
-    "particle": "minecraft:block/spruce_log"
-  }
-}

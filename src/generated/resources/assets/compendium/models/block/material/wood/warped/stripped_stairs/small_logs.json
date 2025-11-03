@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/stairs/small_logs",
-  "textures": {
-    "0": "compendium:block/material/wood/warped/logs/stripped_small_logs",
-    "1": "compendium:block/material/wood/warped/logs/stripped_small_logs_top",
-    "particle": "compendium:block/material/wood/warped/logs/stripped_small_logs"
-  }
-}

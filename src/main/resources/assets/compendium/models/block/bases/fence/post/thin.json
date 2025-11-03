@@ -9,7 +9,7 @@
 		{
 			"name": "Center post",
 			"from": [6.499, 0, 6.499],
-			"to": [9.501, 16, 9.501],
+			"to": [9.501, 16.001, 9.501],
 			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, -0.5]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 3], "rotation": 90, "texture": "#0"},

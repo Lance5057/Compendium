@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/split_bottom",
-  "textures": {
-    "0": "minecraft:block/stripped_oak_log",
-    "1": "minecraft:block/stripped_oak_log_top",
-    "2": "compendium:block/material/wood/oak/logs/stripped_log_split_side",
-    "particle": "minecraft:block/stripped_oak_log"
-  }
-}

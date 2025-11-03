@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/campfire_bottom",
-  "textures": {
-    "0": "minecraft:block/spruce_log",
-    "1": "compendium:block/material/wood/spruce/logs/extra_caps",
-    "particle": "minecraft:block/spruce_log"
-  }
-}

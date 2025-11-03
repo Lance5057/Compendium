@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/firewood_full",
-  "textures": {
-    "0": "minecraft:block/spruce_log",
-    "1": "minecraft:block/spruce_log_top",
-    "2": "compendium:block/material/wood/spruce/logs/log_split_side",
-    "particle": "minecraft:block/spruce_log"
-  }
-}

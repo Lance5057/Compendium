@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/firewood_bottom",
-  "textures": {
-    "0": "minecraft:block/acacia_log",
-    "1": "minecraft:block/acacia_log_top",
-    "2": "compendium:block/material/wood/acacia/logs/log_split_side",
-    "particle": "minecraft:block/acacia_log"
-  }
-}

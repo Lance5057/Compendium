@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/crosscut_top",
-  "textures": {
-    "0": "minecraft:block/stripped_crimson_stem",
-    "1": "minecraft:block/stripped_crimson_stem_top",
-    "particle": "minecraft:block/stripped_crimson_stem"
-  }
-}

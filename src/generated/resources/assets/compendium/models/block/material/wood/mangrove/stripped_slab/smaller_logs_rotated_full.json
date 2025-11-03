@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/smaller_logs_rotated_full",
-  "textures": {
-    "0": "minecraft:block/stripped_mangrove_log",
-    "1": "compendium:block/material/wood/mangrove/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_mangrove_log"
-  }
-}

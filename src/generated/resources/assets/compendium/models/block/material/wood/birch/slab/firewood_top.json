@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/slab/firewood_top",
-  "textures": {
-    "0": "minecraft:block/birch_log",
-    "1": "minecraft:block/birch_log_top",
-    "2": "compendium:block/material/wood/birch/logs/log_split_side",
-    "particle": "minecraft:block/birch_log"
-  }
-}

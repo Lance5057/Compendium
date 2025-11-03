@@ -35,7 +35,7 @@
 		{
 			"name": "Top",
 			"from": [6, 14, 6],
-			"to": [10, 16, 10],
+			"to": [10, 16.001, 10],
 			"faces": {
 				"north": {"uv": [14, 0, 16, 4], "rotation": 90, "texture": "#0"},
 				"east": {"uv": [14, 4, 16, 8], "rotation": 90, "texture": "#0"},
