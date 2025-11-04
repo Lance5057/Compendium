@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "compendium:block/material/metal/copper/windows/bars_horizontal"
+  }
+}

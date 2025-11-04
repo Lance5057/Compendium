@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/slats_convex",
-  "textures": {
-    "0": "minecraft:block/spruce_planks"
-  }
-}

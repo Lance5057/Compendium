@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_full",
-  "textures": {
-    "0": "minecraft:block/stripped_warped_stem",
-    "1": "minecraft:block/stripped_warped_stem_top",
-    "2": "compendium:block/material/wood/warped/logs/stripped_log_split_side",
-    "particle": "minecraft:block/stripped_warped_stem"
-  }
-}

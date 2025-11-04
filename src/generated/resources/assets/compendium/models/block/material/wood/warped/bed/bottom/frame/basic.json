@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/bottom/frame/basic",
-  "textures": {
-    "0": "minecraft:block/warped_planks"
-  }
-}

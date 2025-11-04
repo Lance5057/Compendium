@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_rotated_full",
-  "textures": {
-    "0": "compendium:block/material/wood/spruce/logs/small_logs",
-    "1": "compendium:block/material/wood/spruce/logs/small_logs_top",
-    "particle": "compendium:block/material/wood/spruce/logs/small_logs"
-  }
-}

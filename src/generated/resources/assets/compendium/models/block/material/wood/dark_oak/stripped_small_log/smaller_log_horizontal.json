@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/stripped_small_log/smaller_log_horizontal",
-  "textures": {
-    "0": "compendium:block/material/wood/dark_oak/logs/extra_caps",
-    "1": "compendium:block/material/wood/dark_oak/logs/small_logs"
-  }
-}

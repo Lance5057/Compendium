@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/mangrove/planks/wicker",
-    "side": "compendium:block/material/wood/mangrove/planks/wicker",
-    "top": "compendium:block/material/wood/mangrove/planks/wicker"
-  }
-}

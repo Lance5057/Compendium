@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/warped_stem",
-    "1": "compendium:block/material/wood/warped/logs/extra_caps",
-    "particle": "minecraft:block/warped_stem"
-  }
-}

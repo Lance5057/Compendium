@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/bottom/frame/flat",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

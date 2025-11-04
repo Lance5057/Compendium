@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/contemporary_slats_sheet",
-  "textures": {
-    "0": "compendium:block/material/wood/cherry/planks/sheet"
-  }
-}

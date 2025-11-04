@@ -484,36 +484,57 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		String[] types = new String[0];
 		if (block.equals("log_slab")) {
 			types = new String[] { "_bottom", "_top", "_full" };
-		} else if (block.equals("stairs")) {
+		} else if (block.equals("log_stairs")) {
 			types = new String[] { "", "_inner", "_outer" };
 		}
 
 		for (String type : types) {
+			Compendium.LOGGER.debug("Style model made at: " + location + block + "/" + modelName + type);
 			ibmp.withExistingParent(location + "/" + block + "/" + modelName + type,
 					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
 					.texture("particle", textureLocation(texture0, base, false));
 
-			ibmp.withExistingParent(location + "/" + block + "/" + modelName + type + "_inventory",
-					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
+			if (stripped) {
+				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
+						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
+						.texture("0", textureLocation(texture0, base, true))
+						.texture("1", textureLocation(texture1, base, true))
+						.texture("particle", textureLocation(texture0, base, true));
+			}
+		}
+
+		if (block.equals("log_slab")) {
+			Compendium.LOGGER.debug("Style model made at: " + location + block + "/" + modelName + "_inventory");
+			ibmp.withExistingParent(location + block + "/" + modelName + "_inventory",
+					ibmp.modLoc("block/bases/" + block + "/" + modelSource + "_bottom"))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
 					.texture("particle", textureLocation(texture0, base, false));
 
-//			if (stripped) {
-//				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
-//						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-//						.texture("0", textureLocation(texture0, base, true))
-//						.texture("1", textureLocation(texture1, base, true))
-//						.texture("particle", textureLocation(texture0, base, true));
-//
-//				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type + "_inventory",
-//						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-//						.texture("0", textureLocation(texture0, base, false))
-//						.texture("1", textureLocation(texture1, base, false))
-//						.texture("particle", textureLocation(texture0, base, false));
-//			}
+			if (stripped) {
+				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
+						ibmp.modLoc("block/bases/" + block + "/" + modelSource + "_bottom"))
+						.texture("0", textureLocation(texture0, base, false))
+						.texture("1", textureLocation(texture1, base, false))
+						.texture("particle", textureLocation(texture0, base, false));
+			}
+		} else {
+			Compendium.LOGGER.debug("Style model made at: " + location + block + "/" + modelName + "_inventory");
+			ibmp.withExistingParent(location + block + "/" + modelName + "_inventory",
+					ibmp.modLoc("block/bases/" + block + "/" + modelSource))
+					.texture("0", textureLocation(texture0, base, false))
+					.texture("1", textureLocation(texture1, base, false))
+					.texture("particle", textureLocation(texture0, base, false));
+
+			if (stripped) {
+				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
+						ibmp.modLoc("block/bases/" + block + "/" + modelSource))
+						.texture("0", textureLocation(texture0, base, false))
+						.texture("1", textureLocation(texture1, base, false))
+						.texture("particle", textureLocation(texture0, base, false));
+			}
 		}
 	}
 
@@ -718,7 +739,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_SLAB.getTypes())
 					log_slab_bottom.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_slab/" + s.toLowerCase() + "_bottom")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_bottom")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
 						.getBuilder(LOG.location(base) + "stripped_log_slab_top")
@@ -727,7 +748,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_SLAB.getTypes())
 					log_slab_top.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_slab/" + s.toLowerCase() + "_top")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_top")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
 						.getBuilder(LOG.location(base) + "stripped_log_slab_full")
@@ -736,7 +757,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_SLAB.getTypes())
 					log_slab_full.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_slab/" + s.toLowerCase() + "_full")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_full")));
 
 				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
 						log_slab_full.end());
@@ -748,7 +769,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_SLAB.getTypes())
 					log_slab_inventory.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "slab/stripped_" + s.toLowerCase() + "_inventory")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_slab/stripped_" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
 			}
@@ -768,7 +789,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_inner.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
+							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inner")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
 						.getBuilder(LOG.location(base) + "log_stairs_outer")
@@ -777,7 +798,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_outer.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
+							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_outer")));
 
 				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(), log_stairs_inner.end(),
 						log_stairs_outer.end(), bsp);
@@ -789,7 +810,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_inventory.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
 			}
@@ -802,7 +823,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_standard.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_stairs/" + s.toLowerCase())));
+							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase())));
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
 						.getBuilder(LOG.location(base) + "stripped_log_stairs_inner")
@@ -811,7 +832,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_inner.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_stairs/" + s.toLowerCase() + "_inner")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inner")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
 						.getBuilder(LOG.location(base) + "stripped_log_stairs_outer")
@@ -820,7 +841,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_outer.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stripped_stairs/" + s.toLowerCase() + "_outer")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_outer")));
 
 				stairsBlock((StairBlock) STRIPPED_LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(),
 						log_stairs_inner.end(), log_stairs_outer.end(), bsp);
@@ -832,7 +853,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_inventory.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
 			}
