@@ -3,6 +3,7 @@ package com.lance5057.compendium.multimaterial;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -46,9 +47,8 @@ public class MultiMaterialType {
 
 	List<MATERIAL_TYPES> types;
 	String currentMaterial;
-	
-	public MultiMaterialType copy()
-	{
+
+	public MultiMaterialType copy() {
 		MultiMaterialType c = new MultiMaterialType();
 		c.types = types;
 		c.currentMaterial = currentMaterial;
@@ -76,17 +76,16 @@ public class MultiMaterialType {
 	public void setCurrentMaterial(String m) {
 		this.currentMaterial = m;
 	}
-	
-	private MultiMaterialType()
-	{
-		
+
+	private MultiMaterialType() {
+
 	}
 
 	public MultiMaterialType(MATERIAL_TYPES... t) {
 		types = new ArrayList<MATERIAL_TYPES>();
 		for (int i = 0; i < t.length; i++)
 			this.types.add(t[i]);
-		this.currentMaterial = "oak";
+		this.currentMaterial = CompendiumIndex.getDefaultMaterialFromType(t[0]);
 	}
 
 	public MultiMaterialType(List<MATERIAL_TYPES> t, String m) {
@@ -109,7 +108,7 @@ public class MultiMaterialType {
 		for (String s : t)
 			this.types.add(MATERIAL_TYPES.valueOf(s.toUpperCase()));
 //		this.types = MATERIAL_TYPES.valueOf(t);
-		this.currentMaterial = "oak";
+		this.currentMaterial = CompendiumIndex.getDefaultMaterialFromType(MATERIAL_TYPES.valueOf(t[0]));
 	}
 
 //	public MultiMaterialType(List<MATERIAL_TYPES> t, String m) {

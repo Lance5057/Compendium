@@ -16,8 +16,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class CompendiumIndex {
-	public static enum Generate {IGNORE, GENERATE, EXISTS};
-	
+	public static enum Generate {
+		IGNORE, GENERATE, EXISTS
+	};
+
 	public static HashSet<IIndexEntry> index = new HashSet<IIndexEntry>();
 
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
@@ -26,7 +28,28 @@ public class CompendiumIndex {
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
 
 	public static enum MATERIAL_TYPES {
-		INVALID, METAL, WOOD, GEM, GLASS, TEXTILE, CERAMIC, STONE
+		METAL, WOOD, GEM, GLASS, TEXTILE, CERAMIC, STONE
+	}
+
+	public static String getDefaultMaterialFromType(MATERIAL_TYPES type) {
+		switch (type) {
+		case METAL:
+			return "iron";
+		case WOOD:
+			return "oak";
+		case GEM:
+			return "diamond";
+		case GLASS:
+			return "clear";
+		case TEXTILE:
+			return "white_wool";
+		case CERAMIC:
+			return "terracotta";
+		case STONE:
+			return "stone";
+		default:
+			return "oak";
+		}
 	}
 
 	public static void setup(IEventBus bus) {

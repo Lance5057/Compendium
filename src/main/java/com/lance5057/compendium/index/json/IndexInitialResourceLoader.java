@@ -132,7 +132,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialGlass("purple_stained", "minecraft", Generate.EXISTS));
 		buildDefault(new MaterialGlass("magenta_stained", "minecraft", Generate.EXISTS));
 		buildDefault(new MaterialGlass("pink_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
 
 		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 				Generate.EXISTS, Generate.EXISTS)

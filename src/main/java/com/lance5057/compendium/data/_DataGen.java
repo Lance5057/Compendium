@@ -24,7 +24,7 @@ public class _DataGen {
 
 		generator.addProvider(event.includeClient(), new EngLoc(output));
 
-		generator.addProvider(true, new BlockModels(output, helper));
+		generator.addProvider(true, new BlockStateModels(output, helper));
 		generator.addProvider(true, new ItemModels(output, helper));
 		generator.addProvider(true, new IndexBlockModelProvider(output, helper));
 

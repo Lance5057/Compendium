@@ -112,7 +112,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						StyleData.PLANK),
+						StyleData.PLANKS),
 				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -171,7 +171,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_bottom.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK.getTypes())
+				for (String s : StyleData.PLANKS.getTypes())
 					plank_slab_bottom.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_bottom")));
 
@@ -180,7 +180,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_top.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK.getTypes())
+				for (String s : StyleData.PLANKS.getTypes())
 					plank_slab_top.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_top")));
 
@@ -189,7 +189,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_full.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK.getTypes())
+				for (String s : StyleData.PLANKS.getTypes())
 					plank_slab_full.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_full")));
 

@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-04T14:23:50.2513876	Block States: compendium
+// 1.21.1	2025-11-05T12:10:28.7273042	Block States: compendium
 549032d6d53be688c99846300564b5d8cc1d3f88 assets/compendium/blockstates/chair.json
 5b516c8a9ad8fa2f098469c17ddf4750f48402ba assets/compendium/blockstates/clothed_table.json
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
@@ -56,10 +56,10 @@ b69c50eea3321a0252461d6e3a7a3a7968bc5637 assets/compendium/models/block/fancy_be
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/log_base.json
 9242ee0fb8745858aec221c157381701ef301cd6 assets/compendium/models/block/material/wood/oak/log.json
 9e79bf4c642d989b99fae529ea38c3ec82020b5b assets/compendium/models/block/material/wood/oak/log_horizontal.json
-e2c28dc837a55268b98672bbc6f58b5d45b16aa1 assets/compendium/models/block/material/wood/oak/log_slab_bottom.json
-d5af1d36d9cc8b94ee5b1ecd9de6d3e28bd04fe5 assets/compendium/models/block/material/wood/oak/log_slab_full.json
-001874c075825a06cce0b81bd635c78a6fb517cb assets/compendium/models/block/material/wood/oak/log_slab_top.json
-c0a86a4a724b6e58e2dfcbf8a5570cca3cde6c10 assets/compendium/models/block/material/wood/oak/log_stairs.json
+67e14421410d6e0a0227ea211f757e56434d9bcf assets/compendium/models/block/material/wood/oak/log_slab_bottom.json
+f24b544bb7dbf8b1f06cbbe92dc91b14903fb785 assets/compendium/models/block/material/wood/oak/log_slab_full.json
+f5b6858009dddaa203022edc2f92d6ff23fed911 assets/compendium/models/block/material/wood/oak/log_slab_top.json
+b87c78988d1181c0f21d778960508288ac69fad5 assets/compendium/models/block/material/wood/oak/log_stairs.json
 3ddc7cb8851201995c9a07d42db1e6d940e72615 assets/compendium/models/block/material/wood/oak/log_stairs_inner.json
 fa3a939f1d055d4fd710a0445c9904d6cd872e4c assets/compendium/models/block/material/wood/oak/log_stairs_outer.json
 ef20a9fe7f5bccc6de509d16e5bca4fe5cb90e8a assets/compendium/models/block/material/wood/oak/planks.json
@@ -67,9 +67,9 @@ ef20a9fe7f5bccc6de509d16e5bca4fe5cb90e8a assets/compendium/models/block/material
 386668fcdd09c2b316a1ea3cb7348b878ea67b00 assets/compendium/models/block/material/wood/oak/plank/horizontal.json
 4aceb98371a2839b94c91528e7da15fdc97ff6c4 assets/compendium/models/block/material/wood/oak/plank/horizontal_rot.json
 860cf3ef8dc7561721c0b2d21b245c726d614339 assets/compendium/models/block/material/wood/oak/plank/vertical.json
-b87c4a514afc16f2d0d34180b9e766552554d7ad assets/compendium/models/block/material/wood/oak/plank_slab_bottom.json
-97108d3036895186f1f7852f956bea62666b7084 assets/compendium/models/block/material/wood/oak/plank_slab_full.json
-04ca582d7a0d985aab973ee4e51a486f6a9b13fd assets/compendium/models/block/material/wood/oak/plank_slab_top.json
+bd521d8c0b62fb04c9c40d027554b2cf14c4232c assets/compendium/models/block/material/wood/oak/plank_slab_bottom.json
+4d675ee8b6447c37c16afa0e6d39683afa58dd4e assets/compendium/models/block/material/wood/oak/plank_slab_full.json
+11ad7c0fb3eeeffa6bc97bd59132a4d056fb2b99 assets/compendium/models/block/material/wood/oak/plank_slab_top.json
 755cebd3321826e804e92a8d0675eb41dd22a918 assets/compendium/models/block/material/wood/oak/plank_stairs.json
 9817c5ae1a536ef3a653ac30bdb38c44fbf71edc assets/compendium/models/block/material/wood/oak/plank_stairs_inner.json
 1c145a996a3b219936a5d67d7dbcde51641936a6 assets/compendium/models/block/material/wood/oak/plank_stairs_outer.json
@@ -79,9 +79,9 @@ f89d6c72535921bfc1262a8d3a863f08d8e3e3a8 assets/compendium/models/block/material
 fa61647f92352cfe10d4a0298ba6971ab70cb9e8 assets/compendium/models/block/material/wood/oak/small_logvertical.json
 a9eed613795eb8adef6c963658b018aeae6a649b assets/compendium/models/block/material/wood/oak/stripped_log.json
 8b824333ff06aafb4e7fd0f5368f73908cb50423 assets/compendium/models/block/material/wood/oak/stripped_log_horizontal.json
-e169c3950b3adcd6f4b1b14547475f5266a9f130 assets/compendium/models/block/material/wood/oak/stripped_log_slab_bottom.json
-64729a0baa57a3a367faeea8210259e95826dbf1 assets/compendium/models/block/material/wood/oak/stripped_log_slab_full.json
-8bce2a3534ecfc88abe0cc1deada5e05eebe0607 assets/compendium/models/block/material/wood/oak/stripped_log_slab_top.json
+20a1f9026f1e477af6e9b960c63ae8b5ab1fa895 assets/compendium/models/block/material/wood/oak/stripped_log_slab_bottom.json
+863534954c18a65c9b2e16e902c13ec05d056707 assets/compendium/models/block/material/wood/oak/stripped_log_slab_full.json
+105182fd2b7d40efe6b6ab81a7d7683e8f2737e1 assets/compendium/models/block/material/wood/oak/stripped_log_slab_top.json
 826e0a7764fd407965a5d7933f6748904497b1f6 assets/compendium/models/block/material/wood/oak/stripped_log_stairs.json
 ddd79244d2498417e0ad487f0a5e2462d196710f assets/compendium/models/block/material/wood/oak/stripped_log_stairs_inner.json
 4360d93152b5275a9a45b7e256bad2825a96b8f5 assets/compendium/models/block/material/wood/oak/stripped_log_stairs_outer.json
@@ -123,8 +123,8 @@ e95f4946c7e68a1dd4d4d0f91c8cc939cfcb8887 assets/compendium/models/block/window.j
 23cd50adaf6858dff6578ef46b5147c2bf5e00b5 assets/compendium/models/extra/fancy_bed.json
 81db7561945e9434333efb423c12f7417c9e3eab assets/compendium/models/extra/table.json
 5231c0ae4b72091766a522cb69794c83ca8351e9 assets/compendium/models/item/oak_logs_item.json
-57ffe601ece840d1be0a805dd62068cb37326dab assets/compendium/models/item/oak_logs_slab_item.json
+9569cf200a0eb1cf118cd62b330f248a7775f43d assets/compendium/models/item/oak_logs_slab_item.json
 c5f39888e2f37c98d649b4dcafc67641085ef494 assets/compendium/models/item/oak_logs_stairs_item.json
 5231c0ae4b72091766a522cb69794c83ca8351e9 assets/compendium/models/item/oak_stripped_logs_item.json
-eb466f9b1b177c297241b5c762ad231b1fae7a8b assets/compendium/models/item/oak_stripped_logs_slab_item.json
+13ced14fb2e9de69516a044f76d3281482c6f62a assets/compendium/models/item/oak_stripped_logs_slab_item.json
 239e1c3e359ade3460123d69a2a37d6ebfbc5494 assets/compendium/models/item/oak_stripped_logs_stairs_item.json
