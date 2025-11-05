@@ -112,7 +112,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						StyleData.PLANK_SLAB),
+						StyleData.PLANK),
 				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -171,7 +171,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_bottom.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK_SLAB.getTypes())
+				for (String s : StyleData.PLANK.getTypes())
 					plank_slab_bottom.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_bottom")));
 
@@ -180,7 +180,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_top.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK_SLAB.getTypes())
+				for (String s : StyleData.PLANK.getTypes())
 					plank_slab_top.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_top")));
 
@@ -189,7 +189,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.customLoader(StyleBlockModelBuilder::begin);
 				plank_slab_full.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
-				for (String s : StyleData.PLANK_SLAB.getTypes())
+				for (String s : StyleData.PLANK.getTypes())
 					plank_slab_full.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_full")));
 
@@ -418,16 +418,6 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 //			}
 		}
-
-		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_bottom",
-				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
-
-		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_top",
-				ibmp.modLoc("block/trellis/trellis_top")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
-
-		ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/trellis_full",
-				ibmp.modLoc("block/trellis/trellis_full")).texture("0", ibmp.mcLoc("block/" + base.name + "_planks"));
-
 	}
 
 	@Override

@@ -8,7 +8,7 @@
   "campfire": {
     "model": "compendium:block/material/wood/oak/stripped_log_slab/stripped_campfire_inventory"
   },
-  "count": 16,
+  "count": 17,
   "crosscut": {
     "model": "compendium:block/material/wood/oak/stripped_log_slab/stripped_crosscut_inventory"
   },
@@ -48,6 +48,9 @@
   },
   "split_rotated": {
     "model": "compendium:block/material/wood/oak/stripped_log_slab/stripped_split_rotated_inventory"
+  },
+  "trellis": {
+    "model": "compendium:block/material/wood/oak/stripped_log_slab/stripped_trellis_inventory"
   },
   "wood": {
     "model": "compendium:block/material/wood/oak/stripped_log_slab/stripped_wood_inventory"

@@ -64,7 +64,7 @@ public class StyleData {
 	public static StyleData LOG_SLAB = new StyleData("log_slab",
 			List.of("small_logs", "small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small",
 					"small_wood", "small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
-					"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated"));
+					"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated", "trellis"));
 	public static StyleData SMALL_LOG = new StyleData("small_log", List.of("small_log", "smaller_log", "smallest_log"));
 	public static StyleData LOG_STAIRS = new StyleData("log_stairs",
 			List.of("small_logs", "small_logs_rotated_side", "small_logs_rotated_front", "small_logs_rotated_top",
@@ -81,15 +81,6 @@ public class StyleData {
 					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
 					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
 					"wicker"));
-
-	public static StyleData PLANK_SLAB = new StyleData("plank_slab",
-			List.of("big_weave", "blocks", "blocks_offset", "boards", "boards_rotated", "boards_seamless",
-					"boards_seamless_rotated", "boards_stacked", "boards_stacked_rotated", "box", "chiseled", "cross",
-					"diagonal", "diagonal_rotated", "herringbone", "double_herringbone", "panel", "parquet",
-					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
-					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
-					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
-					"wicker", "trellis"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",

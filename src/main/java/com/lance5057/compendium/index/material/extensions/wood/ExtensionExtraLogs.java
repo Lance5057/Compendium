@@ -398,6 +398,18 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 		logSlabBlockModel(base, ibmp);
+		ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_bottom",
+				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_top",
+				ibmp.modLoc("block/trellis/trellis_top")).texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_full",
+				ibmp.modLoc("block/trellis/trellis_full")).texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_bottom",
+				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_top",
+				ibmp.modLoc("block/trellis/trellis_top")).texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_full",
+				ibmp.modLoc("block/trellis/trellis_full")).texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
 
 		logStairsBlockModel(base, ibmp);
 

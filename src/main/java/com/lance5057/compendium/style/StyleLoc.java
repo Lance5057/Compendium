@@ -219,6 +219,7 @@ public class StyleLoc {
         lp.add("style.log_slab.smaller_logs_rotated", "Smaller Logs (Rotated)");
         lp.add("style.log_slab.smallest_logs", "Smallest Logs");
         lp.add("style.log_slab.smallest_logs_rotated", "Smallest Logs (Rotated)");
+        lp.add("style.log_slab.trellis", "Trellis");
 
         lp.add("style.small_log.small_log", "Small Log");
         lp.add("style.small_log.smaller_log", "Smaller Log");
@@ -239,5 +240,62 @@ public class StyleLoc {
         // Plank
         lp.add("style.plank.basic", "Basic");
         lp.add("style.plank.pipe", "Pipe");
+
+        // Plank Block
+        lp.add("style.plank_block.big_weave", "Weave");
+        lp.add("style.plank_block.blocks", "Blocks");
+        lp.add("style.plank_block.blocks_offset", "Offset Blocks");
+        lp.add("style.plank_block.boards", "Boards");
+        lp.add("style.plank_block.boards_rotated", "Boards (Rotated)");
+        lp.add("style.plank_block.boards_seamless", "Seamless Boards");
+        lp.add("style.plank_block.boards_seamless_rotated", "Seamless Boards (Rotated)");
+        lp.add("style.plank_block.boards_stacked", "Stacked Boards");
+        lp.add("style.plank_block.boards_stacked_rotated", "Stacked Boards (Rotated)");
+        lp.add("style.plank_block.box", "Box");
+        lp.add("style.plank_block.chiseled", "Chiseled");
+        lp.add("style.plank_block.cross", "Chantilly");
+        lp.add("style.plank_block.diagonal", "Diagonal Planks");
+        lp.add("style.plank_block.diagonal_rotated", "Diagonal Planks (Rotated)");
+        lp.add("style.plank_block.herringbone", "Herringbone");
+        lp.add("style.plank_block.double_herringbone", "Double Herringbone");
+        lp.add("style.plank_block.panel", "Panel");
+        lp.add("style.plank_block.parquet", "Versailles");
+        lp.add("style.plank_block.planks_stacked", "Stacked Planks");
+        lp.add("style.plank_block.planks_stacked_rotated", "Stacked Planks (Rotated)");
+        lp.add("style.plank_block.planks_seamless", "Seamless Planks");
+        lp.add("style.plank_block.planks_seamless_rotated", "Seamless Planks (Rotated)");
+        lp.add("style.plank_block.sheet", "Sheet");
+        lp.add("style.plank_block.small_blocks", "Small Blocks");
+        lp.add("style.plank_block.small_blocks_offset", "Offset Small Blocks");
+        lp.add("style.plank_block.thin", "Slats");
+        lp.add("style.plank_block.thin_rotated", "Slats (Rotated)");
+        lp.add("style.plank_block.vertical", "Vertical Planks");
+        lp.add("style.plank_block.wainscotting_single", "Single-Panel Wainscotting");
+        lp.add("style.plank_block.wainscotting_double", "Double-Panel Wainscotting");
+        lp.add("style.plank_block.wainscotting_grate", "Beadboard Wainscotting");
+        lp.add("style.plank_block.wainscotting_seamless", "Seamless Wainscotting");
+        lp.add("style.plank_block.walkway", "Walkway");
+        lp.add("style.plank_block.walkway_rotated", "Walkway (Rotated)");
+        lp.add("style.plank_block.wicker", "Wicker");
+
+        // Window Trim
+        lp.add("style.window_trim.quarter", "Quarter");
+        lp.add("style.window_trim.bars", "Vertical Bars");
+        lp.add("style.window_trim.bars_trimmed", "Vertical Bars (Trimmed)");
+        lp.add("style.window_trim.bars_horizontal", "Horizontal Bars");
+        lp.add("style.window_trim.bars_horizontal_trimmed", "Horizontal Bars (Trimmed)");
+        lp.add("style.window_trim.diamond", "Diamond");
+        lp.add("style.window_trim.diamond_trimmed", "Diamond (Trimmed)");
+        lp.add("style.window_trim.double", "Double");
+        lp.add("style.window_trim.full", "Full");
+        lp.add("style.window_trim.lattice", "Lattice");
+        lp.add("style.window_trim.lattice_trimmed", "Lattice (Trimmed)");
+        lp.add("style.window_trim.round", "Round");
+        lp.add("style.window_trim.weave", "Weave");
+        lp.add("style.window_trim.diagonal", "Diagonal");
+        lp.add("style.window_trim.diagonal_trimmed", "Diagonal (Trimmed)");
+
+        // Window Glass
+        lp.add("style.window_glass.basic", "Basic");
     }
 }
