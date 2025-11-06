@@ -471,6 +471,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_full",
 				ibmp.modLoc("block/trellis/trellis_full"))
 				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_inventory",
+				ibmp.modLoc("block/trellis/trellis_bottom"))
+				.texture("0", ibmp.mcLoc("block/" + base.name + "_" + logstem));
 		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_bottom",
 				ibmp.modLoc("block/trellis/trellis_bottom"))
 				.texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
@@ -479,6 +482,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
 		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_full",
 				ibmp.modLoc("block/trellis/trellis_full"))
+				.texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
+		ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_inventory",
+				ibmp.modLoc("block/trellis/trellis_bottom"))
 				.texture("0", ibmp.mcLoc("block/stripped_" + base.name + "_" + logstem));
 
 		logStairsBlockModel(base, ibmp);
@@ -580,7 +586,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			if (stripped) {
 				Compendium.LOGGER
-						.debug("Style model made at: " + location + "/stripped_" + block + "/" + modelName + type);
+						.debug("Style model made at: " + location + "stripped_" + block + "/" + modelName + type);
 				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
 						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 						.texture("0", textureLocation(texture0, base, true))
@@ -599,7 +605,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			if (stripped) {
 				Compendium.LOGGER.debug(
-						"Style model made at: " + location + "/stripped_" + block + "/" + modelName + "_inventory");
+						"Style model made at: " + location + "stripped_" + block + "/" + modelName + "_inventory");
 				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
 						ibmp.modLoc("block/bases/" + block + "/" + modelSource + "_bottom"))
 						.texture("0", textureLocation(texture0, base, false))
@@ -616,7 +622,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			if (stripped) {
 				Compendium.LOGGER.debug(
-						"Style model made at: " + location + "/stripped_" + block + "/" + modelName + "_inventory");
+						"Style model made at: " + location + "stripped_" + block + "/" + modelName + "_inventory");
 				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
 						ibmp.modLoc("block/bases/" + block + "/" + modelSource))
 						.texture("0", textureLocation(texture0, base, false))
@@ -1085,10 +1091,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 			if (LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 			if (LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
@@ -1096,13 +1102,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						"stripped_small_log", base.getType());
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
 			}
 		}
 	}

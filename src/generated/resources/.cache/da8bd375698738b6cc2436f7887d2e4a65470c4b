@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-04T14:03:58.8714286	Item Models: compendium
+// 1.21.1	2025-11-05T23:52:08.2038825	Item Models: compendium
 0653f2da20f6b16c3ebc4209b9431ade2d730a80 assets/compendium/models/item/adjustinator.json
 fe4c3f709c0d93d75e8904d7617656138a7a5b8f assets/compendium/models/item/component_drawer.json
 10e1700209a7c0b4798be7b8959bf0248de3003e assets/compendium/models/item/copper_bow_item.json
@@ -40,11 +40,16 @@ b1c084a1fbe31c0e34dd29a053885a6525eca118 assets/compendium/models/item/netherite
 11b60a4c2d5a35783cef437ff941bb0cf7ac4f18 assets/compendium/models/item/netherite_shears_item.json
 97fb7a327e5485ab132024bcad029aa21213e8ef assets/compendium/models/item/netherite_zweihander_item.json
 6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_logs_item.json
+6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_logs_slab_item.json
+6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_logs_stairs_item.json
 504b949b004e39b51b60d6a7dfca34e12a739ab7 assets/compendium/models/item/oak_plank_block_item.json
 589a52a65de8ac58b500531c1f941124c804ba02 assets/compendium/models/item/oak_plank_item.json
 605376030613480d0d0e4a4f767d1bb879e325ce assets/compendium/models/item/oak_plank_slab_item.json
 a7635c37c9bd9222535e388dc7897caa436a00cf assets/compendium/models/item/oak_plank_stairs_item.json
 94d0854d03c584fb8b060154962fca418a3d4db7 assets/compendium/models/item/oak_small_log_item.json
+6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_stripped_logs_item.json
+6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_stripped_logs_slab_item.json
+6f2096a85fe2a3c184a1cd296eab1f8e44e65b84 assets/compendium/models/item/oak_stripped_logs_stairs_item.json
 cb0bc30ea4e65399a7d72b5e9a20f6ca25e82872 assets/compendium/models/item/oak_stripped_small_log_item.json
 fa207b96d8c17882c9c978ca990c1758abfb2c24 assets/compendium/models/item/sawdust.json
 4379b4c99bef71cb0c56f388b78aa1d81a3a82cd assets/compendium/models/item/saw_buck.json

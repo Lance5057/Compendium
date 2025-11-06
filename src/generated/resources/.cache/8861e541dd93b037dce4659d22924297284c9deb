@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-05T11:56:33.3437506	Block Models: compendium
+// 1.21.1	2025-11-05T23:26:47.412955	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic.json
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic_inventory.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_stained/window/glass/basic.json
@@ -809,6 +809,7 @@ fc9fb61582fd621f07026c1fe2874fb36eac8486 assets/compendium/models/block/material
 1b08ecb8f1a351c77e81d5ceffe8c6a18d1c1d0f assets/compendium/models/block/material/wood/oak/log_slab/split_top_inventory.json
 59cc8956dadfbb85de2337ef3a4375e7240e40dc assets/compendium/models/block/material/wood/oak/log_slab/trellis_bottom.json
 f3b804869eabac24bd313a7947c5176aa940ca3d assets/compendium/models/block/material/wood/oak/log_slab/trellis_full.json
+59cc8956dadfbb85de2337ef3a4375e7240e40dc assets/compendium/models/block/material/wood/oak/log_slab/trellis_inventory.json
 6902d982330817b76884877459a3f273762b4965 assets/compendium/models/block/material/wood/oak/log_slab/trellis_top.json
 33e725135dd662ee7f27dca76937753cfaffa95a assets/compendium/models/block/material/wood/oak/log_slab/wood_bottom.json
 ee1d38a1e02846c0a6e01c6e1b99844e6bcbea9c assets/compendium/models/block/material/wood/oak/log_slab/wood_full.json
@@ -1345,6 +1346,7 @@ bfa2f072363c7ac775346b3253bedbc14e26f294 assets/compendium/models/block/material
 7017e89f15bcb991d8ed10c37a9f815aca55fd9b assets/compendium/models/block/material/wood/oak/stripped_log_slab/split_top_inventory.json
 99adec01585eab3a0edc3f84f50c1ea77b4b4cab assets/compendium/models/block/material/wood/oak/stripped_log_slab/trellis_bottom.json
 93bb25838d9a8edd699f9f5529f33a352fab4ade assets/compendium/models/block/material/wood/oak/stripped_log_slab/trellis_full.json
+99adec01585eab3a0edc3f84f50c1ea77b4b4cab assets/compendium/models/block/material/wood/oak/stripped_log_slab/trellis_inventory.json
 deed2c1e1551fdfa82ae351caffb9a1b61687893 assets/compendium/models/block/material/wood/oak/stripped_log_slab/trellis_top.json
 af6e535b64cfe3ee1de8715a6484ce37084c5fba assets/compendium/models/block/material/wood/oak/stripped_log_slab/wood_bottom.json
 659f3adb33d3b1143c1c061460344ad2c02fa459 assets/compendium/models/block/material/wood/oak/stripped_log_slab/wood_full.json

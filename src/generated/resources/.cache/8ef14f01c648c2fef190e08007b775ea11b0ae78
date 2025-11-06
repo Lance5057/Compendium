@@ -1,8 +1,8 @@
-// 1.21.1	2025-11-05T12:25:10.8202614	Tags for minecraft:item mod id compendium
-d043b7d3db45e1efc68e8974cfde848c928ed2d0 data/c/tags/item/hammer.json
-36177f1f695a0df10eb9b00ba4835ddf8e3e7f7d data/c/tags/item/prybar.json
-81e269f0907c87ab78c4a586f47ddfdba4619a0c data/c/tags/item/saw.json
-236c43853bed5c32e9b9bc810fe956f4b3c06afe data/c/tags/item/tools.json
+// 1.21.1	2025-11-05T23:52:08.2098817	Tags for minecraft:item mod id compendium
+82d605ceb93757e196e58008f3db5177192e11ba data/c/tags/item/hammer.json
+859e3e689e11484b2a0fa4a610241025945522e1 data/c/tags/item/prybar.json
+d13849e1099092c9a820d6942bf506f920944b49 data/c/tags/item/saw.json
+ce2cc53603abf71cc41cd3498f2a5fbc83db639b data/c/tags/item/tools.json
 94138c8a08eb3d961e0bd71186d077aa183c5498 data/minecraft/tags/item/log/oak.json
 f5165edbb06500e1d8aa8b89a09f62f34441d443 data/minecraft/tags/item/log/slab/oak.json
 a67a131629ea98983f2564f4c18e11be40924af7 data/minecraft/tags/item/log/small/oak.json
