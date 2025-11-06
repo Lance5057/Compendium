@@ -3,12 +3,14 @@ package com.lance5057.compendium.blocks.table;
 import java.util.List;
 import java.util.stream.Stream;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -127,5 +129,10 @@ public class TableBlock extends Block implements EntityBlock, IStyleBlock {
 	public List<String> getStyles(List<Integer> current) {
 		return List.of(StyleData.TABLE_TOP.getTypes().get(current.get(0)),
 				StyleData.TABLE_LEGS.getTypes().get(current.get(1)));
+	}
+
+	@Override
+	public ResourceLocation getBlockModelLocation() {
+		return Compendium.modLoc("extra/table");
 	}
 }

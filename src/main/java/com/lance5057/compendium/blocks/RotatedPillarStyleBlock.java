@@ -8,6 +8,7 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -16,10 +17,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class RotatedPillarStyleBlock extends RotatedPillarBlock implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
+	final ResourceLocation itemRendererLocation;
 
-	public RotatedPillarStyleBlock(Properties properties, StyleData... styles) {
+	public RotatedPillarStyleBlock(Properties properties, ResourceLocation itemRendererLocation, StyleData... styles) {
 		super(properties);
 		this.styles = styles;
+		this.itemRendererLocation = itemRendererLocation;
 	}
 
 	@Override
@@ -42,6 +45,11 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 		}
 
 		return s;
+	}
+
+	@Override
+	public ResourceLocation getBlockModelLocation() {
+		return itemRendererLocation;
 	}
 
 }

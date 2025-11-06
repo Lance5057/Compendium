@@ -6,7 +6,6 @@ import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableBlock;
-import com.lance5057.compendium.blocks.door.FancyDoorBlock;
 import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
@@ -20,7 +19,6 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -59,7 +57,8 @@ public class CompendiumBlocks {
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.BLACK_STAINED_GLASS), 2, 2));
+			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.BLACK_STAINED_GLASS), 2, 2,
+					Compendium.modLoc("extra/window")));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),

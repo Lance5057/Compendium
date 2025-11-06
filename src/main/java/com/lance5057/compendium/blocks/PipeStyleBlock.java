@@ -1,11 +1,16 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -16,22 +21,24 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
-public class PipeStyleBlock extends PipeBlock implements EntityBlock {
+public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBlock {
 	public static final MapCodec<PipeStyleBlock> CODEC = simpleCodec(PipeStyleBlock::new);
 
 	public final StyleData[] styles;
+	final ResourceLocation itemRendererLocation;
 
 	public PipeStyleBlock(Properties properties, StyleData... styles) {
-		this(0.25f, properties, styles);
+		this(0.25f, properties, ResourceLocation.withDefaultNamespace("air"), styles);
 	}
 
-	public PipeStyleBlock(float apothem, Properties properties, StyleData... styles) {
+	public PipeStyleBlock(float apothem, Properties properties, ResourceLocation itemRenderer, StyleData... styles) {
 		super(apothem, properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true))
-				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(true))
-				.setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false))
-				.setValue(DOWN, Boolean.valueOf(false)));
+		this.registerDefaultState(
+				this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true)).setValue(EAST, Boolean.valueOf(false))
+						.setValue(SOUTH, Boolean.valueOf(true)).setValue(WEST, Boolean.valueOf(false))
+						.setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
 		this.styles = styles;
+		this.itemRendererLocation = itemRenderer;
 	}
 
 	@Override
@@ -77,6 +84,21 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock {
 	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,
 			BlockPos currentPos, BlockPos facingPos) {
 		return checkNeighbors(level, currentPos);
+	}
+
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+		List<String> r = new ArrayList<String>();
+		for (int i = 0; i < current.size(); i++) {
+			if (styles.length > i)
+				r.add(this.styles[i].getTypes().get(i));
+		}
+		return r;
+	}
+
+	@Override
+	public ResourceLocation getBlockModelLocation() {
+		return this.itemRendererLocation;
 	}
 
 }

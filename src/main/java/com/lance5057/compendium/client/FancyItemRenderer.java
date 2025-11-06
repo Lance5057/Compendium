@@ -2,6 +2,7 @@ package com.lance5057.compendium.client;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
@@ -17,6 +18,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.resources.model.SimpleBakedModel;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -29,8 +31,7 @@ import net.neoforged.neoforge.client.model.renderable.IRenderable;
 public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 	protected static FancyItemRenderer instance;
 
-	public FancyItemRenderer(BlockEntityRenderDispatcher blockEntityRenderDispatcher,
-			EntityModelSet entityModelSet) {
+	public FancyItemRenderer(BlockEntityRenderDispatcher blockEntityRenderDispatcher, EntityModelSet entityModelSet) {
 		super(blockEntityRenderDispatcher, entityModelSet);
 	}
 
@@ -78,6 +79,10 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 							overlay, overlay, null);
 
 				}
+
+				Compendium.LOGGER.debug(ModelResourceLocation
+						.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withPrefix("extra/")).toString());
+
 			}
 		}
 
