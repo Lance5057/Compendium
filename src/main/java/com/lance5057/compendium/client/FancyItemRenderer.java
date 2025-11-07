@@ -18,7 +18,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.client.resources.model.SimpleBakedModel;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -64,7 +63,7 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 
 				IRenderable<ModelData> bm = BakedModelRenderable
 						.of(ModelResourceLocation
-								.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withPrefix("extra/")))
+								.standalone(st.getItemModelLocation()))
 						.withModelDataContext();
 				if (displayContext == ItemDisplayContext.GUI) {
 					ps.scale(0.8f, 0.8f, 0.8f);
@@ -79,9 +78,6 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 							overlay, overlay, null);
 
 				}
-
-				Compendium.LOGGER.debug(ModelResourceLocation
-						.standalone(BuiltInRegistries.BLOCK.getKey(bi.getBlock()).withPrefix("extra/")).toString());
 
 			}
 		}

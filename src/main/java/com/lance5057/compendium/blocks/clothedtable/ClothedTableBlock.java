@@ -3,12 +3,14 @@ package com.lance5057.compendium.blocks.clothedtable;
 import java.util.List;
 import java.util.stream.Stream;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -131,6 +133,11 @@ public class ClothedTableBlock extends Block implements EntityBlock, IStyleBlock
 				StyleData.TABLE_TOP.getTypes().get(current.get(0)),
 				StyleData.TABLE_LEGS.getTypes().get(current.get(1)),
 				StyleData.TABLE_CLOTH.getTypes().get(current.get(2)));
+	}
+	
+	@Override
+	public ResourceLocation getItemModelLocation() {
+		return Compendium.modLoc("extra/clothed_table");
 	}
 
 }

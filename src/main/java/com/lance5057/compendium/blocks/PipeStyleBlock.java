@@ -97,7 +97,7 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		return this.itemRendererLocation;
 	}
 

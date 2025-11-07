@@ -2,6 +2,7 @@ package com.lance5057.compendium.blocks.chair;
 
 import java.util.List;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.entities.SeatEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -10,6 +11,7 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -130,6 +132,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
 				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)),
 				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)));
+	}
+
+	@Override
+	public ResourceLocation getItemModelLocation() {
+		return Compendium.modLoc("extra/chair");
 	}
 
 }

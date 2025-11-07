@@ -39,7 +39,7 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		// TODO Auto-generated method stub
 		return itemRendererLocation;
 	}

@@ -48,7 +48,7 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		return itemRendererLocation;
 	}
 

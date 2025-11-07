@@ -115,7 +115,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		SMALL_LOG.setup(base,
-				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.SMALL_LOG),
+				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+						Compendium.modLoc(base.extraFolder() + "small_log"), StyleData.SMALL_LOG),
 				() -> new BlockItem(SMALL_LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -123,7 +124,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
 		LOG.setup(base,
-				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG), StyleData.LOG),
+				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
+						Compendium.modLoc(base.extraFolder() + "log"), StyleData.LOG),
 				() -> new BlockItem(LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -132,7 +134,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						StyleData.LOG_SLAB),
+						Compendium.modLoc(base.extraFolder() + "log_slab"), StyleData.LOG_SLAB),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -141,7 +143,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"));
 		LOG_STAIRS.setup(base,
 				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+						Compendium.modLoc(base.extraFolder() + "log_stairs"), StyleData.LOG_STAIRS),
 				() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -159,7 +162,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		Compendium.styleItemRenderers.add(LOG_STAIRS.BLOCK_ITEM);
 
 		STRIPPED_SMALL_LOG.setup(base,
-				() -> new PipeStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), StyleData.SMALL_LOG),
+				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+						Compendium.modLoc(base.extraFolder() + "stripped_small_log"), StyleData.SMALL_LOG),
 				() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -167,7 +171,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"));
 		STRIPPED_LOG.setup(base,
-				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG), StyleData.LOG),
+				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
+						Compendium.modLoc(base.extraFolder() + "stripped_log"), StyleData.LOG),
 				() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -177,7 +182,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		STRIPPED_LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						StyleData.LOG_SLAB),
+						Compendium.modLoc(base.extraFolder() + "stripped_log_slab"), StyleData.LOG_SLAB),
 				() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -187,7 +192,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		STRIPPED_LOG_STAIRS.setup(base,
 				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS), StyleData.LOG_STAIRS),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+						Compendium.modLoc(base.extraFolder() + "stripped_small_log"), StyleData.LOG_STAIRS),
 				() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -199,6 +205,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_SLAB.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_STAIRS.BLOCK);
+
+		Compendium.styleItemRenderers.add(STRIPPED_LOG.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(STRIPPED_LOG_SLAB.BLOCK_ITEM);
+		Compendium.styleItemRenderers.add(STRIPPED_LOG_STAIRS.BLOCK_ITEM);
 	}
 
 	@Override
@@ -740,8 +750,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				});
 
-				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-						.getBuilder("item/" + base.name + "_logs_item").customLoader(StyleBlockModelBuilder::begin);
+				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(base.extraFolder() + "log")
+						.customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.LOG.getTypes())
@@ -789,13 +799,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				});
 
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-						.getBuilder("item/" + base.name + "_stripped_logs_item")
-						.customLoader(StyleBlockModelBuilder::begin);
+						.getBuilder(base.extraFolder() + "stripped_log").customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.LOG.getTypes())
 					msmb.add(new StyleModelBuilder(s,
-							bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_inventory")));
+							bsp.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(msmb.end()).build();
 			}
@@ -828,8 +837,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						log_slab_full.end());
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
-						.getBuilder("item/" + base.name + "_logs_slab_item")
-						.customLoader(StyleBlockModelBuilder::begin);
+						.getBuilder(base.extraFolder() + "logs_slab").customLoader(StyleBlockModelBuilder::begin);
 				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.LOG_SLAB.getTypes())
@@ -871,7 +879,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						log_slab_full.end());
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
-						.getBuilder("item/" + base.name + "_stripped_logs_slab_item")
+						.getBuilder(base.extraFolder() + "stripped_logs_slab")
 						.customLoader(StyleBlockModelBuilder::begin);
 				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
@@ -912,8 +920,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						log_stairs_outer.end(), bsp);
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
-						.getBuilder("item/" + base.name + "_logs_stairs_item")
-						.customLoader(StyleBlockModelBuilder::begin);
+						.getBuilder(base.extraFolder() + "logs_stairs").customLoader(StyleBlockModelBuilder::begin);
 				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
@@ -955,7 +962,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						log_stairs_inner.end(), log_stairs_outer.end(), bsp);
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
-						.getBuilder("item/" + base.name + "_stripped_logs_stairs_item")
+						.getBuilder(base.extraFolder() + "stripped_logs_stairs")
 						.customLoader(StyleBlockModelBuilder::begin);
 				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
 

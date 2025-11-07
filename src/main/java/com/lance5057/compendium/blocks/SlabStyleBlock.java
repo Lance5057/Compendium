@@ -46,7 +46,7 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		// TODO Auto-generated method stub
 		return itemRendererLocation;
 	}

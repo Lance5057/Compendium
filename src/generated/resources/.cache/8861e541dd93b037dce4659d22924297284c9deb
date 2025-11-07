@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-05T23:26:47.412955	Block Models: compendium
+// 1.21.1	2025-11-07T13:41:28.565354	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic.json
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic_inventory.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_stained/window/glass/basic.json
@@ -1469,13 +1469,13 @@ c25f53c3c42e40ea523856378d03d22afd766aab assets/compendium/models/block/material
 c25f53c3c42e40ea523856378d03d22afd766aab assets/compendium/models/block/material/wood/oak/window/trim/round_inventory.json
 93f4c460e0deed6bc0b5d68d49f15aaa1a6fec5b assets/compendium/models/block/material/wood/oak/window/trim/weave.json
 93f4c460e0deed6bc0b5d68d49f15aaa1a6fec5b assets/compendium/models/block/material/wood/oak/window/trim/weave_inventory.json
+a7ba45782f98d2950bcd873e6e8ab0313553e0a0 assets/compendium/models/extra/material/wood/oak/smaller_log_inventory.json
+b2f89feadc4740668f315c78de4ae36afc856867 assets/compendium/models/extra/material/wood/oak/smallest_log_inventory.json
+d69da7010ae249dfb237d79ccc9cca8e185f1bf5 assets/compendium/models/extra/material/wood/oak/small_log_inventory.json
 9c14ff2a4200edb3fb8b57bba18120a0ac827f48 assets/compendium/models/extra/material/wood/oak/split_log_stage0.json
 a0544ce2bb36c7328b9a236db96c04b1391b0629 assets/compendium/models/extra/material/wood/oak/split_log_stage1.json
 bd5bcf172855331cf62ee788e20d3f2ff54a4cbf assets/compendium/models/extra/material/wood/oak/split_log_stage2.json
 3055fb11b6db5b3f224d00bfdeb7541a843e94dd assets/compendium/models/extra/material/wood/oak/split_log_stage3.json
-a7ba45782f98d2950bcd873e6e8ab0313553e0a0 assets/compendium/models/item/material/wood/oak/smaller_log_inventory.json
-b2f89feadc4740668f315c78de4ae36afc856867 assets/compendium/models/item/material/wood/oak/smallest_log_inventory.json
-d69da7010ae249dfb237d79ccc9cca8e185f1bf5 assets/compendium/models/item/material/wood/oak/small_log_inventory.json
-5a87500a32df07525d50fb06f4795fee2e6a2de8 assets/compendium/models/item/material/wood/oak/stripped_smaller_log_inventory.json
-edf1419d9c26086c23cfeb988e25b0c92cd99ff0 assets/compendium/models/item/material/wood/oak/stripped_smallest_log_inventory.json
-9dc6a473083ded873ea8ff05bc5e371f361f3ea0 assets/compendium/models/item/material/wood/oak/stripped_small_log_inventory.json
+5a87500a32df07525d50fb06f4795fee2e6a2de8 assets/compendium/models/extra/material/wood/oak/stripped_smaller_log_inventory.json
+edf1419d9c26086c23cfeb988e25b0c92cd99ff0 assets/compendium/models/extra/material/wood/oak/stripped_smallest_log_inventory.json
+9dc6a473083ded873ea8ff05bc5e371f361f3ea0 assets/compendium/models/extra/material/wood/oak/stripped_small_log_inventory.json

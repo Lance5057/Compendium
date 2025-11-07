@@ -40,7 +40,7 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		// TODO Auto-generated method stub
 		return itemRendererLocation;
 	}

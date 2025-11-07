@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-05T12:10:28.7273042	Block States: compendium
+// 1.21.1	2025-11-07T13:29:05.7389202	Block States: compendium
 549032d6d53be688c99846300564b5d8cc1d3f88 assets/compendium/blockstates/chair.json
 5b516c8a9ad8fa2f098469c17ddf4750f48402ba assets/compendium/blockstates/clothed_table.json
 c3b50f7bc69a774033719420f45e59c25b8572bb assets/compendium/blockstates/cosmetic_toolbox.json
@@ -121,10 +121,10 @@ e95f4946c7e68a1dd4d4d0f91c8cc939cfcb8887 assets/compendium/models/block/window.j
 08e46653c2c890f5f79432b531224638f91d8718 assets/compendium/models/extra/chair.json
 042bc03d83acc7a17a4cd48b6aa126fafc045e23 assets/compendium/models/extra/clothed_table.json
 23cd50adaf6858dff6578ef46b5147c2bf5e00b5 assets/compendium/models/extra/fancy_bed.json
+5231c0ae4b72091766a522cb69794c83ca8351e9 assets/compendium/models/extra/material/wood/oak/log.json
+9569cf200a0eb1cf118cd62b330f248a7775f43d assets/compendium/models/extra/material/wood/oak/logs_slab.json
+c5f39888e2f37c98d649b4dcafc67641085ef494 assets/compendium/models/extra/material/wood/oak/logs_stairs.json
+ebbe5bd5fc90300079eadec9fd6887f99df9e741 assets/compendium/models/extra/material/wood/oak/stripped_log.json
+13ced14fb2e9de69516a044f76d3281482c6f62a assets/compendium/models/extra/material/wood/oak/stripped_logs_slab.json
+239e1c3e359ade3460123d69a2a37d6ebfbc5494 assets/compendium/models/extra/material/wood/oak/stripped_logs_stairs.json
 81db7561945e9434333efb423c12f7417c9e3eab assets/compendium/models/extra/table.json
-5231c0ae4b72091766a522cb69794c83ca8351e9 assets/compendium/models/item/oak_logs_item.json
-9569cf200a0eb1cf118cd62b330f248a7775f43d assets/compendium/models/item/oak_logs_slab_item.json
-c5f39888e2f37c98d649b4dcafc67641085ef494 assets/compendium/models/item/oak_logs_stairs_item.json
-5231c0ae4b72091766a522cb69794c83ca8351e9 assets/compendium/models/item/oak_stripped_logs_item.json
-13ced14fb2e9de69516a044f76d3281482c6f62a assets/compendium/models/item/oak_stripped_logs_slab_item.json
-239e1c3e359ade3460123d69a2a37d6ebfbc5494 assets/compendium/models/item/oak_stripped_logs_stairs_item.json

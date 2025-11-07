@@ -39,7 +39,7 @@ public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBl
 	}
 
 	@Override
-	public ResourceLocation getBlockModelLocation() {
+	public ResourceLocation getItemModelLocation() {
 		// TODO Auto-generated method stub
 		return itemRendererLocation;
 	}
