@@ -424,12 +424,12 @@ public class BlockStateModels extends BlockStateProvider {
 
 		for (String tb : List.of("top", "bottom"))
 			for (String type : List.of("single", "left", "right", "center")) {
-				mpbsb = this.bedPart(mpbsb, tb, type, "frame", StyleData.BED_FRAME, 0, 0);
-				mpbsb = this.bedPart(mpbsb, tb, type, "base", StyleData.BED_BASE, 1, 1);
-				mpbsb = this.bedPart(mpbsb, tb, type, "mattress", StyleData.BED_MATTRESS, 2, 2);
-				mpbsb = this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 3, 3);
-				mpbsb = this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 4, 4);
-				mpbsb = this.bedPart(mpbsb, tb, type, "blanket", StyleData.BED_BLANKET, 5, 5);
+				mpbsb = this.bedPart(mpbsb, tb, type, "frame", StyleData.BED_FRAME, 0, 0, List.of(MATERIAL_TYPES.WOOD));
+				mpbsb = this.bedPart(mpbsb, tb, type, "base", StyleData.BED_BASE, 1, 1, List.of(MATERIAL_TYPES.WOOD));
+				mpbsb = this.bedPart(mpbsb, tb, type, "mattress", StyleData.BED_MATTRESS, 2, 2, List.of(MATERIAL_TYPES.TEXTILE));
+				mpbsb = this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 3, 3, List.of(MATERIAL_TYPES.TEXTILE));
+				mpbsb = this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 4, 4, List.of(MATERIAL_TYPES.TEXTILE));
+				mpbsb = this.bedPart(mpbsb, tb, type, "blanket", StyleData.BED_BLANKET, 5, 5, List.of(MATERIAL_TYPES.TEXTILE));
 			}
 
 		// Frame
@@ -913,13 +913,13 @@ public class BlockStateModels extends BlockStateProvider {
 	}
 
 	private MultiPartBlockStateBuilder bedPart(MultiPartBlockStateBuilder mpbsb, String topBottom, String bedSideType,
-			String part, StyleData data, int material, int style) {
+			String part, StyleData data, int material, int style, List<MATERIAL_TYPES> mats) {
 		return mpbsb.part().modelFile(models().getBuilder("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part)
 				.customLoader(MultiStyleMaterialBuilder::begin)
 				.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 						mcLoc("block/oak_planks")))
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", bedSideType + "/" + topBottom + "/" + part,
-						List.of(MATERIAL_TYPES.WOOD), StyleData.BED_BASE.getTypes(), material, style))
+						mats, StyleData.BED_BASE.getTypes(), material, style))
 				.end()).rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
 				.modelFile(models().getBuilder("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part)
@@ -927,8 +927,8 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, List.of(MATERIAL_TYPES.WOOD),
-								StyleData.BED_BASE.getTypes(), material, style))
+								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								material, style))
 						.end())
 				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
@@ -937,8 +937,8 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, List.of(MATERIAL_TYPES.WOOD),
-								StyleData.BED_BASE.getTypes(), material, style))
+								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								material, style))
 						.end())
 				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
 				.condition(FancyBedBlock.OCCUPIED, false).condition(FancyBedBlock.PART, BedPart.HEAD).end().part()
@@ -947,8 +947,8 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, List.of(MATERIAL_TYPES.WOOD),
-								StyleData.BED_BASE.getTypes(), material, style))
+								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								material, style))
 						.end())
 				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end();
