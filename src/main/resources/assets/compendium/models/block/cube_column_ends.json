@@ -5,8 +5,8 @@
 	"textures": {
 		"top": "block/acacia_log_top",
 		"bottom": "block/stripped_acacia_log_top",
-		"particle": "compendium:block/material/wood/acacia/logs/bark_shred",
-		"side": "compendium:block/material/wood/acacia/logs/bark_shred"
+		"particle": "compendium:block/material/wood/acacia/logs/bark_shred_1",
+		"side": "compendium:block/material/wood/acacia/logs/bark_shred_1"
 	},
 	"elements": [
 		{

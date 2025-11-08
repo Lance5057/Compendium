@@ -2,7 +2,7 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "compendium:block/material/wood/acacia/acacia_small_logs_corner"
+		"0": "compendium:block/material/wood/acacia/logs/small_logs_corner"
 	},
 	"elements": [
 		{

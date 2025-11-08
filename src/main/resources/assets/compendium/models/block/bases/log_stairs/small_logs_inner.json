@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "compendium:block/material/wood/oak/oak_small_logs_corner",
-		"1": "compendium:block/material/wood/oak/oak_small_logs_slab",
-		"2": "compendium:block/material/wood/oak/oak_small_logs_turned",
-		"particle": "compendium:block/material/wood/oak/oak_small_logs_corner"
+		"0": "compendium:block/material/wood/oak/logs/small_logs_corner",
+		"1": "compendium:block/material/wood/oak/logs/small_logs_slab",
+		"2": "compendium:block/material/wood/oak/logs/small_logs_turned",
+		"particle": "compendium:block/material/wood/oak/logs/small_logs_corner"
 	},
 	"elements": [
 		{

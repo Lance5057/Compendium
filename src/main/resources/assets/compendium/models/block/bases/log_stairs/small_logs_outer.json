@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "compendium:block/material/wood/oak/oak_small_logs_turned",
-		"1": "compendium:block/material/wood/oak/oak_small_logs",
-		"particle": "compendium:block/material/wood/oak/oak_small_logs"
+		"0": "compendium:block/material/wood/oak/logs/small_logs_turned",
+		"1": "compendium:block/material/wood/oak/logs/small_logs",
+		"particle": "compendium:block/material/wood/oak/logs/small_logs"
 	},
 	"elements": [
 		{

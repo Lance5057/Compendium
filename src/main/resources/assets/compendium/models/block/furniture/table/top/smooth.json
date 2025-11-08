@@ -4,7 +4,7 @@
 	"parent": "block/block",
 	"textures": {
 		"0": "block/acacia_planks",
-		"1": "compendium:block/material/wood/acacia/acacia_sheet",
+		"1": "compendium:block/material/wood/acacia/planks/sheet",
 		"particle": "block/acacia_planks"
 	},
 	"elements": [

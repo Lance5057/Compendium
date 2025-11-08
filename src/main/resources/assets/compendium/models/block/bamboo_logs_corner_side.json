@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"1": "compendium:block/material/wood/bamboo/bamboo_small_logs_corner",
+		"1": "compendium:block/material/wood/bamboo/small_logs_corner",
 		"2": "block/bamboo_block",
 		"particle": "block/bamboo_block"
 	},
