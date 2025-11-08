@@ -1,8 +1,8 @@
 package com.lance5057.compendium.client;
 
 import org.jetbrains.annotations.Nullable;
+import org.joml.Quaternionf;
 
-import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
@@ -17,8 +17,8 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -61,20 +61,24 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
-				IRenderable<ModelData> bm = BakedModelRenderable
-						.of(ModelResourceLocation
-								.standalone(st.getItemModelLocation()))
-						.withModelDataContext();
+//				Compendium.LOGGER.debug(ModelResourceLocation.standalone(st.getItemModelLocation()).toString());
+
+				BakedModel bm = Minecraft.getInstance().getModelManager()
+						.getModel(ModelResourceLocation.standalone(st.getItemModelLocation()));
+//				bm = bm.applyTransform(displayContext, ps, false);
+				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
+				IRenderable<ModelData> ir = bmr.withModelDataContext();
+
 				if (displayContext == ItemDisplayContext.GUI) {
-					ps.scale(0.8f, 0.8f, 0.8f);
-					ps.translate(0.3, 0.1, 0);
+					ps.translate(1, 0, 0);
+					ps.mulPose(new Quaternionf().fromAxisAngleDeg(0, 1, 0, -90));
 				}
 
 //				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);
 
 //				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
-				if (bm != null) {
-					bm.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
+				if (ir != null) {
+					ir.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
 							overlay, overlay, null);
 
 				}

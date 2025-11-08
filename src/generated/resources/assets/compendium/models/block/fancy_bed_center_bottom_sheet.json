@@ -6,16 +6,20 @@
     }
   },
   "layer0": {
-    "materialLayer": 2,
+    "materialLayer": 3,
     "modelBase": "bed",
-    "modelPart": "bottom/sheet",
-    "styleLayer": 2,
+    "modelPart": "center/bottom/sheet",
+    "styleLayer": 3,
     "styles": [
-      "basic"
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
     ],
     "suffix": "",
     "valid": [
-      "TEXTILE"
+      "WOOD"
     ]
   },
   "layer_count": 1,

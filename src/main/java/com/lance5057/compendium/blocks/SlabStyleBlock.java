@@ -37,12 +37,14 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-		List<String> r = new ArrayList<String>();
+		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
-			if (styles.length > i)
-				r.add(this.styles[i].getTypes().get(i));
+			if (styles.length > i) {
+				s.add(styles[i].getTypes().get(current.get(i)));
+			}
 		}
-		return r;
+
+		return s;
 	}
 
 	@Override

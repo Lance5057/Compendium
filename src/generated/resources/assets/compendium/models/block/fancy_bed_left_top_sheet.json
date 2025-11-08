@@ -1,0 +1,27 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 3,
+    "modelBase": "bed",
+    "modelPart": "left/top/sheet",
+    "styleLayer": 3,
+    "styles": [
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 1,
+  "loader": "compendium:multi_style_material"
+}

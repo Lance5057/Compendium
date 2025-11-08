@@ -104,7 +104,7 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialMetal("iron", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)));
+						Generate.IGNORE, Generate.GENERATE, Generate.GENERATE)));
 		buildDefault(new MaterialMetal("gold", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));

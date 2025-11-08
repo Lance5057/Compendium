@@ -17,15 +17,12 @@ import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
-import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 	BakedModel base;
@@ -114,7 +111,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
 			if (s != null && s.size() > 0)
-				if (mats != null && mats.size() != 0 && mats.size() >= materialLayer) {
+				if (mats != null && mats.size() != 0 && mats.size() > materialLayer && mats.get(materialLayer) != null) {
 					Map<String, BakedModel> m = models.get(mats.get(materialLayer).getCurrentMaterial());
 					if (m != null && !m.isEmpty() && s.size() > styleLayer) {
 						BakedModel q = m.getOrDefault(s.get(styleLayer), null);

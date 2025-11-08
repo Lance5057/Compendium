@@ -19,7 +19,7 @@
       "loadPrybar": "GENERATE",
       "loadHammer": "GENERATE",
       "loadSaw": "GENERATE",
-      "loadShears": "EXISTS",
+      "loadShears": "IGNORE",
       "loadZweihander": "GENERATE",
       "loadBow": "GENERATE"
     }

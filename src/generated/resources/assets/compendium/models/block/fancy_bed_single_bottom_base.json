@@ -8,14 +8,18 @@
   "layer0": {
     "materialLayer": 1,
     "modelBase": "bed",
-    "modelPart": "top/mattress",
+    "modelPart": "single/bottom/base",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
     ],
     "suffix": "",
     "valid": [
-      "TEXTILE"
+      "WOOD"
     ]
   },
   "layer_count": 1,

@@ -6,16 +6,20 @@
     }
   },
   "layer0": {
-    "materialLayer": 3,
+    "materialLayer": 5,
     "modelBase": "bed",
-    "modelPart": "bottom/pillow",
-    "styleLayer": 3,
+    "modelPart": "right/bottom/blanket",
+    "styleLayer": 5,
     "styles": [
-      "basic"
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
     ],
     "suffix": "",
     "valid": [
-      "TEXTILE"
+      "WOOD"
     ]
   },
   "layer_count": 1,

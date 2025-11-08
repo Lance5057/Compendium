@@ -36,10 +36,10 @@
     ]
   },
   "layer2": {
-    "materialLayer": 1,
+    "materialLayer": 2,
     "modelBase": "clothed_table",
     "modelPart": "cloth",
-    "styleLayer": 1,
+    "styleLayer": 2,
     "styles": [
       "basic",
       "long",

@@ -2,15 +2,18 @@ package com.lance5057.compendium.blocks.bed;
 
 import javax.annotation.Nullable;
 
-import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -19,24 +22,21 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BedPart;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public class FancyBedBlock extends BedBlock {
-	public static final EnumProperty<ChestType> CONNECTED = BlockStateProperties.CHEST_TYPE;
+	public static final EnumProperty<BedSideType> SIDE = EnumProperty.create("type", BedSideType.class);
 
 	public FancyBedBlock(Properties properties) {
 		super(DyeColor.BLACK, properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(PART, BedPart.FOOT)
-				.setValue(OCCUPIED, Boolean.valueOf(false)).setValue(CONNECTED, ChestType.SINGLE));
+				.setValue(OCCUPIED, Boolean.valueOf(false)).setValue(SIDE, BedSideType.SINGLE));
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 6, 6, StyleData.BED_FRAME,
-				StyleData.BED_BASE, StyleData.BED_MATTRESS,	StyleData.BED_PILLOW, StyleData.BED_SHEET,
-				StyleData.BED_BLANKET);
+		return new StyledMultiMaterialBlockEntity(pos, state, 6, 6, StyleData.BED_FRAME, StyleData.BED_BASE,
+				StyleData.BED_MATTRESS, StyleData.BED_PILLOW, StyleData.BED_SHEET, StyleData.BED_BLANKET);
 	}
 
 	@Override
@@ -69,7 +69,45 @@ public class FancyBedBlock extends BedBlock {
 	}
 
 	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		BlockState state = super.getStateForPlacement(context);
+		BlockPos pos = context.getClickedPos();
+		Level level = context.getLevel();
+		Direction facing = state.getValue(FACING);
+
+		if (!state.isEmpty())
+			return updateBedShape(state, facing, level, pos);
+		return state;
+	}
+
+	@Override
+	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,
+			BlockPos pos, BlockPos facingPos) {
+		state = super.updateShape(state, facing, facingState, level, pos, facingPos);
+
+		if (!state.isEmpty())
+			return updateBedShape(state, state.getValue(FACING), level, pos);
+		return state;
+	}
+
+	private BlockState updateBedShape(BlockState state, Direction facing, LevelAccessor level, BlockPos pos) {
+		boolean left = level.getBlockState(pos.relative(facing.getCounterClockWise())).is(CompendiumBlocks.FANCY_BED);
+		boolean right = level.getBlockState(pos.relative(facing.getClockWise())).is(CompendiumBlocks.FANCY_BED);
+
+		if (left && right)
+			state = state.setValue(SIDE, BedSideType.CENTER);
+		else if (left)
+			state = state.setValue(SIDE, BedSideType.RIGHT);
+		else if (right)
+			state = state.setValue(SIDE, BedSideType.LEFT);
+		else
+			state = state.setValue(SIDE, BedSideType.SINGLE);
+
+		return state;
+	}
+
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING, PART, OCCUPIED, CONNECTED);
+		builder.add(FACING, PART, OCCUPIED, SIDE);
 	}
 }
