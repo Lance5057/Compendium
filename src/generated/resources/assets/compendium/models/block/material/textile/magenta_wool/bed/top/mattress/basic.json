@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/top/mattress/basic",
-  "textures": {
-    "0": "minecraft:block/magenta_wool"
-  }
-}

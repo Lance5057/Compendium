@@ -178,8 +178,9 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 						}
 						gui.pose().popPose();
 						gui.drawString(this.font,
-								Component.translatable(
-										((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(i)),
+								Component.translatable("style." + ((IStyleable) entity).getStyles()
+										.get(curStyleType).getName() + "." + ((IStyleable) entity).getStyles()
+										.get(curStyleType).getTypes().get(i)),
 								k + 10, i1, 0xFFFFFF, true);
 					}
 	}

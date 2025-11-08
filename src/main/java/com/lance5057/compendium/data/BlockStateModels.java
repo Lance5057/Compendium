@@ -919,7 +919,7 @@ public class BlockStateModels extends BlockStateProvider {
 				.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 						mcLoc("block/oak_planks")))
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", bedSideType + "/" + topBottom + "/" + part,
-						mats, StyleData.BED_BASE.getTypes(), material, style))
+						mats, data.getTypes(), material, style))
 				.end()).rotationY(180).addModel().condition(FancyBedBlock.FACING, Direction.NORTH)
 				.condition(FancyBedBlock.PART, BedPart.HEAD).condition(FancyBedBlock.OCCUPIED, false).end().part()
 				.modelFile(models().getBuilder("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part)
@@ -927,7 +927,7 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								bedSideType + "/" + topBottom + "/" + part, mats, data.getTypes(),
 								material, style))
 						.end())
 				.rotationY(90).addModel().condition(FancyBedBlock.FACING, Direction.WEST)
@@ -937,7 +937,7 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								bedSideType + "/" + topBottom + "/" + part, mats, data.getTypes(),
 								material, style))
 						.end())
 				.rotationY(0).addModel().condition(FancyBedBlock.FACING, Direction.SOUTH)
@@ -947,7 +947,7 @@ public class BlockStateModels extends BlockStateProvider {
 						.base(models().cubeAll("fancy_bed_" + bedSideType + "_" + topBottom + "_" + part + "_model",
 								mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-								bedSideType + "/" + topBottom + "/" + part, mats, StyleData.BED_BASE.getTypes(),
+								bedSideType + "/" + topBottom + "/" + part, mats, data.getTypes(),
 								material, style))
 						.end())
 				.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)

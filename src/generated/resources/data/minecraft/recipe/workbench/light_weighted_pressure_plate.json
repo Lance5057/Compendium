@@ -69,7 +69,7 @@
         }
       ],
       "tool": {
-        "tag": "c:hammer"
+        "tag": "c:tools/hammer"
       },
       "uses": 4
     }

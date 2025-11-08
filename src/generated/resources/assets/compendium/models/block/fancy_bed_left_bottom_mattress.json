@@ -11,11 +11,7 @@
     "modelPart": "left/bottom/mattress",
     "styleLayer": 2,
     "styles": [
-      "basic",
-      "panelled",
-      "slats",
-      "solid",
-      "weave"
+      "basic"
     ],
     "suffix": "",
     "valid": [

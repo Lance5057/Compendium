@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/crimson/planks/double_herringbone",
+    "side": "compendium:block/material/wood/crimson/planks/double_herringbone",
+    "top": "compendium:block/material/wood/crimson/planks/double_herringbone"
+  }
+}

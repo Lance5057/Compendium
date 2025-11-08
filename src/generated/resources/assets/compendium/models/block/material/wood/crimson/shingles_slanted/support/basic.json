@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/shingles_slanted/support/basic",
+  "textures": {
+    "0": "compendium:block/material/wood/crimson/logs/small_logs_corner"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/mangrove/stairs/big_weave_inner"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/mangrove/stairs/blocks_inner"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/mangrove/stairs/blocks_offset_inner"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_inner"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_rotated_inner"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_seamless_inner"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_seamless_rotated_inner"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_stacked_inner"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/boards_stacked_rotated_inner"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/mangrove/stairs/box_inner"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/mangrove/stairs/chiseled_inner"
+  },
+  "count": 35,
+  "cross": {
+    "model": "compendium:block/material/wood/mangrove/stairs/cross_inner"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/mangrove/stairs/diagonal_inner"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/diagonal_rotated_inner"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/mangrove/stairs/double_herringbone_inner"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/mangrove/stairs/herringbone_inner"
+  },
+  "loader": "compendium:style",
+  "panel": {
+    "model": "compendium:block/material/wood/mangrove/stairs/panel_inner"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/mangrove/stairs/parquet_inner"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/mangrove/stairs/planks_seamless_inner"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/planks_seamless_rotated_inner"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/mangrove/stairs/planks_stacked_inner"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/planks_stacked_rotated_inner"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/mangrove/stairs/sheet_inner"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/mangrove/stairs/small_blocks_inner"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/mangrove/stairs/small_blocks_offset_inner"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/mangrove/stairs/thin_inner"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/thin_rotated_inner"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/mangrove/stairs/vertical_inner"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/mangrove/stairs/wainscotting_double_inner"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/mangrove/stairs/wainscotting_grate_inner"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/mangrove/stairs/wainscotting_seamless_inner"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/mangrove/stairs/wainscotting_single_inner"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/mangrove/stairs/walkway_inner"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/mangrove/stairs/walkway_rotated_inner"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/mangrove/stairs/wicker_inner"
+  }
+}

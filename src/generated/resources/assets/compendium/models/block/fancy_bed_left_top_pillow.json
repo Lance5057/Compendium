@@ -11,11 +11,7 @@
     "modelPart": "left/top/pillow",
     "styleLayer": 4,
     "styles": [
-      "basic",
-      "panelled",
-      "slats",
-      "solid",
-      "weave"
+      "basic"
     ],
     "suffix": "",
     "valid": [

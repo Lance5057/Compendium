@@ -11,11 +11,7 @@
     "modelPart": "center/top/blanket",
     "styleLayer": 5,
     "styles": [
-      "basic",
-      "panelled",
-      "slats",
-      "solid",
-      "weave"
+      "basic"
     ],
     "suffix": "",
     "valid": [

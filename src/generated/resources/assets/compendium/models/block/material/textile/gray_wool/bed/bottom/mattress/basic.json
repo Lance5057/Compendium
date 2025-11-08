@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/bottom/mattress/basic",
-  "textures": {
-    "0": "minecraft:block/gray_wool"
-  }
-}

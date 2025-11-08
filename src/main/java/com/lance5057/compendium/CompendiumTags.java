@@ -14,9 +14,9 @@ public class CompendiumTags {
 	public static TagKey<Block> PRYABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "pryable"));
 	public static TagKey<Block> SAWABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "sawable"));
 	
-	public static TagKey<Item> HAMMER = ItemTags.create(TagUtil.neoTag("hammer"));
-	public static TagKey<Item> PRYBAR = ItemTags.create(TagUtil.neoTag("prybar"));
-	public static TagKey<Item> SAW = ItemTags.create(TagUtil.neoTag("saw"));
+	public static TagKey<Item> HAMMER = ItemTags.create(TagUtil.neoTag("tools/hammer"));
+	public static TagKey<Item> PRYBAR = ItemTags.create(TagUtil.neoTag("tools/prybar"));
+	public static TagKey<Item> SAW = ItemTags.create(TagUtil.neoTag("tools/saw"));
 	
 	public static TagKey<Block> TABLE = BlockTags.create(Compendium.modLoc("table"));
 }
