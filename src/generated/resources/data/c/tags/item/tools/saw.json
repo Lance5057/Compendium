@@ -1,8 +1,8 @@
 {
   "values": [
-    "compendium:gold_saw_item",
-    "compendium:netherite_saw_item",
+    "compendium:copper_saw_item",
     "compendium:iron_saw_item",
-    "compendium:copper_saw_item"
+    "compendium:gold_saw_item",
+    "compendium:netherite_saw_item"
   ]
 }

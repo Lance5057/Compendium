@@ -134,12 +134,12 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.BED_MATTRESS.getTypes().forEach(b -> {
-				withExistingParent("block/material/textile/" + mb.name + "/bed/single/top/mattress/" + b.toLowerCase(),
-						modLoc("block/furniture/bed/single/top/mattress/" + b.toLowerCase()))
+				withExistingParent("block/material/textile/" + mb.name + "/bed/single/head/mattress/" + b.toLowerCase(),
+						modLoc("block/furniture/bed/single/head/mattress/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 
-				withExistingParent("block/material/textile/" + mb.name + "/bed/single/bottom/mattress/" + b.toLowerCase(),
-						modLoc("block/furniture/bed/single/bottom/mattress/" + b.toLowerCase()))
+				withExistingParent("block/material/textile/" + mb.name + "/bed/single/foot/mattress/" + b.toLowerCase(),
+						modLoc("block/furniture/bed/single/foot/mattress/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 			});
 

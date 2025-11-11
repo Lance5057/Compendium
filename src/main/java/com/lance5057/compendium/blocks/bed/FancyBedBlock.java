@@ -50,7 +50,7 @@ public class FancyBedBlock extends BedBlock {
 //		super.setPlacedBy(level, pos, state, placer, stack);
 		if (!level.isClientSide) {
 			BlockPos blockpos = pos.relative(state.getValue(FACING));
-			level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
+//			level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
 
 			BlockEntity head = level.getBlockEntity(blockpos);
 			BlockEntity foot = level.getBlockEntity(pos);

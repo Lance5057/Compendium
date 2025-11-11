@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/left/bottom/frame/basic",
-  "textures": {
-    "0": "minecraft:block/dark_oak_planks"
-  }
-}

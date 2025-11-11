@@ -3,8 +3,8 @@ package com.lance5057.compendium.data;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex;
-
 import com.lance5057.compendium.style.StyleLoc;
+
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 

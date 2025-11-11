@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/single/top/frame/solid",
-  "textures": {
-    "0": "minecraft:block/spruce_planks"
-  }
-}

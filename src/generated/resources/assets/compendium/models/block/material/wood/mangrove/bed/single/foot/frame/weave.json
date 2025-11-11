@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/single/foot/frame/weave",
+  "textures": {
+    "0": "minecraft:block/mangrove_planks",
+    "1": "compendium:block/material/wood/mangrove/weave"
+  }
+}

@@ -5,11 +5,9 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
-import com.lance5057.compendium.styleblock.StyleType;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import io.netty.buffer.ByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;

@@ -9,9 +9,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class SawBuckRenderer extends MultiToolBlockEntityRenderer<SawBuckBlockEntity> {
 	int timer = 0;

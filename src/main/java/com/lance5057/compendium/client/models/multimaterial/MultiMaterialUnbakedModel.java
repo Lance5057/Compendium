@@ -12,7 +12,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialBakedModel.BakedLayer;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel.Layer;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;

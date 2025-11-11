@@ -5,7 +5,6 @@ import java.util.List;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
-import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;

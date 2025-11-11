@@ -3,7 +3,6 @@ package com.lance5057.compendium.workstations.scrappingtable;
 import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction.Axis;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

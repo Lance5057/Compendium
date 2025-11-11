@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/right/bottom/frame/contemporary_slats",
-  "textures": {
-    "0": "minecraft:block/mangrove_planks"
-  }
-}

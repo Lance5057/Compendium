@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/single/top/frame/live_edge",
-  "textures": {
-    "0": "compendium:block/material/wood/cherry/logs/log_split_side",
-    "1": "minecraft:block/cherry_log"
-  }
-}
