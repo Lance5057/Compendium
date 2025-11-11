@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/right/top/frame/lath",
+  "textures": {
+    "0": "minecraft:block/cherry_planks"
+  }
+}
