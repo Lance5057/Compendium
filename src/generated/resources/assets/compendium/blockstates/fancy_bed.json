@@ -2,784 +2,11 @@
   "multipart": [
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
-        "y": 180
-      },
-      "when": {
-        "facing": "north",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
-        "y": 90
-      },
-      "when": {
-        "facing": "west",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket"
-      },
-      "when": {
-        "facing": "south",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
-        "y": 270
-      },
-      "when": {
-        "facing": "east",
-        "occupied": "false",
-        "part": "head"
-      }
-    },
-    {
-      "apply": {
         "model": "compendium:block/fancy_bed_center_head_frame",
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -791,6 +18,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -801,6 +29,7 @@
         "model": "compendium:block/fancy_bed_center_head_frame"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -812,6 +41,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -823,6 +53,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -834,6 +65,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -844,6 +76,7 @@
         "model": "compendium:block/fancy_bed_center_head_base"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -855,6 +88,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -866,6 +100,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -877,6 +112,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -887,6 +123,7 @@
         "model": "compendium:block/fancy_bed_center_head_mattress"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -898,6 +135,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -909,6 +147,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -920,6 +159,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -930,6 +170,7 @@
         "model": "compendium:block/fancy_bed_center_head_sheet"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -941,6 +182,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -952,6 +194,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -963,6 +206,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -973,6 +217,7 @@
         "model": "compendium:block/fancy_bed_center_head_pillow"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -984,6 +229,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -995,6 +241,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "head"
@@ -1006,6 +253,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "head"
@@ -1016,6 +264,7 @@
         "model": "compendium:block/fancy_bed_center_head_blanket"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "head"
@@ -1027,6 +276,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "head"
@@ -1034,776 +284,848 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame"
+        "model": "compendium:block/fancy_bed_left_head_frame"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_left_head_base",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_left_head_base",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base"
+        "model": "compendium:block/fancy_bed_left_head_base"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_left_head_base",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress"
+        "model": "compendium:block/fancy_bed_left_head_mattress"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet"
+        "model": "compendium:block/fancy_bed_left_head_sheet"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow"
+        "model": "compendium:block/fancy_bed_left_head_pillow"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket",
         "y": 180
       },
       "when": {
+        "type": "left",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket",
         "y": 90
       },
       "when": {
+        "type": "left",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket"
+        "model": "compendium:block/fancy_bed_left_head_blanket"
       },
       "when": {
+        "type": "left",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket",
         "y": 270
       },
       "when": {
+        "type": "left",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame"
+        "model": "compendium:block/fancy_bed_right_head_frame"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_right_head_base",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_right_head_base",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base"
+        "model": "compendium:block/fancy_bed_right_head_base"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_right_head_base",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress"
+        "model": "compendium:block/fancy_bed_right_head_mattress"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet"
+        "model": "compendium:block/fancy_bed_right_head_sheet"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow"
+        "model": "compendium:block/fancy_bed_right_head_pillow"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket",
         "y": 180
       },
       "when": {
+        "type": "right",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket",
         "y": 90
       },
       "when": {
+        "type": "right",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket"
+        "model": "compendium:block/fancy_bed_right_head_blanket"
       },
       "when": {
+        "type": "right",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket",
         "y": 270
       },
       "when": {
+        "type": "right",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame"
+        "model": "compendium:block/fancy_bed_single_head_frame"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_single_head_base",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_single_head_base",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base"
+        "model": "compendium:block/fancy_bed_single_head_base"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_single_head_base",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress"
+        "model": "compendium:block/fancy_bed_single_head_mattress"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet"
+        "model": "compendium:block/fancy_bed_single_head_sheet"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow"
+        "model": "compendium:block/fancy_bed_single_head_pillow"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket",
         "y": 180
       },
       "when": {
+        "type": "single",
         "facing": "north",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket",
         "y": 90
       },
       "when": {
+        "type": "single",
         "facing": "west",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket"
+        "model": "compendium:block/fancy_bed_single_head_blanket"
       },
       "when": {
+        "type": "single",
         "facing": "south",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket",
         "y": 270
       },
       "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
-        "part": "foot"
+        "part": "head"
       }
     },
     {
@@ -1812,6 +1134,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -1823,6 +1146,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -1833,6 +1157,7 @@
         "model": "compendium:block/fancy_bed_center_foot_frame"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -1844,6 +1169,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "foot"
@@ -1855,6 +1181,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -1866,6 +1193,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -1876,6 +1204,7 @@
         "model": "compendium:block/fancy_bed_center_foot_base"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -1887,6 +1216,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "foot"
@@ -1898,6 +1228,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -1909,6 +1240,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -1919,6 +1251,7 @@
         "model": "compendium:block/fancy_bed_center_foot_mattress"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -1930,6 +1263,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "foot"
@@ -1941,6 +1275,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -1952,6 +1287,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -1962,6 +1298,7 @@
         "model": "compendium:block/fancy_bed_center_foot_sheet"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -1973,6 +1310,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "foot"
@@ -1984,6 +1322,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -1995,6 +1334,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -2005,6 +1345,7 @@
         "model": "compendium:block/fancy_bed_center_foot_pillow"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -2016,6 +1357,7 @@
         "y": 270
       },
       "when": {
+        "type": "center",
         "facing": "east",
         "occupied": "false",
         "part": "foot"
@@ -2027,6 +1369,7 @@
         "y": 180
       },
       "when": {
+        "type": "center",
         "facing": "north",
         "occupied": "false",
         "part": "foot"
@@ -2038,6 +1381,7 @@
         "y": 90
       },
       "when": {
+        "type": "center",
         "facing": "west",
         "occupied": "false",
         "part": "foot"
@@ -2048,6 +1392,7 @@
         "model": "compendium:block/fancy_bed_center_foot_blanket"
       },
       "when": {
+        "type": "center",
         "facing": "south",
         "occupied": "false",
         "part": "foot"
@@ -2059,6 +1404,853 @@
         "y": 270
       },
       "when": {
+        "type": "center",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_frame"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_base",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_base",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_base"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_base",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_mattress"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_sheet"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_pillow"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "y": 180
+      },
+      "when": {
+        "type": "left",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "y": 90
+      },
+      "when": {
+        "type": "left",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_blanket"
+      },
+      "when": {
+        "type": "left",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "y": 270
+      },
+      "when": {
+        "type": "left",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_frame"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_base",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_base",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_base"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_base",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_mattress"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_sheet"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_pillow"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "y": 180
+      },
+      "when": {
+        "type": "right",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "y": 90
+      },
+      "when": {
+        "type": "right",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_blanket"
+      },
+      "when": {
+        "type": "right",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "y": 270
+      },
+      "when": {
+        "type": "right",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_frame"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_base",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_base",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_base"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_base",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_mattress"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_sheet"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_pillow"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
+        "facing": "east",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "y": 180
+      },
+      "when": {
+        "type": "single",
+        "facing": "north",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "y": 90
+      },
+      "when": {
+        "type": "single",
+        "facing": "west",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_blanket"
+      },
+      "when": {
+        "type": "single",
+        "facing": "south",
+        "occupied": "false",
+        "part": "foot"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "y": 270
+      },
+      "when": {
+        "type": "single",
         "facing": "east",
         "occupied": "false",
         "part": "foot"

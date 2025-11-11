@@ -4,7 +4,7 @@
 	"parent": "block/block",
 	"textures": {
 		"0": "block/acacia_planks",
-		"particle": "block/acacia_planks"
+		"particle": "block/white_wool"
 	},
 	"elements": [
 		{
@@ -46,5 +46,6 @@
 				"down": {"uv": [0, 0, 16, 2], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {}
 }

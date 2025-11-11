@@ -50,7 +50,7 @@ public class FancyBedBlock extends BedBlock {
 //		super.setPlacedBy(level, pos, state, placer, stack);
 		if (!level.isClientSide) {
 			BlockPos blockpos = pos.relative(state.getValue(FACING));
-//			level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
+			level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
 
 			BlockEntity head = level.getBlockEntity(blockpos);
 			BlockEntity foot = level.getBlockEntity(pos);
@@ -80,15 +80,15 @@ public class FancyBedBlock extends BedBlock {
 		return state;
 	}
 
-//	@Override
-//	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,
-//			BlockPos pos, BlockPos facingPos) {
-//		state = super.updateShape(state, facing, facingState, level, pos, facingPos);
-//
-//		if (!state.isEmpty())
-//			return updateBedShape(state, state.getValue(FACING), level, pos);
-//		return state;
-//	}
+	@Override
+	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,
+			BlockPos pos, BlockPos facingPos) {
+		state = super.updateShape(state, facing, facingState, level, pos, facingPos);
+
+		if (!state.isEmpty())
+			return updateBedShape(state, state.getValue(FACING), level, pos);
+		return state;
+	}
 
 	private BlockState updateBedShape(BlockState state, Direction facing, LevelAccessor level, BlockPos pos) {
 		boolean left = level.getBlockState(pos.relative(facing.getCounterClockWise())).is(CompendiumBlocks.FANCY_BED);

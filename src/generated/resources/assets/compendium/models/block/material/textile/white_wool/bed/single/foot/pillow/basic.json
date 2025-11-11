@@ -1,3 +1,6 @@
 {
-  "parent": "minecraft:block/air"
+  "parent": "compendium:block/furniture/bed/single/foot/pillow/basic",
+  "textures": {
+    "0": "minecraft:block/white_wool"
+  }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/left/foot/frame/lath",
-  "textures": {
-    "0": "minecraft:block/warped_planks"
-  }
-}

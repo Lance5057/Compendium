@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/single/head/frame/lath_extra",
-  "textures": {
-    "0": "minecraft:block/crimson_planks"
-  }
-}

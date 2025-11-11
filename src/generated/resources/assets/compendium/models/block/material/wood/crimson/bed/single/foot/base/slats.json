@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/single/foot/base/slats",
-  "textures": {
-    "0": "minecraft:block/crimson_planks"
-  }
-}
