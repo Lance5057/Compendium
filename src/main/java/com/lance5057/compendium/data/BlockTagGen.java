@@ -28,6 +28,8 @@ public class BlockTagGen extends BlockTagsProvider {
 		tag(CompendiumTags.TABLE).add(CompendiumBlocks.TABLE.get(), CompendiumBlocks.CLOTHED_TABLE.get());
 		
 		tag(BlockTags.FENCES).add(CompendiumBlocks.FANCY_FENCE.get());
+		
+		tag(BlockTags.BEDS).add(CompendiumBlocks.FANCY_BED.get());
 	}
 
 }

@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
@@ -15,6 +16,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -45,7 +47,8 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
 		this.dropSelf(CompendiumBlocks.TABLE.get());
 		this.dropSelf(CompendiumBlocks.CLOTHED_TABLE.get());
-		this.dropSelf(CompendiumBlocks.FANCY_BED.get());
+		this.add(CompendiumBlocks.FANCY_BED.get(),
+				b -> this.createSinglePropConditionTable(b, FancyBedBlock.PART, BedPart.HEAD));
 		this.dropSelf(CompendiumBlocks.FANCY_FENCE.get());
 		this.dropSelf(CompendiumBlocks.SHINGLES_SLANTED.get());
 		this.dropSelf(CompendiumBlocks.SHINGLES_CAP_SLANTED.get());

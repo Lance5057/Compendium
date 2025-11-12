@@ -139,4 +139,10 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		return Compendium.modLoc("extra/chair");
 	}
 
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

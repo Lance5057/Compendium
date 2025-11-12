@@ -135,4 +135,10 @@ public class TableBlock extends Block implements EntityBlock, IStyleBlock {
 	public ResourceLocation getItemModelLocation() {
 		return Compendium.modLoc("extra/table");
 	}
+
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
+	}
 }

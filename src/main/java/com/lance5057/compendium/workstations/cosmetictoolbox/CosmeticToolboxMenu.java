@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations.cosmetictoolbox;
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.network.StyleSyncPacket;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,6 +15,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class CosmeticToolboxMenu extends AbstractContainerMenu {
 	private final ContainerLevelAccess access;
@@ -42,6 +44,8 @@ public class CosmeticToolboxMenu extends AbstractContainerMenu {
 			BlockEntity state = level.getBlockEntity(pos);
 			if (state instanceof IStyleable istyle) {
 				istyle.setCurrent(section, style);
+				BlockState s = level.getBlockState(pos);
+				((IStyleBlock) s.getBlock()).onStyleChanged(level, pos, s);
 				state.getLevel().sendBlockUpdated(pos, state.getBlockState(), state.getBlockState(), Block.UPDATE_ALL);
 			}
 		});

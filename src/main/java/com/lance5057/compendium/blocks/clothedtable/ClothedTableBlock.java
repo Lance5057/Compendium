@@ -140,4 +140,10 @@ public class ClothedTableBlock extends Block implements EntityBlock, IStyleBlock
 		return Compendium.modLoc("extra/clothed_table");
 	}
 
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

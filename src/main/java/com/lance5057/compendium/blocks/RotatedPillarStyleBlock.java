@@ -9,6 +9,7 @@ import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -50,6 +51,12 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 	@Override
 	public ResourceLocation getItemModelLocation() {
 		return itemRendererLocation;
+	}
+
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

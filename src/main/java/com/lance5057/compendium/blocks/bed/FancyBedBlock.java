@@ -1,13 +1,17 @@
 package com.lance5057.compendium.blocks.bed;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +28,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
-public class FancyBedBlock extends BedBlock {
+public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	public static final EnumProperty<BedSideType> SIDE = EnumProperty.create("type", BedSideType.class);
 
 	public FancyBedBlock(Properties properties) {
@@ -65,6 +69,50 @@ public class FancyBedBlock extends BedBlock {
 
 			level.blockUpdated(pos, Blocks.AIR);
 			state.updateNeighbourShapes(level, pos, 3);
+		}
+	}
+
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		if (!level.isClientSide) {
+			if (state.getValue(PART) == BedPart.HEAD) {
+				BlockPos blockpos = pos.relative(state.getValue(FACING).getOpposite());
+//				level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
+
+				BlockEntity head = level.getBlockEntity(pos);
+				BlockEntity foot = level.getBlockEntity(blockpos);
+
+				if (head != null && foot != null) {
+					if (head instanceof StyledMultiMaterialBlockEntity heade
+							&& foot instanceof StyledMultiMaterialBlockEntity feete) {
+						feete.setCurrentStyles(heade.getCurrentAll());
+					}
+				}
+
+				level.blockUpdated(blockpos, Blocks.AIR);
+				level.sendBlockUpdated(blockpos, level.getBlockState(blockpos), level.getBlockState(blockpos),
+						Block.UPDATE_ALL);
+				state.updateNeighbourShapes(level, pos, 3);
+			} else {
+				BlockPos blockpos = pos.relative(state.getValue(FACING));
+//				level.setBlock(blockpos, state.setValue(PART, BedPart.HEAD), 3);
+
+				BlockEntity head = level.getBlockEntity(blockpos);
+				BlockEntity foot = level.getBlockEntity(pos);
+
+				if (head != null && foot != null) {
+					if (head instanceof StyledMultiMaterialBlockEntity heade
+							&& foot instanceof StyledMultiMaterialBlockEntity feete) {
+						heade.setCurrentStyles(feete.getCurrentAll());
+					}
+				}
+
+				level.blockUpdated(blockpos, Blocks.AIR);
+				level.sendBlockUpdated(blockpos, level.getBlockState(blockpos), level.getBlockState(blockpos),
+						Block.UPDATE_ALL);
+				state.updateNeighbourShapes(level, pos, 3);
+			}
+
 		}
 	}
 
@@ -110,4 +158,17 @@ public class FancyBedBlock extends BedBlock {
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, PART, OCCUPIED, SIDE);
 	}
+
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResourceLocation getItemModelLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

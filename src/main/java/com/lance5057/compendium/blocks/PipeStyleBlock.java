@@ -101,4 +101,10 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		return this.itemRendererLocation;
 	}
 
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

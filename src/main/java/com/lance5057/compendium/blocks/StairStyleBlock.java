@@ -9,6 +9,7 @@ import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -46,6 +47,12 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 	public ResourceLocation getItemModelLocation() {
 		// TODO Auto-generated method stub
 		return itemRendererLocation;
+	}
+
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
