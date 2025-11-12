@@ -25,6 +25,7 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -160,17 +161,25 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+		if (!BOW.isIgnored()) {
+			itp.tag(Tags.Items.TOOLS_BOW).add(this.BOW.ITEM.get());
+			itp.tag(Tags.Items.RANGED_WEAPON_TOOLS).add(this.BOW.ITEM.get());
+		}
 		if (!HAMMER.isIgnored()) {
 			itp.tag(CompendiumTags.HAMMER).add(this.HAMMER.ITEM.get());
-			itp.tag(Tags.Items.TOOLS).add(this.HAMMER.ITEM.get());
 		}
 		if (!PRYBAR.isIgnored()) {
 			itp.tag(CompendiumTags.PRYBAR).add(this.PRYBAR.ITEM.get());
-			itp.tag(Tags.Items.TOOLS).add(this.PRYBAR.ITEM.get());
 		}
 		if (!SAW.isIgnored()) {
 			itp.tag(CompendiumTags.SAW).add(this.SAW.ITEM.get());
-			itp.tag(Tags.Items.TOOLS).add(this.SAW.ITEM.get());
+		}
+		if (!SHEARS.isIgnored()) {
+			itp.tag(Tags.Items.TOOLS_SHEAR).add(this.SHEARS.ITEM.get());
+		}
+		if (!ZWEIHANDER.isIgnored()) {
+			itp.tag(Tags.Items.MELEE_WEAPON_TOOLS).add(this.ZWEIHANDER.ITEM.get());
+			itp.tag(ItemTags.SWORDS).add(this.ZWEIHANDER.ITEM.get());
 		}
 	}
 

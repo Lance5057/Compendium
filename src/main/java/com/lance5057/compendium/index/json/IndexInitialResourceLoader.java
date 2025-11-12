@@ -226,21 +226,21 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
 		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-//		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

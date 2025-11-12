@@ -11,7 +11,8 @@
     "modelPart": "left/head/base",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "panelled"
     ],
     "suffix": "",
     "valid": [

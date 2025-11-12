@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/left/head/frame/live_edge",
+  "textures": {
+    "0": "compendium:block/material/wood/acacia/logs/log_split_side",
+    "1": "minecraft:block/acacia_log"
+  }
+}

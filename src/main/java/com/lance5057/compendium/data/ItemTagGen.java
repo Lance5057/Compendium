@@ -2,6 +2,9 @@ package com.lance5057.compendium.data;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.lance5057.compendium.CompendiumTags;
+import net.minecraft.tags.ItemTags;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.Compendium;
@@ -22,6 +25,11 @@ public class ItemTagGen extends ItemTagsProvider {
 
 	@Override
 	protected void addTags(HolderLookup.Provider pProvider) {
+		tag(Tags.Items.TOOLS).addTag(CompendiumTags.HAMMER);
+		tag(Tags.Items.TOOLS).addTag(CompendiumTags.PRYBAR);
+		tag(Tags.Items.TOOLS).addTag(CompendiumTags.SAW);
+		tag(Tags.Items.MINING_TOOL_TOOLS).addTag(CompendiumTags.HAMMER);
+
 		CompendiumIndex.index.forEach(i -> {
 			i.setupItemTags(this);
 		});

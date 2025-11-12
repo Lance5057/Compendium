@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/single/foot/mattress/basic",
+  "textures": {
+    "0": "minecraft:block/green_wool"
+  }
+}
