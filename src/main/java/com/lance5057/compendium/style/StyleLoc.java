@@ -189,6 +189,9 @@ public class StyleLoc {
 
         lp.add("style.bed_base.basic", "Basic");
         lp.add("style.bed_base.panelled", "Panelled");
+        lp.add("style.bed_base.slats", "Slats");
+        lp.add("style.bed_base.solid", "Solid");
+        lp.add("style.bed_base.weave", "Woven");
 
         // Shingles
         lp.add("style.shingles.basic", "Basic");

@@ -10,7 +10,7 @@
 		{
 			"name": "base",
 			"from": [0, 0, 0],
-			"to": [15.6, 5, 14],
+			"to": [15.5, 5, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 12]},
 			"faces": {
 				"north": {"uv": [0, 1, 15.6, 6], "texture": "#0"},
@@ -23,8 +23,8 @@
 		},
 		{
 			"name": "bottom frame",
-			"from": [15.3, 0, 0],
-			"to": [15.8, 1, 14],
+			"from": [15.5, 0, 0],
+			"to": [16, 1, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 12]},
 			"faces": {
 				"north": {"uv": [0, 1, 0.5, 2], "texture": "#0"},
@@ -37,8 +37,8 @@
 		},
 		{
 			"name": "top frame",
-			"from": [15.3, 4, 0],
-			"to": [15.8, 5, 14],
+			"from": [15.5, 4, 0],
+			"to": [16, 5, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 12]},
 			"faces": {
 				"north": {"uv": [0, 1, 0.5, 2], "texture": "#0"},

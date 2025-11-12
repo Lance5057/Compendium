@@ -54,7 +54,7 @@ public class StyleData {
 			List.of("basic", "basic_panel", "contemporary_slats", "cross", "fancy", "flat", "flat_extra",
 					"full", "lath", "lath_extra", "live_edge", "panelled", "slats", "solid", "weave"));
 	public static StyleData BED_BASE = new StyleData("bed_base",
-			List.of("basic" , "panelled"/*, "slats", "solid", "weave" */));
+			List.of("basic" , "panelled", "slats", "solid", "weave" ));
 
 	public static StyleData SHINGLES = new StyleData("shingles", List.of("basic"));
 	public static StyleData SUPPORT = new StyleData("support", List.of("basic"/* , "braced", "none" */));
