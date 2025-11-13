@@ -498,19 +498,38 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			StyleData.BED_BASE.getTypes().forEach(b -> {
 				for (BedSideType sideType : BedSideType.values())
 					for (BedPart part : BedPart.values()) {
-						withExistingParent(
-								"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+						if (b.equals("weave")) {
+							withExistingParent(
+									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name + "_planks"))
+									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 
-						withExistingParent(
-								"block/material/wood/" + mb.name + "/bed/occupied/" + sideType.toString().toLowerCase()
-										+ "/" + part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-								.texture("0", mcLoc("block/" + mb.name + "_planks"));
+							withExistingParent(
+									"block/material/wood/" + mb.name + "/bed/occupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name + "_planks"))
+									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+						} else {
+							withExistingParent(
+									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+							withExistingParent(
+									"block/material/wood/" + mb.name + "/bed/occupied/" + sideType.toString().toLowerCase()
+											+ "/" + part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name + "_planks"));
+						}
 					}
 			});
 

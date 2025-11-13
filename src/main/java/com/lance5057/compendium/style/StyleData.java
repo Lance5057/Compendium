@@ -51,7 +51,7 @@ public class StyleData {
 	public static StyleData BED_SHEET = new StyleData("bed_sheet", List.of("basic"));
 	public static StyleData BED_MATTRESS = new StyleData("bed_mattress", List.of("basic"));
 	public static StyleData BED_FRAME = new StyleData("bed_frame",
-			List.of("basic", "basic_panel", "contemporary_slats", "cross", "fancy", "flat", "flat_extra",
+			List.of("basic", "contemporary_slats", "cross", "fancy", "flat", "flat_extra",
 					"full", "lath", "lath_extra", "live_edge", "panelled", "slats", "solid", "weave"));
 	public static StyleData BED_BASE = new StyleData("bed_base",
 			List.of("basic" , "panelled", "slats", "solid", "weave" ));

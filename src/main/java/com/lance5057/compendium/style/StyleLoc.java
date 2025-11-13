@@ -36,8 +36,8 @@ public class StyleLoc {
         lp.add("style.table_top.smooth", "Smooth");
 
         lp.add("style.table_legs.basic", "Basic");
-        lp.add("style.table_top.bar", "Bar");
-        lp.add("style.table_top.fancy", "Fancy");
+        lp.add("style.table_legs.bar", "Bar");
+        lp.add("style.table_legs.fancy", "Fancy");
 
         lp.add("style.table_cloth.basic", "Basic");
         lp.add("style.table_cloth.long", "Long");
@@ -172,7 +172,6 @@ public class StyleLoc {
         lp.add("style.bed_mattress.basic", "Basic");
 
         lp.add("style.bed_frame.basic", "Basic");
-        lp.add("style.bed_frame.basic_panel", "Basic Panel");
         lp.add("style.bed_frame.contemporary_slats", "Contemporary Slats");
         lp.add("style.bed_frame.cross", "Cross");
         lp.add("style.bed_frame.fancy", "Fancy");

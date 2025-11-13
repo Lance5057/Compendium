@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/left/head/frame/basic_panel",
-  "textures": {
-    "0": "minecraft:block/mangrove_planks"
-  }
-}
