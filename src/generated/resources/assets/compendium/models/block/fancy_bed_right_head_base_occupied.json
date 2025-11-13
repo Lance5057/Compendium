@@ -12,7 +12,10 @@
     "styleLayer": 1,
     "styles": [
       "basic",
-      "panelled"
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
     ],
     "suffix": "",
     "valid": [
