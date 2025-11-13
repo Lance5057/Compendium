@@ -76,7 +76,8 @@
     "modelPart": "blanket",
     "styleLayer": 4,
     "styles": [
-      "basic"
+      "basic",
+      "llama"
     ],
     "suffix": "",
     "valid": [

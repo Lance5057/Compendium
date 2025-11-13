@@ -11,7 +11,8 @@
     "modelPart": "occupied/left/head/blanket",
     "styleLayer": 5,
     "styles": [
-      "basic"
+      "basic",
+      "llama"
     ],
     "suffix": "",
     "valid": [

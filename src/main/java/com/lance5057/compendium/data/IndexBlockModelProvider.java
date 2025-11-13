@@ -189,20 +189,39 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					});
 
 					StyleData.BED_BLANKET.getTypes().forEach(b -> {
-						withExistingParent(
-								"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-								.texture("0", mcLoc("block/" + mb.name));
+						if (b == "llama") {
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase()
+											+ "/" + part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+									.texture("2", modLoc(mb.blockFolder() + "llama"))
+									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
 
-						withExistingParent(
-								"block/material/textile/" + mb.name + "/bed/occupied/"
-										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-										+ "/blanket/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-								.texture("0", mcLoc("block/" + mb.name));
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/occupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+									.texture("2", modLoc(mb.blockFolder() + "llama"))
+									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
+						} else {
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase()
+											+ "/" + part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name));
+
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/occupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+									.texture("0", mcLoc("block/" + mb.name));
+						}
 					});
 				}
 
@@ -524,8 +543,9 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/occupied/" + sideType.toString().toLowerCase()
-											+ "/" + part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
+									"block/material/wood/" + mb.name + "/bed/occupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/base/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));

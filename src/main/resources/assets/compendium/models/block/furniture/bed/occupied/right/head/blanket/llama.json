@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"2": "compendium:block/material/textile/black_wool/llama",
+		"3": "compendium:block/material/textile/black_wool/llama_trim",
+		"particle": "block/white_wool"
+	},
+	"elements": [
+		{
+			"from": [-0.2, 5, 0],
+			"to": [16, 12.4, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.2, 10, 0]},
+			"faces": {
+				"west": {"uv": [8.6, 11, 16, 16], "rotation": 270, "texture": "#3"},
+				"up": {"uv": [0, 5, 16, 0], "texture": "#2"}
+			}
+		}
+	]
+}
