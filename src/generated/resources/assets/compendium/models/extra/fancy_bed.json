@@ -8,23 +8,10 @@
   "layer0": {
     "materialLayer": 0,
     "modelBase": "bed",
-    "modelPart": "frame",
+    "modelPart": "inventory/base",
     "styleLayer": 0,
     "styles": [
-      "basic",
-      "contemporary_slats",
-      "cross",
-      "fancy",
-      "flat",
-      "flat_extra",
-      "full",
-      "lath",
-      "lath_extra",
-      "live_edge",
-      "panelled",
-      "slats",
-      "solid",
-      "weave"
+      "basic"
     ],
     "suffix": "",
     "valid": [
@@ -34,7 +21,7 @@
   "layer1": {
     "materialLayer": 1,
     "modelBase": "bed",
-    "modelPart": "mattress",
+    "modelPart": "inventory/frame",
     "styleLayer": 1,
     "styles": [
       "basic"
@@ -47,43 +34,56 @@
   "layer2": {
     "materialLayer": 2,
     "modelBase": "bed",
-    "modelPart": "sheet",
+    "modelPart": "inventory/mattress",
     "styleLayer": 2,
     "styles": [
       "basic"
     ],
     "suffix": "",
     "valid": [
-      "WOOD"
+      "TEXTILE"
     ]
   },
   "layer3": {
     "materialLayer": 3,
     "modelBase": "bed",
-    "modelPart": "pillow",
+    "modelPart": "inventory/sheet",
     "styleLayer": 3,
     "styles": [
       "basic"
     ],
     "suffix": "",
     "valid": [
-      "WOOD"
+      "TEXTILE"
     ]
   },
   "layer4": {
     "materialLayer": 4,
     "modelBase": "bed",
-    "modelPart": "blanket",
+    "modelPart": "inventory/pillow",
     "styleLayer": 4,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer5": {
+    "materialLayer": 5,
+    "modelBase": "bed",
+    "modelPart": "inventory/blanket",
+    "styleLayer": 5,
     "styles": [
       "basic",
       "llama"
     ],
     "suffix": "",
     "valid": [
-      "WOOD"
+      "TEXTILE"
     ]
   },
-  "layer_count": 5,
+  "layer_count": 6,
   "loader": "compendium:multi_style_material"
 }

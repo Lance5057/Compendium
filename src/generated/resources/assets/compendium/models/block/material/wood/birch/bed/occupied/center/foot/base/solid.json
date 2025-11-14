@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/center/foot/base/solid",
-  "textures": {
-    "0": "minecraft:block/birch_planks"
-  }
-}

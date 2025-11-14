@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/center/head/base/solid",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

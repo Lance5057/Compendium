@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/center/foot/base/weave",
-  "textures": {
-    "0": "minecraft:block/crimson_planks",
-    "1": "compendium:block/material/wood/crimson/weave"
-  }
-}

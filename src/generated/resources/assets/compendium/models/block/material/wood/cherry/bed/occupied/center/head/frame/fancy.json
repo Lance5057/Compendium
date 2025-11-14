@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/center/head/frame/fancy",
-  "textures": {
-    "0": "minecraft:block/cherry_planks"
-  }
-}

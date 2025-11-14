@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
+	"render_type": "cutout",
 	"textures": {
-		"0": "block/white_wool",
 		"2": "compendium:block/material/textile/black_wool/llama",
 		"particle": "block/white_wool"
 	},
@@ -13,20 +13,7 @@
 			"to": [16, 12.4, 5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1.2, 10, 0]},
 			"faces": {
-				"up": {"uv": [0, 5, 16, 0], "texture": "#2"}
-			}
-		},
-		{
-			"from": [2, 9, 8],
-			"to": [14, 11, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [2, 9, 12]},
-			"faces": {
-				"north": {"uv": [0, 0, 12, 2], "texture": "#0"},
-				"east": {"uv": [0, 0, 6, 2], "texture": "#0"},
-				"south": {"uv": [0, 0, 12, 2], "texture": "#0"},
-				"west": {"uv": [0, 0, 6, 2], "texture": "#0"},
-				"up": {"uv": [0, 0, 12, 6], "texture": "#0"},
-				"down": {"uv": [0, 0, 12, 6], "texture": "#0"}
+				"up": {"uv": [0, 11, 16, 16], "texture": "#2"}
 			}
 		}
 	]

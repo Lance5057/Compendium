@@ -11,20 +11,7 @@
     "modelPart": "single/foot/frame",
     "styleLayer": 0,
     "styles": [
-      "basic",
-      "contemporary_slats",
-      "cross",
-      "fancy",
-      "flat",
-      "flat_extra",
-      "full",
-      "lath",
-      "lath_extra",
-      "live_edge",
-      "panelled",
-      "slats",
-      "solid",
-      "weave"
+      "basic"
     ],
     "suffix": "",
     "valid": [

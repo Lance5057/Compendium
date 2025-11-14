@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/right/foot/base/slats",
-  "textures": {
-    "0": "minecraft:block/acacia_planks"
-  }
-}

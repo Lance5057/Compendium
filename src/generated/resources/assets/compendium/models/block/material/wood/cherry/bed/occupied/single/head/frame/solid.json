@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/single/head/frame/solid",
-  "textures": {
-    "0": "minecraft:block/cherry_planks"
-  }
-}
