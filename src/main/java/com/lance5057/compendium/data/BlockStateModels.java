@@ -155,18 +155,48 @@ public class BlockStateModels extends BlockStateProvider {
 		ConfiguredModel.builder()
 				.modelFile(models().getBuilder("extra/fancy_bed").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("bed_base", mcLoc("block/oak_planks")))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/base", List.of(MATERIAL_TYPES.WOOD),
-								StyleData.BED_FRAME.getTypes(), 0, 0))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/frame", List.of(MATERIAL_TYPES.WOOD),
-								StyleData.BED_FRAME.getTypes(), 1, 1))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/base",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 0, 0))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/frame",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 1, 1))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/mattress",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_MATTRESS.getTypes(), 2, 2))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/sheet", List.of(MATERIAL_TYPES.TEXTILE),
-								StyleData.BED_SHEET.getTypes(), 3, 3))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_SHEET.getTypes(), 3, 3))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/pillow",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_PILLOW.getTypes(), 4, 4))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/blanket",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_BLANKET.getTypes(), 5, 5))
+						.end())
+				.build();
+
+		ConfiguredModel.builder()
+				.modelFile(models().getBuilder("extra/fancy_fence").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fence_base", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "post",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_POST.getTypes(), 0, 0, "_inventory"))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "side",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_SIDE.getTypes(), 1, 1, "_inventory"))
+						.end())
+				.build();
+
+		ConfiguredModel.builder()
+				.modelFile(models().getBuilder("extra/shingles_slanted").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("shingles_base", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "shingles",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES.getTypes(), 0, 0, "_inventory"))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES.getTypes(), 1, 1, "_inventory"))
+						.end())
+				.build();
+
+		ConfiguredModel.builder()
+				.modelFile(models().getBuilder("extra/shingles_cap").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("shingles_base", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap", "shingles",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES.getTypes(), 0, 0, "_inventory"))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap", "support",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES.getTypes(), 1, 1, "_inventory"))
 						.end())
 				.build();
 

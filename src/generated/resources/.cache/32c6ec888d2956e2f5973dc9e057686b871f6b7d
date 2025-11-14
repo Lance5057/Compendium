@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-13T21:02:44.3784698	Block States: compendium
+// 1.21.1	2025-11-14T13:38:27.4126864	Block States: compendium
 7a5d749028adb51994c3d6e98898e5cb7fb712e8 assets/compendium/blockstates/acacia_logs.json
 c5cedc156f41a6c7ea9ad2314094a339febc084f assets/compendium/blockstates/acacia_logs_slab.json
 b27fdb8b4d53b6bffd4cac26f3e302be6f5fbae3 assets/compendium/blockstates/acacia_logs_stairs.json
@@ -338,6 +338,7 @@ d84fac723e46c5faa42a7662447e9e7ae35b2d3c assets/compendium/models/block/fancy_be
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_fence_post_model.json
 9a9179f7390f33ae842f79e6c7a3588b532ecfaa assets/compendium/models/block/fancy_fence_side.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fancy_fence_side_model.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/fence_base.json
 1cddc334d82bb065c7701635d2a763f19587a9cf assets/compendium/models/block/jungle_plank_base.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/log_base.json
 13235e39ea07e45075b9bc8d03ba98ae8dde7b93 assets/compendium/models/block/mangrove_plank_base.json
@@ -693,6 +694,7 @@ f5ab0ab516ddfebe8aa619a1d8b215ef90245e77 assets/compendium/models/block/material
 f6f0ce9c413550046f2afd5e65667fb40e818e54 assets/compendium/models/block/material/wood/warped/stripped_small_logvertical.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/oak_plank_base.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/plank_base.json
+8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/shingles_base.json
 7af406f066a9f8fb749ac5cab1e741b0ef7689fa assets/compendium/models/block/shingles_cap_slanted_all.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/shingles_cap_slanted_all_model.json
 c92d94b1a88f53d511f103e2b590bad196693960 assets/compendium/models/block/shingles_cap_slanted_end.json
@@ -726,6 +728,7 @@ e95f4946c7e68a1dd4d4d0f91c8cc939cfcb8887 assets/compendium/models/block/window.j
 08e46653c2c890f5f79432b531224638f91d8718 assets/compendium/models/extra/chair.json
 a727b71234d35a80137fa736e7a9c9c3e3d73821 assets/compendium/models/extra/clothed_table.json
 45ec794a31c78ef021eeea3febe8f139f3489b7f assets/compendium/models/extra/fancy_bed.json
+8295ae630015336421131536008312ea39da790a assets/compendium/models/extra/fancy_fence.json
 4cbeeac36a56f85a2b04f2f29b7e49ecd3b959e4 assets/compendium/models/extra/material/wood/acacia/log.json
 c3bb433d371a30894a8ee45ee424e093f5c0aa64 assets/compendium/models/extra/material/wood/acacia/log_slab.json
 13d65fc86c3bb513612e9ac03b29d65bb84463eb assets/compendium/models/extra/material/wood/acacia/log_stairs.json
@@ -786,4 +789,6 @@ dae412a21ab903c3d2386c38939877ab4b7135c2 assets/compendium/models/extra/material
 d6e2698f966bf26963a5e6f0a8e669b5abf66f2a assets/compendium/models/extra/material/wood/warped/stripped_log.json
 60fa5bc54760919a846099048b2b4b91b4d4cf33 assets/compendium/models/extra/material/wood/warped/stripped_log_slab.json
 5afff933e8e6dc6d71437fa7a40946349329ec8b assets/compendium/models/extra/material/wood/warped/stripped_log_stairs.json
+355d5aa78d419fbbce660fb13f719b723d63e147 assets/compendium/models/extra/shingles_cap.json
+97a67c360fc2314c1f390d60964770eb5895c93e assets/compendium/models/extra/shingles_slanted.json
 81db7561945e9434333efb423c12f7417c9e3eab assets/compendium/models/extra/table.json

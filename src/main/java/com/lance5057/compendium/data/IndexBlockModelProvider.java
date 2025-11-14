@@ -156,8 +156,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					}
 				}
 
-				withExistingParent(
-						"block/material/textile/" + mb.name + "/bed/inventory/mattress/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/mattress/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/mattress/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 			});
@@ -182,8 +181,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					}
 				}
 
-				withExistingParent(
-						"block/material/textile/" + mb.name + "/bed/inventory/sheet/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/sheet/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/sheet/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 			});
@@ -208,8 +206,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					}
 				}
 
-				withExistingParent(
-						"block/material/textile/" + mb.name + "/bed/inventory/pillow/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/pillow/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/pillow/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 			});
@@ -253,8 +250,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					}
 				}
 
-				withExistingParent(
-						"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name));
 			});
@@ -548,8 +544,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						}
 					}
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
 						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
@@ -593,8 +588,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						}
 					}
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase() + "_inventory",
+				withExistingParent("block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
 						modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 			});
