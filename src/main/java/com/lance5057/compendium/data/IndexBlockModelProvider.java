@@ -611,7 +611,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				}
 			});
 
-			StyleData.SHINGLES.getTypes().forEach(b -> {
+			StyleData.SHINGLES_SHINGLES.getTypes().forEach(b -> {
 				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
 						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
@@ -627,7 +627,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 			});
 
-			StyleData.SUPPORT.getTypes().forEach(b -> {
+			StyleData.SUPPORT_SHINGLES.getTypes().forEach(b -> {
 				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
 						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
 						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));

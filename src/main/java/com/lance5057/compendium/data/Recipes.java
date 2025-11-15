@@ -44,9 +44,9 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.SAW_BUCK.toStack()).define('s', Items.STICK)
 				.pattern("s s").pattern(" s ").pattern("s s").unlockedBy(getName(), has(Items.STICK)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.WORKBENCH.toStack())
-				.define('p', CompendiumTags.PLANK).pattern("s s").pattern(" s ").pattern("s s")
-				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
+//		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.WORKBENCH.toStack())
+//				.define('p', CompendiumTags.PLANK).pattern("s s").pattern(" s ").pattern("s s")
+//				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
 
 //		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.HAMMERING_STATION.toStack())
 //				.define('p', CompendiumTags.PLANK).define('s', Items.SMOOTH_STONE_SLAB).define('l', ItemTags.LOGS)

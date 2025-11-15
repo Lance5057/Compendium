@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-15T00:41:23.0962552	Recipes
+// 1.21.1	2025-11-15T01:28:45.0981259	Recipes
 a9ecc3f9e72da0f92f212d0c572a86bba2dc1bf7 data/compendium/advancement/recipes/building_blocks/acacia_logs_item.json
 c20480cd9cdc2b1a44b7703a22b2300a4b3557c9 data/compendium/advancement/recipes/building_blocks/acacia_logs_slab_item.json
 2e7f1ef25179fea318f6d7cbb43eaec3c3908cc2 data/compendium/advancement/recipes/building_blocks/acacia_logs_stairs_item.json
@@ -59,6 +59,7 @@ a709d0183de43d23aabd6bdb116350c7132aa615 data/compendium/advancement/recipes/bui
 74edad466fbb97b4ba3e06820aa7f494f1619edb data/compendium/advancement/recipes/building_blocks/warped_stripped_logs_item.json
 1ce402569ab292028fbe8cbe1a9ae4885aad020a data/compendium/advancement/recipes/building_blocks/warped_stripped_logs_slab_item.json
 e7284fc3c94fc522a131c224c1df580a8f085f8d data/compendium/advancement/recipes/building_blocks/warped_stripped_logs_stairs_item.json
+e89ee3df0fa549d7a14a08512f53eed27fb73bff data/compendium/advancement/recipes/misc/saw_buck.json
 3f1576bdf26a002b6c58617746f8f973441f3aa1 data/compendium/advancement/recipes/sawing/acacia_plank_item.json
 430c25edbf6dded7f380658dab9955dc6d982b0a data/compendium/advancement/recipes/sawing/birch_plank_item.json
 4ad7fd6697053e7aea1c17ae8e358ab879f72b48 data/compendium/advancement/recipes/sawing/cherry_plank_item.json
@@ -150,6 +151,7 @@ f979ff1569e1a81835d1ead6b320ffb7ab8f0974 data/compendium/recipe/sawing/jungle_pl
 15f9e7ad3bd38b6259a2d51a614db28c808d5d9d data/compendium/recipe/sawing/oak_plank_item.json
 5bb72b4653f0357dd6c8db373b02f7b3972fd8c2 data/compendium/recipe/sawing/spruce_plank_item.json
 37aa6698d1ef3d61695e303e095d3815a2245281 data/compendium/recipe/sawing/warped_plank_item.json
+3b29f2d4b7d74333e61aa8e5d8ec619a4a800444 data/compendium/recipe/saw_buck.json
 a052b9cf7ca055a57b84b17874dad09bc20f9f0a data/compendium/recipe/spruce_logs_item.json
 2ce77d6e7fbfc9aa591eb0cfcd61d7862876c31c data/compendium/recipe/spruce_logs_slab_item.json
 7c70235fa72720f0e3ba12dbd87b1bd8e2dd941b data/compendium/recipe/spruce_logs_stairs_item.json
