@@ -38,7 +38,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/crimson/slab/chiseled_full"
   },
-  "count": 35,
+  "count": 36,
   "cross": {
     "model": "compendium:block/material/wood/crimson/slab/cross_full"
   },
@@ -50,6 +50,9 @@
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/crimson/slab/double_herringbone_full"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/crimson/slab/four_panels_full"
   },
   "herringbone": {
     "model": "compendium:block/material/wood/crimson/slab/herringbone_full"

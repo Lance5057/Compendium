@@ -38,7 +38,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/cherry/stairs/chiseled_outer"
   },
-  "count": 35,
+  "count": 36,
   "cross": {
     "model": "compendium:block/material/wood/cherry/stairs/cross_outer"
   },
@@ -50,6 +50,9 @@
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/cherry/stairs/double_herringbone_outer"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/cherry/stairs/four_panels_outer"
   },
   "herringbone": {
     "model": "compendium:block/material/wood/cherry/stairs/herringbone_outer"

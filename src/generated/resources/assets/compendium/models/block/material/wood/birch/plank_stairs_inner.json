@@ -38,7 +38,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/birch/stairs/chiseled_inner"
   },
-  "count": 35,
+  "count": 36,
   "cross": {
     "model": "compendium:block/material/wood/birch/stairs/cross_inner"
   },
@@ -50,6 +50,9 @@
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/birch/stairs/double_herringbone_inner"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/birch/stairs/four_panels_inner"
   },
   "herringbone": {
     "model": "compendium:block/material/wood/birch/stairs/herringbone_inner"

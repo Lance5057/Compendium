@@ -81,12 +81,13 @@ public class StyleData {
 					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
 					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
 					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
-					"wicker"));
+					"wicker", "four_panels"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
 					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
-					"diagonal_trimmed"));
+					"diagonal_trimmed", "braced", "caged", "caged_grate", "grate", "framed", "grill", "porthole",
+					"warped", "woven"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

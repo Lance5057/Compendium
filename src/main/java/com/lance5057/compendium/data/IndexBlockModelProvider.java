@@ -597,6 +597,9 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
 						modLoc("block/bases/fence/post/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
+						modLoc("block/bases/fence/post/" + b.toLowerCase()))
+						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 			});
 
 			StyleData.FENCE_SIDE.getTypes().forEach(b -> {

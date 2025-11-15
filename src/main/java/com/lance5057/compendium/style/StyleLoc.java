@@ -299,6 +299,15 @@ public class StyleLoc {
         lp.add("style.window_trim.weave", "Weave");
         lp.add("style.window_trim.diagonal", "Diagonal");
         lp.add("style.window_trim.diagonal_trimmed", "Diagonal (Trimmed)");
+        lp.add("style.window_trim.braced", "Braced");
+        lp.add("style.window_trim.caged", "Caged");
+        lp.add("style.window_trim.caged_grate", "Cage Grate");
+        lp.add("style.window_trim.grate", "Grate");
+        lp.add("style.window_trim.framed", "Framed");
+        lp.add("style.window_trim.grill", "Grill");
+        lp.add("style.window_trim.porthole", "Porthole");
+        lp.add("style.window_trim.warped", "Warped");
+        lp.add("style.window_trim.woven", "Woven");
 
         // Window Glass
         lp.add("style.window_glass.basic", "Basic");

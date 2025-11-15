@@ -39,7 +39,16 @@
       "round",
       "weave",
       "diagonal",
-      "diagonal_trimmed"
+      "diagonal_trimmed",
+      "braced",
+      "caged",
+      "caged_grate",
+      "grate",
+      "framed",
+      "grill",
+      "porthole",
+      "warped",
+      "woven"
     ],
     "suffix": "",
     "valid": [
