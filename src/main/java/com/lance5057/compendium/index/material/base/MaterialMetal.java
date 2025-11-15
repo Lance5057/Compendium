@@ -66,9 +66,10 @@ public class MaterialMetal extends _MaterialBase {
 					() -> Ingredient.of(INGOT.itemTag));
 		}
 
-		INGOT.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
-		NUGGET.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
-		BLOCK.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+		INGOT.setup(this, "c", "ingots/" + name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		NUGGET.setup(this, "c", "nuggets/" + name,
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
+		BLOCK.setup(this, "c", "storage_blocks/" + name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
 		this.extensions.forEach(i -> i.setup(this));

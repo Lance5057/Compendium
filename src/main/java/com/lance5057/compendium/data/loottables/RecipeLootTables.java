@@ -30,6 +30,9 @@ public class RecipeLootTables implements LootTableSubProvider {
 
 	public static final ResourceKey<LootTable> SAW_DUST = ResourceKey.create(Registries.LOOT_TABLE,
 			TagUtil.modLoc("sawdust"));
+	
+	public static final ResourceKey<LootTable> EMPTY = ResourceKey.create(Registries.LOOT_TABLE,
+			TagUtil.modLoc("empty"));
 
 	private final HolderLookup.Provider provider;
 
@@ -45,6 +48,7 @@ public class RecipeLootTables implements LootTableSubProvider {
 
 		output.accept(STONE_TO_COBBLE, LootTable.lootTable().withPool(createPoolWithItem(Items.COBBLESTONE, 1)));
 		output.accept(SAW_DUST, LootTable.lootTable().withPool(createPoolWithItem(CompendiumItems.SAWDUST.get(), 1)));
+		output.accept(EMPTY, LootTable.lootTable());
 	}
 
 	@NotNull

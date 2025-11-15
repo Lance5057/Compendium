@@ -23,16 +23,17 @@ public class MultiToolRecipeWrapper extends RecipeWrapper {
 		this.width = width;
 		this.height = height;
 		this.items = item;
-		int i = 0;
+		int x = 0;
 
 		if (item != null)
-			for (i = 0; i < item.getSlots(); i++) {
+			for (int i = 0; i < item.getSlots(); i++) {
 				if (!item.getStackInSlot(i).isEmpty()) {
 					this.stackedContents.accountStack(item.getStackInSlot(i), 1);
+					x++;
 				}
 			}
 
-		this.ingredientCount = i;
+		this.ingredientCount = x;
 	}
 
 	public static MultiToolRecipeWrapper of(int width, int height, IItemHandler items) {

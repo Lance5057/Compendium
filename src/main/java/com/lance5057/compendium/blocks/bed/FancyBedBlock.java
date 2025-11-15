@@ -12,11 +12,8 @@ import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -31,8 +28,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 
 public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	public static final EnumProperty<BedSideType> SIDE = EnumProperty.create("type", BedSideType.class);
@@ -167,8 +162,9 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-		// TODO Auto-generated method stub
-		return null;
+		return List.of(StyleData.BED_BASE.getTypeSafe(current.get(0)), StyleData.BED_FRAME.getTypeSafe(current.get(1)),
+				StyleData.BED_MATTRESS.getTypeSafe(current.get(2)), StyleData.BED_SHEET.getTypeSafe(current.get(3)),
+				StyleData.BED_BLANKET.getTypeSafe(current.get(4)), StyleData.BED_PILLOW.getTypeSafe(current.get(5)));
 	}
 
 	@Override

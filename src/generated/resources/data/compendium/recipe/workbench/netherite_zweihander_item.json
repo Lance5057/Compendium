@@ -2,24 +2,32 @@
   "type": "compendium:workbench",
   "input": {
     "key": {
+      "b": {
+        "tag": "c:storage_blocks/netherite"
+      },
       "i": {
-        "item": "minecraft:iron_ingot"
+        "tag": "c:ingots/netherite"
+      },
+      "s": {
+        "item": "minecraft:stick"
       }
     },
     "pattern": [
-      "ii"
+      "  i",
+      " b ",
+      "s  "
     ]
   },
   "ouput": {
     "count": 1,
-    "id": "minecraft:light_weighted_pressure_plate"
+    "id": "compendium:netherite_zweihander_item"
   },
   "tools": [
     {
       "count": 1,
       "damage": true,
       "effects": [],
-      "loot_table": "compendium:stone_to_cobble",
+      "loot_table": "compendium:empty",
       "models": [
         {
           "animation": {

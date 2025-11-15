@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -10,7 +11,11 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
+import com.lance5057.compendium.data.Recipes;
+import com.lance5057.compendium.data.loottables.RecipeLootTables;
+import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.index.util.DataUtil;
@@ -18,6 +23,7 @@ import com.lance5057.compendium.items.tools.HammerItem;
 import com.lance5057.compendium.items.tools.PrybarItem;
 import com.lance5057.compendium.items.tools.SawItem;
 import com.lance5057.compendium.items.tools.ZweihanderItem;
+import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -30,7 +36,9 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -149,8 +157,48 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-		// TODO Auto-generated method stub
+		if (base instanceof MaterialMetal metal) {
+			if (PRYBAR.shouldGenerate())
+				WorkbenchRecipeBuilder.shaped(PRYBAR.ITEM.toStack()).define('i', metal.INGOT.itemTag)
+						.define('s', Items.STICK).pattern("i  ").pattern(" s ").pattern("  i")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
 
+			if (HAMMER.shouldGenerate())
+				WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack()).define('i', metal.INGOT.itemTag)
+						.define('b', metal.BLOCK.itemTag).define('s', Items.STICK).pattern("ibi").pattern(" s ")
+						.pattern(" s ").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
+								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
+
+			if (SAW.shouldGenerate())
+				WorkbenchRecipeBuilder
+						.shaped(SAW.ITEM.toStack()).define('i', metal.INGOT.itemTag).define('s', Items.STICK)
+						.pattern("iis").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
+								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
+
+			if (SHEARS.shouldGenerate())
+				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack()).define('i', metal.INGOT.itemTag).pattern("i ")
+						.pattern(" i").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
+								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
+
+			if (ZWEIHANDER.shouldGenerate())
+				WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack()).define('i', metal.INGOT.itemTag)
+						.define('b', metal.BLOCK.itemTag).define('s', Items.STICK).pattern("  i").pattern(" b ")
+						.pattern("s  ").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
+								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
+
+			if (BOW.shouldGenerate())
+				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack()).define('i', metal.INGOT.itemTag)
+						.define('b', Items.BOW).pattern("i  ").pattern(" b ").pattern("  i")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.save(consumer);
+		}
 	}
 
 	@Override

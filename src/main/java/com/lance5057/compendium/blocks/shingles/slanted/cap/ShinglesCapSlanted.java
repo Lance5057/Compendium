@@ -1,13 +1,19 @@
 package com.lance5057.compendium.blocks.shingles.slanted.cap;
 
+import java.util.List;
+
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.styleblock.IStyleBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.PipeBlock;
@@ -16,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-public class ShinglesCapSlanted extends Block implements EntityBlock {
+public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBlock {
 	public static final BooleanProperty NORTH = PipeBlock.NORTH;
 	public static final BooleanProperty EAST = PipeBlock.EAST;
 	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
@@ -31,8 +37,8 @@ public class ShinglesCapSlanted extends Block implements EntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES, StyleData.SUPPORT,
-				StyleData.GABLE);
+		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_SHINGLES,
+				StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES);
 	}
 
 	@Override
@@ -70,5 +76,22 @@ public class ShinglesCapSlanted extends Block implements EntityBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(NORTH, EAST, SOUTH, WEST);
+	}
+
+	@Override
+	public List<String> getStyles(List<Integer> current) {
+		return List.of(StyleData.SHINGLES_SHINGLES.getTypes().get(current.get(0)),
+				StyleData.SUPPORT_SHINGLES.getTypes().get(current.get(1)));
+	}
+
+	@Override
+	public ResourceLocation getItemModelLocation() {
+		return Compendium.modLoc("extra/shingles_cap_slanted");
+	}
+
+	@Override
+	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
+		// TODO Auto-generated method stub
+
 	}
 }

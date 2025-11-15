@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:workbench/light_weighted_pressure_plate"
+        "recipe": "compendium:workbench/gold_hammer_item"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:workbench/light_weighted_pressure_plate"
+      "compendium:workbench/gold_hammer_item"
     ]
   }
 }

@@ -19,4 +19,6 @@ public class CompendiumTags {
 	public static TagKey<Item> SAW = ItemTags.create(TagUtil.neoTag("tools/saw"));
 	
 	public static TagKey<Block> TABLE = BlockTags.create(Compendium.modLoc("table"));
+	
+	public static TagKey<Item> PLANK = ItemTags.create(TagUtil.neoTag("plank"));
 }

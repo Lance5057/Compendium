@@ -3,11 +3,11 @@ package com.lance5057.compendium.data;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
-import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
@@ -16,8 +16,10 @@ import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTr
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -38,13 +40,24 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		hammering(consumer);
 		workbench(consumer);
 		sawing(consumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.SAW_BUCK.toStack()).define('s', Items.STICK)
+				.pattern("s s").pattern(" s ").pattern("s s").unlockedBy(getName(), has(Items.STICK)).save(consumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.WORKBENCH.toStack())
+				.define('p', CompendiumTags.PLANK).pattern("s s").pattern(" s ").pattern("s s")
+				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
+
+//		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumBlocks.HAMMERING_STATION.toStack())
+//				.define('p', CompendiumTags.PLANK).define('s', Items.SMOOTH_STONE_SLAB).define('l', ItemTags.LOGS)
+//				.pattern("psp").pattern("plp").unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
 
 	private void sawing(RecipeOutput consumer) {
 
 	}
 
-	BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
+	public static BlacklistedModel standardHammeringModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, false,
 				new AnimationFloatTransform()
 						.setRotation(new AnimatedFloatVector3().setZ(new AnimatedFloat(-45, 45, 0, 0.5f, true, true)))
@@ -110,10 +123,6 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	private void workbench(RecipeOutput consumer) {
-		WorkbenchRecipeBuilder.shaped(new ItemStack(Items.LIGHT_WEIGHTED_PRESSURE_PLATE))
-				.define('i', Ingredient.of(Items.IRON_INGOT)).pattern("ii")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
-				.save(consumer);
+
 	}
 }
