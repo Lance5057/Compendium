@@ -1,4 +1,7 @@
 {
+  "banded": {
+    "model": "compendium:block/material/wood/oak/slab/banded_top"
+  },
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
@@ -38,7 +41,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/oak/slab/chiseled_top"
   },
-  "count": 36,
+  "count": 43,
   "cross": {
     "model": "compendium:block/material/wood/oak/slab/cross_top"
   },
@@ -48,8 +51,14 @@
   "diagonal_rotated": {
     "model": "compendium:block/material/wood/oak/slab/diagonal_rotated_top"
   },
+  "domed": {
+    "model": "compendium:block/material/wood/oak/slab/domed_top"
+  },
   "double_herringbone": {
     "model": "compendium:block/material/wood/oak/slab/double_herringbone_top"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/oak/slab/five_top"
   },
   "four_panels": {
     "model": "compendium:block/material/wood/oak/slab/four_panels_top"
@@ -58,11 +67,20 @@
     "model": "compendium:block/material/wood/oak/slab/herringbone_top"
   },
   "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/oak/slab/nine_panels_top"
+  },
   "panel": {
     "model": "compendium:block/material/wood/oak/slab/panel_top"
   },
+  "paper": {
+    "model": "compendium:block/material/wood/oak/slab/paper_top"
+  },
   "parquet": {
     "model": "compendium:block/material/wood/oak/slab/parquet_top"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/oak/slab/petal_top"
   },
   "planks_seamless": {
     "model": "compendium:block/material/wood/oak/slab/planks_seamless_top"
@@ -90,6 +108,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/oak/slab/thin_rotated_top"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/oak/slab/two_panel_top"
   },
   "vertical": {
     "model": "compendium:block/material/wood/oak/slab/vertical_top"

@@ -282,6 +282,13 @@ public class StyleLoc {
         lp.add("style.plank_block.walkway", "Walkway");
         lp.add("style.plank_block.walkway_rotated", "Walkway (Rotated)");
         lp.add("style.plank_block.wicker", "Wicker");
+        lp.add("style.plank_block.banded", "Banded");
+        lp.add("style.plank_block.domed", "Domed");
+        lp.add("style.plank_block.five", "Five");
+        lp.add("style.plank_block.nine_panels", "Nine Panels");
+        lp.add("style.plank_block.petal", "Petal");
+        lp.add("style.plank_block.two_panel", "Two Panels");
+        lp.add("style.plank_block.paper", "Paper");
 
         // Window Trim
         lp.add("style.window_trim.quarter", "Quarter");

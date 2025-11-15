@@ -1,4 +1,7 @@
 {
+  "banded": {
+    "model": "compendium:block/material/wood/mangrove/stairs/banded"
+  },
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
@@ -38,7 +41,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/mangrove/stairs/chiseled"
   },
-  "count": 36,
+  "count": 43,
   "cross": {
     "model": "compendium:block/material/wood/mangrove/stairs/cross"
   },
@@ -48,8 +51,14 @@
   "diagonal_rotated": {
     "model": "compendium:block/material/wood/mangrove/stairs/diagonal_rotated"
   },
+  "domed": {
+    "model": "compendium:block/material/wood/mangrove/stairs/domed"
+  },
   "double_herringbone": {
     "model": "compendium:block/material/wood/mangrove/stairs/double_herringbone"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/mangrove/stairs/five"
   },
   "four_panels": {
     "model": "compendium:block/material/wood/mangrove/stairs/four_panels"
@@ -58,11 +67,20 @@
     "model": "compendium:block/material/wood/mangrove/stairs/herringbone"
   },
   "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/mangrove/stairs/nine_panels"
+  },
   "panel": {
     "model": "compendium:block/material/wood/mangrove/stairs/panel"
   },
+  "paper": {
+    "model": "compendium:block/material/wood/mangrove/stairs/paper"
+  },
   "parquet": {
     "model": "compendium:block/material/wood/mangrove/stairs/parquet"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/mangrove/stairs/petal"
   },
   "planks_seamless": {
     "model": "compendium:block/material/wood/mangrove/stairs/planks_seamless"
@@ -90,6 +108,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/mangrove/stairs/thin_rotated"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/mangrove/stairs/two_panel"
   },
   "vertical": {
     "model": "compendium:block/material/wood/mangrove/stairs/vertical"

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/oak/planks/petal",
+    "side": "compendium:block/material/wood/oak/planks/petal",
+    "top": "compendium:block/material/wood/oak/planks/petal"
+  }
+}

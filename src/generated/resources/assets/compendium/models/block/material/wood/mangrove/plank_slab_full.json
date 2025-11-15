@@ -1,4 +1,7 @@
 {
+  "banded": {
+    "model": "compendium:block/material/wood/mangrove/slab/banded_full"
+  },
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
@@ -38,7 +41,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/mangrove/slab/chiseled_full"
   },
-  "count": 36,
+  "count": 43,
   "cross": {
     "model": "compendium:block/material/wood/mangrove/slab/cross_full"
   },
@@ -48,8 +51,14 @@
   "diagonal_rotated": {
     "model": "compendium:block/material/wood/mangrove/slab/diagonal_rotated_full"
   },
+  "domed": {
+    "model": "compendium:block/material/wood/mangrove/slab/domed_full"
+  },
   "double_herringbone": {
     "model": "compendium:block/material/wood/mangrove/slab/double_herringbone_full"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/mangrove/slab/five_full"
   },
   "four_panels": {
     "model": "compendium:block/material/wood/mangrove/slab/four_panels_full"
@@ -58,11 +67,20 @@
     "model": "compendium:block/material/wood/mangrove/slab/herringbone_full"
   },
   "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/mangrove/slab/nine_panels_full"
+  },
   "panel": {
     "model": "compendium:block/material/wood/mangrove/slab/panel_full"
   },
+  "paper": {
+    "model": "compendium:block/material/wood/mangrove/slab/paper_full"
+  },
   "parquet": {
     "model": "compendium:block/material/wood/mangrove/slab/parquet_full"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/mangrove/slab/petal_full"
   },
   "planks_seamless": {
     "model": "compendium:block/material/wood/mangrove/slab/planks_seamless_full"
@@ -90,6 +108,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/mangrove/slab/thin_rotated_full"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/mangrove/slab/two_panel_full"
   },
   "vertical": {
     "model": "compendium:block/material/wood/mangrove/slab/vertical_full"

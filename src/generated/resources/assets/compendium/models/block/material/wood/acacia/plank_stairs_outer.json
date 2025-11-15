@@ -1,4 +1,7 @@
 {
+  "banded": {
+    "model": "compendium:block/material/wood/acacia/stairs/banded_outer"
+  },
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
@@ -38,7 +41,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/acacia/stairs/chiseled_outer"
   },
-  "count": 36,
+  "count": 43,
   "cross": {
     "model": "compendium:block/material/wood/acacia/stairs/cross_outer"
   },
@@ -48,8 +51,14 @@
   "diagonal_rotated": {
     "model": "compendium:block/material/wood/acacia/stairs/diagonal_rotated_outer"
   },
+  "domed": {
+    "model": "compendium:block/material/wood/acacia/stairs/domed_outer"
+  },
   "double_herringbone": {
     "model": "compendium:block/material/wood/acacia/stairs/double_herringbone_outer"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/acacia/stairs/five_outer"
   },
   "four_panels": {
     "model": "compendium:block/material/wood/acacia/stairs/four_panels_outer"
@@ -58,11 +67,20 @@
     "model": "compendium:block/material/wood/acacia/stairs/herringbone_outer"
   },
   "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/acacia/stairs/nine_panels_outer"
+  },
   "panel": {
     "model": "compendium:block/material/wood/acacia/stairs/panel_outer"
   },
+  "paper": {
+    "model": "compendium:block/material/wood/acacia/stairs/paper_outer"
+  },
   "parquet": {
     "model": "compendium:block/material/wood/acacia/stairs/parquet_outer"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/acacia/stairs/petal_outer"
   },
   "planks_seamless": {
     "model": "compendium:block/material/wood/acacia/stairs/planks_seamless_outer"
@@ -90,6 +108,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/acacia/stairs/thin_rotated_outer"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/acacia/stairs/two_panel_outer"
   },
   "vertical": {
     "model": "compendium:block/material/wood/acacia/stairs/vertical_outer"

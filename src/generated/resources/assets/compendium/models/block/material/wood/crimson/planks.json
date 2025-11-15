@@ -1,4 +1,7 @@
 {
+  "banded": {
+    "model": "compendium:block/material/wood/crimson/planks/banded"
+  },
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
@@ -38,7 +41,7 @@
   "chiseled": {
     "model": "compendium:block/material/wood/crimson/planks/chiseled"
   },
-  "count": 36,
+  "count": 43,
   "cross": {
     "model": "compendium:block/material/wood/crimson/planks/cross"
   },
@@ -48,8 +51,14 @@
   "diagonal_rotated": {
     "model": "compendium:block/material/wood/crimson/planks/diagonal_rotated"
   },
+  "domed": {
+    "model": "compendium:block/material/wood/crimson/planks/domed"
+  },
   "double_herringbone": {
     "model": "compendium:block/material/wood/crimson/planks/double_herringbone"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/crimson/planks/five"
   },
   "four_panels": {
     "model": "compendium:block/material/wood/crimson/planks/four_panels"
@@ -58,11 +67,20 @@
     "model": "compendium:block/material/wood/crimson/planks/herringbone"
   },
   "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/crimson/planks/nine_panels"
+  },
   "panel": {
     "model": "compendium:block/material/wood/crimson/planks/panel"
   },
+  "paper": {
+    "model": "compendium:block/material/wood/crimson/planks/paper"
+  },
   "parquet": {
     "model": "compendium:block/material/wood/crimson/planks/parquet"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/crimson/planks/petal"
   },
   "planks_seamless": {
     "model": "compendium:block/material/wood/crimson/planks/planks_seamless"
@@ -90,6 +108,9 @@
   },
   "thin_rotated": {
     "model": "compendium:block/material/wood/crimson/planks/thin_rotated"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/crimson/planks/two_panel"
   },
   "vertical": {
     "model": "compendium:block/material/wood/crimson/planks/vertical"

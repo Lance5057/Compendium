@@ -81,7 +81,7 @@ public class StyleData {
 					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
 					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
 					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
-					"wicker", "four_panels"));
+					"wicker", "two_panel", "four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
