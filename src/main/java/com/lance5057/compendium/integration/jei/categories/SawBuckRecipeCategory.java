@@ -31,7 +31,7 @@ public class SawBuckRecipeCategory implements IRecipeCategory<SawBuckRecipe> {
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 0, 0, 162, 90);
 		localizedName = Component.translatable("compendium.jei.sawbuck");
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK,
-				new ItemStack(CompendiumItems.HAMMERING_STATION.get()));
+				new ItemStack(CompendiumItems.SAW_BUCK.get()));
 	}
 
 	@Override

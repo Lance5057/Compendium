@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:mangrove_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:mangrove_plank_item"
+  }
+}

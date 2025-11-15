@@ -1,0 +1,103 @@
+{
+  "type": "compendium:workbench",
+  "input": {
+    "key": {
+      "b": {
+        "item": "minecraft:brush"
+      },
+      "c": {
+        "item": "minecraft:copper_block"
+      },
+      "g": {
+        "item": "minecraft:green_dye"
+      },
+      "h": {
+        "item": "minecraft:chest"
+      },
+      "l": {
+        "item": "minecraft:blue_dye"
+      },
+      "p": {
+        "tag": "minecraft:wooden_pressure_plates"
+      },
+      "r": {
+        "item": "minecraft:red_dye"
+      },
+      "s": {
+        "item": "minecraft:stick"
+      },
+      "y": {
+        "item": "minecraft:yellow_dye"
+      }
+    },
+    "pattern": [
+      "psb",
+      "lhg",
+      "rcy"
+    ]
+  },
+  "ouput": {
+    "count": 1,
+    "id": "compendium:cosmetic_toolbox"
+  },
+  "tools": [
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0,
+                "min": -8.0
+              },
+              "y": {
+                "max": 10.0,
+                "min": -10.0
+              },
+              "z": {
+                "max": 8.0,
+                "min": -8.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "loop": true,
+                "max": 45.0,
+                "min": -45.0,
+                "pingpong": true,
+                "speed": 0.5
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:gold_hammer"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 4
+    }
+  ]
+}

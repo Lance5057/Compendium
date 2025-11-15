@@ -27,6 +27,7 @@ import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
+import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -49,6 +50,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -491,16 +493,61 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 															false)))))
 					.save(consumer);
 
-			ShapelessRecipeBuilder
-					.shapeless(RecipeCategory.DECORATIONS,
+			ShapedRecipeBuilder
+					.shaped(RecipeCategory.DECORATIONS,
 							BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(base.name + "_planks")), 2)
-					.requires(PLANK.BLOCK_ITEM).requires(PLANK.BLOCK_ITEM).requires(PLANK.BLOCK_ITEM)
-					.requires(PLANK.BLOCK_ITEM)
+					.define('p', PLANK.BLOCK_ITEM).pattern("pp").pattern("pp")
 					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
 									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
 					.save(consumer);
+
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
+					.define('p', PLANK.BLOCK_ITEM).pattern("p p").pattern("   ").pattern("p p")
+					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
+							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
+					.save(consumer);
+
+			WorkbenchRecipeBuilder.shaped(PLANK_SLAB.BLOCK_ITEM, 6).define('p', PLANK.BLOCK_ITEM).pattern("ppp")
+					.pattern("ppp")
+					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
+							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+					.save(consumer);
+
+			WorkbenchRecipeBuilder.shaped(PLANK_STAIRS.BLOCK_ITEM, 6).define('p', PLANK.BLOCK_ITEM).pattern("p  ")
+					.pattern("pp ").pattern("ppp")
+					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
+							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+					.save(consumer);
+
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
+					.requires(PLANK_SLAB.BLOCK_ITEM)
+					.unlockedBy("plank_slab", CriteriaTriggers.INVENTORY_CHANGED
+							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
+
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
+					.requires(PLANK_STAIRS.BLOCK_ITEM)
+					.unlockedBy("plank_stairs",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(PLANK_STAIRS.BLOCK_ITEM.asItem())
+													.build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
 		}
 	}
 
