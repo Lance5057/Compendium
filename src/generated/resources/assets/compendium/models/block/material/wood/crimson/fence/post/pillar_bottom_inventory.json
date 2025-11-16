@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/fence/post/pillar_bottom",
+  "parent": "compendium:block/bases/fence/post/pillar_bottom_inventory",
   "textures": {
     "0": "minecraft:block/crimson_planks"
   }

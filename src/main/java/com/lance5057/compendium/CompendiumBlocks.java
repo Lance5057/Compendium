@@ -10,6 +10,7 @@ import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBlock;
+import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
@@ -25,7 +26,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class CompendiumBlocks {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 
-//	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 	public static final DeferredBlock<Block> HAMMERING_STATION = BLOCKS.register("hammering_station",
 			HammeringStationBlock::new);
 
@@ -58,7 +58,7 @@ public class CompendiumBlocks {
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
 			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.BLACK_STAINED_GLASS), 2, 2,
-					Compendium.modLoc("extra/window")));
+					Compendium.modLoc("extra/window"), StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),

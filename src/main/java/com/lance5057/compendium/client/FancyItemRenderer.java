@@ -61,11 +61,9 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
-//				Compendium.LOGGER.debug(ModelResourceLocation.standalone(st.getItemModelLocation()).toString());
-
 				BakedModel bm = Minecraft.getInstance().getModelManager()
 						.getModel(ModelResourceLocation.standalone(st.getItemModelLocation()));
-//				bm = bm.applyTransform(displayContext, ps, false);
+
 				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				IRenderable<ModelData> ir = bmr.withModelDataContext();
 
@@ -74,9 +72,6 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 					ps.mulPose(new Quaternionf().fromAxisAngleDeg(0, 1, 0, -90));
 				}
 
-//				bm = ClientHooks.handleCameraTransforms(ps, bm, displayContext, true);
-
-//				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				if (ir != null) {
 					ir.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
 							overlay, overlay, null);

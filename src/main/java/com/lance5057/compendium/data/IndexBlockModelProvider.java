@@ -32,50 +32,6 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			}
 		});
 
-//		withExistingParent("block/material/glass/clear/window/glass/clear",
-//				Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-//				.renderType("cutout");
-//
-//		withExistingParent("block/material/glass/clear/window/glass/clear_inventory",
-//				Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-//				.renderType("cutout");
-
-//		singleTexture("block/material/glass/clear_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/glass")).renderType("cutout");
-
-//		singleTexture("block/material/glass/white_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/white_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/light_gray_glass/window", Compendium.modLoc("block/slightlysmallerblock"),
-//				"0", mcLoc("block/light_gray_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/gray_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/gray_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/black_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/black_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/brown_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/brown_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/red_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/red_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/orange_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/orange_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/yellow_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/yellow_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/lime_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/lime_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/green_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/green_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/cyan_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/cyan_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/light_blue_glass/window", Compendium.modLoc("block/slightlysmallerblock"),
-//				"0", mcLoc("block/light_blue_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/blue_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/blue_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/purple_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/purple_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/magenta_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/magenta_stained_glass")).renderType("translucent");
-//		singleTexture("block/material/glass/pink_glass/window", Compendium.modLoc("block/slightlysmallerblock"), "0",
-//				mcLoc("block/pink_stained_glass")).renderType("translucent");
-
 	}
 
 	private void doMetal(_MaterialBase mb) {
@@ -598,7 +554,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						modLoc("block/bases/fence/post/" + b.toLowerCase()))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
-						modLoc("block/bases/fence/post/" + b.toLowerCase()))
+						modLoc("block/bases/fence/post/" + b.toLowerCase() + "_inventory"))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 			});
 
@@ -612,6 +568,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							modLoc("block/bases/fence/side/" + b.toLowerCase()))
 							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 				}
+				
+				withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+						modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+						.texture("0", mcLoc("block/" + mb.name + "_planks"));
 			});
 
 			StyleData.SHINGLES_SHINGLES.getTypes().forEach(b -> {

@@ -1,5 +1,6 @@
 package com.lance5057.compendium.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
@@ -17,37 +18,45 @@ import net.minecraft.world.level.block.state.BlockState;
 public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBlock {
 	int materials = 0;
 	int styles = 0;
-	
+
+	public final StyleData[] styleData;
 	final ResourceLocation itemRendererLocation;
 
-	public BasicDecorativeBlock(Properties properties, int materials, int styles, ResourceLocation itemRendererLocation) {
-		
+	public BasicDecorativeBlock(Properties properties, int materials, int styles, ResourceLocation itemRendererLocation,
+			StyleData... styleData) {
+
 		super(properties);
 		this.materials = materials;
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
+		this.styleData = styleData;
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, styles, materials, StyleData.WINDOW_GLASS,
-				StyleData.WINDOW_TRIM);
+		return new StyledMultiMaterialBlockEntity(pos, state, styles, materials, styleData);
 	}
 
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.WINDOW_TRIM.getTypes().get(current.get(0)));
+		List<String> s = new ArrayList<String>();
+		for (int i = 0; i < current.size(); i++) {
+			if (styleData.length > i) {
+				s.add(styleData[i].getTypes().get(current.get(i)));
+			}
+		}
+
+		return s;
 	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		// TODO Auto-generated method stub
 		return itemRendererLocation;
 	}
 
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

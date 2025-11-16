@@ -129,6 +129,7 @@ public class CompendiumClient {
 		Compendium.styleItemRenderers.add(CompendiumItems.SHINGLES_SLANTED);
 		Compendium.styleItemRenderers.add(CompendiumItems.FANCY_FENCE);
 		Compendium.styleItemRenderers.add(CompendiumItems.FANCY_BED);
+		Compendium.styleItemRenderers.add(CompendiumItems.WINDOW);
 
 		event.registerItem(new IClientItemExtensions() {
 

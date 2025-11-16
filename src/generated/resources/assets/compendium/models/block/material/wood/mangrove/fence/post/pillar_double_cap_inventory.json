@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/fence/post/pillar_double_cap",
+  "parent": "compendium:block/bases/fence/post/pillar_double_cap_inventory",
   "textures": {
     "0": "minecraft:block/mangrove_planks"
   }

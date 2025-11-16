@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/bases/fence/post/none",
+  "parent": "compendium:block/bases/fence/post/none_inventory",
   "textures": {
     "0": "minecraft:block/spruce_planks"
   }
