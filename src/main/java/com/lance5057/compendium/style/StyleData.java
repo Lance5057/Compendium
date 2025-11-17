@@ -44,7 +44,7 @@ public class StyleData {
 	public static StyleData FENCE_SIDE = new StyleData("fence_side", List.of("basic", "3_spoke", "4_spoke", "diamond",
 			"picket", "privacy", "short", "slats", "slats_concave", "slats_convex", "solid", "solid_sheet"));
 
-	public static StyleData BED_BLANKET = new StyleData("bed_blanket", List.of("basic", "llama"));
+	public static StyleData BED_BLANKET = new StyleData("bed_blanket", List.of("basic", "llama", "glazed"));
 	public static StyleData BED_PILLOW = new StyleData("bed_pillow", List.of("basic"));
 	public static StyleData BED_SHEET = new StyleData("bed_sheet", List.of("basic"));
 	public static StyleData BED_MATTRESS = new StyleData("bed_mattress", List.of("basic"));
@@ -86,8 +86,8 @@ public class StyleData {
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
 					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
-					"diagonal_trimmed", "braced", "caged", "caged_grate", "grate", "framed", "grill", "porthole",
-					"warped", "woven"));
+					"diagonal_trimmed", "caged", "framed", "trimmed", "caged_grate", "framed_grate", "trimmed_grate",
+					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped", "woven"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

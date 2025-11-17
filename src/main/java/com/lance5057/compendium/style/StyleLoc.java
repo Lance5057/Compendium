@@ -164,6 +164,8 @@ public class StyleLoc {
 
         // Bed
         lp.add("style.bed_blanket.basic", "Basic");
+        lp.add("style.bed_blanket.llama", "Llama Blanket");
+        lp.add("style.bed_blanket.glazed", "Glazed");
 
         lp.add("style.bed_pillow.basic", "Basic");
 
@@ -308,9 +310,15 @@ public class StyleLoc {
         lp.add("style.window_trim.diagonal_trimmed", "Diagonal (Trimmed)");
         lp.add("style.window_trim.braced", "Braced");
         lp.add("style.window_trim.caged", "Caged");
-        lp.add("style.window_trim.caged_grate", "Cage Grate");
-        lp.add("style.window_trim.grate", "Grate");
         lp.add("style.window_trim.framed", "Framed");
+        lp.add("style.window_trim.trimmed", "Trimmed");
+        lp.add("style.window_trim.caged_grate", "Caged Grate");
+        lp.add("style.window_trim.framed_grate", "Framed Grate");
+        lp.add("style.window_trim.trimmed_grate", "Trimmed Grate");
+        lp.add("style.window_trim.grate", "Grate");
+        lp.add("style.window_trim.grate_edgeless", "Edgeless Grate");
+        lp.add("style.window_trim.fancy_frame", "Fancy Frame");
+        lp.add("style.window_trim.caged_lattice", "Caged Lattice");
         lp.add("style.window_trim.grill", "Grill");
         lp.add("style.window_trim.porthole", "Porthole");
         lp.add("style.window_trim.warped", "Warped");

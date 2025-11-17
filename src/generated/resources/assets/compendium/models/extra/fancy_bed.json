@@ -77,7 +77,8 @@
     "styleLayer": 5,
     "styles": [
       "basic",
-      "llama"
+      "llama",
+      "glazed"
     ],
     "suffix": "",
     "valid": [

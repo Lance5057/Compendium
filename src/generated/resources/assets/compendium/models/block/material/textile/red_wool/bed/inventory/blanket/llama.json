@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/inventory/blanket/llama",
   "textures": {
-    "0": "minecraft:block/red_wool"
+    "2": "compendium:block/material/textile/red_wool/llama",
+    "3": "compendium:block/material/textile/red_wool/llama_trim"
   }
 }

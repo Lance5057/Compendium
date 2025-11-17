@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/occupied/right/head/blanket/layered",
+  "textures": {
+    "0": "minecraft:block/lime_glazed_terracotta"
+  }
+}

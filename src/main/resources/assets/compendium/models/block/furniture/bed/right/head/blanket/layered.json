@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"render_type": "translucent",
+	"textures": {
+		"0": "block/white_glazed_terracotta",
+		"1": "compendium:block/material/textile/wool_overlay",
+		"particle": "block/white_glazed_terracotta"
+	},
+	"elements": [
+		{
+			"name": "blanket",
+			"from": [-0.2, 4, 0],
+			"to": [16, 9.4, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.2, 7, 0]},
+			"faces": {
+				"west": {"uv": [0, 0, 5, 5.2], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "overlay",
+			"from": [-0.2001, 4, 0],
+			"to": [16, 9.4001, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.2, 7, 0]},
+			"faces": {
+				"west": {"uv": [0, 0, 5, 5.2], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 5], "texture": "#1"}
+			}
+		}
+	]
+}
