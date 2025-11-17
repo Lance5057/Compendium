@@ -8,7 +8,7 @@ public class StyleLoc {
         lp.add("style.tile.full_tile", "Tile");
         lp.add("style.tile.half_tile", "Half Tile");
         lp.add("style.tile.offset_half_tile", "Offset Half Tile");
-        lp.add("style.tile.vertical_half_tile", "Vertical_half_tile");
+        lp.add("style.tile.vertical_half_tile", "Vertical Half Tile");
         lp.add("style.tile.quarter", "Quartered");
         lp.add("style.tile.indented", "Indented");
         lp.add("style.tile.indented_segmented", "Segmented Indented");
