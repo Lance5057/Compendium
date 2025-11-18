@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/left/head/pillow/basic",
-  "textures": {
-    "0": "minecraft:block/cyan_wool"
-  }
-}

@@ -554,6 +554,7 @@ public class BlockStateModels extends BlockStateProvider {
 			boolean S = s.getValue(ShinglesCapSlanted.SOUTH);
 			boolean W = s.getValue(ShinglesCapSlanted.WEST);
 			boolean E = s.getValue(ShinglesCapSlanted.EAST);
+			boolean TOP = s.getValue(ShinglesCapSlanted.TOP);
 
 			int i = N ? 1 : 0;
 			i += S ? 1 : 0;
@@ -562,32 +563,52 @@ public class BlockStateModels extends BlockStateProvider {
 
 			switch (i) {
 			case 4:
-				return shingle("all", 0);
+				return shingle("all", 0, TOP);
 			case 3:
-				return shingle("end", shingleRotation(!N, !S, !W, !E) - 90);
+				return shingle("tri", shingleRotation(!N, !S, !W, !E) + 180, TOP);
 			case 2:
-				return shingle("straight", N ? 0 : 90);
+				if ((N && S) || (W && E))
+					return shingle("straight", N ? 90 : 0, TOP);
+				else {
+					if (N && E)
+						return shingle("corner", 270, TOP);
+					else if (N && W)
+						return shingle("corner", 180, TOP);
+
+					else if (S && W)
+						return shingle("corner", 90, TOP);
+					else
+						return shingle("corner", 0, TOP);
+				}
 			case 1:
-				return shingle("tri", shingleRotation(N, S, W, E) + 180);
+				return shingle("end", shingleRotation(N, S, W, E) + 270, TOP);
 			case 0:
 			default:
-				return shingle("none", 0);
+				return shingle("none", 0, TOP);
 			}
 
 		});
 	}
 
-	ConfiguredModel[] shingle(String suffix, int rotation) {
-		return ConfiguredModel.builder()
-				.modelFile(models().getBuilder("shingles_cap_slanted_" + suffix)
-						.customLoader(MultiStyleMaterialBuilder::begin)
-						.base(models().cubeAll("shingles_cap_slanted_" + suffix + "_model", mcLoc("block/oak_planks")))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/" + suffix,
-								List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/" + suffix,
-								List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1))
-						.end())
-				.rotationY(rotation).build();
+	ConfiguredModel[] shingle(String suffix, int rotation, boolean isTopped) {
+		if (!isTopped)
+			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_" + suffix)
+					.customLoader(MultiStyleMaterialBuilder::begin)
+					.base(models().cubeAll("shingles_cap_slanted_" + suffix + "_model", mcLoc("block/oak_planks")))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/no_top/" + suffix,
+							List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/no_top/" + suffix,
+							List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1))
+					.end()).rotationY(rotation).build();
+		else
+			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_" + suffix + "_top")
+					.customLoader(MultiStyleMaterialBuilder::begin)
+					.base(models().cubeAll("shingles_cap_slanted_" + suffix + "_model", mcLoc("block/oak_planks")))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/top/" + suffix,
+							List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/top/" + suffix,
+							List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1))
+					.end()).rotationY(rotation).build();
 	}
 
 	int shingleRotation(boolean N, boolean S, boolean W, boolean E) {

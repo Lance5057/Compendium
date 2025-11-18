@@ -8,7 +8,7 @@
   "layer0": {
     "materialLayer": 0,
     "modelBase": "shingles_cap_slanted",
-    "modelPart": "shingles/end",
+    "modelPart": "shingles/no_top/end",
     "styleLayer": 0,
     "styles": [
       "basic"
@@ -21,7 +21,7 @@
   "layer1": {
     "materialLayer": 1,
     "modelBase": "shingles_cap_slanted",
-    "modelPart": "support/end",
+    "modelPart": "support/no_top/end",
     "styleLayer": 1,
     "styles": [
       "basic"

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/center/foot/blanket/layered",
-  "textures": {
-    "0": "minecraft:block/light_gray_glazed_terracotta"
-  }
-}

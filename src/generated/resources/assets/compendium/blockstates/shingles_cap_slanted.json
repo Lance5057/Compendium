@@ -1,62 +1,124 @@
 {
   "variants": {
-    "east=false,north=false,south=false,west=false": {
+    "east=false,north=false,south=false,top=false,west=false": {
       "model": "compendium:block/shingles_cap_slanted_none"
     },
-    "east=false,north=false,south=false,west=true": {
-      "model": "compendium:block/shingles_cap_slanted_tri",
+    "east=false,north=false,south=false,top=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_end",
+      "y": 540
+    },
+    "east=false,north=false,south=false,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_none_top"
+    },
+    "east=false,north=false,south=false,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_end_top",
+      "y": 540
+    },
+    "east=false,north=false,south=true,top=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end",
       "y": 450
     },
-    "east=false,north=false,south=true,west=false": {
-      "model": "compendium:block/shingles_cap_slanted_tri",
-      "y": 360
+    "east=false,north=false,south=true,top=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_corner",
+      "y": 90
     },
-    "east=false,north=false,south=true,west=true": {
+    "east=false,north=false,south=true,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end_top",
+      "y": 450
+    },
+    "east=false,north=false,south=true,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_corner_top",
+      "y": 90
+    },
+    "east=false,north=true,south=false,top=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end",
+      "y": 270
+    },
+    "east=false,north=true,south=false,top=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_corner",
+      "y": 180
+    },
+    "east=false,north=true,south=false,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end_top",
+      "y": 270
+    },
+    "east=false,north=true,south=false,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_corner_top",
+      "y": 180
+    },
+    "east=false,north=true,south=true,top=false,west=false": {
       "model": "compendium:block/shingles_cap_slanted_straight",
       "y": 90
     },
-    "east=false,north=true,south=false,west=false": {
-      "model": "compendium:block/shingles_cap_slanted_tri",
-      "y": 180
-    },
-    "east=false,north=true,south=false,west=true": {
-      "model": "compendium:block/shingles_cap_slanted_straight"
-    },
-    "east=false,north=true,south=true,west=false": {
-      "model": "compendium:block/shingles_cap_slanted_straight"
-    },
-    "east=false,north=true,south=true,west=true": {
-      "model": "compendium:block/shingles_cap_slanted_end"
-    },
-    "east=true,north=false,south=false,west=false": {
+    "east=false,north=true,south=true,top=false,west=true": {
       "model": "compendium:block/shingles_cap_slanted_tri",
       "y": 270
     },
-    "east=true,north=false,south=false,west=true": {
-      "model": "compendium:block/shingles_cap_slanted_straight",
+    "east=false,north=true,south=true,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_straight_top",
       "y": 90
     },
-    "east=true,north=false,south=true,west=false": {
-      "model": "compendium:block/shingles_cap_slanted_straight",
-      "y": 90
+    "east=false,north=true,south=true,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri_top",
+      "y": 270
     },
-    "east=true,north=false,south=true,west=true": {
+    "east=true,north=false,south=false,top=false,west=false": {
       "model": "compendium:block/shingles_cap_slanted_end",
-      "y": -90
+      "y": 360
     },
-    "east=true,north=true,south=false,west=false": {
+    "east=true,north=false,south=false,top=false,west=true": {
       "model": "compendium:block/shingles_cap_slanted_straight"
     },
-    "east=true,north=true,south=false,west=true": {
-      "model": "compendium:block/shingles_cap_slanted_end",
-      "y": 90
+    "east=true,north=false,south=false,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_end_top",
+      "y": 360
     },
-    "east=true,north=true,south=true,west=false": {
-      "model": "compendium:block/shingles_cap_slanted_end",
+    "east=true,north=false,south=false,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_straight_top"
+    },
+    "east=true,north=false,south=true,top=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_corner"
+    },
+    "east=true,north=false,south=true,top=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
       "y": 180
     },
-    "east=true,north=true,south=true,west=true": {
+    "east=true,north=false,south=true,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_corner_top"
+    },
+    "east=true,north=false,south=true,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri_top",
+      "y": 180
+    },
+    "east=true,north=true,south=false,top=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_corner",
+      "y": 270
+    },
+    "east=true,north=true,south=false,top=false,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 360
+    },
+    "east=true,north=true,south=false,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_corner_top",
+      "y": 270
+    },
+    "east=true,north=true,south=false,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_tri_top",
+      "y": 360
+    },
+    "east=true,north=true,south=true,top=false,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_tri",
+      "y": 450
+    },
+    "east=true,north=true,south=true,top=false,west=true": {
       "model": "compendium:block/shingles_cap_slanted_all"
+    },
+    "east=true,north=true,south=true,top=true,west=false": {
+      "model": "compendium:block/shingles_cap_slanted_tri_top",
+      "y": 450
+    },
+    "east=true,north=true,south=true,top=true,west=true": {
+      "model": "compendium:block/shingles_cap_slanted_all_top"
     }
   }
 }

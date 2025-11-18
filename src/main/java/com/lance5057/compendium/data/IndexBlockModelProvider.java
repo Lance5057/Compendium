@@ -80,7 +80,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 	public void doTextile(_MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.TEXTILE) {
-			String color_name = mb.name.substring(0,mb.name.lastIndexOf("_"));
+			String color_name = mb.name.substring(0, mb.name.lastIndexOf("_"));
 
 			StyleData.TABLE_CLOTH.getTypes().forEach(b -> {
 				withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
@@ -97,9 +97,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				for (BedSideType sideType : BedSideType.values()) {
 					for (BedPart part : BedPart.values()) {
 						withExistingParent(
-								"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+										+ "/mattress/" + b.toLowerCase(),
+								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 
@@ -107,7 +108,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/textile/" + mb.name + "/bed/occupied/"
 										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 										+ "/mattress/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 
@@ -123,9 +124,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				for (BedSideType sideType : BedSideType.values()) {
 					for (BedPart part : BedPart.values()) {
 						withExistingParent(
-								"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+										+ "/sheet/" + b.toLowerCase(),
+								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 
@@ -148,9 +150,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				for (BedSideType sideType : BedSideType.values()) {
 					for (BedPart part : BedPart.values()) {
 						withExistingParent(
-								"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+										+ "/pillow/" + b.toLowerCase(),
+								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 
@@ -158,7 +161,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/textile/" + mb.name + "/bed/occupied/"
 										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 										+ "/pillow/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					}
@@ -174,9 +177,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					for (BedPart part : BedPart.values()) {
 						if (b == "llama") {
 							withExistingParent(
-									"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase()
-											+ "/" + part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
 									.texture("2", modLoc(mb.blockFolder() + "llama"))
 									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
@@ -190,15 +194,17 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									.texture("2", modLoc(mb.blockFolder() + "llama"))
 									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
 
-							withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
 									.texture("2", modLoc(mb.blockFolder() + "llama"))
 									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
 						} else if (b.equals("glazed")) {
 							withExistingParent(
-									"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase()
-											+ "/" + part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/blanket/layered"))
 									.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
 
@@ -210,14 +216,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 											+ part.toString().toLowerCase() + "/blanket/layered"))
 									.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
 
-							withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/inventory/blanket/basic"))
 									.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
 						} else {
 							withExistingParent(
-									"block/material/textile/" + mb.name + "/bed/" + sideType.toString().toLowerCase()
-											+ "/" + part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/blanket/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name));
 
@@ -229,7 +237,8 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name));
 
-							withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+							withExistingParent(
+									"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name));
 						}
@@ -458,26 +467,30 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					for (BedPart part : BedPart.values()) {
 						if (b.equals("live_edge")) {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase(),
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/frame/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
+									.texture("0",
+											modLoc("block/material/wood/unoccupied/" + mb.name
+													+ "/logs/log_split_side"))
 									.texture("1", mcLoc("block/" + mb.name + "_" + logstem));
 
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
 									.texture("1", mcLoc("block/" + mb.name + "_" + logstem));
 						} else if (b.equals("weave")) {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/frame/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
@@ -486,15 +499,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 						} else if (b.equals("slats")) {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/frame/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
@@ -503,15 +517,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
 						} else {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/frame/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
@@ -519,7 +534,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/frame/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
@@ -537,9 +552,10 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					for (BedPart part : BedPart.values()) {
 						if (b.equals("weave")) {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
@@ -548,15 +564,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/base/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"))
 									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 						} else {
 							withExistingParent(
-									"block/material/wood/" + mb.name + "/bed/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+											+ "/base/" + b.toLowerCase(),
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
@@ -564,7 +581,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									"block/material/wood/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/base/" + b.toLowerCase(),
-									modLoc("block/furniture/bed/" + sideType.toString().toLowerCase() + "/"
+									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
 									.texture("0", mcLoc("block/" + mb.name + "_planks"));
 						}
@@ -594,7 +611,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							modLoc("block/bases/fence/side/" + b.toLowerCase()))
 							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 				}
-				
+
 				withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
 						modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
 						.texture("0", mcLoc("block/" + mb.name + "_planks"));
@@ -617,6 +634,8 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.SUPPORT_SHINGLES.getTypes().forEach(b -> {
+				String[] top = new String[] { "no_top/", "top/" };
+
 				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
 						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
 						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
@@ -631,56 +650,80 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 						modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
 						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 
-				// caps
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/all/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/shingles/all/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				for (String s : top) {
+					// caps
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "all/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "all/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/all/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/support/all/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "all/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "all/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/straight/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/shingles/straight/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "straight/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "straight/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/straight/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/support/straight/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "straight/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "straight/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/tri/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/shingles/tri/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "tri/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "tri/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/tri/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/support/tri/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "tri/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "tri/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/none/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/shingles/none/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "none/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "none/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/none/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/support/none/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "none/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "none/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/end/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/shingles/end/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "end/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "end/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
 
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/end/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_cap_slanted/support/end/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "end/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "end/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "corner/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "corner/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "corner/"
+									+ b.toLowerCase(),
+							modLoc("block/bases/shingles_cap_slanted/support/" + s + "corner/" + b.toLowerCase()))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
+				}
 			});
 
 			// special cases!
