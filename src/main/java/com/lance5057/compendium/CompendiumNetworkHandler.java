@@ -1,7 +1,7 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.network.AdjustinatorCallBackPacket;
-import com.lance5057.compendium.network.AdjustinatorPacket;
+import com.lance5057.compendium.network.AdjustinatorSyncPacket;
 import com.lance5057.compendium.network.StyleSetPacket;
 import com.lance5057.compendium.network.StyleSyncPacket;
 
@@ -13,7 +13,7 @@ public class CompendiumNetworkHandler {
 		PayloadRegistrar registrar = event.registrar(Compendium.MOD_ID).versioned("1.0.0").optional();
 
 		registrar.playToClient(StyleSyncPacket.id, StyleSyncPacket.STREAM_CODEC, StyleSyncPacket::handle);
-		registrar.playToClient(AdjustinatorPacket.id, AdjustinatorPacket.STREAM_CODEC, AdjustinatorPacket::handle);
+		registrar.playToClient(AdjustinatorSyncPacket.id, AdjustinatorSyncPacket.STREAM_CODEC, AdjustinatorSyncPacket::handle);
 
 		registrar.playToServer(AdjustinatorCallBackPacket.id, AdjustinatorCallBackPacket.STREAM_CODEC,
 				AdjustinatorCallBackPacket::handle);

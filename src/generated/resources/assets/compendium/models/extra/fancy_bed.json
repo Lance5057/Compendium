@@ -6,10 +6,10 @@
     }
   },
   "layer0": {
-    "materialLayer": 0,
+    "materialLayer": 1,
     "modelBase": "bed",
     "modelPart": "inventory/base",
-    "styleLayer": 0,
+    "styleLayer": 1,
     "styles": [
       "basic"
     ],
@@ -19,10 +19,10 @@
     ]
   },
   "layer1": {
-    "materialLayer": 1,
+    "materialLayer": 0,
     "modelBase": "bed",
     "modelPart": "inventory/frame",
-    "styleLayer": 1,
+    "styleLayer": 0,
     "styles": [
       "basic"
     ],

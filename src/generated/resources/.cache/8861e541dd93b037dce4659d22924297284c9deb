@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-18T01:16:50.5680081	Block Models: compendium
+// 1.21.1	2025-11-18T13:40:51.940109	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic.json
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic_inventory.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_stained/window/glass/basic.json
@@ -2592,6 +2592,7 @@ eeb99c10a370ee333ce312425377238f6e5b2433 assets/compendium/models/block/material
 8ec98522d448241fcea00d712d0d9cb034150d31 assets/compendium/models/block/material/wood/acacia/plank/pipe_horizontal.json
 20c666a8fe29724a8358c8cda8509a47ebefa598 assets/compendium/models/block/material/wood/acacia/plank/pipe_horizontal_rot.json
 3c5f4d4da4cb7f1ad71e2bf311de1d0353f82f49 assets/compendium/models/block/material/wood/acacia/plank/pipe_vertical.json
+701b473880ac527c00b063db8536c24361a73ad7 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 01e796b3481cadeca3fa85d62187ee73a17a4291 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/no_top/all/basic.json
 edd9852966c2119f77a4e962a1cd7bf19d2edaa0 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/no_top/corner/basic.json
 955e4e07ba415a3b7f3dc3906c56a126e4b61182 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -2604,6 +2605,7 @@ bc7640f0b072d6c427dc077b90c916a811fdfd29 assets/compendium/models/block/material
 03d8ef10155c4b933054cc367ae17d1ba8f0b092 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/top/none/basic.json
 0db31d547e6582ee7a89df1b0c7756a794b9887a assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/top/straight/basic.json
 2c652f6b33f19e8f8c39d59e88204dfd7df8e4dc assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/shingles/top/tri/basic.json
+102822665bf05ea7681caf4c00336b9a14aebd42 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/inventory/basic_inventory.json
 348ccbac6bfab851a9992bc164179a6eebed8b48 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/no_top/all/basic.json
 44efb1733a1ab32872ee97a3645f891f391f5fe8 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/no_top/corner/basic.json
 6dda01a1c0376c4d442a96b4c63c7cbaa1af1616 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/no_top/end/basic.json
@@ -2617,9 +2619,11 @@ aa41bf487fadba95b0cd929d963591ad4a58e485 assets/compendium/models/block/material
 8c4d666ce0d4805f5793cc61ac694b385f7f6ce9 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/top/straight/basic.json
 3a479625f7b073c7261e2c7fd2276996ec4f95c0 assets/compendium/models/block/material/wood/acacia/shingles_cap_slanted/support/top/tri/basic.json
 11862fc1c828305dfc440f5d982fb1c8ad2cce42 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/basic.json
+11862fc1c828305dfc440f5d982fb1c8ad2cce42 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/basic_inventory.json
 a658bff9bb65a6ba472966a18489b55d1f5a2912 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/inner_corner/basic.json
 bda668e182bee064f52bf51f3ab61d8c97a6ab96 assets/compendium/models/block/material/wood/acacia/shingles_slanted/shingles/outer_corner/basic.json
 924ea6cb7f81a06a6153e7582eb29996bb3b459e assets/compendium/models/block/material/wood/acacia/shingles_slanted/support/basic.json
+924ea6cb7f81a06a6153e7582eb29996bb3b459e assets/compendium/models/block/material/wood/acacia/shingles_slanted/support/basic_inventory.json
 9271de1687d838b7bc0c59aa6ff4ab228433d429 assets/compendium/models/block/material/wood/acacia/shingles_slanted/support/inner_corner/basic.json
 49913ffbb6d0870f558fa2e0a6e956b7c2df2243 assets/compendium/models/block/material/wood/acacia/shingles_slanted/support/outer_corner/basic.json
 f417ae80db96b6959c08c3a9d30fd74f91e51cd2 assets/compendium/models/block/material/wood/acacia/slab/banded.json
@@ -3709,6 +3713,7 @@ d6eb549dd9a6984cef6d3f09027ab1094328aa27 assets/compendium/models/block/material
 459903ca5beceefa422233b3ad03c2e9ae3ddcbe assets/compendium/models/block/material/wood/birch/plank/pipe_horizontal.json
 2be401058e91a6d9c54087110fdab37aca8d18ec assets/compendium/models/block/material/wood/birch/plank/pipe_horizontal_rot.json
 f70fc36db56e418357cd50fe6412d70d2ef3a505 assets/compendium/models/block/material/wood/birch/plank/pipe_vertical.json
+19a3e88d82b5aa2763cbfcf4cd12758992a03754 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 ff7976b096e1775ad17f475e87e8480ff49b5faa assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/no_top/all/basic.json
 7c3af24c942dc044df83513d156bc6c87bd77d96 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/no_top/corner/basic.json
 5ddf36c32b32a5026a45bde49f1086c570976641 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -3721,6 +3726,7 @@ d21ab86d199627cd1b97dfe5893be335ba526070 assets/compendium/models/block/material
 667118af020160729f51a27f1c9777a171b267d6 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/top/none/basic.json
 956cd4128d9b9cc941a6b1272a0b89e350eb0546 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/top/straight/basic.json
 552e21b756bd61edc12185b5df72151d665f404a assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/shingles/top/tri/basic.json
+165d5a355f00bf748c86475e7231f0fc43b0d4d9 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/inventory/basic_inventory.json
 e2e6be807edbd895b85d30cc2fa55ff0caa5eac7 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/no_top/all/basic.json
 090d477220d0c6dc546a2ca1abd18e08f8610db8 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/no_top/corner/basic.json
 36d6b1ee756aec6390b2c97a8b964ebfb7e75c47 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/no_top/end/basic.json
@@ -3734,9 +3740,11 @@ b1a32100f4a442d338f606b44621046be029c2f5 assets/compendium/models/block/material
 33baedc3ada08a43de63febeb6f4defe16895653 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/top/straight/basic.json
 dd79a077c55b4f99e02ff0d3ea0bf23171184b74 assets/compendium/models/block/material/wood/birch/shingles_cap_slanted/support/top/tri/basic.json
 c389277907a86ef5bf99ee0c99dc67d99ce34005 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/basic.json
+c389277907a86ef5bf99ee0c99dc67d99ce34005 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/basic_inventory.json
 80bade215a62b99803cba5453f4089491566b904 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/inner_corner/basic.json
 e8777f16693a873785c94be90866b572bff36692 assets/compendium/models/block/material/wood/birch/shingles_slanted/shingles/outer_corner/basic.json
 1c3ad36aa84cd485779f3d41c9b8df00afa69919 assets/compendium/models/block/material/wood/birch/shingles_slanted/support/basic.json
+1c3ad36aa84cd485779f3d41c9b8df00afa69919 assets/compendium/models/block/material/wood/birch/shingles_slanted/support/basic_inventory.json
 ba082fad5d6f43bcae3d061a10b8fdb7b46f3785 assets/compendium/models/block/material/wood/birch/shingles_slanted/support/inner_corner/basic.json
 28b91f9528d69d96ae1e468a5d77578676c04469 assets/compendium/models/block/material/wood/birch/shingles_slanted/support/outer_corner/basic.json
 df43d542ebe9cb6a314531ffd23f38fafd3a4f94 assets/compendium/models/block/material/wood/birch/slab/banded.json
@@ -4826,6 +4834,7 @@ afc986dcbed3c2159b61166623d53943c4618e47 assets/compendium/models/block/material
 8dc71e21e38e0efbcf2029d659c4e5ad70a89ad2 assets/compendium/models/block/material/wood/cherry/plank/pipe_horizontal.json
 bd0ef3e0ecc48b416bf4bacef6283d8ab7bc5658 assets/compendium/models/block/material/wood/cherry/plank/pipe_horizontal_rot.json
 647631297f8cffec60beb8147eeef37cfca5c1f8 assets/compendium/models/block/material/wood/cherry/plank/pipe_vertical.json
+983aeef0d742da6598b4529ea10bf30ae93d6430 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 3dc8887340c5babf44c3266df75ebc432fb5c0b0 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/no_top/all/basic.json
 787c41f57de38b53e3da26e67836e1eddf4e4653 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/no_top/corner/basic.json
 534b56bbf246726c011041871947f6c4f68c24e9 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -4838,6 +4847,7 @@ afe57653f6e724c6f764e4ff1f41db5d39225b15 assets/compendium/models/block/material
 56a8136b4c557cb8741da542db77f7ec92a90215 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/top/none/basic.json
 2588340cd5e39d776015a662175c03338dd6d7a3 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/top/straight/basic.json
 453d0b1f649f6c479aa136963034b672f69e6ca8 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/shingles/top/tri/basic.json
+a880e7a4aba3268baa27440f2c688fe74d580c89 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/inventory/basic_inventory.json
 d4bf3bbbc9714358f1d6ffc38b8d7bb3102200cf assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/no_top/all/basic.json
 75c2736c48c282da777d13f4c547b0bf3cd2d411 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/no_top/corner/basic.json
 f6ea6c712ea692b545212ed94be01a94c650599b assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/no_top/end/basic.json
@@ -4851,9 +4861,11 @@ e156b1de5481c83d1acf14b3ced61c851ed349e6 assets/compendium/models/block/material
 b96bfcb96c58b20df33d43a2ed9e06551ddd8980 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/top/straight/basic.json
 5d80e7b0b21a2ff7d7c655a3d96c85b3fd81b6c4 assets/compendium/models/block/material/wood/cherry/shingles_cap_slanted/support/top/tri/basic.json
 d0b3a3226906a1bfc11eeef32ef12f040ce5f057 assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/basic.json
+d0b3a3226906a1bfc11eeef32ef12f040ce5f057 assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/basic_inventory.json
 0c325a2ab3b1519a47c3f52a35815c9bc187cf9b assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/inner_corner/basic.json
 f00460f0d914fd9b4cd0526ef96e5f49026754bb assets/compendium/models/block/material/wood/cherry/shingles_slanted/shingles/outer_corner/basic.json
 f6e7766137a1cae1ce90acb68ecd2d74698d73b9 assets/compendium/models/block/material/wood/cherry/shingles_slanted/support/basic.json
+f6e7766137a1cae1ce90acb68ecd2d74698d73b9 assets/compendium/models/block/material/wood/cherry/shingles_slanted/support/basic_inventory.json
 328a0ca422e5c7e6bcc157ce2cd3908955c9030d assets/compendium/models/block/material/wood/cherry/shingles_slanted/support/inner_corner/basic.json
 87c81c0bbe8af934a9997486ed046d45bf1cb57e assets/compendium/models/block/material/wood/cherry/shingles_slanted/support/outer_corner/basic.json
 aac9539f428945d1fa6fa5ab4506ce028fea538e assets/compendium/models/block/material/wood/cherry/slab/banded.json
@@ -5943,6 +5955,7 @@ fa66f008f581e2453de51b5043f4c005ecea704a assets/compendium/models/block/material
 de1a55ff09d9b0206102f7818f968eac50ff009a assets/compendium/models/block/material/wood/crimson/plank/pipe_horizontal.json
 0a0484faea708c928d96b3fb821156aea5700920 assets/compendium/models/block/material/wood/crimson/plank/pipe_horizontal_rot.json
 1dc3d8554d552b06933ec519e384666ad42c93cb assets/compendium/models/block/material/wood/crimson/plank/pipe_vertical.json
+3fed5dfce821b2703869582d7c5ad70d1cdeb259 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 4ec07b69c0ec8236b05a5b7b17dfb194888ac2de assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/no_top/all/basic.json
 e01119ab7ac2dae2570597a58e96bd6659e72d12 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/no_top/corner/basic.json
 01c216ecef965a53c7a359faec66be345a44bf79 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -5955,6 +5968,7 @@ fcd7d41d5d1bd4b020c2712538dafc4eaf6569a9 assets/compendium/models/block/material
 839fb02b1dfb95658c2b80fa5314178700964ff6 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/top/none/basic.json
 a80777628b999655f888b8486c079855d517cbcd assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/top/straight/basic.json
 0a7be209cb5f27404214bcae7665b668530a2828 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/shingles/top/tri/basic.json
+04a95abb8f95fe1d6c011d05a1596e46fb84f56a assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/inventory/basic_inventory.json
 2f029737a928d89b9eebd95c9d045aa96b0ad020 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/no_top/all/basic.json
 85668a33f7790faaf17acfe65f2310bab0b3f9e6 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/no_top/corner/basic.json
 dcc41bbd70300a5995e82a212e48f2f2d5ecd0b1 assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/no_top/end/basic.json
@@ -5968,9 +5982,11 @@ c0e2f147368f0e95f998742314cea9f90553faab assets/compendium/models/block/material
 83f8bacd3d799c69a84ab364b3b7fd052872f43e assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/top/straight/basic.json
 6d03d80b66196b0e3cec4080871b4c18f803d41e assets/compendium/models/block/material/wood/crimson/shingles_cap_slanted/support/top/tri/basic.json
 363166f85b44375bebbf09f62c2f80d157b33429 assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/basic.json
+363166f85b44375bebbf09f62c2f80d157b33429 assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/basic_inventory.json
 f02d77da54dc18fb20b0bf3704d773d9ebfeb55b assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/inner_corner/basic.json
 6f34aab10c8b7f3bac5b23f7f31f0415795073a8 assets/compendium/models/block/material/wood/crimson/shingles_slanted/shingles/outer_corner/basic.json
 8fa194cc18b4f43b997f9a25fe0a49e6307ce271 assets/compendium/models/block/material/wood/crimson/shingles_slanted/support/basic.json
+8fa194cc18b4f43b997f9a25fe0a49e6307ce271 assets/compendium/models/block/material/wood/crimson/shingles_slanted/support/basic_inventory.json
 eed48146d2072ee526b5843976d9fc9a9435ac17 assets/compendium/models/block/material/wood/crimson/shingles_slanted/support/inner_corner/basic.json
 fd978581aec4709a5165ba6dc61b6312c21fe38d assets/compendium/models/block/material/wood/crimson/shingles_slanted/support/outer_corner/basic.json
 4710a0c2a59d5f97c5e93ed1cc60bae0914a062e assets/compendium/models/block/material/wood/crimson/slab/banded.json
@@ -7060,6 +7076,7 @@ c2a5d8fc684c671c26bdf8e51ba7424d4e8acca0 assets/compendium/models/block/material
 243aa6b8e69720728a0d5a4ba346309dc65011a5 assets/compendium/models/block/material/wood/dark_oak/plank/pipe_horizontal.json
 4dd215006461fd8737a38575945d7facf52580f1 assets/compendium/models/block/material/wood/dark_oak/plank/pipe_horizontal_rot.json
 62d30ca24949791f6ff3739c7f54dbebd587543c assets/compendium/models/block/material/wood/dark_oak/plank/pipe_vertical.json
+9fd75441583e76be0e17f8fb8e8a28b31cedbc28 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 a6cef1375b390aa3cf584a5cf7680ad930541411 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/no_top/all/basic.json
 8a30e56b745541aa0767e9adcba571b236c13f7c assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/no_top/corner/basic.json
 46cd5efb6a93366ed29f28bc3504d8f2eb482134 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -7072,6 +7089,7 @@ b9483116e46f7c6ea6ac61a507c82ad3233cbf68 assets/compendium/models/block/material
 a0a4a8a28d416a72c769473f20c5250a642346f6 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/top/none/basic.json
 2a6ab4d3292639f9d57f995ec57bdb653fb204be assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/top/straight/basic.json
 d89d07a83b8bb7cbb42cfde788f9163068e16c7b assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/shingles/top/tri/basic.json
+d743674ce21080372ec3ded045b5333bcd5315ee assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/inventory/basic_inventory.json
 7c741f205fc914a072ef7bb506da8a8ed90a0595 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/no_top/all/basic.json
 ab2682fc98084bbf21fc02e34fc4c6fb02f28887 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/no_top/corner/basic.json
 1463b614fef6dd48ae488ac5e1324252eb69dd79 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/no_top/end/basic.json
@@ -7085,9 +7103,11 @@ e5006405fddfd523603c9743c9b12ed488294717 assets/compendium/models/block/material
 cb5fce2beb54aabefee5731d347e236e3b59eef1 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/top/straight/basic.json
 4920c31f3a03b2708dd3e349d35eaefb1df8ebc3 assets/compendium/models/block/material/wood/dark_oak/shingles_cap_slanted/support/top/tri/basic.json
 7799ec4a3ddc85468b6f8c58a0d6153e7abaa216 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/basic.json
+7799ec4a3ddc85468b6f8c58a0d6153e7abaa216 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/basic_inventory.json
 19f980b2712d68d7c68d4e7a1c157f4d2b16cd52 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/inner_corner/basic.json
 5b35a7342df5d6d2d10f17ba8046a982a2bdf79d assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/shingles/outer_corner/basic.json
 f2ebe9b429c8340856e6ef43abba7eebbb30628e assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/support/basic.json
+f2ebe9b429c8340856e6ef43abba7eebbb30628e assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/support/basic_inventory.json
 76213278adc934bf4c8f17b910c37482a0399c91 assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/support/inner_corner/basic.json
 88281df1b95616032e443da6ab481c98949c3fea assets/compendium/models/block/material/wood/dark_oak/shingles_slanted/support/outer_corner/basic.json
 5dec24e44492b60f548de212dfb5a5665264bbe6 assets/compendium/models/block/material/wood/dark_oak/slab/banded.json
@@ -8177,6 +8197,7 @@ acb700e32dd4577219456527e63ac61886783ed8 assets/compendium/models/block/material
 5100430daaa66b626395e4b1a5177893604afad4 assets/compendium/models/block/material/wood/jungle/plank/pipe_horizontal.json
 a00a3980b15543c5a8fbed8cf69e1386829155bc assets/compendium/models/block/material/wood/jungle/plank/pipe_horizontal_rot.json
 d88b537ac779bb2b3d9954416ee5c269669125dc assets/compendium/models/block/material/wood/jungle/plank/pipe_vertical.json
+4189b2f1dc4e9f9dac91948baab0cc000b05809e assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 13dd542b9aa1124d51565b0f113d6d1150e0db29 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/no_top/all/basic.json
 a2a71360280150fc68c0db5ca3f2b1e7d6be7d02 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/no_top/corner/basic.json
 a07612b12296d674640df4db5eafa86356d796c6 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -8189,6 +8210,7 @@ f1560a0ddbd97ad819dab5b754c36667661c6db1 assets/compendium/models/block/material
 af18818cca125f9262b2c7be22dccfb5a869d1a4 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/top/none/basic.json
 4ba0731b0f362160eb3e3fd8e920fadff231bbfc assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/top/straight/basic.json
 29f1fb4c44f7964c8ba66019e657354ac33fd8cf assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/shingles/top/tri/basic.json
+8a96125ed2c187052a2a5ec0fe24ea249725a5df assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/inventory/basic_inventory.json
 55a820fbc74fb3a18190e00f33b973e25ef9ff96 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/no_top/all/basic.json
 c4b042b1f24716896acae386520ba8026c4b949c assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/no_top/corner/basic.json
 c16643cc677cb100825e81c1634c6d38c91be783 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/no_top/end/basic.json
@@ -8202,9 +8224,11 @@ a59a656a8c11aa66449cb2e5dc02488d9c02e769 assets/compendium/models/block/material
 3cae733961c312c5f773d0781f606a7d3ba80cb2 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/top/straight/basic.json
 cc0c42de81e228157dc462e896ecfacec047b397 assets/compendium/models/block/material/wood/jungle/shingles_cap_slanted/support/top/tri/basic.json
 f7e71865d26b786b7e343e768a0263e9f7bae724 assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/basic.json
+f7e71865d26b786b7e343e768a0263e9f7bae724 assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/basic_inventory.json
 0f299e2fd5c0eacd5bd2a2161dcf3064a8775233 assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/inner_corner/basic.json
 abb57d91d0289e0a1338f44f273e27fe71a1438e assets/compendium/models/block/material/wood/jungle/shingles_slanted/shingles/outer_corner/basic.json
 9fc4d9fe672ad9704da8a365016d7e3c3979f680 assets/compendium/models/block/material/wood/jungle/shingles_slanted/support/basic.json
+9fc4d9fe672ad9704da8a365016d7e3c3979f680 assets/compendium/models/block/material/wood/jungle/shingles_slanted/support/basic_inventory.json
 224e8b0020630664adea62940399591155509ada assets/compendium/models/block/material/wood/jungle/shingles_slanted/support/inner_corner/basic.json
 33d14e64aeb8c88e04157c92b4cb381a794cf19b assets/compendium/models/block/material/wood/jungle/shingles_slanted/support/outer_corner/basic.json
 7654b71db4687e02982809d15042785c61fa0de0 assets/compendium/models/block/material/wood/jungle/slab/banded.json
@@ -9294,6 +9318,7 @@ f6a51deda7570b8c5b63156bba1d44f423e391ec assets/compendium/models/block/material
 e39f173d710a6188da6069a7ed593d6eaa979bf4 assets/compendium/models/block/material/wood/mangrove/plank/pipe_horizontal.json
 c7db80fd32824119cb1c2c54d0b7447b5457c49b assets/compendium/models/block/material/wood/mangrove/plank/pipe_horizontal_rot.json
 cb2007446191d6d333855d153f6a7e9bc0ea4d98 assets/compendium/models/block/material/wood/mangrove/plank/pipe_vertical.json
+f1734dcea31c4d26d8269a90b5041bedd0cac4f8 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 8dbd35673b97ebe77328483a44278b16271790bc assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/no_top/all/basic.json
 6cda7342a43e03fb89691a24c569c478092cd38c assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/no_top/corner/basic.json
 b55c59f0f0232948f52e8a0ae431de6a62b0566a assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -9306,6 +9331,7 @@ b1eb7c922fd9f058d20c87bb440d78c0fd53bc4e assets/compendium/models/block/material
 ccac02baa04705c861f77f96a03292284fc0c671 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/top/none/basic.json
 eacbbe009ed4b74be246329c26830a674893a9ca assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/top/straight/basic.json
 8f973561b4d720cfcf354e63eb1db21bb05e5926 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/shingles/top/tri/basic.json
+28e720e785ddad5ab74b5a7ba4f716f226b58cbd assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/inventory/basic_inventory.json
 0caec94058a7ad0acfac2e9d43d93c4f20fd2775 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/no_top/all/basic.json
 cc434b0d3c72b4023e47cb6aafc5bf3cd8e2bd92 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/no_top/corner/basic.json
 6cd10438e3b83c0f2d94d1a8597d93354f7d5ba6 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/no_top/end/basic.json
@@ -9319,9 +9345,11 @@ e85e22bdb31677a1c7dcbb901064a1519333fe3f assets/compendium/models/block/material
 2cf61a24cceff8b8ba4fd706dd61cf358fab8f62 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/top/straight/basic.json
 c4f4c96af9c08b4f5c9ed6b7fb67b4a62a43a6a1 assets/compendium/models/block/material/wood/mangrove/shingles_cap_slanted/support/top/tri/basic.json
 4e247ffbb078d5969ee5e5e8f2c7c3fc7acd27a7 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/basic.json
+4e247ffbb078d5969ee5e5e8f2c7c3fc7acd27a7 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/basic_inventory.json
 46380e68ecfdf3354fe41311d51c4eb4f211a651 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/inner_corner/basic.json
 45c709a68bed839a9f984fb7bbb509d30ed44bf3 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/shingles/outer_corner/basic.json
 f8cd8027b33440f670f16002c65a52a928cc687a assets/compendium/models/block/material/wood/mangrove/shingles_slanted/support/basic.json
+f8cd8027b33440f670f16002c65a52a928cc687a assets/compendium/models/block/material/wood/mangrove/shingles_slanted/support/basic_inventory.json
 1680b74307f7bf4aa118ae297a4a276b5a1a4fa2 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/support/inner_corner/basic.json
 f4015cfca6a4afb4e8410a8b82105bb918fbf8c6 assets/compendium/models/block/material/wood/mangrove/shingles_slanted/support/outer_corner/basic.json
 6e0b44d11bb26f3b62f3b81fb18fe988decc8fe5 assets/compendium/models/block/material/wood/mangrove/slab/banded.json
@@ -10411,6 +10439,7 @@ b6247d8f65bd47014e41f5d8d2c1b9b31211ee13 assets/compendium/models/block/material
 b13bb8ed835ae8188a09b65297929a479ace31ab assets/compendium/models/block/material/wood/oak/plank/pipe_horizontal.json
 4412790347ffdf3a68f9ca0a014aeef17b0dee09 assets/compendium/models/block/material/wood/oak/plank/pipe_horizontal_rot.json
 6ab0f434120ecffd27ab36b8bf20fafe0c759f4a assets/compendium/models/block/material/wood/oak/plank/pipe_vertical.json
+3733dcaa7010146475af73bb521b011c8ee5480f assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 52c9acfb5502abb11068445bb17842013cd02dc2 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/no_top/all/basic.json
 1d0ce62c1e5d64b2ea78356e2047afda879824ef assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/no_top/corner/basic.json
 a835e676408fed8537130fde251a7c5b97a620e9 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -10423,6 +10452,7 @@ b7524ef0629049aa1bc837457f6fcc2ba2afceaa assets/compendium/models/block/material
 e2bfc6f480aff09e0ad9c7c324108fa7d844df1e assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/top/none/basic.json
 63dd38383cf8d2b55c5688b5e9d86f090acf2373 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/top/straight/basic.json
 e51976dfe2204c1dab0d8e89751a7621a62a95c7 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/shingles/top/tri/basic.json
+d0c0442f4534cd394d3e4a8d193f631fbbd76937 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/inventory/basic_inventory.json
 810991f24a4f89965441a116e3b1ba8443ebf684 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/no_top/all/basic.json
 6e3ed0295e8fc7cb5444dddb91d7b6b797cc4a7a assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/no_top/corner/basic.json
 e30ed0bd1ace28a1bf47eae26bfee84bcc5d6a68 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/no_top/end/basic.json
@@ -10436,9 +10466,11 @@ b0744a354c473cd5bf02091d054382e85d2a793a assets/compendium/models/block/material
 c1f00a5fefe022db96631112f128549b31ebb284 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/top/straight/basic.json
 2b3421100ba669f8321469c756165bb58f44aeb1 assets/compendium/models/block/material/wood/oak/shingles_cap_slanted/support/top/tri/basic.json
 ee3bd58b7573a3870f7e41cfc5a1cbf36b128680 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/basic.json
+ee3bd58b7573a3870f7e41cfc5a1cbf36b128680 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/basic_inventory.json
 8738fbfad1f8be8b76ef6283c78bb2a5be898a23 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/inner_corner/basic.json
 cedc91742ff842c7811002a4b3e33908177631c3 assets/compendium/models/block/material/wood/oak/shingles_slanted/shingles/outer_corner/basic.json
 3b790be87e6f0c61d55cb19e57c32d2f6314390c assets/compendium/models/block/material/wood/oak/shingles_slanted/support/basic.json
+3b790be87e6f0c61d55cb19e57c32d2f6314390c assets/compendium/models/block/material/wood/oak/shingles_slanted/support/basic_inventory.json
 705726efd56b816c04531c15d1b08ea688bbabc7 assets/compendium/models/block/material/wood/oak/shingles_slanted/support/inner_corner/basic.json
 707402768e0fb7ab7abc4bd3761ac5aac28ed211 assets/compendium/models/block/material/wood/oak/shingles_slanted/support/outer_corner/basic.json
 adfcf47383e268d375fc41b90381c47d5c4facb7 assets/compendium/models/block/material/wood/oak/slab/banded.json
@@ -11528,6 +11560,7 @@ ce21d34d5ed7c72f561b5bf7b33d5a74eb9a691d assets/compendium/models/block/material
 ed16081527ee359afbcb1c1bb03f92790f5c33ec assets/compendium/models/block/material/wood/spruce/plank/pipe_horizontal.json
 5ce372c522784b2fc9aa9b67bee5e1640e273ac8 assets/compendium/models/block/material/wood/spruce/plank/pipe_horizontal_rot.json
 e31a7bf86c5f6ff332af8976425d3dc81608a8f7 assets/compendium/models/block/material/wood/spruce/plank/pipe_vertical.json
+349ffb5f1194b7879a3e750ce19672ea676dd077 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 64a0eff2e318146d2cbd4d1fd39699c208dd9c8e assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/no_top/all/basic.json
 ba2169b952367d0ad4073210feb148104c5111e7 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/no_top/corner/basic.json
 fae48026e9bc186387035d542f5fc288d6e468c3 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -11540,6 +11573,7 @@ dd7a6190527c48dcb20e965440c0428921daf394 assets/compendium/models/block/material
 6f73535916abab1c668024eeddfc416b96e57be4 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/top/none/basic.json
 558b4820d3b332c3f43c7aef6d4f0ca5473f4d47 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/top/straight/basic.json
 a80e7c4911c8a75ae6ff620ae6424e9c9dd8f5f9 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/shingles/top/tri/basic.json
+350d7a76352267657b7341d59a46401c6a3a00ec assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/inventory/basic_inventory.json
 31eaa9a52bafca17c5db62a3962a7c20c4f4863f assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/no_top/all/basic.json
 20f938637130d5bef8b8da2b12958c7d7fb26f52 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/no_top/corner/basic.json
 99120941007c07d51571202b16166abf6d55c65e assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/no_top/end/basic.json
@@ -11553,9 +11587,11 @@ c42f6445b2a40998e8196c11cab2ae5fafe833bb assets/compendium/models/block/material
 fef284d56fa550247294ab1cc60e5c315ed0f63c assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/top/straight/basic.json
 b50af5f350ebb4c8d5ecbc9448bf17deb6dd10b7 assets/compendium/models/block/material/wood/spruce/shingles_cap_slanted/support/top/tri/basic.json
 dd022907c3d4bdf4d833e0783f2316b8b02adafe assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/basic.json
+dd022907c3d4bdf4d833e0783f2316b8b02adafe assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/basic_inventory.json
 e447701065218825702ff3cc5ca108f203c9e158 assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/inner_corner/basic.json
 31241bd6b638e822cdfe07b3107b41d9049bb900 assets/compendium/models/block/material/wood/spruce/shingles_slanted/shingles/outer_corner/basic.json
 5fd12d5fbabee8759196fbb3e6417ca8b17751b5 assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/basic.json
+5fd12d5fbabee8759196fbb3e6417ca8b17751b5 assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/basic_inventory.json
 509c2102c09eeffed36a29966f8e2bf4c2b81757 assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/inner_corner/basic.json
 6c284d291e0ec71a0f68424d85832eff62990b31 assets/compendium/models/block/material/wood/spruce/shingles_slanted/support/outer_corner/basic.json
 4b7ddfdbeaac1db430967f1d99f022c31b3daf0d assets/compendium/models/block/material/wood/spruce/slab/banded.json
@@ -12645,6 +12681,7 @@ e64c685bc9a39d6e03ecbed9715b4cfee2f5187a assets/compendium/models/block/material
 e3fd73689010ec1c5f69222f62ce5e1f7e0930ec assets/compendium/models/block/material/wood/warped/plank/pipe_horizontal.json
 bf91eddca1314ae7cca5ec89be67fe5c3fd5de1e assets/compendium/models/block/material/wood/warped/plank/pipe_horizontal_rot.json
 65b8ca4782eea36c0138058c25b2320f9444f565 assets/compendium/models/block/material/wood/warped/plank/pipe_vertical.json
+49bba315d6b2139334f81463ae41fbedc64d0756 assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/inventory/basic_inventory.json
 bed118130c98b95ad2d5f776c42ca8bec1e170a8 assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/no_top/all/basic.json
 598b2406797458950162e61949a0813bb650165d assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/no_top/corner/basic.json
 ff5efd07bc78646c784756f5e1a9598bb1b3658d assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/no_top/end/basic.json
@@ -12657,6 +12694,7 @@ dfa180489459eb4b47533bb457bd91bb0d4eeca3 assets/compendium/models/block/material
 23e0a23fa5f7d26ce0da872ae12d0fc951cf212d assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/top/none/basic.json
 1b36d33e98cc0a87502910a3b092a48a01c4d43e assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/top/straight/basic.json
 73f60c163fd1a6bce421153e666f08eea27eacfa assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/shingles/top/tri/basic.json
+cf0dff167821c9c17f9b10059b2e928de08930e6 assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/inventory/basic_inventory.json
 d6401684c808e141323549129971d3c8426f548f assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/no_top/all/basic.json
 fcacf039f3f93251c4328e97c5634af41dbac0fc assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/no_top/corner/basic.json
 2e1804fc06c98e6e8cd58da675fcbd53809f8f15 assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/no_top/end/basic.json
@@ -12670,9 +12708,11 @@ e241092cc68db5c1bd0e8fc5430a01864fe2e7d4 assets/compendium/models/block/material
 278f601d3ae511f3a6398d0e3d9d6fe4b60ee938 assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/top/straight/basic.json
 855e1fc6f6479045820c1a9668be6f63e14e382d assets/compendium/models/block/material/wood/warped/shingles_cap_slanted/support/top/tri/basic.json
 7b4142600808cf4b818e589e038102607b3d58a1 assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/basic.json
+7b4142600808cf4b818e589e038102607b3d58a1 assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/basic_inventory.json
 12efb114d8b6ce01cd03db5de4bce072b5cc559a assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/inner_corner/basic.json
 8eeabcc8ce05b3b07555d18efe13999bea402470 assets/compendium/models/block/material/wood/warped/shingles_slanted/shingles/outer_corner/basic.json
 ff6ee88b0423f765a8e013b68e50b01453c65038 assets/compendium/models/block/material/wood/warped/shingles_slanted/support/basic.json
+ff6ee88b0423f765a8e013b68e50b01453c65038 assets/compendium/models/block/material/wood/warped/shingles_slanted/support/basic_inventory.json
 d8c2cd8d29284b8e6d17178f8bd46db79558ab52 assets/compendium/models/block/material/wood/warped/shingles_slanted/support/inner_corner/basic.json
 d46c7240a1a6e5e4c0c095e84a9e15b7be6eeb35 assets/compendium/models/block/material/wood/warped/shingles_slanted/support/outer_corner/basic.json
 57d684f812db53388bfedd585425df98f2c353bb assets/compendium/models/block/material/wood/warped/slab/banded.json

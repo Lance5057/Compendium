@@ -11,11 +11,12 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record AdjustinatorCallBackPacket(String combined, BlockPos pos) implements CustomPacketPayload {
+public record AdjustinatorCallBackPacket(int index, String combined, BlockPos pos) implements CustomPacketPayload {
 
 	public static StreamCodec<ByteBuf, AdjustinatorCallBackPacket> STREAM_CODEC = StreamCodec.composite(
-			ByteBufCodecs.STRING_UTF8, AdjustinatorCallBackPacket::combined, BlockPos.STREAM_CODEC,
-			AdjustinatorCallBackPacket::pos, AdjustinatorCallBackPacket::new);
+			ByteBufCodecs.INT, AdjustinatorCallBackPacket::index, ByteBufCodecs.STRING_UTF8,
+			AdjustinatorCallBackPacket::combined, BlockPos.STREAM_CODEC, AdjustinatorCallBackPacket::pos,
+			AdjustinatorCallBackPacket::new);
 
 	public static final Type<AdjustinatorCallBackPacket> id = new CustomPacketPayload.Type<AdjustinatorCallBackPacket>(
 			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "adjustinator_callback_packet"));
@@ -33,7 +34,7 @@ public record AdjustinatorCallBackPacket(String combined, BlockPos pos) implemen
 				public void run() {
 					if (ctx.player().containerMenu instanceof AdjustinatorMultiMaterialMenu ammm) {
 						ammm.pos = message.pos;
-						ammm.syncBlockFromRemote(message.combined);
+						ammm.syncBlockFromRemote(message.index, message.combined);
 					}
 				}
 

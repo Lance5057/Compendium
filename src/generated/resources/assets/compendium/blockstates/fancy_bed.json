@@ -284,7 +284,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_frame",
+        "model": "compendium:block/fancy_bed_center_head_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -296,7 +296,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_frame",
+        "model": "compendium:block/fancy_bed_center_head_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -308,7 +308,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_frame"
+        "model": "compendium:block/fancy_bed_center_head_frame_unoccupied"
       },
       "when": {
         "type": "center",
@@ -319,7 +319,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_frame",
+        "model": "compendium:block/fancy_bed_center_head_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -331,7 +331,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_base",
+        "model": "compendium:block/fancy_bed_center_head_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -343,7 +343,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_base",
+        "model": "compendium:block/fancy_bed_center_head_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -355,7 +355,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_base"
+        "model": "compendium:block/fancy_bed_center_head_base_unoccupied"
       },
       "when": {
         "type": "center",
@@ -366,7 +366,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_base",
+        "model": "compendium:block/fancy_bed_center_head_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -378,7 +378,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_mattress",
+        "model": "compendium:block/fancy_bed_center_head_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -390,7 +390,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_mattress",
+        "model": "compendium:block/fancy_bed_center_head_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -402,7 +402,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_mattress"
+        "model": "compendium:block/fancy_bed_center_head_mattress_unoccupied"
       },
       "when": {
         "type": "center",
@@ -413,7 +413,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_mattress",
+        "model": "compendium:block/fancy_bed_center_head_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -425,7 +425,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_sheet",
+        "model": "compendium:block/fancy_bed_center_head_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -437,7 +437,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_sheet",
+        "model": "compendium:block/fancy_bed_center_head_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -449,7 +449,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_sheet"
+        "model": "compendium:block/fancy_bed_center_head_sheet_unoccupied"
       },
       "when": {
         "type": "center",
@@ -460,7 +460,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_sheet",
+        "model": "compendium:block/fancy_bed_center_head_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -472,7 +472,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_pillow",
+        "model": "compendium:block/fancy_bed_center_head_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -484,7 +484,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_pillow",
+        "model": "compendium:block/fancy_bed_center_head_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -496,7 +496,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_pillow"
+        "model": "compendium:block/fancy_bed_center_head_pillow_unoccupied"
       },
       "when": {
         "type": "center",
@@ -507,7 +507,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_pillow",
+        "model": "compendium:block/fancy_bed_center_head_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -519,7 +519,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_blanket",
+        "model": "compendium:block/fancy_bed_center_head_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -531,7 +531,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_blanket",
+        "model": "compendium:block/fancy_bed_center_head_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -543,7 +543,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_blanket"
+        "model": "compendium:block/fancy_bed_center_head_blanket_unoccupied"
       },
       "when": {
         "type": "center",
@@ -554,7 +554,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_head_blanket",
+        "model": "compendium:block/fancy_bed_center_head_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -848,7 +848,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -860,7 +860,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -872,7 +872,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame"
+        "model": "compendium:block/fancy_bed_left_head_frame_unoccupied"
       },
       "when": {
         "type": "left",
@@ -883,7 +883,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_frame",
+        "model": "compendium:block/fancy_bed_left_head_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -895,7 +895,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
+        "model": "compendium:block/fancy_bed_left_head_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -907,7 +907,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
+        "model": "compendium:block/fancy_bed_left_head_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -919,7 +919,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base"
+        "model": "compendium:block/fancy_bed_left_head_base_unoccupied"
       },
       "when": {
         "type": "left",
@@ -930,7 +930,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_base",
+        "model": "compendium:block/fancy_bed_left_head_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -942,7 +942,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -954,7 +954,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -966,7 +966,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress"
+        "model": "compendium:block/fancy_bed_left_head_mattress_unoccupied"
       },
       "when": {
         "type": "left",
@@ -977,7 +977,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_mattress",
+        "model": "compendium:block/fancy_bed_left_head_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -989,7 +989,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -1001,7 +1001,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -1013,7 +1013,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet"
+        "model": "compendium:block/fancy_bed_left_head_sheet_unoccupied"
       },
       "when": {
         "type": "left",
@@ -1024,7 +1024,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_sheet",
+        "model": "compendium:block/fancy_bed_left_head_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -1036,7 +1036,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -1048,7 +1048,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -1060,7 +1060,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow"
+        "model": "compendium:block/fancy_bed_left_head_pillow_unoccupied"
       },
       "when": {
         "type": "left",
@@ -1071,7 +1071,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_pillow",
+        "model": "compendium:block/fancy_bed_left_head_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -1083,7 +1083,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -1095,7 +1095,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -1107,7 +1107,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket"
+        "model": "compendium:block/fancy_bed_left_head_blanket_unoccupied"
       },
       "when": {
         "type": "left",
@@ -1118,7 +1118,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_head_blanket",
+        "model": "compendium:block/fancy_bed_left_head_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -1412,7 +1412,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -1424,7 +1424,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -1436,7 +1436,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame"
+        "model": "compendium:block/fancy_bed_right_head_frame_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1447,7 +1447,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_frame",
+        "model": "compendium:block/fancy_bed_right_head_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -1459,7 +1459,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
+        "model": "compendium:block/fancy_bed_right_head_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -1471,7 +1471,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
+        "model": "compendium:block/fancy_bed_right_head_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -1483,7 +1483,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base"
+        "model": "compendium:block/fancy_bed_right_head_base_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1494,7 +1494,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_base",
+        "model": "compendium:block/fancy_bed_right_head_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -1506,7 +1506,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -1518,7 +1518,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -1530,7 +1530,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress"
+        "model": "compendium:block/fancy_bed_right_head_mattress_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1541,7 +1541,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_mattress",
+        "model": "compendium:block/fancy_bed_right_head_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -1553,7 +1553,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -1565,7 +1565,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -1577,7 +1577,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet"
+        "model": "compendium:block/fancy_bed_right_head_sheet_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1588,7 +1588,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_sheet",
+        "model": "compendium:block/fancy_bed_right_head_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -1600,7 +1600,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -1612,7 +1612,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -1624,7 +1624,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow"
+        "model": "compendium:block/fancy_bed_right_head_pillow_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1635,7 +1635,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_pillow",
+        "model": "compendium:block/fancy_bed_right_head_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -1647,7 +1647,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -1659,7 +1659,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -1671,7 +1671,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket"
+        "model": "compendium:block/fancy_bed_right_head_blanket_unoccupied"
       },
       "when": {
         "type": "right",
@@ -1682,7 +1682,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_head_blanket",
+        "model": "compendium:block/fancy_bed_right_head_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -1976,7 +1976,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -1988,7 +1988,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -2000,7 +2000,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame"
+        "model": "compendium:block/fancy_bed_single_head_frame_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2011,7 +2011,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_frame",
+        "model": "compendium:block/fancy_bed_single_head_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -2023,7 +2023,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
+        "model": "compendium:block/fancy_bed_single_head_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -2035,7 +2035,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
+        "model": "compendium:block/fancy_bed_single_head_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -2047,7 +2047,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base"
+        "model": "compendium:block/fancy_bed_single_head_base_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2058,7 +2058,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_base",
+        "model": "compendium:block/fancy_bed_single_head_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -2070,7 +2070,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -2082,7 +2082,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -2094,7 +2094,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress"
+        "model": "compendium:block/fancy_bed_single_head_mattress_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2105,7 +2105,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_mattress",
+        "model": "compendium:block/fancy_bed_single_head_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -2117,7 +2117,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -2129,7 +2129,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -2141,7 +2141,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet"
+        "model": "compendium:block/fancy_bed_single_head_sheet_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2152,7 +2152,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_sheet",
+        "model": "compendium:block/fancy_bed_single_head_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -2164,7 +2164,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -2176,7 +2176,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -2188,7 +2188,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow"
+        "model": "compendium:block/fancy_bed_single_head_pillow_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2199,7 +2199,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_pillow",
+        "model": "compendium:block/fancy_bed_single_head_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -2211,7 +2211,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -2223,7 +2223,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -2235,7 +2235,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket"
+        "model": "compendium:block/fancy_bed_single_head_blanket_unoccupied"
       },
       "when": {
         "type": "single",
@@ -2246,7 +2246,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_head_blanket",
+        "model": "compendium:block/fancy_bed_single_head_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -2540,7 +2540,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_frame",
+        "model": "compendium:block/fancy_bed_center_foot_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -2552,7 +2552,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_frame",
+        "model": "compendium:block/fancy_bed_center_foot_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -2564,7 +2564,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_frame"
+        "model": "compendium:block/fancy_bed_center_foot_frame_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2575,7 +2575,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_frame",
+        "model": "compendium:block/fancy_bed_center_foot_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -2587,7 +2587,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_base",
+        "model": "compendium:block/fancy_bed_center_foot_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -2599,7 +2599,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_base",
+        "model": "compendium:block/fancy_bed_center_foot_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -2611,7 +2611,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_base"
+        "model": "compendium:block/fancy_bed_center_foot_base_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2622,7 +2622,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_base",
+        "model": "compendium:block/fancy_bed_center_foot_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -2634,7 +2634,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_mattress",
+        "model": "compendium:block/fancy_bed_center_foot_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -2646,7 +2646,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_mattress",
+        "model": "compendium:block/fancy_bed_center_foot_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -2658,7 +2658,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_mattress"
+        "model": "compendium:block/fancy_bed_center_foot_mattress_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2669,7 +2669,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_mattress",
+        "model": "compendium:block/fancy_bed_center_foot_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -2681,7 +2681,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_sheet",
+        "model": "compendium:block/fancy_bed_center_foot_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -2693,7 +2693,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_sheet",
+        "model": "compendium:block/fancy_bed_center_foot_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -2705,7 +2705,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_sheet"
+        "model": "compendium:block/fancy_bed_center_foot_sheet_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2716,7 +2716,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_sheet",
+        "model": "compendium:block/fancy_bed_center_foot_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -2728,7 +2728,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_pillow",
+        "model": "compendium:block/fancy_bed_center_foot_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -2740,7 +2740,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_pillow",
+        "model": "compendium:block/fancy_bed_center_foot_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -2752,7 +2752,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_pillow"
+        "model": "compendium:block/fancy_bed_center_foot_pillow_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2763,7 +2763,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_pillow",
+        "model": "compendium:block/fancy_bed_center_foot_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -2775,7 +2775,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_blanket",
+        "model": "compendium:block/fancy_bed_center_foot_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -2787,7 +2787,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_blanket",
+        "model": "compendium:block/fancy_bed_center_foot_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -2799,7 +2799,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_blanket"
+        "model": "compendium:block/fancy_bed_center_foot_blanket_unoccupied"
       },
       "when": {
         "type": "center",
@@ -2810,7 +2810,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_center_foot_blanket",
+        "model": "compendium:block/fancy_bed_center_foot_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -3104,7 +3104,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_left_foot_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -3116,7 +3116,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_left_foot_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -3128,7 +3128,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame"
+        "model": "compendium:block/fancy_bed_left_foot_frame_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3139,7 +3139,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_frame",
+        "model": "compendium:block/fancy_bed_left_foot_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -3151,7 +3151,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_left_foot_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -3163,7 +3163,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_left_foot_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -3175,7 +3175,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base"
+        "model": "compendium:block/fancy_bed_left_foot_base_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3186,7 +3186,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_base",
+        "model": "compendium:block/fancy_bed_left_foot_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -3198,7 +3198,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_foot_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -3210,7 +3210,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_foot_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -3222,7 +3222,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress"
+        "model": "compendium:block/fancy_bed_left_foot_mattress_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3233,7 +3233,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_mattress",
+        "model": "compendium:block/fancy_bed_left_foot_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -3245,7 +3245,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_foot_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -3257,7 +3257,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_foot_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -3269,7 +3269,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet"
+        "model": "compendium:block/fancy_bed_left_foot_sheet_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3280,7 +3280,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_sheet",
+        "model": "compendium:block/fancy_bed_left_foot_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -3292,7 +3292,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_foot_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -3304,7 +3304,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_foot_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -3316,7 +3316,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow"
+        "model": "compendium:block/fancy_bed_left_foot_pillow_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3327,7 +3327,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_pillow",
+        "model": "compendium:block/fancy_bed_left_foot_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -3339,7 +3339,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_foot_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -3351,7 +3351,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_foot_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -3363,7 +3363,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket"
+        "model": "compendium:block/fancy_bed_left_foot_blanket_unoccupied"
       },
       "when": {
         "type": "left",
@@ -3374,7 +3374,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_left_foot_blanket",
+        "model": "compendium:block/fancy_bed_left_foot_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -3668,7 +3668,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_right_foot_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -3680,7 +3680,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_right_foot_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -3692,7 +3692,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame"
+        "model": "compendium:block/fancy_bed_right_foot_frame_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3703,7 +3703,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_frame",
+        "model": "compendium:block/fancy_bed_right_foot_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -3715,7 +3715,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_right_foot_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -3727,7 +3727,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_right_foot_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -3739,7 +3739,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base"
+        "model": "compendium:block/fancy_bed_right_foot_base_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3750,7 +3750,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_base",
+        "model": "compendium:block/fancy_bed_right_foot_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -3762,7 +3762,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_foot_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -3774,7 +3774,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_foot_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -3786,7 +3786,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress"
+        "model": "compendium:block/fancy_bed_right_foot_mattress_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3797,7 +3797,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_mattress",
+        "model": "compendium:block/fancy_bed_right_foot_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -3809,7 +3809,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_foot_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -3821,7 +3821,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_foot_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -3833,7 +3833,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet"
+        "model": "compendium:block/fancy_bed_right_foot_sheet_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3844,7 +3844,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_sheet",
+        "model": "compendium:block/fancy_bed_right_foot_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -3856,7 +3856,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_foot_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -3868,7 +3868,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_foot_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -3880,7 +3880,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow"
+        "model": "compendium:block/fancy_bed_right_foot_pillow_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3891,7 +3891,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_pillow",
+        "model": "compendium:block/fancy_bed_right_foot_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -3903,7 +3903,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_foot_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -3915,7 +3915,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_foot_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -3927,7 +3927,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket"
+        "model": "compendium:block/fancy_bed_right_foot_blanket_unoccupied"
       },
       "when": {
         "type": "right",
@@ -3938,7 +3938,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_right_foot_blanket",
+        "model": "compendium:block/fancy_bed_right_foot_blanket_unoccupied",
         "y": 270
       },
       "when": {
@@ -4232,7 +4232,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_single_foot_frame_unoccupied",
         "y": 180
       },
       "when": {
@@ -4244,7 +4244,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_single_foot_frame_unoccupied",
         "y": 90
       },
       "when": {
@@ -4256,7 +4256,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame"
+        "model": "compendium:block/fancy_bed_single_foot_frame_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4267,7 +4267,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_frame",
+        "model": "compendium:block/fancy_bed_single_foot_frame_unoccupied",
         "y": 270
       },
       "when": {
@@ -4279,7 +4279,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_single_foot_base_unoccupied",
         "y": 180
       },
       "when": {
@@ -4291,7 +4291,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_single_foot_base_unoccupied",
         "y": 90
       },
       "when": {
@@ -4303,7 +4303,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base"
+        "model": "compendium:block/fancy_bed_single_foot_base_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4314,7 +4314,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_base",
+        "model": "compendium:block/fancy_bed_single_foot_base_unoccupied",
         "y": 270
       },
       "when": {
@@ -4326,7 +4326,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_foot_mattress_unoccupied",
         "y": 180
       },
       "when": {
@@ -4338,7 +4338,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_foot_mattress_unoccupied",
         "y": 90
       },
       "when": {
@@ -4350,7 +4350,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress"
+        "model": "compendium:block/fancy_bed_single_foot_mattress_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4361,7 +4361,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_mattress",
+        "model": "compendium:block/fancy_bed_single_foot_mattress_unoccupied",
         "y": 270
       },
       "when": {
@@ -4373,7 +4373,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_foot_sheet_unoccupied",
         "y": 180
       },
       "when": {
@@ -4385,7 +4385,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_foot_sheet_unoccupied",
         "y": 90
       },
       "when": {
@@ -4397,7 +4397,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet"
+        "model": "compendium:block/fancy_bed_single_foot_sheet_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4408,7 +4408,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_sheet",
+        "model": "compendium:block/fancy_bed_single_foot_sheet_unoccupied",
         "y": 270
       },
       "when": {
@@ -4420,7 +4420,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_foot_pillow_unoccupied",
         "y": 180
       },
       "when": {
@@ -4432,7 +4432,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_foot_pillow_unoccupied",
         "y": 90
       },
       "when": {
@@ -4444,7 +4444,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow"
+        "model": "compendium:block/fancy_bed_single_foot_pillow_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4455,7 +4455,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_pillow",
+        "model": "compendium:block/fancy_bed_single_foot_pillow_unoccupied",
         "y": 270
       },
       "when": {
@@ -4467,7 +4467,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_foot_blanket_unoccupied",
         "y": 180
       },
       "when": {
@@ -4479,7 +4479,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_foot_blanket_unoccupied",
         "y": 90
       },
       "when": {
@@ -4491,7 +4491,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket"
+        "model": "compendium:block/fancy_bed_single_foot_blanket_unoccupied"
       },
       "when": {
         "type": "single",
@@ -4502,7 +4502,7 @@
     },
     {
       "apply": {
-        "model": "compendium:block/fancy_bed_single_foot_blanket",
+        "model": "compendium:block/fancy_bed_single_foot_blanket_unoccupied",
         "y": 270
       },
       "when": {

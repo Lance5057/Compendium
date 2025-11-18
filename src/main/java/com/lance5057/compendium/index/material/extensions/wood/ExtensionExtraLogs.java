@@ -1105,13 +1105,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						base.getType());
 			}
 			if (LOG.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 			if (LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 			if (LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
@@ -1119,13 +1119,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						"stripped_small_log", base.getType());
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/chair"));
+				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 			}
 		}
 	}

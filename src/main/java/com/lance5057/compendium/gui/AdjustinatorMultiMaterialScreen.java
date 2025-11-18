@@ -125,20 +125,21 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 	}
 
 	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
-		mmbe.setMaterial(index, s);
-		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
+		PacketDistributor.sendToServer(new AdjustinatorCallBackPacket(index, s, pos));
+//		mmbe.setMaterial(index, s);
+//		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
 	}
 
-	@Override
-	public void onClose() {
-		String s = "";
-		for (EditBox b : boxes) {
-			s += b.getValue() + ":";
-		}
-		PacketDistributor.sendToServer(new AdjustinatorCallBackPacket(s, pos));
-//		this.minecraft.level.blockEntityChanged(pos);
-		this.minecraft.player.closeContainer();
-		super.onClose();
-	}
+//	@Override
+//	public void onClose() {
+////		String s = "";
+////		for (EditBox b : boxes) {
+////			s += b.getValue() + ":";
+////		}
+//		
+////		this.minecraft.level.blockEntityChanged(pos);
+//		this.minecraft.player.closeContainer();
+//		super.onClose();
+//	}
 
 }

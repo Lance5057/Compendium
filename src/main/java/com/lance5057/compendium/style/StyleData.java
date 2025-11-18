@@ -75,8 +75,8 @@ public class StyleData {
 	public static StyleData PLANK = new StyleData("plank", List.of("basic", "pipe"));
 
 	public static StyleData PLANKS = new StyleData("plank_block",
-			List.of("big_weave", "blocks", "blocks_offset", "boards", "boards_rotated", "boards_seamless",
-					"boards_seamless_rotated", "boards_stacked", "boards_stacked_rotated", "box", "chiseled", "cross",
+			List.of("boards", "boards_rotated", "boards_seamless", "boards_seamless_rotated", "boards_stacked",
+					"boards_stacked_rotated", "big_weave", "blocks", "blocks_offset", "box", "chiseled", "cross",
 					"diagonal", "diagonal_rotated", "herringbone", "double_herringbone", "panel", "parquet",
 					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
 					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
@@ -87,7 +87,8 @@ public class StyleData {
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
 					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
 					"diagonal_trimmed", "caged", "framed", "trimmed", "caged_grate", "framed_grate", "trimmed_grate",
-					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped", "woven"));
+					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped",
+					"woven"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

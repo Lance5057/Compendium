@@ -1,7 +1,7 @@
 package com.lance5057.compendium.gui;
 
 import com.lance5057.compendium.CompendiumMenus;
-import com.lance5057.compendium.network.AdjustinatorPacket;
+import com.lance5057.compendium.network.AdjustinatorSyncPacket;
 import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
 
 import net.minecraft.core.BlockPos;
@@ -58,7 +58,7 @@ public class AdjustinatorWorkstationMenu extends AbstractContainerMenu {
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();
 		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new AdjustinatorPacket(this.containerId, this.pos));
+			serverPlayer.connection.send(new AdjustinatorSyncPacket(this.containerId, this.pos));
 	}
 
 }

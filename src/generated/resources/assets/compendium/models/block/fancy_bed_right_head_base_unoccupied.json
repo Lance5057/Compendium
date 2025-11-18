@@ -1,0 +1,23 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 1,
+    "modelBase": "bed",
+    "modelPart": "unoccupied/right/head/base",
+    "styleLayer": 1,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 1,
+  "loader": "compendium:multi_style_material"
+}

@@ -2,7 +2,7 @@ package com.lance5057.compendium.gui;
 
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
-import com.lance5057.compendium.network.AdjustinatorPacket;
+import com.lance5057.compendium.network.AdjustinatorSyncPacket;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -12,6 +12,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class AdjustinatorMultiMaterialMenu extends AbstractContainerMenu {
 
@@ -58,14 +60,17 @@ public class AdjustinatorMultiMaterialMenu extends AbstractContainerMenu {
 	public void sendAllDataToRemote() {
 		super.sendAllDataToRemote();
 		if (this.player instanceof ServerPlayer serverPlayer)
-			serverPlayer.connection.send(new AdjustinatorPacket(this.containerId, this.pos));
+			serverPlayer.connection.send(new AdjustinatorSyncPacket(this.containerId, this.pos));
 	}
 
-	public void syncBlockFromRemote(String s) {
-		String[] materials = s.split(":");
+	public void syncBlockFromRemote(int i, String s) {
+		this.access.execute((level, pos) -> {
+			BlockEntity state = level.getBlockEntity(pos);
 
-		for (int i = 0; i < materials.length; i++)
-			this.multimaterial.setMaterial(i, materials[i]);
+			this.multimaterial.setMaterial(i, s);
+
+			state.getLevel().sendBlockUpdated(pos, state.getBlockState(), state.getBlockState(), Block.UPDATE_ALL);
+		});
 	}
 
 }

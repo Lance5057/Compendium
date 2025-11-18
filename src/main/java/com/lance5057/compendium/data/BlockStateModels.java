@@ -167,15 +167,15 @@ public class BlockStateModels extends BlockStateProvider {
 				.modelFile(models().getBuilder("extra/fancy_bed").customLoader(MultiStyleMaterialBuilder::begin)
 						.base(models().cubeAll("bed_base", mcLoc("block/oak_planks")))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/base",
-								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 0, 0))
+								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_BASE.getTypes(), 1, 1))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/frame",
-								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 1, 1))
+								List.of(MATERIAL_TYPES.WOOD), StyleData.BED_FRAME.getTypes(), 0, 0))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/mattress",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_MATTRESS.getTypes(), 2, 2))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/sheet",
-								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_SHEET.getTypes(), 3, 3))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/pillow",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_PILLOW.getTypes(), 4, 4))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/sheet",
+								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_SHEET.getTypes(), 3, 3))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/blanket",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_BLANKET.getTypes(), 5, 5))
 						.end())
@@ -200,12 +200,12 @@ public class BlockStateModels extends BlockStateProvider {
 						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 1, 1, "_inventory"))
 				.end()).build();
 
-		ConfiguredModel.builder().modelFile(models().getBuilder("extra/shingles_cap")
+		ConfiguredModel.builder().modelFile(models().getBuilder("extra/shingles_cap_slanted")
 				.customLoader(MultiStyleMaterialBuilder::begin)
 				.base(models().cubeAll("shingles_base", mcLoc("block/oak_planks")))
-				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap", "shingles",
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/inventory",
 						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0, "_inventory"))
-				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap", "support",
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/inventory",
 						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 1, 1, "_inventory"))
 				.end()).build();
 
@@ -595,10 +595,12 @@ public class BlockStateModels extends BlockStateProvider {
 			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_" + suffix)
 					.customLoader(MultiStyleMaterialBuilder::begin)
 					.base(models().cubeAll("shingles_cap_slanted_" + suffix + "_model", mcLoc("block/oak_planks")))
-					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/no_top/" + suffix,
-							List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0))
-					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/no_top/" + suffix,
-							List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted",
+							"shingles/no_top/" + suffix, List.of(MATERIAL_TYPES.WOOD),
+							StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0))
+					.addLayer(
+							new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/no_top/" + suffix,
+									List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1))
 					.end()).rotationY(rotation).build();
 		else
 			return ConfiguredModel.builder().modelFile(models().getBuilder("shingles_cap_slanted_" + suffix + "_top")
@@ -651,20 +653,19 @@ public class BlockStateModels extends BlockStateProvider {
 		int[] rot = new int[] { 180, 90, 0, 270 };
 		Direction[] d = new Direction[] { Direction.NORTH, Direction.WEST, Direction.SOUTH, Direction.EAST };
 		for (int i = 0; i < 4; i++)
-			mpbsb.part()
-					.modelFile(models()
-							.getBuilder("fancy_bed_" + bedSideType.toString().toLowerCase() + "_"
-									+ topBottom.toString().toLowerCase() + "_" + part + (!occupied ? "" : "_occupied"))
-							.customLoader(MultiStyleMaterialBuilder::begin)
-							.base(models().cubeAll("fancy_bed_" + bedSideType.toString().toLowerCase() + "_"
-									+ topBottom.toString().toLowerCase() + "_" + part + (!occupied ? "" : "_occupied")
-									+ "_model", mcLoc("block/oak_planks")))
-							.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
-									(!occupied ? "" : "occupied/") + bedSideType.toString().toLowerCase() + "/"
-											+ topBottom.toString().toLowerCase() + "/" + part,
-									mats, data.getTypes(), material, style))
-							.end())
-					.rotationY(rot[i]).addModel().condition(FancyBedBlock.FACING, d[i])
+			mpbsb.part().modelFile(models()
+					.getBuilder("fancy_bed_"
+							+ bedSideType.toString().toLowerCase() + "_" + topBottom.toString().toLowerCase() + "_"
+							+ part + (!occupied ? "_unoccupied" : "_occupied"))
+					.customLoader(MultiStyleMaterialBuilder::begin)
+					.base(models().cubeAll("fancy_bed_" + bedSideType.toString().toLowerCase() + "_"
+							+ topBottom.toString().toLowerCase() + "_" + part
+							+ (!occupied ? "_unoccupied" : "_occupied") + "_model", mcLoc("block/oak_planks")))
+					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed",
+							(!occupied ? "unoccupied/" : "occupied/") + bedSideType.toString().toLowerCase() + "/"
+									+ topBottom.toString().toLowerCase() + "/" + part,
+							mats, data.getTypes(), material, style))
+					.end()).rotationY(rot[i]).addModel().condition(FancyBedBlock.FACING, d[i])
 					.condition(FancyBedBlock.PART, topBottom).condition(FancyBedBlock.SIDE, bedSideType)
 					.condition(FancyBedBlock.OCCUPIED, occupied).end();
 //					.modelFile(models()
