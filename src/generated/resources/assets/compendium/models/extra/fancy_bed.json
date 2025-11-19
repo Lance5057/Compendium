@@ -45,10 +45,10 @@
     ]
   },
   "layer3": {
-    "materialLayer": 3,
+    "materialLayer": 4,
     "modelBase": "bed",
-    "modelPart": "inventory/sheet",
-    "styleLayer": 3,
+    "modelPart": "inventory/pillow",
+    "styleLayer": 4,
     "styles": [
       "basic"
     ],
@@ -58,10 +58,10 @@
     ]
   },
   "layer4": {
-    "materialLayer": 4,
+    "materialLayer": 3,
     "modelBase": "bed",
-    "modelPart": "inventory/pillow",
-    "styleLayer": 4,
+    "modelPart": "inventory/sheet",
+    "styleLayer": 3,
     "styles": [
       "basic"
     ],

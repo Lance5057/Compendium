@@ -169,6 +169,16 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				BlockModelBuilder bmb = msmb.end();
 				b.modelFile(bmb);
 				bsp.simpleBlock(PLANK_BLOCK.BLOCK.get(), b.build());
+
+				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.extraFolder() + "planks")
+						.customLoader(StyleBlockModelBuilder::begin);
+				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.PLANKS.getTypes())
+					msmb2.add(new StyleModelBuilder(s,
+							bsp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(msmb2.end()).build();
 			}
 			if (PLANK_SLAB.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> plank_slab_bottom = bsp.models()
@@ -200,6 +210,16 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				bsp.slabBlock((SlabBlock) PLANK_SLAB.BLOCK.get(), plank_slab_bottom.end(), plank_slab_top.end(),
 						plank_slab_full.end());
+				
+				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.extraFolder() + "planks")
+						.customLoader(StyleBlockModelBuilder::begin);
+				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.PLANKS.getTypes())
+					msmb2.add(new StyleModelBuilder(s,
+							bsp.modLoc(PLANK_BLOCK.location(base) + "slab/" + s.toLowerCase() + "_inventory")));
+
+				ConfiguredModel.builder().modelFile(msmb2.end()).build();
 			}
 			if (PLANK_STAIRS.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_standard = bsp.models()
@@ -400,8 +420,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s)); // can we just make this inherit the plank
-																		// one?
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
@@ -430,17 +449,14 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"), base.getType(),
 				tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
 
-		tmp.getBuilder(PLANK_BLOCK.BLOCK_ITEM.getId().getPath())
-				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/planks/boards")));
+		if (PLANK_BLOCK.shouldGenerate())
+			tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 
-		tmp.getBuilder(PLANK_SLAB.BLOCK_ITEM.getId().getPath())
-				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/slab/boards_bottom")));
+		if (PLANK_SLAB.shouldGenerate())
+			tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 
-		tmp.getBuilder(PLANK_STAIRS.BLOCK_ITEM.getId().getPath())
-				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
-						"block/material/wood/" + base.name.toLowerCase() + "/stairs/boards")));
+		if (PLANK_STAIRS.shouldGenerate())
+			tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 	}
 
 	@Override

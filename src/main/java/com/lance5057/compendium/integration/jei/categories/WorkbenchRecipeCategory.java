@@ -29,7 +29,7 @@ public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe>
 
 	public WorkbenchRecipeCategory(IGuiHelper guiHelper) {
 		background = guiHelper.createDrawable(
-				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 0, 0, 162, 90);
+				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 0, 130, 162, 126);
 		localizedName = Component.translatable("compendium.jei.workbench");
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK,
 				new ItemStack(CompendiumItems.WORKBENCH.get()));
@@ -61,15 +61,15 @@ public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe>
 		int count = 0;
 		for (Ingredient i : recipe.pattern.ingredients())
 		{
-			builder.addSlot(RecipeIngredientRole.INPUT, 1 + ((count % 3) * 18), 37 + (int)(count/3)*18).addIngredients(i);
+			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % 3) * 18), 1 + (int)(count/3)*18).addIngredients(i);
 			count++;
 		}
 
-		builder.addSlot(RecipeIngredientRole.OUTPUT, 1, 73).addIngredients(Ingredient.of(recipe.getItemOut()));
+		builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 73).addIngredients(Ingredient.of(recipe.getItemOut()));
 
 		count = 0;
 		for (AnimatedRecipeItemUse aru : recipe.getTools()) {
-			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + (count * 18), 1).addIngredients(aru.tool());
+			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 3) * 18), 1+ (int)(count/3)*18).addIngredients(aru.tool());
 			count++;
 		}
 	}
