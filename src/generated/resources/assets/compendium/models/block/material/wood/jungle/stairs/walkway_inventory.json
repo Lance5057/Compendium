@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "compendium:block/material/wood/jungle/planks/walkway"
+    "bottom": "compendium:block/material/wood/jungle/planks/walkway",
+    "side": "compendium:block/material/wood/jungle/planks/walkway",
+    "top": "compendium:block/material/wood/jungle/planks/walkway"
   }
 }

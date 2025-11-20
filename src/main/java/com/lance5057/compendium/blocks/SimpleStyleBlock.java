@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+
 	public SimpleStyleBlock(Properties properties, ResourceLocation itemRendererLocation, StyleData... styles) {
 		super(properties);
 		this.styles = styles;
@@ -28,15 +29,17 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new SimpleStyleBlockEntity(pos, state, styles.length, styles);
 	}
-	
+
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-		List<String> r = new ArrayList<String>();
+		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
-			if (styles.length > i)
-				r.add(this.styles[i].getTypes().get(i));
+			if (styles.length > i) {
+				s.add(styles[i].getTypes().get(current.get(i)));
+			}
 		}
-		return r;
+
+		return s;
 	}
 
 	@Override
@@ -48,7 +51,7 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "compendium:block/material/wood/mangrove/planks/chiseled"
+    "bottom": "compendium:block/material/wood/mangrove/planks/chiseled",
+    "side": "compendium:block/material/wood/mangrove/planks/chiseled",
+    "top": "compendium:block/material/wood/mangrove/planks/chiseled"
   }
 }

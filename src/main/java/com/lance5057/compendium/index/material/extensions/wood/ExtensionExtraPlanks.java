@@ -210,9 +210,9 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				bsp.slabBlock((SlabBlock) PLANK_SLAB.BLOCK.get(), plank_slab_bottom.end(), plank_slab_top.end(),
 						plank_slab_full.end());
-				
-				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.extraFolder() + "planks")
-						.customLoader(StyleBlockModelBuilder::begin);
+
+				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models()
+						.getBuilder(base.extraFolder() + "plank_slab").customLoader(StyleBlockModelBuilder::begin);
 				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes())
@@ -227,13 +227,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-//					if (s.endsWith("_rotated")) {
-//						styledStairsStraight(plank_stairs_standard, PLANK.location(base), s,
-//								bsp);
-//					} else {
 					plank_stairs_standard.add(
 							new StyleModelBuilder(s, bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
-//					}
 				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inner = bsp.models()
@@ -242,12 +237,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_inner.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-//					if (s.endsWith("_rotated")) {
-//						styledStairsInner(plank_stairs_inner, PLANK.location(base), s, bsp);
-//					} else {
 					plank_stairs_inner.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
-//					}
 				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_outer = bsp.models()
@@ -256,16 +247,24 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				plank_stairs_outer.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes()) {
-//					if (s.endsWith("_rotated")) {
-//						styledStairsOuter(plank_stairs_outer, PLANK.location(base), s, bsp);
-//					} else {
 					plank_stairs_outer.add(new StyleModelBuilder(s,
 							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
-//					}
 				}
 
 				stairsBlock((StairBlock) PLANK_STAIRS.BLOCK.get(), plank_stairs_standard.end(),
 						plank_stairs_inner.end(), plank_stairs_outer.end(), bsp);
+
+				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inventory = bsp.models()
+						.getBuilder(base.extraFolder() + "plank_stairs").customLoader(StyleBlockModelBuilder::begin);
+				plank_stairs_inventory.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+
+				for (String s : StyleData.PLANKS.getTypes()) {
+					plank_stairs_inventory.add(new StyleModelBuilder(s,
+							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+
+					ConfiguredModel.builder().modelFile(plank_stairs_inventory.end()).build();
+				}
+
 			}
 		}
 	}
@@ -411,6 +410,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
+			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_inventory",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
@@ -425,6 +428,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s, ibmp.mcLoc("block/cube_all"))
 					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 
+			ibmp.stairs(PLANK.location(base) + "/stairs/" + s + "_inventory",
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
 			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
@@ -436,27 +443,25 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
 					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-
-			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/stairs/" + s + "_inventory",
-					ibmp.mcLoc("block/cube_all"))
-					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
 //			}
 		}
 	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-		DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"), base.getType(),
-				tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
+		if (this.autoGenItemModel) {
+			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
+					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
 
-		if (PLANK_BLOCK.shouldGenerate())
-			tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+			if (PLANK_BLOCK.shouldGenerate())
+				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 
-		if (PLANK_SLAB.shouldGenerate())
-			tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+			if (PLANK_SLAB.shouldGenerate())
+				tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 
-		if (PLANK_STAIRS.shouldGenerate())
-			tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+			if (PLANK_STAIRS.shouldGenerate())
+				tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+		}
 	}
 
 	@Override
@@ -517,7 +522,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 									InventoryChangeTrigger.TriggerInstance.Slots.ANY,
 									List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
-					.save(consumer);
+					.save(consumer, TagUtil.modLoc(base.name + "_planks"));
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
 					.define('p', PLANK.BLOCK_ITEM).pattern("p p").pattern("   ").pattern("p p")

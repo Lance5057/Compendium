@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "compendium:block/material/wood/warped/planks/cross"
+    "bottom": "compendium:block/material/wood/warped/planks/cross",
+    "side": "compendium:block/material/wood/warped/planks/cross",
+    "top": "compendium:block/material/wood/warped/planks/cross"
   }
 }

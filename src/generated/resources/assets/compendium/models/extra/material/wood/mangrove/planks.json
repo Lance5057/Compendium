@@ -1,6 +1,6 @@
 {
   "banded": {
-    "model": "compendium:block/material/wood/mangrove/slab/banded_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/banded_inventory"
   },
   "base": {
     "parent": "minecraft:block/cube_all",
@@ -9,131 +9,131 @@
     }
   },
   "big_weave": {
-    "model": "compendium:block/material/wood/mangrove/slab/big_weave_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/big_weave_inventory"
   },
   "blocks": {
-    "model": "compendium:block/material/wood/mangrove/slab/blocks_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/blocks_inventory"
   },
   "blocks_offset": {
-    "model": "compendium:block/material/wood/mangrove/slab/blocks_offset_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/blocks_offset_inventory"
   },
   "boards": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_inventory"
   },
   "boards_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_rotated_inventory"
   },
   "boards_seamless": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_seamless_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_seamless_inventory"
   },
   "boards_seamless_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_seamless_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_seamless_rotated_inventory"
   },
   "boards_stacked": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_stacked_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_stacked_inventory"
   },
   "boards_stacked_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/boards_stacked_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/boards_stacked_rotated_inventory"
   },
   "box": {
-    "model": "compendium:block/material/wood/mangrove/slab/box_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/box_inventory"
   },
   "chiseled": {
-    "model": "compendium:block/material/wood/mangrove/slab/chiseled_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/chiseled_inventory"
   },
   "count": 43,
   "cross": {
-    "model": "compendium:block/material/wood/mangrove/slab/cross_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/cross_inventory"
   },
   "diagonal": {
-    "model": "compendium:block/material/wood/mangrove/slab/diagonal_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/diagonal_inventory"
   },
   "diagonal_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/diagonal_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/diagonal_rotated_inventory"
   },
   "domed": {
-    "model": "compendium:block/material/wood/mangrove/slab/domed_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/domed_inventory"
   },
   "double_herringbone": {
-    "model": "compendium:block/material/wood/mangrove/slab/double_herringbone_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/double_herringbone_inventory"
   },
   "five": {
-    "model": "compendium:block/material/wood/mangrove/slab/five_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/five_inventory"
   },
   "four_panels": {
-    "model": "compendium:block/material/wood/mangrove/slab/four_panels_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/four_panels_inventory"
   },
   "herringbone": {
-    "model": "compendium:block/material/wood/mangrove/slab/herringbone_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/herringbone_inventory"
   },
   "loader": "compendium:style",
   "nine_panels": {
-    "model": "compendium:block/material/wood/mangrove/slab/nine_panels_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/nine_panels_inventory"
   },
   "panel": {
-    "model": "compendium:block/material/wood/mangrove/slab/panel_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/panel_inventory"
   },
   "paper": {
-    "model": "compendium:block/material/wood/mangrove/slab/paper_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/paper_inventory"
   },
   "parquet": {
-    "model": "compendium:block/material/wood/mangrove/slab/parquet_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/parquet_inventory"
   },
   "petal": {
-    "model": "compendium:block/material/wood/mangrove/slab/petal_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/petal_inventory"
   },
   "planks_seamless": {
-    "model": "compendium:block/material/wood/mangrove/slab/planks_seamless_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/planks_seamless_inventory"
   },
   "planks_seamless_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/planks_seamless_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/planks_seamless_rotated_inventory"
   },
   "planks_stacked": {
-    "model": "compendium:block/material/wood/mangrove/slab/planks_stacked_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/planks_stacked_inventory"
   },
   "planks_stacked_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/planks_stacked_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/planks_stacked_rotated_inventory"
   },
   "sheet": {
-    "model": "compendium:block/material/wood/mangrove/slab/sheet_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/sheet_inventory"
   },
   "small_blocks": {
-    "model": "compendium:block/material/wood/mangrove/slab/small_blocks_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/small_blocks_inventory"
   },
   "small_blocks_offset": {
-    "model": "compendium:block/material/wood/mangrove/slab/small_blocks_offset_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/small_blocks_offset_inventory"
   },
   "thin": {
-    "model": "compendium:block/material/wood/mangrove/slab/thin_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/thin_inventory"
   },
   "thin_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/thin_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/thin_rotated_inventory"
   },
   "two_panel": {
-    "model": "compendium:block/material/wood/mangrove/slab/two_panel_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/two_panel_inventory"
   },
   "vertical": {
-    "model": "compendium:block/material/wood/mangrove/slab/vertical_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/vertical_inventory"
   },
   "wainscotting_double": {
-    "model": "compendium:block/material/wood/mangrove/slab/wainscotting_double_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/wainscotting_double_inventory"
   },
   "wainscotting_grate": {
-    "model": "compendium:block/material/wood/mangrove/slab/wainscotting_grate_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/wainscotting_grate_inventory"
   },
   "wainscotting_seamless": {
-    "model": "compendium:block/material/wood/mangrove/slab/wainscotting_seamless_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/wainscotting_seamless_inventory"
   },
   "wainscotting_single": {
-    "model": "compendium:block/material/wood/mangrove/slab/wainscotting_single_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/wainscotting_single_inventory"
   },
   "walkway": {
-    "model": "compendium:block/material/wood/mangrove/slab/walkway_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/walkway_inventory"
   },
   "walkway_rotated": {
-    "model": "compendium:block/material/wood/mangrove/slab/walkway_rotated_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/walkway_rotated_inventory"
   },
   "wicker": {
-    "model": "compendium:block/material/wood/mangrove/slab/wicker_inventory"
+    "model": "compendium:block/material/wood/mangrove/planks/wicker_inventory"
   }
 }
