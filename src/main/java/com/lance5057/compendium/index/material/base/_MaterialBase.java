@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.material.base;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +20,13 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-public abstract class _MaterialBase implements IIndexEntry {
+public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
-//	public final String TYPE;
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7616650773040539965L;
+	//	public final String TYPE;
 	public String namespace;
 	public String name;
 
@@ -89,7 +94,7 @@ public abstract class _MaterialBase implements IIndexEntry {
 	public String itemFolder() {
 		return "item/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
 	}
-	
+
 	public String extraFolder() {
 		return "extra/material/" + this.getType().toString().toLowerCase() + "/" + this.getName() + "/";
 	}

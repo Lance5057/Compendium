@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.util;
 
+import java.io.Serializable;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -14,13 +15,17 @@ import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class CompendiumItemHandler {
+public class CompendiumItemHandler implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8460994906633097803L;
 	public String name;
-	Generate generate = Generate.IGNORE;
+	transient Generate generate = Generate.IGNORE;
 
-	public DeferredItem<Item> ITEM;
+	public transient DeferredItem<Item> ITEM;
 
-	public TagKey<Item> itemTag;
+	public transient TagKey<Item> itemTag;
 
 	public CompendiumItemHandler(String n) {
 		name = n;

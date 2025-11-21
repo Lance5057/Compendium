@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.util;
 
+import java.io.Serializable;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -19,15 +20,19 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class CompendiumBlockHandler {
+public class CompendiumBlockHandler implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 134750634581821030L;
 	public String name;
-	Generate generate = Generate.IGNORE;
+	transient Generate generate = Generate.IGNORE;
 
-	public DeferredItem<BlockItem> BLOCK_ITEM;
-	public DeferredBlock<Block> BLOCK;
+	public transient DeferredItem<BlockItem> BLOCK_ITEM;
+	public transient DeferredBlock<Block> BLOCK;
 
-	public TagKey<Item> itemTag;
-	public TagKey<Block> blockTag;
+	public transient TagKey<Item> itemTag;
+	public transient TagKey<Block> blockTag;
 
 	public CompendiumBlockHandler(String n) {
 		name = n;

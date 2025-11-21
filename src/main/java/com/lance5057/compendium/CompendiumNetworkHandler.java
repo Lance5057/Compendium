@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import com.lance5057.compendium.network.AdjustinatorCallBackPacket;
 import com.lance5057.compendium.network.AdjustinatorSyncPacket;
+import com.lance5057.compendium.network.ChecksumVerificationPacket;
 import com.lance5057.compendium.network.StyleSetPacket;
 import com.lance5057.compendium.network.StyleSyncPacket;
 
@@ -19,5 +20,6 @@ public class CompendiumNetworkHandler {
 				AdjustinatorCallBackPacket::handle);
 		registrar.playToServer(StyleSetPacket.id, StyleSetPacket.STREAM_CODEC, StyleSetPacket::handle);
 
+		registrar.playToClient(ChecksumVerificationPacket.id, ChecksumVerificationPacket.STREAM_CODEC, ChecksumVerificationPacket::handle);
 	}
 }

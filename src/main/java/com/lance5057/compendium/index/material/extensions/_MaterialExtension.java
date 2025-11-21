@@ -1,5 +1,6 @@
 package com.lance5057.compendium.index.material.extensions;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 
 import com.google.gson.JsonDeserializationContext;
@@ -22,7 +23,12 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public abstract class _MaterialExtension {
+public abstract class _MaterialExtension implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1904148996768649285L;
+
 	public abstract void setup(_MaterialBase base);
 
 	public abstract void tab(_MaterialBase base, Output output);

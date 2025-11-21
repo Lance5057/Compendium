@@ -2,6 +2,7 @@ package com.lance5057.compendium.index;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.NotSerializableException;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -60,7 +61,7 @@ public class CompendiumIndex {
 		ARMOR_MATERIALS.register(bus);
 	}
 
-	public static BigInteger generateChecksum() throws IOException, NoSuchAlgorithmException {
+	public static BigInteger generateChecksum() throws IOException, NoSuchAlgorithmException, NotSerializableException {
 		ByteArrayOutputStream baos = null;
 		ObjectOutputStream oos = null;
 		try {
@@ -70,6 +71,9 @@ public class CompendiumIndex {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(baos.toByteArray());
 			return new BigInteger(1, md.digest());
+		} catch (NotSerializableException e) {
+			Compendium.LOGGER.error("Unserializeable Object! Either make it implement Serializable or mark it transient!");
+			return new BigInteger("0");
 		} finally {
 			oos.close();
 			baos.close();
