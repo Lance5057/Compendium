@@ -36,6 +36,10 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialStone extends _MaterialBase {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5574491153486861741L;
 	public boolean loadCobblestone;
 	public boolean loadStone;
 	public boolean loadSmooth;

@@ -2,6 +2,7 @@ package com.lance5057.compendium.index.material.extensions;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -14,6 +15,7 @@ import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -36,6 +38,7 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -305,6 +308,42 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == PRYBAR.ITEM.asItem())
+			return true;
+		if (stack.getItem() == HAMMER.ITEM.asItem())
+			return true;
+		if (stack.getItem() == SAW.ITEM.asItem())
+			return true;
+		if (stack.getItem() == SHEARS.ITEM.asItem())
+			return true;
+		if (stack.getItem() == ZWEIHANDER.ITEM.asItem())
+			return true;
+		if (stack.getItem() == BOW.ITEM.asItem())
+			return true;
+
+		return false;
+	}
+
+	@Override
+	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == PRYBAR.ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == HAMMER.ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == SAW.ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == SHEARS.ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == ZWEIHANDER.ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == BOW.ITEM.asItem())
+			return Optional.of(base);
+
+		return Optional.empty();
 	}
 
 }

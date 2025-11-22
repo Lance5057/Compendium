@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -27,6 +28,7 @@ import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -73,6 +75,10 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5373374706645885937L;
 	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
 	public static final VoxelShape smallLogVert = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
@@ -929,9 +935,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
 						.getBuilder(base.extraFolder() + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_inventory.base(bsp.models()
-						.stairs("stairs_base", bsp.mcLoc("block/oak_planks"), bsp.mcLoc("block/oak_planks"),
-								bsp.mcLoc("block/oak_planks")));
+				log_stairs_inventory.base(bsp.models().stairs("stairs_base", bsp.mcLoc("block/oak_planks"),
+						bsp.mcLoc("block/oak_planks"), bsp.mcLoc("block/oak_planks")));
 
 				for (String s : StyleData.LOG_STAIRS.getTypes())
 					log_stairs_inventory.add(new StyleModelBuilder(s,
@@ -1380,6 +1385,52 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == SMALL_LOG.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == LOG.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == LOG_SLAB.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == LOG_STAIRS.BLOCK_ITEM.asItem())
+			return true;
+
+		if (stack.getItem() == STRIPPED_SMALL_LOG.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == STRIPPED_LOG.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == STRIPPED_LOG_SLAB.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == STRIPPED_LOG_STAIRS.BLOCK_ITEM.asItem())
+			return true;
+
+		return false;
+	}
+
+	@Override
+	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == SMALL_LOG.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == LOG.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == LOG_SLAB.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == LOG_STAIRS.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+
+		if (stack.getItem() == STRIPPED_SMALL_LOG.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == STRIPPED_LOG.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == STRIPPED_LOG_SLAB.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == STRIPPED_LOG_STAIRS.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+
+		return Optional.empty();
 	}
 
 }

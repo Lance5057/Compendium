@@ -29,6 +29,7 @@ import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -78,6 +79,10 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3680413722908106206L;
 	public final CompendiumBlockHandler PLANK;
 	public final CompendiumBlockHandler PLANK_BLOCK;
 	public final CompendiumBlockHandler PLANK_SLAB;
@@ -657,6 +662,34 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == PLANK.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == PLANK_BLOCK.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == PLANK_SLAB.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == PLANK_STAIRS.BLOCK_ITEM.asItem())
+			return true;
+
+		return false;
+	}
+
+	@Override
+	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == PLANK.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == PLANK_BLOCK.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == PLANK_SLAB.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == PLANK_STAIRS.BLOCK_ITEM.asItem())
+			return Optional.of(base);
+
+		return Optional.empty();
 	}
 
 }

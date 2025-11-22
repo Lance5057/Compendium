@@ -36,6 +36,10 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MaterialTextile extends _MaterialBase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2331511780363081257L;
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("block");
 	public CompendiumItemHandler STRING = new CompendiumItemHandler("string");
 
@@ -190,13 +194,33 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == STRING.ITEM.asItem())
+			return true;
+
+		for (_MaterialExtension m : extensions) {
+			boolean o = m.isIndexItem(this, stack);
+
+			if (o)
+				return o;
+		}
 		return false;
 	}
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+			return Optional.of(this);
+		if (stack.getItem() == STRING.ITEM.asItem())
+			return Optional.of(this);
+
+		for (_MaterialExtension m : extensions) {
+			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+
+			if (o.isPresent())
+				return o;
+		}
 		return Optional.empty();
 	}
 

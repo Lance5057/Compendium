@@ -8,11 +8,13 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
+import java.util.Optional;
 
 import com.lance5057.compendium.Compendium;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -72,11 +74,28 @@ public class CompendiumIndex {
 			md.update(baos.toByteArray());
 			return new BigInteger(1, md.digest());
 		} catch (NotSerializableException e) {
-			Compendium.LOGGER.error("Unserializeable Object! Either make it implement Serializable or mark it transient!");
+			Compendium.LOGGER
+					.error("Unserializeable Object! Either make it implement Serializable or mark it transient!");
 			return new BigInteger("0");
 		} finally {
 			oos.close();
 			baos.close();
 		}
+	}
+
+	public static boolean isIndexItem(ItemStack stack) {
+		for (IIndexEntry i : index)
+			if (i.isIndexItem(stack))
+				return true;
+		return false;
+	}
+
+	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+		for (IIndexEntry i : index) {
+			Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
+			if (o.isPresent())
+				return o;
+		}
+		return Optional.empty();
 	}
 }

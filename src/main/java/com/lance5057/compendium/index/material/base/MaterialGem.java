@@ -35,6 +35,10 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class MaterialGem extends _MaterialBase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6098268951493240388L;
 	public boolean loadGem;
 	public boolean loadStorageBlock;
 	public boolean loadShard;

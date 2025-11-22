@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.Block;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
-/**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7616650773040539965L;

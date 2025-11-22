@@ -1,6 +1,7 @@
 package com.lance5057.compendium.index.material.extensions;
 
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -9,6 +10,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.DataUtil;
 
@@ -20,6 +22,7 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
@@ -31,6 +34,10 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionVanillaTools extends _MaterialExtension {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6058992077769136068L;
 	boolean loadSword;
 	boolean loadAxe;
 	boolean loadShovel;
@@ -187,13 +194,44 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	@Override
 	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
+	@Override
+	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == SWORD.asItem())
+			return true;
+		if (stack.getItem() == AXE.asItem())
+			return true;
+		if (stack.getItem() == SHOVEL.asItem())
+			return true;
+		if (stack.getItem() == HOE.asItem())
+			return true;
+		if (stack.getItem() == PICKAXE.asItem())
+			return true;
+
+		return false;
+	}
+
+	@Override
+	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+		if (stack.getItem() == SWORD.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == AXE.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == SHOVEL.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == HOE.asItem())
+			return Optional.of(base);
+		if (stack.getItem() == PICKAXE.asItem())
+			return Optional.of(base);
+
+		return Optional.empty();
+	}
 }

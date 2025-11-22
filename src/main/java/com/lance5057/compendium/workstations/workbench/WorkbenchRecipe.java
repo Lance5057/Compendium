@@ -24,6 +24,12 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 		implements IRecipeShapedItemIn, IRecipeSingleItemOut, IRecipeLootTableOut {
 
 	public WorkbenchRecipe(MultiToolRecipeShapedPattern input, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
+			ItemStack recipeOutputIn, RecipeType<?> recipeType) {
+		super(input, recipeToolsIn, recipeOutputIn, recipeType);
+
+	}
+
+	public WorkbenchRecipe(MultiToolRecipeShapedPattern input, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
 			ItemStack recipeOutputIn) {
 		super(input, recipeToolsIn, recipeOutputIn, WorkstationRecipes.WORKBENCH_RECIPE.get());
 
@@ -31,7 +37,6 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 
 	@Override
 	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
-		// TODO Auto-generated method stub
 		return this.getResultItem(registries);
 	}
 

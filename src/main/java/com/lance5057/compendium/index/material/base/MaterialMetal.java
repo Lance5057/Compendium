@@ -66,10 +66,12 @@ public class MaterialMetal extends _MaterialBase {
 					() -> Ingredient.of(INGOT.itemTag));
 		}
 
-		INGOT.setup(this, "c", "ingots/" + name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		INGOT.setup(this, "c", "ingots/" + name,
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
 		NUGGET.setup(this, "c", "nuggets/" + name,
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
-		BLOCK.setup(this, "c", "storage_blocks/" + name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+		BLOCK.setup(this, "c", "storage_blocks/" + name,
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
 		this.extensions.forEach(i -> i.setup(this));
@@ -249,13 +251,37 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+			return true;
+		if (stack.getItem() == INGOT.ITEM.asItem())
+			return true;
+		if (stack.getItem() == NUGGET.ITEM.asItem())
+			return true;
+
+		for (_MaterialExtension m : extensions) {
+			boolean o = m.isIndexItem(this, stack);
+
+			if (o)
+				return o;
+		}
 		return false;
 	}
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+			return Optional.of(this);
+		if (stack.getItem() == INGOT.ITEM.asItem())
+			return Optional.of(this);
+		if (stack.getItem() == NUGGET.ITEM.asItem())
+			return Optional.of(this);
+
+		for (_MaterialExtension m : extensions) {
+			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+
+			if (o.isPresent())
+				return o;
+		}
 		return Optional.empty();
 	}
 

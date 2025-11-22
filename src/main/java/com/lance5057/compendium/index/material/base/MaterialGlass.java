@@ -33,6 +33,10 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MaterialGlass extends _MaterialBase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8859553079700017238L;
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("glass");
 
 	public MaterialGlass(String name, String tagNamespace) {

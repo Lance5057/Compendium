@@ -44,7 +44,7 @@ public record MultiMaterialBlockComponent(List<MultiMaterialType> types) impleme
 			MultiMaterialType.STREAM_CODEC.encode(buffer, bm.types.get(i));
 		}
 	}
-	
+
 	@Override
 	public void addToTooltip(TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
 		// TODO Auto-generated method stub
