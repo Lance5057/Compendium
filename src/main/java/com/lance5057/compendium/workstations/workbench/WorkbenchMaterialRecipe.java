@@ -8,20 +8,31 @@ import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
+import com.lance5057.compendium.util.SlotToMaterial;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShapedPattern;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
+import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe.Serializer;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 
 public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
-	List<SlotToMaterial> matSlots;
+	NonNullList<SlotToMaterial> matSlots;
 
-	public WorkbenchMaterialRecipe(MultiToolRecipeShapedPattern input, List<SlotToMaterial> matSlots,
+	public NonNullList<SlotToMaterial> getMatSlots() {
+		return matSlots;
+	}
+
+	public WorkbenchMaterialRecipe(MultiToolRecipeShapedPattern input, NonNullList<SlotToMaterial> matSlots,
 			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn) {
 		super(input, recipeToolsIn, recipeOutputIn, WorkstationRecipes.WORKBENCH_MATERIAL_RECIPE.get());
 		this.matSlots = matSlots;
@@ -37,17 +48,17 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 			List<MultiMaterialType> mats = mmbc.types();
 
 			for (SlotToMaterial sm : matSlots) {
-				ItemStack i = input.getItem(sm.slot);
+				ItemStack i = input.getItem(sm.getSlot());
 
 				if (CompendiumIndex.isIndexItem(i)) {
 					Optional<IIndexEntry> o = CompendiumIndex.getEntryItemBelongsTo(i);
 
-					if (mats.size() > sm.materialLayer) {
+					if (mats.size() > sm.getMaterialLayer()) {
 						String m = o.get().getName();
 
-						MultiMaterialType mmt = mats.get(sm.materialLayer);
+						MultiMaterialType mmt = mats.get(sm.getMaterialLayer());
 						mmt.setCurrentMaterial(m);
-						mats.set(sm.materialLayer, mmt);
+						mats.set(sm.getMaterialLayer(), mmt);
 					}
 				}
 			}
@@ -57,14 +68,51 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 		return s;
 	}
+	
+	public static class Serializer implements RecipeSerializer<WorkbenchMaterialRecipe> {
+		public static final MapCodec<WorkbenchMaterialRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
+				.group(MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchMaterialRecipe::getShapedIn),
+						NonNullList.codecOf(SlotToMaterial.CODEC).fieldOf("mats").forGetter(WorkbenchMaterialRecipe::getMatSlots),
+						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
+								.forGetter(WorkbenchRecipe::getTools),
+						ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchRecipe::getItemOut))
+				.apply(inst, WorkbenchMaterialRecipe::new));
 
-	public class SlotToMaterial {
-		int slot;
-		int materialLayer;
+		public static final StreamCodec<RegistryFriendlyByteBuf, WorkbenchMaterialRecipe> STREAM_CODEC = StreamCodec
+				.of(Serializer::write, Serializer::read);
 
-		SlotToMaterial(int slot, int material) {
-			this.slot = slot;
-			this.materialLayer = material;
+		@Override
+		public MapCodec<WorkbenchMaterialRecipe> codec() {
+			return CODEC;
+		}
+
+		@Override
+		public StreamCodec<RegistryFriendlyByteBuf, WorkbenchMaterialRecipe> streamCodec() {
+			return STREAM_CODEC;
+		}
+
+		private static WorkbenchMaterialRecipe read(RegistryFriendlyByteBuf buffer) {
+			MultiToolRecipeShapedPattern p = MultiToolRecipeShapedPattern.STREAM_CODEC.decode(buffer);
+
+			int listSize = buffer.readVarInt();
+
+			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
+			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
+
+			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
+
+			return new WorkbenchMaterialRecipe(p, tools, out);
+		}
+
+		private static void write(RegistryFriendlyByteBuf buffer, WorkbenchMaterialRecipe recipe) {
+
+			MultiToolRecipeShapedPattern.STREAM_CODEC.encode(buffer, recipe.pattern);
+
+			buffer.writeVarInt(recipe.getTools().size());
+			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
+
+			ItemStack.STREAM_CODEC.encode(buffer, recipe.getItemOut());
 		}
 	}
+
 }
