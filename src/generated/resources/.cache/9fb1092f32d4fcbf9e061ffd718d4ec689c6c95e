@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-20T12:30:48.5648352	Recipes
+// 1.21.1	2025-11-23T03:57:26.8204016	Recipes
 a9ecc3f9e72da0f92f212d0c572a86bba2dc1bf7 data/compendium/advancement/recipes/building_blocks/acacia_logs_item.json
 c20480cd9cdc2b1a44b7703a22b2300a4b3557c9 data/compendium/advancement/recipes/building_blocks/acacia_logs_slab_item.json
 2e7f1ef25179fea318f6d7cbb43eaec3c3908cc2 data/compendium/advancement/recipes/building_blocks/acacia_logs_stairs_item.json
@@ -117,6 +117,7 @@ fc1664a58ca27bee81f4bb17245b2bb723409c9e data/compendium/advancement/recipes/wor
 4ac9d4cb7770704ad74dbb74d4dad59d82217ae5 data/compendium/advancement/recipes/workbench/acacia_plank_stairs_item.json
 f01a867b960bb15788f7f54597ae599b52e8c695 data/compendium/advancement/recipes/workbench/birch_plank_slab_item.json
 81821b19398ce402577cf9e865141296744abcf6 data/compendium/advancement/recipes/workbench/birch_plank_stairs_item.json
+852a1843da9cb28cf7eaa32e24927152ceb2baae data/compendium/advancement/recipes/workbench/chair.json
 a0cb36b502e62916a7bb2da51a2a123e04b04d56 data/compendium/advancement/recipes/workbench/cherry_plank_slab_item.json
 92a65ed1cfe06df1d2c8ce843e94dc38c35e550b data/compendium/advancement/recipes/workbench/cherry_plank_stairs_item.json
 4a089833411577132bbcce62eb909b19dd10cca1 data/compendium/advancement/recipes/workbench/component_drawer.json
@@ -279,6 +280,7 @@ bbde37c1a1df35b02cc455cd06e1df9ff30e51be data/compendium/recipe/workbench/acacia
 7911b8a7d37ffa9933c6127dc034f54c3cefd23c data/compendium/recipe/workbench/acacia_plank_stairs_item.json
 6631262919b73832a70196196a73d4f2948ca09f data/compendium/recipe/workbench/birch_plank_slab_item.json
 e0fc974f4bc27e6a4b3148a6d66625bd77b47547 data/compendium/recipe/workbench/birch_plank_stairs_item.json
+2409807824b7c506ebdb76dc3110f21dc0f35307 data/compendium/recipe/workbench/chair.json
 bda95c3b775cc97c5d99658fd24fccf45b3c9a49 data/compendium/recipe/workbench/cherry_plank_slab_item.json
 cda44699b0fbd92b92d93ebc2b2a0df5386e5058 data/compendium/recipe/workbench/cherry_plank_stairs_item.json
 a90c8f2c501790358f61d457a48d33691abb7baf data/compendium/recipe/workbench/component_drawer.json

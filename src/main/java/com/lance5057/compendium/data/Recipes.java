@@ -9,8 +9,10 @@ import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
+import com.lance5057.compendium.data.recipebuilders.WorkbenchMaterialRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.util.SlotToMaterial;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
@@ -62,7 +64,6 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.requires(Items.STONE, 9).unlockedBy(getName(), has(CompendiumItems.MEGALITH_STONE.get()))
 				.save(consumer, TagUtil.modLoc("stone_to_megalith"));
 
-		
 	}
 
 	private void sawing(RecipeOutput consumer) {
@@ -164,6 +165,13 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('h', Items.CHEST).define('b', Items.BRUSH).define('p', ItemTags.WOODEN_PRESSURE_PLATES)
 				.define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE).define('r', Items.RED_DYE)
 				.define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb").pattern("lhg").pattern("rcy")
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchMaterialRecipeBuilder.shaped(CompendiumItems.CHAIR).define('p', Ingredient.of(CompendiumTags.PLANK))
+				.define('b', Ingredient.of(ItemTags.PLANKS)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS)).slotToMat(new SlotToMaterial(1, 1))
+				.pattern("psp").pattern("pbp").pattern("p p")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);

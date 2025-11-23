@@ -13,14 +13,13 @@ import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShapedPattern;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
-import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe.Serializer;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -98,10 +97,15 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
 			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
+			
+			int listSize2 = buffer.readVarInt();
+
+			NonNullList<SlotToMaterial> mats = NonNullList.withSize(listSize2, new SlotToMaterial(0,0));
+			mats.replaceAll(ignored -> SlotToMaterial.STREAM_CODEC.decode(buffer));
 
 			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
 
-			return new WorkbenchMaterialRecipe(p, tools, out);
+			return new WorkbenchMaterialRecipe(p, mats, tools, out);
 		}
 
 		private static void write(RegistryFriendlyByteBuf buffer, WorkbenchMaterialRecipe recipe) {
@@ -110,6 +114,9 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 			buffer.writeVarInt(recipe.getTools().size());
 			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
+			
+			buffer.writeVarInt(recipe.getMatSlots().size());
+			recipe.getMatSlots().forEach(riu -> SlotToMaterial.STREAM_CODEC.encode(buffer, riu));
 
 			ItemStack.STREAM_CODEC.encode(buffer, recipe.getItemOut());
 		}

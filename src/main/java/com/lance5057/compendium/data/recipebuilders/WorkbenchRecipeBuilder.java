@@ -32,15 +32,15 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 public class WorkbenchRecipeBuilder implements RecipeBuilder {
-	private final Item result;
-	private final int count;
-	private final ItemStack resultStack; // Neo: add stack result support
-	private final List<String> rows = Lists.newArrayList();
-	private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
-	private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-	private final NonNullList<AnimatedRecipeItemUse> tools = NonNullList.create();
+	protected final Item result;
+	protected final int count;
+	protected final ItemStack resultStack; // Neo: add stack result support
+	protected final List<String> rows = Lists.newArrayList();
+	protected final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
+	protected final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	protected final NonNullList<AnimatedRecipeItemUse> tools = NonNullList.create();
 	@Nullable
-	private String group;
+	protected String group;
 
 	public WorkbenchRecipeBuilder(ItemLike result, int count) {
 		this(new ItemStack(result, count));

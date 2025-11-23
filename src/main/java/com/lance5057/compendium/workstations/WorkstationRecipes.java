@@ -32,6 +32,9 @@ public class WorkstationRecipes {
 	public static final Supplier<WorkbenchRecipe.Serializer> WORKBENCH_SERIALIZER = RECIPE_SERIALIZERS
 			.register("workbench", WorkbenchRecipe.Serializer::new);
 
+	public static final Supplier<WorkbenchMaterialRecipe.Serializer> WORKBENCH_MATERIAL_SERIALIZER = RECIPE_SERIALIZERS
+			.register("workbench_material", WorkbenchMaterialRecipe.Serializer::new);
+	
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(BuiltInRegistries.RECIPE_TYPE, Compendium.MOD_ID);
 
