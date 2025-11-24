@@ -589,6 +589,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
 		if (!PLANK.isIgnored()) {
 			PLANK.itemTag(itp);
+			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
 		}
 		if (!PLANK_BLOCK.isIgnored()) {
 			PLANK_BLOCK.itemTag(itp);
@@ -666,7 +667,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == PLANK.BLOCK_ITEM.asItem())
+		if (stack.is(PLANK.BLOCK_ITEM.asItem()) || stack.is(PLANK.itemTag))
 			return true;
 		if (stack.getItem() == PLANK_BLOCK.BLOCK_ITEM.asItem())
 			return true;
