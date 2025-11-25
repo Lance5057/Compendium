@@ -24,6 +24,8 @@ public class SlotToMaterial {
 					Codec.INT.fieldOf("materialLayer").forGetter(SlotToMaterial::getMaterialLayer))
 			.apply(inst, SlotToMaterial::new));
 
+	public static final SlotToMaterial EMPTY = new SlotToMaterial(0, 0);
+
 	public SlotToMaterial(int slot, int material) {
 		this.slot = slot;
 		this.materialLayer = material;
@@ -41,7 +43,7 @@ public class SlotToMaterial {
 	}
 
 	private static void write(RegistryFriendlyByteBuf buffer, SlotToMaterial r) {
-		buffer.writeVarInt(r.slot);
-		buffer.writeVarInt(r.materialLayer);
+		buffer.writeInt(r.slot);
+		buffer.writeInt(r.materialLayer);
 	}
 }

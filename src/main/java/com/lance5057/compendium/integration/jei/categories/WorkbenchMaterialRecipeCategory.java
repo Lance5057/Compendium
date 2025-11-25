@@ -3,7 +3,7 @@ package com.lance5057.compendium.integration.jei.categories;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
-import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
+import com.lance5057.compendium.workstations.workbench.WorkbenchMaterialRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -18,15 +18,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe> {
+public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<WorkbenchMaterialRecipe> {
 
-	public static final RecipeType<WorkbenchRecipe> TYPE = RecipeType.create(Compendium.MOD_ID, "workbench",
-			WorkbenchRecipe.class);
+	public static final RecipeType<WorkbenchMaterialRecipe> TYPE = RecipeType.create(Compendium.MOD_ID, "workbench_material",
+			WorkbenchMaterialRecipe.class);
 	private final IDrawable background;
 	private final Component localizedName;
 	private final IDrawable icon;
 
-	public WorkbenchRecipeCategory(IGuiHelper guiHelper) {
+	public WorkbenchMaterialRecipeCategory(IGuiHelper guiHelper) {
 		background = guiHelper.createDrawable(
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "textures/gui/jei.png"), 0, 130, 162, 126);
 		localizedName = Component.translatable("compendium.jei.workbench");
@@ -35,7 +35,7 @@ public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe>
 	}
 
 	@Override
-	public RecipeType<WorkbenchRecipe> getRecipeType() {
+	public RecipeType<WorkbenchMaterialRecipe> getRecipeType() {
 		return TYPE;
 	}
 
@@ -55,12 +55,12 @@ public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe>
 	}
 
 	@Override
-	public void setRecipe(IRecipeLayoutBuilder builder, WorkbenchRecipe recipe, IFocusGroup focuses) {
+	public void setRecipe(IRecipeLayoutBuilder builder, WorkbenchMaterialRecipe recipe, IFocusGroup focuses) {
 
 		int count = 0;
-		for (Ingredient i : recipe.pattern.ingredients())
-		{
-			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % 3) * 18), 1 + (int)(count/3)*18).addIngredients(i);
+		for (Ingredient i : recipe.pattern.ingredients()) {
+			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % 3) * 18), 1 + (int) (count / 3) * 18)
+					.addIngredients(i);
 			count++;
 		}
 
@@ -68,7 +68,8 @@ public class WorkbenchRecipeCategory implements IRecipeCategory<WorkbenchRecipe>
 
 		count = 0;
 		for (AnimatedRecipeItemUse aru : recipe.getTools()) {
-			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 3) * 18), 1+ (int)(count/3)*18).addIngredients(aru.tool());
+			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 3) * 18), 1 + (int) (count / 3) * 18)
+					.addIngredients(aru.tool());
 			count++;
 		}
 	}

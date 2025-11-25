@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "b": {
@@ -18,6 +18,12 @@
       "p p"
     ]
   },
+  "mats": [
+    {
+      "materialLayer": 1,
+      "slot": 1
+    }
+  ],
   "ouput": {
     "count": 1,
     "id": "compendium:chair"

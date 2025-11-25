@@ -6,7 +6,6 @@ import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
 public abstract class MultiToolRecipeShaped extends MultiToolRecipe {
@@ -15,7 +14,7 @@ public abstract class MultiToolRecipeShaped extends MultiToolRecipe {
 	protected final ItemStack recipeOutput;
 
 	public MultiToolRecipeShaped(MultiToolRecipeShapedPattern pattern, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
-			ItemStack recipeOutputIn, RecipeType<?> type) {
+			ItemStack recipeOutputIn) {
 		super(recipeToolsIn);
 		this.pattern = pattern;
 		this.recipeOutput = recipeOutputIn;

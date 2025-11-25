@@ -22,8 +22,9 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 
-public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
+public class WorkbenchMaterialRecipe extends WorkbenchBaseRecipe {
 
 	NonNullList<SlotToMaterial> matSlots;
 
@@ -33,8 +34,18 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 	public WorkbenchMaterialRecipe(MultiToolRecipeShapedPattern input, NonNullList<SlotToMaterial> matSlots,
 			NonNullList<AnimatedRecipeItemUse> recipeToolsIn, ItemStack recipeOutputIn) {
-		super(input, recipeToolsIn, recipeOutputIn, WorkstationRecipes.WORKBENCH_MATERIAL_RECIPE.get());
+		super(input, recipeToolsIn, recipeOutputIn);
 		this.matSlots = matSlots;
+	}
+
+	@Override
+	public RecipeType<?> getType() {
+		return WorkstationRecipes.WORKBENCH_MATERIAL_RECIPE.get();
+	}
+
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return WorkstationRecipes.WORKBENCH_MATERIAL_SERIALIZER.get();
 	}
 
 	@Override
@@ -67,14 +78,15 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 		return s;
 	}
-	
+
 	public static class Serializer implements RecipeSerializer<WorkbenchMaterialRecipe> {
-		public static final MapCodec<WorkbenchMaterialRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst
-				.group(MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchMaterialRecipe::getShapedIn),
-						NonNullList.codecOf(SlotToMaterial.CODEC).fieldOf("mats").forGetter(WorkbenchMaterialRecipe::getMatSlots),
-						NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
-								.forGetter(WorkbenchRecipe::getTools),
-						ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchRecipe::getItemOut))
+		public static final MapCodec<WorkbenchMaterialRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+				MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchMaterialRecipe::getShapedIn),
+				NonNullList.codecOf(SlotToMaterial.CODEC).fieldOf("mats")
+						.forGetter(WorkbenchMaterialRecipe::getMatSlots),
+				NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
+						.forGetter(WorkbenchBaseRecipe::getTools),
+				ItemStack.CODEC.fieldOf("ouput").forGetter(WorkbenchBaseRecipe::getItemOut))
 				.apply(inst, WorkbenchMaterialRecipe::new));
 
 		public static final StreamCodec<RegistryFriendlyByteBuf, WorkbenchMaterialRecipe> STREAM_CODEC = StreamCodec
@@ -97,10 +109,10 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 			NonNullList<AnimatedRecipeItemUse> tools = NonNullList.withSize(listSize, AnimatedRecipeItemUse.EMPTY);
 			tools.replaceAll(ignored -> AnimatedRecipeItemUse.STREAM_CODEC.decode(buffer));
-			
+
 			int listSize2 = buffer.readVarInt();
 
-			NonNullList<SlotToMaterial> mats = NonNullList.withSize(listSize2, new SlotToMaterial(0,0));
+			NonNullList<SlotToMaterial> mats = NonNullList.withSize(listSize2, SlotToMaterial.EMPTY);
 			mats.replaceAll(ignored -> SlotToMaterial.STREAM_CODEC.decode(buffer));
 
 			ItemStack out = ItemStack.STREAM_CODEC.decode(buffer);
@@ -114,7 +126,7 @@ public class WorkbenchMaterialRecipe extends WorkbenchRecipe {
 
 			buffer.writeVarInt(recipe.getTools().size());
 			recipe.getTools().forEach(riu -> AnimatedRecipeItemUse.STREAM_CODEC.encode(buffer, riu));
-			
+
 			buffer.writeVarInt(recipe.getMatSlots().size());
 			recipe.getMatSlots().forEach(riu -> SlotToMaterial.STREAM_CODEC.encode(buffer, riu));
 

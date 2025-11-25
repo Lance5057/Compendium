@@ -1,14 +1,14 @@
 {
   "values": [
     "compendium:dark_oak_plank_stairs_item",
-    "compendium:cherry_plank_stairs_item",
-    "compendium:birch_plank_stairs_item",
+    "compendium:jungle_plank_stairs_item",
     "compendium:oak_plank_stairs_item",
     "compendium:acacia_plank_stairs_item",
     "compendium:crimson_plank_stairs_item",
-    "compendium:jungle_plank_stairs_item",
+    "compendium:spruce_plank_stairs_item",
+    "compendium:cherry_plank_stairs_item",
     "compendium:warped_plank_stairs_item",
     "compendium:mangrove_plank_stairs_item",
-    "compendium:spruce_plank_stairs_item"
+    "compendium:birch_plank_stairs_item"
   ]
 }

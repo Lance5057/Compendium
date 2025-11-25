@@ -12,6 +12,7 @@ import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.RecipeMobEffect;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShapedPattern;
+import com.lance5057.compendium.workstations.workbench.WorkbenchBaseRecipe;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import net.minecraft.advancements.Advancement;
@@ -145,7 +146,7 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
 				.rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
 		this.criteria.forEach(advancement$builder::addCriterion);
-		WorkbenchRecipe shapedrecipe = new WorkbenchRecipe(shapedrecipepattern, tools, this.resultStack);
+		WorkbenchBaseRecipe shapedrecipe = new WorkbenchRecipe(shapedrecipepattern, tools, this.resultStack);
 		recipeOutput.accept(recipeId, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/workbench/")));
 	}
 }

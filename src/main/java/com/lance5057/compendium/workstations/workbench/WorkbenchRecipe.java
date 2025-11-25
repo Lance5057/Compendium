@@ -1,11 +1,7 @@
 package com.lance5057.compendium.workstations.workbench;
 
-import com.lance5057.compendium.recipes.interfaces.item.io.multiple.IRecipeShapedItemIn;
-import com.lance5057.compendium.recipes.interfaces.item.io.single.IRecipeSingleItemOut;
-import com.lance5057.compendium.recipes.interfaces.loottable.io.IRecipeLootTableOut;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
-import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShaped;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShapedPattern;
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 import com.mojang.serialization.MapCodec;
@@ -20,19 +16,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
-public class WorkbenchRecipe extends MultiToolRecipeShaped
-		implements IRecipeShapedItemIn, IRecipeSingleItemOut, IRecipeLootTableOut {
-
-	public WorkbenchRecipe(MultiToolRecipeShapedPattern input, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
-			ItemStack recipeOutputIn, RecipeType<?> recipeType) {
-		super(input, recipeToolsIn, recipeOutputIn, recipeType);
-
-	}
+public class WorkbenchRecipe extends WorkbenchBaseRecipe {
 
 	public WorkbenchRecipe(MultiToolRecipeShapedPattern input, NonNullList<AnimatedRecipeItemUse> recipeToolsIn,
 			ItemStack recipeOutputIn) {
-		super(input, recipeToolsIn, recipeOutputIn, WorkstationRecipes.WORKBENCH_RECIPE.get());
-
+		super(input, recipeToolsIn, recipeOutputIn);
 	}
 
 	@Override
@@ -119,5 +107,4 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 			ItemStack.STREAM_CODEC.encode(buffer, recipe.getItemOut());
 		}
 	}
-
 }
