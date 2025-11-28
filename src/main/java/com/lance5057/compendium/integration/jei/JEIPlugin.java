@@ -7,7 +7,6 @@ import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.integration.jei.categories.HammeringStationRecipeCategory;
 import com.lance5057.compendium.integration.jei.categories.SawBuckRecipeCategory;
 import com.lance5057.compendium.integration.jei.categories.WorkbenchMaterialRecipeCategory;
-import com.lance5057.compendium.integration.jei.categories.WorkbenchRecipeCategory;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 
 import mezz.jei.api.IModPlugin;
@@ -33,7 +32,6 @@ public class JEIPlugin implements IModPlugin {
 	public void registerCategories(IRecipeCategoryRegistration registry) {
 		registry.addRecipeCategories(new HammeringStationRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
 		registry.addRecipeCategories(new SawBuckRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
-		registry.addRecipeCategories(new WorkbenchRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
 		registry.addRecipeCategories(new WorkbenchMaterialRecipeCategory(registry.getJeiHelpers().getGuiHelper()));
 	}
 
@@ -45,13 +43,9 @@ public class JEIPlugin implements IModPlugin {
 						.map(RecipeHolder::value).toList());
 		registry.addRecipes(SawBuckRecipeCategory.TYPE, Minecraft.getInstance().level.getRecipeManager()
 				.getAllRecipesFor(WorkstationRecipes.SAWBUCK_RECIPE.get()).stream().map(RecipeHolder::value).toList());
-		registry.addRecipes(WorkbenchRecipeCategory.TYPE,
-				Minecraft.getInstance().level.getRecipeManager()
-						.getAllRecipesFor(WorkstationRecipes.WORKBENCH_RECIPE.get()).stream()
-						.map(RecipeHolder::value).toList());
 		registry.addRecipes(WorkbenchMaterialRecipeCategory.TYPE,
 				Minecraft.getInstance().level.getRecipeManager()
-						.getAllRecipesFor(WorkstationRecipes.WORKBENCH_MATERIAL_RECIPE.get()).stream()
+						.getAllRecipesFor(WorkstationRecipes.WORKBENCH_RECIPE.get()).stream()
 						.map(RecipeHolder::value).toList());
 	}
 

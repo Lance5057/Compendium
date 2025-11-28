@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "b": {
@@ -36,7 +36,8 @@
       "rcy"
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 1,
     "id": "compendium:cosmetic_toolbox"
   },

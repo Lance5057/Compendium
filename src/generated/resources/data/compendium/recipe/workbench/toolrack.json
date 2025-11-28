@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "e": {
@@ -18,7 +18,8 @@
       "npn"
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 1,
     "id": "compendium:toolrack"
   },

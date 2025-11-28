@@ -3,7 +3,7 @@ package com.lance5057.compendium.integration.jei.categories;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
-import com.lance5057.compendium.workstations.workbench.WorkbenchMaterialRecipe;
+import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -18,10 +18,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<WorkbenchMaterialRecipe> {
+public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<WorkbenchRecipe> {
 
-	public static final RecipeType<WorkbenchMaterialRecipe> TYPE = RecipeType.create(Compendium.MOD_ID, "workbench_material",
-			WorkbenchMaterialRecipe.class);
+	public static final RecipeType<WorkbenchRecipe> TYPE = RecipeType.create(Compendium.MOD_ID, "workbench_material",
+			WorkbenchRecipe.class);
 	private final IDrawable background;
 	private final Component localizedName;
 	private final IDrawable icon;
@@ -35,7 +35,7 @@ public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<Workbenc
 	}
 
 	@Override
-	public RecipeType<WorkbenchMaterialRecipe> getRecipeType() {
+	public RecipeType<WorkbenchRecipe> getRecipeType() {
 		return TYPE;
 	}
 
@@ -55,7 +55,7 @@ public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<Workbenc
 	}
 
 	@Override
-	public void setRecipe(IRecipeLayoutBuilder builder, WorkbenchMaterialRecipe recipe, IFocusGroup focuses) {
+	public void setRecipe(IRecipeLayoutBuilder builder, WorkbenchRecipe recipe, IFocusGroup focuses) {
 
 		int count = 0;
 		for (Ingredient i : recipe.pattern.ingredients()) {

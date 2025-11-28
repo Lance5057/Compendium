@@ -1,6 +1,8 @@
 package com.lance5057.compendium.index.util;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -15,6 +17,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -31,8 +34,8 @@ public class CompendiumBlockHandler implements Serializable {
 	public transient DeferredItem<BlockItem> BLOCK_ITEM;
 	public transient DeferredBlock<Block> BLOCK;
 
-	public transient TagKey<Item> itemTag;
-	public transient TagKey<Block> blockTag;
+	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
+	public transient List<TagKey<Block>> blockTag = new ArrayList<TagKey<Block>>();
 
 	public CompendiumBlockHandler(String n) {
 		name = n;
@@ -54,20 +57,18 @@ public class CompendiumBlockHandler implements Serializable {
 		return generate == Generate.IGNORE;
 	}
 
-	public void setup(_MaterialBase base, String tagNamespace, String tagName, ResourceLocation existsItem,
-			ResourceLocation existsBlock) {
+	public void setup(_MaterialBase base, ResourceLocation existsItem, ResourceLocation existsBlock) {
 		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
-				tagNamespace, tagName, existsItem, existsBlock);
+				existsItem, existsBlock);
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, String tagNamespace, String tagName,
-			ResourceLocation existsItem, ResourceLocation existsBlock) {
-		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), tagNamespace, tagName, existsItem,
-				existsBlock);
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, ResourceLocation existsItem,
+			ResourceLocation existsBlock) {
+		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), existsItem, existsBlock);
 	}
 
 	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item,
-			String tagNamespace, String tagName, ResourceLocation existsItem, ResourceLocation existsBlock) {
+			ResourceLocation existsItem, ResourceLocation existsBlock) {
 		if (generate == Generate.GENERATE) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
@@ -75,9 +76,6 @@ public class CompendiumBlockHandler implements Serializable {
 			BLOCK = DeferredBlock.createBlock(existsBlock);
 			BLOCK_ITEM = DeferredItem.createItem(existsItem);
 		}
-
-		itemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
-		blockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
@@ -86,6 +84,22 @@ public class CompendiumBlockHandler implements Serializable {
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
 		return CompendiumIndex.ITEMS.register(base.name + "_" + name + "_item", item);
+	}
+
+	public void setupItemTag(ResourceLocation rc) {
+		this.itemTag.add(ItemTags.create(rc));
+	}
+
+	public void setupItemTag(TagKey<Item> tag) {
+		this.itemTag.add(tag);
+	}
+
+	public void setupBlockTag(ResourceLocation rc) {
+		this.blockTag.add(BlockTags.create(rc));
+	}
+
+	public void setupBlockTag(TagKey<Block> tag) {
+		this.blockTag.add(tag);
 	}
 
 	public void tab(_MaterialBase base, Output output) {
@@ -98,10 +112,21 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		itp.tag(itemTag).add(BLOCK_ITEM.asItem());
+		for (TagKey<Item> tag : itemTag)
+			itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-		btp.tag(blockTag).add(BLOCK.get());
+		for (TagKey<Block> tag : blockTag)
+			btp.tag(tag).add(BLOCK.get());
+	}
+
+	public boolean is(ItemStack item) {
+		if(item.is(BLOCK_ITEM))
+			return true;
+		for(TagKey<Item> key : this.itemTag)
+			if(item.is(key))
+				return true;
+		return false;
 	}
 }

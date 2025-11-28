@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "p": {
@@ -12,7 +12,8 @@
       "ppp"
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 6,
     "id": "compendium:acacia_plank_stairs_item"
   },

@@ -8,9 +8,11 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorMaterial;
@@ -90,12 +92,32 @@ public class CompendiumIndex {
 		return false;
 	}
 
+	public static boolean isIndexItem(ItemStack stack, List<MATERIAL_TYPES> types) {
+		for (IIndexEntry i : index)
+			if (i instanceof _MaterialBase mb)
+				if (types.contains(mb.getType()))
+					if (i.isIndexItem(stack))
+						return true;
+		return false;
+	}
+
 	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
 		for (IIndexEntry i : index) {
 			Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
 			if (o.isPresent())
 				return o;
 		}
+		return Optional.empty();
+	}
+
+	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack, List<MATERIAL_TYPES> types) {
+		for (IIndexEntry i : index)
+			if (i instanceof _MaterialBase mb)
+				if (types.contains(mb.getType())) {
+					Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
+					if (o.isPresent())
+						return o;
+				}
 		return Optional.empty();
 	}
 }

@@ -9,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -16,6 +17,7 @@ import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
+import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -58,11 +60,14 @@ public class MaterialTextile extends _MaterialBase {
 	@Override
 	public void setup() {
 
-		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)), namespace, name,
+		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
-		STRING.setup(this, namespace, name, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_string"));
+		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
+		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
+
+		STRING.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_string"));
 
 	}
 
@@ -194,9 +199,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+		if (stack.is(BLOCK.BLOCK_ITEM))
 			return true;
-		if (stack.getItem() == STRING.ITEM.asItem())
+		if (stack.is(STRING.ITEM))
 			return true;
 
 		for (_MaterialExtension m : extensions) {
@@ -210,9 +215,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+		if (stack.is(BLOCK.BLOCK_ITEM))
 			return Optional.of(this);
-		if (stack.getItem() == STRING.ITEM.asItem())
+		if (stack.is(STRING.ITEM))
 			return Optional.of(this);
 
 		for (_MaterialExtension m : extensions) {

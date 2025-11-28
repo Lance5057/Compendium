@@ -59,8 +59,7 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		BLOCK.setup(this, namespace, name + "_glass",
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_glass"),
+		BLOCK.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_glass"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_glass"));
 
 		this.extensions.forEach(i -> i.setup(this));

@@ -21,4 +21,6 @@ public class CompendiumTags {
 	public static TagKey<Block> TABLE = BlockTags.create(Compendium.modLoc("table"));
 	
 	public static TagKey<Item> PLANK = ItemTags.create(TagUtil.neoTag("plank"));
+	
+	public static TagKey<Item> TEXTILES = ItemTags.create(TagUtil.neoTag("textiles"));
 }

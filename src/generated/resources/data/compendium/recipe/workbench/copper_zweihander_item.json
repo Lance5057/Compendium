@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "b": {
@@ -18,7 +18,8 @@
       "s  "
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 1,
     "id": "compendium:copper_zweihander_item"
   },

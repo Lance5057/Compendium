@@ -1,14 +1,14 @@
 {
   "values": [
-    "compendium:dark_oak_stripped_logs_item",
-    "compendium:jungle_stripped_logs_item",
-    "compendium:oak_stripped_logs_item",
-    "compendium:acacia_stripped_logs_item",
-    "compendium:crimson_stripped_logs_item",
-    "compendium:spruce_stripped_logs_item",
-    "compendium:cherry_stripped_logs_item",
     "compendium:warped_stripped_logs_item",
+    "compendium:birch_stripped_logs_item",
     "compendium:mangrove_stripped_logs_item",
-    "compendium:birch_stripped_logs_item"
+    "compendium:acacia_stripped_logs_item",
+    "compendium:cherry_stripped_logs_item",
+    "compendium:jungle_stripped_logs_item",
+    "compendium:dark_oak_stripped_logs_item",
+    "compendium:spruce_stripped_logs_item",
+    "compendium:crimson_stripped_logs_item",
+    "compendium:oak_stripped_logs_item"
   ]
 }

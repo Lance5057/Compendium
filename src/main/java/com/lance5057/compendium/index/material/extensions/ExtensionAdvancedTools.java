@@ -50,6 +50,10 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionAdvancedTools extends _MaterialExtension {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7214770173176898759L;
 	public CompendiumItemHandler PRYBAR = new CompendiumItemHandler("prybar");
 	public CompendiumItemHandler HAMMER = new CompendiumItemHandler("hammer");
 	public CompendiumItemHandler SAW = new CompendiumItemHandler("saw");
@@ -69,17 +73,17 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()), base.namespace, base.name,
+		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_prybar"));
-		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()), base.namespace, base.name,
+		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_hammer"));
-		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()), base.namespace, base.name,
+		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_saw"));
-		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()), base.namespace, base.name,
+		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_shears"));
-		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()), base.namespace, base.name,
+		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_zweihander"));
-		BOW.setup(base, () -> new BowItem(new Item.Properties()), base.namespace, base.name,
+		BOW.setup(base, () -> new BowItem(new Item.Properties()),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_bow"));
 	}
 

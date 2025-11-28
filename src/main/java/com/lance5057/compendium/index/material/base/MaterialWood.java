@@ -10,7 +10,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.CompendiumItems;
-import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
@@ -18,6 +17,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -25,6 +25,8 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -35,6 +37,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -73,31 +76,50 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped"); // swear to
-																											// god
-																											// mojang
+		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped");
 
-		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), this.namespace, "planks",
+		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"));
-		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
-				"logs", ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")),
+		PLANKS.setupItemTag(ItemTags.PLANKS);
+		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
+		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")));
+		LOG.setupItemTag(ItemTags.LOGS);
+		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
+		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				this.namespace, "stripped_log",
 				ResourceLocation.fromNamespaceAndPath(namespace,
 						this.name + "_stripped" + (!isNether ? "_log" : "_stem")),
 				ResourceLocation.fromNamespaceAndPath(namespace,
 						this.name + "_stripped" + (!isNether ? "_log" : "_stem")));
-		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)), this.namespace,
-				"wood", ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_wood" : "_hyphae")),
+		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
+		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
+		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_wood" : "_hyphae")),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_wood" : "_hyphae")));
+		WOOD.setupItemTag(ItemTags.LOGS);
+		WOOD.setupItemTag(TagUtil.neoTag("logs/" + name));
+		WOOD.setupItemTag(TagUtil.neoTag("woods"));
+		WOOD.setupItemTag(TagUtil.neoTag("woods/" + name));
+		WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
 		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				this.namespace, "stripped_wood",
 				ResourceLocation.fromNamespaceAndPath(namespace,
 						this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae")),
 				ResourceLocation.fromNamespaceAndPath(namespace,
 						this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae")));
+		STRIPPED_WOOD.setupItemTag(Tags.Items.STRIPPED_LOGS);
+		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
+		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods"));
+		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods/" + name));
+		STRIPPED_WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
@@ -265,15 +287,15 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (stack.getItem() == PLANKS.BLOCK_ITEM.asItem())
+		if (PLANKS.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == LOG.BLOCK_ITEM.asItem())
+		if (LOG.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == STRIPPED_LOG.BLOCK_ITEM.asItem())
+		if (STRIPPED_LOG.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == WOOD.BLOCK_ITEM.asItem())
+		if (WOOD.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == STRIPPED_WOOD.BLOCK_ITEM.asItem())
+		if (STRIPPED_WOOD.is(stack))
 			return Optional.of(this);
 
 		for (_MaterialExtension m : extensions) {

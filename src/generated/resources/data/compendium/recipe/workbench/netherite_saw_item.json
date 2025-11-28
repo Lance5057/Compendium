@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "i": {
@@ -13,7 +13,8 @@
       "iis"
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 1,
     "id": "compendium:netherite_saw_item"
   },

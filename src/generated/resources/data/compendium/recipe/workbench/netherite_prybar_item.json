@@ -1,5 +1,5 @@
 {
-  "type": "compendium:workbench",
+  "type": "compendium:workbench_material",
   "input": {
     "key": {
       "i": {
@@ -15,7 +15,8 @@
       "  i"
     ]
   },
-  "ouput": {
+  "mats": [],
+  "output": {
     "count": 1,
     "id": "compendium:netherite_prybar_item"
   },

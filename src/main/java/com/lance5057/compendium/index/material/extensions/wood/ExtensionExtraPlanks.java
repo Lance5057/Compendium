@@ -55,6 +55,8 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -108,26 +110,37 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				() -> new BlockItem(PLANK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "plank", ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
+		PLANK.setupItemTag(TagUtil.neoTag("plank"));
+		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
+		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.extraFolder() + "planks"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "planks",
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
+		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
+		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
+		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
 						Compendium.modLoc(base.extraFolder() + "plank_slab"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "planks/slab",
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
+		PLANK_BLOCK.setupItemTag(ItemTags.WOODEN_SLABS);
+		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
+		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
+		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
 		PLANK_STAIRS.setup(base,
 				() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
@@ -135,9 +148,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				base.namespace, "planks/stairs",
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
+
+		PLANK_BLOCK.setupItemTag(ItemTags.WOODEN_STAIRS);
+		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("stairs/planks/" + base.name));
+		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("wooden_stairs/" + base.name));
+		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);
@@ -369,7 +386,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				yRot += 90; // Top stairs are rotated 90 degrees clockwise
 			}
 			yRot %= 360;
-			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+//			boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
 			return ConfiguredModel.builder()
 					.modelFile(shape == StairsShape.STRAIGHT ? stairs
 							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
@@ -667,13 +684,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (stack.is(PLANK.BLOCK_ITEM.asItem()) || stack.is(PLANK.itemTag))
+		if (PLANK.is(stack))
 			return true;
-		if (stack.getItem() == PLANK_BLOCK.BLOCK_ITEM.asItem())
+		if (PLANK_BLOCK.is(stack))
 			return true;
-		if (stack.getItem() == PLANK_SLAB.BLOCK_ITEM.asItem())
+		if (PLANK_SLAB.is(stack))
 			return true;
-		if (stack.getItem() == PLANK_STAIRS.BLOCK_ITEM.asItem())
+		if (PLANK_STAIRS.is(stack))
 			return true;
 
 		return false;
@@ -681,13 +698,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == PLANK.BLOCK_ITEM.asItem())
+		if (PLANK.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == PLANK_BLOCK.BLOCK_ITEM.asItem())
+		if (PLANK_BLOCK.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == PLANK_SLAB.BLOCK_ITEM.asItem())
+		if (PLANK_SLAB.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == PLANK_STAIRS.BLOCK_ITEM.asItem())
+		if (PLANK_STAIRS.is(stack))
 			return Optional.of(base);
 
 		return Optional.empty();

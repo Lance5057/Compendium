@@ -1,5 +1,6 @@
 package com.lance5057.compendium.data.recipebuilders;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,10 +10,10 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.lance5057.compendium.client.BlacklistedModel;
+import com.lance5057.compendium.util.SlotToMaterial;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.RecipeMobEffect;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipeShapedPattern;
-import com.lance5057.compendium.workstations.workbench.WorkbenchBaseRecipe;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import net.minecraft.advancements.Advancement;
@@ -31,6 +32,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 
 public class WorkbenchRecipeBuilder implements RecipeBuilder {
 	protected final Item result;
@@ -42,6 +44,8 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 	protected final NonNullList<AnimatedRecipeItemUse> tools = NonNullList.create();
 	@Nullable
 	protected String group;
+
+	private final NonNullList<SlotToMaterial> slotToMats = NonNullList.create();
 
 	public WorkbenchRecipeBuilder(ItemLike result, int count) {
 		this(new ItemStack(result, count));
@@ -76,6 +80,14 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 	 */
 	public WorkbenchRecipeBuilder define(Character symbol, TagKey<Item> tag) {
 		return this.define(symbol, Ingredient.of(tag));
+	}
+
+	public WorkbenchRecipeBuilder define(char symbol, List<TagKey<Item>> itemTag) {
+		List<Ingredient> ing = new ArrayList<Ingredient>();
+		for (TagKey<Item> i : itemTag)
+			ing.add(Ingredient.of(i));
+
+		return this.define(symbol, CompoundIngredient.of(ing.toArray(new Ingredient[0])));
 	}
 
 	/**
@@ -138,6 +150,11 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 		return this;
 	}
 
+	public WorkbenchRecipeBuilder slotToMat(SlotToMaterial sm) {
+		this.slotToMats.add(sm);
+		return this;
+	}
+
 	@Override
 	public void save(RecipeOutput recipeOutput, ResourceLocation id) {
 		ResourceLocation recipeId = id.withPrefix("workbench/");
@@ -146,7 +163,8 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
 				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
 				.rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
 		this.criteria.forEach(advancement$builder::addCriterion);
-		WorkbenchBaseRecipe shapedrecipe = new WorkbenchRecipe(shapedrecipepattern, tools, this.resultStack);
+		WorkbenchRecipe shapedrecipe = new WorkbenchRecipe(shapedrecipepattern, slotToMats, tools, this.resultStack);
 		recipeOutput.accept(recipeId, shapedrecipe, advancement$builder.build(id.withPrefix("recipes/workbench/")));
 	}
+
 }

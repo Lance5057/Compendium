@@ -6,8 +6,6 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRecipe;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRecipe;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRecipe;
-import com.lance5057.compendium.workstations.workbench.WorkbenchBaseRecipe;
-import com.lance5057.compendium.workstations.workbench.WorkbenchMaterialRecipe;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -30,11 +28,8 @@ public class WorkstationRecipes {
 	public static final Supplier<ScrappingTableRecipe.Serializer> SCRAPPINGTABLE_SERIALIZER = RECIPE_SERIALIZERS
 			.register("scrappingtable", ScrappingTableRecipe.Serializer::new);
 
-	public static final Supplier<WorkbenchRecipe.Serializer> WORKBENCH_SERIALIZER = RECIPE_SERIALIZERS
-			.register("workbench", WorkbenchRecipe.Serializer::new);
-
-	public static final Supplier<WorkbenchMaterialRecipe.Serializer> WORKBENCH_MATERIAL_SERIALIZER = RECIPE_SERIALIZERS
-			.register("workbench_material", WorkbenchMaterialRecipe.Serializer::new);
+	public static final Supplier<WorkbenchRecipe.Serializer> WORKBENCH_MATERIAL_SERIALIZER = RECIPE_SERIALIZERS
+			.register("workbench_material", WorkbenchRecipe.Serializer::new);
 
 	private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister
 			.create(BuiltInRegistries.RECIPE_TYPE, Compendium.MOD_ID);
@@ -51,16 +46,8 @@ public class WorkstationRecipes {
 			.register("scrappingtable_recipe_type", () -> new RecipeType<ScrappingTableRecipe>() {
 			});
 
-	public static final Supplier<RecipeType<WorkbenchBaseRecipe>> WORKBENCH_BASE_RECIPE = RECIPE_TYPES
-			.register("workbench_base_recipe_type", () -> new RecipeType<WorkbenchBaseRecipe>() {
-			});
-
 	public static final Supplier<RecipeType<WorkbenchRecipe>> WORKBENCH_RECIPE = RECIPE_TYPES
 			.register("workbench_recipe_type", () -> new RecipeType<WorkbenchRecipe>() {
-			});
-
-	public static final Supplier<RecipeType<WorkbenchMaterialRecipe>> WORKBENCH_MATERIAL_RECIPE = RECIPE_TYPES
-			.register("workbench_material_recipe_type", () -> new RecipeType<WorkbenchMaterialRecipe>() {
 			});
 
 	public static void register(IEventBus modBus) {

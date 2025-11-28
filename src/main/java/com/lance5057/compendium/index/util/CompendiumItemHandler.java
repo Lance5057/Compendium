@@ -1,6 +1,8 @@
 package com.lance5057.compendium.index.util;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -25,7 +27,7 @@ public class CompendiumItemHandler implements Serializable {
 
 	public transient DeferredItem<Item> ITEM;
 
-	public transient TagKey<Item> itemTag;
+	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 
 	public CompendiumItemHandler(String n) {
 		name = n;
@@ -43,19 +45,16 @@ public class CompendiumItemHandler implements Serializable {
 		generate = b;
 	}
 
-	public void setup(_MaterialBase base, String tagNamespace, String tagName, ResourceLocation existsItem) {
-		setup(base, () -> new Item(new Item.Properties()), tagNamespace, tagName, existsItem);
+	public void setup(_MaterialBase base, ResourceLocation existsItem) {
+		setup(base, () -> new Item(new Item.Properties()), existsItem);
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Item> item, String tagNamespace, String tagName,
-			ResourceLocation existsItem) {
+	public void setup(_MaterialBase base, Supplier<? extends Item> item, ResourceLocation existsItem) {
 		if (generate == Generate.GENERATE) {
 			ITEM = setupItem(base, item);
 		} else if (generate == Generate.EXISTS) {
 			ITEM = DeferredItem.createItem(existsItem);
 		}
-
-		itemTag = ItemTags.create(ResourceLocation.fromNamespaceAndPath(tagNamespace, tagName));
 	}
 
 	public DeferredItem<Item> setupItem(_MaterialBase base, Supplier<? extends Item> item) {
@@ -76,7 +75,16 @@ public class CompendiumItemHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		itp.tag(itemTag).add(ITEM.asItem());
+		for (TagKey<Item> tag : itemTag)
+			itp.tag(tag).add(ITEM.asItem());
+	}
+
+	public void setupItemTag(ResourceLocation rc) {
+		this.itemTag.add(ItemTags.create(rc));
+	}
+
+	public void setupItemTag(TagKey<Item> tag) {
+		this.itemTag.add(tag);
 	}
 
 }

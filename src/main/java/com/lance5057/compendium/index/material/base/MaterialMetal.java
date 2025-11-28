@@ -1,6 +1,8 @@
 package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.google.gson.JsonArray;
@@ -25,7 +27,9 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -33,6 +37,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
+import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -62,16 +67,18 @@ public class MaterialMetal extends _MaterialBase {
 			tier = Tiers.valueOf(premadeTier);
 		else {
 			useBlockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", useTag));
+
+			List<Ingredient> ing = new ArrayList<Ingredient>();
+			for (TagKey<Item> i : INGOT.itemTag)
+				ing.add(Ingredient.of(i));
+
 			tier = new SimpleTier(useBlockTag, uses, speed, damage, enchantmentValue,
-					() -> Ingredient.of(INGOT.itemTag));
+					() -> CompoundIngredient.of(ing.toArray(new Ingredient[0])));
 		}
 
-		INGOT.setup(this, "c", "ingots/" + name,
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
-		NUGGET.setup(this, "c", "nuggets/" + name,
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
-		BLOCK.setup(this, "c", "storage_blocks/" + name,
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+		INGOT.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		NUGGET.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
+		BLOCK.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
 		this.extensions.forEach(i -> i.setup(this));
