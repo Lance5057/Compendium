@@ -1,0 +1,40 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/logs/log_split_side",
+		"1": "block/acacia_log",
+		"particle": "compendium:block/material/wood/acacia/logs/log_split_side"
+	},
+	"elements": [
+		{
+			"name": "front panel",
+			"from": [0, 0, -8],
+			"to": [16, 12, -6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 11, -3]},
+			"faces": {
+				"north": {"uv": [0, 12, 16, 0], "texture": "#0"},
+				"east": {"uv": [14, 0, 16, 12], "texture": "#1"},
+				"south": {"uv": [0, 12, 16, 0], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 12], "texture": "#1"},
+				"up": {"uv": [16, 10, 0, 12], "texture": "#0"},
+				"down": {"uv": [16, 0, 0, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "back panel",
+			"from": [0, 0, 22],
+			"to": [16, 16, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 23]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [14, 0, 16, 16], "rotation": 180, "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 16], "rotation": 180, "texture": "#1"},
+				"up": {"uv": [0, 2, 16, 0], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 2], "rotation": 180, "texture": "#0"}
+			}
+		}
+	]
+}

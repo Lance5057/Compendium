@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/inventory/frame/live_edge",
+  "textures": {
+    "0": "minecraft:block/dark_oak_planks"
+  }
+}

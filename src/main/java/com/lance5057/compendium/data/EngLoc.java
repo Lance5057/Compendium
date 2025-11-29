@@ -17,7 +17,9 @@ public class EngLoc extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		this.add("itemGroup.compendium.tab", "Compendium");
+		this.add("compendium.jei.hammering_station", "Hammering");
 		this.add("compendium.jei.sawbuck", "Sawing");
+		this.add("compendium.jei.workbench", "Advanced Crafting");
 		this.add(CompendiumItems.SAWDUST.get(), "Sawdust");
 		this.add(CompendiumItems.ADJUSTINATOR.get(), "Adjustinator");
 		this.add(CompendiumItems.MEGALITH_STONE.get(), "Megalith Stone");

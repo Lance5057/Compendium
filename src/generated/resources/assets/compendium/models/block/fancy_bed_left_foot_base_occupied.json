@@ -11,7 +11,11 @@
     "modelPart": "occupied/left/foot/base",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
     ],
     "suffix": "",
     "valid": [
