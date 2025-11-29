@@ -1,6 +1,6 @@
 {
-  "parent": "compendium:block/furniture/bed/unoccupied/right/head/blanket/layered",
+  "parent": "compendium:block/furniture/bed/unoccupied/right/head/blanket/basic",
   "textures": {
-    "0": "minecraft:block/cyan_glazed_terracotta"
+    "0": "compendium:block/material/textile/cyan_wool/woolly_glazed"
   }
 }

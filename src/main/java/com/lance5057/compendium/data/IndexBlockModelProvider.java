@@ -80,7 +80,6 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 	public void doTextile(_MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.TEXTILE) {
-			String color_name = mb.name.substring(0, mb.name.lastIndexOf("_"));
 
 			StyleData.TABLE_CLOTH.getTypes().forEach(b -> {
 				withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
@@ -184,7 +183,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					withExistingParent(
 							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 							modLoc("block/furniture/bed/inventory/blanket/basic"))
-							.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
+							.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
 
 				else
 					withExistingParent(
@@ -219,16 +218,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/blanket/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/layered"))
-									.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
+											+ part.toString().toLowerCase() + "/blanket/basic"))
+									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
 
 							withExistingParent(
 									"block/material/textile/" + mb.name + "/bed/occupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 											+ "/blanket/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/layered"))
-									.texture("0", mcLoc("block/" + color_name + "_glazed_terracotta"));
+											+ part.toString().toLowerCase() + "/blanket/basic"))
+									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
 
 						} else {
 							withExistingParent(
