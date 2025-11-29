@@ -174,7 +174,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 		WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR).define('p', Ingredient.of(CompendiumTags.PLANK))
 				.define('b', Ingredient.of(ItemTags.PLANKS)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
-				.slotToMat(new SlotToMaterial(1, 1)).pattern("psp").pattern("pbp").pattern("p p")
+				.slotToMat(new SlotToMaterial(1, 2)).pattern("psp").pattern("pbp").pattern("p p")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);

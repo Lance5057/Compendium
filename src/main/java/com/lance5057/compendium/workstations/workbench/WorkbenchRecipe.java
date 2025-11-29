@@ -1,5 +1,6 @@
 package com.lance5057.compendium.workstations.workbench;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,27 +87,27 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 		if (s.has(CompendiumComponents.MULTI_MATERIAL)) {
 			MultiMaterialBlockComponent mmbc = s.get(CompendiumComponents.MULTI_MATERIAL);
 
-			List<MultiMaterialType> mats = mmbc.types();
+			List<MultiMaterialType> mats = mmbc.types(); // Immutable
+			List<MultiMaterialType> newMats = new ArrayList<MultiMaterialType>(mmbc.types());
 
 			for (SlotToMaterial sm : matSlots) {
 				ItemStack i = input.getItem(sm.getSlot());
 
 				MultiMaterialType mmt = mats.get(sm.getMaterialLayer());
-				
+
 				if (CompendiumIndex.isIndexItem(i, mmt.getType())) {
 					Optional<IIndexEntry> o = CompendiumIndex.getEntryItemBelongsTo(i);
 
 					if (mats.size() > sm.getMaterialLayer()) {
 						String m = o.get().getName();
 
-						
 						mmt.setCurrentMaterial(m);
-						mats.set(sm.getMaterialLayer(), mmt);
+						newMats.set(sm.getMaterialLayer(), mmt);
 					}
 				}
 			}
 
-			s.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(mats));
+			s.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(newMats));
 		}
 
 		return s;
@@ -115,10 +116,8 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 	public static class Serializer implements RecipeSerializer<WorkbenchRecipe> {
 		public static final MapCodec<WorkbenchRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
 				MultiToolRecipeShapedPattern.MAP_CODEC.fieldOf("input").forGetter(WorkbenchRecipe::getShapedIn),
-				NonNullList.codecOf(SlotToMaterial.CODEC).fieldOf("mats")
-						.forGetter(WorkbenchRecipe::getMatSlots),
-				NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools")
-						.forGetter(WorkbenchRecipe::getTools),
+				NonNullList.codecOf(SlotToMaterial.CODEC).fieldOf("mats").forGetter(WorkbenchRecipe::getMatSlots),
+				NonNullList.codecOf(AnimatedRecipeItemUse.CODEC).fieldOf("tools").forGetter(WorkbenchRecipe::getTools),
 				ItemStack.CODEC.fieldOf("output").forGetter(WorkbenchRecipe::getItemOut))
 				.apply(inst, WorkbenchRecipe::new));
 

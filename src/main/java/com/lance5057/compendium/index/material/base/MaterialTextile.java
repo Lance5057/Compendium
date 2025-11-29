@@ -199,9 +199,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		if (stack.is(BLOCK.BLOCK_ITEM))
+		if (BLOCK.is(stack))
 			return true;
-		if (stack.is(STRING.ITEM))
+		if (STRING.is(stack))
 			return true;
 
 		for (_MaterialExtension m : extensions) {
@@ -215,9 +215,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (stack.is(BLOCK.BLOCK_ITEM))
+		if (BLOCK.is(stack))
 			return Optional.of(this);
-		if (stack.is(STRING.ITEM))
+		if (STRING.is(stack))
 			return Optional.of(this);
 
 		for (_MaterialExtension m : extensions) {

@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base;
+ package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.index.util.DataUtil;
+import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -37,12 +38,17 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MaterialMetal extends _MaterialBase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7314131020121747496L;
 	public CompendiumItemHandler INGOT = new CompendiumItemHandler("ingot");
 	public CompendiumItemHandler NUGGET = new CompendiumItemHandler("nugget");
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("storage_block");
@@ -77,9 +83,18 @@ public class MaterialMetal extends _MaterialBase {
 		}
 
 		INGOT.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		INGOT.setupItemTag(Tags.Items.INGOTS);
+		INGOT.setupItemTag(TagUtil.neoTag("ingots/"+name));
+		
 		NUGGET.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
+		NUGGET.setupItemTag(Tags.Items.NUGGETS);
+		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/"+name));
+		
 		BLOCK.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
+		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
+		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/"+name));
+		BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);
 
 		this.extensions.forEach(i -> i.setup(this));
 
@@ -258,11 +273,11 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+		if (BLOCK.is(stack))
 			return true;
-		if (stack.getItem() == INGOT.ITEM.asItem())
+		if (INGOT.is(stack))
 			return true;
-		if (stack.getItem() == NUGGET.ITEM.asItem())
+		if (NUGGET.is(stack))
 			return true;
 
 		for (_MaterialExtension m : extensions) {
@@ -276,11 +291,11 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (stack.getItem() == BLOCK.BLOCK_ITEM.asItem())
+		if (BLOCK.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == INGOT.ITEM.asItem())
+		if (INGOT.is(stack))
 			return Optional.of(this);
-		if (stack.getItem() == NUGGET.ITEM.asItem())
+		if (NUGGET.is(stack))
 			return Optional.of(this);
 
 		for (_MaterialExtension m : extensions) {

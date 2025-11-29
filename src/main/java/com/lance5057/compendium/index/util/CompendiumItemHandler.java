@@ -15,6 +15,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class CompendiumItemHandler implements Serializable {
@@ -85,6 +86,15 @@ public class CompendiumItemHandler implements Serializable {
 
 	public void setupItemTag(TagKey<Item> tag) {
 		this.itemTag.add(tag);
+	}
+
+	public boolean is(ItemStack item) {
+		if (ITEM != null && ITEM.isBound() && item.is(ITEM))
+			return true;
+		for (TagKey<Item> key : this.itemTag)
+			if (item.is(key))
+				return true;
+		return false;
 	}
 
 }

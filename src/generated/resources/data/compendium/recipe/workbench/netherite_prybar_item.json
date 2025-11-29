@@ -2,9 +2,14 @@
   "type": "compendium:workbench_material",
   "input": {
     "key": {
-      "i": {
-        "tag": "c:ingots/netherite"
-      },
+      "i": [
+        {
+          "tag": "c:ingots"
+        },
+        {
+          "tag": "c:ingots/netherite"
+        }
+      ],
       "s": {
         "item": "minecraft:stick"
       }

@@ -122,10 +122,10 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public boolean is(ItemStack item) {
-		if(item.is(BLOCK_ITEM))
+		if (BLOCK_ITEM != null && BLOCK_ITEM.isBound() && item.is(BLOCK_ITEM))
 			return true;
-		for(TagKey<Item> key : this.itemTag)
-			if(item.is(key))
+		for (TagKey<Item> key : this.itemTag)
+			if (item.is(key))
 				return true;
 		return false;
 	}

@@ -265,15 +265,15 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		if (stack.getItem() == PLANKS.BLOCK_ITEM.asItem())
+		if (PLANKS.is(stack))
 			return true;
-		if (stack.getItem() == LOG.BLOCK_ITEM.asItem())
+		if (LOG.is(stack))
 			return true;
-		if (stack.getItem() == STRIPPED_LOG.BLOCK_ITEM.asItem())
+		if (STRIPPED_LOG.is(stack))
 			return true;
-		if (stack.getItem() == WOOD.BLOCK_ITEM.asItem())
+		if (WOOD.is(stack))
 			return true;
-		if (stack.getItem() == STRIPPED_WOOD.BLOCK_ITEM.asItem())
+		if (STRIPPED_WOOD.is(stack))
 			return true;
 
 		for (_MaterialExtension m : extensions) {

@@ -5,9 +5,14 @@
       "b": {
         "item": "minecraft:bow"
       },
-      "i": {
-        "tag": "c:ingots/gold"
-      }
+      "i": [
+        {
+          "tag": "c:ingots"
+        },
+        {
+          "tag": "c:ingots/gold"
+        }
+      ]
     },
     "pattern": [
       "i  ",
