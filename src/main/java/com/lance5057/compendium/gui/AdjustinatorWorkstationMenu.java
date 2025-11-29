@@ -2,7 +2,7 @@ package com.lance5057.compendium.gui;
 
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.network.AdjustinatorSyncPacket;
-import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
+import com.lance5057.compendium.workstations._bases.blocks.StationBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -18,9 +18,9 @@ public class AdjustinatorWorkstationMenu extends AbstractContainerMenu {
 	private final ContainerLevelAccess access;
 	public BlockPos pos;
 	private final Player player;
-	private final StationGuiless guiless;
+	private final StationBlock guiless;
 
-	public StationGuiless getGuiless() {
+	public StationBlock getGuiless() {
 		return guiless;
 	}
 
@@ -34,7 +34,7 @@ public class AdjustinatorWorkstationMenu extends AbstractContainerMenu {
 	}
 
 	public AdjustinatorWorkstationMenu(int pContainerId, Inventory pPlayerInventory, final ContainerLevelAccess pAccess,
-			BlockPos pos, StationGuiless guiless) {
+			BlockPos pos, StationBlock guiless) {
 		super(CompendiumMenus.ADJUSTINATOR_WORKSTATION_MENU.get(), pContainerId);
 		this.access = pAccess;
 		this.pos = pos;

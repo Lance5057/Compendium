@@ -81,7 +81,7 @@ public class MaterialWood extends _MaterialBase {
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"));
-		PLANKS.setupItemTag(ItemTags.PLANKS);
+//		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
 		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 

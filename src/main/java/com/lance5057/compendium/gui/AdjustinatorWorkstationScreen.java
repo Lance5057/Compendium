@@ -54,6 +54,8 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 	public ImageButton left_index_button;
 
 	PlainTextButton dataToClipboard;
+	PlainTextButton hideUI;
+	boolean uiHidden = false;
 
 	private static final WidgetSprites RIGHT_SMALL_BUTTON = new WidgetSprites(
 			ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "right_arrow"),
@@ -104,6 +106,22 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 		dataToClipboard = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 40, 80, 14,
 				Component.literal("Export Data to Clipboard"), b -> saveDataGenToClipboard(), font));
+
+		hideUI = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 60, 80, 14,
+				Component.literal("Hide/Show UI"), b -> hide(!uiHidden), font));
+	}
+
+	public void hide(boolean h) {
+		uiHidden = h;
+		loc.hide(h);
+		rot.hide(h);
+		scale.hide(h);
+		pivot.hide(h);
+
+		indexBox.setVisible(!h);
+		right_index_button.visible = !h;
+		left_index_button.visible = !h;
+		dataToClipboard.visible = !h;
 	}
 
 	private void button(int i) {
@@ -140,17 +158,21 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 //			scale.set(aft.getScale());
 //			pivot.set(aft.getPivot());
 
-			loc.render(this, guiGraphics, -65, -10, partialTick, "Location");
-			rot.render(this, guiGraphics, -65, 40, partialTick, "Rotation");
-			scale.render(this, guiGraphics, -65, 100, partialTick, "Scale");
-			pivot.render(this, guiGraphics, -65, 160, partialTick, "Pivot");
+			if (!this.uiHidden) {
+				loc.render(this, guiGraphics, -65, -10, partialTick, "Location");
+				rot.render(this, guiGraphics, -65, 40, partialTick, "Rotation");
+				scale.render(this, guiGraphics, -65, 100, partialTick, "Scale");
+				pivot.render(this, guiGraphics, -65, 160, partialTick, "Pivot");
 
-			guiGraphics.drawString(font, "Min", leftPos + 10, topPos - 40, 0xFFFFFF, true);
-			guiGraphics.drawString(font, "Max", leftPos + 90, topPos - 40, 0xFFFFFF, true);
-			guiGraphics.drawString(font, "Speed", leftPos + 160, topPos - 40, 0xFFFFFF, true);
-			guiGraphics.drawString(font, "Offset", leftPos + 240, topPos - 40, 0xFFFFFF, true);
-			guiGraphics.drawString(font, "Loop", leftPos + 290, topPos - 40, 0xFFFFFF, true);
-			guiGraphics.drawString(font, "PingPong", leftPos + 320, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "Min", leftPos + 10, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "Max", leftPos + 90, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "Speed", leftPos + 160, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "Offset", leftPos + 240, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "Loop", leftPos + 290, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, "PingPong", leftPos + 320, topPos - 40, 0xFFFFFF, true);
+				
+				guiGraphics.drawString(font, station.getCurrentTool().model().get(index).rc().toString(), leftPos - 200, topPos - 40, 0xFFFFFF, true);
+			}
 		}
 
 	}
@@ -215,6 +237,12 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 			X = new AnimatedFloatWidget();
 			Y = new AnimatedFloatWidget();
 			Z = new AnimatedFloatWidget();
+		}
+
+		public void hide(boolean h) {
+			X.hide(h);
+			Y.hide(h);
+			Z.hide(h);
 		}
 
 		public void init(AdjustinatorWorkstationScreen s, int x, int y) {
@@ -291,6 +319,16 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 				}
 
 			});
+		}
+
+		public void hide(boolean h) {
+			min.hide(h);
+			max.hide(h);
+			speed.hide(h);
+			offset.hide(h);
+
+			pingpong.visible = !h;
+			loop.visible = !h;
 		}
 
 		public void init(AdjustinatorWorkstationScreen screen, int x, int y) {
@@ -388,6 +426,14 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 			left_big_button = screen.addRenderableWidget(new ImageButton(screen.leftPos + x - 19, screen.topPos + y + 2,
 					11, 10, LEFT_BIG_BUTTON, (button) -> subBig()));
 
+		}
+
+		public void hide(boolean h) {
+			box.setVisible(!h);
+			right_small_button.visible = !h;
+			right_big_button.visible = !h;
+			left_small_button.visible = !h;
+			left_big_button.visible = !h;
 		}
 
 		public void set(float f) {

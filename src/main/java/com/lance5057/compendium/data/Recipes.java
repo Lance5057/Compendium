@@ -127,56 +127,173 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))));
 	}
 
+	public static BlacklistedModel standardWorkbenchRightHandItemModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3()
+								.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false, false)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))));
+	}
+
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.save(consumer);
 	}
 
 	private void workbench(RecipeOutput consumer) {
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.HAMMERING_STATION.toStack())
-				.define('p', CompendiumTags.PLANK).define('s', Items.SMOOTH_STONE_SLAB).define('l', ItemTags.LOGS)
-				.pattern("psp").pattern("plp")
+		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.HAMMERING_STATION.toStack()).define('p', CompendiumTags.PLANK)
+				.define('s', Items.SMOOTH_STONE_SLAB).define('l', ItemTags.LOGS).pattern("psp").pattern("plp")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack())
-				.define('p', CompendiumTags.PLANK).define('h', Items.HOPPER).define('c', Items.COPPER_GRATE)
-				.pattern("php").pattern("pcp")
+		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack()).define('p', CompendiumTags.PLANK)
+				.define('h', Items.HOPPER).define('c', Items.COPPER_GRATE).pattern("php").pattern("pcp")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.TOOLRACK.toStack()).define('p', CompendiumTags.PLANK)
 				.define('n', Items.IRON_NUGGET).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep")
 				.pattern("npn")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack())
-				.define('p', CompendiumTags.PLANK).define('n', Items.CHEST).define('e', Items.ENDER_PEARL)
-				.pattern("npn").pattern("pep").pattern("npn")
+		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack()).define('p', CompendiumTags.PLANK)
+				.define('n', Items.CHEST).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep").pattern("npn")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack())
-				.define('c', Items.COPPER_BLOCK).define('h', Items.CHEST).define('b', Items.BRUSH)
-				.define('p', ItemTags.WOODEN_PRESSURE_PLATES).define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE)
-				.define('r', Items.RED_DYE).define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb")
-				.pattern("lhg").pattern("rcy")
+		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack()).define('c', Items.COPPER_BLOCK)
+				.define('h', Items.CHEST).define('b', Items.BRUSH).define('p', ItemTags.WOODEN_PRESSURE_PLATES)
+				.define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE).define('r', Items.RED_DYE)
+				.define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb").pattern("lhg").pattern("rcy")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR).define('p', Ingredient.of(CompendiumTags.PLANK))
-				.define('b', Ingredient.of(ItemTags.PLANKS)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
-				.slotToMat(new SlotToMaterial(1, 2)).pattern("psp").pattern("pbp").pattern("p p")
+				.define('b', Ingredient.of(ItemTags.WOODEN_SLABS)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(0, 2))
+				.slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("pbp").pattern(
+						"p p")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 25.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))
+										.setPivot(new AnimatedFloatVector3().setZ(
+												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 4.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 12.600F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 11.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 7.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setZ(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -2.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 4.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+														false)))))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
 }

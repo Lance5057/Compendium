@@ -316,17 +316,17 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == PRYBAR.ITEM.asItem())
+		if (PRYBAR.is(stack))
 			return true;
-		if (stack.getItem() == HAMMER.ITEM.asItem())
+		if (HAMMER.is(stack))
 			return true;
-		if (stack.getItem() == SAW.ITEM.asItem())
+		if (SAW.is(stack))
 			return true;
-		if (stack.getItem() == SHEARS.ITEM.asItem())
+		if (SHEARS.is(stack))
 			return true;
-		if (stack.getItem() == ZWEIHANDER.ITEM.asItem())
+		if (ZWEIHANDER.is(stack))
 			return true;
-		if (stack.getItem() == BOW.ITEM.asItem())
+		if (BOW.is(stack))
 			return true;
 
 		return false;
@@ -334,17 +334,17 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == PRYBAR.ITEM.asItem())
+		if (PRYBAR.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == HAMMER.ITEM.asItem())
+		if (HAMMER.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == SAW.ITEM.asItem())
+		if (SAW.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == SHEARS.ITEM.asItem())
+		if (SHEARS.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == ZWEIHANDER.ITEM.asItem())
+		if (ZWEIHANDER.is(stack))
 			return Optional.of(base);
-		if (stack.getItem() == BOW.ITEM.asItem())
+		if (BOW.is(stack))
 			return Optional.of(base);
 
 		return Optional.empty();

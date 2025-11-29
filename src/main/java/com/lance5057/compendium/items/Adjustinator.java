@@ -3,7 +3,7 @@ package com.lance5057.compendium.items;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.gui.AdjustinatorMultiMaterialMenu;
 import com.lance5057.compendium.gui.AdjustinatorWorkstationMenu;
-import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
+import com.lance5057.compendium.workstations._bases.blocks.StationBlock;
 
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.world.InteractionResult;
@@ -22,7 +22,7 @@ public class Adjustinator extends Item {
 	@Override
 	public InteractionResult useOn(UseOnContext pContext) {
 		if (pContext.getPlayer().isCrouching()) {
-			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationGuiless sg) {
+			if (pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock() instanceof StationBlock sg) {
 				if (!pContext.getLevel().isClientSide())
 					pContext.getPlayer().openMenu(new SimpleMenuProvider((p_57074_, p_57075_, p_57076_) -> {
 						return new AdjustinatorWorkstationMenu(p_57074_, p_57075_,

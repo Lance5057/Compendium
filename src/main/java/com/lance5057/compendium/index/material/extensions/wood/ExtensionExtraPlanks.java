@@ -112,7 +112,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
-		PLANK.setupItemTag(TagUtil.neoTag("plank"));
+//		PLANK.setupItemTag(TagUtil.neoTag("plank"));
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
@@ -124,7 +124,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
-		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
+//		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
 		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
 		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
@@ -136,10 +136,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
-		PLANK_BLOCK.setupItemTag(ItemTags.WOODEN_SLABS);
-		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
-		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
-		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+//		PLANK_SLAB.setupItemTag(ItemTags.WOODEN_SLABS);
+		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
+		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
+		PLANK_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
 		PLANK_STAIRS.setup(base,
 				() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
@@ -151,10 +151,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
 
-		PLANK_BLOCK.setupItemTag(ItemTags.WOODEN_STAIRS);
-		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("stairs/planks/" + base.name));
-		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("wooden_stairs/" + base.name));
-		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+//		PLANK_STAIRS.setupItemTag(ItemTags.WOODEN_STAIRS);
+		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("stairs/planks/" + base.name));
+		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("wooden_stairs/" + base.name));
+		PLANK_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
 		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);

@@ -71,7 +71,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	@Override
 	public void finishRecipe(Player Player, WorkbenchRecipe r) {
 
-		ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT, r.getItemOut(), false);
+		ItemStack s = this.getInventory()
+				.insertItem(OUTPUT_SLOT, r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false)
+				.copy();
 		if (!s.isEmpty())
 			ItemUtil.giveOrDrop(s, Player);
 		this.getInventory().shrinkRange(0, 25);
@@ -91,7 +93,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 		if (recipe.isPresent()) {
 			WorkbenchRecipe curRecipe = recipe.get().value();
 			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT,
-					curRecipe.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), this.level.registryAccess()).copy());
+					curRecipe
+							.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), this.level.registryAccess())
+							.copy());
 		} else {
 			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT, ItemStack.EMPTY.copy());
 		}

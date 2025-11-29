@@ -47,7 +47,7 @@ public class IndexInitialResourceLoader {
 	// https://github.com/dyhe83/Gson-Polymorphism-Example/tree/master
 
 	private static final Logger LOGGER = LogUtils.getLogger();
-	private static final Gson GSON = MaterialTypeRegistry.setupGson().create();
+	private static final Gson GSON = MaterialTypeRegistry.setupGson().setVersion(1.0).create();
 	private static Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
 
 	public static void init() {

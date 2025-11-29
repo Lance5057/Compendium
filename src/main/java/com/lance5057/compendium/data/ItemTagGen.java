@@ -9,10 +9,12 @@ import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -33,6 +35,40 @@ public class ItemTagGen extends ItemTagsProvider {
 		CompendiumIndex.index.forEach(i -> {
 			i.setupItemTags(this);
 		});
+
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/acacia"))).add(Items.ACACIA_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/acacia"))).add(Items.ACACIA_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/birch"))).add(Items.BIRCH_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/birch"))).add(Items.BIRCH_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/cherry"))).add(Items.CHERRY_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/cherry"))).add(Items.CHERRY_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/crimson"))).add(Items.CRIMSON_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/crimson"))).add(Items.CRIMSON_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/dark_oak"))).add(Items.DARK_OAK_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/dark_oak"))).add(Items.DARK_OAK_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/jungle"))).add(Items.JUNGLE_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/jungle"))).add(Items.JUNGLE_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/mangrove"))).add(Items.MANGROVE_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/mangrove"))).add(Items.MANGROVE_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/oak"))).add(Items.OAK_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/oak"))).add(Items.OAK_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/spruce"))).add(Items.SPRUCE_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/spruce"))).add(Items.SPRUCE_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/warped"))).add(Items.WARPED_SLAB);
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/warped"))).add(Items.WARPED_SLAB);
+
+		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden"))).add(Items.ACACIA_SLAB, Items.BIRCH_SLAB, Items.CHERRY_SLAB,
+				Items.CRIMSON_SLAB, Items.DARK_OAK_SLAB, Items.JUNGLE_SLAB, Items.MANGROVE_SLAB, Items.OAK_SLAB,
+				Items.SPRUCE_SLAB, Items.WARPED_SLAB);
 	}
 
 }

@@ -82,7 +82,7 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 
 	@Override
 	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
-		ItemStack s = this.getResultItem(registries);
+		ItemStack s = this.getResultItem(registries).copy();
 
 		if (s.has(CompendiumComponents.MULTI_MATERIAL)) {
 			MultiMaterialBlockComponent mmbc = s.get(CompendiumComponents.MULTI_MATERIAL);
@@ -93,7 +93,7 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 			for (SlotToMaterial sm : matSlots) {
 				ItemStack i = input.getItem(sm.getSlot());
 
-				MultiMaterialType mmt = mats.get(sm.getMaterialLayer());
+				MultiMaterialType mmt = mats.get(sm.getMaterialLayer()).copy();
 
 				if (CompendiumIndex.isIndexItem(i, mmt.getType())) {
 					Optional<IIndexEntry> o = CompendiumIndex.getEntryItemBelongsTo(i);

@@ -111,13 +111,6 @@ public class MultiMaterialType {
 		this.currentMaterial = CompendiumIndex.getDefaultMaterialFromType(MATERIAL_TYPES.valueOf(t[0]));
 	}
 
-//	public MultiMaterialType(List<MATERIAL_TYPES> t, String m) {
-//		types = new ArrayList<MATERIAL_TYPES>();
-//		for (MATERIAL_TYPES s : t)
-//			this.types.add(s);
-//		this.currentMaterial = m;
-//	}
-
 	public static MultiMaterialType readNBT(CompoundTag tag, HolderLookup.Provider registries) {
 		int count = tag.getInt("count");
 

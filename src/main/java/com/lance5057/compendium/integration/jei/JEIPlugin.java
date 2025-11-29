@@ -54,7 +54,7 @@ public class JEIPlugin implements IModPlugin {
 		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.HAMMERING_STATION.get()),
 				HammeringStationRecipeCategory.TYPE);
 		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.SAW_BUCK.get()), SawBuckRecipeCategory.TYPE);
-		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.WORKBENCH.get()), SawBuckRecipeCategory.TYPE);
+		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.WORKBENCH.get()), WorkbenchMaterialRecipeCategory.TYPE);
 	}
 
 }

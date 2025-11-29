@@ -156,7 +156,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"));
-		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab/"));
+		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab"));
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab/" + base.name));
 		LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
@@ -169,7 +169,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
-		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/"));
+		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
@@ -216,7 +216,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"));
-		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/"));
+		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/" + base.name));
 		STRIPPED_LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
@@ -229,7 +229,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
-		LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/"));
+		LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
