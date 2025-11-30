@@ -172,7 +172,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.BED_BLANKET.getTypes().forEach(b -> {
-				if (b == "llama")
+				if (b.equals("llama"))
 					withExistingParent(
 							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
 							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
@@ -193,7 +193,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 
 				for (BedSideType sideType : BedSideType.values()) {
 					for (BedPart part : BedPart.values()) {
-						if (b == "llama") {
+						if (b.equals("llama")) {
 							withExistingParent(
 									"block/material/textile/" + mb.name + "/bed/unoccupied/"
 											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()

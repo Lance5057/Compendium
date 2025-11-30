@@ -11,7 +11,8 @@
     "modelPart": "occupied/center/head/pillow",
     "styleLayer": 4,
     "styles": [
-      "basic"
+      "basic",
+      "big"
     ],
     "suffix": "",
     "valid": [

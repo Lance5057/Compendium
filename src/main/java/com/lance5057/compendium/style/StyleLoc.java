@@ -168,6 +168,7 @@ public class StyleLoc {
         lp.add("style.bed_blanket.glazed", "Glazed");
 
         lp.add("style.bed_pillow.basic", "Basic");
+        lp.add("style.bed_pillow.big", "Big");
 
         lp.add("style.bed_sheet.basic", "Basic");
 
