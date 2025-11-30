@@ -11,7 +11,8 @@
     "modelPart": "occupied/left/foot/pillow",
     "styleLayer": 4,
     "styles": [
-      "basic"
+      "basic",
+      "big"
     ],
     "suffix": "",
     "valid": [
