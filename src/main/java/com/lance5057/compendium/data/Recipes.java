@@ -143,6 +143,107 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))));
 	}
 
+	public static WorkbenchRecipeBuilder chairStage1(WorkbenchRecipeBuilder builder) {
+		return builder.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+				Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 25.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))
+								.setPivot(new AnimatedFloatVector3()
+										.setZ(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 4.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 12.600F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 11.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
+						new AnimationFloatTransform()
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 7.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))),
+				new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setZ(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false)))
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, -2.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 4.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))));
+	}
+
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
@@ -184,116 +285,13 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR).define('p', Ingredient.of(CompendiumTags.PLANK))
+		WorkbenchRecipeBuilder chair = WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR).define('p', Ingredient.of(CompendiumTags.PLANK))
 				.define('b', Ingredient.of(ItemTags.WOODEN_SLABS)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
 				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(0, 2))
-				.slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("pbp").pattern(
-						"p p")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 25.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false)))
-										.setPivot(new AnimatedFloatVector3().setZ(
-												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 4.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 12.600F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 11.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.modLoc("oak_plank_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -25.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
-								new AnimationFloatTransform()
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 7.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-						new BlacklistedModel(TagUtil.mcLoc("oak_slab"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setZ(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, -2.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -12.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 4.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-														false)))))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+				.slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("pbp").pattern("p p");
+		
+				chair = chairStage1(chair);
+
+				chair.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
 }
