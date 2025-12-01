@@ -193,17 +193,16 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.slotToMat(new SlotToMaterial(0, 2)).slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("pbp")
 				.pattern("p p");
 
-		chair = ChairRecipeData.chairStage1(chair); // start
-		chair = ChairRecipeData.chairStage2(chair); // saw seat
-		chair = ChairRecipeData.chairStage3(chair); // leg 1
-		chair = ChairRecipeData.chairStage4(chair); // leg 2
-		chair = ChairRecipeData.chairStage5(chair); // leg 3
-		chair = ChairRecipeData.chairStage6(chair); // leg 4
-		chair = ChairRecipeData.chairStage7(chair); // bar 1
-		chair = ChairRecipeData.chairStage8(chair); // bar 2
-		chair = ChairRecipeData.chairStage9(chair); // saw back
-		chair = ChairRecipeData.chairStage10(chair); // back
-		chair = ChairRecipeData.chairStage11(chair); // finish
+		chair = ChairRecipeData.chairStage1(chair); // saw seat
+		chair = ChairRecipeData.chairStage2(chair); // leg 1
+		chair = ChairRecipeData.chairStage3(chair); // leg 2
+		chair = ChairRecipeData.chairStage4(chair); // leg 3
+		chair = ChairRecipeData.chairStage5(chair); // leg 4
+		chair = ChairRecipeData.chairStage6(chair); // bar 1
+		chair = ChairRecipeData.chairStage7(chair); // bar 2
+		chair = ChairRecipeData.chairStage8(chair); // saw back
+		chair = ChairRecipeData.chairStage9(chair); // back
+		chair = ChairRecipeData.chairStage10(chair); // finish
 
 		chair.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
