@@ -16,11 +16,12 @@ public class CompendiumEvents {
 
 	@SubscribeEvent
 	public static void ServerChecksumEvent(OnDatapackSyncEvent event) {
-		try {
-			event.getPlayer().connection
-					.send(new ChecksumVerificationPacket(CompendiumIndex.generateChecksum().toString()));
-		} catch (NoSuchAlgorithmException | IOException e) {
-			e.printStackTrace();
-		}
+		if (event.getPlayer() != null)
+			try {
+				event.getPlayer().connection
+						.send(new ChecksumVerificationPacket(CompendiumIndex.generateChecksum().toString()));
+			} catch (NoSuchAlgorithmException | IOException e) {
+				e.printStackTrace();
+			}
 	}
 }

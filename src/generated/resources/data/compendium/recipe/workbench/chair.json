@@ -50,10 +50,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -1.0
+                "max": -4.0
               },
               "z": {
-                "max": 27.5
+                "max": 27.0
               }
             },
             "pivot": {},
@@ -62,7 +62,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 45.0,
+                "max": 135.0,
                 "min": -45.0
               }
             },
@@ -297,7 +297,7 @@
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 4.0
               },
               "z": {
                 "max": 8.0
@@ -310,7 +310,7 @@
                 "max": 0.5
               },
               "y": {
-                "max": 0.2
+                "max": 0.5
               },
               "z": {
                 "max": 0.5
@@ -332,7 +332,11 @@
                 "max": 4.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "y": {
+                "max": 3.0
+              }
+            },
             "rotation": {
               "z": {
                 "max": 65.0
@@ -343,7 +347,7 @@
                 "max": 0.5
               },
               "y": {
-                "max": 0.2
+                "max": 0.5
               },
               "z": {
                 "max": 0.5
@@ -444,23 +448,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
+                "max": 5.0
               },
               "z": {
-                "max": 25.0
+                "max": 5.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {
               "x": {
-                "max": 15.0
+                "max": 90.0
               }
             },
             "scale": {
@@ -481,16 +481,20 @@
           "animation": {
             "location": {
               "x": {
-                "max": 4.5
+                "max": 6.0
               },
               "y": {
                 "max": 0.5
               },
               "z": {
-                "max": 22.0
+                "max": 20.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "z": {
+                "max": 2.0
+              }
+            },
             "rotation": {},
             "scale": {
               "x": {
@@ -735,16 +739,16 @@
                 "max": 10.0
               },
               "y": {
-                "max": 1.0
+                "max": 5.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": 15.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -765,13 +769,46 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
+                "max": 5.0
               },
               "z": {
-                "max": 25.0
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 20.0
               }
             },
             "pivot": {
@@ -779,39 +816,6 @@
                 "max": 2.0
               }
             },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
@@ -1056,16 +1060,16 @@
                 "max": 10.0
               },
               "y": {
-                "max": 1.0
+                "max": 5.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": 15.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -1086,23 +1090,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
+                "max": 5.0
               },
               "z": {
-                "max": 25.0
+                "max": 5.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {
               "x": {
-                "max": 15.0
+                "max": 90.0
               }
             },
             "scale": {
@@ -1123,17 +1123,21 @@
           "animation": {
             "location": {
               "x": {
-                "max": 4.5
+                "max": 5.0
               },
               "y": {
-                "max": 0.5
+                "max": 5.0
               },
               "z": {
-                "max": 22.0
+                "max": 11.0
               }
             },
             "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 0.5
@@ -1377,16 +1381,16 @@
                 "max": 10.0
               },
               "y": {
-                "max": 1.0
+                "max": 5.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": 15.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -1407,23 +1411,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
+                "max": 5.0
               },
               "z": {
-                "max": 25.0
+                "max": 5.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {
               "x": {
-                "max": 15.0
+                "max": 90.0
               }
             },
             "scale": {
@@ -1444,17 +1444,21 @@
           "animation": {
             "location": {
               "x": {
-                "max": 4.5
+                "max": 5.0
               },
               "y": {
-                "max": 0.5
+                "max": 5.0
               },
               "z": {
-                "max": 22.0
+                "max": 11.0
               }
             },
             "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 0.5
@@ -1505,25 +1509,18 @@
         {
           "animation": {
             "location": {
+              "x": {
+                "max": 6.0
+              },
               "y": {
-                "max": -12.0
+                "max": 0.5
               },
               "z": {
-                "max": 11.0
+                "max": 21.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
                 "max": 0.5
@@ -1541,22 +1538,19 @@
         {
           "animation": {
             "location": {
+              "x": {
+                "max": 10.0
+              },
               "y": {
-                "max": -12.0
+                "max": 5.0
               },
               "z": {
-                "max": 14.0
+                "max": 11.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
                 "max": 90.0
               }
             },
@@ -1698,16 +1692,82 @@
                 "max": 10.0
               },
               "y": {
-                "max": 1.0
+                "max": 4.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
               "y": {
-                "max": 15.0
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -1731,20 +1791,16 @@
                 "max": 10.0
               },
               "y": {
-                "max": 2.0
+                "max": 13.0
               },
               "z": {
-                "max": 25.0
+                "max": 5.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {
               "x": {
-                "max": 15.0
+                "max": 90.0
               }
             },
             "scale": {
@@ -1765,13 +1821,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 4.5
+                "max": 6.0
               },
               "y": {
                 "max": 0.5
               },
               "z": {
-                "max": 22.0
+                "max": 21.0
               }
             },
             "pivot": {},
@@ -1794,40 +1850,10 @@
           "animation": {
             "location": {
               "x": {
-                "max": 12.6
+                "max": 10.0
               },
               "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
+                "max": 4.0
               },
               "z": {
                 "max": 11.0
@@ -1836,48 +1862,6 @@
             "pivot": {},
             "rotation": {
               "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 14.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
                 "max": 90.0
               }
             },
@@ -1902,7 +1886,7 @@
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 9.0
               },
               "z": {
                 "max": 8.0
@@ -2019,16 +2003,82 @@
                 "max": 10.0
               },
               "y": {
-                "max": 1.0
+                "max": 4.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
               "y": {
-                "max": 15.0
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -2052,82 +2102,16 @@
                 "max": 10.0
               },
               "y": {
-                "max": 2.0
+                "max": 13.0
               },
               "z": {
-                "max": 25.0
-              }
-            },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 24.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": -3.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -2147,8 +2131,44 @@
         {
           "animation": {
             "location": {
+              "x": {
+                "max": 5.0
+              },
               "y": {
-                "max": -12.0
+                "max": 13.0
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 4.0
               },
               "z": {
                 "max": 11.0
@@ -2157,48 +2177,6 @@
             "pivot": {},
             "rotation": {
               "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 14.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
                 "max": 90.0
               }
             },
@@ -2223,7 +2201,7 @@
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 9.0
               },
               "z": {
                 "max": 8.0
@@ -2297,10 +2275,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -1.0
+                "max": -4.0
               },
               "z": {
-                "max": 27.5
+                "max": 27.0
               }
             },
             "pivot": {},
@@ -2309,7 +2287,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 45.0,
+                "max": 135.0,
                 "min": -45.0
               }
             },
@@ -2331,25 +2309,25 @@
               }
             }
           },
-          "location": "compendium:iron_hammer_item"
+          "location": "compendium:iron_saw_item"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 1.0
+                "max": 4.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": 15.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -2370,106 +2348,10 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
-              },
-              "z": {
-                "max": 25.0
-              }
-            },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
+                "max": 4.0
               },
               "z": {
                 "max": 11.0
@@ -2479,11 +2361,38 @@
             "rotation": {
               "x": {
                 "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
               },
               "y": {
-                "max": -25.0
+                "max": 0.5
               },
               "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 13.0
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
                 "max": 90.0
               }
             },
@@ -2504,22 +2413,52 @@
         {
           "animation": {
             "location": {
+              "x": {
+                "max": 5.0
+              },
               "y": {
-                "max": -12.0
+                "max": 13.0
               },
               "z": {
-                "max": 14.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
                 "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
               },
               "y": {
-                "max": -25.0
+                "max": 0.5
               },
               "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
                 "max": 90.0
               }
             },
@@ -2544,7 +2483,7 @@
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 9.0
               },
               "z": {
                 "max": 8.0
@@ -2570,27 +2509,23 @@
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
+                "max": 7.0
               },
               "y": {
-                "max": -12.0
+                "max": 4.0
               },
               "z": {
-                "max": 4.0
+                "max": 24.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "z": {
-                "max": 65.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
                 "max": 0.5
               },
               "y": {
-                "max": 0.2
+                "max": 0.5
               },
               "z": {
                 "max": 0.5
@@ -2601,7 +2536,7 @@
         }
       ],
       "tool": {
-        "tag": "c:tools/hammer"
+        "tag": "c:tools/saw"
       },
       "uses": 2
     },
@@ -2658,19 +2593,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 1.0
+                "max": 4.0
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": 15.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -2691,106 +2626,10 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 5.0
               },
               "y": {
-                "max": 2.0
-              },
-              "z": {
-                "max": 25.0
-              }
-            },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
+                "max": 4.0
               },
               "z": {
                 "max": 11.0
@@ -2800,11 +2639,38 @@
             "rotation": {
               "x": {
                 "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
               },
               "y": {
-                "max": -25.0
+                "max": 0.5
               },
               "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 13.0
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
                 "max": 90.0
               }
             },
@@ -2825,22 +2691,52 @@
         {
           "animation": {
             "location": {
+              "x": {
+                "max": 5.0
+              },
               "y": {
-                "max": -12.0
+                "max": 13.0
               },
               "z": {
-                "max": 14.0
+                "max": 5.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
                 "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
               },
               "y": {
-                "max": -25.0
+                "max": 0.5
               },
               "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "compendium:oak_plank_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
                 "max": 90.0
               }
             },
@@ -2865,7 +2761,7 @@
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 9.0
               },
               "z": {
                 "max": 8.0
@@ -2891,340 +2787,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
-              },
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 4.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "z": {
-                "max": 65.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        }
-      ],
-      "tool": {
-        "tag": "c:tools/hammer"
-      },
-      "uses": 2
-    },
-    {
-      "count": 1,
-      "damage": true,
-      "effects": [],
-      "loot_table": "compendium:empty",
-      "models": [
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -0.7
-              },
-              "y": {
-                "max": -1.0
-              },
-              "z": {
-                "max": 27.5
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 45.0,
-                "min": -45.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              }
-            }
-          },
-          "location": "compendium:iron_hammer_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 2.0
-              },
-              "z": {
-                "max": 25.0
-              }
-            },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 14.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.5
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
                 "max": 7.5
               },
               "y": {
-                "max": 1.0
+                "max": 14.7
               },
               "z": {
-                "max": 8.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.5
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 0.5
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -2.0
-              },
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 4.0
+                "max": 6.0
               }
             },
             "pivot": {},
             "rotation": {
-              "z": {
-                "max": 65.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {
@@ -3235,7 +2810,7 @@
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 0.3
               }
             }
           },

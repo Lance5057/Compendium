@@ -202,7 +202,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		chair = ChairRecipeData.chairStage7(chair); // bar 2
 		chair = ChairRecipeData.chairStage8(chair); // saw back
 		chair = ChairRecipeData.chairStage9(chair); // back
-		chair = ChairRecipeData.chairStage10(chair); // finish
+//		chair = ChairRecipeData.chairStage10(chair); // finish
 
 		chair.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
