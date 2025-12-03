@@ -54,6 +54,7 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 	public ImageButton left_index_button;
 
 	PlainTextButton dataToClipboard;
+	PlainTextButton allDataToClipboard;
 	PlainTextButton hideUI;
 	boolean uiHidden = false;
 
@@ -106,8 +107,11 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 		dataToClipboard = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 40, 80, 14,
 				Component.literal("Export Data to Clipboard"), b -> saveDataGenToClipboard(), font));
+		
+		allDataToClipboard = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 60, 80, 14,
+				Component.literal("Export All Data to Clipboard"), b -> saveAllDataGenToClipboard(), font));
 
-		hideUI = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 60, 80, 14,
+		hideUI = this.addRenderableWidget(new PlainTextButton(this.leftPos - 200, this.topPos + 100, 80, 14,
 				Component.literal("Hide/Show UI"), b -> hide(!uiHidden), font));
 	}
 
@@ -222,6 +226,11 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 
 	void saveDataGenToClipboard() {
 		String s = this.aft.clipboardData(); // datagen code here
+		Minecraft.getInstance().keyboardHandler.setClipboard(s);
+	}
+	
+	void saveAllDataGenToClipboard() {
+		String s = station.getCurrentTool().clipboardData(); // datagen code here
 		Minecraft.getInstance().keyboardHandler.setClipboard(s);
 	}
 

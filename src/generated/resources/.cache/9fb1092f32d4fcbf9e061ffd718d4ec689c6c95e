@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-02T21:22:46.8360189	Recipes
+// 1.21.1	2025-12-03T13:09:09.1865756	Recipes
 a9ecc3f9e72da0f92f212d0c572a86bba2dc1bf7 data/compendium/advancement/recipes/building_blocks/acacia_logs_item.json
 c20480cd9cdc2b1a44b7703a22b2300a4b3557c9 data/compendium/advancement/recipes/building_blocks/acacia_logs_slab_item.json
 2e7f1ef25179fea318f6d7cbb43eaec3c3908cc2 data/compendium/advancement/recipes/building_blocks/acacia_logs_stairs_item.json
@@ -281,7 +281,7 @@ a8a32799fef28f2dee1c7015129a8c1b5007e945 data/compendium/recipe/workbench.json
 36b8045799cb3c982b6845eccf393fc0e8897e11 data/compendium/recipe/workbench/acacia_plank_stairs_item.json
 38b27240c71544d858418b4c6ec7517394044ef6 data/compendium/recipe/workbench/birch_plank_slab_item.json
 f41acf64ca98b59a658d20ded13cae189b05969c data/compendium/recipe/workbench/birch_plank_stairs_item.json
-7e9a8ae5a2e7a3eb69fa37c43cc0a072ccbf8dd3 data/compendium/recipe/workbench/chair.json
+b7158ea205786a1a6b5965d3881b564b05dbcca9 data/compendium/recipe/workbench/chair.json
 4159c4088af5025708d3e0ccc5d585bbd4c422b5 data/compendium/recipe/workbench/cherry_plank_slab_item.json
 88ed1a7388cc52e1f527a1c6fbdfc72bd590c8cd data/compendium/recipe/workbench/cherry_plank_stairs_item.json
 87298c30d3c0e5e4de2fa7c3ef3e83b97dd0d4fa data/compendium/recipe/workbench/component_drawer.json

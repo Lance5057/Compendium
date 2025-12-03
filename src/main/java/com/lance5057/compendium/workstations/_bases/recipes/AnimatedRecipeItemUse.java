@@ -75,4 +75,12 @@ public record AnimatedRecipeItemUse(int uses, Ingredient tool, int count, boolea
 		for (int i = 0; i < r.effects.size(); i++)
 			RecipeMobEffect.STREAM_CODEC.encode(buffer, r.effects.get(i));
 	}
+
+	public String clipboardData() {
+		String s = "";
+		for (BlacklistedModel bm : model) {
+			s = s.concat(bm.clipboardData() + ",");
+		}
+		return s;
+	}
 }

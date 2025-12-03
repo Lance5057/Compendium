@@ -132,6 +132,6 @@ public class AnimationFloatTransform {
 			s += String.format(".setScale(%s)", this.scale.clipboardData());
 		if (!this.pivot.equals(AnimatedFloatVector3.ZERO))
 			s += String.format(".setPivot(%s)", this.pivot.clipboardData());
-		return s + ");";
+		return s + ")";
 	}
 }

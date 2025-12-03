@@ -54,7 +54,7 @@ public class RenderUtil {
 		return new Vector4f(start0, end0, start1, end1);
 	}
 
-	public static Quaternionf createQuaternion(float x, float y, float z, boolean degrees) {
+	public static Quaternionf createQuaternion(float x, float y, float z, boolean degrees) {	
 		if (degrees) {
 			x *= (float) (Math.PI / 180.0);
 			y *= (float) (Math.PI / 180.0);
@@ -110,14 +110,23 @@ public class RenderUtil {
 		matrixStackIn.pushPose();
 		{
 
-			matrixStackIn.translate(transform.getLocation().getX().animate(timer) / 16,
-					transform.getLocation().getY().animate(timer) / 16,
-					transform.getLocation().getZ().animate(timer) / 16);
-			matrixStackIn.mulPose(createQuaternion(transform.getRotation().getX().animate(timer),
-					transform.getRotation().getY().animate(timer), transform.getRotation().getZ().animate(timer),
-					true));
-			matrixStackIn.scale(1 + transform.getScale().getX().animate(timer),
-					1 + transform.getScale().getY().animate(timer), 1 + transform.getScale().getZ().animate(timer));
+			matrixStackIn.translate(
+					(transform.getLocation().getX().getOffset() + transform.getLocation().getX().animate(timer) / 16),
+					(transform.getLocation().getY().getOffset() + transform.getLocation().getY().animate(timer) / 16),
+					(transform.getLocation().getZ().getOffset() + transform.getLocation().getZ().animate(timer) / 16));
+
+			matrixStackIn.mulPose(createQuaternion(
+					transform.getRotation().getX().getOffset() + transform.getRotation().getX().animate(timer),
+					transform.getRotation().getY().getOffset() + transform.getRotation().getY().animate(timer),
+					transform.getRotation().getZ().getOffset() + transform.getRotation().getZ().animate(timer), true));
+
+			matrixStackIn.translate(
+					(transform.getPivot().getX().getOffset() + transform.getPivot().getX().animate(timer) / 16),
+					(transform.getPivot().getY().getOffset() + transform.getPivot().getY().animate(timer) / 16),
+					(transform.getPivot().getZ().getOffset() + transform.getPivot().getZ().animate(timer) / 16));
+
+			matrixStackIn.scale(transform.getScale().getX().animate(timer), transform.getScale().getY().animate(timer),
+					transform.getScale().getZ().animate(timer));
 
 			bm.render(matrixStackIn, bufferIn, texture -> RenderType.entityTranslucent(texture), combinedLightIn,
 					combinedOverlayIn, timer, ModelData.EMPTY);

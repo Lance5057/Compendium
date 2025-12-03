@@ -89,6 +89,8 @@ public class WorkbenchRenderer extends MultiToolBlockEntityRenderer<WorkbenchBlo
 					combinedOverlayIn, partialTicks, ModelData.EMPTY);
 			matrixStackIn.popPose();
 		}
+		
+		this.renderDebug(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
 
 		timer++;
 	}

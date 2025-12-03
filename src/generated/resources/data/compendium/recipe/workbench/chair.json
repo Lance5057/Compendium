@@ -84,6 +84,7 @@
           "location": "compendium:iron_saw_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -104,19 +105,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -141,26 +143,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 4.5
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 22.0
@@ -170,26 +173,27 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 12.6
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 24.0
@@ -203,19 +207,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -239,19 +244,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -275,17 +281,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -409,6 +415,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -429,19 +436,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -462,26 +470,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 6.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 20.0
@@ -495,26 +504,27 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 12.6
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 24.0
@@ -528,19 +538,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -564,19 +575,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -600,17 +612,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -629,13 +641,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -662,13 +674,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -730,6 +742,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -750,19 +763,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -783,26 +797,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 6.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 20.0
@@ -816,26 +831,27 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 12.6
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 24.0
@@ -849,19 +865,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -885,19 +902,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -921,17 +939,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -950,13 +968,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -983,13 +1001,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1051,6 +1069,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1071,19 +1090,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1104,19 +1124,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1137,26 +1158,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 12.6
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 24.0
@@ -1170,19 +1192,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -1206,19 +1229,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "y": {
@@ -1242,17 +1266,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -1271,13 +1295,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1304,13 +1328,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1372,6 +1396,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1392,19 +1417,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1425,19 +1451,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1458,26 +1485,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 12.6
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 24.0
@@ -1491,26 +1519,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 6.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 21.0
@@ -1520,19 +1549,20 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1553,17 +1583,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -1582,13 +1612,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1615,13 +1645,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1683,6 +1713,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1703,19 +1734,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1736,19 +1768,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1769,19 +1802,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1802,26 +1836,27 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 6.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
                 "max": 21.0
@@ -1831,19 +1866,20 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -1864,17 +1900,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -1893,13 +1929,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1926,13 +1962,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -1994,6 +2030,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2014,19 +2051,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2047,19 +2085,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2080,19 +2119,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2113,19 +2153,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2146,19 +2187,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2179,17 +2221,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -2208,13 +2250,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -2241,13 +2283,13 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -2309,6 +2351,7 @@
           "location": "compendium:iron_saw_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2329,19 +2372,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2362,19 +2406,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2395,19 +2440,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2428,19 +2474,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2461,17 +2508,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -2490,13 +2537,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -2519,13 +2566,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -2587,6 +2634,7 @@
           "location": "compendium:iron_hammer_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2607,19 +2655,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2640,19 +2689,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2673,19 +2723,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2706,19 +2757,20 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
@@ -2739,17 +2791,17 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/furniture/chair/leg"
         },
         {
           "animation": {
@@ -2768,13 +2820,13 @@
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -2801,7 +2853,7 @@
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
                 "max": 0.2
