@@ -7,6 +7,7 @@ import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
+import com.lance5057.compendium.blocks.table.TableRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
@@ -144,8 +145,6 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))));
 	}
 
-	
-
 	private void hammering(RecipeOutput consumer) {
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
@@ -188,10 +187,9 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder chair = WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR)
-				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('b', Ingredient.of(ItemTags.WOODEN_SLABS))
-				.define('s', Ingredient.of(ItemTags.WOODEN_SLABS)).slotToMat(new SlotToMaterial(1, 0))
-				.slotToMat(new SlotToMaterial(0, 2)).slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("pbp")
-				.pattern("p p");
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(0, 2))
+				.slotToMat(new SlotToMaterial(4, 1)).pattern("psp").pattern("psp").pattern("p p");
 
 		chair = ChairRecipeData.chairStage1(chair); // saw seat
 		chair = ChairRecipeData.chairStage2(chair); // leg 1
@@ -205,5 +203,17 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 //		chair = ChairRecipeData.chairStage10(chair); // finish
 
 		chair.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder table = WorkbenchRecipeBuilder.shaped(CompendiumItems.TABLE)
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(0, 1)).pattern("psp").pattern("p p");
+
+		table = TableRecipeData.tableStage1(table); // saw top
+		table = TableRecipeData.tableStage2(table); // leg 1
+		table = TableRecipeData.tableStage3(table); // leg 2
+		table = TableRecipeData.tableStage4(table); // leg 3
+		table = TableRecipeData.tableStage5(table); // leg 4
+
+		table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
 }

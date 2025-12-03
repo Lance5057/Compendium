@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-02T00:40:16.1322526	Recipes
+// 1.21.1	2025-12-02T21:22:46.8360189	Recipes
 a9ecc3f9e72da0f92f212d0c572a86bba2dc1bf7 data/compendium/advancement/recipes/building_blocks/acacia_logs_item.json
 c20480cd9cdc2b1a44b7703a22b2300a4b3557c9 data/compendium/advancement/recipes/building_blocks/acacia_logs_slab_item.json
 2e7f1ef25179fea318f6d7cbb43eaec3c3908cc2 data/compendium/advancement/recipes/building_blocks/acacia_logs_stairs_item.json
@@ -159,6 +159,7 @@ bd4761d2112fe0887abb3a2b84f6cebd2a7b65a7 data/compendium/advancement/recipes/wor
 061503ed483656ba730a303cd7c57640d0e26338 data/compendium/advancement/recipes/workbench/scrapping_table.json
 1e9e869453a31ecba6e2d8c7d8a11f0a9edc6513 data/compendium/advancement/recipes/workbench/spruce_plank_slab_item.json
 f07fe5160b02d880a6e7b4e8af8930dcc8923252 data/compendium/advancement/recipes/workbench/spruce_plank_stairs_item.json
+0b428fd9f06e8a4d5565048caf90ff6946379abf data/compendium/advancement/recipes/workbench/table.json
 d5447ec3a713242bf15afd75fe7819b778ea66c6 data/compendium/advancement/recipes/workbench/toolrack.json
 8877690988dda9b79ebc682276e529eafd3f5f7b data/compendium/advancement/recipes/workbench/warped_plank_slab_item.json
 3c76f1b59e2147179f345982d24676c66f34513d data/compendium/advancement/recipes/workbench/warped_plank_stairs_item.json
@@ -280,7 +281,7 @@ a8a32799fef28f2dee1c7015129a8c1b5007e945 data/compendium/recipe/workbench.json
 36b8045799cb3c982b6845eccf393fc0e8897e11 data/compendium/recipe/workbench/acacia_plank_stairs_item.json
 38b27240c71544d858418b4c6ec7517394044ef6 data/compendium/recipe/workbench/birch_plank_slab_item.json
 f41acf64ca98b59a658d20ded13cae189b05969c data/compendium/recipe/workbench/birch_plank_stairs_item.json
-8a24bed8bee9d96559fac4aa39eeb72f4eda9fe3 data/compendium/recipe/workbench/chair.json
+7e9a8ae5a2e7a3eb69fa37c43cc0a072ccbf8dd3 data/compendium/recipe/workbench/chair.json
 4159c4088af5025708d3e0ccc5d585bbd4c422b5 data/compendium/recipe/workbench/cherry_plank_slab_item.json
 88ed1a7388cc52e1f527a1c6fbdfc72bd590c8cd data/compendium/recipe/workbench/cherry_plank_stairs_item.json
 87298c30d3c0e5e4de2fa7c3ef3e83b97dd0d4fa data/compendium/recipe/workbench/component_drawer.json
@@ -322,6 +323,7 @@ ea7dbe331b9fe616f851cef631599bc5543a83cf data/compendium/recipe/workbench/oak_pl
 50beb4e2b50bb3e81536fb46e95e64b6f2df291b data/compendium/recipe/workbench/scrapping_table.json
 e80c5f0788e52d5d3d38c3bf5c443a427e2dc7c8 data/compendium/recipe/workbench/spruce_plank_slab_item.json
 f3fb8f6bb718ed7ee5cc18c53164785ccabb6386 data/compendium/recipe/workbench/spruce_plank_stairs_item.json
+dd124bc197575439beed2e218a40538b019398fb data/compendium/recipe/workbench/table.json
 ad7c5f7905fb26bd58730891fed00494bba2fbde data/compendium/recipe/workbench/toolrack.json
 5248251fa30b4587dd66155acc54948628fabec3 data/compendium/recipe/workbench/warped_plank_slab_item.json
 b15f70d2347012c94f8d331ebf86072ea6dceff1 data/compendium/recipe/workbench/warped_plank_stairs_item.json
