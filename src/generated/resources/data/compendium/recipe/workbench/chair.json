@@ -88,13 +88,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": -4.0
               },
               "y": {
-                "max": 1.0
+                "max": -3.5
               },
               "z": {
-                "max": 22.0
+                "max": 3.0
               }
             },
             "pivot": {},
@@ -122,13 +122,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 1.0
               },
               "y": {
-                "max": 2.0
+                "max": -3.5
               },
               "z": {
-                "max": 25.0
+                "max": -1.9
               }
             },
             "pivot": {
@@ -136,40 +136,6 @@
                 "max": 2.0
               }
             },
-            "rotation": {
-              "x": {
-                "max": 15.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 4.5
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 22.0
-              }
-            },
-            "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
@@ -190,13 +156,47 @@
           "animation": {
             "location": {
               "x": {
-                "max": 12.6
+                "max": 3.5
+              },
+              "y": {
+                "max": -1.5
+              },
+              "z": {
+                "max": -4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -30.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
               },
               "y": {
                 "max": 1.0
               },
               "z": {
-                "max": 24.0
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -5.0
+              },
+              "y": {
+                "max": -3.5
+              },
+              "z": {
+                "max": 1.0
               }
             },
             "pivot": {},
@@ -223,11 +223,14 @@
           "IsBlock": true,
           "animation": {
             "location": {
+              "x": {
+                "max": 6.0
+              },
               "y": {
-                "max": -12.0
+                "max": -6.0
               },
               "z": {
-                "max": 11.0
+                "max": 2.0
               }
             },
             "pivot": {},
@@ -260,11 +263,14 @@
           "IsBlock": true,
           "animation": {
             "location": {
+              "x": {
+                "max": 6.0
+              },
               "y": {
-                "max": -12.0
+                "max": -6.0
               },
               "z": {
-                "max": 14.0
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -297,26 +303,26 @@
           "animation": {
             "location": {
               "x": {
-                "max": 7.5
+                "max": 8.0
               },
               "y": {
-                "max": 4.0
+                "max": 8.0
               },
               "z": {
-                "max": 8.0
+                "max": 24.0
               }
             },
             "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -326,34 +332,33 @@
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
+                "max": 8.0
               },
               "y": {
-                "max": -12.0
+                "max": -5.5
               },
               "z": {
-                "max": 4.0
+                "max": -10.5
               }
             },
-            "pivot": {
-              "y": {
-                "max": 3.0
-              }
-            },
+            "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
                 "max": 65.0
               }
             },
             "scale": {
               "x": {
-                "max": 0.5
+                "max": 1.0
               },
               "y": {
-                "max": 0.5
+                "max": 1.0
               },
               "z": {
-                "max": 0.5
+                "max": 1.0
               }
             }
           },
@@ -418,14 +423,11 @@
           "IsBlock": true,
           "animation": {
             "location": {
-              "x": {
-                "max": 10.0
-              },
               "y": {
-                "max": 1.0
+                "max": -3.5
               },
               "z": {
-                "max": 22.0
+                "max": 19.0
               }
             },
             "pivot": {},
@@ -453,13 +455,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": 4.0
               },
               "y": {
-                "max": 5.0
+                "max": 14.5
               },
               "z": {
-                "max": 5.0
+                "max": -1.5
               }
             },
             "pivot": {},
@@ -487,13 +489,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 6.0
+                "max": -3.0
               },
               "y": {
-                "max": 1.0
+                "max": -3.5
               },
               "z": {
-                "max": 20.0
+                "max": 15.0
               }
             },
             "pivot": {
@@ -521,78 +523,10 @@
           "animation": {
             "location": {
               "x": {
-                "max": 12.6
+                "max": 4.5
               },
               "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
+                "max": -1.5
               },
               "z": {
                 "max": 14.0
@@ -600,6 +534,40 @@
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -30.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "y": {
+                "max": -6.0
+              },
+              "z": {
+                "max": 2.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
               "x": {
                 "max": 90.0
               },
@@ -625,16 +593,51 @@
           "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 7.5
+                "max": 6.0
+              },
+              "y": {
+                "max": -6.0
+              },
+              "z": {
+                "max": -1.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
               },
               "y": {
                 "max": 1.0
               },
               "z": {
-                "max": 8.0
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -644,30 +647,33 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/seat"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
+                "max": 8.0
               },
               "y": {
-                "max": -12.0
+                "max": -5.5
               },
               "z": {
-                "max": 4.0
+                "max": -10.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
                 "max": 65.0
               }
@@ -677,7 +683,7 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
@@ -745,14 +751,45 @@
           "IsBlock": true,
           "animation": {
             "location": {
-              "x": {
-                "max": 10.0
-              },
               "y": {
-                "max": 5.0
+                "max": -3.5
               },
               "z": {
-                "max": 5.0
+                "max": 19.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 15.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 4.0
+              },
+              "y": {
+                "max": 14.5
+              },
+              "z": {
+                "max": -1.5
               }
             },
             "pivot": {},
@@ -780,47 +817,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": -3.0
               },
               "y": {
-                "max": 5.0
+                "max": -3.5
               },
               "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 6.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 20.0
+                "max": 15.0
               }
             },
             "pivot": {
@@ -848,984 +851,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 14.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 8.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -2.0
-              },
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 4.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "z": {
-                "max": 65.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        }
-      ],
-      "tool": {
-        "tag": "c:tools/hammer"
-      },
-      "uses": 2
-    },
-    {
-      "count": 1,
-      "damage": true,
-      "effects": [],
-      "loot_table": "compendium:empty",
-      "models": [
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -0.7
-              },
-              "y": {
-                "max": -1.0
-              },
-              "z": {
-                "max": 27.5
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 45.0,
-                "min": -45.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              }
-            }
-          },
-          "location": "compendium:iron_hammer_item"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 14.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              },
-              "y": {
-                "max": -25.0
-              },
-              "z": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 8.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -2.0
-              },
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 4.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "z": {
-                "max": 65.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        }
-      ],
-      "tool": {
-        "tag": "c:tools/hammer"
-      },
-      "uses": 2
-    },
-    {
-      "count": 1,
-      "damage": true,
-      "effects": [],
-      "loot_table": "compendium:empty",
-      "models": [
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -0.7
-              },
-              "y": {
-                "max": -1.0
-              },
-              "z": {
-                "max": 27.5
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 45.0,
-                "min": -45.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              }
-            }
-          },
-          "location": "compendium:iron_hammer_item"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 12.6
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 24.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 6.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 21.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 5.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 8.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -2.0
-              },
-              "y": {
-                "max": -12.0
-              },
-              "z": {
-                "max": 4.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "z": {
-                "max": 65.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 0.2
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "minecraft:oak_slab"
-        }
-      ],
-      "tool": {
-        "tag": "c:tools/hammer"
-      },
-      "uses": 2
-    },
-    {
-      "count": 1,
-      "damage": true,
-      "effects": [],
-      "loot_table": "compendium:empty",
-      "models": [
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": -0.7
-              },
-              "y": {
-                "max": -1.0
-              },
-              "z": {
-                "max": 27.5
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 45.0,
-                "min": -45.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              },
-              "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
-              }
-            }
-          },
-          "location": "compendium:iron_hammer_item"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
                 "max": 4.0
               },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
               "y": {
-                "max": 1.0
+                "max": 14.5
               },
               "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 4.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 4.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 13.0
-              },
-              "z": {
-                "max": 5.0
+                "max": 8.5
               }
             },
             "pivot": {},
@@ -1856,14 +888,24 @@
                 "max": 6.0
               },
               "y": {
-                "max": 1.0
+                "max": -6.0
               },
               "z": {
-                "max": 21.0
+                "max": 2.0
               }
             },
             "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 1.0
@@ -1883,18 +925,24 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 6.0
               },
               "y": {
-                "max": 4.0
+                "max": -6.0
               },
               "z": {
-                "max": 11.0
+                "max": -1.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
                 "max": 90.0
               }
             },
@@ -1913,16 +961,11 @@
           "location": "compendium:extra/furniture/chair/leg"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 9.0
-              },
-              "z": {
-                "max": 8.0
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -1932,30 +975,33 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/seat"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
+                "max": 8.0
               },
               "y": {
-                "max": -12.0
+                "max": -5.5
               },
               "z": {
-                "max": 4.0
+                "max": -10.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
                 "max": 65.0
               }
@@ -1965,7 +1011,7 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
@@ -2034,13 +1080,47 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": -6.0
               },
               "y": {
+                "max": 14.0
+              },
+              "z": {
+                "max": -1.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
                 "max": 4.0
               },
+              "y": {
+                "max": 14.5
+              },
               "z": {
-                "max": 5.0
+                "max": -1.5
               }
             },
             "pivot": {},
@@ -2068,13 +1148,47 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": -3.0
               },
               "y": {
+                "max": -3.5
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 2.0
+              }
+            },
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
                 "max": 4.0
               },
+              "y": {
+                "max": 14.5
+              },
               "z": {
-                "max": 5.0
+                "max": 8.5
               }
             },
             "pivot": {},
@@ -2102,18 +1216,24 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": 6.0
               },
               "y": {
-                "max": 4.0
+                "max": -6.0
               },
               "z": {
-                "max": 11.0
+                "max": 2.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
                 "max": 90.0
               }
             },
@@ -2136,18 +1256,24 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 6.0
               },
               "y": {
-                "max": 13.0
+                "max": -6.0
               },
               "z": {
-                "max": 5.0
+                "max": -1.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
                 "max": 90.0
               }
             },
@@ -2170,80 +1296,7 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 13.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 4.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 9.0
-              },
-              "z": {
-                "max": 8.0
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -2253,30 +1306,33 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/seat"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": -2.0
+                "max": 8.0
               },
               "y": {
-                "max": -12.0
+                "max": -5.5
               },
               "z": {
-                "max": 4.0
+                "max": -10.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
                 "max": 65.0
               }
@@ -2286,7 +1342,7 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
@@ -2355,13 +1411,47 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": -6.0
               },
               "y": {
+                "max": 14.5
+              },
+              "z": {
+                "max": -1.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
                 "max": 4.0
               },
+              "y": {
+                "max": 14.5
+              },
               "z": {
-                "max": 5.0
+                "max": -1.5
               }
             },
             "pivot": {},
@@ -2389,13 +1479,51 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": -6.0
               },
               "y": {
+                "max": 16.5
+              },
+              "z": {
+                "max": 8.5
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 2.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
                 "max": 4.0
               },
+              "y": {
+                "max": 14.5
+              },
               "z": {
-                "max": 11.0
+                "max": 8.5
               }
             },
             "pivot": {},
@@ -2423,18 +1551,24 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
+                "max": 6.0
               },
               "y": {
-                "max": 13.0
+                "max": -6.0
               },
               "z": {
-                "max": 5.0
+                "max": 2.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
                 "max": 90.0
               }
             },
@@ -2457,18 +1591,24 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": 6.0
               },
               "y": {
-                "max": 13.0
+                "max": -6.0
               },
               "z": {
-                "max": 5.0
+                "max": -1.0
               }
             },
             "pivot": {},
             "rotation": {
               "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
                 "max": 90.0
               }
             },
@@ -2491,46 +1631,7 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 4.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 9.0
-              },
-              "z": {
-                "max": 8.0
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -2540,30 +1641,34 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/seat"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": 7.0
+                "max": 8.0
               },
               "y": {
-                "max": 4.0
+                "max": 8.0
               },
               "z": {
                 "max": 24.0
               }
             },
             "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 1.0
@@ -2638,13 +1743,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": -6.0
               },
               "y": {
-                "max": 4.0
+                "max": 14.5
               },
               "z": {
-                "max": 5.0
+                "max": -1.5
               }
             },
             "pivot": {},
@@ -2672,10 +1777,156 @@
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
+                "max": 4.0
               },
               "y": {
+                "max": 14.5
+              },
+              "z": {
+                "max": -1.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -6.0
+              },
+              "y": {
+                "max": 16.5
+              },
+              "z": {
+                "max": 8.5
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 2.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
                 "max": 4.0
+              },
+              "y": {
+                "max": 14.5
+              },
+              "z": {
+                "max": 8.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "y": {
+                "max": -6.0
+              },
+              "z": {
+                "max": 2.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "y": {
+                "max": -25.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/leg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.5
+              },
+              "y": {
+                "max": -5.5
               },
               "z": {
                 "max": 11.0
@@ -2683,7 +1934,7 @@
             },
             "pivot": {},
             "rotation": {
-              "x": {
+              "z": {
                 "max": 90.0
               }
             },
@@ -2706,114 +1957,7 @@
           "animation": {
             "location": {
               "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 13.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": 13.0
-              },
-              "z": {
-                "max": 5.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "IsBlock": true,
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 4.0
-              },
-              "z": {
-                "max": 11.0
-              }
-            },
-            "pivot": {},
-            "rotation": {
-              "x": {
-                "max": 90.0
-              }
-            },
-            "scale": {
-              "x": {
-                "max": 1.0
-              },
-              "y": {
-                "max": 1.0
-              },
-              "z": {
-                "max": 1.0
-              }
-            }
-          },
-          "location": "compendium:extra/furniture/chair/leg"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 7.5
-              },
-              "y": {
-                "max": 9.0
-              },
-              "z": {
-                "max": 8.0
+                "max": -1.0
               }
             },
             "pivot": {},
@@ -2823,26 +1967,27 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
                 "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/seat"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 7.5
+                "max": -1.0
               },
               "y": {
-                "max": 14.7
+                "max": 15.0
               },
               "z": {
-                "max": 6.0
+                "max": 24.0
               }
             },
             "pivot": {},
@@ -2856,14 +2001,129 @@
                 "max": 1.0
               },
               "y": {
-                "max": 0.2
+                "max": 1.0
               },
               "z": {
-                "max": 0.3
+                "max": 1.0
               }
             }
           },
-          "location": "minecraft:oak_slab"
+          "location": "compendium:extra/furniture/chair/back"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -2.0
+              },
+              "y": {
+                "max": 11.5
+              },
+              "z": {
+                "max": -9.5
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/back_full"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -2.0
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:extra/furniture/chair/seat_legs"
         }
       ],
       "tool": {

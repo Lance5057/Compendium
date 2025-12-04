@@ -168,6 +168,7 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 				scale.render(this, guiGraphics, -65, 100, partialTick, "Scale");
 				pivot.render(this, guiGraphics, -65, 160, partialTick, "Pivot");
 
+				guiGraphics.drawString(font, "Stage " + station.stage, leftPos - 160, topPos - 80, 0xFFFFFF, true);
 				guiGraphics.drawString(font, "Min", leftPos + 10, topPos - 40, 0xFFFFFF, true);
 				guiGraphics.drawString(font, "Max", leftPos + 90, topPos - 40, 0xFFFFFF, true);
 				guiGraphics.drawString(font, "Speed", leftPos + 160, topPos - 40, 0xFFFFFF, true);
@@ -175,7 +176,7 @@ public class AdjustinatorWorkstationScreen extends AbstractContainerScreen<Adjus
 				guiGraphics.drawString(font, "Loop", leftPos + 290, topPos - 40, 0xFFFFFF, true);
 				guiGraphics.drawString(font, "PingPong", leftPos + 320, topPos - 40, 0xFFFFFF, true);
 				
-				guiGraphics.drawString(font, station.getCurrentTool().model().get(index).rc().toString(), leftPos - 200, topPos - 40, 0xFFFFFF, true);
+				guiGraphics.drawString(font, station.getCurrentTool().model().get(index).rc().toString(), leftPos - 200, topPos - 60, 0xFFFFFF, true);
 			}
 		}
 
