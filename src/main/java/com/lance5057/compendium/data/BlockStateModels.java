@@ -173,9 +173,9 @@ public class BlockStateModels extends BlockStateProvider {
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/mattress",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_MATTRESS.getTypes(), 2, 2))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/pillow",
-								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_PILLOW.getTypes(), 4, 4))
+								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_PILLOW.getTypes(), 3, 3))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/sheet",
-								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_SHEET.getTypes(), 3, 3))
+								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_SHEET.getTypes(), 4, 4))
 						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("bed", "inventory/blanket",
 								List.of(MATERIAL_TYPES.TEXTILE), StyleData.BED_BLANKET.getTypes(), 5, 5))
 						.end())
@@ -469,9 +469,9 @@ public class BlockStateModels extends BlockStateProvider {
 				this.bedPart(mpbsb, tb, type, "base", StyleData.BED_BASE, 1, 1, List.of(MATERIAL_TYPES.WOOD), true);
 				this.bedPart(mpbsb, tb, type, "mattress", StyleData.BED_MATTRESS, 2, 2, List.of(MATERIAL_TYPES.TEXTILE),
 						true);
-				this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 3, 3, List.of(MATERIAL_TYPES.TEXTILE),
+				this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 4, 4, List.of(MATERIAL_TYPES.TEXTILE),
 						true);
-				this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 4, 4, List.of(MATERIAL_TYPES.TEXTILE),
+				this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 3, 3, List.of(MATERIAL_TYPES.TEXTILE),
 						true);
 				this.bedPart(mpbsb, tb, type, "blanket", StyleData.BED_BLANKET, 5, 5, List.of(MATERIAL_TYPES.TEXTILE),
 						true);
@@ -480,9 +480,9 @@ public class BlockStateModels extends BlockStateProvider {
 				this.bedPart(mpbsb, tb, type, "base", StyleData.BED_BASE, 1, 1, List.of(MATERIAL_TYPES.WOOD), false);
 				this.bedPart(mpbsb, tb, type, "mattress", StyleData.BED_MATTRESS, 2, 2, List.of(MATERIAL_TYPES.TEXTILE),
 						false);
-				this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 3, 3, List.of(MATERIAL_TYPES.TEXTILE),
+				this.bedPart(mpbsb, tb, type, "sheet", StyleData.BED_SHEET, 4, 4, List.of(MATERIAL_TYPES.TEXTILE),
 						false);
-				this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 4, 4, List.of(MATERIAL_TYPES.TEXTILE),
+				this.bedPart(mpbsb, tb, type, "pillow", StyleData.BED_PILLOW, 3, 3, List.of(MATERIAL_TYPES.TEXTILE),
 						false);
 				this.bedPart(mpbsb, tb, type, "blanket", StyleData.BED_BLANKET, 5, 5, List.of(MATERIAL_TYPES.TEXTILE),
 						false);

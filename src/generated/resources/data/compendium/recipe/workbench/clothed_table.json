@@ -2,6 +2,9 @@
   "type": "compendium:workbench_material",
   "input": {
     "key": {
+      "c": {
+        "tag": "minecraft:wool"
+      },
       "p": {
         "tag": "c:plank"
       },
@@ -10,6 +13,7 @@
       }
     },
     "pattern": [
+      " c ",
       "psp",
       "p p"
     ]
@@ -17,16 +21,20 @@
   "mats": [
     {
       "materialLayer": 0,
-      "slot": 1
+      "slot": 4
     },
     {
       "materialLayer": 1,
-      "slot": 0
+      "slot": 3
+    },
+    {
+      "materialLayer": 2,
+      "slot": 1
     }
   ],
   "output": {
     "count": 1,
-    "id": "compendium:table"
+    "id": "compendium:clothed_table"
   },
   "tools": [
     {

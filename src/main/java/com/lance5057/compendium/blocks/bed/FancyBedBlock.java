@@ -40,8 +40,10 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 6, 6, StyleData.BED_FRAME, StyleData.BED_BASE,
-				StyleData.BED_MATTRESS, StyleData.BED_PILLOW, StyleData.BED_SHEET, StyleData.BED_BLANKET);
+		return new StyledMultiMaterialBlockEntity(pos, state, 6, 6, 
+				StyleData.BED_FRAME, StyleData.BED_BASE,
+				StyleData.BED_MATTRESS, StyleData.BED_PILLOW, 
+				StyleData.BED_SHEET, StyleData.BED_BLANKET);
 	}
 
 	@Override
@@ -162,9 +164,12 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 
 	@Override
 	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.BED_BASE.getTypeSafe(current.get(0)), StyleData.BED_FRAME.getTypeSafe(current.get(1)),
-				StyleData.BED_MATTRESS.getTypeSafe(current.get(2)), StyleData.BED_PILLOW.getTypeSafe(current.get(3)),
-				StyleData.BED_SHEET.getTypeSafe(current.get(4)), StyleData.BED_BLANKET.getTypeSafe(current.get(5)));
+		return List.of(StyleData.BED_BASE.getTypeSafe(current.get(0)), 
+				StyleData.BED_FRAME.getTypeSafe(current.get(1)),
+				StyleData.BED_MATTRESS.getTypeSafe(current.get(2)), 
+				StyleData.BED_PILLOW.getTypeSafe(current.get(3)),
+				StyleData.BED_SHEET.getTypeSafe(current.get(4)),
+				StyleData.BED_BLANKET.getTypeSafe(current.get(5)));
 	}
 
 	@Override

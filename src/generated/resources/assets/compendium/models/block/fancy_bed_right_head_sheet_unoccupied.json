@@ -6,10 +6,10 @@
     }
   },
   "layer0": {
-    "materialLayer": 3,
+    "materialLayer": 4,
     "modelBase": "bed",
     "modelPart": "unoccupied/right/head/sheet",
-    "styleLayer": 3,
+    "styleLayer": 4,
     "styles": [
       "basic"
     ],

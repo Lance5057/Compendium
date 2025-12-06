@@ -6,6 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.table.TableRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
@@ -215,5 +216,34 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		table = TableRecipeData.tableStage5(table); // leg 4
 
 		table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder clothed_table = WorkbenchRecipeBuilder.shaped(CompendiumItems.CLOTHED_TABLE)
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.define('c', Ingredient.of(ItemTags.WOOL)).slotToMat(new SlotToMaterial(4, 0))
+				.slotToMat(new SlotToMaterial(3, 1)).slotToMat(new SlotToMaterial(1, 2)).pattern(" c ").pattern("psp")
+				.pattern("p p");
+
+		clothed_table = TableRecipeData.tableStage1(clothed_table); // saw top
+		clothed_table = TableRecipeData.tableStage2(clothed_table); // leg 1
+		clothed_table = TableRecipeData.tableStage3(clothed_table); // leg 2
+		clothed_table = TableRecipeData.tableStage4(clothed_table); // leg 3
+		clothed_table = TableRecipeData.tableStage5(clothed_table); // leg 4
+
+		clothed_table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder bed = WorkbenchRecipeBuilder.shaped(CompendiumItems.FANCY_BED)
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.define('c', Ingredient.of(ItemTags.WOOL)).slotToMat(new SlotToMaterial(7, 1))
+				.slotToMat(new SlotToMaterial(3, 0)).slotToMat(new SlotToMaterial(4, 2))
+				.slotToMat(new SlotToMaterial(2, 3)).slotToMat(new SlotToMaterial(1, 4))
+				.slotToMat(new SlotToMaterial(0, 5)).pattern("ccc").pattern("pcp").pattern("psp");
+
+		bed = BedRecipeData.bedStage1(bed); // saw top
+		bed = BedRecipeData.bedStage2(bed); // leg 1
+//		bed = TableRecipeData.tableStage3(bed); // leg 2
+//		bed = TableRecipeData.tableStage4(bed); // leg 3
+//		bed = TableRecipeData.tableStage5(bed); // leg 4
+
+		bed.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
 }

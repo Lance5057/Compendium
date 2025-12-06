@@ -6,10 +6,10 @@
     }
   },
   "layer0": {
-    "materialLayer": 4,
+    "materialLayer": 3,
     "modelBase": "bed",
     "modelPart": "occupied/center/head/pillow",
-    "styleLayer": 4,
+    "styleLayer": 3,
     "styles": [
       "basic",
       "big"
