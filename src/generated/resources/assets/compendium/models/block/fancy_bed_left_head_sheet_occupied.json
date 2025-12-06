@@ -11,7 +11,9 @@
     "modelPart": "occupied/left/head/sheet",
     "styleLayer": 4,
     "styles": [
-      "basic"
+      "basic",
+      "long",
+      "frilled"
     ],
     "suffix": "",
     "valid": [

@@ -11,7 +11,9 @@
     "modelPart": "occupied/right/foot/sheet",
     "styleLayer": 4,
     "styles": [
-      "basic"
+      "basic",
+      "long",
+      "frilled"
     ],
     "suffix": "",
     "valid": [

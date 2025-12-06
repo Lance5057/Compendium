@@ -45,8 +45,8 @@ public class StyleData {
 			"picket", "privacy", "short", "slats", "slats_concave", "slats_convex", "solid", "solid_sheet"));
 
 	public static StyleData BED_BLANKET = new StyleData("bed_blanket", List.of("basic", "llama", "glazed"));
-	public static StyleData BED_PILLOW = new StyleData("bed_pillow", List.of("basic", "big"));
-	public static StyleData BED_SHEET = new StyleData("bed_sheet", List.of("basic"));
+	public static StyleData BED_PILLOW = new StyleData("bed_pillow", List.of("basic", "big", "angled"));
+	public static StyleData BED_SHEET = new StyleData("bed_sheet", List.of("basic", "long", "frilled"));
 	public static StyleData BED_MATTRESS = new StyleData("bed_mattress", List.of("basic"));
 	public static StyleData BED_FRAME = new StyleData("bed_frame",
 			List.of("basic", "contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full",

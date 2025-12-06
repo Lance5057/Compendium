@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/occupied/left/foot/sheet/frilled",
+  "textures": {
+    "0": "minecraft:block/light_blue_wool"
+  }
+}

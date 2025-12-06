@@ -12,7 +12,8 @@
     "styleLayer": 3,
     "styles": [
       "basic",
-      "big"
+      "big",
+      "angled"
     ],
     "suffix": "",
     "valid": [
