@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/pillow/big",
+  "parent": "compendium:block/furniture/bed/occupied/left/head/pillow/big",
   "textures": {
     "0": "minecraft:block/pink_wool"
   }

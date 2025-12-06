@@ -160,7 +160,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 								"block/material/textile/" + mb.name + "/bed/occupied/"
 										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
 										+ "/pillow/" + b.toLowerCase(),
-								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
 										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
 								.texture("0", mcLoc("block/" + mb.name));
 					}

@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:block/furniture/bed/unoccupied/center/head/pillow/big",
+  "parent": "compendium:block/furniture/bed/occupied/center/head/pillow/big",
   "textures": {
     "0": "minecraft:block/green_wool"
   }

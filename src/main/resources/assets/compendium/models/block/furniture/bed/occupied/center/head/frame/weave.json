@@ -1,0 +1,61 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"render_type": "cutout",
+	"textures": {
+		"0": "block/acacia_planks",
+		"1": "compendium:block/material/wood/acacia/weave",
+		"particle": "block/acacia_planks"
+	},
+	"elements": [
+		{
+			"name": "frame top",
+			"from": [0, 14, 14],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 8, 15]},
+			"faces": {
+				"north": {"uv": [0, 1, 16, 3], "texture": "#0"},
+				"east": {"uv": [0, 1, 2, 3], "texture": "#0"},
+				"south": {"uv": [0, 9, 16, 11], "texture": "#0"},
+				"west": {"uv": [4, 1, 6, 3], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"down": {"uv": [0, 3, 16, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "centre panel",
+			"from": [8, 9, 15],
+			"to": [16, 14, 15],
+			"rotation": {"angle": 0, "axis": "z", "origin": [16, 9, 16]},
+			"faces": {
+				"north": {"uv": [2.5, 7.5, 10, 12.5], "texture": "#1"},
+				"south": {"uv": [10, 7.5, 2.5, 12.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "centre panel",
+			"from": [0, 9, 15],
+			"to": [8, 14, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 16]},
+			"faces": {
+				"north": {"uv": [4, 1.5, 11.5, 6.5], "texture": "#1"},
+				"south": {"uv": [11.5, 1.5, 4, 6.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "frame bottom",
+			"from": [0, 7, 14],
+			"to": [16, 9, 16],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 13]},
+			"faces": {
+				"north": {"uv": [0, 1, 16, 3], "texture": "#0"},
+				"east": {"uv": [0, 1, 2, 3], "texture": "#0"},
+				"south": {"uv": [0, 9, 16, 11], "texture": "#0"},
+				"west": {"uv": [4, 1, 6, 3], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"down": {"uv": [0, 3, 16, 5], "texture": "#0"}
+			}
+		}
+	]
+}

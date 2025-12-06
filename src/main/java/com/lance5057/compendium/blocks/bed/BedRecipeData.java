@@ -151,14 +151,14 @@ public class BedRecipeData {
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
 														false)))
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
@@ -210,9 +210,8 @@ public class BedRecipeData {
 						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/bed/base"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
@@ -270,6 +269,39 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, 0.050F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
+										.setPivot(new AnimatedFloatVector3().setY(
+												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/bed/head_board"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -9.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, -6.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
+										.setPivot(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/bed/foot_board"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 12.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -12.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, -14.000F, 0.000F, 0.000F, false,
+														false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))));
 	}
