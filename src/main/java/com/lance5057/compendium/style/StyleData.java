@@ -55,7 +55,7 @@ public class StyleData {
 			List.of("basic", "panelled", "slats", "solid", "weave"));
 
 	public static StyleData SHINGLES_SHINGLES = new StyleData("shingles", List.of("basic"));
-	public static StyleData SUPPORT_SHINGLES = new StyleData("support", List.of("basic"/* , "braced", "none" */));
+	public static StyleData SUPPORT_SHINGLES = new StyleData("support", List.of("basic" , "braced", "none" ));
 	public static StyleData GABLE_SHINGLES = new StyleData("gable", List.of("basic"));
 
 	public static StyleData LOG = new StyleData("log",

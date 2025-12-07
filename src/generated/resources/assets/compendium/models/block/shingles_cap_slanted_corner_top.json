@@ -24,7 +24,9 @@
     "modelPart": "support/top/corner",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "braced",
+      "none"
     ],
     "suffix": "",
     "valid": [

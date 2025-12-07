@@ -24,7 +24,9 @@
     "modelPart": "support/top/all",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "braced",
+      "none"
     ],
     "suffix": "",
     "valid": [

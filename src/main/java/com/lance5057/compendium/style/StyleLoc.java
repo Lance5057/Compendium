@@ -202,6 +202,8 @@ public class StyleLoc {
         lp.add("style.shingles.basic", "Basic");
 
         lp.add("style.support.basic", "Basic");
+        lp.add("style.support.braced", "Braced");
+        lp.add("style.support.none", "None");
 
         lp.add("style.gable.basic", "Basic");
 

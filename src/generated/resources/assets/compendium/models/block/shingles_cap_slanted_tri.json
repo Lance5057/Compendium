@@ -24,7 +24,9 @@
     "modelPart": "support/no_top/tri",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "braced",
+      "none"
     ],
     "suffix": "",
     "valid": [

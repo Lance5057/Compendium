@@ -387,6 +387,8 @@
   "style.small_log.smaller_log": "Smaller Log",
   "style.small_log.smallest_log": "Smallest Log",
   "style.support.basic": "Basic",
+  "style.support.braced": "Braced",
+  "style.support.none": "None",
   "style.table_cloth.angled": "Angled",
   "style.table_cloth.angled_long": "Long Angled",
   "style.table_cloth.angled_short": "Short Angled",

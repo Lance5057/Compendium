@@ -24,7 +24,9 @@
     "modelPart": "support/outer_corner",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "braced",
+      "none"
     ],
     "suffix": "",
     "valid": [
