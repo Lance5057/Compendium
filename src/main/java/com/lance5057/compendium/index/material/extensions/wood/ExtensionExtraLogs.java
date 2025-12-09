@@ -16,6 +16,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
@@ -130,7 +131,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
-		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_logs"));
+		SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOGS);
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_logs/" + base.name));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small/" + base.name));
@@ -644,14 +645,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		for (String type : types) {
-			Compendium.LOGGER.debug("Style model made at: " + location + block + "/" + modelName + type);
 			ibmp.withExistingParent(location + "/" + block + "/" + modelName + type,
 					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 					.texture("0", textureLocation(texture0, base, false))
 					.texture("1", textureLocation(texture1, base, false))
 					.texture("particle", textureLocation(texture0, base, false));
 			if (type.equals("_bottom") || type.equals("")) {
-				Compendium.LOGGER.debug("Style model made at: " + location + block + "/" + modelName + "_inventory");
 				ibmp.withExistingParent(location + "/" + block + "/" + modelName + "_inventory",
 						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 						.texture("0", textureLocation(texture0, base, false))
@@ -660,16 +659,12 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			if (stripped) {
-				Compendium.LOGGER
-						.debug("Style model made at: " + location + "stripped_" + block + "/" + modelName + type);
 				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
 						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 						.texture("0", textureLocation(texture0, base, true))
 						.texture("1", textureLocation(texture1, base, true))
 						.texture("particle", textureLocation(texture0, base, true));
 				if (type.equals("_bottom") || type.equals("")) {
-					Compendium.LOGGER.debug(
-							"Style model made at: " + location + "stripped_" + block + "/" + modelName + "_inventory");
 					ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
 							ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
 							.texture("0", textureLocation(texture0, base, true))

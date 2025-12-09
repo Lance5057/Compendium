@@ -7,9 +7,11 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class CompendiumTags {
+	
 	
 	public static TagKey<Block> PRYABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "pryable"));
 	public static TagKey<Block> SAWABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "sawable"));
@@ -23,4 +25,6 @@ public class CompendiumTags {
 	public static TagKey<Item> PLANK = ItemTags.create(TagUtil.neoTag("plank"));
 	
 	public static TagKey<Item> TEXTILES = ItemTags.create(TagUtil.neoTag("textiles"));
+	
+	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
 }

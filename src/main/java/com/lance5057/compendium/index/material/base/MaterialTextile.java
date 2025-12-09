@@ -64,7 +64,7 @@ public class MaterialTextile extends _MaterialBase {
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
-		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
+//		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
 
 		STRING.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_string"));

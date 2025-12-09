@@ -203,13 +203,29 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public boolean isIndexItem(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (BLOCK.is(stack))
+			return true;
+
+		for (_MaterialExtension m : extensions) {
+			boolean o = m.isIndexItem(this, stack);
+
+			if (o)
+				return o;
+		}
 		return false;
 	}
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		// TODO Auto-generated method stub
+		if (BLOCK.is(stack))
+			return Optional.of(this);
+
+		for (_MaterialExtension m : extensions) {
+			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+
+			if (o.isPresent())
+				return o;
+		}
 		return Optional.empty();
 	}
 

@@ -9,6 +9,7 @@ import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.table.TableRecipeData;
+import com.lance5057.compendium.blocks.window.WindowRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
@@ -245,5 +246,40 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 //		bed = TableRecipeData.tableStage5(bed); // leg 4
 
 		bed.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder window = WorkbenchRecipeBuilder.shaped(CompendiumItems.WINDOW, 4)
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('g', Ingredient.of(Tags.Items.GLASS_BLOCKS))
+				.slotToMat(new SlotToMaterial(4, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp")
+				.pattern(" p ");
+
+		window = WindowRecipeData.stage0(window);
+
+		window.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder fence = WorkbenchRecipeBuilder.shaped(CompendiumItems.FANCY_FENCE, 3)
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('b', Ingredient.of(ItemTags.PLANKS))
+				.slotToMat(new SlotToMaterial(0, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern("bpb").pattern("bpb");
+
+		fence = WindowRecipeData.stage0(fence);
+
+		fence.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder shingles = WorkbenchRecipeBuilder.shaped(CompendiumItems.SHINGLES_SLANTED, 6)
+				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOGS))
+				.slotToMat(new SlotToMaterial(2, 0)).slotToMat(new SlotToMaterial(8, 1)).pattern("  b").pattern(" b ")
+				.pattern("b l");
+
+		shingles = WindowRecipeData.stage0(shingles);
+
+		shingles.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+
+		WorkbenchRecipeBuilder shingles_cap = WorkbenchRecipeBuilder.shaped(CompendiumItems.SHINGLES_CAP_SLANTED, 6)
+				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOGS))
+				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(5, 1)).pattern(" b ").pattern("blb");
+
+		shingles_cap = WindowRecipeData.stage0(shingles_cap);
+
+		shingles_cap.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}
+
 }

@@ -113,6 +113,8 @@ public class CompendiumIndex {
 		for (IIndexEntry i : index)
 			if (i.isIndexItem(stack))
 				return true;
+		
+		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
 
@@ -122,6 +124,8 @@ public class CompendiumIndex {
 				if (types.contains(mb.getType()))
 					if (i.isIndexItem(stack))
 						return true;
+		
+		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
 

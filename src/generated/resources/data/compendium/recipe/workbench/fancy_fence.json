@@ -1,0 +1,259 @@
+{
+  "type": "compendium:workbench_material",
+  "input": {
+    "key": {
+      "b": {
+        "tag": "minecraft:planks"
+      },
+      "p": {
+        "tag": "c:plank"
+      }
+    },
+    "pattern": [
+      "bpb",
+      "bpb"
+    ]
+  },
+  "mats": [
+    {
+      "materialLayer": 0,
+      "slot": 0
+    },
+    {
+      "materialLayer": 1,
+      "slot": 1
+    }
+  ],
+  "output": {
+    "count": 3,
+    "id": "compendium:fancy_fence"
+  },
+  "tools": [
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_saw_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -4.0
+              },
+              "y": {
+                "max": -3.5
+              },
+              "z": {
+                "max": 3.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 15.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:plank"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": -3.5
+              },
+              "z": {
+                "max": -1.9
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 2.0
+              }
+            },
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:plank"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 3.5
+              },
+              "y": {
+                "max": -1.5
+              },
+              "z": {
+                "max": -4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -30.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:plank"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -5.0
+              },
+              "y": {
+                "max": -3.5
+              },
+              "z": {
+                "max": 1.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -3.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "compendium:item/plank"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -5.5
+              },
+              "z": {
+                "max": -10.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 65.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 1.0
+              }
+            }
+          },
+          "location": "minecraft:glass"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/saw"
+      },
+      "uses": 2
+    }
+  ]
+}

@@ -69,6 +69,8 @@ public class ItemTagGen extends ItemTagsProvider {
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden"))).add(Items.ACACIA_SLAB, Items.BIRCH_SLAB, Items.CHERRY_SLAB,
 				Items.CRIMSON_SLAB, Items.DARK_OAK_SLAB, Items.JUNGLE_SLAB, Items.MANGROVE_SLAB, Items.OAK_SLAB,
 				Items.SPRUCE_SLAB, Items.WARPED_SLAB);
+		
+		tag(ItemTags.create(TagUtil.neoTag("textiles/black_wool"))).add(Items.BLACK_WOOL);
 	}
 
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-29T02:02:31.7805194	Tags for minecraft:item mod id compendium
+// 1.21.1	2025-12-09T15:29:50.8006748	Tags for minecraft:item mod id compendium
 e63eefb247e42ee8641235ece38b16d74b76fb93 data/c/tags/item/logs/acacia.json
 91e91c5a1f29d1e2ac1ed878bff9b625313f575e data/c/tags/item/logs/birch.json
 13e0e2d71792fa81a1ab9117f54df790411e6b49 data/c/tags/item/logs/cherry.json
@@ -160,6 +160,7 @@ d4ef4926c40cc886c293b08b09353562f30f62e8 data/c/tags/item/stripped_log/small/jun
 3beac7c0cda76070c33b3af57ea43188e2d5d4e1 data/c/tags/item/stripped_log/small/warped.json
 2193a22c26ca27af550a2996087d47261f7a0cb9 data/c/tags/item/stripped_log/spruce.json
 f15b01812ecf05cd247a3562058f8bcd1ffd2a9f data/c/tags/item/stripped_log/warped.json
+dc26d59698d238e0c60c400dbffea2ba82af4365 data/c/tags/item/textiles/black_wool.json
 05db26a72ade63b2f6a5b236e624fd619ff137d4 data/c/tags/item/tools.json
 c13eb03e212d933782e4ff29d501d5b31393daa7 data/c/tags/item/tools/bow.json
 5c9f51e3d4bb815c221306ed4daf1959c9878240 data/c/tags/item/tools/hammer.json
