@@ -32,71 +32,315 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:plank"), false,
+						new BlacklistedModel(ResourceLocation.parse("compendium:oak_plank_item"), false,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
 										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))
+												.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 2.400F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:plank"), false,
+						new BlacklistedModel(ResourceLocation.parse("compendium:oak_plank_item"), false,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, -1.900F, 0.000F, 0.000F, false, false)))
+												.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.900F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
-										.setPivot(new AnimatedFloatVector3().setZ(
-												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:plank"), true,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3().setY(
-												new AnimatedFloat(0.000F, -30.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 3.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -1.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:item/plank"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:oak_plank_item"), false,
 								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
 										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, -5.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
+												.setX(new AnimatedFloat(0.000F, 6.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.900F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("minecraft:glass"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:oak_plank_item"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 10.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.900F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("minecraft:glass"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))));
+	}
+
+	public static WorkbenchRecipeBuilder stage1(WorkbenchRecipeBuilder builder) {
+		return builder
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						new BlacklistedModel(ResourceLocation.parse("compendium:iron_hammer_item"), false,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -5.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, -10.500F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
 														false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 91.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 21.100F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -5.100F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 21.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -5.100F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 22.600F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 92.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 22.800F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -5.100F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 19.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -5.100F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 19.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 35.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("minecraft:glass"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))));
 	}
+
+	public static WorkbenchRecipeBuilder stage2(WorkbenchRecipeBuilder builder) {
+		return builder
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						new BlacklistedModel(ResourceLocation.parse("compendium:iron_hammer_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+														false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/half_frame"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 75.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 12.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -5.100F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 19.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -3.600F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 35.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("minecraft:glass"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))));
+	}
+
+	public static WorkbenchRecipeBuilder stage3(WorkbenchRecipeBuilder builder) {
+		return builder
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						new BlacklistedModel(ResourceLocation.parse("compendium:iron_hammer_item"), false,
+								new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+														false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/full_frame"), true,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 18.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
+														false)))),
+						new BlacklistedModel(ResourceLocation.parse("minecraft:glass"), false,
+								new AnimationFloatTransform()
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 0.700F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.700F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 0.700F, 0.000F, 0.000F, false,
+														false)))));
+	}
+
 }

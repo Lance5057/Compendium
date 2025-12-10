@@ -83,13 +83,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": -4.0
+                "max": 5.0
               },
               "y": {
-                "max": -3.5
+                "max": 2.4
               },
               "z": {
-                "max": 3.0
+                "max": 22.0
               }
             },
             "pivot": {},
@@ -100,151 +100,129 @@
             },
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": 1.0
+                "max": 3.0
               },
               "y": {
-                "max": -3.5
+                "max": 0.9
               },
               "z": {
-                "max": -1.9
+                "max": 23.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 3.5
+                "max": 6.5
               },
               "y": {
-                "max": -1.5
+                "max": 0.9
               },
               "z": {
-                "max": -4.0
+                "max": 23.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -30.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": -5.0
+                "max": 10.0
               },
               "y": {
-                "max": -3.5
+                "max": 0.9
               },
               "z": {
-                "max": 1.0
+                "max": 23.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:item/plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
                 "max": 8.0
-              },
-              "y": {
-                "max": -5.5
-              },
-              "z": {
-                "max": -10.5
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 65.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
@@ -253,6 +231,676 @@
       ],
       "tool": {
         "tag": "c:tools/saw"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 21.1
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 91.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "y": {
+                "max": -5.1
+              },
+              "z": {
+                "max": 21.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": -5.1
+              },
+              "z": {
+                "max": 22.6
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 22.8
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 92.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "y": {
+                "max": -5.1
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -4.0
+              },
+              "y": {
+                "max": -5.1
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.5
+              },
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 96.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 35.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 8.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:glass"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 12.0
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 75.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/half_frame"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -4.0
+              },
+              "y": {
+                "max": -5.1
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.5
+              },
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 96.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -3.6
+              },
+              "z": {
+                "max": 35.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/stick"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 8.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:glass"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 18.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/window/full_frame"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 24.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.7
+              },
+              "y": {
+                "max": 0.7
+              },
+              "z": {
+                "max": 0.7
+              }
+            }
+          },
+          "location": "minecraft:glass"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
       },
       "uses": 2
     }

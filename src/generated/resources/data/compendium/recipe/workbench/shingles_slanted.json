@@ -83,13 +83,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": -4.0
+                "max": 5.0
               },
               "y": {
-                "max": -3.5
+                "max": 2.4
               },
               "z": {
-                "max": 3.0
+                "max": 22.0
               }
             },
             "pivot": {},
@@ -100,151 +100,129 @@
             },
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
           "animation": {
             "location": {
               "x": {
-                "max": 1.0
+                "max": 3.0
               },
               "y": {
-                "max": -3.5
+                "max": 0.9
               },
               "z": {
-                "max": -1.9
+                "max": 23.0
               }
             },
-            "pivot": {
-              "z": {
-                "max": 2.0
-              }
-            },
+            "pivot": {},
             "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 3.5
+                "max": 6.5
               },
               "y": {
-                "max": -1.5
+                "max": 0.9
               },
               "z": {
-                "max": -4.0
+                "max": 23.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -30.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": -5.0
+                "max": 10.0
               },
               "y": {
-                "max": -3.5
+                "max": 0.9
               },
               "z": {
-                "max": 1.0
+                "max": 23.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -3.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },
-          "location": "compendium:item/plank"
+          "location": "compendium:oak_plank_item"
         },
         {
-          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
                 "max": 8.0
-              },
-              "y": {
-                "max": -5.5
-              },
-              "z": {
-                "max": -10.5
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 65.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 1.0
+                "max": 0.75
               },
               "y": {
-                "max": 1.0
+                "max": 0.75
               },
               "z": {
-                "max": 1.0
+                "max": 0.75
               }
             }
           },

@@ -253,6 +253,9 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.pattern(" p ");
 
 		window = WindowRecipeData.stage0(window);
+		window = WindowRecipeData.stage1(window);
+		window = WindowRecipeData.stage2(window);
+		window = WindowRecipeData.stage3(window);
 
 		window.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
