@@ -8,6 +8,7 @@ import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
+import com.lance5057.compendium.blocks.fence.FenceRecipeData;
 import com.lance5057.compendium.blocks.table.TableRecipeData;
 import com.lance5057.compendium.blocks.window.WindowRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
@@ -263,7 +264,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('b', Ingredient.of(ItemTags.PLANKS))
 				.slotToMat(new SlotToMaterial(0, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern("bpb").pattern("bpb");
 
-		fence = WindowRecipeData.stage0(fence);
+		fence = FenceRecipeData.stage0(fence);
+		fence = FenceRecipeData.stage1(fence);
 
 		fence.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 

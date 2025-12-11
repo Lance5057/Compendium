@@ -1,22 +1,29 @@
 package com.lance5057.compendium.integration.jei.categories;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
+import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<WorkbenchRecipe> {
 
@@ -64,14 +71,31 @@ public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<Workbenc
 			count++;
 		}
 
-		builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 73).addIngredients(Ingredient.of(recipe.getItemOut()));
+		builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 73).addItemStack(recipe.getItemOut());
 
 		count = 0;
 		for (AnimatedRecipeItemUse aru : recipe.getTools()) {
-			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 3) * 18), 1 + (int) (count / 3) * 18)
+			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 4) * 18), 1 + (int) (count / 4) * 18)
 					.addIngredients(aru.tool());
 			count++;
 		}
+	}
+
+	@Override
+	public void onDisplayedIngredientsUpdate(WorkbenchRecipe recipe, List<IRecipeSlotDrawable> recipeSlots,
+			IFocusGroup focuses) {
+		NonNullList<ItemStack> out = NonNullList.create();
+
+		for (int i = 0; i < recipe.pattern.ingredients().size() - 1; i++)
+			if (!recipeSlots.get(i).isEmpty())
+				out.add(recipeSlots.get(i).getDisplayedItemStack().get());
+			else
+				out.add(ItemStack.EMPTY);
+
+		out.add(recipe.getItemOut());
+
+		recipeSlots.get(recipe.pattern.ingredients().size()).createDisplayOverrides()
+				.addItemStack(recipe.assemble(MultiToolRecipeWrapper.of(new ItemStackHandler(out)), null));
 	}
 
 }

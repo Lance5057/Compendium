@@ -79,16 +79,17 @@
           "location": "compendium:iron_saw_item"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
                 "max": 5.0
               },
               "y": {
-                "max": 2.4
+                "max": -4.6
               },
               "z": {
-                "max": 22.0
+                "max": 5.0
               }
             },
             "pivot": {},
@@ -109,19 +110,20 @@
               }
             }
           },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/fence/spoke"
         },
         {
+          "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 3.0
+                "max": -1.0
               },
               "y": {
-                "max": 0.9
+                "max": -4.6
               },
               "z": {
-                "max": 23.0
+                "max": 4.0
               }
             },
             "pivot": {},
@@ -138,65 +140,7 @@
               }
             }
           },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 6.5
-              },
-              "y": {
-                "max": 0.9
-              },
-              "z": {
-                "max": 23.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.75
-              },
-              "y": {
-                "max": 0.75
-              },
-              "z": {
-                "max": 0.75
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
-        },
-        {
-          "animation": {
-            "location": {
-              "x": {
-                "max": 10.0
-              },
-              "y": {
-                "max": 0.9
-              },
-              "z": {
-                "max": 23.0
-              }
-            },
-            "pivot": {},
-            "rotation": {},
-            "scale": {
-              "x": {
-                "max": 0.75
-              },
-              "y": {
-                "max": 0.75
-              },
-              "z": {
-                "max": 0.75
-              }
-            }
-          },
-          "location": "compendium:oak_plank_item"
+          "location": "compendium:extra/fence/spoke"
         },
         {
           "animation": {
@@ -206,6 +150,125 @@
               },
               "y": {
                 "max": 6.0
+              },
+              "z": {
+                "max": 24.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:oak_planks"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/saw"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -4.6
+              },
+              "z": {
+                "max": 9.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/fence/spoke"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -2.0
+              },
+              "y": {
+                "max": -4.6
               },
               "z": {
                 "max": 8.0
@@ -225,11 +288,76 @@
               }
             }
           },
-          "location": "minecraft:glass"
+          "location": "compendium:extra/fence/spoke"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 13.0
+              },
+              "y": {
+                "max": -4.6
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/fence/post"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 12.0
+              },
+              "y": {
+                "max": -4.6
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:extra/fence/post"
         }
       ],
       "tool": {
-        "tag": "c:tools/saw"
+        "tag": "c:tools/hammer"
       },
       "uses": 2
     }
