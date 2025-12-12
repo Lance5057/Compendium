@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-11T11:22:07.3009893	Recipes
+// 1.21.1	2025-12-12T13:27:04.61258	Recipes
 a9ecc3f9e72da0f92f212d0c572a86bba2dc1bf7 data/compendium/advancement/recipes/building_blocks/acacia_logs_item.json
 c20480cd9cdc2b1a44b7703a22b2300a4b3557c9 data/compendium/advancement/recipes/building_blocks/acacia_logs_slab_item.json
 2e7f1ef25179fea318f6d7cbb43eaec3c3908cc2 data/compendium/advancement/recipes/building_blocks/acacia_logs_stairs_item.json
@@ -331,7 +331,7 @@ d38edf0e41ff60534e435457e3cfd251ac2e1eb6 data/compendium/recipe/workbench/nether
 ea7dbe331b9fe616f851cef631599bc5543a83cf data/compendium/recipe/workbench/oak_plank_stairs_item.json
 50beb4e2b50bb3e81536fb46e95e64b6f2df291b data/compendium/recipe/workbench/scrapping_table.json
 e3a0ea4a9b726731e836a8004b093a29ebe6799c data/compendium/recipe/workbench/shingles_cap_slanted.json
-71d375c1500b799ce869548fbaa9a608a0ca4c01 data/compendium/recipe/workbench/shingles_slanted.json
+840a1f91a8315ab4077172157ee92e374b7ce134 data/compendium/recipe/workbench/shingles_slanted.json
 e80c5f0788e52d5d3d38c3bf5c443a427e2dc7c8 data/compendium/recipe/workbench/spruce_plank_slab_item.json
 f3fb8f6bb718ed7ee5cc18c53164785ccabb6386 data/compendium/recipe/workbench/spruce_plank_stairs_item.json
 c35923c0cacdd66ce27c4f21c25a37e052289565 data/compendium/recipe/workbench/table.json

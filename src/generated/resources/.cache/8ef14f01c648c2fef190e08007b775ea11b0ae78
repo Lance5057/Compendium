@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-09T15:29:50.8006748	Tags for minecraft:item mod id compendium
+// 1.21.1	2025-12-12T10:53:24.9808653	Tags for minecraft:item mod id compendium
 e63eefb247e42ee8641235ece38b16d74b76fb93 data/c/tags/item/logs/acacia.json
 91e91c5a1f29d1e2ac1ed878bff9b625313f575e data/c/tags/item/logs/birch.json
 13e0e2d71792fa81a1ab9117f54df790411e6b49 data/c/tags/item/logs/cherry.json
@@ -161,6 +161,21 @@ d4ef4926c40cc886c293b08b09353562f30f62e8 data/c/tags/item/stripped_log/small/jun
 2193a22c26ca27af550a2996087d47261f7a0cb9 data/c/tags/item/stripped_log/spruce.json
 f15b01812ecf05cd247a3562058f8bcd1ffd2a9f data/c/tags/item/stripped_log/warped.json
 dc26d59698d238e0c60c400dbffea2ba82af4365 data/c/tags/item/textiles/black_wool.json
+4b007eca91284e115e6a0c208c8dddbbf0aed7bc data/c/tags/item/textiles/blue_wool.json
+9f867580ce1e743583fab6a17e3d03248865eafc data/c/tags/item/textiles/brown_wool.json
+b4b458788e919f93343c36ef996f828bcf610abc data/c/tags/item/textiles/cyan_wool.json
+62e9def05a24ce6a0f8b7fdb1490d7e856991d47 data/c/tags/item/textiles/gray_wool.json
+1bdd1be741fcfa89c90c2bf0af6706b6c63139ca data/c/tags/item/textiles/green_wool.json
+e054a5fe2248aa8c0a7f66d210cb54a639c661f6 data/c/tags/item/textiles/light_blue_wool.json
+bf7627f1264b6899bedb6f55e19898dad5d03d8c data/c/tags/item/textiles/light_gray_wool.json
+aceb5be462f62f63438e67877d38c89951e8919e data/c/tags/item/textiles/lime_wool.json
+cfd0d2c16adae65fbf8640439a1814ab244082cb data/c/tags/item/textiles/magenta_wool.json
+842c228466435a5cc9221a17f70a778db8617590 data/c/tags/item/textiles/orange_wool.json
+3ff0870e67b5b9c122d8e59400180e4bd93780a3 data/c/tags/item/textiles/pink_wool.json
+fec60767247bdbebf6cd451bb3692c9a8ffef908 data/c/tags/item/textiles/purple_wool.json
+85f94b89b0d20e38f4e9f464fb443064c29f2bf1 data/c/tags/item/textiles/red_wool.json
+8e71446b54f055edb3ba7a025d4335cb78da1b45 data/c/tags/item/textiles/white_wool.json
+0de700cdfc12e281290ea7bc709d3241620ec9fb data/c/tags/item/textiles/yellow_wool.json
 05db26a72ade63b2f6a5b236e624fd619ff137d4 data/c/tags/item/tools.json
 c13eb03e212d933782e4ff29d501d5b31393daa7 data/c/tags/item/tools/bow.json
 5c9f51e3d4bb815c221306ed4daf1959c9878240 data/c/tags/item/tools/hammer.json

@@ -9,6 +9,7 @@ import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.fence.FenceRecipeData;
+import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedRecipeData;
 import com.lance5057.compendium.blocks.table.TableRecipeData;
 import com.lance5057.compendium.blocks.window.WindowRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
@@ -274,7 +275,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.slotToMat(new SlotToMaterial(2, 0)).slotToMat(new SlotToMaterial(8, 1)).pattern("  b").pattern(" b ")
 				.pattern("b l");
 
-		shingles = WindowRecipeData.stage0(shingles);
+		shingles = ShinglesSlantedRecipeData.stage0(shingles);
+		shingles = ShinglesSlantedRecipeData.stage1(shingles);
+		shingles = ShinglesSlantedRecipeData.stage2(shingles);
+		shingles = ShinglesSlantedRecipeData.stage3(shingles);
 
 		shingles.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 

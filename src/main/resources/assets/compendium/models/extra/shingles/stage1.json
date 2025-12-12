@@ -1,0 +1,49 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "block/oak_planks",
+		"1": "compendium:block/material/wood/oak/logs/small_logs_slab",
+		"particle": "block/oak_planks"
+	},
+	"elements": [
+		{
+			"name": "shingle",
+			"from": [0, 3.86698, -2.5594],
+			"to": [16, 6.86698, 4.4406],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.001, 8.36698, 8.4406]},
+			"faces": {
+				"north": {"uv": [16, 16, 13, 0], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 0, 7, 3], "texture": "#0", "cullface": "east"},
+				"south": {"uv": [13, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 0, 7, 3], "texture": "#0", "cullface": "west"},
+				"up": {"uv": [9, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [9, 0, 16, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "log",
+			"from": [-0.011, -0.011, 7.989],
+			"to": [16.011, 8.011, 16.011],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [7.98, 0, 16, 8.02], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [7.98, 0, 16, 8.02], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [0, 0, 8, 16], "rotation": 90, "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 3, 0.5],
+			"color": 0,
+			"children": [0]
+		},
+		1
+	]
+}
