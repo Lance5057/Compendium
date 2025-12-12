@@ -11,7 +11,8 @@
     "modelPart": "shingles/no_top/all",
     "styleLayer": 0,
     "styles": [
-      "basic"
+      "basic",
+      "angled"
     ],
     "suffix": "",
     "valid": [

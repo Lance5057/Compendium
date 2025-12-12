@@ -11,7 +11,8 @@
     "modelPart": "shingles/inventory",
     "styleLayer": 0,
     "styles": [
-      "basic"
+      "basic",
+      "angled"
     ],
     "suffix": "_inventory",
     "valid": [
@@ -24,7 +25,8 @@
     "modelPart": "support/inventory",
     "styleLayer": 1,
     "styles": [
-      "basic"
+      "basic",
+      "angled"
     ],
     "suffix": "_inventory",
     "valid": [

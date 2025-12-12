@@ -200,6 +200,7 @@ public class StyleLoc {
 
         // Shingles
         lp.add("style.shingles.basic", "Basic");
+        lp.add("style.shingles.angled", "Angled");
 
         lp.add("style.support.basic", "Basic");
         lp.add("style.support.braced", "Braced");

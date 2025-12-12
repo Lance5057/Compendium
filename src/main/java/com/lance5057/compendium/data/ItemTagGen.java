@@ -71,6 +71,21 @@ public class ItemTagGen extends ItemTagsProvider {
 				Items.SPRUCE_SLAB, Items.WARPED_SLAB);
 		
 		tag(ItemTags.create(TagUtil.neoTag("textiles/black_wool"))).add(Items.BLACK_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/blue_wool"))).add(Items.BLUE_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/brown_wool"))).add(Items.BROWN_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/cyan_wool"))).add(Items.CYAN_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/gray_wool"))).add(Items.GRAY_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/green_wool"))).add(Items.GREEN_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/light_blue_wool"))).add(Items.LIGHT_BLUE_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/light_gray_wool"))).add(Items.LIGHT_GRAY_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/lime_wool"))).add(Items.LIME_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/magenta_wool"))).add(Items.MAGENTA_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/orange_wool"))).add(Items.ORANGE_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/pink_wool"))).add(Items.PINK_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/purple_wool"))).add(Items.PURPLE_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/red_wool"))).add(Items.RED_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/yellow_wool"))).add(Items.YELLOW_WOOL);
+		tag(ItemTags.create(TagUtil.neoTag("textiles/white_wool"))).add(Items.WHITE_WOOL);
 	}
 
 }
