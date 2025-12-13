@@ -241,11 +241,18 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.slotToMat(new SlotToMaterial(2, 3)).slotToMat(new SlotToMaterial(1, 4))
 				.slotToMat(new SlotToMaterial(0, 5)).pattern("ccc").pattern("pcp").pattern("psp");
 
-		bed = BedRecipeData.bedStage1(bed); // saw top
-		bed = BedRecipeData.bedStage2(bed); // leg 1
-//		bed = TableRecipeData.tableStage3(bed); // leg 2
-//		bed = TableRecipeData.tableStage4(bed); // leg 3
-//		bed = TableRecipeData.tableStage5(bed); // leg 4
+		bed = BedRecipeData.bedStage1(bed);
+		bed = BedRecipeData.bedStage2(bed);
+		bed = BedRecipeData.bedStage3(bed);
+		bed = BedRecipeData.bedStage4(bed);
+		bed = BedRecipeData.bedStage5(bed);
+		bed = BedRecipeData.bedStage6(bed);
+		bed = BedRecipeData.bedStage7(bed);
+		bed = BedRecipeData.bedStage8(bed);
+		bed = BedRecipeData.bedStage9(bed);
+		bed = BedRecipeData.bedStage10(bed);
+		bed = BedRecipeData.bedStage11(bed);
+		bed = BedRecipeData.bedStage12(bed);
 
 		bed.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
