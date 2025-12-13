@@ -25,6 +25,7 @@ import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
+import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
@@ -44,6 +45,7 @@ import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTr
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -69,7 +71,15 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -596,10 +606,24 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
-		blp.dropSelf(PLANK.BLOCK.get());
-		blp.dropSelf(PLANK_BLOCK.BLOCK.get());
-		blp.dropSelf(PLANK_SLAB.BLOCK.get());
-		blp.dropSelf(PLANK_STAIRS.BLOCK.get());
+		blp.add(PLANK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK.BLOCK.get()));
+		blp.add(PLANK_BLOCK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_STAIRS.BLOCK.get()));
+		blp.add(PLANK_SLAB.BLOCK.get(), this.createSlabItemTable(PLANK_SLAB.BLOCK.get()));
+		blp.add(PLANK_STAIRS.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_STAIRS.BLOCK.get()));
+	}
+
+	protected LootTable.Builder createSlabItemTable(Block block) {
+		return LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+						.add(LootItem.lootTableItem(block)
+								.apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+										.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+												.setProperties(StatePropertiesPredicate.Builder.properties()
+														.hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))))
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.STYLE.get()))
+
+						));
 	}
 
 	@Override

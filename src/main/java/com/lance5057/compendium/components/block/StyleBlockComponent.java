@@ -11,10 +11,10 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipProvider;
 
-public record StyleBlockComponent(List<Integer> styles) implements TooltipProvider {
+public record StyleBlockComponent(List<Integer> styles) {
 //	public static final StyleBlockComponent EMPTY = new StyleBlockComponent(new ArrayList<StyleType>());
 	public static final Codec<StyleBlockComponent> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
 			.group(Codec.list(Codec.INT).fieldOf("current").forGetter(StyleBlockComponent::styles))
@@ -23,10 +23,18 @@ public record StyleBlockComponent(List<Integer> styles) implements TooltipProvid
 	public static final StreamCodec<RegistryFriendlyByteBuf, StyleBlockComponent> STREAM_CODEC = StreamCodec
 			.of(StyleBlockComponent::write, StyleBlockComponent::read);
 
-	@Override
-	public void addToTooltip(TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
-		// TODO Auto-generated method stub
+	public void addToTooltip(ItemStack stack, TooltipContext context, Consumer<Component> tooltipAdder,
+			TooltipFlag tooltipFlag) {
 
+		if (tooltipFlag.hasShiftDown()) {
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.style"));
+			styles.forEach(i -> tooltipAdder.accept(Component.translatable(" - style."
+					+ stack.getDescriptionId().substring(stack.getDescriptionId().lastIndexOf('.') + 1) + "." + i)));
+		}
+		else
+		{
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.style.see_more").withColor(0xFFAAAAAA));
+		}
 	}
 
 	private static StyleBlockComponent read(RegistryFriendlyByteBuf buffer) {
@@ -49,7 +57,7 @@ public record StyleBlockComponent(List<Integer> styles) implements TooltipProvid
 	}
 
 	public StyleBlockComponent copy() {
-		
+
 		return new StyleBlockComponent(new ArrayList<Integer>(styles));
 	}
 

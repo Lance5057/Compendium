@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "tag": "minecraft:oak_logs"
+    "item": "minecraft:oak_log"
   },
   "loot": "minecraft:sawing/oak_small_log",
   "offset": [

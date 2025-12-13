@@ -20,6 +20,16 @@
               }
             }
           ],
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "compendium:style_block",
+                "compendium:multi_material_block"
+              ],
+              "source": "block_entity"
+            }
+          ],
           "name": "compendium:fancy_bed"
         }
       ],

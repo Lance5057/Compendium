@@ -3,14 +3,19 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "compendium:style_block",
+                "compendium:multi_material_block"
+              ],
+              "source": "block_entity"
+            }
+          ],
           "name": "compendium:table"
         }
       ],

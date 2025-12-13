@@ -12,16 +12,20 @@ import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -42,28 +46,55 @@ public class BlockLootTables extends BlockLootSubProvider {
 		this.dropSelf(CompendiumBlocks.SAW_BUCK.get());
 		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
 		this.dropSelf(CompendiumBlocks.COSMETIC_TOOLBOX.get());
-		this.dropSelf(CompendiumBlocks.CHAIR.get());
+		this.add(CompendiumBlocks.CHAIR.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());
 		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
-		this.dropSelf(CompendiumBlocks.TABLE.get());
-		this.dropSelf(CompendiumBlocks.CLOTHED_TABLE.get());
-		this.add(CompendiumBlocks.FANCY_BED.get(),
-				b -> this.createSinglePropConditionTable(b, FancyBedBlock.PART, BedPart.HEAD));
-		this.dropSelf(CompendiumBlocks.FANCY_FENCE.get());
-		this.dropSelf(CompendiumBlocks.SHINGLES_SLANTED.get());
-		this.dropSelf(CompendiumBlocks.SHINGLES_CAP_SLANTED.get());
+		this.add(CompendiumBlocks.TABLE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.CLOTHED_TABLE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.FANCY_BED.get(), b -> this.createBedTable(b, FancyBedBlock.PART, BedPart.HEAD));
+		this.add(CompendiumBlocks.FANCY_FENCE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.SHINGLES_SLANTED.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
 //		this.dropSelf(CompendiumBlocks.FANCY_DOOR.get());
-		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMultiMaterialDrop(p_248609_));
+		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+
 	}
 
-	protected LootTable.Builder createMultiMaterialDrop(Block block) {
+	public static LootTable.Builder createMaterialItemDrop(Block block) {
+		return LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+						.add(LootItem.lootTableItem(block)
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.MULTI_MATERIAL.get()))));
+	}
+
+	public static LootTable.Builder createStyleItemDrop(Block block) {
+		return LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+						.add(LootItem.lootTableItem(block)
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.STYLE.get()))));
+	}
+
+	public static LootTable.Builder createMaterialStyleItemDrop(Block block) {
+		return LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+						.add(LootItem.lootTableItem(block)
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.STYLE.get())
+										.include(CompendiumComponents.MULTI_MATERIAL.get()))));
+	}
+
+	protected <T extends Comparable<T> & StringRepresentable> LootTable.Builder createBedTable(Block block,
+			Property<T> property, T value) {
 		return LootTable.lootTable()
 				.withPool(this.applyExplosionCondition(block,
-						LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-								.add(LootItem.lootTableItem(block)
-										.apply(CopyComponentsFunction
-												.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
-												.include(CompendiumComponents.MULTI_MATERIAL.get())))));
+						LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)
+								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(
+										StatePropertiesPredicate.Builder.properties().hasProperty(property, value)))
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.STYLE.get())
+										.include(CompendiumComponents.MULTI_MATERIAL.get())))));
 	}
 
 	@Override

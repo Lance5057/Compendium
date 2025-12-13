@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "tag": "minecraft:jungle_logs"
+    "item": "minecraft:jungle_log"
   },
   "loot": "minecraft:sawing/jungle_small_log",
   "offset": [

@@ -26,6 +26,7 @@ import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
+import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
@@ -39,7 +40,9 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -63,7 +66,15 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -294,28 +305,28 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s,
 					ibmp.modLoc("block/bases/stripped_small_log/small_log"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal",
 					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal_rot",
 					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal2"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_vertical",
 					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_vertical"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_cap",
 					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_cap"))
-					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "small_logs"));
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
 			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
 					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
@@ -1192,10 +1203,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
+		String logstem;
+		if (base.name.equals("warped") || base.name.equals("crimson")) {
+			logstem = "stem";
+		} else {
+			logstem = "log";
+		}
+
 		if (SMALL_LOG.shouldGenerate()) {
 			SawBuckRecipeBuilder
-					.saw(Ingredient.of(
-							TagKey.create(Registries.ITEM, ResourceLocation.withDefaultNamespace(base.name + "_logs"))),
+					.saw(Ingredient.of(BuiltInRegistries.ITEM
+							.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_" + logstem))),
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
@@ -1264,31 +1282,47 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void blockLoot(_MaterialBase base, BlockLootSubProvider blp) {
 		if (SMALL_LOG.shouldGenerate()) {
-			blp.dropSelf(SMALL_LOG.BLOCK.get());
+			blp.add(SMALL_LOG.BLOCK.get(), BlockLootTables.createStyleItemDrop(SMALL_LOG.BLOCK.get()));
 		}
 		if (LOG.shouldGenerate()) {
-			blp.dropSelf(this.LOG.BLOCK.get());
+			blp.add(this.LOG.BLOCK.get(), BlockLootTables.createStyleItemDrop(LOG.BLOCK.get()));
 		}
 		if (LOG_SLAB.shouldGenerate()) {
-			blp.dropSelf(this.LOG_SLAB.BLOCK.get());
+			blp.add(LOG_SLAB.BLOCK.get(), this.createSlabItemTable(this.LOG_SLAB.BLOCK.get()));
 		}
 		if (LOG_STAIRS.shouldGenerate()) {
-			blp.dropSelf(this.LOG_STAIRS.BLOCK.get());
+			blp.add(this.LOG_STAIRS.BLOCK.get(), BlockLootTables.createStyleItemDrop(LOG_STAIRS.BLOCK.get()));
 		}
 
 		if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-			blp.dropSelf(STRIPPED_SMALL_LOG.BLOCK.get());
+			blp.add(STRIPPED_SMALL_LOG.BLOCK.get(),
+					BlockLootTables.createStyleItemDrop(STRIPPED_SMALL_LOG.BLOCK.get()));
 		}
 		if (STRIPPED_LOG.shouldGenerate()) {
-			blp.dropSelf(this.STRIPPED_LOG.BLOCK.get());
+			blp.add(this.STRIPPED_LOG.BLOCK.get(), BlockLootTables.createStyleItemDrop(STRIPPED_LOG.BLOCK.get()));
 		}
 		if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-			blp.dropSelf(this.STRIPPED_LOG_SLAB.BLOCK.get());
+			blp.add(STRIPPED_LOG_SLAB.BLOCK.get(), this.createSlabItemTable(this.STRIPPED_LOG_SLAB.BLOCK.get()));
 		}
 		if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
-			blp.dropSelf(this.STRIPPED_LOG_STAIRS.BLOCK.get());
+			blp.add(this.STRIPPED_LOG_STAIRS.BLOCK.get(),
+					BlockLootTables.createStyleItemDrop(STRIPPED_LOG_STAIRS.BLOCK.get()));
 		}
 
+	}
+
+	protected LootTable.Builder createSlabItemTable(Block block) {
+		return LootTable.lootTable()
+				.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+						.add(LootItem.lootTableItem(block)
+								.apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+										.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+												.setProperties(StatePropertiesPredicate.Builder.properties()
+														.hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))))
+								.apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+										.include(CompendiumComponents.STYLE.get()))
+
+						));
 	}
 
 	@Override

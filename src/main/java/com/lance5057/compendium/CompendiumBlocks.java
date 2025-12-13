@@ -1,6 +1,5 @@
 package com.lance5057.compendium;
 
-import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlock;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
@@ -10,6 +9,7 @@ import com.lance5057.compendium.blocks.fence.FancyFenceBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBlock;
+import com.lance5057.compendium.blocks.window.WindowBlock;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
@@ -57,8 +57,8 @@ public class CompendiumBlocks {
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new BasicDecorativeBlock(Properties.ofFullCopy(Blocks.BLACK_STAINED_GLASS), 2, 2,
-					Compendium.modLoc("extra/window"), StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
+			() -> new WindowBlock(Properties.ofFullCopy(Blocks.GLASS), 2, 2, Compendium.modLoc("extra/window"),
+					StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),

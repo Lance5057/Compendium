@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/bases/stripped_small_log/small_log_horizontal2",
   "textures": {
-    "0": "compendium:block/material/wood/mangrove/logs/extra_caps",
-    "1": "compendium:block/material/wood/mangrove/logs/small_logs"
+    "0": "compendium:block/material/wood/mangrove/logs/stripped_extra_caps",
+    "1": "compendium:block/material/wood/mangrove/logs/stripped_small_logs"
   }
 }

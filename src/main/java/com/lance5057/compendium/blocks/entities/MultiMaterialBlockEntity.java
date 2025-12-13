@@ -60,6 +60,8 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		super(type, pos, blockState);
 		this.materials = list;
 	}
+	
+	
 
 	@Override
 	public ModelData getModelData() {

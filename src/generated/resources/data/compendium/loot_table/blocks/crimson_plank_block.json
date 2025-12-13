@@ -3,15 +3,19 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "compendium:crimson_plank_block_item"
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "compendium:style_block"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "compendium:crimson_plank_stairs_item"
         }
       ],
       "rolls": 1.0

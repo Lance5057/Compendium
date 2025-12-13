@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "tag": "minecraft:warped_logs"
+    "item": "minecraft:warped_stem"
   },
   "loot": "minecraft:sawing/warped_small_log",
   "offset": [

@@ -10,6 +10,7 @@ import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.fence.FenceRecipeData;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedRecipeData;
+import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesSlantedCapRecipeData;
 import com.lance5057.compendium.blocks.table.TableRecipeData;
 import com.lance5057.compendium.blocks.window.WindowRecipeData;
 import com.lance5057.compendium.client.BlacklistedModel;
@@ -293,7 +294,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOGS))
 				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(5, 1)).pattern(" b ").pattern("blb");
 
-		shingles_cap = WindowRecipeData.stage0(shingles_cap);
+		shingles_cap = ShinglesSlantedCapRecipeData.stage0(shingles_cap);
+		shingles_cap = ShinglesSlantedCapRecipeData.stage1(shingles_cap);
+		shingles_cap = ShinglesSlantedCapRecipeData.stage2(shingles_cap);
+		shingles_cap = ShinglesSlantedCapRecipeData.stage3(shingles_cap);
 
 		shingles_cap.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 	}

@@ -1,0 +1,63 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "block/oak_planks",
+		"1": "compendium:block/material/wood/oak/logs/small_logs_corner",
+		"particle": "block/oak_planks"
+	},
+	"elements": [
+		{
+			"name": "shingle",
+			"from": [0, 3.43708, -1.29814],
+			"to": [16, 6.43708, 5.70186],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 4.98164, 7.9906]},
+			"faces": {
+				"north": {"uv": [16, 16, 13, 0], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 3], "rotation": 180, "texture": "#0", "cullface": "east"},
+				"south": {"uv": [13, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 3], "rotation": 180, "texture": "#0", "cullface": "west"},
+				"up": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "shingle",
+			"from": [0, 3.43708, 10.27934],
+			"to": [16, 6.43708, 17.27934],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 4.98164, 7.9906]},
+			"faces": {
+				"north": {"uv": [13, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 3], "rotation": 180, "texture": "#0", "cullface": "west"},
+				"south": {"uv": [16, 16, 13, 0], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 3], "rotation": 180, "texture": "#0", "cullface": "east"},
+				"up": {"uv": [8, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 16], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "log",
+			"from": [-0.01, -0.01, 3.99],
+			"to": [16.01, 8.01, 12.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 8.02, 16], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [7.98, 0, 16, 8.02], "texture": "#1"},
+				"south": {"uv": [0, 0, 8.02, 16], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [7.98, 0, 16, 8.02], "texture": "#1"},
+				"up": {"uv": [0, 0, 8.02, 16], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [0, 0, 8.02, 16], "rotation": 90, "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 3, 0.5],
+			"color": 0,
+			"children": [0, 1]
+		},
+		2
+	]
+}

@@ -47,7 +47,13 @@ public record MultiMaterialBlockComponent(List<MultiMaterialType> types) impleme
 
 	@Override
 	public void addToTooltip(TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
-		// TODO Auto-generated method stub
+		if (tooltipFlag.hasShiftDown()) {
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.material"));
+			types.forEach(i -> tooltipAdder
+					.accept(Component.translatable(" - compendium.tooltip.material." + i.getCurrentMaterial())));
+		} else {
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.material.see_more").withColor(0xFFAAAAAA));
+		}
 
 	}
 
