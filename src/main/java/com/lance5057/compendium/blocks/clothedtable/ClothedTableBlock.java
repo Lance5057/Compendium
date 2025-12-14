@@ -47,4 +47,16 @@ public class ClothedTableBlock extends TableBase implements EntityBlock, IStyleB
 
 	}
 
+	@Override
+	public String getBaseStyleName(int current) {
+		switch (current) {
+		case 0:
+			return "table_top";
+		case 1:
+			return "table_legs";
+		case 2:
+			return "table_cloth";
+		}
+		return "error";
+	}
 }

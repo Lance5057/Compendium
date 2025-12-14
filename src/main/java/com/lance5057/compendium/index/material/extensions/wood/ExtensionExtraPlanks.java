@@ -116,7 +116,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "plank"), StyleData.PLANK),
+						Compendium.modLoc(base.extraFolder() + "plank"), List.of("plank"), StyleData.PLANK),
 				() -> new BlockItem(PLANK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -128,7 +128,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "planks"), StyleData.PLANKS),
+						Compendium.modLoc(base.extraFolder() + "planks"), List.of("planks"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -140,7 +140,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "plank_slab"), StyleData.PLANKS),
+						Compendium.modLoc(base.extraFolder() + "plank_slab"), List.of("plank_slab"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -151,10 +151,9 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
 		PLANK_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		PLANK_STAIRS.setup(base,
-				() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
-						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-						Compendium.modLoc(base.extraFolder() + "plank_stairs"), StyleData.PLANKS),
+		PLANK_STAIRS.setup(base, () -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
+				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+				Compendium.modLoc(base.extraFolder() + "plank_stairs"), List.of("plank_stairs"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),

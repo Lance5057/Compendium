@@ -11,4 +11,5 @@ public interface IStyleBlock {
 	public List<String> getStyles(List<Integer> current);
 	public ResourceLocation getItemModelLocation();
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state);
+	public String getBaseStyleName(int current);
 }

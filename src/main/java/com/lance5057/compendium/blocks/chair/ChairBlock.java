@@ -144,5 +144,18 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public String getBaseStyleName(int current) {
+		switch (current) {
+		case 0:
+			return "chair_back";
+		case 1:
+			return "chair_legs";
+		case 2:
+			return "chair_seat";
+		}
+		return "error";
+	}
 
 }

@@ -41,4 +41,14 @@ public class TableBlock extends TableBase implements EntityBlock, IStyleBlock {
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public String getBaseStyleName(int current) {
+		switch(current)
+		{
+		case 0: return "table_top";
+		case 1: return "table_legs";
+		}
+		return "error";
+	}
 }

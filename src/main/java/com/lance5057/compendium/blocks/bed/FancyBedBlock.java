@@ -180,4 +180,22 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 		return Compendium.modLoc("extra/fancy_bed");
 	}
 
+	@Override
+	public String getBaseStyleName(int current) {
+		switch (current) {
+		case 0:
+			return "bed_base";
+		case 1:
+			return "bed_frame";
+		case 2:
+			return "bed_mattress";
+		case 3:
+			return "bed_pillow";
+		case 4:
+			return "bed_sheet";
+		case 5:
+			return "bed_blanket";
+		}
+		return "error";
+	}
 }

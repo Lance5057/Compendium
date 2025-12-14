@@ -26,12 +26,14 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+	List<String> styleBases;
 
 	public PipeStyleBlock(Properties properties, StyleData... styles) {
-		this(0.25f, properties, ResourceLocation.withDefaultNamespace("air"), styles);
+		this(0.25f, properties, ResourceLocation.withDefaultNamespace("air"), List.of("error"), styles);
 	}
 
-	public PipeStyleBlock(float apothem, Properties properties, ResourceLocation itemRenderer, StyleData... styles) {
+	public PipeStyleBlock(float apothem, Properties properties, ResourceLocation itemRenderer, List<String> styleBases,
+			StyleData... styles) {
 		super(apothem, properties);
 		this.registerDefaultState(
 				this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true)).setValue(EAST, Boolean.valueOf(false))
@@ -39,6 +41,7 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 						.setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
 		this.styles = styles;
 		this.itemRendererLocation = itemRenderer;
+		this.styleBases = styleBases;
 	}
 
 	@Override
@@ -104,7 +107,12 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public String getBaseStyleName(int current) {
+		return this.styleBases.get(current);
 	}
 
 }

@@ -25,8 +25,8 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_SHINGLES,
-				StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES);
+		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2, StyleData.SHINGLES_SHINGLES,
+				StyleData.SUPPORT_SHINGLES/* , StyleData.GABLE_SHINGLES */);
 	}
 
 	@Override
@@ -49,5 +49,15 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public String getBaseStyleName(int current) {
+		switch(current)
+		{
+		case 0: return "shingles";
+		case 1: return "support";
+		}
+		return "error";
 	}
 }

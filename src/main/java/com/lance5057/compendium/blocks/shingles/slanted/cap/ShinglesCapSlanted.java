@@ -124,4 +124,14 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public String getBaseStyleName(int current) {
+		switch(current)
+		{
+		case 0: return "shingles";
+		case 1: return "support";
+		}
+		return "error";
+	}
 }

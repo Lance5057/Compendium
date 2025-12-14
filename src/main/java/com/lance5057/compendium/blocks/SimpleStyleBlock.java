@@ -18,11 +18,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+	List<String> styleBases;
 
-	public SimpleStyleBlock(Properties properties, ResourceLocation itemRendererLocation, StyleData... styles) {
+	public SimpleStyleBlock(Properties properties, ResourceLocation itemRendererLocation,List<String> styleBases, StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
+		this.styleBases = styleBases;
 	}
 
 	@Override
@@ -54,4 +56,8 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 
 	}
 
+	@Override
+	public String getBaseStyleName(int current) {
+		return this.styleBases.get(current);
+	}
 }

@@ -1,5 +1,7 @@
 package com.lance5057.compendium.blocks.window;
 
+import java.util.List;
+
 import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.style.StyleData;
 
@@ -15,7 +17,7 @@ public class WindowBlock extends BasicDecorativeBlock {
 
 	public WindowBlock(Properties properties, int materials, int styles, ResourceLocation itemRendererLocation,
 			StyleData... styleData) {
-		super(properties, materials, styles, itemRendererLocation, styleData);
+		super(properties, materials, styles, itemRendererLocation, List.of("window_glass", "window_trim"), styleData);
 	}
 
 	@Override

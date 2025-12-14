@@ -298,6 +298,50 @@ public class StyleLoc {
         lp.add("style.plank_block.petal", "Petal");
         lp.add("style.plank_block.two_panel", "Two Panels");
         lp.add("style.plank_block.paper", "Paper");
+        
+     // Plank Block
+        lp.add("style.plank_slab.big_weave", "Weave");
+        lp.add("style.plank_slab.blocks", "Blocks");
+        lp.add("style.plank_slab.blocks_offset", "Offset Blocks");
+        lp.add("style.plank_slab.boards", "Boards");
+        lp.add("style.plank_slab.boards_rotated", "Boards (Rotated)");
+        lp.add("style.plank_slab.boards_seamless", "Seamless Boards");
+        lp.add("style.plank_slab.boards_seamless_rotated", "Seamless Boards (Rotated)");
+        lp.add("style.plank_slab.boards_stacked", "Stacked Boards");
+        lp.add("style.plank_slab.boards_stacked_rotated", "Stacked Boards (Rotated)");
+        lp.add("style.plank_slab.box", "Box");
+        lp.add("style.plank_slab.chiseled", "Chiseled");
+        lp.add("style.plank_slab.cross", "Chantilly");
+        lp.add("style.plank_slab.diagonal", "Diagonal Planks");
+        lp.add("style.plank_slab.diagonal_rotated", "Diagonal Planks (Rotated)");
+        lp.add("style.plank_slab.herringbone", "Herringbone");
+        lp.add("style.plank_slab.double_herringbone", "Double Herringbone");
+        lp.add("style.plank_slab.panel", "Panel");
+        lp.add("style.plank_slab.parquet", "Versailles");
+        lp.add("style.plank_slab.planks_stacked", "Stacked Planks");
+        lp.add("style.plank_slab.planks_stacked_rotated", "Stacked Planks (Rotated)");
+        lp.add("style.plank_slab.planks_seamless", "Seamless Planks");
+        lp.add("style.plank_slab.planks_seamless_rotated", "Seamless Planks (Rotated)");
+        lp.add("style.plank_slab.sheet", "Sheet");
+        lp.add("style.plank_slab.small_blocks", "Small Blocks");
+        lp.add("style.plank_slab.small_blocks_offset", "Offset Small Blocks");
+        lp.add("style.plank_slab.thin", "Slats");
+        lp.add("style.plank_slab.thin_rotated", "Slats (Rotated)");
+        lp.add("style.plank_slab.vertical", "Vertical Planks");
+        lp.add("style.plank_slab.wainscotting_single", "Single-Panel Wainscotting");
+        lp.add("style.plank_slab.wainscotting_double", "Double-Panel Wainscotting");
+        lp.add("style.plank_slab.wainscotting_grate", "Beadboard Wainscotting");
+        lp.add("style.plank_slab.wainscotting_seamless", "Seamless Wainscotting");
+        lp.add("style.plank_slab.walkway", "Walkway");
+        lp.add("style.plank_slab.walkway_rotated", "Walkway (Rotated)");
+        lp.add("style.plank_slab.wicker", "Wicker");
+        lp.add("style.plank_slab.banded", "Banded");
+        lp.add("style.plank_slab.domed", "Domed");
+        lp.add("style.plank_slab.five", "Five");
+        lp.add("style.plank_slab.nine_panels", "Nine Panels");
+        lp.add("style.plank_slab.petal", "Petal");
+        lp.add("style.plank_slab.two_panel", "Two Panels");
+        lp.add("style.plank_slab.paper", "Paper");
 
         // Window Trim
         lp.add("style.window_trim.quarter", "Quarter");

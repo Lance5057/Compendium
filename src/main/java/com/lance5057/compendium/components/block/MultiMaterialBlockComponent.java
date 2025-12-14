@@ -49,8 +49,8 @@ public record MultiMaterialBlockComponent(List<MultiMaterialType> types) impleme
 	public void addToTooltip(TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
 		if (tooltipFlag.hasShiftDown()) {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.material"));
-			types.forEach(i -> tooltipAdder
-					.accept(Component.translatable(" - compendium.tooltip.material." + i.getCurrentMaterial())));
+			types.forEach(i -> tooltipAdder.accept(Component.literal(" - ")
+					.append(Component.translatable("compendium.tooltip.material." + i.getCurrentMaterial()))));
 		} else {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.material.see_more").withColor(0xFFAAAAAA));
 		}

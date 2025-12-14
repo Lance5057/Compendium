@@ -19,11 +19,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public class RotatedPillarStyleBlock extends RotatedPillarBlock implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+	List<String> styleBases;
 
-	public RotatedPillarStyleBlock(Properties properties, ResourceLocation itemRendererLocation, StyleData... styles) {
+	public RotatedPillarStyleBlock(Properties properties, ResourceLocation itemRendererLocation,List<String> styleBases, StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
+		this.styleBases = styleBases;
 	}
 
 	@Override
@@ -59,4 +61,8 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 		
 	}
 
+	@Override
+	public String getBaseStyleName(int current) {
+		return this.styleBases.get(current);
+	}
 }

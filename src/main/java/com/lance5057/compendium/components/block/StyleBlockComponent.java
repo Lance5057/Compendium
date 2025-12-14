@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -26,13 +28,14 @@ public record StyleBlockComponent(List<Integer> styles) {
 	public void addToTooltip(ItemStack stack, TooltipContext context, Consumer<Component> tooltipAdder,
 			TooltipFlag tooltipFlag) {
 
-		if (tooltipFlag.hasShiftDown()) {
+		if (tooltipFlag.hasControlDown()) {
+			IStyleBlock b = ((IStyleBlock) ((BlockItem) stack.getItem()).getBlock());
+			List<String> s = b.getStyles(styles);
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.style"));
-			styles.forEach(i -> tooltipAdder.accept(Component.translatable(" - style."
-					+ stack.getDescriptionId().substring(stack.getDescriptionId().lastIndexOf('.') + 1) + "." + i)));
-		}
-		else
-		{
+			for (int i = 0; i < styles.size(); i++)
+				tooltipAdder.accept(Component.literal(" - ")
+						.append(Component.translatable("style." + b.getBaseStyleName(i) + "." + s.get(i))));
+		} else {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.style.see_more").withColor(0xFFAAAAAA));
 		}
 	}

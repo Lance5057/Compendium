@@ -42,4 +42,15 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public String getBaseStyleName(int current) {
+		switch (current) {
+		case 0:
+			return "fence_post";
+		case 1:
+			return "fence_side";
+		}
+		return "error";
+	}
 }

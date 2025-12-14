@@ -154,6 +154,7 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
+		lp.add("compendium.tooltip.material."+this.name, locName);
 		if (PLANKS.shouldGenerate())
 			lp.add(this.PLANKS.BLOCK_ITEM.get(), locName + " Planks");
 

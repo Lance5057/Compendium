@@ -19,11 +19,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+	List<String> styleBases;
 
-	public SlabStyleBlock(Properties properties, ResourceLocation itemRendererLocation, StyleData... styles) {
+	public SlabStyleBlock(Properties properties, ResourceLocation itemRendererLocation, List<String> styleBases,StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
+		this.styleBases = styleBases;
 	}
 
 	@Override
@@ -58,5 +60,10 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String getBaseStyleName(int current) {
+		return this.styleBases.get(current);
 	}
 }

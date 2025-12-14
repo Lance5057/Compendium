@@ -18,12 +18,14 @@ import net.minecraft.world.level.block.state.BlockState;
 public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBlock {
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
+	List<String> styleBases;
 
 	public StairStyleBlock(BlockState base, Properties properties, ResourceLocation itemRendererLocation,
-			StyleData... styles) {
+			List<String> styleBases, StyleData... styles) {
 		super(base, properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
+		this.styleBases = styleBases;
 	}
 
 	@Override
@@ -52,7 +54,12 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public String getBaseStyleName(int current) {
+		return this.styleBases.get(current);
 	}
 
 }

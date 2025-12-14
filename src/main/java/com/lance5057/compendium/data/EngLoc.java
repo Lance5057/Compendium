@@ -20,6 +20,10 @@ public class EngLoc extends LanguageProvider {
 		this.add("compendium.jei.hammering_station", "Hammering");
 		this.add("compendium.jei.sawbuck", "Sawing");
 		this.add("compendium.jei.workbench", "Advanced Crafting");
+		this.add("compendium.tooltip.material.see_more", "Hold Shift to see Materials");
+		this.add("compendium.tooltip.material", "Materials -");
+		this.add("compendium.tooltip.style.see_more", "Hold Ctrl to see Styles");
+		this.add("compendium.tooltip.style", "Styles -");
 		this.add(CompendiumItems.SAWDUST.get(), "Sawdust");
 		this.add(CompendiumItems.ADJUSTINATOR.get(), "Adjustinator");
 		this.add(CompendiumItems.MEGALITH_STONE.get(), "Megalith Stone");
