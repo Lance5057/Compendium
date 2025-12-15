@@ -180,6 +180,7 @@ public class StyleLoc {
 		lp.add("style.bed_pillow.basic", "Basic");
 		lp.add("style.bed_pillow.big", "Big");
 		lp.add("style.bed_pillow.angled", "Angled");
+        lp.add("style.bed_pillow.frilled", "Frilled");
 
 		lp.add("style.bed_sheet", "Sheet");
 		lp.add("style.bed_sheet.basic", "Basic");
