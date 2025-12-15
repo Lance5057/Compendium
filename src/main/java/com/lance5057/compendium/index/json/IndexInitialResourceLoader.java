@@ -104,16 +104,16 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialMetal("iron", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.IGNORE, Generate.GENERATE, Generate.GENERATE)));
+						Generate.IGNORE, Generate.GENERATE, Generate.IGNORE)));
 		buildDefault(new MaterialMetal("gold", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
+						Generate.GENERATE, Generate.GENERATE, Generate.IGNORE)));
 		buildDefault(new MaterialMetal("copper", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
+						Generate.GENERATE, Generate.GENERATE, Generate.IGNORE)));
 		buildDefault(new MaterialMetal("netherite", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)));
+						Generate.GENERATE, Generate.GENERATE, Generate.IGNORE)));
 
 		buildDefault(new MaterialGlass("clear", "minecraft", Generate.EXISTS));
 		buildDefault(new MaterialGlass("white_stained", "minecraft", Generate.EXISTS));

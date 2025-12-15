@@ -29,8 +29,7 @@ public record StyleSetPacket(int containerId, int section, int style) implements
 				public void run() {
 					if (ctx.player().containerMenu instanceof CosmeticToolboxMenu ammm) {
 						ammm.setStyle(message.section, message.style);
-					}
-					else if (ctx.player().containerMenu instanceof CosmeticToolboxPlacedMenu ammm) {
+					} else if (ctx.player().containerMenu instanceof CosmeticToolboxPlacedMenu ammm) {
 						ammm.setStyle(message.section, message.style);
 					}
 				}

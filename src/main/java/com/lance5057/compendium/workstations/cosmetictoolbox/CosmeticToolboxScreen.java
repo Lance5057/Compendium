@@ -113,6 +113,18 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 				}
 				gui.pose().popPose();
+
+				if (((IStyleable) entity).getStyles().size() > 1)
+					for (int x = 0; x < ((IStyleable) entity).getStyles().size(); x++) {
+						gui.drawString(this.font,
+								Component.translatable("style." + ((IStyleable) entity).getStyles().get(x).getName()),
+								this.leftPos + 190, this.topPos + 15 + (x * 32), 0x000000, true);
+
+						gui.drawString(this.font,
+								Component.translatable("style." + ((IStyleable) entity).getStyles().get(x).getName()),
+								this.leftPos + 189, this.topPos + 14 + (x * 32), 0xFFFFFFFF, true);
+
+					}
 			}
 		}
 
@@ -172,7 +184,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			for (int i = 0; i < entity.getStyles().size(); i++) {
 				int j = i;
 				tabs.add(this.addRenderableWidget(
-						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 43, 32, tab_sprites, b -> {
+						new ImageButton(this.leftPos + 184, this.topPos + 4 + (i * 32), 86, 32, tab_sprites, b -> {
 							this.curStyleType = j;
 							this.startIndex = 0;
 							this.scrollOffs = 0;

@@ -1,5 +1,7 @@
 package com.lance5057.compendium.integration.jei;
 
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 
 import com.lance5057.compendium.Compendium;
@@ -11,6 +13,7 @@ import com.lance5057.compendium.workstations.WorkstationRecipes;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -45,8 +48,11 @@ public class JEIPlugin implements IModPlugin {
 				.getAllRecipesFor(WorkstationRecipes.SAWBUCK_RECIPE.get()).stream().map(RecipeHolder::value).toList());
 		registry.addRecipes(WorkbenchMaterialRecipeCategory.TYPE,
 				Minecraft.getInstance().level.getRecipeManager()
-						.getAllRecipesFor(WorkstationRecipes.WORKBENCH_RECIPE.get()).stream()
-						.map(RecipeHolder::value).toList());
+						.getAllRecipesFor(WorkstationRecipes.WORKBENCH_RECIPE.get()).stream().map(RecipeHolder::value)
+						.toList());
+
+		List<ItemStack> hide = List.of(CompendiumItems.ADJUSTINATOR.get().getDefaultInstance());
+		registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, hide);
 	}
 
 	@Override
@@ -54,7 +60,8 @@ public class JEIPlugin implements IModPlugin {
 		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.HAMMERING_STATION.get()),
 				HammeringStationRecipeCategory.TYPE);
 		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.SAW_BUCK.get()), SawBuckRecipeCategory.TYPE);
-		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.WORKBENCH.get()), WorkbenchMaterialRecipeCategory.TYPE);
+		registry.addRecipeCatalyst(new ItemStack(CompendiumItems.WORKBENCH.get()),
+				WorkbenchMaterialRecipeCategory.TYPE);
 	}
 
 }

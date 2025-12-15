@@ -42,9 +42,12 @@ public class ItemModels extends ItemModelProvider {
 
 		forItem(CompendiumItems.SAWDUST, "sawdust");
 
+		forItem(CompendiumItems.CRUDE_HAMMER, "crude_hammer");
+		forItem(CompendiumItems.CRUDE_SAW, "crude_saw");
+
 		for3dItem(CompendiumItems.MEGALITH_STONE,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "item/megalith_stone_item"));
-		
+
 		forBlockItem(CompendiumItems.TOOLRACK,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/toolrack"));
 		forBlockItem(CompendiumItems.COMPONENT_DRAWER,

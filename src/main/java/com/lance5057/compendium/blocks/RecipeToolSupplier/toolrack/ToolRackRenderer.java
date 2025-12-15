@@ -2,6 +2,7 @@ package com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack;
 
 import org.joml.Quaternionf;
 
+import com.lance5057.compendium.CompendiumTags;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
@@ -13,6 +14,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.items.IItemHandler;
 
 public class ToolRackRenderer implements BlockEntityRenderer<ToolRackBlockEntity> {
@@ -41,6 +43,27 @@ public class ToolRackRenderer implements BlockEntityRenderer<ToolRackBlockEntity
 				poseStack.pushPose();
 				poseStack.translate(0.5f, 0.35, 0.5f);
 				poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(-dir.toYRot()), 0));
+				if (item.is(CompendiumTags.SAW)) {
+					if (i == 1) {
+						poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(180), (float) Math.toRadians(180)));
+						poseStack.mulPose(new Quaternionf().rotateXYZ((float) Math.toRadians(-90), 0, 0));
+						poseStack.translate(-0.0f, -0.20, -0.350);
+					} else {
+						poseStack.mulPose(new Quaternionf().rotateXYZ((float) Math.toRadians(-90), 0, 0));
+						poseStack.translate(0.0f, 0.2, -0.150);
+					}
+				}
+				if(item.is(Items.CROSSBOW))
+				{
+					if (i == 1) {
+						poseStack.mulPose(new Quaternionf().rotateXYZ(0, (float) Math.toRadians(180), (float) Math.toRadians(180)));
+						poseStack.mulPose(new Quaternionf().rotateXYZ((float) Math.toRadians(-90), 0, 0));
+						poseStack.translate(-0.0f, -0.4, -0.350);
+					} else {
+						poseStack.mulPose(new Quaternionf().rotateXYZ((float) Math.toRadians(-90), 0, 0));
+						poseStack.translate(0.05f, 0.05, -0.150);
+					}
+				}
 				poseStack.translate(0.4, 0.0, -0.1);
 
 				if (i == 1) {

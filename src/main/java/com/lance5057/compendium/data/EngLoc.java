@@ -43,6 +43,9 @@ public class EngLoc extends LanguageProvider {
 		this.add(CompendiumItems.FANCY_FENCE.get(), "Fancy Fence");
 		this.add(CompendiumItems.SHINGLES_SLANTED.get(), "Slanted Shingles");
 		this.add(CompendiumItems.SHINGLES_CAP_SLANTED.get(), "Slanted Shingles Cap");
+		
+		this.add(CompendiumItems.CRUDE_HAMMER.get(), "Crude Hammer");
+		this.add(CompendiumItems.CRUDE_SAW.get(), "Crude Saw");
 
 		CompendiumIndex.index.forEach(i -> {
 			i.engLoc(this);

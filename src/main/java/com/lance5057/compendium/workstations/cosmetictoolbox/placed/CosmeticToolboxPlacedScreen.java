@@ -9,7 +9,6 @@ import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
-import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.network.StyleSetPacket;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -33,7 +32,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
@@ -60,15 +58,41 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 	private int startIndex;
 
 //	private BlockPos pos = BlockPos.ZERO;
-	private StyleBlockComponent style;
-	private BlockEntity entity;
-	private int curStyleType = 0;
+//	private StyleBlockComponent style;
 
 	List<Button> tabs = new ArrayList<Button>();
 
 	public CosmeticToolboxPlacedScreen(CosmeticToolboxPlacedMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
 
+	}
+
+	public void setupTabs() {
+		tabs.forEach(t -> removeWidget(t));
+		ItemStack stack = this.menu.slots.get(0).getItem();
+		if (stack != null && !stack.isEmpty() && stack.getItem() instanceof BlockItem bi
+				&& bi.getBlock() instanceof EntityBlock eb) {
+
+			BlockState state = bi.getBlock().defaultBlockState();
+			if (menu.entity != null)
+				menu.entity.setRemoved();
+
+			menu.entity = eb.newBlockEntity(BlockPos.ZERO, state);
+			menu.entity.applyComponentsFromItemStack(stack);
+
+			if (((IStyleable) menu.entity).getStyles().size() > 1)
+				for (int x = 0; x < ((IStyleable) menu.entity).getStyles().size(); x++) {
+					int y = x;
+					tabs.add(this.addRenderableWidget(
+							new ImageButton(this.leftPos + 176, this.topPos - 30 + (x * 32), 86, 32, tab_sprites, b -> {
+								menu.curStyleType = y;
+								this.startIndex = 0;
+								this.scrollOffs = 0;
+							})));
+
+				}
+
+		}
 	}
 
 	@Override
@@ -89,79 +113,73 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 		ResourceLocation resourcelocation = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
 		gui.blitSprite(resourcelocation, i + 155, j + k + 8, 12, 15);
 
-		ItemStack stack = this.menu.slots.get(0).getItem();
-		if (stack != null && !stack.isEmpty() && stack.getItem() instanceof BlockItem bi
-				&& bi.getBlock() instanceof EntityBlock eb) {
-			BlockState state = bi.getBlock().defaultBlockState();
-			if (entity == null) {
-
-				entity = eb.newBlockEntity(BlockPos.ZERO, state);
-				entity.applyComponentsFromItemStack(stack);
-
-				if (((IStyleable) entity).getStyles().size() > 1)
-					for (int x = 0; x < ((IStyleable) entity).getStyles().size(); x++) {
-						int y = x;
-						tabs.add(this.addRenderableWidget(new ImageButton(this.leftPos + 184,
-								this.topPos + 4 + (x * 32), 43, 32, tab_sprites, b -> {
-									this.curStyleType = y;
-									this.startIndex = 0;
-									this.scrollOffs = 0;
-								})));
-					}
-
-			}
-			if (stack.has(CompendiumComponents.STYLE)) {
-
-				style = stack.get(CompendiumComponents.STYLE);
-				if (state != null) {
-					int j1 = this.startIndex + 8;
-					this.renderButtons(gui, mouseX, mouseY, i + 8, j + 7, j1);
-
-					RenderSystem.enableBlend();
-					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-					Lighting.setupFor3DItems();
-
-					gui.pose().pushPose();
-					{
-						renderRecipes(gui, state, 16, -25, j1);
-					}
-					gui.pose().popPose();
-
-					gui.pose().pushPose();
-					{
-						gui.pose().translate(this.leftPos - 40, this.topPos - 11, 100);
-						gui.pose().scale(40F, 40F, 40F);
-
-						gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
-						gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
-
-						renderBlock(gui, state, -1);
-
-					}
-					gui.pose().popPose();
-
-				}
-			}
-		} else {
-			this.renderables.clear();
-			if (entity != null)
-				entity.setRemoved();
-		}
+		if (menu.entity != null)
+			renderStyleScreens(gui, mouseX, mouseY, i, j);
 
 		renderTooltip(gui, mouseX, mouseY);
 	}
 
+	private void renderStyleScreens(GuiGraphics gui, int mouseX, int mouseY, int i, int j) {
+		ItemStack stack = this.menu.slots.get(0).getItem();
+
+		if (stack.has(CompendiumComponents.STYLE)) {
+			BlockState state = menu.entity.getBlockState();
+			if (state != null) {
+				int j1 = this.startIndex + 8;
+				this.renderButtons(gui, mouseX, mouseY, i + 8, j + 7, j1);
+
+				RenderSystem.enableBlend();
+				RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+				Lighting.setupFor3DItems();
+
+				gui.pose().pushPose();
+				{
+					renderRecipes(gui, state, 16, -25, j1);
+				}
+				gui.pose().popPose();
+
+				gui.pose().pushPose();
+				{
+					gui.pose().translate(this.leftPos - 40, this.topPos - 11, 100);
+					gui.pose().scale(40F, 40F, 40F);
+
+					gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
+					gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
+
+					renderBlock(gui, state, -1);
+
+				}
+				gui.pose().popPose();
+
+				if (((IStyleable) menu.entity).getStyles().size() > 1)
+					for (int x = 0; x < ((IStyleable) menu.entity).getStyles().size(); x++) {
+						gui.drawString(this.font,
+								Component.translatable(
+										"style." + ((IStyleable) menu.entity).getStyles().get(x).getName()),
+								this.leftPos + 181, this.topPos - 17 + (x * 32), 0x000000, true);
+
+						gui.drawString(this.font,
+								Component.translatable(
+										"style." + ((IStyleable) menu.entity).getStyles().get(x).getName()),
+								this.leftPos + 180, this.topPos - 18 + (x * 32), 0xFFFFFFFF, true);
+
+					}
+
+			}
+		}
+	}
+
 	private void renderRecipes(GuiGraphics gui, BlockState state, int p_282658_, int p_282563_, int p_283352_) {
-		if (entity != null)
-			if (((IStyleable) entity).getStyles() != null && !((IStyleable) entity).getStyles().isEmpty())
-				if (((IStyleable) entity).getStyles().get(curStyleType) != null
-						&& ((IStyleable) entity).getStyles().get(curStyleType).getTypes() != null
-						&& !((IStyleable) entity).getStyles().get(curStyleType).getTypes().isEmpty())
-					for (int i = this.startIndex; i < p_283352_
-							&& i < ((IStyleable) entity).getStyles().get(this.curStyleType).getTypes().size(); ++i) {
+		if (menu.entity != null)
+			if (((IStyleable) menu.entity).getStyles() != null && !((IStyleable) menu.entity).getStyles().isEmpty())
+				if (((IStyleable) menu.entity).getStyles().get(menu.curStyleType) != null
+						&& ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes() != null
+						&& !((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().isEmpty())
+					for (int i = this.startIndex; i < p_283352_ && i < ((IStyleable) menu.entity).getStyles()
+							.get(menu.curStyleType).getTypes().size(); ++i) {
 						int j = i - this.startIndex;
 						int k = this.leftPos + p_282658_;
-//			int l = j / 4;
+
 						int i1 = this.topPos + p_282563_ + j * 18;
 
 						gui.pose().pushPose();
@@ -177,21 +195,20 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 						}
 						gui.pose().popPose();
-						gui.drawString(this.font,
-								Component.translatable("style." + ((IStyleable) entity).getStyles()
-										.get(curStyleType).getName() + "." + ((IStyleable) entity).getStyles()
-										.get(curStyleType).getTypes().get(i)),
+						gui.drawString(this.font, Component.translatable("style."
+								+ ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getName() + "."
+								+ ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().get(i)),
 								k + 10, i1, 0xFFFFFF, true);
 					}
 	}
 
 	private boolean isScrollBarActive() {
-		if (entity != null)
-			if (((IStyleable) entity).getStyles() != null && !((IStyleable) entity).getStyles().isEmpty())
-				if (((IStyleable) entity).getStyles().get(curStyleType) != null
-						&& ((IStyleable) entity).getStyles().get(curStyleType).getTypes() != null
-						&& !((IStyleable) entity).getStyles().get(curStyleType).getTypes().isEmpty())
-					return ((IStyleable) entity).getStyles().get(curStyleType).getTypes().size() > 8;
+		if (menu.entity != null)
+			if (((IStyleable) menu.entity).getStyles() != null && !((IStyleable) menu.entity).getStyles().isEmpty())
+				if (((IStyleable) menu.entity).getStyles().get(menu.curStyleType) != null
+						&& ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes() != null
+						&& !((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().isEmpty())
+					return ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().size() > 8;
 		return false;
 	}
 
@@ -207,25 +224,21 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 		guiGraphics.pose().translate(0, 0.5, 0);
 		guiGraphics.pose().scale(1f, -1f, 1f);
 
-//		List<String> t = entity.getCurrentAllString();
-//		if (cur != -1)
-//			t.set(curStyleType, entity.getStyles().get(curStyleType).get(cur));
-
 		Builder md = ModelData.builder();
 
-		entity.applyComponentsFromItemStack(menu.slots.get(0).getItem());
+		menu.entity.applyComponentsFromItemStack(menu.slots.get(0).getItem());
 
-		List<String> l = ((IStyleable) entity).getCurrentAllString();
+		List<String> l = ((IStyleable) menu.entity).getCurrentAllString();
 		if (cur != -1)
-			l.set(curStyleType, ((IStyleable) entity).getStyles().get(curStyleType).getTypes().get(cur));
+			l.set(menu.curStyleType, ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().get(cur));
 		else
-			for (int i = 0; i < ((IStyleable) entity).getStyleCount(); i++) {
-				((IStyleable) entity).getStyles().get(i).getTypes().get(0); // This is wrong!
+			for (int i = 0; i < ((IStyleable) menu.entity).getStyleCount(); i++) {
+				((IStyleable) menu.entity).getStyles().get(i).getTypes().get(0); // This is wrong!
 			}
 
 		md.with(StyleModelData.STYLES, l);
 
-		if (entity instanceof MultiMaterialBlockEntity mmb) {
+		if (menu.entity instanceof MultiMaterialBlockEntity mmb) {
 			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
 		}
 
@@ -240,16 +253,16 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
 			int p_282688_) {
-		if (entity != null)
-			if (((IStyleable) entity).getStyles() != null && !((IStyleable) entity).getStyles().isEmpty())
-				if (((IStyleable) entity).getStyles().get(curStyleType) != null
-						&& ((IStyleable) entity).getStyles().get(curStyleType).getTypes() != null
-						&& !((IStyleable) entity).getStyles().get(curStyleType).getTypes().isEmpty())
-					for (int i = this.startIndex; i < p_282688_
-							&& i < ((IStyleable) entity).getStyles().get(curStyleType).getTypes().size(); ++i) {
+		if (menu.entity != null)
+			if (((IStyleable) menu.entity).getStyles() != null && !((IStyleable) menu.entity).getStyles().isEmpty())
+				if (((IStyleable) menu.entity).getStyles().get(menu.curStyleType) != null
+						&& ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes() != null
+						&& !((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().isEmpty())
+					for (int i = this.startIndex; i < p_282688_ && i < ((IStyleable) menu.entity).getStyles()
+							.get(menu.curStyleType).getTypes().size(); ++i) {
 						int j = i - this.startIndex;
 						int k = p_281987_;
-//			int l = j / 4;
+
 						int i1 = p_281276_ + j * 18 + 2;
 						ResourceLocation resourcelocation;
 						if (p_282136_ >= k && p_282147_ >= i1 && p_282136_ < k + 145 && p_282147_ < i1 + 18) {
@@ -259,7 +272,6 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 						}
 
 						p_282733_.blitSprite(resourcelocation, k, i1 - 1, 145, 18);
-						p_282733_.fill(k, i1 - 1, k + 145, i1 - 1 + 18, 0xAAFF0000);
 
 					}
 	}
@@ -270,7 +282,7 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 	@Override
 	public boolean mouseClicked(double p_99318_, double p_99319_, int p_99320_) {
-		if (entity != null) {
+		if (menu.entity != null) {
 			this.scrolling = false;
 			int i = this.leftPos + 8;
 			int j = this.topPos - 30;
@@ -282,19 +294,7 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 				double d1 = p_99319_ - (double) (j + i1 * 18);
 				if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
 
-//					ItemStack stack = this.menu.slots.get(0).getItem();
-//
-//					StyleBlockComponent s = stack.get(CompendiumComponents.STYLE.get());
-//					List<Integer> st = new ArrayList<Integer>(s.styles());
-//					st.set(curStyleType, l);
-////					stack.remove(CompendiumComponents.STYLE.get());
-//					stack.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(st));
-//
-//					entity.applyComponentsFromItemStack(stack);
-//
-//					this.menu.slots.get(0).set(stack);
-
-					PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, this.curStyleType, l));
+					PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, menu.curStyleType, l));
 
 					Minecraft.getInstance().getSoundManager()
 							.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
@@ -309,9 +309,6 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 				this.scrolling = true;
 			}
 		}
-
-		Compendium.LOGGER
-				.debug("Mouse: X-" + p_99319_ + " Y-" + p_99320_ + " || GUI: leftPos-" + leftPos + " topPos-" + topPos);
 
 		return super.mouseClicked(p_99318_, p_99319_, p_99320_);
 	}
@@ -343,6 +340,6 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 	}
 
 	protected int getOffscreenRows() {
-		return ((IStyleable) entity).getStyles().get(curStyleType).getTypes().size() - 8;
+		return ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().size() - 8;
 	}
 }

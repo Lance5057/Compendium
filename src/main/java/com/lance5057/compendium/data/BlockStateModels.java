@@ -641,7 +641,7 @@ public class BlockStateModels extends BlockStateProvider {
 								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "side",
 										List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_SIDE.getTypes(), 1, 1))
 								.end())
-						.rotationY((((int) dir.toYRot()) + 180) % 360).uvLock(true).addModel()
+						.rotationY((((int) dir.toYRot()) + 180) % 360).uvLock(false).addModel()
 						.condition(e.getValue(), true).end();
 			}
 		});

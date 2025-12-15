@@ -2,6 +2,7 @@ package com.lance5057.compendium.network;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
+import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -39,6 +40,11 @@ public record StyleSyncPacket(int containerId, BlockPos pos) implements CustomPa
 							screen.setPos(message.pos());
 
 						}
+
+					if (Minecraft.getInstance().screen instanceof CosmeticToolboxPlacedScreen screen) {
+						screen.setupTabs();
+
+					}
 				}
 
 			});

@@ -19,6 +19,9 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 
 	public FancyFenceBlock(Properties p_53302_) {
 		super(p_53302_);
+		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false))
+				.setValue(EAST, Boolean.valueOf(true)).setValue(SOUTH, Boolean.valueOf(false))
+				.setValue(WEST, Boolean.valueOf(true)).setValue(WATERLOGGED, Boolean.valueOf(false)));
 	}
 
 	@Override
@@ -42,7 +45,7 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
 		switch (current) {

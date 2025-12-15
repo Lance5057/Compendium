@@ -210,7 +210,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		STRIPPED_LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-						Compendium.modLoc(base.extraFolder() + "stripped_log"), List.of("stripped_log"), StyleData.LOG),
+						Compendium.modLoc(base.extraFolder() + "stripped_log"), List.of("log"), StyleData.LOG),
 				() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -222,7 +222,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		STRIPPED_LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "stripped_log_slab"), List.of("stripped_log_slab"),
+						Compendium.modLoc(base.extraFolder() + "stripped_log_slab"), List.of("log_slab"),
 						StyleData.LOG_SLAB),
 				() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
@@ -236,7 +236,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_STAIRS.setup(base,
 				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-						Compendium.modLoc(base.extraFolder() + "stripped_log_stairs"), List.of("stripped_log_stairs"),
+						Compendium.modLoc(base.extraFolder() + "stripped_log_stairs"), List.of("log_stairs"),
 						StyleData.LOG_STAIRS),
 				() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,

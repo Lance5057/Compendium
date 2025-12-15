@@ -6,7 +6,9 @@ import java.util.List;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumMenus;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.network.StyleSyncPacket;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -14,11 +16,21 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
-	private final StyleContainer container = new StyleContainer();
+	private final StyleContainer container = new StyleContainer() {		
+		@Override
+		public void setChanged() {
+			PacketDistributor.sendToAllPlayers(new StyleSyncPacket(containerId, BlockPos.ZERO));
+		}
+	};
 	private final ContainerLevelAccess access;
 	private final Player player;
+
+	public BlockEntity entity;
+	public int curStyleType = 0;
 
 	public CosmeticToolboxPlacedMenu(final int windowId, final Inventory playerInventory, final FriendlyByteBuf data) {
 		this(windowId, playerInventory);
@@ -59,31 +71,36 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 	public ItemStack quickMoveStack(Player player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(index);
-		if (slot != null && slot.hasItem()) {
-			ItemStack itemstack1 = slot.getItem();
-			itemstack = itemstack1.copy();
-			if (index == 0) {
-				if (!this.moveItemStackTo(itemstack1, 1, 36, false))
-					return ItemStack.EMPTY;
-			} else if (!this.moveItemStackTo(itemstack1, 0, 1, true)) {
+		if (slot != null) {
+			
+			if (slot.hasItem()) {
+				ItemStack itemstack1 = slot.getItem();
+				itemstack = itemstack1.copy();
+				if (index == 0) {
+					if (!this.moveItemStackTo(itemstack1, 1, 36, false))
+						return ItemStack.EMPTY;
+				} else if (!this.moveItemStackTo(itemstack1, 0, 1, true)) {
 //				return ItemStack.EMPTY;
 
-				if (itemstack1.isEmpty()) {
-					slot.setByPlayer(ItemStack.EMPTY);
-				} else {
-					slot.setChanged();
-				}
+					if (itemstack1.isEmpty()) {
+						slot.setByPlayer(ItemStack.EMPTY);
+					} else {
+						slot.setChanged();
+					}
 
-				if (itemstack1.getCount() == itemstack.getCount()) {
-					return ItemStack.EMPTY;
-				}
+					if (itemstack1.getCount() == itemstack.getCount()) {
+						return ItemStack.EMPTY;
+					}
 
-				slot.onTake(player, itemstack1);
-				if (index == 0) {
-					player.drop(itemstack1, false);
+					slot.onTake(player, itemstack1);
+					if (index == 0) {
+						player.drop(itemstack1, false);
+					}
 				}
 			}
+			slot.setChanged();
 		}
+
 		return itemstack;
 	}
 
@@ -103,17 +120,12 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 		});
 	}
 
-//	@Override
-//	public void sendAllDataToRemote() {
-//		super.sendAllDataToRemote();
-//		if (this.player instanceof ServerPlayer serverPlayer)
-//			serverPlayer.connection.send(new StyleSyncStackPacket(this.containerId, this.slots.get(0).getItem()));
-//	}
-
 	@Override
 	public void removed(Player player) {
 		super.removed(player);
 		this.access.execute((p_39371_, p_39372_) -> this.clearContainer(player, this.container));
+		if (entity != null)
+			entity.setRemoved();
 	}
 
 }

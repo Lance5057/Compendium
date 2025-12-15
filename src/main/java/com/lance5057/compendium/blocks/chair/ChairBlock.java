@@ -3,6 +3,7 @@ package com.lance5057.compendium.blocks.chair;
 import java.util.List;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.entities.SeatEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -60,9 +61,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		builder.add(FACING);
 	}
 
+	@Override
 	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
 			Player player, InteractionHand hand, BlockHitResult hitResult) {
-
+		if (stack.is(CompendiumItems.COSMETIC_TOOLBOX))
+			return ItemInteractionResult.FAIL;
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
@@ -130,8 +133,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	public List<String> getStyles(List<Integer> current) {
 
 		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
-				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)),
-				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)));
+				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)),
+				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)));
 	}
 
 	@Override
@@ -142,9 +145,9 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
 		switch (current) {

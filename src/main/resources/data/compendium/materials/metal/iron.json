@@ -21,7 +21,7 @@
       "loadSaw": "GENERATE",
       "loadShears": "IGNORE",
       "loadZweihander": "GENERATE",
-      "loadBow": "GENERATE"
+      "loadBow": "IGNORE"
     }
   ]
 }

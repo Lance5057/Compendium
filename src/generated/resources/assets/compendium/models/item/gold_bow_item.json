@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "compendium:item/material/metal/gold/bow",
-    "layer1": "compendium:item/bow_base"
-  }
-}

@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-12T10:53:24.9808653	Tags for minecraft:item mod id compendium
+// 1.21.1	2025-12-15T00:37:06.835785	Tags for minecraft:item mod id compendium
 e63eefb247e42ee8641235ece38b16d74b76fb93 data/c/tags/item/logs/acacia.json
 91e91c5a1f29d1e2ac1ed878bff9b625313f575e data/c/tags/item/logs/birch.json
 13e0e2d71792fa81a1ab9117f54df790411e6b49 data/c/tags/item/logs/cherry.json
@@ -177,13 +177,11 @@ fec60767247bdbebf6cd451bb3692c9a8ffef908 data/c/tags/item/textiles/purple_wool.j
 8e71446b54f055edb3ba7a025d4335cb78da1b45 data/c/tags/item/textiles/white_wool.json
 0de700cdfc12e281290ea7bc709d3241620ec9fb data/c/tags/item/textiles/yellow_wool.json
 05db26a72ade63b2f6a5b236e624fd619ff137d4 data/c/tags/item/tools.json
-c13eb03e212d933782e4ff29d501d5b31393daa7 data/c/tags/item/tools/bow.json
-5c9f51e3d4bb815c221306ed4daf1959c9878240 data/c/tags/item/tools/hammer.json
+4a216bb11ce9bf625e030ca5ad151b2a32630de0 data/c/tags/item/tools/hammer.json
 8d68bf5d7eaeb0e6356f66a46cbb1284b6d34ea2 data/c/tags/item/tools/melee_weapon.json
 974431758db4adb769945495ee983d5c3f9179d4 data/c/tags/item/tools/mining_tool.json
 c74c5e7d2d0b390b9dbca7567bf556ec28212712 data/c/tags/item/tools/prybar.json
-c13eb03e212d933782e4ff29d501d5b31393daa7 data/c/tags/item/tools/ranged_weapon.json
-8ea3bf3b2e457e42347922407febb47fff2db77b data/c/tags/item/tools/saw.json
+b5ec9167928692628833d2bb48c1e0a81f961989 data/c/tags/item/tools/saw.json
 5f14b9b0110f0de02a314cf62410e250a719ceab data/c/tags/item/tools/shear.json
 773cbd02bdbe83ff9e630ee269ff9dd4a0bdb9f7 data/c/tags/item/wooden_slabs/acacia.json
 a91808d235a48e8fc0c117dc06126d0ce207bbd2 data/c/tags/item/wooden_slabs/birch.json

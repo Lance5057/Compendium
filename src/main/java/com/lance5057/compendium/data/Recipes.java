@@ -70,6 +70,14 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.requires(Items.STONE, 9).unlockedBy(getName(), has(CompendiumItems.MEGALITH_STONE.get()))
 				.save(consumer, TagUtil.modLoc("stone_to_megalith"));
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumItems.CRUDE_HAMMER).define('s', Items.STICK)
+				.define('r', Tags.Items.COBBLESTONES).pattern("r ").pattern(" s")
+				.unlockedBy(getName(), has(Tags.Items.COBBLESTONES)).save(consumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumItems.CRUDE_SAW).define('s', Items.STICK)
+				.define('r', Items.FLINT).pattern("rs").pattern(" r").unlockedBy(getName(), has(Items.FLINT))
+				.save(consumer);
+
 	}
 
 	private void sawing(RecipeOutput consumer) {

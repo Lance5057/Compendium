@@ -17,6 +17,8 @@ import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxItem
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -33,6 +35,12 @@ public class CompendiumItems {
 
 	public static final DeferredItem<Item> ADJUSTINATOR = ITEMS.register("adjustinator",
 			() -> new Adjustinator(new Item.Properties()));
+
+	public static final DeferredItem<Item> CRUDE_SAW = ITEMS.register("crude_saw",
+			() -> new TieredItem(Tiers.WOOD, new Item.Properties()));
+
+	public static final DeferredItem<Item> CRUDE_HAMMER = ITEMS.register("crude_hammer",
+			() -> new TieredItem(Tiers.WOOD, new Item.Properties()));
 
 	public static final DeferredItem<Item> MEGALITH_STONE = ITEMS.register("megalith_stone",
 			() -> new MegalithStoneItem(new Item.Properties()));
@@ -78,7 +86,7 @@ public class CompendiumItems {
 													Stream.of(new MultiMaterialType(MATERIAL_TYPES.WOOD),
 															new MultiMaterialType(MATERIAL_TYPES.WOOD)).toList()))
 									.component(CompendiumComponents.STYLE,
-											new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0, 0))))));
+											new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0))))));
 
 	public static final DeferredItem<Item> CLOTHED_TABLE = ITEMS.register("clothed_table", () -> new BlockItem(
 			CompendiumBlocks.CLOTHED_TABLE.get(),
