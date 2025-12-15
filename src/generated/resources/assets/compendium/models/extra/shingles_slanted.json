@@ -26,7 +26,8 @@
     "styleLayer": 1,
     "styles": [
       "basic",
-      "angled"
+      "braced",
+      "none"
     ],
     "suffix": "_inventory",
     "valid": [

@@ -197,7 +197,7 @@ public class BlockStateModels extends BlockStateProvider {
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "shingles",
 						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0, "_inventory"))
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_slanted", "support",
-						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 1, 1, "_inventory"))
+						List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1, "_inventory"))
 				.end()).build();
 
 		ConfiguredModel.builder().modelFile(models().getBuilder("extra/shingles_cap_slanted")
@@ -206,7 +206,7 @@ public class BlockStateModels extends BlockStateProvider {
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "shingles/inventory",
 						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 0, 0, "_inventory"))
 				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("shingles_cap_slanted", "support/inventory",
-						List.of(MATERIAL_TYPES.WOOD), StyleData.SHINGLES_SHINGLES.getTypes(), 1, 1, "_inventory"))
+						List.of(MATERIAL_TYPES.WOOD), StyleData.SUPPORT_SHINGLES.getTypes(), 1, 1, "_inventory"))
 				.end()).build();
 
 		getMultipartBuilder(CompendiumBlocks.TABLE.get())
