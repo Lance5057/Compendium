@@ -58,6 +58,12 @@ public class CompendiumIndex {
 			return "oak";
 		}
 	}
+	
+	public static void addEntry(IIndexEntry i)
+	{
+		index.add(i);
+		Compendium.LOGGER.debug("Added Index Entry: " + i.getName());
+	}
 
 	public static void setup(IEventBus bus) {
 

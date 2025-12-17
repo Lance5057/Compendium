@@ -1,0 +1,7 @@
+{
+  "name": "blue_stained",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "loadBlock": "EXISTS",
+  "extensions": []
+}

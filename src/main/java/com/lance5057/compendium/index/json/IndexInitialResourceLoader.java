@@ -28,6 +28,7 @@ import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
@@ -39,6 +40,7 @@ import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLog
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.client.Minecraft;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -48,10 +50,17 @@ public class IndexInitialResourceLoader {
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 	private static final Gson GSON = MaterialTypeRegistry.setupGson().setVersion(1.0).create();
-	private static Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
+	private static Path resourcePackPath = Minecraft.getInstance().getResourcePackDirectory()
+			.resolve("compendium\\data\\compendium\\materials");
 
 	public static void init() {
-		buildDefaults();
+		for(MATERIAL_TYPES t : MATERIAL_TYPES.values())
+			try {
+				Files.createDirectories(resourcePackPath.resolve(t.toString().toLowerCase() + "/"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+//		buildDefaults();
 		readOtherMods();
 		readResourcePacks();
 	}
@@ -249,13 +258,13 @@ public class IndexInitialResourceLoader {
 			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/"));
 			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/").resolve(mat.name + ".json");
 			if (Files.exists(p))
-				Files.delete(p);
-//			else {
-			Writer w = Files.newBufferedWriter(p);
-			String g = GSON.toJson(mat);
-			w.write(g);
-			w.close();
-//			}
+				return;
+			else {
+				Writer w = Files.newBufferedWriter(p);
+				String g = GSON.toJson(mat);
+				w.write(g);
+				w.close();
+			}
 
 		} catch (JsonIOException e) {
 			LOGGER.error(e.getLocalizedMessage());
@@ -265,6 +274,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void readResourcePacks() {
+		Compendium.LOGGER.debug(resourcePackPath.toAbsolutePath().toString());
 		read(resourcePackPath);
 	}
 
@@ -293,7 +303,7 @@ public class IndexInitialResourceLoader {
 			if (m != null) {
 				CompendiumIndex.index.removeIf(i -> i.getName().compareTo(m.getName()) == 0);
 
-				CompendiumIndex.index.add(m);
+				CompendiumIndex.addEntry(m);
 
 			}
 
@@ -312,7 +322,7 @@ public class IndexInitialResourceLoader {
 			if (m != null) {
 				CompendiumIndex.index.removeIf(i -> i.getName().compareTo(m.getName()) == 0);
 
-				CompendiumIndex.index.add(m);
+				CompendiumIndex.addEntry(m);
 
 			}
 
