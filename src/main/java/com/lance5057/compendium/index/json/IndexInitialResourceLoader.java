@@ -26,6 +26,7 @@ import org.slf4j.Logger;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumConfig;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -50,32 +51,46 @@ public class IndexInitialResourceLoader {
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 	private static final Gson GSON = MaterialTypeRegistry.setupGson().setVersion(1.0).create();
-	private static Path resourcePackPath = Minecraft.getInstance().getResourcePackDirectory()
-			.resolve("compendium\\data\\compendium\\materials");
+//	private static 
 
 	public static void init() {
-		for(MATERIAL_TYPES t : MATERIAL_TYPES.values())
-			try {
-				Files.createDirectories(resourcePackPath.resolve(t.toString().toLowerCase() + "/"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-//		buildDefaults();
-		readOtherMods();
-		readResourcePacks();
+		if (Minecraft.getInstance() != null) { // check if we're in data gen first
+			Path resourcePackPath = Minecraft.getInstance().getResourcePackDirectory()
+					.resolve("compendium\\data\\compendium\\materials");
+			for (MATERIAL_TYPES t : MATERIAL_TYPES.values())
+				try {
+					Files.createDirectories(resourcePackPath.resolve(t.toString().toLowerCase() + "/"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+//		
+			readOtherMods();
+			readResourcePacks(resourcePackPath);
+		}
+		else
+		{
+			Path resourcePackPath = Path.of(".\\..\\resources\\compendium\\data\\compendium\\materials");
+			buildDefaults();
+			readResourcePacks(resourcePackPath);
+		}
 	}
 
-	static String zipPath = "resources/data/compendium/materials";
+	static String zipPath = "data/compendium/materials";
 
 	private static void readOtherMods() {
 		Stream<Path> paths = ModList.get().getModFiles().stream().map(IModFileInfo::getFile).map(IModFile::getFilePath);
 		Collection<URL> urls = paths.map(Path::toUri).map(uri -> {
+			if (CompendiumConfig.DEBUG.isTrue())
+				Compendium.LOGGER.debug("Scanning:" + uri);
+
 			URL url = null;
 			try {
 				url = uri.toURL();
 			} catch (MalformedURLException e) {
-				Compendium.LOGGER.error("Unable to scan path");
-				Compendium.LOGGER.trace(e);
+				if (CompendiumConfig.DEBUG.isTrue()) {
+					Compendium.LOGGER.error("Unable to scan path: " + uri);
+					Compendium.LOGGER.error(e);
+				}
 			}
 			return url;
 		}).filter(Objects::nonNull).collect(Collectors.toList());
@@ -84,16 +99,25 @@ public class IndexInitialResourceLoader {
 
 			try {
 				try (ZipFile zipFile = new ZipFile(new File(url.toURI()))) {
+					boolean valid = false;
 					for (ZipEntry entry : Collections.list(zipFile.entries())) {
 						if (entry.getName().contains(zipPath) && entry.getName().endsWith("json")) {
+							if (CompendiumConfig.DEBUG.isTrue())
+								Compendium.LOGGER.debug("Found:" + entry.getName());
+
 							InputStream stream = zipFile.getInputStream(entry);
 							readFile(stream);
+							valid = true;
 						}
 					}
 
+					if (!valid && CompendiumConfig.DEBUG.isTrue())
+						Compendium.LOGGER.debug("No valid files found in " + url);
 				} catch (URISyntaxException e) {
-					Compendium.LOGGER.error("Invalid URL!");
-					Compendium.LOGGER.trace(e);
+					if (CompendiumConfig.DEBUG.isTrue()) {
+						Compendium.LOGGER.error("Invalid URL!");
+						Compendium.LOGGER.trace(e);
+					}
 				}
 			} catch (IOException e) {
 				Compendium.LOGGER.error("Jar not found! Is this a dev enviroment?");
@@ -255,6 +279,7 @@ public class IndexInitialResourceLoader {
 	static void buildDefault(_MaterialBase mat) {
 
 		try {
+			Path resourcePackPath = Path.of(".\\..\\resources\\compendium\\data\\compendium\\materials");
 			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/"));
 			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/").resolve(mat.name + ".json");
 			if (Files.exists(p))
@@ -273,7 +298,9 @@ public class IndexInitialResourceLoader {
 		}
 	}
 
-	static void readResourcePacks() {
+	static void readResourcePacks(Path resourcePackPath) {
+//		Path resourcePackPath = Minecraft.getInstance().getResourcePackDirectory()
+//				.resolve("compendium\\data\\compendium\\materials");
 		Compendium.LOGGER.debug(resourcePackPath.toAbsolutePath().toString());
 		read(resourcePackPath);
 	}

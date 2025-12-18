@@ -1,0 +1,8 @@
+{
+  "name": "pink_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "EXISTS",
+  "extensions": []
+}
