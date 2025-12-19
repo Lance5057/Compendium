@@ -26,7 +26,6 @@ import org.slf4j.Logger;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.CompendiumConfig;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -66,9 +65,7 @@ public class IndexInitialResourceLoader {
 //		
 			readOtherMods();
 			readResourcePacks(resourcePackPath);
-		}
-		else
-		{
+		} else {
 			Path resourcePackPath = Path.of(".\\..\\resources\\compendium\\data\\compendium\\materials");
 			buildDefaults();
 			readResourcePacks(resourcePackPath);
@@ -80,17 +77,13 @@ public class IndexInitialResourceLoader {
 	private static void readOtherMods() {
 		Stream<Path> paths = ModList.get().getModFiles().stream().map(IModFileInfo::getFile).map(IModFile::getFilePath);
 		Collection<URL> urls = paths.map(Path::toUri).map(uri -> {
-			if (CompendiumConfig.DEBUG.isTrue())
-				Compendium.LOGGER.debug("Scanning:" + uri);
 
 			URL url = null;
 			try {
 				url = uri.toURL();
 			} catch (MalformedURLException e) {
-				if (CompendiumConfig.DEBUG.isTrue()) {
-					Compendium.LOGGER.error("Unable to scan path: " + uri);
-					Compendium.LOGGER.error(e);
-				}
+				Compendium.LOGGER.error("Unable to scan path: " + uri);
+				Compendium.LOGGER.error(e);
 			}
 			return url;
 		}).filter(Objects::nonNull).collect(Collectors.toList());
@@ -102,8 +95,6 @@ public class IndexInitialResourceLoader {
 					boolean valid = false;
 					for (ZipEntry entry : Collections.list(zipFile.entries())) {
 						if (entry.getName().contains(zipPath) && entry.getName().endsWith("json")) {
-							if (CompendiumConfig.DEBUG.isTrue())
-								Compendium.LOGGER.debug("Found:" + entry.getName());
 
 							InputStream stream = zipFile.getInputStream(entry);
 							readFile(stream);
@@ -111,13 +102,10 @@ public class IndexInitialResourceLoader {
 						}
 					}
 
-					if (!valid && CompendiumConfig.DEBUG.isTrue())
-						Compendium.LOGGER.debug("No valid files found in " + url);
 				} catch (URISyntaxException e) {
-					if (CompendiumConfig.DEBUG.isTrue()) {
-						Compendium.LOGGER.error("Invalid URL!");
-						Compendium.LOGGER.trace(e);
-					}
+					Compendium.LOGGER.error("Invalid URL!");
+					Compendium.LOGGER.trace(e);
+
 				}
 			} catch (IOException e) {
 				Compendium.LOGGER.error("Jar not found! Is this a dev enviroment?");
