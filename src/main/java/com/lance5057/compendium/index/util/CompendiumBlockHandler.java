@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -128,5 +130,15 @@ public class CompendiumBlockHandler implements Serializable {
 			if (item.is(key))
 				return true;
 		return false;
+	}
+
+	public void setAsValidStyleBlock() {
+		if (this.shouldGenerate())
+			CompendiumBlockEntities.validStyleBlocks.add(this.BLOCK);
+	}
+
+	public void setAsValidStyleItem() {
+		if (this.shouldGenerate())
+			Compendium.styleItemRenderers.add(this.BLOCK_ITEM);
 	}
 }

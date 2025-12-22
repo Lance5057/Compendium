@@ -147,6 +147,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small/" + base.name));
 		SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		SMALL_LOG.setAsValidStyleBlock();
 
 		LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
@@ -159,6 +160,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + base.name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		LOG.setAsValidStyleBlock();
+		LOG.setAsValidStyleItem();
 
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
@@ -171,6 +174,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab"));
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab/" + base.name));
 		LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		LOG_SLAB.setAsValidStyleBlock();
+		LOG_SLAB.setAsValidStyleItem();
 
 		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
@@ -183,15 +188,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-
-		CompendiumBlockEntities.validStyleBlocks.add(SMALL_LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(LOG_SLAB.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(LOG_STAIRS.BLOCK);
-
-		Compendium.styleItemRenderers.add(LOG.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(LOG_SLAB.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(LOG_STAIRS.BLOCK_ITEM);
+		LOG_STAIRS.setAsValidStyleBlock();
+		LOG_STAIRS.setAsValidStyleItem();
 
 		STRIPPED_SMALL_LOG.setup(base,
 				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
@@ -207,6 +205,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_log/small"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_log/small/" + base.name));
 		STRIPPED_SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_SMALL_LOG.setAsValidStyleBlock();
 
 		STRIPPED_LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
@@ -219,6 +218,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + base.name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG.setAsValidStyleBlock();
+		STRIPPED_LOG.setAsValidStyleItem();
 
 		STRIPPED_LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
@@ -232,6 +233,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/" + base.name));
 		STRIPPED_LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG_SLAB.setAsValidStyleBlock();
+		STRIPPED_LOG_SLAB.setAsValidStyleItem();
 
 		STRIPPED_LOG_STAIRS.setup(base,
 				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
@@ -243,18 +246,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
-		LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
-		LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
-		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-
-		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_SMALL_LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_SLAB.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(STRIPPED_LOG_STAIRS.BLOCK);
-
-		Compendium.styleItemRenderers.add(STRIPPED_LOG.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(STRIPPED_LOG_SLAB.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(STRIPPED_LOG_STAIRS.BLOCK_ITEM);
+		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
+		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
+		STRIPPED_LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG_STAIRS.setAsValidStyleBlock();
+		STRIPPED_LOG_STAIRS.setAsValidStyleItem();
 	}
 
 	@Override

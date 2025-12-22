@@ -12,7 +12,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
@@ -58,7 +57,6 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -125,6 +123,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 //		PLANK.setupItemTag(TagUtil.neoTag("plank"));
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		PLANK.setAsValidStyleBlock();
 
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
@@ -137,6 +136,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 //		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
 		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
 		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		PLANK_BLOCK.setAsValidStyleBlock();
+		PLANK_BLOCK.setAsValidStyleItem();
 
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
@@ -150,6 +151,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
 		PLANK_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		PLANK_SLAB.setAsValidStyleBlock();
+		PLANK_SLAB.setAsValidStyleItem();
 
 		PLANK_STAIRS.setup(base, () -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
@@ -159,20 +162,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
+		PLANK_STAIRS.setAsValidStyleBlock();
+		PLANK_STAIRS.setAsValidStyleItem();
 
 //		PLANK_STAIRS.setupItemTag(ItemTags.WOODEN_STAIRS);
 		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("stairs/planks/" + base.name));
 		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("wooden_stairs/" + base.name));
 		PLANK_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-
-		CompendiumBlockEntities.validStyleBlocks.add(PLANK.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(PLANK_BLOCK.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(PLANK_SLAB.BLOCK);
-		CompendiumBlockEntities.validStyleBlocks.add(PLANK_STAIRS.BLOCK);
-
-		Compendium.styleItemRenderers.add(PLANK_BLOCK.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(PLANK_SLAB.BLOCK_ITEM);
-		Compendium.styleItemRenderers.add(PLANK_STAIRS.BLOCK_ITEM);
 	}
 
 	@Override

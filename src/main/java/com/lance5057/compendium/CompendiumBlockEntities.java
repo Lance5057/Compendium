@@ -29,8 +29,11 @@ public class CompendiumBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("style", () -> BlockEntityType.Builder.of((p, s) -> {
 				return new SimpleStyleBlockEntity(p, s, 0);
-			}, validStyleBlocks.stream().map(i -> i.get()).collect(Collectors.toList())
-					.toArray(new Block[0])).build(null));
+			}, validStyleBlocks.stream().map(i -> {
+				if (i != null)
+					return i.get();
+				return null;
+			}).collect(Collectors.toList()).toArray(new Block[0])).build(null));
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HammeringStationBlockEntity>> HAMMERING_STATION = BLOCK_ENTITIES
 			.register("hammering_station", () -> BlockEntityType.Builder
