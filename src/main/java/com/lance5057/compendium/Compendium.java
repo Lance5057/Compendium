@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +29,7 @@ public class Compendium {
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
 	public Compendium(IEventBus bus, ModContainer modContainer) {
-		
+
 		modContainer.registerConfig(ModConfig.Type.COMMON, CompendiumConfig.spec);
 
 		bus.addListener(CompendiumNetworkHandler::setupPackets);
@@ -40,6 +41,14 @@ public class Compendium {
 
 		CompendiumBlocks.BLOCKS.register(bus);
 		CompendiumItems.ITEMS.register(bus);
+
+		CompendiumIndex.index.forEach(i -> {
+			if (i instanceof _MaterialBase mb) {
+				mb.ITEMS.register(bus);
+				mb.BLOCKS.register(bus);
+			}
+		});
+
 		CompendiumBlockEntities.BLOCK_ENTITIES.register(bus);
 		CompendiumEntities.ENTITIES.register(bus);
 
@@ -48,7 +57,7 @@ public class Compendium {
 		CompendiumMenus.register(bus);
 		WorkstationRecipes.register(bus);
 	}
-	
+
 	public static List<DeferredItem<? extends Item>> styleItemRenderers = new ArrayList<DeferredItem<? extends Item>>();
 
 	public void setupClient(FMLClientSetupEvent event) {

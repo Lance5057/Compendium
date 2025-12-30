@@ -64,6 +64,13 @@ public class DataUtil {
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_inventory")));
 	}
+	
+	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
+			String namespace ,String name, String extra, MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(namespace,
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + extra + "_inventory")));
+	}
 
 	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
 			String name, String extra, MATERIAL_TYPES type) {

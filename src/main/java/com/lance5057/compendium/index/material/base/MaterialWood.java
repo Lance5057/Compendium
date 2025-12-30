@@ -171,6 +171,16 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
+		if (LOG.shouldGenerate())
+			blp.dropSelf(LOG.BLOCK.get());
+		if (PLANKS.shouldGenerate())
+			blp.dropSelf(PLANKS.BLOCK.get());
+		if (STRIPPED_LOG.shouldGenerate())
+			blp.dropSelf(STRIPPED_LOG.BLOCK.get());
+		if (STRIPPED_WOOD.shouldGenerate())
+			blp.dropSelf(STRIPPED_WOOD.BLOCK.get());
+		if (WOOD.shouldGenerate())
+			blp.dropSelf(WOOD.BLOCK.get());
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 

@@ -1,7 +1,0 @@
-{
-  "name": "clear",
-  "tagNamespace": "minecraft",
-  "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "extensions": []
-}

@@ -89,10 +89,10 @@ public class CompendiumIndex {
 
 		index.forEach(i -> {
 			i.setup();
-			if (i instanceof _MaterialBase mb) {
-				mb.ITEMS.register(bus);
-				mb.BLOCKS.register(bus);
-			}
+//			if (i instanceof _MaterialBase mb) {
+//				mb.ITEMS.register(bus);
+//				mb.BLOCKS.register(bus);
+//			}
 		});
 
 		ARMOR_MATERIALS.register(bus);

@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:spruce_log"
+    "tag": "c:logs/spruce"
   },
   "loot": "minecraft:sawing/spruce_small_log",
   "offset": [

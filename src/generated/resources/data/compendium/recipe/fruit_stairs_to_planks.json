@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "extradelight:fruit_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "extradelight:fruit_plank_item"
+  }
+}

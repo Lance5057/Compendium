@@ -1134,8 +1134,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
 			if (SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
-						base.getType());
+				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.namespace, base.name,
+						"small_log", base.getType());
 			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
@@ -1148,7 +1148,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.name,
+				DataUtil.basicMaterialInventoryBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.namespace, base.name,
 						"stripped_small_log", base.getType());
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {

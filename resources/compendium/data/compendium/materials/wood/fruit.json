@@ -2,11 +2,11 @@
   "name": "fruit",
   "namespace": "extradelight",
   "type": "WOOD",
-  "loadPlanks": "EXISTS",
-  "loadLog": "EXISTS",
-  "loadStrippedLog": "EXISTS",
-  "loadWood": "EXISTS",
-  "loadStrippedWood": "EXISTS",
+  "loadPlanks": "GENERATE",
+  "loadLog": "GENERATE",
+  "loadStrippedLog": "GENERATE",
+  "loadWood": "GENERATE",
+  "loadStrippedWood": "GENERATE",
   "extensions": [
     {
       "type": "EXTRALOGS",

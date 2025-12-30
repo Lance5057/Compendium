@@ -219,12 +219,12 @@ public class IndexInitialResourceLoader {
 		// buildDefault(new MaterialWood("pale_oak", false).addExtension(new
 		// ExtensionExtraLogs(true, true, true, true)));
 
-//		buildDefault(new MaterialWood("fruit", "extradelight", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
+		buildDefault(new MaterialWood("fruit", "extradelight", Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+				Generate.GENERATE, Generate.GENERATE)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
 //		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
 //				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));

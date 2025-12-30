@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:mangrove_log"
+    "tag": "c:logs/mangrove"
   },
   "loot": "minecraft:sawing/mangrove_small_log",
   "offset": [
