@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-17T16:00:57.7732685	Block Models: compendium
+// 1.21.1	2025-12-30T13:08:30.618201	Block Models: compendium
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic.json
 9f50a5d31cd6e51c76663c7e8e551a99ebc01a41 assets/compendium/models/block/material/glass/black_stained/window/glass/basic_inventory.json
 1293947affc8826c9b6e9578adfb6e3309d4f837 assets/compendium/models/block/material/glass/blue_stained/window/glass/basic.json
@@ -3461,7 +3461,7 @@ a7b070d550614830dac8e0188416a55840afb71e assets/compendium/models/block/material
 375a78a739adeaf615056051291276e2398809d4 assets/compendium/models/block/material/wood/acacia/bed/inventory/base/panelled.json
 e190c74b396772a2d6ac2759fe0d7379471e1d24 assets/compendium/models/block/material/wood/acacia/bed/inventory/base/slats.json
 1615d668831ef11b9c2532e9fb72ead4056129cc assets/compendium/models/block/material/wood/acacia/bed/inventory/base/solid.json
-46e531968c637e9855c2409fcf32de3c6b588f66 assets/compendium/models/block/material/wood/acacia/bed/inventory/base/weave.json
+0e7b8cf621817b104f7db29c8a20f5d7cf401071 assets/compendium/models/block/material/wood/acacia/bed/inventory/base/weave.json
 525abec87ec4f045b194410b92932660b33ceaca assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/basic.json
 be46ce68c9ff8db51bf2536f4ab164de1d5a6284 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/contemporary_slats.json
 ab9cd766084b5b54b2a215779fc07ad5a05b3f72 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/cross.json
@@ -3471,11 +3471,11 @@ b1cf10308003318343ee9f9ceab403bdc467291a assets/compendium/models/block/material
 fd94da778e1cfd26141a0fc6e2667cbba43607a6 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/full.json
 8beb829a6a9ebb6c127d981ff2be0a2c46d1bea1 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/lath.json
 f87fc5fef1a0c590658e194872957429a1a6727b assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/lath_extra.json
-14c808bfba7fe7963f2cb9c05bf1d42e8c4a5832 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/live_edge.json
+4d51978ba16d72b10395c18fcce839b6d9725b83 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/live_edge.json
 04499f3293986f9c9048ac4bdceb0aef5f9ea387 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/panelled.json
-4b5c67b3492da4b52e72bfd024561b8d29fc55d0 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/slats.json
+4bd9161fc7ab17b27e73031f8ad96a30476a9df5 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/slats.json
 4d243e3bc26d0fabbe1d6f3736d5666eb4c0db48 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/solid.json
-190288cf117da9e5040138400e931767f014adb7 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/weave.json
+8ed009149cbb24627bb3a45e11e33368f5a70065 assets/compendium/models/block/material/wood/acacia/bed/inventory/frame/weave.json
 8dd4357a691d28776ece22c319a86ca56143659f assets/compendium/models/block/material/wood/acacia/bed/occupied/center/foot/base/basic.json
 03138ededc9cd8234e663c2e9bb33c8737e7e5f0 assets/compendium/models/block/material/wood/acacia/bed/occupied/center/foot/base/panelled.json
 276f7381f263834e36d559d8424a644f3739186c assets/compendium/models/block/material/wood/acacia/bed/occupied/center/foot/base/slats.json
@@ -3961,7 +3961,7 @@ cf858167739c90b836cf8b3eb00a9e438cf5601c assets/compendium/models/block/material
 0070250390b3491b28754c1f7ebd2f4ec3e3b13f assets/compendium/models/block/material/wood/acacia/clothed_table/legs/side/basic_inventory.json
 5f18358c9fd480d68861e65c0460ff237795333f assets/compendium/models/block/material/wood/acacia/clothed_table/legs/side/fancy_inventory.json
 5ac8bea081f83f95f8e46a18a4608ed845fb7ae0 assets/compendium/models/block/material/wood/acacia/clothed_table/top/basic_inventory.json
-777a323ce470ba5bd064f0cabe5cf486fb69458d assets/compendium/models/block/material/wood/acacia/clothed_table/top/smooth_inventory.json
+b815f384bab50c64e95317cb3fbbf239b3fa8a9d assets/compendium/models/block/material/wood/acacia/clothed_table/top/smooth_inventory.json
 844f43fbfcbfd551f16a0e0a25586c2ad1852225 assets/compendium/models/block/material/wood/acacia/clothed_table/top/trimmed_inventory.json
 6927b763c1bd565aa50fa8f01799bc768676c9a7 assets/compendium/models/block/material/wood/acacia/fence/post/basic.json
 44e1c86028229becb9252435949ddd95ef97d14c assets/compendium/models/block/material/wood/acacia/fence/post/basic_inventory.json
@@ -4004,7 +4004,7 @@ dc8addcab79c215620bf5258d9f3a3804cfe3640 assets/compendium/models/block/material
 21a8c326354840c493c8c32ecb90709f23eb2d08 assets/compendium/models/block/material/wood/acacia/fence/side/solid.json
 6b1d4fcb3977f707d1a4e815d3863d6b697caed9 assets/compendium/models/block/material/wood/acacia/fence/side/solid_inventory.json
 57506e8768a94b7d5949e345474825d59aeee5fd assets/compendium/models/block/material/wood/acacia/fence/side/solid_sheet.json
-c0f4e5493d3393548686e81afd95632e649c2a79 assets/compendium/models/block/material/wood/acacia/fence/side/solid_sheet_inventory.json
+28260801a915e13477c4e4ca4a3344ca0a888d95 assets/compendium/models/block/material/wood/acacia/fence/side/solid_sheet_inventory.json
 ef454bd22f0c48986a289c906d5c23dda9007174 assets/compendium/models/block/material/wood/acacia/log/bark_shred_1.json
 ef454bd22f0c48986a289c906d5c23dda9007174 assets/compendium/models/block/material/wood/acacia/log/bark_shred_1_horizontal.json
 ef454bd22f0c48986a289c906d5c23dda9007174 assets/compendium/models/block/material/wood/acacia/log/bark_shred_1_horizontal_inventory.json
@@ -4898,7 +4898,7 @@ f366139c9fe5565211cfb88cc688ba449b40e1bb assets/compendium/models/block/material
 5ac8bea081f83f95f8e46a18a4608ed845fb7ae0 assets/compendium/models/block/material/wood/acacia/table/top/basic.json
 5ac8bea081f83f95f8e46a18a4608ed845fb7ae0 assets/compendium/models/block/material/wood/acacia/table/top/basic_inventory.json
 b815f384bab50c64e95317cb3fbbf239b3fa8a9d assets/compendium/models/block/material/wood/acacia/table/top/smooth.json
-777a323ce470ba5bd064f0cabe5cf486fb69458d assets/compendium/models/block/material/wood/acacia/table/top/smooth_inventory.json
+b815f384bab50c64e95317cb3fbbf239b3fa8a9d assets/compendium/models/block/material/wood/acacia/table/top/smooth_inventory.json
 844f43fbfcbfd551f16a0e0a25586c2ad1852225 assets/compendium/models/block/material/wood/acacia/table/top/trimmed.json
 844f43fbfcbfd551f16a0e0a25586c2ad1852225 assets/compendium/models/block/material/wood/acacia/table/top/trimmed_inventory.json
 baf14e22482a624586e46ea9055f4255aeff2a66 assets/compendium/models/block/material/wood/acacia/window/trim/bars.json
@@ -4965,7 +4965,7 @@ c9e393abc7e8fbf5352385edb2e2b10ffa9a508d assets/compendium/models/block/material
 e4d63ea0441bc305ca21167054024f2f9d5ed487 assets/compendium/models/block/material/wood/birch/bed/inventory/base/panelled.json
 244d08c3e786bd1623ffdf017995e4022751f3d5 assets/compendium/models/block/material/wood/birch/bed/inventory/base/slats.json
 0c4f3aff090483efd155e75328195b9875a504b8 assets/compendium/models/block/material/wood/birch/bed/inventory/base/solid.json
-99259bfa191a8e82ed0e6b8a4bc3ee2f9bddde17 assets/compendium/models/block/material/wood/birch/bed/inventory/base/weave.json
+3f7aeb55f0dda5afec0f1b8049e3b89eaf38cf34 assets/compendium/models/block/material/wood/birch/bed/inventory/base/weave.json
 5f7db0311f00012bd120f7707084177f888a55e3 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/basic.json
 4c4b2a3839f28a77005b3b6e4d4260ee9a3089f0 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/contemporary_slats.json
 898dad8d26c50fb12ca665671f8234a6024a8de9 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/cross.json
@@ -4975,11 +4975,11 @@ aff175fed8fc7fa56548c555c7b5162e702ebdfe assets/compendium/models/block/material
 e753ba55487c91070daecf3f114fc2c69171642e assets/compendium/models/block/material/wood/birch/bed/inventory/frame/full.json
 4530106ca3dfb55ea3aed877be990c621064d122 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/lath.json
 a72df2465215b19ef2c29506a10fb59022333098 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/lath_extra.json
-cedc14cf8ec6f584c8345971a8bc2b785a6801e0 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/live_edge.json
+e8abaf152e6fe61d8b45c5c5335c2d95eff9efd0 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/live_edge.json
 f163d1505d3580ae65a8dd6909cbcb377006e2fd assets/compendium/models/block/material/wood/birch/bed/inventory/frame/panelled.json
-66c6e55e518da9c8c34e240516267863bd037dd4 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/slats.json
+f0ed0f3de444a93717d565fb3e8f5ef7e3cb8045 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/slats.json
 3a3d1026576cd8fc7c5e7b984eff5ca5081c7da0 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/solid.json
-c33ac378c0be9cb8bc6813153e07461c18a8e983 assets/compendium/models/block/material/wood/birch/bed/inventory/frame/weave.json
+1458ab1d945790040f05c8c19280ab7fbf2ab61d assets/compendium/models/block/material/wood/birch/bed/inventory/frame/weave.json
 1455dcbdadf6b76ef7b98e3eb2f65f7babccce12 assets/compendium/models/block/material/wood/birch/bed/occupied/center/foot/base/basic.json
 295336cdc25dc5cab2be0651c94ff834a26624c8 assets/compendium/models/block/material/wood/birch/bed/occupied/center/foot/base/panelled.json
 91a3b14dfa93a8106ca361afbdc9fe5d70121444 assets/compendium/models/block/material/wood/birch/bed/occupied/center/foot/base/slats.json
@@ -5465,7 +5465,7 @@ f4ff01a1fc756cf40890f21b592ca53dd232d283 assets/compendium/models/block/material
 13fa834c0cb86da8c1cc61db6a82cd785f5990ae assets/compendium/models/block/material/wood/birch/clothed_table/legs/side/basic_inventory.json
 5fc7976be93591c869a1f647969fb78a5eeb2f93 assets/compendium/models/block/material/wood/birch/clothed_table/legs/side/fancy_inventory.json
 58feb94922f7a8301851ff0f26b7318b4210358c assets/compendium/models/block/material/wood/birch/clothed_table/top/basic_inventory.json
-b42f9e1a454e0db5fd940a8ed0b3105a4589d4d6 assets/compendium/models/block/material/wood/birch/clothed_table/top/smooth_inventory.json
+a5522c84ad7017ba1a9b16a223a4d1b1a5a691e9 assets/compendium/models/block/material/wood/birch/clothed_table/top/smooth_inventory.json
 ed7e96fa280c01db78f31e35ff940e71260ac1c7 assets/compendium/models/block/material/wood/birch/clothed_table/top/trimmed_inventory.json
 1288fd5bf37c62625a495529fccf54cc0457901f assets/compendium/models/block/material/wood/birch/fence/post/basic.json
 f4ae299f60e7d6653e9ce1731dfafdc5e136706f assets/compendium/models/block/material/wood/birch/fence/post/basic_inventory.json
@@ -5508,7 +5508,7 @@ f860b038fc6f752f630c24ae5c0e05135ebbdc03 assets/compendium/models/block/material
 b4ef8bbc52996233d458f8080d7e3589384f8205 assets/compendium/models/block/material/wood/birch/fence/side/solid.json
 926cc7ebe4730e7d86ecfc258ed72ee11074c815 assets/compendium/models/block/material/wood/birch/fence/side/solid_inventory.json
 288145d3fe4e4cfac41cb317b4e497cf2e9bd6d8 assets/compendium/models/block/material/wood/birch/fence/side/solid_sheet.json
-45ffd6c373deb1487376f1a366ec04406ef4d51d assets/compendium/models/block/material/wood/birch/fence/side/solid_sheet_inventory.json
+7bb76e76bd78b00d143982aa7b53d8e6e46e760d assets/compendium/models/block/material/wood/birch/fence/side/solid_sheet_inventory.json
 108379ffae86900012dc07e7e86fb95c19cd7665 assets/compendium/models/block/material/wood/birch/log/bark_shred_1.json
 108379ffae86900012dc07e7e86fb95c19cd7665 assets/compendium/models/block/material/wood/birch/log/bark_shred_1_horizontal.json
 108379ffae86900012dc07e7e86fb95c19cd7665 assets/compendium/models/block/material/wood/birch/log/bark_shred_1_horizontal_inventory.json
@@ -6402,7 +6402,7 @@ b4816cbc13a74dba09fbe0ecbf13f6d410541df4 assets/compendium/models/block/material
 58feb94922f7a8301851ff0f26b7318b4210358c assets/compendium/models/block/material/wood/birch/table/top/basic.json
 58feb94922f7a8301851ff0f26b7318b4210358c assets/compendium/models/block/material/wood/birch/table/top/basic_inventory.json
 a5522c84ad7017ba1a9b16a223a4d1b1a5a691e9 assets/compendium/models/block/material/wood/birch/table/top/smooth.json
-b42f9e1a454e0db5fd940a8ed0b3105a4589d4d6 assets/compendium/models/block/material/wood/birch/table/top/smooth_inventory.json
+a5522c84ad7017ba1a9b16a223a4d1b1a5a691e9 assets/compendium/models/block/material/wood/birch/table/top/smooth_inventory.json
 ed7e96fa280c01db78f31e35ff940e71260ac1c7 assets/compendium/models/block/material/wood/birch/table/top/trimmed.json
 ed7e96fa280c01db78f31e35ff940e71260ac1c7 assets/compendium/models/block/material/wood/birch/table/top/trimmed_inventory.json
 11dc802139ed73b17cc411b9252da3c509f7e7cc assets/compendium/models/block/material/wood/birch/window/trim/bars.json
@@ -6469,7 +6469,7 @@ ef50ced34c4cc8f4ace8c2c17829c80b9d995ce2 assets/compendium/models/block/material
 78ba4513a73b4c097cff0599f4720127bfb44db3 assets/compendium/models/block/material/wood/cherry/bed/inventory/base/panelled.json
 ecc7cd1c31a4f1ad17f916c33c9793d1c9ee7400 assets/compendium/models/block/material/wood/cherry/bed/inventory/base/slats.json
 f2434a3c2c42e8bdcb83d6723b05453929b2c0bd assets/compendium/models/block/material/wood/cherry/bed/inventory/base/solid.json
-4d42ed2f583d0e52e59ebd5d785e3aabdc7a7da9 assets/compendium/models/block/material/wood/cherry/bed/inventory/base/weave.json
+8e74f0b11a9aad0754b0bdfedcb9d579efb8983b assets/compendium/models/block/material/wood/cherry/bed/inventory/base/weave.json
 58d55c03c730d0b81bcbe51add422e427231cf04 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/basic.json
 25a4a42ac25f7d3d0c84d8333459cb3cc10070dc assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/contemporary_slats.json
 989679beaf37e7b5e958fe05aa02ba0445626a63 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/cross.json
@@ -6479,11 +6479,11 @@ f2434a3c2c42e8bdcb83d6723b05453929b2c0bd assets/compendium/models/block/material
 d7087fd75b75fb798511932e6509ea16e12c4a97 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/full.json
 b8a67e1715109326fa2e4f9fc601b067f59a0f04 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/lath.json
 081fa11ce42df06e3508a92e673a39a9adec3f7a assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/lath_extra.json
-9fc80260617c879776c85852b931de021cefdc63 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/live_edge.json
+d5452807c31d16fdc37ccc11c8509d6b340dc923 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/live_edge.json
 70ecf72e3b5a064a94f737c1177966c434d15361 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/panelled.json
-ce2688ae468ce0d5fab9eb598d749129db2523fb assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/slats.json
+f7c6723d6cdc32db959dfd75eabfba39336374fd assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/slats.json
 6d3b4edfd5406d0876e9569e1b4b3dd801ec4cf6 assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/solid.json
-e48220c73b516333d34553889a988a870bd7a6cc assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/weave.json
+0c3bbc26a7de9e674753beb9a8056a49959d5b1d assets/compendium/models/block/material/wood/cherry/bed/inventory/frame/weave.json
 4f0488451eb74eb5b42ed15edbacfc0e072f8b46 assets/compendium/models/block/material/wood/cherry/bed/occupied/center/foot/base/basic.json
 c6034c55ff5b997bf3e832cd518d454d01c74e61 assets/compendium/models/block/material/wood/cherry/bed/occupied/center/foot/base/panelled.json
 c345701578438bb57063843c157fe290f2983e0f assets/compendium/models/block/material/wood/cherry/bed/occupied/center/foot/base/slats.json
@@ -6969,7 +6969,7 @@ ba58d950c7e10248596f7aa8173d19665e397abc assets/compendium/models/block/material
 9e3ad36938e74ea130669dda3150bd835759fee3 assets/compendium/models/block/material/wood/cherry/clothed_table/legs/side/basic_inventory.json
 97f5569790438b7b2123de7429b3a0ec7fc0288a assets/compendium/models/block/material/wood/cherry/clothed_table/legs/side/fancy_inventory.json
 32057727789443be2f55a54c93400254c48ed30d assets/compendium/models/block/material/wood/cherry/clothed_table/top/basic_inventory.json
-4b89d6d9e35c5503e3b965ea8912a1e6591fb50a assets/compendium/models/block/material/wood/cherry/clothed_table/top/smooth_inventory.json
+8c8eb572755382f7b5801ae8e7db2b14a9ca9b0d assets/compendium/models/block/material/wood/cherry/clothed_table/top/smooth_inventory.json
 11f17b2a2498866a7b8352ce3231bb268595ea56 assets/compendium/models/block/material/wood/cherry/clothed_table/top/trimmed_inventory.json
 b0d1e349186c31cadd7f8f9c86e9e70625552b4a assets/compendium/models/block/material/wood/cherry/fence/post/basic.json
 e4aad9d1a80b14b574075c093f66f0d34b6af4ec assets/compendium/models/block/material/wood/cherry/fence/post/basic_inventory.json
@@ -7012,7 +7012,7 @@ e351984d64c7376ef441ceebd7c36a6877c489f0 assets/compendium/models/block/material
 9a341cb8776fdf4d1ae0e2f1aa3345118c6e2e06 assets/compendium/models/block/material/wood/cherry/fence/side/solid.json
 765c0b62e7518296f1f7d4a12393f00156d432b8 assets/compendium/models/block/material/wood/cherry/fence/side/solid_inventory.json
 f982298fca06c98c5f2d387e466771ff8caafede assets/compendium/models/block/material/wood/cherry/fence/side/solid_sheet.json
-8739417f39de93001097d7965059d0c60252b24a assets/compendium/models/block/material/wood/cherry/fence/side/solid_sheet_inventory.json
+31fd98f9adb18395b3dcc21d0007f8b3f830cc2c assets/compendium/models/block/material/wood/cherry/fence/side/solid_sheet_inventory.json
 2d6253152c69023a3c34163e1d43c1e901f3199f assets/compendium/models/block/material/wood/cherry/log/bark_shred_1.json
 2d6253152c69023a3c34163e1d43c1e901f3199f assets/compendium/models/block/material/wood/cherry/log/bark_shred_1_horizontal.json
 2d6253152c69023a3c34163e1d43c1e901f3199f assets/compendium/models/block/material/wood/cherry/log/bark_shred_1_horizontal_inventory.json
@@ -7906,7 +7906,7 @@ e021c17fc0fa2a3adf0ba94f5f6fec275e1668fc assets/compendium/models/block/material
 32057727789443be2f55a54c93400254c48ed30d assets/compendium/models/block/material/wood/cherry/table/top/basic.json
 32057727789443be2f55a54c93400254c48ed30d assets/compendium/models/block/material/wood/cherry/table/top/basic_inventory.json
 8c8eb572755382f7b5801ae8e7db2b14a9ca9b0d assets/compendium/models/block/material/wood/cherry/table/top/smooth.json
-4b89d6d9e35c5503e3b965ea8912a1e6591fb50a assets/compendium/models/block/material/wood/cherry/table/top/smooth_inventory.json
+8c8eb572755382f7b5801ae8e7db2b14a9ca9b0d assets/compendium/models/block/material/wood/cherry/table/top/smooth_inventory.json
 11f17b2a2498866a7b8352ce3231bb268595ea56 assets/compendium/models/block/material/wood/cherry/table/top/trimmed.json
 11f17b2a2498866a7b8352ce3231bb268595ea56 assets/compendium/models/block/material/wood/cherry/table/top/trimmed_inventory.json
 3d21f20471de080d438e50fb3e59c87df3517e20 assets/compendium/models/block/material/wood/cherry/window/trim/bars.json
@@ -7973,7 +7973,7 @@ c793c795703d38c05e1ccb1b4b4af67ef9e9be3d assets/compendium/models/block/material
 a0f23373db7ea5f1f26be98cad602bb597c90476 assets/compendium/models/block/material/wood/crimson/bed/inventory/base/panelled.json
 968e26cbee05d2db2128118b2c2bfc5060143dde assets/compendium/models/block/material/wood/crimson/bed/inventory/base/slats.json
 b5a9b5ab2852b75ef7916d71d8cc69b5bb762767 assets/compendium/models/block/material/wood/crimson/bed/inventory/base/solid.json
-7c25b61597195e1b47e48b5a567ce91e126a15e3 assets/compendium/models/block/material/wood/crimson/bed/inventory/base/weave.json
+1abe0c342927d13a31656b6de81bc6532aa90083 assets/compendium/models/block/material/wood/crimson/bed/inventory/base/weave.json
 1343e31ff5f0efb719cfc87ead8fda767042cbb5 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/basic.json
 6b931374f3d559d4594aa78c336ccb60f6e5a615 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/contemporary_slats.json
 a28d0e3ba7992f7808a9f8726d3afbc5db2a12c5 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/cross.json
@@ -7983,11 +7983,11 @@ a28d0e3ba7992f7808a9f8726d3afbc5db2a12c5 assets/compendium/models/block/material
 8a13a346c18a60ce59a152abd4e58fa24aaf2768 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/full.json
 93d5670e46d5e1577dadfa82fde4e0a0fb48c37d assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/lath.json
 8ff92b44298b8adfbce9e7ab5a622db5db89e1de assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/lath_extra.json
-4ca0d11ab06ee1f58f9c2ac8f913cf3bcd0c08fd assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/live_edge.json
+644fe485dfa3a604e601b99f6fd91703c7cd2484 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/live_edge.json
 108f6812cfdcb0cc603db30d49c8e0915167353b assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/panelled.json
-57ca58d353a75177d4d7731a21fd87ad941beb2c assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/slats.json
+0206eb3ce63c52fa45e9b2470a43a64f15117418 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/slats.json
 a52544432b18bd1cc1617d00e484cd1b49b5138f assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/solid.json
-98f51d36625180d3549f35cb49900a2f6862af47 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/weave.json
+838d2fc947277fa94b4114ac5b744bbd60da2cf5 assets/compendium/models/block/material/wood/crimson/bed/inventory/frame/weave.json
 826d82a5199a2bb140aea65fb4edd91d53d71b32 assets/compendium/models/block/material/wood/crimson/bed/occupied/center/foot/base/basic.json
 5ec0f3df3eff52b7dfd81197abbaa4da3eea83a2 assets/compendium/models/block/material/wood/crimson/bed/occupied/center/foot/base/panelled.json
 7cf93e1a569f308095bb9a8e953f5c3e9cd4b81e assets/compendium/models/block/material/wood/crimson/bed/occupied/center/foot/base/slats.json
@@ -8473,7 +8473,7 @@ ae3dd228f20c0c2dc0936f4f808e76856121e722 assets/compendium/models/block/material
 46ebf6780ea2a56a8e50f27ca2a055dc0827dad3 assets/compendium/models/block/material/wood/crimson/clothed_table/legs/side/basic_inventory.json
 8ecbccb02855a99f60015561bd315274ab7eb8d0 assets/compendium/models/block/material/wood/crimson/clothed_table/legs/side/fancy_inventory.json
 89eeb5b0a85dde2efc1c715a0df9e776ad72edbe assets/compendium/models/block/material/wood/crimson/clothed_table/top/basic_inventory.json
-ebf374d08da4a43e6a510347a814bfee028df5fa assets/compendium/models/block/material/wood/crimson/clothed_table/top/smooth_inventory.json
+9e4555e5bd665b63da6c4997cf4ce84ae234dfe9 assets/compendium/models/block/material/wood/crimson/clothed_table/top/smooth_inventory.json
 15d23383dbb35b4d3a17a89261d44eaf70f0dd94 assets/compendium/models/block/material/wood/crimson/clothed_table/top/trimmed_inventory.json
 d3f098fd1ff46c98752b342c41e7a5dbb78c4f91 assets/compendium/models/block/material/wood/crimson/fence/post/basic.json
 8156142daef587766dfd1bd867bd2f2d99162721 assets/compendium/models/block/material/wood/crimson/fence/post/basic_inventory.json
@@ -8516,7 +8516,7 @@ b14d1fa5e4ad4a97dc095efa09483bc4f450ae6b assets/compendium/models/block/material
 87deca9751b250a997973e044dbd23f30cce52dc assets/compendium/models/block/material/wood/crimson/fence/side/solid.json
 eac4fdaaa99ca3bc008de6a575ea275a0c77677a assets/compendium/models/block/material/wood/crimson/fence/side/solid_inventory.json
 3f7527b424af6031a895224bd3bf35df8e402394 assets/compendium/models/block/material/wood/crimson/fence/side/solid_sheet.json
-722003aa4d13b2a4aacf41cc6a80784b9c20b000 assets/compendium/models/block/material/wood/crimson/fence/side/solid_sheet_inventory.json
+9da044cfe9123107647ef0149b79b4196dc31788 assets/compendium/models/block/material/wood/crimson/fence/side/solid_sheet_inventory.json
 057046eef76e0f318bb55379dc2593c32a678f99 assets/compendium/models/block/material/wood/crimson/log/bark_shred_1.json
 057046eef76e0f318bb55379dc2593c32a678f99 assets/compendium/models/block/material/wood/crimson/log/bark_shred_1_horizontal.json
 057046eef76e0f318bb55379dc2593c32a678f99 assets/compendium/models/block/material/wood/crimson/log/bark_shred_1_horizontal_inventory.json
@@ -9410,7 +9410,7 @@ be7424dbd6452a9cc0e24810b8ea1ab1ba89769b assets/compendium/models/block/material
 89eeb5b0a85dde2efc1c715a0df9e776ad72edbe assets/compendium/models/block/material/wood/crimson/table/top/basic.json
 89eeb5b0a85dde2efc1c715a0df9e776ad72edbe assets/compendium/models/block/material/wood/crimson/table/top/basic_inventory.json
 9e4555e5bd665b63da6c4997cf4ce84ae234dfe9 assets/compendium/models/block/material/wood/crimson/table/top/smooth.json
-ebf374d08da4a43e6a510347a814bfee028df5fa assets/compendium/models/block/material/wood/crimson/table/top/smooth_inventory.json
+9e4555e5bd665b63da6c4997cf4ce84ae234dfe9 assets/compendium/models/block/material/wood/crimson/table/top/smooth_inventory.json
 15d23383dbb35b4d3a17a89261d44eaf70f0dd94 assets/compendium/models/block/material/wood/crimson/table/top/trimmed.json
 15d23383dbb35b4d3a17a89261d44eaf70f0dd94 assets/compendium/models/block/material/wood/crimson/table/top/trimmed_inventory.json
 b091edfa9cf750e504494affe1774bbe7e044dc5 assets/compendium/models/block/material/wood/crimson/window/trim/bars.json
@@ -9477,7 +9477,7 @@ f6602256b1cbe491995ec7c05159a1b6f1a04b97 assets/compendium/models/block/material
 78520163c3df6285d9b0c612eb951770a48f30e9 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/base/panelled.json
 74848db0998029540c9c3eb833e0ba0b48d30afa assets/compendium/models/block/material/wood/dark_oak/bed/inventory/base/slats.json
 01cf22e441825d36f3b31715ebb822fe934f5a8b assets/compendium/models/block/material/wood/dark_oak/bed/inventory/base/solid.json
-7a56e066ba0bc3d4661e1dfbcc735436066e3ba0 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/base/weave.json
+bdb4648c107296d77bfc67943f15a6ab287bb074 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/base/weave.json
 173f1cd5e56ae503651aefed5af38308e26dec2e assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/basic.json
 3f12e1cba712568b2ae8618fff9b05b431744709 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/contemporary_slats.json
 95e3326c67b559c0f0c42f9de4a8030be360110f assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/cross.json
@@ -9487,11 +9487,11 @@ c2ebb2a323405b5f1820733eaf53c1057f8c6100 assets/compendium/models/block/material
 295bf9ad84cf7bbd70f82c0bdbcb1b5b0fcb800e assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/full.json
 e5e70b08bb46aa23e8bdb63bf2a15a6254fad3b6 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/lath.json
 6aedc73e9780229dc56a2e6273484baf84f0e282 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/lath_extra.json
-06441f58d03c76f9f4ca91a1df01195475469201 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/live_edge.json
+ed4c0ede90ce178afd699aacd75681df1a2ef27b assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/live_edge.json
 5331e25f885ed70a6d89c7bafc15e7e5d6d58f9f assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/panelled.json
-79fd36ab61b14233c3bbe142a9956593258ea6e4 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/slats.json
+8aaec9d294ea9fa246d3cd2bd03af16118c3ab97 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/slats.json
 6d171dd4c6f93c9f062a29cb92fffadbce581ab8 assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/solid.json
-bbd9a8950eb8465bd021bd7ff222d447a244314b assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/weave.json
+43457d23805459cc0028ceecced005dc40baf29e assets/compendium/models/block/material/wood/dark_oak/bed/inventory/frame/weave.json
 14c814ff4d60317cea7cea4395ca851456782ac4 assets/compendium/models/block/material/wood/dark_oak/bed/occupied/center/foot/base/basic.json
 9b225ee7338a12a3d61cb6c7b38b02bcbb350487 assets/compendium/models/block/material/wood/dark_oak/bed/occupied/center/foot/base/panelled.json
 9021875eb85545a65758418012b9325f33c5a4f4 assets/compendium/models/block/material/wood/dark_oak/bed/occupied/center/foot/base/slats.json
@@ -9977,7 +9977,7 @@ e1c6bf1fb2452fc1f4c31a31d7c7addd6cf4f92c assets/compendium/models/block/material
 205ed08144515530bdac8873ebc9ccc97ac45edf assets/compendium/models/block/material/wood/dark_oak/clothed_table/legs/side/basic_inventory.json
 274946b59856ec0b07dff34b9336418c8185f1d4 assets/compendium/models/block/material/wood/dark_oak/clothed_table/legs/side/fancy_inventory.json
 339ec3b40ca0be1dcffb55396051aaf76d2cf917 assets/compendium/models/block/material/wood/dark_oak/clothed_table/top/basic_inventory.json
-4aed16c498118ebd3a7577ba317b15cdec0ddbad assets/compendium/models/block/material/wood/dark_oak/clothed_table/top/smooth_inventory.json
+8c73751e712cac208f1edb0963ff278569534655 assets/compendium/models/block/material/wood/dark_oak/clothed_table/top/smooth_inventory.json
 cbcca50fb5887929e51353e12a71dd7880186cfc assets/compendium/models/block/material/wood/dark_oak/clothed_table/top/trimmed_inventory.json
 80d928969d76e65def59105552b0ee2ce43a053e assets/compendium/models/block/material/wood/dark_oak/fence/post/basic.json
 e7f084608ce0ab156df5eeaec58931e6d4ff7d8f assets/compendium/models/block/material/wood/dark_oak/fence/post/basic_inventory.json
@@ -10020,7 +10020,7 @@ aae03effdacb0c89c782aa72fc52dd5645530b5c assets/compendium/models/block/material
 81897c8298630af6a87bdae364d3bfaa360ab602 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid.json
 2f0357add003437215455c031a17be55b6604169 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid_inventory.json
 d7de48b044f7dac2f3baf1e29da0bb60a0e97439 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid_sheet.json
-70491a794115fdb0770df28e87b91c4f38fb9504 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid_sheet_inventory.json
+24ee9fce90e05a7fad8c3d3e14a49c8b5dc23421 assets/compendium/models/block/material/wood/dark_oak/fence/side/solid_sheet_inventory.json
 71c8a47e3b03f1eb95d415f8f87e6b4d0a5dafbb assets/compendium/models/block/material/wood/dark_oak/log/bark_shred_1.json
 71c8a47e3b03f1eb95d415f8f87e6b4d0a5dafbb assets/compendium/models/block/material/wood/dark_oak/log/bark_shred_1_horizontal.json
 71c8a47e3b03f1eb95d415f8f87e6b4d0a5dafbb assets/compendium/models/block/material/wood/dark_oak/log/bark_shred_1_horizontal_inventory.json
@@ -10914,7 +10914,7 @@ a6ce14158a4dbfb0b712e16edf3e155416d77144 assets/compendium/models/block/material
 339ec3b40ca0be1dcffb55396051aaf76d2cf917 assets/compendium/models/block/material/wood/dark_oak/table/top/basic.json
 339ec3b40ca0be1dcffb55396051aaf76d2cf917 assets/compendium/models/block/material/wood/dark_oak/table/top/basic_inventory.json
 8c73751e712cac208f1edb0963ff278569534655 assets/compendium/models/block/material/wood/dark_oak/table/top/smooth.json
-4aed16c498118ebd3a7577ba317b15cdec0ddbad assets/compendium/models/block/material/wood/dark_oak/table/top/smooth_inventory.json
+8c73751e712cac208f1edb0963ff278569534655 assets/compendium/models/block/material/wood/dark_oak/table/top/smooth_inventory.json
 cbcca50fb5887929e51353e12a71dd7880186cfc assets/compendium/models/block/material/wood/dark_oak/table/top/trimmed.json
 cbcca50fb5887929e51353e12a71dd7880186cfc assets/compendium/models/block/material/wood/dark_oak/table/top/trimmed_inventory.json
 59bece0bf3231298b0443177305af73b17b47126 assets/compendium/models/block/material/wood/dark_oak/window/trim/bars.json
@@ -10981,7 +10981,7 @@ cd3bda6b40f99619df5f5e6b0b5c4c85993b1e82 assets/compendium/models/block/material
 08ed54b9676508bd19fb74d498b41af0a331193a assets/compendium/models/block/material/wood/jungle/bed/inventory/base/panelled.json
 3d169fd92b054bad4f2552c4c28f4dbd98a4ba39 assets/compendium/models/block/material/wood/jungle/bed/inventory/base/slats.json
 a5a781406561ff7f463f7a349b75dd0c7a2fe34d assets/compendium/models/block/material/wood/jungle/bed/inventory/base/solid.json
-22a8d3354f658d8bf6dd48a79c5b490fd810e8c2 assets/compendium/models/block/material/wood/jungle/bed/inventory/base/weave.json
+5c9acb93355bdbf8cf0da61dfb7916e53d86bfe9 assets/compendium/models/block/material/wood/jungle/bed/inventory/base/weave.json
 f95dcfb02f67c389095258d7bf8fdf18976a4e87 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/basic.json
 c594f18b72ac5b469cf520d07af6047a414c6f64 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/contemporary_slats.json
 29a05405b0eaa76bf0c701627e80425e2ef49c89 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/cross.json
@@ -10991,11 +10991,11 @@ d03e56a3e9bdb4247df33606bb7e2d1d8458af6a assets/compendium/models/block/material
 284ddea53c6e22180627c04281046cde2b6564f7 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/full.json
 dd161b7f57a4d40be7268ce101e6f394fc0231b0 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/lath.json
 5a4eab69fd0ab0f791f5e308e9bc84379dd95258 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/lath_extra.json
-b34513bb69ab43542571bb2fcd04b826466fcc62 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/live_edge.json
+5d9ec4dfe34fd7731733935747580e6db81120f8 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/live_edge.json
 b2df943363b7bf05cadf3ea3d27c0a6b8feee66a assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/panelled.json
-8c53a956ec062f2c02f7eb632843e2ddc0a58bd5 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/slats.json
+96793a0a4e0c6d18b70b6f9ce1fe224a188ff5ba assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/slats.json
 b1ea84d9ee0205543dfab9bd5d5448d981016893 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/solid.json
-6f359e9835e04d632c0dc73ae35a57d5ffdab551 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/weave.json
+420bb2e28f291201ef470065f976ac1d0f5fe9a8 assets/compendium/models/block/material/wood/jungle/bed/inventory/frame/weave.json
 fa33ad74c70fef537ab932ffe5cd7b7a31b7e7f3 assets/compendium/models/block/material/wood/jungle/bed/occupied/center/foot/base/basic.json
 0fefa5ccc2d4982befbf41cafbd3e5b9847ca947 assets/compendium/models/block/material/wood/jungle/bed/occupied/center/foot/base/panelled.json
 5b6ee2ea2d529e2f3b7c57bba05bb4b4f1245f7d assets/compendium/models/block/material/wood/jungle/bed/occupied/center/foot/base/slats.json
@@ -11481,7 +11481,7 @@ a1977dc80ee2816279f106fb0b6f0d86c8896324 assets/compendium/models/block/material
 7fc7baee62cd8f9036b8b8a460d867bcd35c273e assets/compendium/models/block/material/wood/jungle/clothed_table/legs/side/basic_inventory.json
 0f87790f2808b369018720d50247fb4fd5805a59 assets/compendium/models/block/material/wood/jungle/clothed_table/legs/side/fancy_inventory.json
 25cbf16d15e7fba5f8566f85ef0b831d10385d9b assets/compendium/models/block/material/wood/jungle/clothed_table/top/basic_inventory.json
-612b1f9740771147c4bb6e71c88a5a8b2cd4e122 assets/compendium/models/block/material/wood/jungle/clothed_table/top/smooth_inventory.json
+b5f27896a8901698e3742d639c926af37cc4dce4 assets/compendium/models/block/material/wood/jungle/clothed_table/top/smooth_inventory.json
 37dd7cb34ec24622b9e327f490a53b7c72506f0a assets/compendium/models/block/material/wood/jungle/clothed_table/top/trimmed_inventory.json
 c7dea56f8d0a1094cf1aba3095989c4a09e4ecf7 assets/compendium/models/block/material/wood/jungle/fence/post/basic.json
 00c398cbb0d1efbff2edecdcd5e0adcd169f1f62 assets/compendium/models/block/material/wood/jungle/fence/post/basic_inventory.json
@@ -11524,7 +11524,7 @@ b4495bbe2b155af1b23330a98387201820e37097 assets/compendium/models/block/material
 2af78f26307263bb72cff7489eae475132bb3b0d assets/compendium/models/block/material/wood/jungle/fence/side/solid.json
 2c665e2a07f491da237d522253e8870a3537e154 assets/compendium/models/block/material/wood/jungle/fence/side/solid_inventory.json
 4cd72120a8c51e6ec566d6c3ae75d9e1f290cdf9 assets/compendium/models/block/material/wood/jungle/fence/side/solid_sheet.json
-7ac00f4f1f7a4f4fdf1bc828a393dbe8af6c4051 assets/compendium/models/block/material/wood/jungle/fence/side/solid_sheet_inventory.json
+e609c33f870ee2815ccc5cef3e530e64698aadfe assets/compendium/models/block/material/wood/jungle/fence/side/solid_sheet_inventory.json
 b032ece35c882d76571222a786d517292e5af7e4 assets/compendium/models/block/material/wood/jungle/log/bark_shred_1.json
 b032ece35c882d76571222a786d517292e5af7e4 assets/compendium/models/block/material/wood/jungle/log/bark_shred_1_horizontal.json
 b032ece35c882d76571222a786d517292e5af7e4 assets/compendium/models/block/material/wood/jungle/log/bark_shred_1_horizontal_inventory.json
@@ -12418,7 +12418,7 @@ ac2e5eff66a5f3d6daf4a89497917db648dde134 assets/compendium/models/block/material
 25cbf16d15e7fba5f8566f85ef0b831d10385d9b assets/compendium/models/block/material/wood/jungle/table/top/basic.json
 25cbf16d15e7fba5f8566f85ef0b831d10385d9b assets/compendium/models/block/material/wood/jungle/table/top/basic_inventory.json
 b5f27896a8901698e3742d639c926af37cc4dce4 assets/compendium/models/block/material/wood/jungle/table/top/smooth.json
-612b1f9740771147c4bb6e71c88a5a8b2cd4e122 assets/compendium/models/block/material/wood/jungle/table/top/smooth_inventory.json
+b5f27896a8901698e3742d639c926af37cc4dce4 assets/compendium/models/block/material/wood/jungle/table/top/smooth_inventory.json
 37dd7cb34ec24622b9e327f490a53b7c72506f0a assets/compendium/models/block/material/wood/jungle/table/top/trimmed.json
 37dd7cb34ec24622b9e327f490a53b7c72506f0a assets/compendium/models/block/material/wood/jungle/table/top/trimmed_inventory.json
 fb6501b125b9cce19b2ff632bea966446cd1e377 assets/compendium/models/block/material/wood/jungle/window/trim/bars.json
@@ -12485,7 +12485,7 @@ c5de903252998c2d8e4c3c62ea1410e08617c437 assets/compendium/models/block/material
 bd40ab6a9e8edc9c1c46490a3e8fffdcb2c38d3b assets/compendium/models/block/material/wood/mangrove/bed/inventory/base/panelled.json
 c6733ebef26695558992685837653e4f1765acf4 assets/compendium/models/block/material/wood/mangrove/bed/inventory/base/slats.json
 4765bb6b1aa8228f39acfa67b3251c948ebd2baa assets/compendium/models/block/material/wood/mangrove/bed/inventory/base/solid.json
-e4fc6b60708f962d966031c08f652c82ded430c0 assets/compendium/models/block/material/wood/mangrove/bed/inventory/base/weave.json
+7e55aead6e2ef6c7e11ad977c15ecc5de8b22d96 assets/compendium/models/block/material/wood/mangrove/bed/inventory/base/weave.json
 42f998e979d2ac0a93aeb8deb5679d8ea529294d assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/basic.json
 b7e9b50ae340fc7804606ad774f379fdac26ac10 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/contemporary_slats.json
 dc37afa1943fe430d575874974577edeafaca804 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/cross.json
@@ -12495,11 +12495,11 @@ a855e6db2465043a73731f683f7b22df957015e7 assets/compendium/models/block/material
 8e00b54ef26b5754f41db7bb274c9dbe9ff8adc2 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/full.json
 57038b7b4ea6bacb8eb4416396a20c6316bed170 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/lath.json
 f95403683b3fc2ceb257120958cbdf6a6c3ff28f assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/lath_extra.json
-ac5ac9ade8a6d4444c45811c2a75ef29e75e5240 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/live_edge.json
+b7e5d2e1e8921c9e69d65a6c38e70f622439605e assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/live_edge.json
 365820d9be3c99e5cce993de92c141f89e8e0f21 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/panelled.json
-9387cc4d070773a30e6740b81832ed4f18307d7a assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/slats.json
+85359aad2b54423273d5d62db9c4ecacbb44fc76 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/slats.json
 d1b820d48bb1ca2dd5550eb3cebd01ade9b9ebef assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/solid.json
-cfbc46ae2916afdbf59c4d1c5b142e10c9e3c033 assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/weave.json
+7584b54cb7627baac4d5d501a63f66ae49bf528b assets/compendium/models/block/material/wood/mangrove/bed/inventory/frame/weave.json
 aec017bc7430336a5ef75fec7b8036dc8ab9f3a3 assets/compendium/models/block/material/wood/mangrove/bed/occupied/center/foot/base/basic.json
 de15a432bcd7e556ef7d3ff08a27e82f69ba568e assets/compendium/models/block/material/wood/mangrove/bed/occupied/center/foot/base/panelled.json
 1aeb9a6f9efe2d29614a00dc275e2da9d1d37a5e assets/compendium/models/block/material/wood/mangrove/bed/occupied/center/foot/base/slats.json
@@ -12985,7 +12985,7 @@ ff4573f387d6bb8138a0c4886bdf428eba8d6b85 assets/compendium/models/block/material
 4e97b071cf25d45faa2dc4d5f3794f491ce5e41e assets/compendium/models/block/material/wood/mangrove/clothed_table/legs/side/basic_inventory.json
 5eec5cf699886e728053fed8509823bea59c6ef8 assets/compendium/models/block/material/wood/mangrove/clothed_table/legs/side/fancy_inventory.json
 69897d6f965a0a64b5ea9c3f24e6fe79ac252c0f assets/compendium/models/block/material/wood/mangrove/clothed_table/top/basic_inventory.json
-f8d4981d88a96b34b8941c35ca9325b1409d3043 assets/compendium/models/block/material/wood/mangrove/clothed_table/top/smooth_inventory.json
+8bd9a44afdf28cbdd96e7e5600f278c52044d8e5 assets/compendium/models/block/material/wood/mangrove/clothed_table/top/smooth_inventory.json
 19852b9f2bba197902c4b33362b77e6135af1e96 assets/compendium/models/block/material/wood/mangrove/clothed_table/top/trimmed_inventory.json
 5f24e4528ecdce3c74a7bd53966e99468408d048 assets/compendium/models/block/material/wood/mangrove/fence/post/basic.json
 894d8a21d9ef0fb282b8130a9be45b419c200a5c assets/compendium/models/block/material/wood/mangrove/fence/post/basic_inventory.json
@@ -13028,7 +13028,7 @@ e69448c1c6e85356c7c8b7f2abb6d36115539a74 assets/compendium/models/block/material
 d3a5f28fd4976dc48d3a6c1394cc369187515c47 assets/compendium/models/block/material/wood/mangrove/fence/side/solid.json
 bf82e859ea743c5459f21d727029c0b3bd0d76e6 assets/compendium/models/block/material/wood/mangrove/fence/side/solid_inventory.json
 54bb9783885ff562629e7d529554a1b6d76e901c assets/compendium/models/block/material/wood/mangrove/fence/side/solid_sheet.json
-906251e511bd82c6225a068b17e31fca4125646a assets/compendium/models/block/material/wood/mangrove/fence/side/solid_sheet_inventory.json
+6dc7eecf48d066416d73a0a5b8bc681247b54a76 assets/compendium/models/block/material/wood/mangrove/fence/side/solid_sheet_inventory.json
 eb915e68420bf7fa111e377574e915d53224ae8c assets/compendium/models/block/material/wood/mangrove/log/bark_shred_1.json
 eb915e68420bf7fa111e377574e915d53224ae8c assets/compendium/models/block/material/wood/mangrove/log/bark_shred_1_horizontal.json
 eb915e68420bf7fa111e377574e915d53224ae8c assets/compendium/models/block/material/wood/mangrove/log/bark_shred_1_horizontal_inventory.json
@@ -13922,7 +13922,7 @@ eeff5ee184fea29c654c8dc255fb837f74f9b30c assets/compendium/models/block/material
 69897d6f965a0a64b5ea9c3f24e6fe79ac252c0f assets/compendium/models/block/material/wood/mangrove/table/top/basic.json
 69897d6f965a0a64b5ea9c3f24e6fe79ac252c0f assets/compendium/models/block/material/wood/mangrove/table/top/basic_inventory.json
 8bd9a44afdf28cbdd96e7e5600f278c52044d8e5 assets/compendium/models/block/material/wood/mangrove/table/top/smooth.json
-f8d4981d88a96b34b8941c35ca9325b1409d3043 assets/compendium/models/block/material/wood/mangrove/table/top/smooth_inventory.json
+8bd9a44afdf28cbdd96e7e5600f278c52044d8e5 assets/compendium/models/block/material/wood/mangrove/table/top/smooth_inventory.json
 19852b9f2bba197902c4b33362b77e6135af1e96 assets/compendium/models/block/material/wood/mangrove/table/top/trimmed.json
 19852b9f2bba197902c4b33362b77e6135af1e96 assets/compendium/models/block/material/wood/mangrove/table/top/trimmed_inventory.json
 e943cd3d335574c0b1005acb67ff5b7e86e61ad7 assets/compendium/models/block/material/wood/mangrove/window/trim/bars.json
@@ -13989,7 +13989,7 @@ b260a150e62b446bfce14e8dd4fc46b25528d614 assets/compendium/models/block/material
 c0e3efbb2e8654017306e9e4b3d4c74b4aea715e assets/compendium/models/block/material/wood/oak/bed/inventory/base/panelled.json
 bcdc2057f64b5bcfb43121c0ef7ff6aefa754fd2 assets/compendium/models/block/material/wood/oak/bed/inventory/base/slats.json
 a6e4ac1214653ccb8cf904a2b392e04a29740d86 assets/compendium/models/block/material/wood/oak/bed/inventory/base/solid.json
-dd194ec608427559c092b433b34e0628275799e1 assets/compendium/models/block/material/wood/oak/bed/inventory/base/weave.json
+fb660b321a1278c13df4a1496c4e76e7574e8489 assets/compendium/models/block/material/wood/oak/bed/inventory/base/weave.json
 acd187150f1bccb22f84fcf3353e4dc7e4d0e80c assets/compendium/models/block/material/wood/oak/bed/inventory/frame/basic.json
 f825a7f7d5cf49b162d06c0b8036e2da9e19f03b assets/compendium/models/block/material/wood/oak/bed/inventory/frame/contemporary_slats.json
 ca58b609f1fe85509179b640879732a0230294fa assets/compendium/models/block/material/wood/oak/bed/inventory/frame/cross.json
@@ -13999,11 +13999,11 @@ c8c1a07c0b244640419a6f887c4a2698940619c1 assets/compendium/models/block/material
 5881063d38b802c0d2b2c188846fd2f813096b07 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/full.json
 76884943a230687f3a8714fa2f5e53a939a95c9d assets/compendium/models/block/material/wood/oak/bed/inventory/frame/lath.json
 eebf5c7ff35018d73d09298cd5267e59aff1e9b3 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/lath_extra.json
-513e3dbc1da9f07e5729d824336361c0d383b748 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/live_edge.json
+1ca68dfb5907e9bb22c1c5903c373807634a36ab assets/compendium/models/block/material/wood/oak/bed/inventory/frame/live_edge.json
 94217e9e6c50f28ab160dc71c6344e049c3bc704 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/panelled.json
-e0e3ed36a8c7d10a70864f94f177388a6e787667 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/slats.json
+5e2b36cc1771fab57968ff18f87cae576794b24e assets/compendium/models/block/material/wood/oak/bed/inventory/frame/slats.json
 14aec5dbba6687b6cff97f1757375972d3c239c2 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/solid.json
-90676bee517764077880dfba01f52ae53f7d2314 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/weave.json
+c9b0fea77c45d5eb039ad9f2117c03d1397f2603 assets/compendium/models/block/material/wood/oak/bed/inventory/frame/weave.json
 7bc0b8a78f19106c307060ad8e459b6a37daaf8f assets/compendium/models/block/material/wood/oak/bed/occupied/center/foot/base/basic.json
 995957a28980a0e29ba8775910b1808df5b6f547 assets/compendium/models/block/material/wood/oak/bed/occupied/center/foot/base/panelled.json
 943780c525549d64b5f0039df6a895db3d0d6453 assets/compendium/models/block/material/wood/oak/bed/occupied/center/foot/base/slats.json
@@ -14489,7 +14489,7 @@ c28d71d5af801925567379949f05abf458f7a765 assets/compendium/models/block/material
 6fd0fc5a4ac8e469abd9ea4744a70d2ba5706277 assets/compendium/models/block/material/wood/oak/clothed_table/legs/side/basic_inventory.json
 c78f510ae7f2149dc5fdbc7e448c1b95d4464d91 assets/compendium/models/block/material/wood/oak/clothed_table/legs/side/fancy_inventory.json
 85b988db3c5fce36b9522bfa081dba9c10a9ef6b assets/compendium/models/block/material/wood/oak/clothed_table/top/basic_inventory.json
-b8c9504432534beeb35ef2742822a15d9a1d81a5 assets/compendium/models/block/material/wood/oak/clothed_table/top/smooth_inventory.json
+fe3a635934916075dd8c768988698c5c2d0deafa assets/compendium/models/block/material/wood/oak/clothed_table/top/smooth_inventory.json
 ff300256e963ef52931181a9ba225169d9df0475 assets/compendium/models/block/material/wood/oak/clothed_table/top/trimmed_inventory.json
 54412e38c57cc25dc404899c06921bca5dd4faaf assets/compendium/models/block/material/wood/oak/fence/post/basic.json
 a8bd70901c7c4b9b4385ab42aef058c4b5c0af42 assets/compendium/models/block/material/wood/oak/fence/post/basic_inventory.json
@@ -14532,7 +14532,7 @@ d9adb44de08552dc99b84a983ea45e913e380b1d assets/compendium/models/block/material
 a4332a696d294f510506cd12b9c1b6e832e4936f assets/compendium/models/block/material/wood/oak/fence/side/solid.json
 acd31ea803584d8601edaa07d7be6ad4abb3dcee assets/compendium/models/block/material/wood/oak/fence/side/solid_inventory.json
 f98c19918534d7f9c0cdb4aef19fa639398134df assets/compendium/models/block/material/wood/oak/fence/side/solid_sheet.json
-18ae2a9e6de362444900db2adcca5c4cb7bbd74e assets/compendium/models/block/material/wood/oak/fence/side/solid_sheet_inventory.json
+149ba963c8fba2bb12e59cb359f548fec42d0326 assets/compendium/models/block/material/wood/oak/fence/side/solid_sheet_inventory.json
 591441ebff8eaa6206c5ff7acc37bfacc29f4caf assets/compendium/models/block/material/wood/oak/log/bark_shred_1.json
 591441ebff8eaa6206c5ff7acc37bfacc29f4caf assets/compendium/models/block/material/wood/oak/log/bark_shred_1_horizontal.json
 591441ebff8eaa6206c5ff7acc37bfacc29f4caf assets/compendium/models/block/material/wood/oak/log/bark_shred_1_horizontal_inventory.json
@@ -15426,7 +15426,7 @@ c78f510ae7f2149dc5fdbc7e448c1b95d4464d91 assets/compendium/models/block/material
 85b988db3c5fce36b9522bfa081dba9c10a9ef6b assets/compendium/models/block/material/wood/oak/table/top/basic.json
 85b988db3c5fce36b9522bfa081dba9c10a9ef6b assets/compendium/models/block/material/wood/oak/table/top/basic_inventory.json
 fe3a635934916075dd8c768988698c5c2d0deafa assets/compendium/models/block/material/wood/oak/table/top/smooth.json
-b8c9504432534beeb35ef2742822a15d9a1d81a5 assets/compendium/models/block/material/wood/oak/table/top/smooth_inventory.json
+fe3a635934916075dd8c768988698c5c2d0deafa assets/compendium/models/block/material/wood/oak/table/top/smooth_inventory.json
 ff300256e963ef52931181a9ba225169d9df0475 assets/compendium/models/block/material/wood/oak/table/top/trimmed.json
 ff300256e963ef52931181a9ba225169d9df0475 assets/compendium/models/block/material/wood/oak/table/top/trimmed_inventory.json
 68a7501bb0d71bccb0b5bbc92128aed8f83b3686 assets/compendium/models/block/material/wood/oak/window/trim/bars.json
@@ -15493,7 +15493,7 @@ b148d3b7b21259b39882e3c6de06e415754de280 assets/compendium/models/block/material
 62bb8a39761dd94a75e193f5c332aada189cfca7 assets/compendium/models/block/material/wood/spruce/bed/inventory/base/panelled.json
 f7f8b04ae37e2f6327e1fb54a98fea664e42844c assets/compendium/models/block/material/wood/spruce/bed/inventory/base/slats.json
 0276f82109378a4cd8db9195df0d3c92d956d3a5 assets/compendium/models/block/material/wood/spruce/bed/inventory/base/solid.json
-9a3f2cc52f730ec8ae717386d5ce5d790c3174e5 assets/compendium/models/block/material/wood/spruce/bed/inventory/base/weave.json
+7e29872a9c368e6202f5c188272f55dda9489d86 assets/compendium/models/block/material/wood/spruce/bed/inventory/base/weave.json
 d68eb25850c6bdb40a7ee9ad29d3f28040fa685e assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/basic.json
 0c29801740cf0362e86939e82c1ec849d075982b assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/contemporary_slats.json
 82f50a2200d21240e2a8a382c2ed77856e13f00a assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/cross.json
@@ -15503,11 +15503,11 @@ ab9563bb3fa2777be3a5fa3e0816ba9293fc6368 assets/compendium/models/block/material
 3554b52cec8ca17d8e6cd6d719aa4d1b55df614c assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/full.json
 2c5c53df3c7a1b69e579fed79a3048af7b5c6ed2 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/lath.json
 7cfda9f6e13db7dfce5a5624a13cf53f5182164c assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/lath_extra.json
-6bf2ef70d2b1d2aa6a693fe5c7be2833b23d57e1 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/live_edge.json
+900c2396956b640e9715c189f917556795c26fd7 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/live_edge.json
 8fc1f6ae762b929112155d65a0a219fe8a813cb9 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/panelled.json
-274d66a7c76346a3d1ddf70a331bf68017c0b93c assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/slats.json
+cadf767c2c61f0a3a3e7678e06ad49b4d36e9b67 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/slats.json
 01e0dbb6a97d48bc40061c9724852c694dcbf29c assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/solid.json
-505c2ad3ce0f504b8636df71cfe80923188f48af assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/weave.json
+57a4067be8c814da754b21e0fb076eb32dd72a58 assets/compendium/models/block/material/wood/spruce/bed/inventory/frame/weave.json
 a9cb04cbd2799064a5089fcd6db0b16c427b5ff3 assets/compendium/models/block/material/wood/spruce/bed/occupied/center/foot/base/basic.json
 e3c17f9517dd8fad59bea5f212634d9e26a124df assets/compendium/models/block/material/wood/spruce/bed/occupied/center/foot/base/panelled.json
 3175b0437756eb7973692912f1711d0c8b213739 assets/compendium/models/block/material/wood/spruce/bed/occupied/center/foot/base/slats.json
@@ -15993,7 +15993,7 @@ ded9ac80c14adf35b90381deeab26b0d65bc9666 assets/compendium/models/block/material
 0356499b45132911cba76e885fa89af0c8ae0164 assets/compendium/models/block/material/wood/spruce/clothed_table/legs/side/basic_inventory.json
 3345fa25f483ecd048fa044ab43c22a0448c230a assets/compendium/models/block/material/wood/spruce/clothed_table/legs/side/fancy_inventory.json
 bef97f4025ed6b8c154ef7e3dedd37393893948e assets/compendium/models/block/material/wood/spruce/clothed_table/top/basic_inventory.json
-074973ac5e3d80cd3ca80547a61012c55edfccbf assets/compendium/models/block/material/wood/spruce/clothed_table/top/smooth_inventory.json
+ec7b26df5b2e492659e380e1d1dc9df7f019e3f3 assets/compendium/models/block/material/wood/spruce/clothed_table/top/smooth_inventory.json
 71e0d156dc5b63ba0fffe0b7860891aa8a68bdda assets/compendium/models/block/material/wood/spruce/clothed_table/top/trimmed_inventory.json
 718372afffaf936b1569ef6daf9bcb4717014df9 assets/compendium/models/block/material/wood/spruce/fence/post/basic.json
 46731f3557915e2a70f61c04d7a870eaacd9fc82 assets/compendium/models/block/material/wood/spruce/fence/post/basic_inventory.json
@@ -16036,7 +16036,7 @@ e9a486221e33412d50be5efd1a728bb082263bd9 assets/compendium/models/block/material
 e4c9906215737432147bfe9b41a7300596c9483d assets/compendium/models/block/material/wood/spruce/fence/side/solid.json
 0fd87e615076a55ec2a9b423bee00f8669216da5 assets/compendium/models/block/material/wood/spruce/fence/side/solid_inventory.json
 04ced1a60ae2a0a8cc728b3c8d347dbbd086946c assets/compendium/models/block/material/wood/spruce/fence/side/solid_sheet.json
-69940ae6ddba1be3766cf0e00e06a2abe7043a35 assets/compendium/models/block/material/wood/spruce/fence/side/solid_sheet_inventory.json
+095da13ccf11eda5b333ee06e3a3e89dbbc32970 assets/compendium/models/block/material/wood/spruce/fence/side/solid_sheet_inventory.json
 9c7cf7f9f68b397211180deb29292eeb773c51ee assets/compendium/models/block/material/wood/spruce/log/bark_shred_1.json
 9c7cf7f9f68b397211180deb29292eeb773c51ee assets/compendium/models/block/material/wood/spruce/log/bark_shred_1_horizontal.json
 9c7cf7f9f68b397211180deb29292eeb773c51ee assets/compendium/models/block/material/wood/spruce/log/bark_shred_1_horizontal_inventory.json
@@ -16930,7 +16930,7 @@ b2ca3bb035e28459922ea952303bc72a89e97499 assets/compendium/models/block/material
 bef97f4025ed6b8c154ef7e3dedd37393893948e assets/compendium/models/block/material/wood/spruce/table/top/basic.json
 bef97f4025ed6b8c154ef7e3dedd37393893948e assets/compendium/models/block/material/wood/spruce/table/top/basic_inventory.json
 ec7b26df5b2e492659e380e1d1dc9df7f019e3f3 assets/compendium/models/block/material/wood/spruce/table/top/smooth.json
-074973ac5e3d80cd3ca80547a61012c55edfccbf assets/compendium/models/block/material/wood/spruce/table/top/smooth_inventory.json
+ec7b26df5b2e492659e380e1d1dc9df7f019e3f3 assets/compendium/models/block/material/wood/spruce/table/top/smooth_inventory.json
 71e0d156dc5b63ba0fffe0b7860891aa8a68bdda assets/compendium/models/block/material/wood/spruce/table/top/trimmed.json
 71e0d156dc5b63ba0fffe0b7860891aa8a68bdda assets/compendium/models/block/material/wood/spruce/table/top/trimmed_inventory.json
 c6f7598f5c05dbbc0456468b0785dcdd0ea127f7 assets/compendium/models/block/material/wood/spruce/window/trim/bars.json
@@ -16997,7 +16997,7 @@ c039864c6d339419f5737380ff2f0b0f267bde7d assets/compendium/models/block/material
 5c52c92df501684da37096880ad49f9757919628 assets/compendium/models/block/material/wood/warped/bed/inventory/base/panelled.json
 faf35a2756ba0a18cf90a0f0f0c590019c4cb78a assets/compendium/models/block/material/wood/warped/bed/inventory/base/slats.json
 c570451dc228001c55669f685701090ae5833989 assets/compendium/models/block/material/wood/warped/bed/inventory/base/solid.json
-a7b21e0d54def7d08bdcfc402d4a9aa569eb82a7 assets/compendium/models/block/material/wood/warped/bed/inventory/base/weave.json
+d5b069de852956448e83e328379909d24b3523ba assets/compendium/models/block/material/wood/warped/bed/inventory/base/weave.json
 8ba541860e791ac24ca2588e438ba6fc3b962319 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/basic.json
 aece6840792c66c213f5d38cdd63b1f44fc6a542 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/contemporary_slats.json
 b5fbbef4f03b068d92e5a050d327a56334e4c129 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/cross.json
@@ -17007,11 +17007,11 @@ b5fbbef4f03b068d92e5a050d327a56334e4c129 assets/compendium/models/block/material
 a0b77a127b207b0ff8c18f1bbc4420776b71e9f3 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/full.json
 c42d34f45ec36220afec149632425d73bd766d05 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/lath.json
 efc7a8094271d50bec09a70fe091078f57ce185c assets/compendium/models/block/material/wood/warped/bed/inventory/frame/lath_extra.json
-7b2fd29d6315bd07e00a72de438ec760c60521be assets/compendium/models/block/material/wood/warped/bed/inventory/frame/live_edge.json
+de3a22d4a73d721d14b97ff1989afc059fc6e8ce assets/compendium/models/block/material/wood/warped/bed/inventory/frame/live_edge.json
 f9db089977bcd994cbed34e0dbccbe72010586f7 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/panelled.json
-2efae2ffe8f5ccd4e08791dc2052c0edc14b71b6 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/slats.json
+1f4c3e3b0c576358f18cbaa19776d55487bb4820 assets/compendium/models/block/material/wood/warped/bed/inventory/frame/slats.json
 02b902a49fe21dbe6ed4e8fdb6ecdba3a71eea6f assets/compendium/models/block/material/wood/warped/bed/inventory/frame/solid.json
-b2ce8c06e12d82f150772cd8eec7414ac8cd448d assets/compendium/models/block/material/wood/warped/bed/inventory/frame/weave.json
+f0192da19ead8150ffda69c98843360e2489160c assets/compendium/models/block/material/wood/warped/bed/inventory/frame/weave.json
 467893efb694669eb89cff2c3596400ab9711975 assets/compendium/models/block/material/wood/warped/bed/occupied/center/foot/base/basic.json
 60ba45826a48ed6e932a9660bad2093c63790827 assets/compendium/models/block/material/wood/warped/bed/occupied/center/foot/base/panelled.json
 3f3455f9c479a8ffb064956b1c4870c93ade0547 assets/compendium/models/block/material/wood/warped/bed/occupied/center/foot/base/slats.json
@@ -17497,7 +17497,7 @@ fd03300a3f9536856652b81a5d79d09080c68dab assets/compendium/models/block/material
 dce02e9a1ab39ca811af445141bb33f359cde31f assets/compendium/models/block/material/wood/warped/clothed_table/legs/side/basic_inventory.json
 76963591437a118cc6e9a4437075d7d37b39eab9 assets/compendium/models/block/material/wood/warped/clothed_table/legs/side/fancy_inventory.json
 968fc228220b31dab97b608d60e6dceeea3ea2e7 assets/compendium/models/block/material/wood/warped/clothed_table/top/basic_inventory.json
-8ca4dad900d2614554845867662d8be9cb920255 assets/compendium/models/block/material/wood/warped/clothed_table/top/smooth_inventory.json
+e94b39ae8007d3e84f0cb9b40892a6e98a8fff7c assets/compendium/models/block/material/wood/warped/clothed_table/top/smooth_inventory.json
 e1bb7bac993531f42ec662bfd9f5069236380758 assets/compendium/models/block/material/wood/warped/clothed_table/top/trimmed_inventory.json
 c527a842ab9796c02824cfe2e5ec9ba86cf745b2 assets/compendium/models/block/material/wood/warped/fence/post/basic.json
 386545ea19c68c89a05ca61257f9b900904751b1 assets/compendium/models/block/material/wood/warped/fence/post/basic_inventory.json
@@ -17540,7 +17540,7 @@ f32c403f30fc610e7b6d0da2242c2e819519d5af assets/compendium/models/block/material
 8f624b1ce191fe293cc91db6c0a42880d57122dc assets/compendium/models/block/material/wood/warped/fence/side/solid.json
 3f5fb60cede9df5b7e72ca20e6339f7510838a6e assets/compendium/models/block/material/wood/warped/fence/side/solid_inventory.json
 9be5bf164b8994d798af7c6d715296f7a9dac91e assets/compendium/models/block/material/wood/warped/fence/side/solid_sheet.json
-aa12538c2f2743073715f725cabf0fc3fbf06a54 assets/compendium/models/block/material/wood/warped/fence/side/solid_sheet_inventory.json
+478ee47418850833d26b22a0d7b044f27f12b46a assets/compendium/models/block/material/wood/warped/fence/side/solid_sheet_inventory.json
 634e22c0dbbe1f9bdd02f2b328e5dce3037d396f assets/compendium/models/block/material/wood/warped/log/bark_shred_1.json
 634e22c0dbbe1f9bdd02f2b328e5dce3037d396f assets/compendium/models/block/material/wood/warped/log/bark_shred_1_horizontal.json
 634e22c0dbbe1f9bdd02f2b328e5dce3037d396f assets/compendium/models/block/material/wood/warped/log/bark_shred_1_horizontal_inventory.json
@@ -18434,7 +18434,7 @@ dce02e9a1ab39ca811af445141bb33f359cde31f assets/compendium/models/block/material
 968fc228220b31dab97b608d60e6dceeea3ea2e7 assets/compendium/models/block/material/wood/warped/table/top/basic.json
 968fc228220b31dab97b608d60e6dceeea3ea2e7 assets/compendium/models/block/material/wood/warped/table/top/basic_inventory.json
 e94b39ae8007d3e84f0cb9b40892a6e98a8fff7c assets/compendium/models/block/material/wood/warped/table/top/smooth.json
-8ca4dad900d2614554845867662d8be9cb920255 assets/compendium/models/block/material/wood/warped/table/top/smooth_inventory.json
+e94b39ae8007d3e84f0cb9b40892a6e98a8fff7c assets/compendium/models/block/material/wood/warped/table/top/smooth_inventory.json
 e1bb7bac993531f42ec662bfd9f5069236380758 assets/compendium/models/block/material/wood/warped/table/top/trimmed.json
 e1bb7bac993531f42ec662bfd9f5069236380758 assets/compendium/models/block/material/wood/warped/table/top/trimmed_inventory.json
 297aef5c7d15024961ec12b87d7129203faa3560 assets/compendium/models/block/material/wood/warped/window/trim/bars.json

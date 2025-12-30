@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:birch_plank_stairs_item"
+      "item": "minecraft:birch_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "compendium:birch_plank_item"
+    "id": "minecraft:birch_plank_item"
   }
 }

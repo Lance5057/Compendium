@@ -9,15 +9,17 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
-import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.HoeItem;
@@ -31,64 +33,50 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ExtensionVanillaTools extends _MaterialExtension {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6058992077769136068L;
-	boolean loadSword;
-	boolean loadAxe;
-	boolean loadShovel;
-	boolean loadHoe;
-	boolean loadPickaxe;
 
-	public DeferredItem<Item> SWORD;
-	public DeferredItem<Item> AXE;
-	public DeferredItem<Item> SHOVEL;
-	public DeferredItem<Item> HOE;
-	public DeferredItem<Item> PICKAXE;
+	public CompendiumItemHandler SWORD = new CompendiumItemHandler("sword");
+	public CompendiumItemHandler AXE = new CompendiumItemHandler("axe");
+	public CompendiumItemHandler SHOVEL = new CompendiumItemHandler("shovel");
+	public CompendiumItemHandler HOE = new CompendiumItemHandler("hoe");
+	public CompendiumItemHandler PICKAXE = new CompendiumItemHandler("pickaxe");
 
-	public ExtensionVanillaTools(boolean sword, boolean axe, boolean shovel, boolean hoe, boolean pickaxe) {
-		this.loadSword = sword;
-		this.loadAxe = axe;
-		this.loadHoe = hoe;
-		this.loadPickaxe = pickaxe;
-		this.loadShovel = shovel;
+	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel,
+			Generate hoe, Generate pickaxe) {
+		SWORD.setGenerate(sword);
+		AXE.setGenerate(axe);
+		SHOVEL.setGenerate(shovel);
+		PICKAXE.setGenerate(pickaxe);
+		HOE.setGenerate(hoe);
 	}
 
 	@Override
 	public void setup(_MaterialBase base) {
-		if (this.loadAxe)
-			AXE = CompendiumIndex.ITEMS.register(base.name + "_axe",
-					() -> new AxeItem(base.tier, new Item.Properties()));
-		if (this.loadHoe)
-			HOE = CompendiumIndex.ITEMS.register(base.name + "_hoe",
-					() -> new HoeItem(base.tier, new Item.Properties()));
-		if (this.loadPickaxe)
-			PICKAXE = CompendiumIndex.ITEMS.register(base.name + "_pickaxe",
-					() -> new PickaxeItem(base.tier, new Item.Properties()));
-		if (this.loadShovel)
-			SHOVEL = CompendiumIndex.ITEMS.register(base.name + "_shovel",
-					() -> new ShovelItem(base.tier, new Item.Properties()));
-		if (this.loadSword)
-			SWORD = CompendiumIndex.ITEMS.register(base.name + "_sword",
-					() -> new SwordItem(base.tier, new Item.Properties()));
+		AXE.setup(base, () -> new AxeItem(base.tier, new Item.Properties()),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_axe"));
+		SWORD.setup(base, () -> new SwordItem(base.tier, new Item.Properties()),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_sword"));
+		SHOVEL.setup(base, () -> new ShovelItem(base.tier, new Item.Properties()),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_shovel"));
+		PICKAXE.setup(base, () -> new PickaxeItem(base.tier, new Item.Properties()),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_pickaxe"));
+		HOE.setup(base, () -> new HoeItem(base.tier, new Item.Properties()),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_hoe"));
+
 	}
 
 	@Override
 	public void tab(_MaterialBase base, Output output) {
-		if (this.loadAxe)
-			output.accept(AXE);
-		if (this.loadHoe)
-			output.accept(HOE);
-		if (this.loadPickaxe)
-			output.accept(PICKAXE);
-		if (this.loadShovel)
-			output.accept(SHOVEL);
-		if (this.loadSword)
-			output.accept(SWORD);
+		AXE.tab(base, output);
+		SWORD.tab(base, output);
+		HOE.tab(base, output);
+		PICKAXE.tab(base, output);
+		SHOVEL.tab(base, output);
 	}
 
 	@Override
@@ -99,31 +87,31 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-		if (this.loadAxe)
-			DataUtil.basicMaterialItem(tmp, this.AXE.get(), base, "axe", base.getType());
-		if (this.loadHoe)
-			DataUtil.basicMaterialItem(tmp, this.HOE.get(), base, "hoe", base.getType());
-		if (this.loadPickaxe)
-			DataUtil.basicMaterialItem(tmp, this.PICKAXE.get(), base, "pickaxe", base.getType());
-		if (this.loadShovel)
-			DataUtil.basicMaterialItem(tmp, this.SHOVEL.get(), base, "shovel", base.getType());
-		if (this.loadSword)
-			DataUtil.basicMaterialItem(tmp, this.SWORD.get(), base, "sword", base.getType());
+		if (AXE.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.AXE.ITEM.get(), base, "axe", base.getType());
+		if (HOE.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.HOE.ITEM.get(), base, "hoe", base.getType());
+		if (PICKAXE.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.PICKAXE.ITEM.get(), base, "pickaxe", base.getType());
+		if (SHOVEL.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.SHOVEL.ITEM.get(), base, "shovel", base.getType());
+		if (SWORD.shouldGenerate())
+			DataUtil.basicMaterialItem(tmp, this.SWORD.ITEM.get(), base, "sword", base.getType());
 	}
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
 		String locName = base.name.substring(0, 1).toUpperCase() + base.name.substring(1);
-		if (this.loadAxe)
-			lp.add(this.AXE.get(), locName + " Axe");
-		if (this.loadHoe)
-			lp.add(this.HOE.get(), locName + " Hoe");
-		if (this.loadPickaxe)
-			lp.add(this.PICKAXE.get(), locName + " Pickaxe");
-		if (this.loadShovel)
-			lp.add(this.SHOVEL.get(), locName + " Shovel");
-		if (this.loadSword)
-			lp.add(this.SWORD.get(), locName + " Sword");
+		if (AXE.shouldGenerate())
+			lp.add(this.AXE.ITEM.get(), locName + " Axe");
+		if (HOE.shouldGenerate())
+			lp.add(this.HOE.ITEM.get(), locName + " Hoe");
+		if (PICKAXE.shouldGenerate())
+			lp.add(this.PICKAXE.ITEM.get(), locName + " Pickaxe");
+		if (SHOVEL.shouldGenerate())
+			lp.add(this.SHOVEL.ITEM.get(), locName + " Shovel");
+		if (SWORD.shouldGenerate())
+			lp.add(this.SWORD.ITEM.get(), locName + " Sword");
 	}
 
 	@Override
@@ -164,13 +152,12 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		@Override
 		public JsonElement serialize(ExtensionVanillaTools src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
-
 			j.addProperty("type", type);
-			j.addProperty("loadSword", src.loadSword);
-			j.addProperty("loadAxe", src.loadAxe);
-			j.addProperty("loadShovel", src.loadShovel);
-			j.addProperty("loadHoe", src.loadHoe);
-			j.addProperty("loadPickaxe", src.loadPickaxe);
+			j.addProperty("loadSword", src.SWORD.getGeneration().toString());
+			j.addProperty("loadAxe", src.AXE.getGeneration().toString());
+			j.addProperty("loadShovel", src.SHOVEL.getGeneration().toString());
+			j.addProperty("loadHoe", src.HOE.getGeneration().toString());
+			j.addProperty("loadPickaxe", src.PICKAXE.getGeneration().toString());
 
 			return j;
 		}
@@ -180,13 +167,14 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			boolean sword = j.get("loadSword").getAsBoolean();
-			boolean axe = j.get("loadAxe").getAsBoolean();
-			boolean shovel = j.get("loadShovel").getAsBoolean();
-			boolean hoe = j.get("loadHoe").getAsBoolean();
-			boolean pickaxe = j.get("loadPickaxe").getAsBoolean();
+			String sword = j.get("loadSword").getAsString();
+			String axe = j.get("loadAxe").getAsString();
+			String shovel = j.get("loadShovel").getAsString();
+			String hoe = j.get("loadHoe").getAsString();
+			String pickaxe = j.get("loadPickaxe").getAsString();
 
-			return new ExtensionVanillaTools(sword, axe, shovel, hoe, pickaxe);
+			return new ExtensionVanillaTools(Generate.valueOf(sword), Generate.valueOf(axe), Generate.valueOf(shovel),
+					Generate.valueOf(hoe), Generate.valueOf(pickaxe));
 		}
 
 	}
@@ -205,15 +193,15 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == SWORD.asItem())
+		if (stack.getItem() == SWORD.ITEM.asItem())
 			return true;
-		if (stack.getItem() == AXE.asItem())
+		if (stack.getItem() == AXE.ITEM.asItem())
 			return true;
-		if (stack.getItem() == SHOVEL.asItem())
+		if (stack.getItem() == SHOVEL.ITEM.asItem())
 			return true;
-		if (stack.getItem() == HOE.asItem())
+		if (stack.getItem() == HOE.ITEM.asItem())
 			return true;
-		if (stack.getItem() == PICKAXE.asItem())
+		if (stack.getItem() == PICKAXE.ITEM.asItem())
 			return true;
 
 		return false;
@@ -221,15 +209,15 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (stack.getItem() == SWORD.asItem())
+		if (stack.getItem() == SWORD.ITEM.asItem())
 			return Optional.of(base);
-		if (stack.getItem() == AXE.asItem())
+		if (stack.getItem() == AXE.ITEM.asItem())
 			return Optional.of(base);
-		if (stack.getItem() == SHOVEL.asItem())
+		if (stack.getItem() == SHOVEL.ITEM.asItem())
 			return Optional.of(base);
-		if (stack.getItem() == HOE.asItem())
+		if (stack.getItem() == HOE.ITEM.asItem())
 			return Optional.of(base);
-		if (stack.getItem() == PICKAXE.asItem())
+		if (stack.getItem() == PICKAXE.ITEM.asItem())
 			return Optional.of(base);
 
 		return Optional.empty();

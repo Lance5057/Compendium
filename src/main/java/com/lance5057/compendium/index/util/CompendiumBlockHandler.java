@@ -81,11 +81,11 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
-		return CompendiumIndex.BLOCKS.register(base.name + "_" + name, block);
+		return base.BLOCKS.register(base.name + "_" + name, block);
 	}
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
-		return CompendiumIndex.ITEMS.register(base.name + "_" + name + "_item", item);
+		return base.ITEMS.register(base.name + "_" + name + "_item", item);
 	}
 
 	public void setupItemTag(ResourceLocation rc) {

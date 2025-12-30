@@ -10,6 +10,7 @@ import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -101,9 +102,14 @@ public class BlockLootTables extends BlockLootSubProvider {
 	protected @NotNull Iterable<Block> getKnownBlocks() {
 		List<Block> a = CompendiumBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get)
 				.collect(Collectors.toList());
-		List<Block> b = CompendiumIndex.BLOCKS.getEntries().stream().map(DeferredHolder::get)
-				.collect(Collectors.toList());
-		a.addAll(b);
+
+		CompendiumIndex.index.forEach(i -> {
+			if (i instanceof _MaterialBase mb) {
+				List<Block> b = mb.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());
+				a.addAll(b);
+			}
+		});
+
 		return a;
 	}
 }

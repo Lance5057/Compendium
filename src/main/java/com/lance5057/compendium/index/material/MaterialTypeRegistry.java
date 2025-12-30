@@ -4,10 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.GsonBuilder;
-import com.lance5057.compendium.index.material.base.MaterialGem;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
-import com.lance5057.compendium.index.material.base.MaterialStone;
 import com.lance5057.compendium.index.material.base.MaterialTextile;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base.MaterialWood;
@@ -58,9 +56,9 @@ public class MaterialTypeRegistry {
 		serializers.put(_MaterialBase.class, new _MaterialBase.Serializer());
 		serializers.put(MaterialMetal.class, new MaterialMetal.Serializer());
 		serializers.put(MaterialWood.class, new MaterialWood.Serializer());
-		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
+//		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
 		serializers.put(MaterialGlass.class, new MaterialGlass.Serializer());
-		serializers.put(MaterialStone.class, new MaterialStone.Serializer());
+//		serializers.put(MaterialStone.class, new MaterialStone.Serializer());
 		serializers.put(MaterialTextile.class, new MaterialTextile.Serializer());
 
 		extensions.put(_MaterialExtension.class, new _MaterialExtension.Serializer());

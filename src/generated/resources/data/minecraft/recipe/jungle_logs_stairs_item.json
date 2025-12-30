@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "b": {
+      "item": "minecraft:jungle_small_log_item"
+    }
+  },
+  "pattern": [
+    "b ",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:jungle_logs_stairs_item"
+  }
+}

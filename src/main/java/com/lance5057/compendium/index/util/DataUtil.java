@@ -48,7 +48,7 @@ public class DataUtil {
 		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
 		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
 				.texture("layer0",
-						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+						ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/" + name))
 				.texture("layer1", extra);
 	}
