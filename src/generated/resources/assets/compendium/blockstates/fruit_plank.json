@@ -1,0 +1,147 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/horizontal_rot"
+      },
+      "when": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "down": "false",
+                "east": "false",
+                "north": "false",
+                "south": "false",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "north": "true",
+                "south": "true",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "north": "true",
+                "up": "false",
+                "west": "false"
+              },
+              {
+                "down": "false",
+                "east": "false",
+                "south": "true",
+                "up": "false",
+                "west": "false"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/horizontal"
+      },
+      "when": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "down": "false",
+                "east": "true",
+                "up": "false",
+                "west": "true"
+              },
+              {
+                "down": "false",
+                "east": "true",
+                "up": "false"
+              },
+              {
+                "down": "false",
+                "up": "false",
+                "west": "true"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/vertical"
+      },
+      "when": {
+        "OR": [
+          {
+            "up": "true"
+          },
+          {
+            "down": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap",
+        "x": 180
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap",
+        "x": 90
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap",
+        "x": 90,
+        "y": -90
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "compendium:block/material/wood/fruit/plank/cap",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
+    }
+  ]
+}

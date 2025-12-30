@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:item/plank",
+  "textures": {
+    "0": "minecraft:block/fruit_planks"
+  }
+}

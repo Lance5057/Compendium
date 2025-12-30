@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:birch_log"
+    "tag": "c:logs/birch"
   },
   "loot": "minecraft:sawing/birch_small_log",
   "offset": [

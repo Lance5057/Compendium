@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:crimson_stem"
+    "tag": "c:logs/crimson"
   },
   "loot": "minecraft:sawing/crimson_small_log",
   "offset": [

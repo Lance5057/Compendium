@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/plank/pipe_horizontal2",
+  "textures": {
+    "0": "compendium:block/material/wood/fruit/planks/plank"
+  }
+}

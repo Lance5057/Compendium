@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_slanted/support/no_top/tri/basic",
+  "textures": {
+    "0": "compendium:block/material/wood/fruit/logs/small_logs_corner"
+  }
+}

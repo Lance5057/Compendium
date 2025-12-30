@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:cherry_log"
+    "tag": "c:logs/cherry"
   },
   "loot": "minecraft:sawing/cherry_small_log",
   "offset": [

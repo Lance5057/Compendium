@@ -14,7 +14,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
@@ -42,7 +41,6 @@ import com.lance5057.compendium.util.TagUtil;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -1209,10 +1207,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		if (SMALL_LOG.shouldGenerate()) {
-			SawBuckRecipeBuilder
-					.saw(Ingredient.of(BuiltInRegistries.ITEM
-							.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_" + logstem))),
-							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
+			SawBuckRecipeBuilder.saw(
+					Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "logs/" + base.name))),
+//							BuiltInRegistries.ITEM
+//							.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_" + logstem))),
+					new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
 							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage0"),
