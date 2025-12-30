@@ -454,17 +454,34 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			});
 
 			StyleData.TABLE_TOP.getTypes().forEach(b -> {
-				withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
-						modLoc("block/furniture/table/top/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				if (b.equals("smooth")) {
+					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
+							modLoc("block/furniture/table/top/smooth"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
 
-				withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/table/top/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/table/top/" + b.toLowerCase()))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/table/top/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/table/top/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"))
+							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+				} else {
+					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
+							modLoc("block/furniture/table/top/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/table/top/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent(
+							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
+							modLoc("block/furniture/table/top/" + b.toLowerCase()))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.BED_FRAME.getTypes().forEach(b -> {
@@ -629,15 +646,19 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
 							modLoc("block/bases/fence/side/" + b.toLowerCase()))
 							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+
+					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
 				} else {
 					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
 							modLoc("block/bases/fence/side/" + b.toLowerCase()))
 							.texture("0", mcLoc("block/" + mb.name + "_planks"));
-				}
 
-				withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
-						modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
-						.texture("0", mcLoc("block/" + mb.name + "_planks"));
+					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+							.texture("0", mcLoc("block/" + mb.name + "_planks"));
+				}
 			});
 
 			StyleData.SHINGLES_SHINGLES.getTypes().forEach(b -> {
@@ -773,13 +794,6 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_corner"));
 				}
 			});
-
-			// special cases!
-
-			withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
-					modLoc("block/furniture/table/top/smooth")).texture("0", mcLoc("block/" + mb.name + "_planks"))
-					.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-
 		}
 	}
 
