@@ -544,7 +544,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			ShapedRecipeBuilder
 					.shaped(RecipeCategory.DECORATIONS,
-							BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(base.name + "_planks")), 2)
+							BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_planks")), 2)
 					.define('p', PLANK.BLOCK_ITEM).pattern("pp").pattern("pp")
 					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
