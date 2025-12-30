@@ -187,7 +187,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ConfiguredModel.Builder<?> b = ConfiguredModel.builder();
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
 						.getBuilder(PLANK_BLOCK.location(base) + "planks").customLoader(StyleBlockModelBuilder::begin);
-				msmb.base(bsp.models().cubeAll(base.name + "_plank_base", bsp.mcLoc("block/" + base.name + "_planks")));
+				msmb.base(bsp.models().cubeAll(base.name + "_plank_base",
+						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")));
 
 				for (String s : StyleData.PLANKS.getTypes())
 					msmb.add(new StyleModelBuilder(s,

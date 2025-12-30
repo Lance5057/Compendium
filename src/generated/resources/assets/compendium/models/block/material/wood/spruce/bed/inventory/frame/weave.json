@@ -1,6 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/inventory/frame/weave",
   "textures": {
-    "0": "minecraft:block/spruce_planks"
+    "0": "minecraft:block/spruce_planks",
+    "1": "compendium:block/material/wood/spruce/weave"
   }
 }
