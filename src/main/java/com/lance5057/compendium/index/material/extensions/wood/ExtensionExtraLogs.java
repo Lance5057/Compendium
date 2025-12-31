@@ -324,7 +324,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
 					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
-			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
+			ibmp.withExistingParent("compendium:" + base.itemFolder() + s + "_inventory",
+					ibmp.mcLoc("item/" + s + "_inventory"))
 					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
 					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs"));
 
@@ -1134,8 +1135,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
 			if (SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.namespace, base.name,
-						"small_log", base.getType());
+				DataUtil.basicMaterial3DItem(tmp, SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
+						base.getType(), tmp.modLoc("block/" + base.itemFolder() + "small_logs_corner"));
 			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
@@ -1148,8 +1149,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.namespace, base.name,
-						"stripped_small_log", base.getType());
+				DataUtil.basicMaterial3DItem(tmp, SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
+						base.getType(), tmp.modLoc("block/" + base.itemFolder() + "stripped_small_logs_corner"));
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
 				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
