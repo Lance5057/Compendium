@@ -74,12 +74,13 @@ public class StyleData {
 
 	public static StyleData PLANKS = new StyleData("plank_block",
 			List.of("boards", "boards_rotated", "boards_seamless", "boards_seamless_rotated", "boards_stacked",
-					"boards_stacked_rotated", "big_weave", "blocks", "blocks_offset", "box", "chiseled", "cross",
-					"diagonal", "diagonal_rotated", "herringbone", "double_herringbone", "panel", "parquet",
-					"planks_stacked", "planks_stacked_rotated", "planks_seamless", "planks_seamless_rotated", "sheet",
-					"small_blocks", "small_blocks_offset", "thin", "thin_rotated", "vertical", "wainscotting_single",
-					"wainscotting_double", "wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated",
-					"wicker", "two_panel", "four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal"));
+					"boards_stacked_rotated", "big_weave", "alternate_weave", "close_weave", "double_weave", "blocks",
+					"blocks_offset", "box", "chiseled", "cross", "diagonal", "diagonal_rotated", "herringbone",
+					"double_herringbone", "panel", "parquet", "planks_stacked", "planks_stacked_rotated",
+					"planks_seamless", "planks_seamless_rotated", "sheet", "small_blocks", "small_blocks_offset",
+					"thin", "thin_rotated", "vertical", "wainscotting_single", "wainscotting_double",
+					"wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated", "wicker", "two_panel",
+					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",

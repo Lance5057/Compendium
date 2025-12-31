@@ -275,6 +275,9 @@ public class StyleLoc {
 
 		// Plank Block
 		lp.add("style.plank_block.big_weave", "Weave");
+		lp.add("style.plank_block.alternate_weave", "Alternate Weave");
+		lp.add("style.plank_block.close_weave", "Close Weave");
+		lp.add("style.plank_block.double_weave", "Double Weave");
 		lp.add("style.plank_block.blocks", "Blocks");
 		lp.add("style.plank_block.blocks_offset", "Offset Blocks");
 		lp.add("style.plank_block.boards", "Boards");

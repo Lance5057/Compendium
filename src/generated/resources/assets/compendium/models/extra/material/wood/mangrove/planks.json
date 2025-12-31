@@ -1,4 +1,7 @@
 {
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/mangrove/planks/alternate_weave_inventory"
+  },
   "banded": {
     "model": "compendium:block/material/wood/mangrove/planks/banded_inventory"
   },
@@ -41,7 +44,10 @@
   "chiseled": {
     "model": "compendium:block/material/wood/mangrove/planks/chiseled_inventory"
   },
-  "count": 43,
+  "close_weave": {
+    "model": "compendium:block/material/wood/mangrove/planks/close_weave_inventory"
+  },
+  "count": 46,
   "cross": {
     "model": "compendium:block/material/wood/mangrove/planks/cross_inventory"
   },
@@ -56,6 +62,9 @@
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/mangrove/planks/double_herringbone_inventory"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/mangrove/planks/double_weave_inventory"
   },
   "five": {
     "model": "compendium:block/material/wood/mangrove/planks/five_inventory"
