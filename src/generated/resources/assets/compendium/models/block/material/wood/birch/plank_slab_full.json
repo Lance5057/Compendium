@@ -1,4 +1,7 @@
 {
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/birch/slab/alternate_weave_full"
+  },
   "banded": {
     "model": "compendium:block/material/wood/birch/slab/banded_full"
   },
@@ -41,7 +44,10 @@
   "chiseled": {
     "model": "compendium:block/material/wood/birch/slab/chiseled_full"
   },
-  "count": 43,
+  "close_weave": {
+    "model": "compendium:block/material/wood/birch/slab/close_weave_full"
+  },
+  "count": 46,
   "cross": {
     "model": "compendium:block/material/wood/birch/slab/cross_full"
   },
@@ -56,6 +62,9 @@
   },
   "double_herringbone": {
     "model": "compendium:block/material/wood/birch/slab/double_herringbone_full"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/birch/slab/double_weave_full"
   },
   "five": {
     "model": "compendium:block/material/wood/birch/slab/five_full"
