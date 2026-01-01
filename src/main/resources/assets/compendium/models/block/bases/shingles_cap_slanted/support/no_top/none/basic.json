@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "compendium:block/material/wood/acacia/logs/small_logs_corner",
-		"particle": "compendium:block/material/wood/acacia/logs/small_logs_corner"
+		"0": "compendium:block/material/wood/acacia/logs/small_logs",
+		"particle": "compendium:block/material/wood/acacia/logs/small_logs"
 	},
 	"elements": [
 		{

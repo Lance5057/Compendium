@@ -337,13 +337,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		}
 
-//		ibmp.withExistingParent(base.itemFolder() + "small_log_inventory", ibmp.modLoc("item/small_logs_inventory"))
-//		.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs_corner"));
-//		
-//		ibmp.withExistingParent(base.itemFolder() + "stripped_small_log_inventory",
-//				ibmp.modLoc("item/small_log_inventory")).texture("0",
-//						ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
-
 		ibmp.withExistingParent(LOG.location(base) + "/log/basic", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
 				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
@@ -363,20 +356,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		ibmp.withExistingParent(LOG.location(base) + "/log/corner",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 		ibmp.withExistingParent(LOG.location(base) + "/log/corner_inventory",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 
 		ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 		ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal_inventory",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
 
 		ibmp.withExistingParent(LOG.location(base) + "/log/small_wood", ibmp.mcLoc("block/cube_column"))
 				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
@@ -508,19 +501,19 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_inventory",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal_inventory",
 				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
 				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_corner"));
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
 
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood",
 				ibmp.mcLoc("block/cube_column"))
@@ -1042,10 +1035,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				base_model_horizontal2.add(new StyleModelBuilder(s,
 						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
 
-//			BlockModelBuilder base_model_vertical = bsp.models()
-//					.withExistingParent(base.blockFolder() + extra + "vertical", bsp.modLoc("block/small_log_vertical"))
-//					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
-
 			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
 					.getBuilder(block.location(base) + extra + "vertical").customLoader(StyleBlockModelBuilder::begin);
 			base_model_vertical.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")));
@@ -1053,10 +1042,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			for (String s : StyleData.SMALL_LOG.getTypes())
 				base_model_vertical.add(new StyleModelBuilder(s,
 						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
-
-//			BlockModelBuilder model_cap = bsp.models()
-//					.withExistingParent(block.location(base) + extra + "cap", bsp.modLoc("block/small_log_cap"))
-//					.texture("0", bsp.modLoc(base.blockFolder() + "logs/" + extra + "small_logs_corner"));
 
 			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
 					.getBuilder(block.location(base) + extra + "cap").customLoader(StyleBlockModelBuilder::begin);

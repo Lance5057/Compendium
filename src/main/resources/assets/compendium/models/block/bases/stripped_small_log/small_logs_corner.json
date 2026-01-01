@@ -4,8 +4,8 @@
 	"parent": "block/block",
 	"textures": {
 		"1": "compendium:block/material/wood/oak/logs/stripped_small_logs",
-		"2": "compendium:block/material/wood/oak/logs/stripped_small_logs_corner",
-		"particle": "compendium:block/material/wood/oak/logs/stripped_small_logs_corner"
+		"2": "compendium:block/material/wood/oak/logs/stripped_small_logs_top",
+		"particle": "compendium:block/material/wood/oak/logs/stripped_small_logs_top"
 	},
 	"elements": [
 		{
