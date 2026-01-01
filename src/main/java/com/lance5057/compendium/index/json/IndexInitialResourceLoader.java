@@ -66,7 +66,7 @@ public class IndexInitialResourceLoader {
 			readOtherMods();
 			readResourcePacks(resourcePackPath);
 		} else {
-			Path resourcePackPath = Path.of(".\\..\\resources\\compendium\\data\\compendium\\materials");
+			Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
 			buildDefaults();
 			readResourcePacks(resourcePackPath);
 		}
