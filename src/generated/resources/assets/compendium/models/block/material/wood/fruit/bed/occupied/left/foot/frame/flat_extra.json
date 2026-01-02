@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/foot/frame/flat_extra",
-  "textures": {
-    "0": "minecraft:block/fruit_planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "minecraft:block/fruit_log",
-    "1": "minecraft:block/fruit_log_top",
-    "particle": "minecraft:block/fruit_log"
-  }
-}

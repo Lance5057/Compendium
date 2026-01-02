@@ -10,8 +10,11 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -67,6 +70,18 @@ public class IndexInitialResourceLoader {
 			readResourcePacks(resourcePackPath);
 		} else {
 			Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
+			try {
+				Files.walkFileTree(resourcePackPath, new SimpleFileVisitor<Path>() {
+					@Override
+	                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+	                    Files.delete(file);
+	                    return FileVisitResult.CONTINUE;
+	                }
+				});
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			buildDefaults();
 			readResourcePacks(resourcePackPath);
 		}
@@ -216,15 +231,13 @@ public class IndexInitialResourceLoader {
 						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
-		// buildDefault(new MaterialWood("pale_oak", false).addExtension(new
-		// ExtensionExtraLogs(true, true, true, true)));
 
-		buildDefault(new MaterialWood("fruit", "extradelight", Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-				Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("fruit", "extradelight", Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//				Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 //		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
 //				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));

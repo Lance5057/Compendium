@@ -1136,7 +1136,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (this.autoGenItemModel) {
 			if (SMALL_LOG.shouldGenerate()) {
 				DataUtil.basicMaterial3DItem(tmp, SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
-						base.getType(), tmp.modLoc("block/" + base.itemFolder() + "small_logs_corner"));
+						base.getType(), tmp.modLoc(base.blockFolder() + "extra_caps"), tmp.modLoc(base.blockFolder() + "small_logs"));
 			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
@@ -1149,8 +1149,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterial3DItem(tmp, SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
-						base.getType(), tmp.modLoc("block/" + base.itemFolder() + "stripped_small_logs_corner"));
+				DataUtil.basicMaterial3DItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
+						base.getType(), tmp.modLoc(base.blockFolder() + "stripped_extra_caps"), tmp.modLoc(base.blockFolder() + "stripped_small_logs"));
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
 				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));

@@ -1,6 +1,7 @@
 {
   "parent": "compendium:item/small_log",
   "textures": {
-    "0": "compendium:block/item/material/wood/warped/stripped_small_logs_corner"
+    "0": "compendium:block/material/wood/warped/extra_caps",
+    "1": "compendium:block/material/wood/warped/small_logs"
   }
 }

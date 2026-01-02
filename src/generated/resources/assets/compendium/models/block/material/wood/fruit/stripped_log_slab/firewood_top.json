@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_top",
-  "textures": {
-    "0": "minecraft:block/stripped_fruit_log",
-    "1": "minecraft:block/stripped_fruit_log_top",
-    "2": "compendium:block/material/wood/fruit/logs/stripped_log_split_side",
-    "particle": "minecraft:block/stripped_fruit_log"
-  }
-}
