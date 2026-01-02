@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:acacia_plank_stairs_item"
+      "item": "minecraft:acacia_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "compendium:acacia_plank_item"
+    "id": "minecraft:acacia_plank_item"
   }
 }

@@ -48,14 +48,16 @@ public class DataUtil {
 		ResourceLocation rc = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item));
 		return tmp.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld"))
 				.texture("layer0",
-						ResourceLocation.fromNamespaceAndPath(rc.getNamespace(),
+						ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 								"item/material/" + type.toString().toLowerCase() + "/" + base.name + "/" + name))
 				.texture("layer1", extra);
 	}
 
 	public static void basicMaterial3DItem(ItemModelProvider p, Item item, _MaterialBase base,
-			ResourceLocation resourceLocation, MATERIAL_TYPES type, ResourceLocation texture) {
-		p.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile(resourceLocation)).texture("0", texture);
+			ResourceLocation resourceLocation, MATERIAL_TYPES type, ResourceLocation... texture) {
+		ItemModelBuilder b = p.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile(resourceLocation));
+		for (int i = 0; i < texture.length; i++)
+			b.texture(i + "", texture[i]);
 	}
 
 	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
@@ -63,6 +65,13 @@ public class DataUtil {
 		p.getBuilder(item.getId().getPath())
 				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID,
 						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + name + "_inventory")));
+	}
+
+	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,
+			String namespace, String name, String extra, MATERIAL_TYPES type) {
+		p.getBuilder(item.getId().getPath())
+				.parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(namespace,
+						"item/material/" + type.toString().toLowerCase() + "/" + name + "/" + extra + "_inventory")));
 	}
 
 	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,

@@ -29,8 +29,8 @@ public class CompendiumIndex {
 
 	public static List<IIndexEntry> index = new ArrayList<IIndexEntry>();
 
-	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
-	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
+//	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
+//	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
 
@@ -58,9 +58,8 @@ public class CompendiumIndex {
 			return "oak";
 		}
 	}
-	
-	public static void addEntry(IIndexEntry i)
-	{
+
+	public static void addEntry(IIndexEntry i) {
 		index.add(i);
 		Compendium.LOGGER.debug("Added Index Entry: " + i.getName());
 	}
@@ -88,10 +87,14 @@ public class CompendiumIndex {
 
 		});
 
-		index.forEach(i -> i.setup());
+		index.forEach(i -> {
+			i.setup();
+//			if (i instanceof _MaterialBase mb) {
+//				mb.ITEMS.register(bus);
+//				mb.BLOCKS.register(bus);
+//			}
+		});
 
-		ITEMS.register(bus);
-		BLOCKS.register(bus);
 		ARMOR_MATERIALS.register(bus);
 	}
 
@@ -119,7 +122,7 @@ public class CompendiumIndex {
 		for (IIndexEntry i : index)
 			if (i.isIndexItem(stack))
 				return true;
-		
+
 		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
@@ -130,7 +133,7 @@ public class CompendiumIndex {
 				if (types.contains(mb.getType()))
 					if (i.isIndexItem(stack))
 						return true;
-		
+
 		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}

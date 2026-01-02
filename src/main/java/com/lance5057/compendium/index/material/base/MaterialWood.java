@@ -36,6 +36,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -137,8 +138,10 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
-		if (PLANKS.shouldGenerate())
-			bsp.simpleBlock(PLANKS.BLOCK.get());
+		if (PLANKS.shouldGenerate()) {
+			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState()
+					.addModels(new ConfiguredModel(bsp.models().cubeAll("0", bsp.blockTexture(PLANKS.BLOCK.get()))));
+		}
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
@@ -154,7 +157,7 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
-		lp.add("compendium.tooltip.material."+this.name, locName);
+		lp.add("compendium.tooltip.material." + this.name, locName);
 		if (PLANKS.shouldGenerate())
 			lp.add(this.PLANKS.BLOCK_ITEM.get(), locName + " Planks");
 
@@ -168,6 +171,16 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
+		if (LOG.shouldGenerate())
+			blp.dropSelf(LOG.BLOCK.get());
+		if (PLANKS.shouldGenerate())
+			blp.dropSelf(PLANKS.BLOCK.get());
+		if (STRIPPED_LOG.shouldGenerate())
+			blp.dropSelf(STRIPPED_LOG.BLOCK.get());
+		if (STRIPPED_WOOD.shouldGenerate())
+			blp.dropSelf(STRIPPED_WOOD.BLOCK.get());
+		if (WOOD.shouldGenerate())
+			blp.dropSelf(WOOD.BLOCK.get());
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 

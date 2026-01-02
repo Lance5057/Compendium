@@ -1,7 +1,7 @@
 {
   "type": "compendium:sawbuck",
   "input": {
-    "item": "minecraft:acacia_log"
+    "tag": "c:logs/acacia"
   },
   "loot": "minecraft:sawing/acacia_small_log",
   "offset": [
@@ -11,7 +11,7 @@
   ],
   "ouput": {
     "count": 4,
-    "id": "compendium:acacia_small_log_item"
+    "id": "minecraft:acacia_small_log_item"
   },
   "tools": [
     {

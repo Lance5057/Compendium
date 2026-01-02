@@ -59,7 +59,7 @@ public class CompendiumItemHandler implements Serializable {
 	}
 
 	public DeferredItem<Item> setupItem(_MaterialBase base, Supplier<? extends Item> item) {
-		return CompendiumIndex.ITEMS.register(base.name + "_" + name + "_item", item);
+		return base.ITEMS.register(base.name + "_" + name + "_item", item);
 	}
 
 	public void tab(_MaterialBase base, Output output) {

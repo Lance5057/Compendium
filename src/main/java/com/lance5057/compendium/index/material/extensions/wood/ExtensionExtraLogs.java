@@ -14,7 +14,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.PipeStyleBlock;
@@ -42,7 +41,6 @@ import com.lance5057.compendium.util.TagUtil;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -326,7 +324,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
 					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
 
-			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
+			ibmp.withExistingParent("compendium:" + base.itemFolder() + s + "_inventory",
+					ibmp.mcLoc("item/" + s + "_inventory"))
 					.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
 					.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs"));
 
@@ -1121,8 +1120,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
 			if (SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, SMALL_LOG.BLOCK_ITEM, base.name, "small_log",
-						base.getType());
+				DataUtil.basicMaterial3DItem(tmp, SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
+						base.getType(), tmp.modLoc(base.blockFolder() + "extra_caps"), tmp.modLoc(base.blockFolder() + "small_logs"));
 			}
 			if (LOG.shouldGenerate()) {
 				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
@@ -1135,8 +1134,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-				DataUtil.basicMaterialInventoryBlockItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM, base.name,
-						"stripped_small_log", base.getType());
+				DataUtil.basicMaterial3DItem(tmp, STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), base, Compendium.modLoc("item/small_log"),
+						base.getType(), tmp.modLoc(base.blockFolder() + "stripped_extra_caps"), tmp.modLoc(base.blockFolder() + "stripped_small_logs"));
 			}
 			if (STRIPPED_LOG.shouldGenerate()) {
 				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
@@ -1194,10 +1193,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 
 		if (SMALL_LOG.shouldGenerate()) {
-			SawBuckRecipeBuilder
-					.saw(Ingredient.of(BuiltInRegistries.ITEM
-							.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_" + logstem))),
-							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
+			SawBuckRecipeBuilder.saw(
+					Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "logs/" + base.name))),
+//							BuiltInRegistries.ITEM
+//							.get(ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_" + logstem))),
+					new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
 							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage0"),

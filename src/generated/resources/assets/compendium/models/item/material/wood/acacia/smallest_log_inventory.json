@@ -1,5 +1,5 @@
 {
-  "parent": "compendium:item/smallest_log_inventory",
+  "parent": "minecraft:item/smallest_log_inventory",
   "textures": {
     "0": "compendium:block/material/wood/acacia/logs/extra_caps",
     "1": "compendium:block/material/wood/acacia/logs/small_logs"

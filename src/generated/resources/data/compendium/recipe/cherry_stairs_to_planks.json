@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:cherry_plank_stairs_item"
+      "item": "minecraft:cherry_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "compendium:cherry_plank_item"
+    "id": "minecraft:cherry_plank_item"
   }
 }

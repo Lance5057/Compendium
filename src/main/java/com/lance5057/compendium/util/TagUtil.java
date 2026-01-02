@@ -3,6 +3,7 @@ package com.lance5057.compendium.util;
 import com.lance5057.compendium.Compendium;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 
 public class TagUtil {
 	public static ResourceLocation neoTag(String loc) {

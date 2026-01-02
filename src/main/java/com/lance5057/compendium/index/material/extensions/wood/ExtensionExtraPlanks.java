@@ -30,6 +30,7 @@ import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base.MaterialWood;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -46,7 +47,6 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -542,9 +542,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 															false)))))
 					.save(consumer);
 
-			ShapedRecipeBuilder
-					.shaped(RecipeCategory.DECORATIONS,
-							BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(base.name + "_planks")), 2)
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ((MaterialWood) base).PLANKS.BLOCK_ITEM, 2)
 					.define('p', PLANK.BLOCK_ITEM).pattern("pp").pattern("pp")
 					.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 							.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),

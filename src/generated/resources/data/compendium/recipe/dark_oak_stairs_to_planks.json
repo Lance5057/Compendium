@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:dark_oak_plank_stairs_item"
+      "item": "minecraft:dark_oak_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "compendium:dark_oak_plank_item"
+    "id": "minecraft:dark_oak_plank_item"
   }
 }

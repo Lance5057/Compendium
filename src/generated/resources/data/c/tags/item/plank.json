@@ -1,14 +1,14 @@
 {
   "values": [
-    "compendium:acacia_plank_item",
-    "compendium:birch_plank_item",
-    "compendium:cherry_plank_item",
-    "compendium:crimson_plank_item",
-    "compendium:dark_oak_plank_item",
-    "compendium:jungle_plank_item",
-    "compendium:mangrove_plank_item",
-    "compendium:oak_plank_item",
-    "compendium:spruce_plank_item",
-    "compendium:warped_plank_item"
+    "minecraft:acacia_plank_item",
+    "minecraft:birch_plank_item",
+    "minecraft:cherry_plank_item",
+    "minecraft:crimson_plank_item",
+    "minecraft:dark_oak_plank_item",
+    "minecraft:jungle_plank_item",
+    "minecraft:mangrove_plank_item",
+    "minecraft:oak_plank_item",
+    "minecraft:spruce_plank_item",
+    "minecraft:warped_plank_item"
   ]
 }

@@ -19,14 +19,16 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
-
+	public final DeferredRegister.Items ITEMS;
+	public final DeferredRegister.Blocks BLOCKS;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7616650773040539965L;
-	//	public final String TYPE;
+	// public final String TYPE;
 	public String namespace;
 	public String name;
 
@@ -51,6 +53,9 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 		this.namespace = namespace;
 
 		extensions = new ArrayList<_MaterialExtension>();
+
+		ITEMS = DeferredRegister.createItems(namespace);
+		BLOCKS = DeferredRegister.createBlocks(namespace);
 	}
 
 	@Override

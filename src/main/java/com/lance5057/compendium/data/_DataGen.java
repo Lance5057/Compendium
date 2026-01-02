@@ -1,5 +1,7 @@
 package com.lance5057.compendium.data;
 
+import java.nio.file.Paths;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.lance5057.compendium.Compendium;
@@ -21,12 +23,14 @@ public class _DataGen {
 		PackOutput output = generator.getPackOutput();
 		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 		ExistingFileHelper helper = event.getExistingFileHelper();
+		ExistingFileHelper helperEmpty = new ExistingFileHelper(Set.of(Paths.get("", "")), Set.of(""), false, null,
+				null);
 
 		generator.addProvider(event.includeClient(), new EngLoc(output));
 
-		generator.addProvider(true, new BlockStateModels(output, helper));
-		generator.addProvider(true, new ItemModels(output, helper));
-		generator.addProvider(true, new IndexBlockModelProvider(output, helper));
+		generator.addProvider(true, new BlockStateModels(output, helperEmpty));
+		generator.addProvider(true, new ItemModels(output, helperEmpty));
+		generator.addProvider(true, new IndexBlockModelProvider(output, helperEmpty));
 
 		BlockTagGen btg = new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper);
 		generator.addProvider(true, btg);
