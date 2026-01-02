@@ -56,8 +56,8 @@ public class DataUtil {
 	public static void basicMaterial3DItem(ItemModelProvider p, Item item, _MaterialBase base,
 			ResourceLocation resourceLocation, MATERIAL_TYPES type, ResourceLocation... texture) {
 		ItemModelBuilder b = p.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile(resourceLocation));
-		for (int i = 0; i < texture.length; i++)
-			b.texture(i + "", texture[i]);
+//		for (int i = 0; i < texture.length; i++)
+//			b.texture(i + "", texture[i]);
 	}
 
 	public static void basicMaterialInventoryBlockItem(ItemModelProvider p, DeferredItem<? extends BlockItem> item,

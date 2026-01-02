@@ -1,7 +1,7 @@
 {
-  "parent": "compendium:item/small_log",
+  "parent": "compendium:item/small_log_inventory",
   "textures": {
-    "0": "compendium:block/material/wood/crimson/extra_caps",
-    "1": "compendium:block/material/wood/crimson/small_logs"
+    "0": "compendium:block/material/wood/crimson/logs/extra_caps",
+    "1": "compendium:block/material/wood/crimson/logs/small_logs"
   }
 }

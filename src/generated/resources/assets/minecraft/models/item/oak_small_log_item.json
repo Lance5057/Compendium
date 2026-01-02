@@ -1,7 +1,7 @@
 {
-  "parent": "compendium:item/small_log",
+  "parent": "compendium:item/small_log_inventory",
   "textures": {
-    "0": "compendium:block/material/wood/oak/extra_caps",
-    "1": "compendium:block/material/wood/oak/small_logs"
+    "0": "compendium:block/material/wood/oak/logs/extra_caps",
+    "1": "compendium:block/material/wood/oak/logs/small_logs"
   }
 }

@@ -478,8 +478,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 		if (this.autoGenItemModel) {
-			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
-					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
+//			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
+//					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
+			tmp.getBuilder(PLANK.BLOCK_ITEM.get().toString())
+			.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/plank")))
+			.texture("0", tmp.modLoc(base.blockFolder() + "planks/plank"));
 
 			if (PLANK_BLOCK.shouldGenerate())
 				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));

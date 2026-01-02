@@ -1,6 +1,6 @@
 {
   "parent": "compendium:item/plank",
   "textures": {
-    "0": "minecraft:block/acacia_planks"
+    "0": "compendium:block/material/wood/acacia/planks/plank"
   }
 }
