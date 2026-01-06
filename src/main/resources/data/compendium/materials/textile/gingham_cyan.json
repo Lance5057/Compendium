@@ -1,0 +1,8 @@
+{
+  "name": "gingham_cyan",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "EXISTS",
+  "extensions": []
+}

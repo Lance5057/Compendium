@@ -1,0 +1,8 @@
+{
+  "name": "gingham_ultramarine",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

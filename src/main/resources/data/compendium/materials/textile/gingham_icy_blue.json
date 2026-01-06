@@ -1,0 +1,8 @@
+{
+  "name": "gingham_icy_blue",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

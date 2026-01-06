@@ -1,0 +1,8 @@
+{
+  "name": "gingham_amber",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

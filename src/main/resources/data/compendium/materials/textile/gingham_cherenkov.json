@@ -1,0 +1,8 @@
+{
+  "name": "gingham_cherenkov",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

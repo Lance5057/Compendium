@@ -1,0 +1,8 @@
+{
+  "name": "gingham_spring_green",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

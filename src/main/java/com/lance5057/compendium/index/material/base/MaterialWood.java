@@ -139,8 +139,8 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
 		if (PLANKS.shouldGenerate()) {
-			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState()
-					.addModels(new ConfiguredModel(bsp.models().cubeAll("0", bsp.blockTexture(PLANKS.BLOCK.get()))));
+			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState().addModels(new ConfiguredModel(
+					bsp.models().cubeAll(this.blockFolder() + PLANKS.name, bsp.blockTexture(PLANKS.BLOCK.get()))));
 		}
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));

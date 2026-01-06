@@ -9,7 +9,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -32,7 +31,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -79,20 +80,28 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
-		// TODO Auto-generated method stub
+		if (BLOCK.shouldGenerate()) {
+			bsp.getVariantBuilder(BLOCK.BLOCK.get()).partialState()
+					.addModels(new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + BLOCK.name,
+							ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + "basic"))));
+		}
 
+		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
 	@Override
 	public void itemModel(ItemModelProvider tmp) {
-		// TODO Auto-generated method stub
+		if (BLOCK.shouldGenerate())
+			tmp.getBuilder(BLOCK.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
+					ResourceLocation.fromNamespaceAndPath(namespace, BLOCK.location(this) + "block")));
 
+		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
-		// TODO Auto-generated method stub
 
+		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}
 
 	@Override
@@ -103,8 +112,8 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
+		if (BLOCK.shouldGenerate())
+			blp.dropSelf(this.BLOCK.BLOCK.get());
 	}
 
 	@Override
@@ -158,8 +167,8 @@ public class MaterialTextile extends _MaterialBase {
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialTextile m = new MaterialTextile(name, tagNamespace, Generate.valueOf(string),
-					Generate.valueOf(block));
+			MaterialTextile m = new MaterialTextile(name, tagNamespace, Generate.valueOf(block),
+					Generate.valueOf(string));
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {

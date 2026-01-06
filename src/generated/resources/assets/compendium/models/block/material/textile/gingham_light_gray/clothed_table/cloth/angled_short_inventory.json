@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/furniture/table/cloth/angled_short",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "minecraft:block/gingham_light_gray",
+    "1": "compendium:block/material/textile/gingham_light_gray/diagonal_half"
+  }
+}

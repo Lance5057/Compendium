@@ -1,0 +1,8 @@
+{
+  "name": "gingham_bubblegum",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

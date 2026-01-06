@@ -1,0 +1,8 @@
+{
+  "name": "gingham_lavender",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}

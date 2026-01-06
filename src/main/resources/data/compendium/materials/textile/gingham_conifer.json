@@ -1,0 +1,8 @@
+{
+  "name": "gingham_conifer",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "loadString": "IGNORE",
+  "loadBlock": "GENERATE",
+  "extensions": []
+}
