@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/charred_spruce/planks/herringbone",
+    "side": "compendium:block/material/wood/charred_spruce/planks/herringbone",
+    "top": "compendium:block/material/wood/charred_spruce/planks/herringbone"
+  }
+}

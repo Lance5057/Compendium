@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/campfire_bottom",
+  "textures": {
+    "0": "minecraft:block/ebony_log",
+    "1": "compendium:block/material/wood/ebony/logs/extra_caps",
+    "particle": "minecraft:block/ebony_log"
+  }
+}

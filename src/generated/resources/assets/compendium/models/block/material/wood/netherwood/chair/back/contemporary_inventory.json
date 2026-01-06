@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/contemporary",
+  "textures": {
+    "0": "minecraft:block/netherwood_planks"
+  }
+}

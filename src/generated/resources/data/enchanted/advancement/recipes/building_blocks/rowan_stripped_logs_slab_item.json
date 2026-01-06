@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_striepped_small_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "enchanted:rowan_stripped_small_log_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "enchanted:rowan_stripped_logs_slab_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_striepped_small_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "enchanted:rowan_stripped_logs_slab_item"
+    ]
+  }
+}

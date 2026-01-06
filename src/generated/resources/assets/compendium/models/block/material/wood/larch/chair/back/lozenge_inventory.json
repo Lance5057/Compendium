@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/chair/back/lozenge",
+  "textures": {
+    "0": "minecraft:block/larch_planks",
+    "1": "compendium:block/material/wood/larch/lozenge"
+  }
+}

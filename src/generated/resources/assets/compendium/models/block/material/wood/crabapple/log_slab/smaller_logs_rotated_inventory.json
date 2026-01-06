@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/smaller_logs_rotated_bottom",
+  "textures": {
+    "0": "minecraft:block/crabapple_log",
+    "1": "compendium:block/material/wood/crabapple/logs/extra_caps",
+    "particle": "minecraft:block/crabapple_log"
+  }
+}

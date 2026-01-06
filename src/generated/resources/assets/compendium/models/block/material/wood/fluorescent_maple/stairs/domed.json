@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fluorescent_maple/planks/domed",
+    "side": "compendium:block/material/wood/fluorescent_maple/planks/domed",
+    "top": "compendium:block/material/wood/fluorescent_maple/planks/domed"
+  }
+}

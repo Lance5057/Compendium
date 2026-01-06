@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dawnoftimebuilder:waxed_oak_plank_slab_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dawnoftimebuilder:waxed_oak_plank_item"
+  }
+}

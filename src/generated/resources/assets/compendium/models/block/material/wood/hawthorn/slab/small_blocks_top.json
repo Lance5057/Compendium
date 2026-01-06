@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "compendium:block/material/wood/hawthorn/planks/small_blocks",
+    "side": "compendium:block/material/wood/hawthorn/planks/small_blocks",
+    "top": "compendium:block/material/wood/hawthorn/planks/small_blocks"
+  }
+}

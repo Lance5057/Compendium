@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compendium:block/material/wood/crabapple/planks/planks_stacked_rotated"
+  }
+}

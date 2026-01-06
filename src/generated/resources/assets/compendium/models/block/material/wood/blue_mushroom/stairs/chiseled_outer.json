@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/blue_mushroom/planks/chiseled",
+    "side": "compendium:block/material/wood/blue_mushroom/planks/chiseled",
+    "top": "compendium:block/material/wood/blue_mushroom/planks/chiseled"
+  }
+}

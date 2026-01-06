@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/trellis/trellis_top",
+  "textures": {
+    "0": "minecraft:block/fluorescent_maple_log"
+  }
+}

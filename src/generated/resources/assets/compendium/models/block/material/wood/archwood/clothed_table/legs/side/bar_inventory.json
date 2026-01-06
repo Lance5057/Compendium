@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/legs/side/bar_inventory",
+  "textures": {
+    "0": "minecraft:block/archwood_planks"
+  }
+}

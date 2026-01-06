@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fir/planks/box",
+    "side": "compendium:block/material/wood/fir/planks/box",
+    "top": "compendium:block/material/wood/fir/planks/box"
+  }
+}

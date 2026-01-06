@@ -1,0 +1,61 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "campfire": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/campfire_top"
+  },
+  "count": 17,
+  "crosscut": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/crosscut_top"
+  },
+  "crosscut_small": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/crosscut_small_top"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/firewood_top"
+  },
+  "loader": "compendium:style",
+  "small_logs": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/small_logs_top"
+  },
+  "small_logs_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/small_logs_rotated_top"
+  },
+  "small_wood": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/small_wood_top"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/small_wood_rotated_top"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/smaller_logs_top"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/smaller_logs_rotated_top"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/smallest_logs_top"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/smallest_logs_rotated_top"
+  },
+  "split": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/split_top"
+  },
+  "split_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/split_rotated_top"
+  },
+  "trellis": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/trellis_top"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/wood_top"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/crabapple/log_slab/wood_rotated_top"
+  }
+}

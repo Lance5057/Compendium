@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/rails_side",
+  "textures": {
+    "0": "minecraft:block/fluorescent_maple_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/whitewood/planks/wicker",
+    "side": "compendium:block/material/wood/whitewood/planks/wicker",
+    "top": "compendium:block/material/wood/whitewood/planks/wicker"
+  }
+}

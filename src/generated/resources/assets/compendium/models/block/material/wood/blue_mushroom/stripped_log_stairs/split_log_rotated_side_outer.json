@@ -1,0 +1,9 @@
+{
+  "parent": "compendium:block/bases/log_stairs/split_log_rotated_side_outer",
+  "textures": {
+    "0": "minecraft:block/stripped_blue_mushroom_log",
+    "1": "minecraft:block/stripped_blue_mushroom_log_top",
+    "2": "compendium:block/material/wood/blue_mushroom/logs/stripped_log_split_side",
+    "particle": "minecraft:block/stripped_blue_mushroom_log"
+  }
+}

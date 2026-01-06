@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/table/top/smooth",
+  "textures": {
+    "0": "minecraft:block/charred_spruce_planks",
+    "1": "compendium:block/material/wood/charred_spruce/planks/sheet"
+  }
+}

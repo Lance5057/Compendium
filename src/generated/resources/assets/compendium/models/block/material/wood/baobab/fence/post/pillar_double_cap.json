@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar_double_cap",
+  "textures": {
+    "0": "minecraft:block/baobab_planks"
+  }
+}

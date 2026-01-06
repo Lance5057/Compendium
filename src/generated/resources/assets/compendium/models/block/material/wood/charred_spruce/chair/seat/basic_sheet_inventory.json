@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/seat/basic_sheet",
+  "textures": {
+    "0": "compendium:block/material/wood/charred_spruce/planks/sheet"
+  }
+}

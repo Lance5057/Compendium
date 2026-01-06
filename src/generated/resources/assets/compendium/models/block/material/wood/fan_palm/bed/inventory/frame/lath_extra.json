@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/inventory/frame/lath_extra",
+  "textures": {
+    "0": "minecraft:block/fan_palm_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fir/planks/diagonal",
+    "side": "compendium:block/material/wood/fir/planks/diagonal",
+    "top": "compendium:block/material/wood/fir/planks/diagonal"
+  }
+}

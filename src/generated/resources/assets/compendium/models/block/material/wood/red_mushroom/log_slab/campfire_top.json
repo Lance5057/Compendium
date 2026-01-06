@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/campfire_top",
+  "textures": {
+    "0": "minecraft:block/red_mushroom_log",
+    "1": "compendium:block/material/wood/red_mushroom/logs/extra_caps",
+    "particle": "minecraft:block/red_mushroom_log"
+  }
+}

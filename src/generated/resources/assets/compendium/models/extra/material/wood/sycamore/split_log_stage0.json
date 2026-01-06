@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:extra/split_log_stage0",
+  "textures": {
+    "0": "minecraft:block/sycamore_log",
+    "1": "minecraft:block/sycamore_log_top"
+  }
+}

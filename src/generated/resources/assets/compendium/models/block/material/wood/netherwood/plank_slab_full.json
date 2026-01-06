@@ -1,0 +1,148 @@
+{
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/netherwood/slab/alternate_weave_full"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/netherwood/slab/banded_full"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/netherwood/slab/big_weave_full"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/netherwood/slab/blocks_full"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/netherwood/slab/blocks_offset_full"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_full"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_rotated_full"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_seamless_full"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_seamless_rotated_full"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_stacked_full"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/boards_stacked_rotated_full"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/netherwood/slab/box_full"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/netherwood/slab/chiseled_full"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/netherwood/slab/close_weave_full"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/netherwood/slab/cross_full"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/netherwood/slab/diagonal_full"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/diagonal_rotated_full"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/netherwood/slab/domed_full"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/netherwood/slab/double_herringbone_full"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/netherwood/slab/double_weave_full"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/netherwood/slab/five_full"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/netherwood/slab/four_panels_full"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/netherwood/slab/herringbone_full"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/netherwood/slab/nine_panels_full"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/netherwood/slab/panel_full"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/netherwood/slab/paper_full"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/netherwood/slab/parquet_full"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/netherwood/slab/petal_full"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/netherwood/slab/planks_seamless_full"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/planks_seamless_rotated_full"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/netherwood/slab/planks_stacked_full"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/planks_stacked_rotated_full"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/netherwood/slab/sheet_full"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/netherwood/slab/small_blocks_full"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/netherwood/slab/small_blocks_offset_full"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/netherwood/slab/thin_full"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/thin_rotated_full"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/netherwood/slab/two_panel_full"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/netherwood/slab/vertical_full"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/netherwood/slab/wainscotting_double_full"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/netherwood/slab/wainscotting_grate_full"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/netherwood/slab/wainscotting_seamless_full"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/netherwood/slab/wainscotting_single_full"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/netherwood/slab/walkway_full"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/netherwood/slab/walkway_rotated_full"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/netherwood/slab/wicker_full"
+  }
+}

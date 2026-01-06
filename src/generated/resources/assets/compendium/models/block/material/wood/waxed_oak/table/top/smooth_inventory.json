@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/table/top/smooth",
+  "textures": {
+    "0": "minecraft:block/waxed_oak_planks",
+    "1": "compendium:block/material/wood/waxed_oak/planks/sheet"
+  }
+}

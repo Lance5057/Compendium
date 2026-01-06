@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/legs/basic_leg",
+  "textures": {
+    "0": "minecraft:block/cactus_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/cypress/planks/wainscotting_seamless",
+    "side": "compendium:block/material/wood/cypress/planks/wainscotting_seamless",
+    "top": "compendium:block/material/wood/cypress/planks/wainscotting_seamless"
+  }
+}

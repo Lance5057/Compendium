@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "abyssal_decor:cinnamon_ad_plank_slab_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "abyssal_decor:cinnamon_ad_plank_item"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/charred_spruce/planks/planks_stacked_rotated",
+    "side": "compendium:block/material/wood/charred_spruce/planks/planks_stacked_rotated",
+    "top": "compendium:block/material/wood/charred_spruce/planks/planks_stacked_rotated"
+  }
+}

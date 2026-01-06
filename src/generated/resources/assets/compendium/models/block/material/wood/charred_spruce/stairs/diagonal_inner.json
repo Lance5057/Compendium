@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/charred_spruce/planks/diagonal",
+    "side": "compendium:block/material/wood/charred_spruce/planks/diagonal",
+    "top": "compendium:block/material/wood/charred_spruce/planks/diagonal"
+  }
+}

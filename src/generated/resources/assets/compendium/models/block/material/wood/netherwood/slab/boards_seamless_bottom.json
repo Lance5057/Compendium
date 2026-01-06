@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/netherwood/planks/boards_seamless",
+    "side": "compendium:block/material/wood/netherwood/planks/boards_seamless",
+    "top": "compendium:block/material/wood/netherwood/planks/boards_seamless"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/crosscut_full",
+  "textures": {
+    "0": "minecraft:block/fluorescent_maple_log",
+    "1": "minecraft:block/fluorescent_maple_log_top",
+    "particle": "minecraft:block/fluorescent_maple_log"
+  }
+}

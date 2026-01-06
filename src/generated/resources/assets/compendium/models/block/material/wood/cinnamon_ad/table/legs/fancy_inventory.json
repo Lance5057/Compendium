@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/legs/fancy_leg_inventory",
+  "textures": {
+    "0": "minecraft:block/cinnamon_ad_planks"
+  }
+}

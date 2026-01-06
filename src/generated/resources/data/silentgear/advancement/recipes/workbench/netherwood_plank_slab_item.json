@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "silentgear:workbench/netherwood_plank_slab_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "silentgear:netherwood_plank_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "silentgear:workbench/netherwood_plank_slab_item"
+    ]
+  }
+}

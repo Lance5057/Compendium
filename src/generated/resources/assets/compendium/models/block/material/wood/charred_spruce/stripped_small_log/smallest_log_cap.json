@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/stripped_small_log/smallest_log_cap",
+  "textures": {
+    "0": "compendium:block/material/wood/charred_spruce/logs/stripped_extra_caps",
+    "1": "compendium:block/material/wood/charred_spruce/logs/stripped_small_logs"
+  }
+}

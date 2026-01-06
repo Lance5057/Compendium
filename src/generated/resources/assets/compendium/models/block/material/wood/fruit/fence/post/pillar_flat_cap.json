@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar_flat_cap",
+  "textures": {
+    "0": "minecraft:block/fruit_planks"
+  }
+}

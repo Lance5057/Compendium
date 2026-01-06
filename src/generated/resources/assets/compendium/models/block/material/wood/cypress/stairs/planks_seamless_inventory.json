@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/cypress/planks/planks_seamless",
+    "side": "compendium:block/material/wood/cypress/planks/planks_seamless",
+    "top": "compendium:block/material/wood/cypress/planks/planks_seamless"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/basic_inventory",
+  "textures": {
+    "0": "minecraft:block/larch_planks"
+  }
+}

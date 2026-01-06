@@ -1,0 +1,30 @@
+{
+  "name": "red_mushroom",
+  "namespace": "cluttered",
+  "type": "WOOD",
+  "loadPlanks": "GENERATE",
+  "loadLog": "GENERATE",
+  "loadStrippedLog": "GENERATE",
+  "loadWood": "GENERATE",
+  "loadStrippedWood": "GENERATE",
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

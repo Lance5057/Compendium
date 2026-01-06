@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/left/foot/frame/basic",
+  "textures": {
+    "0": "minecraft:block/hawthorn_planks"
+  }
+}

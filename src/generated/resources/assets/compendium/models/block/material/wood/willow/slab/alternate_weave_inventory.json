@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/willow/planks/alternate_weave",
+    "side": "compendium:block/material/wood/willow/planks/alternate_weave",
+    "top": "compendium:block/material/wood/willow/planks/alternate_weave"
+  }
+}

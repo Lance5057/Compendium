@@ -1,0 +1,148 @@
+{
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/sycamore/stairs/alternate_weave_inner"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/sycamore/stairs/banded_inner"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/sycamore/stairs/big_weave_inner"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/sycamore/stairs/blocks_inner"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/sycamore/stairs/blocks_offset_inner"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_inner"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_rotated_inner"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_seamless_inner"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_seamless_rotated_inner"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_stacked_inner"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/boards_stacked_rotated_inner"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/sycamore/stairs/box_inner"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/sycamore/stairs/chiseled_inner"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/sycamore/stairs/close_weave_inner"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/sycamore/stairs/cross_inner"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/sycamore/stairs/diagonal_inner"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/diagonal_rotated_inner"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/sycamore/stairs/domed_inner"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/sycamore/stairs/double_herringbone_inner"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/sycamore/stairs/double_weave_inner"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/sycamore/stairs/five_inner"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/sycamore/stairs/four_panels_inner"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/sycamore/stairs/herringbone_inner"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/sycamore/stairs/nine_panels_inner"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/sycamore/stairs/panel_inner"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/sycamore/stairs/paper_inner"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/sycamore/stairs/parquet_inner"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/sycamore/stairs/petal_inner"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/sycamore/stairs/planks_seamless_inner"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/planks_seamless_rotated_inner"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/sycamore/stairs/planks_stacked_inner"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/planks_stacked_rotated_inner"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/sycamore/stairs/sheet_inner"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/sycamore/stairs/small_blocks_inner"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/sycamore/stairs/small_blocks_offset_inner"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/sycamore/stairs/thin_inner"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/thin_rotated_inner"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/sycamore/stairs/two_panel_inner"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/sycamore/stairs/vertical_inner"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/sycamore/stairs/wainscotting_double_inner"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/sycamore/stairs/wainscotting_grate_inner"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/sycamore/stairs/wainscotting_seamless_inner"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/sycamore/stairs/wainscotting_single_inner"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/sycamore/stairs/walkway_inner"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/sycamore/stairs/walkway_rotated_inner"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/sycamore/stairs/wicker_inner"
+  }
+}

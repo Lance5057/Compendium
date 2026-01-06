@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/archwood/planks/banded",
+    "side": "compendium:block/material/wood/archwood/planks/banded",
+    "top": "compendium:block/material/wood/archwood/planks/banded"
+  }
+}

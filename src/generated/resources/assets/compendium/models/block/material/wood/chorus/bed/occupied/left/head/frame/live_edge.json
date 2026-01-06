@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/left/head/frame/live_edge",
+  "textures": {
+    "0": "compendium:block/material/wood/chorus/logs/log_split_side",
+    "1": "minecraft:block/chorus_log"
+  }
+}

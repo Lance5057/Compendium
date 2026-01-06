@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/right/head/frame/slats",
+  "textures": {
+    "0": "minecraft:block/fan_palm_planks",
+    "1": "compendium:block/material/wood/fan_palm/slats"
+  }
+}

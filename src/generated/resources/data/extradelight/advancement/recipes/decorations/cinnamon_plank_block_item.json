@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "extradelight:cinnamon_plank_block_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "extradelight:cinnamon_plank_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "extradelight:cinnamon_plank_block_item"
+    ]
+  }
+}

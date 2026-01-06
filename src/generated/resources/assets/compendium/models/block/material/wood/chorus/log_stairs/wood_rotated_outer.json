@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_outer",
+  "textures": {
+    "0": "minecraft:block/chorus_log",
+    "1": "minecraft:block/chorus_log",
+    "particle": "minecraft:block/chorus_log"
+  }
+}

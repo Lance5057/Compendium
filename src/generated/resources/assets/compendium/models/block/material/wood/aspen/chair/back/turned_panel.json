@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/turned_panel",
+  "textures": {
+    "0": "minecraft:block/aspen_planks"
+  }
+}

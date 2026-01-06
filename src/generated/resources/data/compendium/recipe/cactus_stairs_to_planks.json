@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bloomingnature:cactus_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloomingnature:cactus_plank_item"
+  }
+}

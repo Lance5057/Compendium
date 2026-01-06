@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/4_spoke",
+  "textures": {
+    "0": "minecraft:block/aspen_planks"
+  }
+}

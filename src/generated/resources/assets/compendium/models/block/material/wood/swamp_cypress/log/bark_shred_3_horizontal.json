@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/cube_column_ends",
+  "textures": {
+    "bottom": "minecraft:block/swamp_cypress_log_top",
+    "side": "compendium:block/material/wood/swamp_cypress/logs/bark_shred_3",
+    "top": "minecraft:block/stripped_swamp_cypress_log_top"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "compendium:block/material/wood/netherwood/logs/stripped_small_logs_top",
+    "side": "compendium:block/material/wood/netherwood/logs/stripped_small_logs"
+  }
+}

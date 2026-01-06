@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "cluttered:blue_mushroom_plank_item"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cluttered:blue_mushroom_planks_item"
+  }
+}

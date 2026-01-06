@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/crosscut_small_full",
+  "textures": {
+    "0": "compendium:block/material/wood/fir/logs/small_logs",
+    "1": "compendium:block/material/wood/fir/logs/small_logs_top",
+    "particle": "compendium:block/material/wood/fir/logs/small_logs"
+  }
+}

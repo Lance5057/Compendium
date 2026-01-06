@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/chair/seat/weave",
+  "textures": {
+    "0": "minecraft:block/fir_planks",
+    "1": "compendium:block/material/wood/fir/weave"
+  }
+}

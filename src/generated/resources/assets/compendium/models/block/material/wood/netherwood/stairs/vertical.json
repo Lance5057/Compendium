@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/netherwood/planks/vertical",
+    "side": "compendium:block/material/wood/netherwood/planks/vertical",
+    "top": "compendium:block/material/wood/netherwood/planks/vertical"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/basic_inventory",
+  "textures": {
+    "0": "minecraft:block/poplar_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/campfire_full",
+  "textures": {
+    "0": "minecraft:block/stripped_hawthorn_log",
+    "1": "compendium:block/material/wood/hawthorn/logs/stripped_extra_caps",
+    "particle": "minecraft:block/stripped_hawthorn_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bloomingnature:larch_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloomingnature:larch_plank_item"
+  }
+}

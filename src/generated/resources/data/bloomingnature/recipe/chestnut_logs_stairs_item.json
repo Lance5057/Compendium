@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "b": {
+      "item": "bloomingnature:chestnut_small_log_item"
+    }
+  },
+  "pattern": [
+    "b ",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloomingnature:chestnut_logs_stairs_item"
+  }
+}

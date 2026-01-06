@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/seat/framed",
+  "textures": {
+    "0": "minecraft:block/chorus_planks"
+  }
+}

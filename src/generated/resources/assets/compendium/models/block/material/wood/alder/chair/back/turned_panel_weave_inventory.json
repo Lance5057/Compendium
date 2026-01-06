@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
+  "textures": {
+    "0": "minecraft:block/alder_planks",
+    "1": "compendium:block/material/wood/alder/slats"
+  }
+}

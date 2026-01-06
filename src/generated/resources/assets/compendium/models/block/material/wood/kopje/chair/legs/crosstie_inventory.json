@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/crosstie",
+  "textures": {
+    "0": "minecraft:block/kopje_planks"
+  }
+}

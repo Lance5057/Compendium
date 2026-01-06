@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/small_log/smallest_log_horizontal",
+  "textures": {
+    "0": "compendium:block/material/wood/chestnut/logs/extra_caps",
+    "1": "compendium:block/material/wood/chestnut/logs/small_logs"
+  }
+}

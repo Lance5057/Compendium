@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/crabapple/planks/box",
+    "side": "compendium:block/material/wood/crabapple/planks/box",
+    "top": "compendium:block/material/wood/crabapple/planks/box"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/wisewood/planks/alternate_weave"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/wisewood/planks/banded"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "hazennstuff:block/wisewood_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/wisewood/planks/big_weave"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/wisewood/planks/blocks"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/wisewood/planks/blocks_offset"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards_rotated"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards_seamless"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards_seamless_rotated"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards_stacked"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/boards_stacked_rotated"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/wisewood/planks/box"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/wisewood/planks/chiseled"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/wisewood/planks/close_weave"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/wisewood/planks/cross"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/wisewood/planks/diagonal"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/diagonal_rotated"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/wisewood/planks/domed"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/wisewood/planks/double_herringbone"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/wisewood/planks/double_weave"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/wisewood/planks/five"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/wisewood/planks/four_panels"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/wisewood/planks/herringbone"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/wisewood/planks/nine_panels"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/wisewood/planks/panel"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/wisewood/planks/paper"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/wisewood/planks/parquet"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/wisewood/planks/petal"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/wisewood/planks/planks_seamless"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/planks_seamless_rotated"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/wisewood/planks/planks_stacked"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/planks_stacked_rotated"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/wisewood/planks/sheet"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/wisewood/planks/small_blocks"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/wisewood/planks/small_blocks_offset"
+  },
+  "textures": {
+    "all": "hazennstuff:block/wisewood_planks"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/wisewood/planks/thin"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/thin_rotated"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/wisewood/planks/two_panel"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/wisewood/planks/vertical"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/wisewood/planks/wainscotting_double"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/wisewood/planks/wainscotting_grate"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/wisewood/planks/wainscotting_seamless"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/wisewood/planks/wainscotting_single"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/wisewood/planks/walkway"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/wisewood/planks/walkway_rotated"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/wisewood/planks/wicker"
+  }
+}

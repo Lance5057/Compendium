@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_slanted/support/top/straight/braced",
+  "textures": {
+    "0": "compendium:block/material/wood/poplar/logs/small_logs",
+    "1": "compendium:block/material/wood/poplar/logs/small_logs_top"
+  }
+}

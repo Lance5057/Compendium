@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compendium:block/material/wood/blue_mushroom/planks/wainscotting_single"
+  }
+}

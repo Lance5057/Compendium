@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/alder/planks/herringbone",
+    "side": "compendium:block/material/wood/alder/planks/herringbone",
+    "top": "compendium:block/material/wood/alder/planks/herringbone"
+  }
+}

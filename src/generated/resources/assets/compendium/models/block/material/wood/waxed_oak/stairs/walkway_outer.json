@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/waxed_oak/planks/walkway",
+    "side": "compendium:block/material/wood/waxed_oak/planks/walkway",
+    "top": "compendium:block/material/wood/waxed_oak/planks/walkway"
+  }
+}

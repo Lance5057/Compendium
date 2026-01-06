@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/shingles_slanted/shingles/angled",
+  "textures": {
+    "0": "minecraft:block/sycamore_planks"
+  }
+}

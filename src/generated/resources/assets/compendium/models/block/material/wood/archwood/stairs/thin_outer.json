@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/archwood/planks/thin",
+    "side": "compendium:block/material/wood/archwood/planks/thin",
+    "top": "compendium:block/material/wood/archwood/planks/thin"
+  }
+}

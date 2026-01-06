@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/planks_horizontal_angled",
+  "textures": {
+    "0": "minecraft:block/poplar_planks"
+  }
+}

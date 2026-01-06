@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/left/foot/frame/slats",
+  "textures": {
+    "0": "minecraft:block/cinnamon_ad_planks",
+    "1": "compendium:block/material/wood/cinnamon_ad/slats"
+  }
+}

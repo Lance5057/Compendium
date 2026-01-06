@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/waxed_oak/planks/blocks_offset",
+    "side": "compendium:block/material/wood/waxed_oak/planks/blocks_offset",
+    "top": "compendium:block/material/wood/waxed_oak/planks/blocks_offset"
+  }
+}

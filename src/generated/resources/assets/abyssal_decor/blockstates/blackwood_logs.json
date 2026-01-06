@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "compendium:block/material/wood/blackwood/log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "compendium:block/material/wood/blackwood/log"
+    },
+    "axis=z": {
+      "model": "compendium:block/material/wood/blackwood/log_horizontal",
+      "x": 90
+    }
+  }
+}

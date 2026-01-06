@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/swamp_oak/planks/boards_seamless",
+    "side": "compendium:block/material/wood/swamp_oak/planks/boards_seamless",
+    "top": "compendium:block/material/wood/swamp_oak/planks/boards_seamless"
+  }
+}

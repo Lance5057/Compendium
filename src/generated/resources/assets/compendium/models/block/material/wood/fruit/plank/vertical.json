@@ -1,0 +1,16 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "basic": {
+    "model": "compendium:block/material/wood/fruit/plank/basic_vertical"
+  },
+  "count": 2,
+  "loader": "compendium:style",
+  "pipe": {
+    "model": "compendium:block/material/wood/fruit/plank/pipe_vertical"
+  }
+}

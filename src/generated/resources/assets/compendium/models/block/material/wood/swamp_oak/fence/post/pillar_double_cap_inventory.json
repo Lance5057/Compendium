@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar_double_cap_inventory",
+  "textures": {
+    "0": "minecraft:block/swamp_oak_planks"
+  }
+}

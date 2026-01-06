@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/charred_spruce/planks/wainscotting_double",
+    "side": "compendium:block/material/wood/charred_spruce/planks/wainscotting_double",
+    "top": "compendium:block/material/wood/charred_spruce/planks/wainscotting_double"
+  }
+}

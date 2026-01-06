@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/rowan/planks/planks_seamless_rotated",
+    "side": "compendium:block/material/wood/rowan/planks/planks_seamless_rotated",
+    "top": "compendium:block/material/wood/rowan/planks/planks_seamless_rotated"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bloomingnature:ebony_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloomingnature:ebony_plank_item"
+  }
+}

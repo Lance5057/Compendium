@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/smaller_logs_full",
+  "textures": {
+    "0": "minecraft:block/stripped_barn_wood_log",
+    "1": "compendium:block/material/wood/barn_wood/logs/stripped_extra_caps",
+    "particle": "minecraft:block/stripped_barn_wood_log"
+  }
+}

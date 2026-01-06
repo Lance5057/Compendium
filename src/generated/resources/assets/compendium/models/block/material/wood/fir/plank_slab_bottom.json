@@ -1,0 +1,148 @@
+{
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/fir/slab/alternate_weave_bottom"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/fir/slab/banded_bottom"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/fir/slab/big_weave_bottom"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/fir/slab/blocks_bottom"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/fir/slab/blocks_offset_bottom"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/fir/slab/boards_bottom"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/boards_rotated_bottom"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/fir/slab/boards_seamless_bottom"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/boards_seamless_rotated_bottom"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/fir/slab/boards_stacked_bottom"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/boards_stacked_rotated_bottom"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/fir/slab/box_bottom"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/fir/slab/chiseled_bottom"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/fir/slab/close_weave_bottom"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/fir/slab/cross_bottom"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/fir/slab/diagonal_bottom"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/diagonal_rotated_bottom"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/fir/slab/domed_bottom"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/fir/slab/double_herringbone_bottom"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/fir/slab/double_weave_bottom"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/fir/slab/five_bottom"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/fir/slab/four_panels_bottom"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/fir/slab/herringbone_bottom"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/fir/slab/nine_panels_bottom"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/fir/slab/panel_bottom"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/fir/slab/paper_bottom"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/fir/slab/parquet_bottom"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/fir/slab/petal_bottom"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/fir/slab/planks_seamless_bottom"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/planks_seamless_rotated_bottom"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/fir/slab/planks_stacked_bottom"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/planks_stacked_rotated_bottom"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/fir/slab/sheet_bottom"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/fir/slab/small_blocks_bottom"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/fir/slab/small_blocks_offset_bottom"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/fir/slab/thin_bottom"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/thin_rotated_bottom"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/fir/slab/two_panel_bottom"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/fir/slab/vertical_bottom"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/fir/slab/wainscotting_double_bottom"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/fir/slab/wainscotting_grate_bottom"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/fir/slab/wainscotting_seamless_bottom"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/fir/slab/wainscotting_single_bottom"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/fir/slab/walkway_bottom"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/fir/slab/walkway_rotated_bottom"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/fir/slab/wicker_bottom"
+  }
+}

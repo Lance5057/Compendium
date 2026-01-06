@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/cinnamon_ad/planks/domed",
+    "side": "compendium:block/material/wood/cinnamon_ad/planks/domed",
+    "top": "compendium:block/material/wood/cinnamon_ad/planks/domed"
+  }
+}

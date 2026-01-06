@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/solid_ends",
+  "textures": {
+    "0": "minecraft:block/swamp_oak_planks"
+  }
+}

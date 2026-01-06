@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/swamp_cypress/planks/box",
+    "side": "compendium:block/material/wood/swamp_cypress/planks/box",
+    "top": "compendium:block/material/wood/swamp_cypress/planks/box"
+  }
+}

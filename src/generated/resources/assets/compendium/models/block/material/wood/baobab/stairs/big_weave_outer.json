@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/baobab/planks/big_weave",
+    "side": "compendium:block/material/wood/baobab/planks/big_weave",
+    "top": "compendium:block/material/wood/baobab/planks/big_weave"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "compendium:style_block"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "ars_nouveau:archwood_stripped_logs_stairs_item"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ars_nouveau:blocks/archwood_stripped_logs_stairs"
+}

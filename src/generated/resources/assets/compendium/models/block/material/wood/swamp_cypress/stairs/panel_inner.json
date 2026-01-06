@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/swamp_cypress/planks/panel",
+    "side": "compendium:block/material/wood/swamp_cypress/planks/panel",
+    "top": "compendium:block/material/wood/swamp_cypress/planks/panel"
+  }
+}

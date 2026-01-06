@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/cube_column_ends",
+  "textures": {
+    "bottom": "minecraft:block/charred_spruce_log_top",
+    "side": "compendium:block/material/wood/charred_spruce/logs/stripped_bark_shred_2",
+    "top": "minecraft:block/stripped_charred_spruce_log_top"
+  }
+}

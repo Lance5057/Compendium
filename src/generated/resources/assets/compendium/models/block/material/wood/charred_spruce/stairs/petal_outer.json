@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/charred_spruce/planks/petal",
+    "side": "compendium:block/material/wood/charred_spruce/planks/petal",
+    "top": "compendium:block/material/wood/charred_spruce/planks/petal"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/small_log_inventory",
+  "textures": {
+    "0": "compendium:block/material/wood/baobab/logs/extra_caps",
+    "1": "compendium:block/material/wood/baobab/logs/small_logs"
+  }
+}

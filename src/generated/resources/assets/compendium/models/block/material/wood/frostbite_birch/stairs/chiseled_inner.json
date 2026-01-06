@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/frostbite_birch/planks/chiseled",
+    "side": "compendium:block/material/wood/frostbite_birch/planks/chiseled",
+    "top": "compendium:block/material/wood/frostbite_birch/planks/chiseled"
+  }
+}

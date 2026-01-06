@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_full",
+  "textures": {
+    "0": "minecraft:block/chestnut_log",
+    "1": "compendium:block/material/wood/chestnut/logs/extra_caps",
+    "particle": "minecraft:block/chestnut_log"
+  }
+}

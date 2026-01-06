@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_slanted/support/no_top/all/basic",
+  "textures": {
+    "0": "compendium:block/material/wood/red_mushroom/logs/small_logs",
+    "1": "compendium:block/material/wood/red_mushroom/logs/small_logs_top"
+  }
+}

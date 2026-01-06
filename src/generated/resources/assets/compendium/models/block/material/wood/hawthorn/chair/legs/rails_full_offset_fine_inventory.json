@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/rails_full_offset_fine",
+  "textures": {
+    "0": "minecraft:block/hawthorn_planks"
+  }
+}

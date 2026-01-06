@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/picket_inventory",
+  "textures": {
+    "0": "minecraft:block/cactus_planks"
+  }
+}

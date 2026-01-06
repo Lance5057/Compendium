@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/rails_side_lath",
+  "textures": {
+    "0": "minecraft:block/crabapple_planks",
+    "1": "compendium:block/material/wood/crabapple/slats"
+  }
+}

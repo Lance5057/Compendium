@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bloomingnature:cypress_plank_slab_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloomingnature:cypress_plank_item"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/chair/back/panel_weave",
+  "textures": {
+    "0": "minecraft:block/netherwood_planks",
+    "1": "compendium:block/material/wood/netherwood/slats"
+  }
+}

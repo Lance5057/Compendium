@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fluorescent_maple/planks/vertical",
+    "side": "compendium:block/material/wood/fluorescent_maple/planks/vertical",
+    "top": "compendium:block/material/wood/fluorescent_maple/planks/vertical"
+  }
+}

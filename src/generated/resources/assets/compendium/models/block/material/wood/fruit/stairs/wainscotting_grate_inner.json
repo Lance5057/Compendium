@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fruit/planks/wainscotting_grate",
+    "side": "compendium:block/material/wood/fruit/planks/wainscotting_grate",
+    "top": "compendium:block/material/wood/fruit/planks/wainscotting_grate"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/left/head/base/weave",
+  "textures": {
+    "0": "minecraft:block/red_mushroom_planks",
+    "1": "compendium:block/material/wood/red_mushroom/weave"
+  }
+}

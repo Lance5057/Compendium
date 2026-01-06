@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/aspen/planks/wainscotting_single",
+    "side": "compendium:block/material/wood/aspen/planks/wainscotting_single",
+    "top": "compendium:block/material/wood/aspen/planks/wainscotting_single"
+  }
+}

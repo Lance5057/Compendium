@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/3_spoke_inventory",
+  "textures": {
+    "0": "minecraft:block/alder_planks"
+  }
+}

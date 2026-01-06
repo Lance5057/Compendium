@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/slats_concave_inventory",
+  "textures": {
+    "0": "minecraft:block/cypress_planks"
+  }
+}

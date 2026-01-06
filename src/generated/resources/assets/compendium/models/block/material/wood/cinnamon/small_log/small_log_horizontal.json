@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/small_log/small_log_horizontal",
+  "textures": {
+    "0": "compendium:block/material/wood/cinnamon/logs/extra_caps",
+    "1": "compendium:block/material/wood/cinnamon/logs/small_logs"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/chestnut/planks/small_blocks",
+    "side": "compendium:block/material/wood/chestnut/planks/small_blocks",
+    "top": "compendium:block/material/wood/chestnut/planks/small_blocks"
+  }
+}

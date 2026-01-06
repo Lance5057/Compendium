@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/alder/planks/chiseled",
+    "side": "compendium:block/material/wood/alder/planks/chiseled",
+    "top": "compendium:block/material/wood/alder/planks/chiseled"
+  }
+}

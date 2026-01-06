@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "compendium:block/material/wood/blackwood/logs/small_logs",
+    "side": "compendium:block/material/wood/blackwood/logs/small_logs"
+  }
+}

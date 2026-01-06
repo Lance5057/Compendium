@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/crosscut_top",
+  "textures": {
+    "0": "minecraft:block/cinnamon_log",
+    "1": "minecraft:block/cinnamon_log_top",
+    "particle": "minecraft:block/cinnamon_log"
+  }
+}

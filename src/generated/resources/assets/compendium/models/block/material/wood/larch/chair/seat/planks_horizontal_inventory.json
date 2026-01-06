@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/seat/planks_horizontal",
+  "textures": {
+    "0": "minecraft:block/larch_planks"
+  }
+}

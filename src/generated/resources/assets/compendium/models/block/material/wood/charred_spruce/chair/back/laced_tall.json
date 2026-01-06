@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/laced_tall",
+  "textures": {
+    "0": "minecraft:block/charred_spruce_planks"
+  }
+}

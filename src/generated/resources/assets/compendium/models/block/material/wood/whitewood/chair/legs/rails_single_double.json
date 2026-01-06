@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/legs/rails_single_double",
+  "textures": {
+    "0": "minecraft:block/whitewood_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fluorescent_maple/planks/wicker",
+    "side": "compendium:block/material/wood/fluorescent_maple/planks/wicker",
+    "top": "compendium:block/material/wood/fluorescent_maple/planks/wicker"
+  }
+}

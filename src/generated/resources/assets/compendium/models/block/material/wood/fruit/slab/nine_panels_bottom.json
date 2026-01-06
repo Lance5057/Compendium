@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/fruit/planks/nine_panels",
+    "side": "compendium:block/material/wood/fruit/planks/nine_panels",
+    "top": "compendium:block/material/wood/fruit/planks/nine_panels"
+  }
+}

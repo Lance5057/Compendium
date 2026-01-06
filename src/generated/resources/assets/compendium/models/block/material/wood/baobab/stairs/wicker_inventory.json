@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/baobab/planks/wicker",
+    "side": "compendium:block/material/wood/baobab/planks/wicker",
+    "top": "compendium:block/material/wood/baobab/planks/wicker"
+  }
+}

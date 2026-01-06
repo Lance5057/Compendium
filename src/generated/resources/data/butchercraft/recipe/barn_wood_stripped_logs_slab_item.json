@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "b": {
+      "item": "butchercraft:barn_wood_stripped_small_log_item"
+    }
+  },
+  "pattern": [
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "butchercraft:barn_wood_stripped_logs_slab_item"
+  }
+}

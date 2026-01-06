@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/legs/side/basic_inventory",
+  "textures": {
+    "0": "minecraft:block/baobab_planks"
+  }
+}

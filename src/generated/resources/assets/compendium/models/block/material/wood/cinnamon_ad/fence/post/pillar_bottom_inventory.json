@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar_bottom_inventory",
+  "textures": {
+    "0": "minecraft:block/cinnamon_ad_planks"
+  }
+}

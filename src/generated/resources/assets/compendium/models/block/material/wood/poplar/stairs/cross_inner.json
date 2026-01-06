@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/poplar/planks/cross",
+    "side": "compendium:block/material/wood/poplar/planks/cross",
+    "top": "compendium:block/material/wood/poplar/planks/cross"
+  }
+}

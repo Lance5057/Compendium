@@ -1,0 +1,148 @@
+{
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/netherwood/stairs/alternate_weave_inventory"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/netherwood/stairs/banded_inventory"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/netherwood/stairs/big_weave_inventory"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/netherwood/stairs/blocks_inventory"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/netherwood/stairs/blocks_offset_inventory"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_inventory"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_rotated_inventory"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_seamless_inventory"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_seamless_rotated_inventory"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_stacked_inventory"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/boards_stacked_rotated_inventory"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/netherwood/stairs/box_inventory"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/netherwood/stairs/chiseled_inventory"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/netherwood/stairs/close_weave_inventory"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/netherwood/stairs/cross_inventory"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/netherwood/stairs/diagonal_inventory"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/diagonal_rotated_inventory"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/netherwood/stairs/domed_inventory"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/netherwood/stairs/double_herringbone_inventory"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/netherwood/stairs/double_weave_inventory"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/netherwood/stairs/five_inventory"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/netherwood/stairs/four_panels_inventory"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/netherwood/stairs/herringbone_inventory"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/netherwood/stairs/nine_panels_inventory"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/netherwood/stairs/panel_inventory"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/netherwood/stairs/paper_inventory"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/netherwood/stairs/parquet_inventory"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/netherwood/stairs/petal_inventory"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/netherwood/stairs/planks_seamless_inventory"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/planks_seamless_rotated_inventory"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/netherwood/stairs/planks_stacked_inventory"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/planks_stacked_rotated_inventory"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/netherwood/stairs/sheet_inventory"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/netherwood/stairs/small_blocks_inventory"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/netherwood/stairs/small_blocks_offset_inventory"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/netherwood/stairs/thin_inventory"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/thin_rotated_inventory"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/netherwood/stairs/two_panel_inventory"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/netherwood/stairs/vertical_inventory"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/netherwood/stairs/wainscotting_double_inventory"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/netherwood/stairs/wainscotting_grate_inventory"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/netherwood/stairs/wainscotting_seamless_inventory"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/netherwood/stairs/wainscotting_single_inventory"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/netherwood/stairs/walkway_inventory"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/netherwood/stairs/walkway_rotated_inventory"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/netherwood/stairs/wicker_inventory"
+  }
+}

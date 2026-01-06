@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/shingles_slanted/support/outer_corner/none",
+  "textures": {
+    "0": "compendium:block/material/wood/poplar/logs/small_logs",
+    "1": "compendium:block/material/wood/poplar/logs/small_logs_top"
+  }
+}

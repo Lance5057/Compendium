@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/bases/small_log/smaller_log_cap",
+  "textures": {
+    "0": "compendium:block/material/wood/ebony/logs/extra_caps",
+    "1": "compendium:block/material/wood/ebony/logs/small_logs"
+  }
+}

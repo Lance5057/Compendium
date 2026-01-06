@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_inner",
+  "textures": {
+    "0": "minecraft:block/fluorescent_maple_log",
+    "1": "minecraft:block/fluorescent_maple_log",
+    "particle": "minecraft:block/fluorescent_maple_log"
+  }
+}
