@@ -10,14 +10,14 @@
   "extensions": [
     {
       "type": "EXTRALOGS",
-      "loadSmallLog": "GENERATE",
-      "loadSmallLogs": "GENERATE",
-      "loadSmallLogsSlab": "GENERATE",
-      "loadSmallLogsStairs": "GENERATE",
-      "loadStrippedSmallLog": "GENERATE",
-      "loadStrippedSmallLogs": "GENERATE",
-      "loadStrippedSmallLogsSlab": "GENERATE",
-      "loadStrippedSmallLogsStairs": "GENERATE"
+      "loadSmallLog": "IGNORE",
+      "loadSmallLogs": "IGNORE",
+      "loadSmallLogsSlab": "IGNORE",
+      "loadSmallLogsStairs": "IGNORE",
+      "loadStrippedSmallLog": "IGNORE",
+      "loadStrippedSmallLogs": "IGNORE",
+      "loadStrippedSmallLogsSlab": "IGNORE",
+      "loadStrippedSmallLogsStairs": "IGNORE"
     },
     {
       "type": "EXTRAPLANKS",

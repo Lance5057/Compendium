@@ -348,8 +348,8 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.GENERATE, Generate.GENERATE,
 				Generate.GENERATE, Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+						Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE))
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
 
