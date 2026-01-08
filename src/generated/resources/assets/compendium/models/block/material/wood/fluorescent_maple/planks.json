@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:block/cube_all",
   "alternate_weave": {
     "model": "compendium:block/material/wood/fluorescent_maple/planks/alternate_weave"
   },
@@ -112,9 +111,6 @@
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/fluorescent_maple/planks/small_blocks_offset"
-  },
-  "textures": {
-    "all": "cluttered:block/fluorescent_maple_planks"
   },
   "thin": {
     "model": "compendium:block/material/wood/fluorescent_maple/planks/thin"

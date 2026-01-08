@@ -3,9 +3,9 @@
   "namespace": "abyssal_decor",
   "type": "WOOD",
   "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
+  "loadLog": "EXISTS",
   "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
+  "loadWood": "EXISTS",
   "loadStrippedWood": "GENERATE",
   "extensions": [
     {

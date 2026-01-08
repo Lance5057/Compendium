@@ -3,10 +3,10 @@
   "namespace": "koopascritters",
   "type": "WOOD",
   "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
-  "loadStrippedWood": "GENERATE",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "IGNORE",
+  "loadStrippedWood": "IGNORE",
   "extensions": [
     {
       "type": "EXTRALOGS",

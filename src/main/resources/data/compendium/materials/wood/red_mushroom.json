@@ -2,10 +2,10 @@
   "name": "red_mushroom",
   "namespace": "cluttered",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
   "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
+  "loadWood": "EXISTS",
   "loadStrippedWood": "GENERATE",
   "extensions": [
     {

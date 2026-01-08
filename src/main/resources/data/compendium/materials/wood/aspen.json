@@ -2,11 +2,11 @@
   "name": "aspen",
   "namespace": "bloomingnature",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
-  "loadStrippedWood": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
   "extensions": [
     {
       "type": "EXTRALOGS",

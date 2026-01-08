@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:block/cube_all",
   "alternate_weave": {
     "model": "compendium:block/material/wood/cactus/planks/alternate_weave"
   },
@@ -112,9 +111,6 @@
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/cactus/planks/small_blocks_offset"
-  },
-  "textures": {
-    "all": "bloomingnature:block/cactus_planks"
   },
   "thin": {
     "model": "compendium:block/material/wood/cactus/planks/thin"

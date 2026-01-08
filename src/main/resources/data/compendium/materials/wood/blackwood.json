@@ -2,10 +2,10 @@
   "name": "blackwood",
   "namespace": "abyssal_decor",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
   "loadStrippedWood": "GENERATE",
   "extensions": [
     {

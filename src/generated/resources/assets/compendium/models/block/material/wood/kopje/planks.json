@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:block/cube_all",
   "alternate_weave": {
     "model": "compendium:block/material/wood/kopje/planks/alternate_weave"
   },
@@ -112,9 +111,6 @@
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/kopje/planks/small_blocks_offset"
-  },
-  "textures": {
-    "all": "koopascritters:block/kopje_planks"
   },
   "thin": {
     "model": "compendium:block/material/wood/kopje/planks/thin"

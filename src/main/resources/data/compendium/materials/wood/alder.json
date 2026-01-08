@@ -2,9 +2,9 @@
   "name": "alder",
   "namespace": "enchanted",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
   "loadWood": "GENERATE",
   "loadStrippedWood": "GENERATE",
   "extensions": [

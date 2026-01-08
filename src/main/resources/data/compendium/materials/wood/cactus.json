@@ -2,11 +2,11 @@
   "name": "cactus",
   "namespace": "bloomingnature",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
-  "loadStrippedWood": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "IGNORE",
+  "loadWood": "IGNORE",
+  "loadStrippedWood": "IGNORE",
   "extensions": [
     {
       "type": "EXTRALOGS",

@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:block/cube_all",
   "alternate_weave": {
     "model": "compendium:block/material/wood/charred_spruce/planks/alternate_weave"
   },
@@ -112,9 +111,6 @@
   },
   "small_blocks_offset": {
     "model": "compendium:block/material/wood/charred_spruce/planks/small_blocks_offset"
-  },
-  "textures": {
-    "all": "dawnoftimebuilder:block/charred_spruce_planks"
   },
   "thin": {
     "model": "compendium:block/material/wood/charred_spruce/planks/thin"

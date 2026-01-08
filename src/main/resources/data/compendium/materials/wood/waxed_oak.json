@@ -2,9 +2,9 @@
   "name": "waxed_oak",
   "namespace": "dawnoftimebuilder",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
+  "loadPlanks": "EXISTS",
   "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
+  "loadStrippedLog": "EXISTS",
   "loadWood": "GENERATE",
   "loadStrippedWood": "GENERATE",
   "extensions": [

@@ -3,10 +3,10 @@
   "namespace": "butchercraft",
   "type": "WOOD",
   "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
-  "loadStrippedWood": "GENERATE",
+  "loadLog": "IGNORE",
+  "loadStrippedLog": "IGNORE",
+  "loadWood": "IGNORE",
+  "loadStrippedWood": "IGNORE",
   "extensions": [
     {
       "type": "EXTRALOGS",

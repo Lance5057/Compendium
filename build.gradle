@@ -29,6 +29,7 @@ repositories {
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" } 
     maven { url = "https://maven.theillusivec4.top/" } 
     maven { url = "https://maven.blamejared.com/" }
+	flatDir { dirs '../Imports' }
 }
 
 base {
@@ -130,6 +131,38 @@ dependencies {
     //localRuntime "curse.maven:irisshaders-455508:6661598"
     
     implementation('com.blamejared.crafttweaker:CraftTweaker-neoforge-1.21.1:21.0.27')
+	implementation name: 'enchanted-neoforge-1.21.1-4.2.3'
+	implementation name: 'ars_nouveau-1.21.1-5.11.1'
+	implementation name: 'dawnoftimebuilder-neoforge-1.21.1-1.6.4'
+	implementation name: "L_Ender's Cataclysm 1.21.1-3.16"
+	implementation name: 'hazennstuff-1.3.7'
+	implementation name: 'silent-gear-1.21.1-neoforge-4.0.30'
+	implementation name: 'abyssal_decor_1.21.1_0.9.1_Neoforge'
+	implementation name: 'extradelight-2.6.3'
+	implementation name: 'letsdo-bloomingnature-neoforge-1.1.5'
+	implementation name: "Koopa'sCritters_1.21.1Neoforge_V0.4.1"
+	implementation name: 'cluttered-[NeoForge]-3.0.3-1.21.1'
+	implementation name: 'butchercraft-2.6.4'
+	implementation name: 'stateobserver-neoforge-1.21.1-1.6.4'
+	implementation name: 'modopedia-neoforge-1.21.1-1.1.5'
+	implementation name: 'geckolib-neoforge-1.21.1-4.8.3'
+	implementation name: 'curios-neoforge-9.5.1+1.21.1'
+	implementation name: 'FarmersDelight-1.21.1-1.2.9'
+	implementation name: 'irons_spellbooks-1.21.1-3.15.0'
+	implementation name: 'architectury-13.0.8-neoforge'
+	implementation name: 'silent-lib-1.21.1-neoforge-10.5.1'
+	implementation name: 'player-animation-lib-forge-2.0.4+1.21.1'
+	implementation name: 'biolith-neoforge-3.0.10'
+	implementation name: 'lionfishapi-2.6'
+	implementation name: 'aces_spell_utils-1.1.22-1.21.1'
+	implementation name: 'ApothicAttributes-1.21.1-2.9.0'
+	implementation name: 'Placebo-1.21.1-9.9.1'
+	implementation name: 'azurelib-neo-1.21.1-3.1.3'
+	implementation name: 'create-1.21.1-6.0.9'
+    implementation("xyz.brassgoggledcoders:PatchouliProvider:1.21.1-1.0.11-Snapshot.5")
+	
+	compileOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE:api"
+    runtimeOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

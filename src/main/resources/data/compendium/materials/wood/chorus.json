@@ -2,11 +2,11 @@
   "name": "chorus",
   "namespace": "cataclysm",
   "type": "WOOD",
-  "loadPlanks": "GENERATE",
-  "loadLog": "GENERATE",
-  "loadStrippedLog": "GENERATE",
-  "loadWood": "GENERATE",
-  "loadStrippedWood": "GENERATE",
+  "loadPlanks": "EXISTS",
+  "loadLog": "IGNORE",
+  "loadStrippedLog": "IGNORE",
+  "loadWood": "IGNORE",
+  "loadStrippedWood": "EXISTS",
   "extensions": [
     {
       "type": "EXTRALOGS",
