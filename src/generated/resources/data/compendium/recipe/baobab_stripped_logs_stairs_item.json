@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "b": {
+      "item": "compendium:baobab_stripped_small_log_item"
+    }
+  },
+  "pattern": [
+    "b ",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:baobab_stripped_logs_stairs_item"
+  }
+}

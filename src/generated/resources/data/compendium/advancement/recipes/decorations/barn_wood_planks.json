@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "butchercraft:barn_wood_plank_item"
+            "items": "compendium:barn_wood_plank_item"
           }
         ]
       },

@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cataclysm:chorus_plank_slab_item"
+      "item": "compendium:chorus_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "cataclysm:chorus_plank_item"
+    "id": "compendium:chorus_plank_item"
   }
 }

@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bloomingnature:larch_plank_slab_item"
+      "item": "compendium:larch_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "bloomingnature:larch_plank_item"
+    "id": "compendium:larch_plank_item"
   }
 }

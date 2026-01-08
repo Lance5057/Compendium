@@ -131,34 +131,34 @@ dependencies {
     //localRuntime "curse.maven:irisshaders-455508:6661598"
     
     implementation('com.blamejared.crafttweaker:CraftTweaker-neoforge-1.21.1:21.0.27')
-	implementation name: 'enchanted-neoforge-1.21.1-4.2.3'
-	implementation name: 'ars_nouveau-1.21.1-5.11.1'
-	implementation name: 'dawnoftimebuilder-neoforge-1.21.1-1.6.4'
-	implementation name: "L_Ender's Cataclysm 1.21.1-3.16"
-	implementation name: 'hazennstuff-1.3.7'
-	implementation name: 'silent-gear-1.21.1-neoforge-4.0.30'
-	implementation name: 'abyssal_decor_1.21.1_0.9.1_Neoforge'
-	implementation name: 'extradelight-2.6.3'
-	implementation name: 'letsdo-bloomingnature-neoforge-1.1.5'
-	implementation name: "Koopa'sCritters_1.21.1Neoforge_V0.4.1"
-	implementation name: 'cluttered-[NeoForge]-3.0.3-1.21.1'
-	implementation name: 'butchercraft-2.6.4'
-	implementation name: 'stateobserver-neoforge-1.21.1-1.6.4'
-	implementation name: 'modopedia-neoforge-1.21.1-1.1.5'
-	implementation name: 'geckolib-neoforge-1.21.1-4.8.3'
-	implementation name: 'curios-neoforge-9.5.1+1.21.1'
-	implementation name: 'FarmersDelight-1.21.1-1.2.9'
-	implementation name: 'irons_spellbooks-1.21.1-3.15.0'
-	implementation name: 'architectury-13.0.8-neoforge'
-	implementation name: 'silent-lib-1.21.1-neoforge-10.5.1'
-	implementation name: 'player-animation-lib-forge-2.0.4+1.21.1'
-	implementation name: 'biolith-neoforge-3.0.10'
-	implementation name: 'lionfishapi-2.6'
-	implementation name: 'aces_spell_utils-1.1.22-1.21.1'
-	implementation name: 'ApothicAttributes-1.21.1-2.9.0'
-	implementation name: 'Placebo-1.21.1-9.9.1'
-	implementation name: 'azurelib-neo-1.21.1-3.1.3'
-	implementation name: 'create-1.21.1-6.0.9'
+	implementation "curse.maven:enchanted-witchcraft-560363:6948369"
+	implementation "curse.maven:ars-nouveau-401955:7417840"
+	implementation "curse.maven:dawn-of-time-312359:7049993"
+	implementation "curse.maven:lendercataclysm-551586:6906997"
+	implementation "curse.maven:hazen-n-stuff-1231627:7163343"
+	implementation "curse.maven:silent-lib-242998:6565251"
+	implementation "curse.maven:abyssal-decor-964853:6768929"
+	implementation "curse.maven:extradelight-842106:7321020"
+	implementation "curse.maven:lets-do-bloomingnature-962885:7431040"
+	implementation "curse.maven:koopas-critters-395061:7378564"
+	implementation "curse.maven:cluttered-826308:7385620"
+	implementation "curse.maven:butchercraft-265715:6714774"
+	implementation "curse.maven:stateobserver-701213:7357057"
+	implementation "curse.maven:modopedia-1132038:6765935"
+	implementation "curse.maven:geckolib-388172:7415496"
+	implementation "curse.maven:curios-309927:6529130"
+	implementation "curse.maven:farmers-delight-398521:6917256"
+	implementation "curse.maven:irons-spells-n-spellbooks-855414:7402503"
+	implementation "curse.maven:architectury-api-419699:5786327"
+	implementation "curse.maven:silent-gear-297039:7254991"
+	implementation "curse.maven:playeranimator-658587:7389814"
+	implementation "curse.maven:biolith-852512:7074761"
+	implementation "curse.maven:lionfish-api-1001614:6168249"
+	implementation "curse.maven:aces-spell-utils-1299492:7382269"
+	implementation "curse.maven:apothic-attributes-898963:6751650"
+	implementation "curse.maven:placebo-283644:6926281"
+	implementation "curse.maven:azurelib-817423:7371539"
+	implementation "curse.maven:create-328085:7408951"
     implementation("xyz.brassgoggledcoders:PatchouliProvider:1.21.1-1.0.11-Snapshot.5")
 	
 	compileOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE:api"

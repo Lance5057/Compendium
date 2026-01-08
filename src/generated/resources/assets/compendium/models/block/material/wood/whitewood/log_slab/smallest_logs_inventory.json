@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/whitewood_log",
-    "1": "compendium:block/material/wood/whitewood/logs/extra_caps",
-    "particle": "minecraft:block/whitewood_log"
-  }
-}

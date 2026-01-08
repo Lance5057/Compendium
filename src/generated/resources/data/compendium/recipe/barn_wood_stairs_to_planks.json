@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "butchercraft:barn_wood_plank_stairs_item"
+      "item": "compendium:barn_wood_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "butchercraft:barn_wood_plank_item"
+    "id": "compendium:barn_wood_plank_item"
   }
 }

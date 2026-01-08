@@ -1,9 +1,9 @@
 {
   "values": [
     "compendium:crude_saw",
-    "minecraft:copper_saw_item",
-    "minecraft:gold_saw_item",
-    "minecraft:iron_saw_item",
-    "minecraft:netherite_saw_item"
+    "compendium:copper_saw_item",
+    "compendium:gold_saw_item",
+    "compendium:iron_saw_item",
+    "compendium:netherite_saw_item"
   ]
 }

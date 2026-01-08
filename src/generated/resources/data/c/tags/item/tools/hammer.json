@@ -1,9 +1,9 @@
 {
   "values": [
     "compendium:crude_hammer",
-    "minecraft:copper_hammer_item",
-    "minecraft:gold_hammer_item",
-    "minecraft:iron_hammer_item",
-    "minecraft:netherite_hammer_item"
+    "compendium:copper_hammer_item",
+    "compendium:gold_hammer_item",
+    "compendium:iron_hammer_item",
+    "compendium:netherite_hammer_item"
   ]
 }

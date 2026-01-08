@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "dawnoftimebuilder:waxed_oak_plank_stairs_item"
+      "item": "compendium:waxed_oak_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "dawnoftimebuilder:waxed_oak_plank_item"
+    "id": "compendium:waxed_oak_plank_item"
   }
 }

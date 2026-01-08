@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "dawnoftimebuilder:charred_spruce_plank_slab_item"
+      "item": "compendium:charred_spruce_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "dawnoftimebuilder:charred_spruce_plank_item"
+    "id": "compendium:charred_spruce_plank_item"
   }
 }

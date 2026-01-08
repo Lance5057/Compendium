@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/solid_ends",
-  "textures": {
-    "0": "minecraft:block/kopje_planks"
-  }
-}

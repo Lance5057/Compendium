@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:birch_plank_slab_item"
+            "items": "compendium:birch_plank_slab_item"
           }
         ]
       },

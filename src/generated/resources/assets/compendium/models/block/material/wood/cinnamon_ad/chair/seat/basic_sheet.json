@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/seat/basic_sheet",
-  "textures": {
-    "0": "compendium:block/material/wood/cinnamon_ad/planks/sheet"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/whitewood/planks/domed",
-    "side": "compendium:block/material/wood/whitewood/planks/domed",
-    "top": "compendium:block/material/wood/whitewood/planks/domed"
-  }
-}

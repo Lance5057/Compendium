@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_front",
-  "textures": {
-    "0": "minecraft:block/kopje_log",
-    "1": "minecraft:block/kopje_log_top",
-    "2": "compendium:block/material/wood/kopje/logs/log_split_side",
-    "particle": "minecraft:block/kopje_log"
-  }
-}

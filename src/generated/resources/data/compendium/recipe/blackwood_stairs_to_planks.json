@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "abyssal_decor:blackwood_plank_stairs_item"
+      "item": "compendium:blackwood_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "abyssal_decor:blackwood_plank_item"
+    "id": "compendium:blackwood_plank_item"
   }
 }

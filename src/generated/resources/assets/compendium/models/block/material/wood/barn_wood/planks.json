@@ -114,7 +114,7 @@
     "model": "compendium:block/material/wood/barn_wood/planks/small_blocks_offset"
   },
   "textures": {
-    "all": "butchercraft:block/barn_wood_planks"
+    "all": "compendium:block/barn_wood_planks"
   },
   "thin": {
     "model": "compendium:block/material/wood/barn_wood/planks/thin"

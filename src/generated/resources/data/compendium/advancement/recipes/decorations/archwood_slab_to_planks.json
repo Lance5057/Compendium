@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "ars_nouveau:archwood_plank_slab_item"
+            "items": "compendium:archwood_plank_slab_item"
           }
         ]
       },

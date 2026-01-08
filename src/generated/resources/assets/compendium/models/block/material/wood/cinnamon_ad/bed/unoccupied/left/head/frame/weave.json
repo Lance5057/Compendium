@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/frame/weave",
-  "textures": {
-    "0": "minecraft:block/cinnamon_ad_planks",
-    "1": "compendium:block/material/wood/cinnamon_ad/weave"
-  }
-}

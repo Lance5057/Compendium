@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/contemporary",
-  "textures": {
-    "0": "minecraft:block/whitewood_planks"
-  }
-}

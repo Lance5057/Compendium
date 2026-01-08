@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bloomingnature:swamp_cypress_plank_stairs_item"
+      "item": "compendium:swamp_cypress_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "bloomingnature:swamp_cypress_plank_item"
+    "id": "compendium:swamp_cypress_plank_item"
   }
 }

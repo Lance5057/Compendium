@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cluttered:fluorescent_maple_plank_slab_item"
+      "item": "compendium:fluorescent_maple_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "cluttered:fluorescent_maple_plank_item"
+    "id": "compendium:fluorescent_maple_plank_item"
   }
 }

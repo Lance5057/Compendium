@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/ladder",
+  "textures": {
+    "0": "minecraft:block/white_wood_planks"
+  }
+}

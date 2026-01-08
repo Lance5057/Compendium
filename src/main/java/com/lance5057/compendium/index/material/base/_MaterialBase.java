@@ -10,6 +10,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
@@ -54,8 +55,8 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 		extensions = new ArrayList<_MaterialExtension>();
 
-		ITEMS = DeferredRegister.createItems(namespace);
-		BLOCKS = DeferredRegister.createBlocks(namespace);
+		ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
+		BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	}
 
 	@Override

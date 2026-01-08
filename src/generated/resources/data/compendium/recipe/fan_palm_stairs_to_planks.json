@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bloomingnature:fan_palm_plank_stairs_item"
+      "item": "compendium:fan_palm_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "bloomingnature:fan_palm_plank_item"
+    "id": "compendium:fan_palm_plank_item"
   }
 }

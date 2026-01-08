@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "silentgear:netherwood_plank_stairs_item"
+      "item": "compendium:netherwood_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "silentgear:netherwood_plank_item"
+    "id": "compendium:netherwood_plank_item"
   }
 }

@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bloomingnature:baobab_plank_stairs_item"
+      "item": "compendium:baobab_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "bloomingnature:baobab_plank_item"
+    "id": "compendium:baobab_plank_item"
   }
 }

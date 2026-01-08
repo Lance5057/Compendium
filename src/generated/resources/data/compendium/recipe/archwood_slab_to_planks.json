@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "ars_nouveau:archwood_plank_slab_item"
+      "item": "compendium:archwood_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "ars_nouveau:archwood_plank_item"
+    "id": "compendium:archwood_plank_item"
   }
 }

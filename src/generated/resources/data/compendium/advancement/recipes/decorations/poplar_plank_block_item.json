@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "compendium:poplar_plank_block_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "compendium:poplar_plank_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "compendium:poplar_plank_block_item"
+    ]
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/cinnamon_ad/planks/diagonal",
-    "side": "compendium:block/material/wood/cinnamon_ad/planks/diagonal",
-    "top": "compendium:block/material/wood/cinnamon_ad/planks/diagonal"
-  }
-}

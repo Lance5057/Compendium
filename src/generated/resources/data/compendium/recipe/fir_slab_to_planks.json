@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bloomingnature:fir_plank_slab_item"
+      "item": "compendium:fir_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "bloomingnature:fir_plank_item"
+    "id": "compendium:fir_plank_item"
   }
 }

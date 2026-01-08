@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/base/weave",
-  "textures": {
-    "0": "minecraft:block/whitewood_planks",
-    "1": "compendium:block/material/wood/whitewood/weave"
-  }
-}

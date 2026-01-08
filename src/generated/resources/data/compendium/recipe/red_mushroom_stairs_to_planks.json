@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cluttered:red_mushroom_plank_stairs_item"
+      "item": "compendium:red_mushroom_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "cluttered:red_mushroom_plank_item"
+    "id": "compendium:red_mushroom_plank_item"
   }
 }

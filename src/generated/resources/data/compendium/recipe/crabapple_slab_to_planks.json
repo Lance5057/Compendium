@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cluttered:crabapple_plank_slab_item"
+      "item": "compendium:crabapple_plank_slab_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "cluttered:crabapple_plank_item"
+    "id": "compendium:crabapple_plank_item"
   }
 }

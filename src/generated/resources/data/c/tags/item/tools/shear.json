@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:copper_shears_item",
-    "minecraft:gold_shears_item",
-    "minecraft:netherite_shears_item"
+    "compendium:copper_shears_item",
+    "compendium:gold_shears_item",
+    "compendium:netherite_shears_item"
   ]
 }

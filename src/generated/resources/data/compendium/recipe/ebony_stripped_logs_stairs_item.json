@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "b": {
+      "item": "compendium:ebony_stripped_small_log_item"
+    }
+  },
+  "pattern": [
+    "b ",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:ebony_stripped_logs_stairs_item"
+  }
+}

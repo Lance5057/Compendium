@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "enchanted:rowan_plank_stairs_item"
+      "item": "compendium:rowan_plank_stairs_item"
     }
   ],
   "result": {
     "count": 1,
-    "id": "enchanted:rowan_plank_item"
+    "id": "compendium:rowan_plank_item"
   }
 }
