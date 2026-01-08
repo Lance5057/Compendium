@@ -346,7 +346,7 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
 
-		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.GENERATE, Generate.IGNORE, Generate.IGNORE,
+		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
 				Generate.IGNORE, Generate.IGNORE)
 				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
 						Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE))
