@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/table/cloth/basic",
   "textures": {
-    "0": "compendium:block/gingham_spring_green"
+    "0": "compendium:block/material/textile/gingham_spring_green/basic"
   }
 }

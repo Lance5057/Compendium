@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T12:52:22.8618146	Item Models: compendium
+// 1.21.1	2026-01-08T21:08:10.2014033	Item Models: compendium
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/acacia_logs_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/acacia_logs_slab_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/acacia_logs_stairs_item.json
@@ -60,11 +60,6 @@ e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/baobab_st
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/baobab_stripped_logs_slab_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/baobab_stripped_logs_stairs_item.json
 9ca1559d016559a07ed87b02ecfaa98526bc2006 assets/compendium/models/item/baobab_stripped_small_log_item.json
-33d3c983879107b3f72c060b6df7b4f246f5cdbb assets/compendium/models/item/barn_wood_planks_item.json
-e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/barn_wood_plank_block_item.json
-e699b94126a070db64ac74603b36e7c00f141aee assets/compendium/models/item/barn_wood_plank_item.json
-e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/barn_wood_plank_slab_item.json
-e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/barn_wood_plank_stairs_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/birch_logs_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/birch_logs_slab_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/birch_logs_stairs_item.json

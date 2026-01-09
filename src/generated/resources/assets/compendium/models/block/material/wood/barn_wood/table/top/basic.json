@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/top/basic",
-  "textures": {
-    "0": "minecraft:block/barn_wood_planks"
-  }
-}

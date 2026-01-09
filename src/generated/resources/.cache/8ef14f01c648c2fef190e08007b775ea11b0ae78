@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T12:52:26.14363	Tags for minecraft:item mod id compendium
+// 1.21.1	2026-01-08T21:08:11.6010519	Tags for minecraft:item mod id compendium
 e63eefb247e42ee8641235ece38b16d74b76fb93 data/c/tags/item/logs/acacia.json
 d9231b22ed327b41daa5892ebac13b439ff195a2 data/c/tags/item/logs/alder.json
 9771d5ddd4ed14f5cc1189e205adc1ffb5220b09 data/c/tags/item/logs/archwood.json
@@ -213,13 +213,12 @@ f6a5fccc276dd7b4be21253211743d90e791f549 data/c/tags/item/log/stripped/small_log
 2b787a7dae39c3407c1178e392ed4475b3f3c816 data/c/tags/item/log/stripped/small_logs/white_wood.json
 a29c14f38f23f4538c2003462c49878f1ffff050 data/c/tags/item/log/stripped/small_logs/willow.json
 8622f6fa10fd9b14585f816e32fd16d5eed939a3 data/c/tags/item/log/stripped/small_logs/wisewood.json
-dfffe067c1c9362060ad77497c46cf8cc76e6457 data/c/tags/item/plank.json
+26bf786bf17594c50e24b08e3e542666e1c43e30 data/c/tags/item/plank.json
 ad6fb8363216e054bffb2031b12f0d7915393bdc data/c/tags/item/planks/acacia.json
 eb38c646c07ec031ee256617938f3c6d273cfd22 data/c/tags/item/planks/alder.json
 57862915621841a9d7451a814cfc27c52121ee08 data/c/tags/item/planks/archwood.json
 3ddaaece977a99268342cd5bcc5dbcee2aceb513 data/c/tags/item/planks/aspen.json
 112066ae0560b87c9278e8165be3615109211125 data/c/tags/item/planks/baobab.json
-1a8cae10586e6707820f19f71d5866b4aec4ee8f data/c/tags/item/planks/barn_wood.json
 48b120325b44df6d9f2fe7c7a9e36427f65afe63 data/c/tags/item/planks/birch.json
 9c739d8706ce90c16f355acb1d923d761cbb76b3 data/c/tags/item/planks/blackwood.json
 0e144ae76ac053e0056a1bb11bc71922ad344f76 data/c/tags/item/planks/blue_mushroom.json
@@ -262,7 +261,6 @@ c4cc3517cb7a4430401eba3e51a337906c29b5ee data/c/tags/item/planks/wisewood.json
 1c1731c397c4fc2c2b67765eadd6d9610eb37dd4 data/c/tags/item/plank/archwood.json
 86fb0229422ef05d7d95a8db30b5ac2980dad0b2 data/c/tags/item/plank/aspen.json
 e1103b216b88ca48ad02c242ca550b6199ede4ed data/c/tags/item/plank/baobab.json
-100edb163edeb7315e2773614a0c2ed9b950a6f4 data/c/tags/item/plank/barn_wood.json
 c0fc2f99df065de8817e96da6330bb4ea7d7b3f4 data/c/tags/item/plank/birch.json
 f417d7eda10c62f109cdc74d10c951fefb01d2bb data/c/tags/item/plank/blackwood.json
 c9626392a5c7ee1ddc88c2fa519123dcea2ffd4a data/c/tags/item/plank/blue_mushroom.json
@@ -305,7 +303,6 @@ a3030fc565856f6df385e95c0ac80694017a904f data/c/tags/item/slabs/planks/acacia.js
 36cafb9bea3d9bbb742fd24d4809cda768d5c6ad data/c/tags/item/slabs/planks/archwood.json
 aa5272b5173287033bae784a6a7cb7bc6469aa1d data/c/tags/item/slabs/planks/aspen.json
 d50002bf0f48bdb619945733f32c4d2320fc6846 data/c/tags/item/slabs/planks/baobab.json
-6dc484032c5e3ac39faba1687cb3454b22cbbad6 data/c/tags/item/slabs/planks/barn_wood.json
 8e34ccb6bd45ba64c8a4730ecff89dfbd23bfaf1 data/c/tags/item/slabs/planks/birch.json
 28658a37cedf3a9281830eb47c3f77a13d24e6c5 data/c/tags/item/slabs/planks/blackwood.json
 56d01175d652c59ad305913cbf5ba8327905cf14 data/c/tags/item/slabs/planks/blue_mushroom.json
@@ -402,7 +399,6 @@ cd781f1cbad9c8eeaa04c1ea0f6cf3b693fd0968 data/c/tags/item/small_logs/wisewood.js
 91c0169906df1abf24dacac8a7fbfa77b52831d8 data/c/tags/item/stairs/planks/archwood.json
 06f65eb5df75c57b306705f3d701429d63b0041d data/c/tags/item/stairs/planks/aspen.json
 a1cd4675f661a8fb49e289b5d24beb9afa10458d data/c/tags/item/stairs/planks/baobab.json
-0c256f93818ea0d2775e8107deb34f459c39fb61 data/c/tags/item/stairs/planks/barn_wood.json
 be72bd5c789815024e6c68814155f2a4387968b1 data/c/tags/item/stairs/planks/birch.json
 e2d638c17727798595808333d55b83de31574090 data/c/tags/item/stairs/planks/blackwood.json
 d5087b4c647b502db3c4def3cd62ac33e8a1454a data/c/tags/item/stairs/planks/blue_mushroom.json
@@ -640,7 +636,6 @@ b5ec9167928692628833d2bb48c1e0a81f961989 data/c/tags/item/tools/saw.json
 36cafb9bea3d9bbb742fd24d4809cda768d5c6ad data/c/tags/item/wooden_slabs/archwood.json
 aa5272b5173287033bae784a6a7cb7bc6469aa1d data/c/tags/item/wooden_slabs/aspen.json
 d50002bf0f48bdb619945733f32c4d2320fc6846 data/c/tags/item/wooden_slabs/baobab.json
-6dc484032c5e3ac39faba1687cb3454b22cbbad6 data/c/tags/item/wooden_slabs/barn_wood.json
 a91808d235a48e8fc0c117dc06126d0ce207bbd2 data/c/tags/item/wooden_slabs/birch.json
 28658a37cedf3a9281830eb47c3f77a13d24e6c5 data/c/tags/item/wooden_slabs/blackwood.json
 56d01175d652c59ad305913cbf5ba8327905cf14 data/c/tags/item/wooden_slabs/blue_mushroom.json
@@ -683,7 +678,6 @@ f290419f7bfd1fabe4bc3d78480067d90daea575 data/c/tags/item/wooden_slabs/wisewood.
 91c0169906df1abf24dacac8a7fbfa77b52831d8 data/c/tags/item/wooden_stairs/archwood.json
 06f65eb5df75c57b306705f3d701429d63b0041d data/c/tags/item/wooden_stairs/aspen.json
 a1cd4675f661a8fb49e289b5d24beb9afa10458d data/c/tags/item/wooden_stairs/baobab.json
-0c256f93818ea0d2775e8107deb34f459c39fb61 data/c/tags/item/wooden_stairs/barn_wood.json
 be72bd5c789815024e6c68814155f2a4387968b1 data/c/tags/item/wooden_stairs/birch.json
 e2d638c17727798595808333d55b83de31574090 data/c/tags/item/wooden_stairs/blackwood.json
 d5087b4c647b502db3c4def3cd62ac33e8a1454a data/c/tags/item/wooden_stairs/blue_mushroom.json

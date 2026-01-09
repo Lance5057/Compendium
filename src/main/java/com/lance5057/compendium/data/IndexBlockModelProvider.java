@@ -55,14 +55,16 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 		if (mb.getType() == MATERIAL_TYPES.GLASS) {
 			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
 				if (mb.name.equalsIgnoreCase("clear")) {
-					withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
-							Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-							.renderType("cutout");
+					if (mb.namespace.compareTo("minecraft") == 0) {
+						withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
+								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
+								.renderType("cutout");
 
-					withExistingParent(
-							"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
-							Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-							.renderType("cutout");
+						withExistingParent(
+								"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
+								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
+								.renderType("cutout");
+					}
 				} else if (mb.name.equalsIgnoreCase("tinted")) {
 
 				} else {
@@ -82,16 +84,30 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 	public void doTextile(_MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.TEXTILE) {
 
-			StyleData.TABLE_CLOTH.getTypes().forEach(b -> {
-				withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
-						modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
-						.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name));
+			if (mb.namespace.compareTo("minecraft") == 0) {
+				StyleData.TABLE_CLOTH.getTypes().forEach(b -> {
+					withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
+							modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
+							.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name));
 
-				withExistingParent(
-						"block/material/textile/" + mb.name + "/clothed_table/cloth/" + b.toLowerCase() + "_inventory",
-						modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
-						.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name));
-			});
+					withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/" + b.toLowerCase()
+							+ "_inventory", modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
+							.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name));
+				});
+			} else {
+
+				StyleData.TABLE_CLOTH.getTypes().forEach(b -> {
+					withExistingParent("block/material/textile/" + mb.name + "/table/cloth/" + b.toLowerCase(),
+							modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
+							.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace,
+									"block/material/textile/" + mb.name + "/basic"));
+
+					withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/" + b.toLowerCase()
+							+ "_inventory", modLoc("block/furniture/table/cloth/" + b.toLowerCase()))
+							.texture("0", ResourceLocation.fromNamespaceAndPath(mb.namespace,
+									"block/material/textile/" + mb.name + "/basic"));
+				});
+			}
 
 			StyleData.BED_MATTRESS.getTypes().forEach(b -> {
 				for (BedSideType sideType : BedSideType.values()) {

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/all/angled",
-  "textures": {
-    "0": "minecraft:block/barn_wood_planks"
-  }
-}

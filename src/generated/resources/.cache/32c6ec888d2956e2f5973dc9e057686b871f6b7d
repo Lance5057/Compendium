@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T12:52:22.8218131	Block States: compendium
+// 1.21.1	2026-01-08T21:08:10.1634079	Block States: compendium
 7a5d749028adb51994c3d6e98898e5cb7fb712e8 assets/compendium/blockstates/acacia_logs.json
 c5cedc156f41a6c7ea9ad2314094a339febc084f assets/compendium/blockstates/acacia_logs_slab.json
 b27fdb8b4d53b6bffd4cac26f3e302be6f5fbae3 assets/compendium/blockstates/acacia_logs_stairs.json
@@ -59,11 +59,6 @@ ad186318bba2487bf3c2f8b3ebd08c3f943b1349 assets/compendium/blockstates/baobab_pl
 51cd8a28c95941553c3e20ed883d19b765364109 assets/compendium/blockstates/baobab_stripped_logs_slab.json
 da451821e2f79faa8f6a2ffb0fa217ea6c6b6a3f assets/compendium/blockstates/baobab_stripped_logs_stairs.json
 fc43b2cfdafcfac2199a02193d7938102113b2d0 assets/compendium/blockstates/baobab_stripped_small_log.json
-9d02643f25a3151fc8f07b482beb92db9b85b971 assets/compendium/blockstates/barn_wood_plank.json
-b79219212e5123a25cdc77550debbbebd8b64ee3 assets/compendium/blockstates/barn_wood_planks.json
-b79219212e5123a25cdc77550debbbebd8b64ee3 assets/compendium/blockstates/barn_wood_plank_block.json
-f0329de8ab6162576eeb4da168d3dca192679e7e assets/compendium/blockstates/barn_wood_plank_slab.json
-bba6a8b2d1d03e392e393d585018115ee0b2b6f3 assets/compendium/blockstates/barn_wood_plank_stairs.json
 54c3e26bfe7b65a72407e39825ee5fd2f5ef62a8 assets/compendium/blockstates/birch_logs.json
 d1691b96f6c2f8538643a91ea520fda225a387b1 assets/compendium/blockstates/birch_logs_slab.json
 01e53fc20729c8ebe220c1926d7143689247211f assets/compendium/blockstates/birch_logs_stairs.json
@@ -546,7 +541,6 @@ c6a9f2e6c3836d2c49c22674ce3b01a50741d847 assets/compendium/models/block/alder_pl
 2d2265a527835db217e5e59a1e8137538b286473 assets/compendium/models/block/archwood_plank_base.json
 6376ed48668e5fb38bed1fc711ed2ca5d94f32bc assets/compendium/models/block/aspen_plank_base.json
 3212081a06e1d973c8528fe556e9861e85c66334 assets/compendium/models/block/baobab_plank_base.json
-95dbb54d5b81934e9758faf387ef8206ffdfb5cb assets/compendium/models/block/barn_wood_plank_base.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/bed_base.json
 22e51930300108c008e421a5d6a2931a26f04179 assets/compendium/models/block/birch_plank_base.json
 dca055c68a16a3b6cfe542bdb0d40426473c93ab assets/compendium/models/block/blackwood_plank_base.json
@@ -964,17 +958,6 @@ dad72371461c5d4088e38d5e1553c91e5a4e65f1 assets/compendium/models/block/material
 56ec9ba7c510a77dbc67224345102faf699e6ff6 assets/compendium/models/block/material/wood/baobab/stripped_small_loghorizontal.json
 a76a66ec83d5c6b5df96900a6376f05102f0b070 assets/compendium/models/block/material/wood/baobab/stripped_small_loghorizontal2.json
 544546237eba712c3453006230998ede52bef049 assets/compendium/models/block/material/wood/baobab/stripped_small_logvertical.json
-bd05f4f8efc5528c98bd546e2575c370e14dff98 assets/compendium/models/block/material/wood/barn_wood/planks.json
-1e5e6c0a12ca78c7436824d828e362fae4902e13 assets/compendium/models/block/material/wood/barn_wood/plank/cap.json
-e9d0bb592c259db6fa928a2b02ba72f3f4744869 assets/compendium/models/block/material/wood/barn_wood/plank/horizontal.json
-af493e1cb1046a6080acc37e8185703f71f07ad6 assets/compendium/models/block/material/wood/barn_wood/plank/horizontal_rot.json
-8d5fbbb8de2ee3aa12aad66392efccd4e3a4f2df assets/compendium/models/block/material/wood/barn_wood/plank/vertical.json
-7769d9a15137f3e04757eee458a2ec97c8bfb8ef assets/compendium/models/block/material/wood/barn_wood/plank_slab_bottom.json
-a1d76aeff706eadc7f5ca32e6976a136e4235098 assets/compendium/models/block/material/wood/barn_wood/plank_slab_full.json
-3db700932ed6b75841a66cb78cdfe083c960add2 assets/compendium/models/block/material/wood/barn_wood/plank_slab_top.json
-31eabe773cba8d625201204127c63563d8f56001 assets/compendium/models/block/material/wood/barn_wood/plank_stairs.json
-4e6aa6c3515163aa0314adbc826250619d46bb71 assets/compendium/models/block/material/wood/barn_wood/plank_stairs_inner.json
-a154a67a5f95f9ef6b3864c08e033f5a3e402098 assets/compendium/models/block/material/wood/barn_wood/plank_stairs_outer.json
 9b9bab3ff589ad9c26e0e779dd63bb699522f939 assets/compendium/models/block/material/wood/birch/log.json
 0949e39f4b92c88db03854326a485b6b6730a0a5 assets/compendium/models/block/material/wood/birch/log_horizontal.json
 1cf88292ecce509f843239aab51abdac35ff4941 assets/compendium/models/block/material/wood/birch/log_slab_bottom.json
@@ -2372,9 +2355,6 @@ d2f56d4dead72ac47680bc005212bdc96910f5c3 assets/compendium/models/extra/material
 610267b354856bb95950d0ad9a7e7315ba406b29 assets/compendium/models/extra/material/wood/baobab/stripped_log.json
 cbdb9294cd5072e3b408d349816beb205c2fc83c assets/compendium/models/extra/material/wood/baobab/stripped_log_slab.json
 31f50b676919ae60fe00d3878103b128027afc18 assets/compendium/models/extra/material/wood/baobab/stripped_log_stairs.json
-45745b07d3a7bd3a97eb711178927ae48c5e88d6 assets/compendium/models/extra/material/wood/barn_wood/planks.json
-b20d3f7b732758e0ca3bc661bbef746c75825533 assets/compendium/models/extra/material/wood/barn_wood/plank_slab.json
-ac7630ae909b214baf734bcc406ac837b899e81f assets/compendium/models/extra/material/wood/barn_wood/plank_stairs.json
 ca204462df1a7a7a263de81740f78fadda2c9ee8 assets/compendium/models/extra/material/wood/birch/log.json
 b697a08f1fc6c2f994f83c041ad321137545a836 assets/compendium/models/extra/material/wood/birch/log_slab.json
 5e288955aa9fcee58aad8eae6d98d96573af7901 assets/compendium/models/extra/material/wood/birch/log_stairs.json

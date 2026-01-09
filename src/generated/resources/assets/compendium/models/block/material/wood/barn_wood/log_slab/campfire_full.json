@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_full",
-  "textures": {
-    "0": "minecraft:block/barn_wood_log",
-    "1": "compendium:block/material/wood/barn_wood/logs/extra_caps",
-    "particle": "minecraft:block/barn_wood_log"
-  }
-}

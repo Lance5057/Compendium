@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/barn_wood/planks/vertical",
-    "side": "compendium:block/material/wood/barn_wood/planks/vertical",
-    "top": "compendium:block/material/wood/barn_wood/planks/vertical"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/head/base/weave",
-  "textures": {
-    "0": "minecraft:block/barn_wood_planks",
-    "1": "compendium:block/material/wood/barn_wood/weave"
-  }
-}

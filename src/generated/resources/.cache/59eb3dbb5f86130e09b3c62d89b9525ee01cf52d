@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T12:52:22.8698155	Loot Tables
+// 1.21.1	2026-01-08T21:08:10.2104022	Loot Tables
 a0bdf646561f5f769638070b4f6ff543f86090d6 data/compendium/loot_table/blocks/acacia_logs.json
 7c3bb6eb12fd46ecd771e5c8c9091455058a0ad8 data/compendium/loot_table/blocks/acacia_logs_slab.json
 7df9a0bfac693f7a7aab8f4fac7abfbfafee0376 data/compendium/loot_table/blocks/acacia_logs_stairs.json
@@ -61,11 +61,6 @@ e031124b5a111fd1d706a52b95f4efbffdc6d3dc data/compendium/loot_table/blocks/baoba
 13f1fe06478960521275134efc0eee6bbaf8606a data/compendium/loot_table/blocks/baobab_stripped_logs_slab.json
 54df7f13ae21ec6755286a5aca4d44003cd3bc3e data/compendium/loot_table/blocks/baobab_stripped_logs_stairs.json
 33ae33b7e616752938b05dc9207d76279dcc91f4 data/compendium/loot_table/blocks/baobab_stripped_small_log.json
-c72c5538820ee952406659f3fc8abf8b6fe43864 data/compendium/loot_table/blocks/barn_wood_plank.json
-8f62fd38059619311530cf779f91059adf160385 data/compendium/loot_table/blocks/barn_wood_planks.json
-b905498f2b5563530913e0b483c4719eabe3cd09 data/compendium/loot_table/blocks/barn_wood_plank_block.json
-29f57636c37a397a2320cc3ec560c4fa182b0eb0 data/compendium/loot_table/blocks/barn_wood_plank_slab.json
-d39e1ff03cd0ab625631bb9871731bed022cc4ba data/compendium/loot_table/blocks/barn_wood_plank_stairs.json
 8383a0ed07e51b16a5515310a23f7ee6b6a145e0 data/compendium/loot_table/blocks/birch_logs.json
 c76d1b1622ca1b441880647fd7738753f52bd217 data/compendium/loot_table/blocks/birch_logs_slab.json
 7095a54c0ad80b144c2f679110dd1fa95403b6f1 data/compendium/loot_table/blocks/birch_logs_stairs.json

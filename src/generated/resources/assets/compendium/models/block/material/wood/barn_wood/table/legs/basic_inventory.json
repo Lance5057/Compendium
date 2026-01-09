@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/legs/basic_leg_inventory",
-  "textures": {
-    "0": "minecraft:block/barn_wood_planks"
-  }
-}

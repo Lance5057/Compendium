@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_top",
-  "textures": {
-    "0": "minecraft:block/stripped_barn_wood_log",
-    "1": "minecraft:block/stripped_barn_wood_log_top",
-    "2": "compendium:block/material/wood/barn_wood/logs/stripped_log_split_side",
-    "particle": "minecraft:block/stripped_barn_wood_log"
-  }
-}
