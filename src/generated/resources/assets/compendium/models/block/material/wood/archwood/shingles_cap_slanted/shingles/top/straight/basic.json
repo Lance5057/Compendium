@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/straight/basic",
   "textures": {
-    "0": "minecraft:block/archwood_planks"
+    "0": "ars_nouveau:block/archwood_planks"
   }
 }

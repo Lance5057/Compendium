@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_side_fine",
   "textures": {
-    "0": "minecraft:block/white_wood_planks"
+    "0": "abyssal_decor:block/white_wood_planks"
   }
 }

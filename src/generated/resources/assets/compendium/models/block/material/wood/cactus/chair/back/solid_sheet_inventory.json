@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/solid_sheet",
   "textures": {
-    "0": "compendium:block/material/wood/cactus/planks/sheet"
+    "0": "bloomingnature:block/material/wood/cactus/planks/sheet"
   }
 }

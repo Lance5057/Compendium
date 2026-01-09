@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_end",
   "textures": {
-    "0": "minecraft:block/netherwood_planks"
+    "0": "silentgear:block/netherwood_planks"
   }
 }

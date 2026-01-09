@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/solid_sheet",
   "textures": {
-    "0": "compendium:block/material/wood/mangrove/planks/sheet"
+    "0": "minecraft:block/material/wood/mangrove/planks/sheet"
   }
 }

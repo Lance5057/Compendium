@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "compendium:block/material/wood/jungle/windows/framed_grate"
+    "all": "minecraft:block/material/wood/jungle/windows/framed_grate"
   }
 }

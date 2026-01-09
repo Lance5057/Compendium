@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/right/head/frame/solid",
   "textures": {
-    "0": "minecraft:block/willow_planks"
+    "0": "cluttered:block/willow_planks"
   }
 }

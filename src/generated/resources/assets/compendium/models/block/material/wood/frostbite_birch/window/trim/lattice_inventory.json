@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "compendium:block/material/wood/frostbite_birch/windows/lattice"
+    "all": "hazennstuff:block/material/wood/frostbite_birch/windows/lattice"
   }
 }

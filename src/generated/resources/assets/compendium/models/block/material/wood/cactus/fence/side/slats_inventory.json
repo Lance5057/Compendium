@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/side/slats_inventory",
   "textures": {
-    "0": "minecraft:block/cactus_planks"
+    "0": "bloomingnature:block/cactus_planks"
   }
 }

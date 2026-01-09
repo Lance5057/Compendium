@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_side_lath_connected",
   "textures": {
-    "0": "minecraft:block/fan_palm_planks",
+    "0": "bloomingnature:block/fan_palm_planks",
     "1": "compendium:block/material/wood/fan_palm/slats"
   }
 }

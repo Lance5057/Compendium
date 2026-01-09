@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_slanted/shingles/inner_corner/angled",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks"
+    "0": "cluttered:block/fluorescent_maple_planks"
   }
 }

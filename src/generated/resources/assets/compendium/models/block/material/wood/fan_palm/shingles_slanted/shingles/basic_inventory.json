@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_slanted/shingles/basic",
   "textures": {
-    "0": "minecraft:block/fan_palm_planks"
+    "0": "bloomingnature:block/fan_palm_planks"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/center/foot/frame/slats",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks",
+    "0": "cluttered:block/fluorescent_maple_planks",
     "1": "compendium:block/material/wood/fluorescent_maple/slats"
   }
 }

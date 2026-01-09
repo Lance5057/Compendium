@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
   "textures": {
-    "0": "minecraft:block/cinnamon_planks",
-    "1": "compendium:block/material/wood/cinnamon/weave"
+    "0": "extradelight:block/cinnamon_planks",
+    "1": "extradelight:block/material/wood/cinnamon/weave"
   }
 }

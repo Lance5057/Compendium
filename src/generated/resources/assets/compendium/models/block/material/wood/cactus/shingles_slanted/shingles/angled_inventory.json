@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_slanted/shingles/angled",
   "textures": {
-    "0": "minecraft:block/cactus_planks"
+    "0": "bloomingnature:block/cactus_planks"
   }
 }

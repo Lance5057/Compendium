@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/all/angled",
   "textures": {
-    "0": "minecraft:block/chorus_planks"
+    "0": "cataclysm:block/chorus_planks"
   }
 }

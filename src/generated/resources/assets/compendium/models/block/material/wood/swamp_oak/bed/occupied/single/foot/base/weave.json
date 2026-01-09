@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/single/foot/base/weave",
   "textures": {
-    "0": "minecraft:block/swamp_oak_planks",
+    "0": "bloomingnature:block/swamp_oak_planks",
     "1": "compendium:block/material/wood/swamp_oak/weave"
   }
 }

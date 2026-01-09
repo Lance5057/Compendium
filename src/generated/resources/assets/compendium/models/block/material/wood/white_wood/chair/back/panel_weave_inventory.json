@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/panel_weave",
   "textures": {
-    "0": "minecraft:block/white_wood_planks",
-    "1": "compendium:block/material/wood/white_wood/slats"
+    "0": "abyssal_decor:block/white_wood_planks",
+    "1": "abyssal_decor:block/material/wood/white_wood/slats"
   }
 }

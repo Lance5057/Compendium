@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/single/head/frame/full",
   "textures": {
-    "0": "minecraft:block/swamp_oak_planks"
+    "0": "bloomingnature:block/swamp_oak_planks"
   }
 }

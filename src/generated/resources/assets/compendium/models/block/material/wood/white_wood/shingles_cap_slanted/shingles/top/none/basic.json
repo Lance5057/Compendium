@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/none/basic",
   "textures": {
-    "0": "minecraft:block/white_wood_planks"
+    "0": "abyssal_decor:block/white_wood_planks"
   }
 }

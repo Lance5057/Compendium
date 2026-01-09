@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/occupied/center/head/pillow/big",
   "textures": {
-    "0": "minecraft:block/gingham_light_gray"
+    "0": "compendium:block/gingham_light_gray"
   }
 }

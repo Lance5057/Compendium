@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/table/cloth/long",
   "textures": {
-    "0": "compendium:block/material/textile/gingham_white/basic"
+    "0": "compendium:block/gingham_white"
   }
 }

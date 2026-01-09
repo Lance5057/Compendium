@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/turned_panel_sheet",
   "textures": {
-    "0": "compendium:block/material/wood/swamp_oak/planks/sheet"
+    "0": "bloomingnature:block/material/wood/swamp_oak/planks/sheet"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/side/privacy_inventory",
   "textures": {
-    "0": "minecraft:block/fruit_planks"
+    "0": "extradelight:block/fruit_planks"
   }
 }

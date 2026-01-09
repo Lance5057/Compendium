@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/contemporary_slats",
   "textures": {
-    "0": "minecraft:block/frostbite_birch_planks"
+    "0": "hazennstuff:block/frostbite_birch_planks"
   }
 }

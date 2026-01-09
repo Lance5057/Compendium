@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/inventory/base/slats",
   "textures": {
-    "0": "minecraft:block/fir_planks"
+    "0": "bloomingnature:block/fir_planks"
   }
 }

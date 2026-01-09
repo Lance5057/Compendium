@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/laced_tall",
   "textures": {
-    "0": "minecraft:block/fir_planks"
+    "0": "bloomingnature:block/fir_planks"
   }
 }

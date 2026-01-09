@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/slats",
   "textures": {
-    "0": "minecraft:block/hawthorn_planks",
+    "0": "enchanted:block/hawthorn_planks",
     "1": "compendium:block/material/wood/hawthorn/slats"
   }
 }

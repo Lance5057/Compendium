@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/right/foot/base/weave",
   "textures": {
-    "0": "minecraft:block/aspen_planks",
+    "0": "bloomingnature:block/aspen_planks",
     "1": "compendium:block/material/wood/aspen/weave"
   }
 }

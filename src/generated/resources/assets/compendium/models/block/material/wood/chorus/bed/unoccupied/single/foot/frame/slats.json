@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/single/foot/frame/slats",
   "textures": {
-    "0": "minecraft:block/chorus_planks",
+    "0": "cataclysm:block/chorus_planks",
     "1": "compendium:block/material/wood/chorus/slats"
   }
 }

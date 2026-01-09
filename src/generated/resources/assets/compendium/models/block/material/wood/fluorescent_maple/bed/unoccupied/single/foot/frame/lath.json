@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/single/foot/frame/lath",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks"
+    "0": "cluttered:block/fluorescent_maple_planks"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_slanted/shingles/outer_corner/angled",
   "textures": {
-    "0": "minecraft:block/aspen_planks"
+    "0": "bloomingnature:block/aspen_planks"
   }
 }

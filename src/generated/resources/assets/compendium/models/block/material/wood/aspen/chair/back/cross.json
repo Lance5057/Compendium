@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/cross",
   "textures": {
-    "0": "minecraft:block/aspen_planks"
+    "0": "bloomingnature:block/aspen_planks"
   }
 }

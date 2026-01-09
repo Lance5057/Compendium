@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/all/basic",
   "textures": {
-    "0": "minecraft:block/ebony_planks"
+    "0": "bloomingnature:block/ebony_planks"
   }
 }

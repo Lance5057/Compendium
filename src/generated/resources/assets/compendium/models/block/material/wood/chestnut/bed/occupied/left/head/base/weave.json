@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/left/head/base/weave",
   "textures": {
-    "0": "minecraft:block/chestnut_planks",
+    "0": "bloomingnature:block/chestnut_planks",
     "1": "compendium:block/material/wood/chestnut/weave"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/lath_extra",
   "textures": {
-    "0": "minecraft:block/baobab_planks"
+    "0": "bloomingnature:block/baobab_planks"
   }
 }

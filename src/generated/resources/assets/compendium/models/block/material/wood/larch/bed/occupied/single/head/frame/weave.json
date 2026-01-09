@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/single/head/frame/weave",
   "textures": {
-    "0": "minecraft:block/larch_planks",
+    "0": "bloomingnature:block/larch_planks",
     "1": "compendium:block/material/wood/larch/weave"
   }
 }

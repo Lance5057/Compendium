@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/flat_extra",
   "textures": {
-    "0": "minecraft:block/ebony_planks"
+    "0": "bloomingnature:block/ebony_planks"
   }
 }

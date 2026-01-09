@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/tri/basic",
   "textures": {
-    "0": "minecraft:block/rowan_planks"
+    "0": "enchanted:block/rowan_planks"
   }
 }

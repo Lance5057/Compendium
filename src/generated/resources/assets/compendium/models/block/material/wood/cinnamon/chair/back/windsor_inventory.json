@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/windsor",
   "textures": {
-    "0": "minecraft:block/cinnamon_planks",
+    "0": "extradelight:block/cinnamon_planks",
     "1": "compendium:block/material/wood/cinnamon/slats"
   }
 }

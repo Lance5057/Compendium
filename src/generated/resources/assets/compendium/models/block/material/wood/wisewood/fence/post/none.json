@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/none",
   "textures": {
-    "0": "minecraft:block/wisewood_planks"
+    "0": "hazennstuff:block/wisewood_planks"
   }
 }

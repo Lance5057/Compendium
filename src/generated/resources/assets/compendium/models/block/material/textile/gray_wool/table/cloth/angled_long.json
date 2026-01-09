@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "0": "minecraft:block/gray_wool",
-    "1": "compendium:block/material/textile/gray_wool/diagonal_half"
+    "1": "minecraft:block/material/textile/gray_wool/diagonal_half"
   }
 }

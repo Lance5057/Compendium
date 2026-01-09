@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/pillar_double_cap_inventory",
   "textures": {
-    "0": "minecraft:block/archwood_planks"
+    "0": "ars_nouveau:block/archwood_planks"
   }
 }

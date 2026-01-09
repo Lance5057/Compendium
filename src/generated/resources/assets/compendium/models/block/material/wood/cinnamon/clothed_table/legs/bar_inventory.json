@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/table/legs/bar_leg_inventory",
   "textures": {
-    "0": "minecraft:block/cinnamon_planks"
+    "0": "extradelight:block/cinnamon_planks"
   }
 }

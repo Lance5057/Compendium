@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/inventory/frame/weave",
   "textures": {
-    "0": "minecraft:block/wisewood_planks",
+    "0": "hazennstuff:block/wisewood_planks",
     "1": "compendium:block/material/wood/wisewood/weave"
   }
 }

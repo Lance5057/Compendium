@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/weave",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks",
-    "1": "compendium:block/material/wood/fluorescent_maple/weave"
+    "0": "cluttered:block/fluorescent_maple_planks",
+    "1": "cluttered:block/material/wood/fluorescent_maple/weave"
   }
 }

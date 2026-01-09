@@ -126,8 +126,8 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
 		PacketDistributor.sendToServer(new AdjustinatorCallBackPacket(index, s, pos));
-//		mmbe.setMaterial(index, s);
-//		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
+		mmbe.setMaterial(index, s);
+		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
 	}
 
 //	@Override

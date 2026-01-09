@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/seat/framed",
   "textures": {
-    "0": "minecraft:block/red_mushroom_planks"
+    "0": "cluttered:block/red_mushroom_planks"
   }
 }

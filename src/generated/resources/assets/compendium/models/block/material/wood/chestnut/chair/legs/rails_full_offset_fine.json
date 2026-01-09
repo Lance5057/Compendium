@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_full_offset_fine",
   "textures": {
-    "0": "minecraft:block/chestnut_planks"
+    "0": "bloomingnature:block/chestnut_planks"
   }
 }

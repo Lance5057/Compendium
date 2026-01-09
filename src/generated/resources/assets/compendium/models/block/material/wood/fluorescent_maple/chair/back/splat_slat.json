@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/splat_slat",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks"
+    "0": "cluttered:block/fluorescent_maple_planks"
   }
 }

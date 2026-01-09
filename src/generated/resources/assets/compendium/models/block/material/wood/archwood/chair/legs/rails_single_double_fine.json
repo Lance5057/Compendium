@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_single_double_fine",
   "textures": {
-    "0": "minecraft:block/archwood_planks"
+    "0": "ars_nouveau:block/archwood_planks"
   }
 }

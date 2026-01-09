@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/table/top/trimmed",
   "textures": {
-    "0": "minecraft:block/fruit_planks"
+    "0": "extradelight:block/fruit_planks"
   }
 }

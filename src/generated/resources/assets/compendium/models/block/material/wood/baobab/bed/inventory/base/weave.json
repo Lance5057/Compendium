@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/bed/inventory/base/weave",
   "textures": {
-    "0": "minecraft:block/baobab_planks",
+    "0": "bloomingnature:block/baobab_planks",
     "1": "compendium:block/material/wood/baobab/weave"
   }
 }

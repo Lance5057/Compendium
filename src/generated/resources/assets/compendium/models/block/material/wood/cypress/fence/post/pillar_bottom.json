@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/pillar_bottom",
   "textures": {
-    "0": "minecraft:block/cypress_planks"
+    "0": "bloomingnature:block/cypress_planks"
   }
 }

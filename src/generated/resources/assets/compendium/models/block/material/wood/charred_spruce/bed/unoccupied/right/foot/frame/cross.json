@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/right/foot/frame/cross",
   "textures": {
-    "0": "minecraft:block/charred_spruce_planks"
+    "0": "dawnoftimebuilder:block/charred_spruce_planks"
   }
 }

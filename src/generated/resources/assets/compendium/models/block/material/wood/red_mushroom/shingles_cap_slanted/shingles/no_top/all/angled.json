@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/shingles_cap_slanted/shingles/no_top/all/angled",
   "textures": {
-    "0": "minecraft:block/red_mushroom_planks"
+    "0": "cluttered:block/red_mushroom_planks"
   }
 }

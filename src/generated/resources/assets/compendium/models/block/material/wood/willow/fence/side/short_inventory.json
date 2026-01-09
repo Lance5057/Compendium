@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/side/short_inventory",
   "textures": {
-    "0": "minecraft:block/willow_planks"
+    "0": "cluttered:block/willow_planks"
   }
 }

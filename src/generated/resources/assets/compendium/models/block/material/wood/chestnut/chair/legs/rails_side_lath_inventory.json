@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_side_lath",
   "textures": {
-    "0": "minecraft:block/chestnut_planks",
+    "0": "bloomingnature:block/chestnut_planks",
     "1": "compendium:block/material/wood/chestnut/slats"
   }
 }

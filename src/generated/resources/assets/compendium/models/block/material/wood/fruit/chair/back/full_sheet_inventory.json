@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/full_sheet",
   "textures": {
-    "0": "compendium:block/material/wood/fruit/planks/sheet"
+    "0": "extradelight:block/material/wood/fruit/planks/sheet"
   }
 }

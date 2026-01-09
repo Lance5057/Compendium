@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/bed/unoccupied/left/head/blanket/basic",
   "textures": {
-    "0": "minecraft:block/gingham_yellow"
+    "0": "compendium:block/gingham_yellow"
   }
 }

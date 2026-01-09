@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/seat/basic",
   "textures": {
-    "0": "minecraft:block/alder_planks"
+    "0": "enchanted:block/alder_planks"
   }
 }

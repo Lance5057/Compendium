@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
   "textures": {
-    "0": "minecraft:block/swamp_oak_planks",
-    "1": "compendium:block/material/wood/swamp_oak/slats"
+    "0": "bloomingnature:block/swamp_oak_planks",
+    "1": "bloomingnature:block/material/wood/swamp_oak/slats"
   }
 }

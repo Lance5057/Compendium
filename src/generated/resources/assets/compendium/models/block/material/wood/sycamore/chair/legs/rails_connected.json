@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_connected",
   "textures": {
-    "0": "minecraft:block/sycamore_planks"
+    "0": "cluttered:block/sycamore_planks"
   }
 }

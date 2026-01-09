@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_full",
   "textures": {
-    "0": "minecraft:block/crabapple_planks"
+    "0": "cluttered:block/crabapple_planks"
   }
 }

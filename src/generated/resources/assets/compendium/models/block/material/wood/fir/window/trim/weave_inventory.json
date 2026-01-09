@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "compendium:block/material/wood/fir/windows/weave"
+    "all": "bloomingnature:block/material/wood/fir/windows/weave"
   }
 }

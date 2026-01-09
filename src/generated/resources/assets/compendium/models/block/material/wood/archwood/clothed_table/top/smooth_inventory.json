@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/table/top/smooth",
   "textures": {
-    "0": "minecraft:block/archwood_planks",
+    "0": "ars_nouveau:block/archwood_planks",
     "1": "compendium:block/material/wood/archwood/planks/sheet"
   }
 }

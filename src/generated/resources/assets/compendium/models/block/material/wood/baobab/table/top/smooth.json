@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/table/top/smooth",
   "textures": {
-    "0": "minecraft:block/baobab_planks",
+    "0": "bloomingnature:block/baobab_planks",
     "1": "compendium:block/material/wood/baobab/planks/sheet"
   }
 }

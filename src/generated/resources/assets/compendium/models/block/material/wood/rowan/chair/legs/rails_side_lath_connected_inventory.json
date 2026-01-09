@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/legs/rails_side_lath_connected",
   "textures": {
-    "0": "minecraft:block/rowan_planks",
+    "0": "enchanted:block/rowan_planks",
     "1": "compendium:block/material/wood/rowan/slats"
   }
 }

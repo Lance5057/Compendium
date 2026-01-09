@@ -1,7 +1,7 @@
 {
   "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
   "textures": {
-    "0": "minecraft:block/charred_spruce_planks",
-    "1": "compendium:block/material/wood/charred_spruce/slats"
+    "0": "dawnoftimebuilder:block/charred_spruce_planks",
+    "1": "dawnoftimebuilder:block/material/wood/charred_spruce/slats"
   }
 }

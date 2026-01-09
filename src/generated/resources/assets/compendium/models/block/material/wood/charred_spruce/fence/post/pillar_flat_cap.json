@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/pillar_flat_cap",
   "textures": {
-    "0": "minecraft:block/charred_spruce_planks"
+    "0": "dawnoftimebuilder:block/charred_spruce_planks"
   }
 }

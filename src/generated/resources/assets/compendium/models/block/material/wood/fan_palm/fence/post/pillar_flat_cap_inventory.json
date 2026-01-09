@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/pillar_flat_cap_inventory",
   "textures": {
-    "0": "minecraft:block/fan_palm_planks"
+    "0": "bloomingnature:block/fan_palm_planks"
   }
 }

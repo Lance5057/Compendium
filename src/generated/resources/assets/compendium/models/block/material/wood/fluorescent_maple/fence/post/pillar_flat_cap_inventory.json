@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/bases/fence/post/pillar_flat_cap_inventory",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_planks"
+    "0": "cluttered:block/fluorescent_maple_planks"
   }
 }
