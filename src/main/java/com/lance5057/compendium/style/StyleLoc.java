@@ -315,6 +315,7 @@ public class StyleLoc {
 		lp.add("style.plank_block.banded", "Banded");
 		lp.add("style.plank_block.domed", "Domed");
 		lp.add("style.plank_block.five", "Five");
+		lp.add("style.plank_block.four_panels", "Four Panels");
 		lp.add("style.plank_block.nine_panels", "Nine Panels");
 		lp.add("style.plank_block.petal", "Petal");
 		lp.add("style.plank_block.two_panel", "Two Panels");
