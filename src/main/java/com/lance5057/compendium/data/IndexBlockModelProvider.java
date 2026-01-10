@@ -344,7 +344,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 							.texture("0",
 									ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name + "_planks"))
 							.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,
-									"block/material/wood/" + mb.name + "/slats"));
+									"block/material/wood/" + mb.name + "/weave"));
 				} else if (b.contains("sheet")) {
 					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
 							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
