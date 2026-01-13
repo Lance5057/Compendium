@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/smallest_logs_full",
   "textures": {
-    "0": "minecraft:block/stripped_archwood_log",
+    "0": "ars_nouveau:block/stripped_archwood_log",
     "1": "compendium:block/material/wood/archwood/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_archwood_log"
+    "particle": "ars_nouveau:block/stripped_archwood_log"
   }
 }

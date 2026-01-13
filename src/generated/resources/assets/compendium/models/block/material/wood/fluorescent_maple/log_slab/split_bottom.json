@@ -1,9 +1,9 @@
 {
   "parent": "compendium:block/bases/log_slab/split_bottom",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_log",
-    "1": "minecraft:block/fluorescent_maple_log_top",
+    "0": "cluttered:block/fluorescent_maple_log",
+    "1": "cluttered:block/fluorescent_maple_log_top",
     "2": "compendium:block/material/wood/fluorescent_maple/logs/log_split_side",
-    "particle": "minecraft:block/fluorescent_maple_log"
+    "particle": "cluttered:block/fluorescent_maple_log"
   }
 }

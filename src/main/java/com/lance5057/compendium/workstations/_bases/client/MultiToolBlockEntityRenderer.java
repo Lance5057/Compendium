@@ -34,27 +34,28 @@ public abstract class MultiToolBlockEntityRenderer<T extends MultiToolRecipeStat
 
 	public void renderDebug(T blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource,
 			int packedLight, int packedOverlay) {
-		for (BlockPos p : blockEntity.toolSuppliers) {
+		if (CompendiumConfig.DEBUG.isTrue()) {
+			for (BlockPos p : blockEntity.toolSuppliers) {
 
-			VertexConsumer vertexConsumer = bufferSource.getBuffer(Sheets.translucentCullBlockSheet());
-			Matrix4f mat = poseStack.last().pose();
-			Matrix3f matrix3f = poseStack.last().normal();
+				VertexConsumer vertexConsumer = bufferSource.getBuffer(Sheets.translucentCullBlockSheet());
+				Matrix4f mat = poseStack.last().pose();
+				Matrix3f matrix3f = poseStack.last().normal();
 
-			poseStack.pushPose();
+				poseStack.pushPose();
 
-			Vec3 v = p.subtract(blockEntity.getBlockPos()).getCenter();
+				Vec3 v = p.subtract(blockEntity.getBlockPos()).getCenter();
 
-			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(0.5, 1.1, 0.5), new Vec3(v.x, v.y + 0.6, v.z),
-					new Vec3(v.x, v.y + 0.7, v.z), vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
-					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
-					packedOverlay, poseStack);
+				RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(0.5, 1.1, 0.5), new Vec3(v.x, v.y + 0.6, v.z),
+						new Vec3(v.x, v.y + 0.7, v.z), vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
+						RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(),
+						LightTexture.FULL_SKY, packedOverlay, poseStack);
 
-			RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(v.x, v.y + 0.7, v.z), new Vec3(v.x, v.y + 0.6, v.z),
-					new Vec3(0.5, 1.1, 0.5), vertexConsumer, mat, matrix3f, 0xFFFFFFFF,
-					RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(), LightTexture.FULL_SKY,
-					packedOverlay, poseStack);
-			poseStack.popPose();
+				RenderUtil.buildPlane(new Vec3(0.5, 1.2, 0.5), new Vec3(v.x, v.y + 0.7, v.z),
+						new Vec3(v.x, v.y + 0.6, v.z), new Vec3(0.5, 1.1, 0.5), vertexConsumer, mat, matrix3f,
+						0xFFFFFFFF, RenderUtil.getUV(Compendium.modLoc("block/gizmo")), Direction.UP.getNormal(),
+						LightTexture.FULL_SKY, packedOverlay, poseStack);
+				poseStack.popPose();
+			}
 		}
-
 	}
 }

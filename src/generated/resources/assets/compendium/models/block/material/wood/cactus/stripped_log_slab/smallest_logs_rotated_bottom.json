@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_bottom",
   "textures": {
-    "0": "minecraft:block/stripped_cactus_log",
+    "0": "bloomingnature:block/stripped_cactus_log",
     "1": "compendium:block/material/wood/cactus/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_cactus_log"
+    "particle": "bloomingnature:block/stripped_cactus_log"
   }
 }

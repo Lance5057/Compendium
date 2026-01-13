@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/campfire_full",
   "textures": {
-    "0": "minecraft:block/fluorescent_maple_log",
+    "0": "cluttered:block/fluorescent_maple_log",
     "1": "compendium:block/material/wood/fluorescent_maple/logs/extra_caps",
-    "particle": "minecraft:block/fluorescent_maple_log"
+    "particle": "cluttered:block/fluorescent_maple_log"
   }
 }

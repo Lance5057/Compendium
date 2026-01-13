@@ -17,12 +17,18 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 
-public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBlock {
+public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBlock, SimpleWaterloggedBlock {
 	public static final MapCodec<PipeStyleBlock> CODEC = simpleCodec(PipeStyleBlock::new);
+	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
@@ -35,10 +41,10 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 	public PipeStyleBlock(float apothem, Properties properties, ResourceLocation itemRenderer, List<String> styleBases,
 			StyleData... styles) {
 		super(apothem, properties);
-		this.registerDefaultState(
-				this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true)).setValue(EAST, Boolean.valueOf(false))
-						.setValue(SOUTH, Boolean.valueOf(true)).setValue(WEST, Boolean.valueOf(false))
-						.setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(true))
+				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(true))
+				.setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false))
+				.setValue(DOWN, Boolean.valueOf(false)).setValue(WATERLOGGED, false));
 		this.styles = styles;
 		this.itemRendererLocation = itemRenderer;
 		this.styleBases = styleBases;
@@ -56,7 +62,7 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
+		builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN, WATERLOGGED);
 	}
 
 	@Override
@@ -64,7 +70,14 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		Level level = context.getLevel();
 		BlockPos pos = context.getClickedPos();
 
-		return checkNeighbors(level, pos);
+		FluidState fluidstate = context.getLevel().getFluidState(pos);
+
+		return checkNeighbors(level, pos).setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+	}
+
+	@Override
+	protected FluidState getFluidState(BlockState state) {
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
 
 	private BlockState checkNeighbors(LevelAccessor level, BlockPos pos) {
@@ -74,13 +87,15 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		BlockState east = level.getBlockState(pos.east());
 		BlockState south = level.getBlockState(pos.south());
 		BlockState west = level.getBlockState(pos.west());
+		FluidState fluidstate = level.getFluidState(pos);
 
 		return this.defaultBlockState().trySetValue(DOWN, down.isSolidRender(level, pos) || down.is(this))
 				.trySetValue(UP, up.isSolidRender(level, pos) || up.is(this))
 				.trySetValue(NORTH, north.isSolidRender(level, pos) || north.is(this))
 				.trySetValue(EAST, east.isSolidRender(level, pos) || east.is(this))
 				.trySetValue(SOUTH, south.isSolidRender(level, pos) || south.is(this))
-				.trySetValue(WEST, west.isSolidRender(level, pos) || west.is(this));
+				.trySetValue(WEST, west.isSolidRender(level, pos) || west.is(this))
+				.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
 	}
 
 	@Override

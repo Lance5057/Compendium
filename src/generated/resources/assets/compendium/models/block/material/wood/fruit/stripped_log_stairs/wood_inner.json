@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_inner",
   "textures": {
-    "0": "minecraft:block/stripped_fruit_log",
-    "1": "minecraft:block/stripped_fruit_log",
-    "particle": "minecraft:block/stripped_fruit_log"
+    "0": "extradelight:block/stripped_fruit_log",
+    "1": "extradelight:block/stripped_fruit_log",
+    "particle": "extradelight:block/stripped_fruit_log"
   }
 }

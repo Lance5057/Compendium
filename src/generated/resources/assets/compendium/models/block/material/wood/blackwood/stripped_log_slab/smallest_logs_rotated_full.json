@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_full",
   "textures": {
-    "0": "minecraft:block/stripped_blackwood_log",
+    "0": "abyssal_decor:block/stripped_blackwood_log",
     "1": "compendium:block/material/wood/blackwood/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_blackwood_log"
+    "particle": "abyssal_decor:block/stripped_blackwood_log"
   }
 }

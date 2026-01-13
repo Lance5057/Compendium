@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side",
   "textures": {
-    "0": "minecraft:block/alder_log",
-    "1": "minecraft:block/alder_log",
-    "particle": "minecraft:block/alder_log"
+    "0": "enchanted:block/alder_log",
+    "1": "enchanted:block/alder_log",
+    "particle": "enchanted:block/alder_log"
   }
 }

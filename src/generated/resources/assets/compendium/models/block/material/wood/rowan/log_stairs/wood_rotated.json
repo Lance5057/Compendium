@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front",
   "textures": {
-    "0": "minecraft:block/rowan_log",
-    "1": "minecraft:block/rowan_log",
-    "particle": "minecraft:block/rowan_log"
+    "0": "enchanted:block/rowan_log",
+    "1": "enchanted:block/rowan_log",
+    "particle": "enchanted:block/rowan_log"
   }
 }

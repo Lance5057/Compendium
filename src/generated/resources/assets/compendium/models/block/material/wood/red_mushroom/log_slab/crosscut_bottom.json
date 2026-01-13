@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/crosscut_bottom",
   "textures": {
-    "0": "minecraft:block/red_mushroom_log",
-    "1": "minecraft:block/red_mushroom_log_top",
-    "particle": "minecraft:block/red_mushroom_log"
+    "0": "cluttered:block/red_mushroom_log",
+    "1": "cluttered:block/red_mushroom_log_top",
+    "particle": "cluttered:block/red_mushroom_log"
   }
 }

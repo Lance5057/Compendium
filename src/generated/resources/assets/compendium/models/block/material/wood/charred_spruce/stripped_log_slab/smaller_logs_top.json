@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/bases/log_slab/smaller_logs_top",
   "textures": {
-    "0": "minecraft:block/stripped_charred_spruce_log",
+    "0": "dawnoftimebuilder:block/stripped_charred_spruce_log",
     "1": "compendium:block/material/wood/charred_spruce/logs/stripped_extra_caps",
-    "particle": "minecraft:block/stripped_charred_spruce_log"
+    "particle": "dawnoftimebuilder:block/stripped_charred_spruce_log"
   }
 }
