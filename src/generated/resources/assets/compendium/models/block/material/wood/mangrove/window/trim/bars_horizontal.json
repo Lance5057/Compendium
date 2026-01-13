@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "minecraft:block/material/wood/mangrove/windows/bars_horizontal"
+    "all": "compendium:block/material/wood/mangrove/windows/bars_horizontal"
   }
 }

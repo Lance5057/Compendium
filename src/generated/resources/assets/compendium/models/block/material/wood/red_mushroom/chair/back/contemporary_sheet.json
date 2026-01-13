@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/contemporary_sheet",
   "textures": {
-    "0": "cluttered:block/material/wood/red_mushroom/planks/sheet"
+    "0": "compendium:block/material/wood/red_mushroom/planks/sheet"
   }
 }

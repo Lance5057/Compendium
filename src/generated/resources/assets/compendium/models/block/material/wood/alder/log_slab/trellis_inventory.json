@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_bottom",
   "textures": {
-    "0": "minecraft:block/alder_log"
+    "0": "enchanted:block/alder_log"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
   "textures": {
     "0": "bloomingnature:block/fir_planks",
-    "1": "bloomingnature:block/material/wood/fir/slats"
+    "1": "compendium:block/material/wood/fir/weave"
   }
 }

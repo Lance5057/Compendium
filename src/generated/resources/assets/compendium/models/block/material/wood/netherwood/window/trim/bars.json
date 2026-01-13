@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "silentgear:block/material/wood/netherwood/windows/bars"
+    "all": "compendium:block/material/wood/netherwood/windows/bars"
   }
 }

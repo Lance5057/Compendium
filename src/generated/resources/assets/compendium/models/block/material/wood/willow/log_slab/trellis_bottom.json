@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_bottom",
   "textures": {
-    "0": "minecraft:block/willow_log"
+    "0": "cluttered:block/willow_log"
   }
 }

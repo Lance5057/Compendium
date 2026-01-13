@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/basic_sheet",
   "textures": {
-    "0": "minecraft:block/material/wood/oak/planks/sheet"
+    "0": "compendium:block/material/wood/oak/planks/sheet"
   }
 }

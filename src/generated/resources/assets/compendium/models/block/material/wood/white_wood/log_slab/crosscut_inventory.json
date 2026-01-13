@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
-  "textures": {
-    "0": "minecraft:block/white_wood_log",
-    "1": "minecraft:block/white_wood_log_top",
-    "particle": "minecraft:block/white_wood_log"
-  }
-}

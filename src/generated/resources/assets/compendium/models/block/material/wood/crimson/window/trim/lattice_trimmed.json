@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "minecraft:block/material/wood/crimson/windows/lattice_trimmed"
+    "all": "compendium:block/material/wood/crimson/windows/lattice_trimmed"
   }
 }

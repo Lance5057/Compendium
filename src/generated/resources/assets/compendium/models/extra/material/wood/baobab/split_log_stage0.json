@@ -1,7 +1,7 @@
 {
   "parent": "compendium:extra/split_log_stage0",
   "textures": {
-    "0": "minecraft:block/baobab_log",
-    "1": "minecraft:block/baobab_log_top"
+    "0": "bloomingnature:block/baobab_log",
+    "1": "bloomingnature:block/baobab_log_top"
   }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/open",
-  "textures": {
-    "0": "abyssal_decor:block/white_wood_planks"
-  }
-}

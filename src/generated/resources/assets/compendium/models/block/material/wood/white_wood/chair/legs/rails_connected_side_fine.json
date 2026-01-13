@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_connected_side_fine",
-  "textures": {
-    "0": "abyssal_decor:block/white_wood_planks"
-  }
-}

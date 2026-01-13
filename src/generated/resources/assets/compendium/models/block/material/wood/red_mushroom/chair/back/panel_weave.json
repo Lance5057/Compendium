@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/chair/back/panel_weave",
   "textures": {
     "0": "cluttered:block/red_mushroom_planks",
-    "1": "cluttered:block/material/wood/red_mushroom/weave"
+    "1": "compendium:block/material/wood/red_mushroom/weave"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/chair/back/weave",
   "textures": {
     "0": "cluttered:block/willow_planks",
-    "1": "cluttered:block/material/wood/willow/weave"
+    "1": "compendium:block/material/wood/willow/weave"
   }
 }

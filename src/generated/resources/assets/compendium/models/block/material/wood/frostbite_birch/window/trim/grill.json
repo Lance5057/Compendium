@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "hazennstuff:block/material/wood/frostbite_birch/windows/grill"
+    "all": "compendium:block/material/wood/frostbite_birch/windows/grill"
   }
 }

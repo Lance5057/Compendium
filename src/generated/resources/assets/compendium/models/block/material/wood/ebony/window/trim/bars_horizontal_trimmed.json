@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "bloomingnature:block/material/wood/ebony/windows/bars_horizontal_trimmed"
+    "all": "compendium:block/material/wood/ebony/windows/bars_horizontal_trimmed"
   }
 }

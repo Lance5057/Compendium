@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "dawnoftimebuilder:block/material/wood/charred_spruce/windows/trimmed_grate"
+    "all": "compendium:block/material/wood/charred_spruce/windows/trimmed_grate"
   }
 }

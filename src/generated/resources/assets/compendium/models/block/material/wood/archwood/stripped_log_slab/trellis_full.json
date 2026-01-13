@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_full",
   "textures": {
-    "0": "minecraft:block/stripped_archwood_log"
+    "0": "ars_nouveau:block/stripped_archwood_log"
   }
 }

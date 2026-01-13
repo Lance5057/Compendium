@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "compendium:block/red_mushroom_stripped_log_top",
+    "side": "compendium:block/red_mushroom_stripped_log"
+  }
+}

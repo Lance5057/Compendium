@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/chair/back/weave",
   "textures": {
     "0": "cluttered:block/crabapple_planks",
-    "1": "cluttered:block/material/wood/crabapple/slats"
+    "1": "compendium:block/material/wood/crabapple/weave"
   }
 }

@@ -143,6 +143,26 @@ public class MaterialWood extends _MaterialBase {
 					bsp.models().cubeAll(this.blockFolder() + PLANKS.name, bsp.blockTexture(PLANKS.BLOCK.get()))));
 		}
 
+		if (LOG.shouldGenerate()) {
+			bsp.logBlock((RotatedPillarBlock) LOG.BLOCK.get());
+		}
+
+		if (STRIPPED_LOG.shouldGenerate()) {
+			bsp.logBlock((RotatedPillarBlock) STRIPPED_LOG.BLOCK.get());
+		}
+
+		if (WOOD.shouldGenerate()) {
+			bsp.axisBlock((RotatedPillarBlock) WOOD.BLOCK.get(),
+					ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log"),
+					ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log"));
+		}
+
+		if (STRIPPED_WOOD.shouldGenerate()) {
+			bsp.axisBlock((RotatedPillarBlock) STRIPPED_WOOD.BLOCK.get(),
+					ResourceLocation.fromNamespaceAndPath(namespace, "block/stripped_" + name + "_log"),
+					ResourceLocation.fromNamespaceAndPath(namespace, "block/stripped_" + name + "_log"));
+		}
+
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
@@ -150,6 +170,18 @@ public class MaterialWood extends _MaterialBase {
 	public void itemModel(ItemModelProvider tmp) {
 		if (PLANKS.shouldGenerate())
 			ItemModels.forBlockItem(tmp, PLANKS.BLOCK_ITEM, name);
+		
+		if (LOG.shouldGenerate())
+			ItemModels.forBlockItem(tmp, LOG.BLOCK_ITEM, name);
+		
+		if (STRIPPED_LOG.shouldGenerate())
+			ItemModels.forBlockItem(tmp, STRIPPED_LOG.BLOCK_ITEM, name);
+		
+		if (WOOD.shouldGenerate())
+			ItemModels.forBlockItem(tmp, WOOD.BLOCK_ITEM, name);
+		
+		if (STRIPPED_WOOD.shouldGenerate())
+			ItemModels.forBlockItem(tmp, STRIPPED_WOOD.BLOCK_ITEM, name);
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}

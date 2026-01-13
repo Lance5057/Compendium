@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/furniture/chair/back/flat_sheet",
   "textures": {
-    "0": "bloomingnature:block/material/wood/aspen/planks/sheet"
+    "0": "compendium:block/material/wood/aspen/planks/sheet"
   }
 }

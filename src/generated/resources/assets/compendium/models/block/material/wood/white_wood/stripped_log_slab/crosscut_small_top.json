@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_small_top",
-  "textures": {
-    "0": "compendium:block/material/wood/white_wood/logs/stripped_small_logs",
-    "1": "compendium:block/material/wood/white_wood/logs/stripped_small_logs_top",
-    "particle": "compendium:block/material/wood/white_wood/logs/stripped_small_logs"
-  }
-}

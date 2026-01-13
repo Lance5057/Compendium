@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "all": "abyssal_decor:block/material/wood/white_wood/windows/quarter"
-  }
-}

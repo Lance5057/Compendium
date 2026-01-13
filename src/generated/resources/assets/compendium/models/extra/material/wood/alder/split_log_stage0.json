@@ -1,7 +1,7 @@
 {
   "parent": "compendium:extra/split_log_stage0",
   "textures": {
-    "0": "minecraft:block/alder_log",
-    "1": "minecraft:block/alder_log_top"
+    "0": "enchanted:block/alder_log",
+    "1": "enchanted:block/alder_log_top"
   }
 }

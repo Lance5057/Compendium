@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/chair/back/panel_weave",
   "textures": {
     "0": "minecraft:block/jungle_planks",
-    "1": "minecraft:block/material/wood/jungle/slats"
+    "1": "compendium:block/material/wood/jungle/weave"
   }
 }

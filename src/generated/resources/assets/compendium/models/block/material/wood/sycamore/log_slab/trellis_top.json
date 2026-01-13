@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_top",
   "textures": {
-    "0": "minecraft:block/sycamore_log"
+    "0": "cluttered:block/sycamore_log"
   }
 }

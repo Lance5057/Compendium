@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_bottom",
   "textures": {
-    "0": "minecraft:block/fir_log"
+    "0": "bloomingnature:block/fir_log"
   }
 }

@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/wisewood_log_top",
+    "bottom": "hazennstuff:block/wisewood_log_top",
     "side": "compendium:block/material/wood/wisewood/logs/stripped_bark_shred_2",
-    "top": "minecraft:block/stripped_wisewood_log_top"
+    "top": "hazennstuff:block/stripped_wisewood_log_top"
   }
 }

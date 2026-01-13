@@ -1,6 +1,6 @@
 {
   "parent": "compendium:block/trellis/trellis_bottom",
   "textures": {
-    "0": "minecraft:block/stripped_blackwood_log"
+    "0": "abyssal_decor:block/stripped_blackwood_log"
   }
 }

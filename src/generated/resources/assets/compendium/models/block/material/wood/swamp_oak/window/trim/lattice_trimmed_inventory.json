@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "bloomingnature:block/material/wood/swamp_oak/windows/lattice_trimmed"
+    "all": "compendium:block/material/wood/swamp_oak/windows/lattice_trimmed"
   }
 }

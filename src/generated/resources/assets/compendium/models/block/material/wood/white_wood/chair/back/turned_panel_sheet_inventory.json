@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/turned_panel_sheet",
-  "textures": {
-    "0": "abyssal_decor:block/material/wood/white_wood/planks/sheet"
-  }
-}

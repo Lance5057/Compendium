@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/stripped_fruit_log_top",
+    "bottom": "extradelight:block/stripped_fruit_log_top",
     "side": "compendium:block/material/wood/fruit/logs/stripped_bark_shred_4",
-    "top": "minecraft:block/fruit_log_top"
+    "top": "extradelight:block/fruit_log_top"
   }
 }

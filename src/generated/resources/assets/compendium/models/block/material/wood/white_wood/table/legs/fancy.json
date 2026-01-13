@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/legs/fancy_leg",
-  "textures": {
-    "0": "abyssal_decor:block/white_wood_planks"
-  }
-}

@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/stripped_fluorescent_maple_log_top",
+    "bottom": "cluttered:block/stripped_fluorescent_maple_log_top",
     "side": "compendium:block/material/wood/fluorescent_maple/logs/bark_shred_1",
-    "top": "minecraft:block/fluorescent_maple_log_top"
+    "top": "cluttered:block/fluorescent_maple_log_top"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "cluttered:block/material/wood/sycamore/windows/bars_trimmed"
+    "all": "compendium:block/material/wood/sycamore/windows/bars_trimmed"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "abyssal_decor:block/stripped_blackwood_log",
+    "side": "abyssal_decor:block/stripped_blackwood_log"
+  }
+}

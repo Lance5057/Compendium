@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/crabapple_log_top",
+    "bottom": "cluttered:block/crabapple_log_top",
     "side": "compendium:block/material/wood/crabapple/logs/bark_shred_3",
-    "top": "minecraft:block/stripped_crabapple_log_top"
+    "top": "cluttered:block/stripped_crabapple_log_top"
   }
 }

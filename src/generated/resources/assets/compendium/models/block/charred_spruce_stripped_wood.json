@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dawnoftimebuilder:block/stripped_charred_spruce_log",
+    "side": "dawnoftimebuilder:block/stripped_charred_spruce_log"
+  }
+}

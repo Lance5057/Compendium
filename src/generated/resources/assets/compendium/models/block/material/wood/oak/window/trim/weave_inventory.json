@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "minecraft:block/material/wood/oak/windows/weave"
+    "all": "compendium:block/material/wood/oak/windows/weave"
   }
 }

@@ -1,8 +1,8 @@
 {
   "parent": "compendium:block/cube_column_ends",
   "textures": {
-    "bottom": "minecraft:block/fir_log_top",
+    "bottom": "bloomingnature:block/fir_log_top",
     "side": "compendium:block/material/wood/fir/logs/stripped_bark_shred_2",
-    "top": "minecraft:block/stripped_fir_log_top"
+    "top": "bloomingnature:block/stripped_fir_log_top"
   }
 }

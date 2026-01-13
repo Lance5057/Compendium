@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/single/head/base/weave",
-  "textures": {
-    "0": "abyssal_decor:block/white_wood_planks",
-    "1": "compendium:block/material/wood/white_wood/weave"
-  }
-}
