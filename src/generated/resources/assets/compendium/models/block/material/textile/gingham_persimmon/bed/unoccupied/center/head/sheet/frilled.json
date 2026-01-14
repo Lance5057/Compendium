@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/center/head/sheet/frilled",
+  "textures": {
+    "0": "compendium:block/gingham_persimmon"
+  }
+}

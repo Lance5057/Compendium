@@ -392,69 +392,69 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(
 					STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/stripped_" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 		}
 		shreds = new String[] { "3", "4" };
 		for (String shred : shreds) {
@@ -463,69 +463,69 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
 					.texture("bottom",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 
 			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 			ibmp.withExistingParent(
 					STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
 					ibmp.modLoc("block/cube_column_ends"))
 					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
 					.texture("top",
 							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
+									"block/whitewoodstrippedlogtop"))
 					.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem + "_top"));
+							"block/whitewoodstrippedlogtop"));
 		}
 
 		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic", ibmp.mcLoc("block/cube_column"))
@@ -614,14 +614,14 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.texture("0",
 						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
 				.texture("1", ResourceLocation.fromNamespaceAndPath(base.namespace,
-						"block/" + base.name + "_" + logstem + "_top"));
+						"block/whitewoodstrippedlogtop"));
 
 		ibmp.withExistingParent(base.extraFolder() + "split_log_stage1", ibmp.modLoc("extra/split_log_stage1"))
 				.texture("0",
 						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
 				.texture("1",
 						ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"))
+								"block/whitewoodstrippedlogtop"))
 				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
 
 		ibmp.withExistingParent(base.extraFolder() + "split_log_stage2", ibmp.modLoc("extra/split_log_stage2"))
@@ -629,7 +629,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
 				.texture("1",
 						ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"))
+								"block/whitewoodstrippedlogtop"))
 				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
 
 		ibmp.withExistingParent(base.extraFolder() + "split_log_stage3", ibmp.modLoc("extra/split_log_stage3"))
@@ -637,7 +637,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
 				.texture("1",
 						ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"))
+								"block/whitewoodstrippedlogtop"))
 				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
 	}
 
@@ -798,10 +798,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 		if (textureName.equals("log")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/" + stripped_text + base.name + "_" + logstem);
+					"block/whitewoodstrippedlog");
 		} else if (textureName.equals("log_top")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/" + stripped_text + base.name + "_" + logstem + "_top");
+					"block/whitewoodstrippedlogtop");
 		} else if (textureName.split("_", 1)[0].equals("planks")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
 					"block/" + stripped_text + base.name + "_planks");

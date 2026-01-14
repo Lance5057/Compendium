@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/pedestal_cross_tilted",
-  "textures": {
-    "0": "koopascritters:block/kopje_planks"
-  }
-}

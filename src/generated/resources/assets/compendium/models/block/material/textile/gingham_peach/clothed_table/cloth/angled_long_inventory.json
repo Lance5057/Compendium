@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/furniture/table/cloth/angled_long",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "minecraft:block/gingham_peach",
+    "1": "compendium:block/material/textile/gingham_peach/diagonal_half"
+  }
+}

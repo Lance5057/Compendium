@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/single/head/blanket/llama",
+  "textures": {
+    "2": "compendium:block/material/textile/gingham_blue/llama",
+    "3": "compendium:block/material/textile/gingham_blue/llama_trim"
+  }
+}

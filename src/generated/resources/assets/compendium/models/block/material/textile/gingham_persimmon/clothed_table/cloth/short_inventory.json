@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/table/cloth/short",
+  "textures": {
+    "0": "compendium:block/gingham_persimmon"
+  }
+}

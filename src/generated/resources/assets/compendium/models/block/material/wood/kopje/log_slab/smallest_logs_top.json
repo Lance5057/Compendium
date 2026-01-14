@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_top",
-  "textures": {
-    "0": "koopascritters:block/kopje_log",
-    "1": "compendium:block/material/wood/kopje/logs/extra_caps",
-    "particle": "koopascritters:block/kopje_log"
-  }
-}

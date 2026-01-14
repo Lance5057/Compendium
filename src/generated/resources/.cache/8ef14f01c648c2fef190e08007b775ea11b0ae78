@@ -1,34 +1,7 @@
-// 1.21.1	2026-01-14T00:22:28.7087464	Tags for minecraft:item mod id compendium
-ff17a388ef5f66233101f7f11a147fb5189d1d63 data/c/tags/item/logs/kopje.json
-7c1c38913b8a7af29feae77a6a8047df23adfb61 data/c/tags/item/logs/slab.json
-7c1c38913b8a7af29feae77a6a8047df23adfb61 data/c/tags/item/logs/slab/kopje.json
-912efd5b0ca12b213a1c082f6ad3de3e3198abb6 data/c/tags/item/logs/small.json
-912efd5b0ca12b213a1c082f6ad3de3e3198abb6 data/c/tags/item/logs/small/kopje.json
-077e71ff30e37809af9a583244fe362ad00a931e data/c/tags/item/logs/stairs.json
-077e71ff30e37809af9a583244fe362ad00a931e data/c/tags/item/logs/stairs/kopje.json
-30471f462488089153149eb6adf26545e6ca573b data/c/tags/item/log/stripped/small_logs.json
-30471f462488089153149eb6adf26545e6ca573b data/c/tags/item/log/stripped/small_logs/kopje.json
-03da1c865cbc4edde9cdf9d850d370ded865a23a data/c/tags/item/plank.json
-fa77d30b18fb6afc58f9695dfbb2adb9d9c0ad4d data/c/tags/item/planks/kopje.json
-03da1c865cbc4edde9cdf9d850d370ded865a23a data/c/tags/item/plank/kopje.json
-d8d2422bcab0c1c202fc67ef2ac0784d55a789d5 data/c/tags/item/slabs/planks/kopje.json
-912efd5b0ca12b213a1c082f6ad3de3e3198abb6 data/c/tags/item/small_logs.json
-912efd5b0ca12b213a1c082f6ad3de3e3198abb6 data/c/tags/item/small_logs/kopje.json
-b863a0bdeaf78540d8e9577996514515fcb559ea data/c/tags/item/stairs/planks/kopje.json
-4e5037f8e0393129e5614d6128a621eec42f33c1 data/c/tags/item/stripped_logs.json
-dd34f404e94cfc232a5f9f9e5a947751a221db5b data/c/tags/item/stripped_logs/slab.json
-dd34f404e94cfc232a5f9f9e5a947751a221db5b data/c/tags/item/stripped_logs/slab/kopje.json
-c837745b4bd25bec60a0aae86014ddd585064f92 data/c/tags/item/stripped_logs/stairs.json
-c837745b4bd25bec60a0aae86014ddd585064f92 data/c/tags/item/stripped_logs/stairs/kopje.json
-4e5037f8e0393129e5614d6128a621eec42f33c1 data/c/tags/item/stripped_log/kopje.json
-30471f462488089153149eb6adf26545e6ca573b data/c/tags/item/stripped_log/small.json
-30471f462488089153149eb6adf26545e6ca573b data/c/tags/item/stripped_log/small/kopje.json
+// 1.21.1	2026-01-14T12:08:06.7270623	Tags for minecraft:item mod id compendium
 5c9f51e3d4bb815c221306ed4daf1959c9878240 data/c/tags/item/tools/hammer.json
 8d68bf5d7eaeb0e6356f66a46cbb1284b6d34ea2 data/c/tags/item/tools/melee_weapon.json
 c74c5e7d2d0b390b9dbca7567bf556ec28212712 data/c/tags/item/tools/prybar.json
 8ea3bf3b2e457e42347922407febb47fff2db77b data/c/tags/item/tools/saw.json
 5f14b9b0110f0de02a314cf62410e250a719ceab data/c/tags/item/tools/shear.json
-d8d2422bcab0c1c202fc67ef2ac0784d55a789d5 data/c/tags/item/wooden_slabs/kopje.json
-b863a0bdeaf78540d8e9577996514515fcb559ea data/c/tags/item/wooden_stairs/kopje.json
-ff17a388ef5f66233101f7f11a147fb5189d1d63 data/minecraft/tags/item/logs.json
 8d68bf5d7eaeb0e6356f66a46cbb1284b6d34ea2 data/minecraft/tags/item/swords.json

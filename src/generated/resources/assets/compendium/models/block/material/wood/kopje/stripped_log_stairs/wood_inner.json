@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_inner",
-  "textures": {
-    "0": "koopascritters:block/stripped_kopje_log",
-    "1": "koopascritters:block/stripped_kopje_log",
-    "particle": "koopascritters:block/stripped_kopje_log"
-  }
-}

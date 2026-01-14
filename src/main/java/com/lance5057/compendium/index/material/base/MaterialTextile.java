@@ -28,6 +28,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -45,12 +46,14 @@ public class MaterialTextile extends _MaterialBase {
 	private static final long serialVersionUID = -2331511780363081257L;
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("block");
 	public CompendiumItemHandler STRING = new CompendiumItemHandler("string");
+	public CompendiumBlockHandler CARPET = new CompendiumBlockHandler("carpet");
 
-	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string) {
+	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string, Generate carpet) {
 		super(name, tagNamespace);
 
 		BLOCK.setGenerate(block);
 		STRING.setGenerate(string);
+		CARPET.setGenerate(carpet);
 	}
 
 	@Override
@@ -62,7 +65,7 @@ public class MaterialTextile extends _MaterialBase {
 	public void setup() {
 
 		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block_item"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 
 //		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
@@ -70,12 +73,20 @@ public class MaterialTextile extends _MaterialBase {
 
 		STRING.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_string"));
 
+		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block_item"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
+
+//		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
+		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
+
 	}
 
 	@Override
 	public void tab(Output output) {
 		BLOCK.tab(this, output);
 		STRING.tab(this, output);
+		CARPET.tab(this, output);
 	}
 
 	@Override
@@ -83,9 +94,14 @@ public class MaterialTextile extends _MaterialBase {
 		if (BLOCK.shouldGenerate()) {
 			bsp.getVariantBuilder(BLOCK.BLOCK.get()).partialState()
 					.addModels(new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + BLOCK.name,
-							ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + "basic"))));
+							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
 		}
 
+		if (CARPET.shouldGenerate()) {
+			bsp.getVariantBuilder(CARPET.BLOCK.get()).partialState()
+					.addModels(new ConfiguredModel(bsp.models().carpet(this.blockFolder() + CARPET.name,
+							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
+		}
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
 	}
 
@@ -94,6 +110,10 @@ public class MaterialTextile extends _MaterialBase {
 		if (BLOCK.shouldGenerate())
 			tmp.getBuilder(BLOCK.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
 					ResourceLocation.fromNamespaceAndPath(namespace, BLOCK.location(this) + "block")));
+
+		if (CARPET.shouldGenerate())
+			tmp.getBuilder(CARPET.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
+					ResourceLocation.fromNamespaceAndPath(namespace, CARPET.location(this) + "carpet")));
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
@@ -114,6 +134,9 @@ public class MaterialTextile extends _MaterialBase {
 	public void blockLoot(BlockLootSubProvider blp) {
 		if (BLOCK.shouldGenerate())
 			blp.dropSelf(this.BLOCK.BLOCK.get());
+
+		if (CARPET.shouldGenerate())
+			blp.dropSelf(this.CARPET.BLOCK.get());
 	}
 
 	@Override
@@ -164,11 +187,12 @@ public class MaterialTextile extends _MaterialBase {
 
 			String string = j.get("loadString").getAsString();
 			String block = j.get("loadBlock").getAsString();
+			String carpet = j.get("loadCarpet").getAsString();
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
 			MaterialTextile m = new MaterialTextile(name, tagNamespace, Generate.valueOf(block),
-					Generate.valueOf(string));
+					Generate.valueOf(string), Generate.valueOf(carpet));
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -187,6 +211,7 @@ public class MaterialTextile extends _MaterialBase {
 			j.addProperty("type", type);
 			j.addProperty("loadString", src.STRING.getGeneration().toString());
 			j.addProperty("loadBlock", src.BLOCK.getGeneration().toString());
+			j.addProperty("loadCarpet", src.CARPET.getGeneration().toString());
 
 			JsonArray ext = new JsonArray();
 

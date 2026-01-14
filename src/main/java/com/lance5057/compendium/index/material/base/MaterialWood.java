@@ -80,15 +80,15 @@ public class MaterialWood extends _MaterialBase {
 		boolean isNether = this.name.equalsIgnoreCase("crimson") || this.name.equalsIgnoreCase("warped");
 
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_fig_planks"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_fig_planks"));
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_planks"));
 //		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
 		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_fig_log" : "_stem")),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_fig_log" : "_stem")));
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")),
+				ResourceLocation.fromNamespaceAndPath(namespace, this.name + (!isNether ? "_log" : "_stem")));
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
