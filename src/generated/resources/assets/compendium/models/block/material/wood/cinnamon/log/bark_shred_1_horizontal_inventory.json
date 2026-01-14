@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "extradelight:block/stripped_cinnamon_log_top",
-    "side": "compendium:block/material/wood/cinnamon/logs/bark_shred_1",
-    "top": "extradelight:block/cinnamon_log_top"
-  }
-}

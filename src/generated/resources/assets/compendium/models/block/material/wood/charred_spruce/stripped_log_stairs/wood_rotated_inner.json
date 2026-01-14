@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_inner",
-  "textures": {
-    "0": "dawnoftimebuilder:block/stripped_charred_spruce_log",
-    "1": "dawnoftimebuilder:block/stripped_charred_spruce_log",
-    "particle": "dawnoftimebuilder:block/stripped_charred_spruce_log"
-  }
-}

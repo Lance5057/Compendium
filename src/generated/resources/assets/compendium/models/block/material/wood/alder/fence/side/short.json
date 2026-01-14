@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/short",
-  "textures": {
-    "0": "enchanted:block/alder_planks"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_side_inner",
-  "textures": {
-    "0": "bloomingnature:block/aspen_log",
-    "1": "bloomingnature:block/aspen_log_top",
-    "2": "compendium:block/material/wood/aspen/logs/log_split_side",
-    "particle": "bloomingnature:block/aspen_log"
-  }
-}

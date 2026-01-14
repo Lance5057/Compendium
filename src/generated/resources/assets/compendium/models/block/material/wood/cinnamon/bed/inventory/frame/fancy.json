@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/inventory/frame/fancy",
-  "textures": {
-    "0": "extradelight:block/cinnamon_planks"
-  }
-}

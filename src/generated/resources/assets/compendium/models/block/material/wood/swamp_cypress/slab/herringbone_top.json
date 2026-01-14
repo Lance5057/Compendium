@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "compendium:block/material/wood/swamp_cypress/planks/herringbone",
-    "side": "compendium:block/material/wood/swamp_cypress/planks/herringbone",
-    "top": "compendium:block/material/wood/swamp_cypress/planks/herringbone"
-  }
-}

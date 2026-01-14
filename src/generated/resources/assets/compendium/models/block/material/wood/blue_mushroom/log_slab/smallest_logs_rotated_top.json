@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_top",
-  "textures": {
-    "0": "cluttered:block/blue_mushroom_log",
-    "1": "compendium:block/material/wood/blue_mushroom/logs/extra_caps",
-    "particle": "cluttered:block/blue_mushroom_log"
-  }
-}

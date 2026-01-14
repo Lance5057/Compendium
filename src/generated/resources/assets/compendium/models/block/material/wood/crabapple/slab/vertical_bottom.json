@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "compendium:block/material/wood/crabapple/planks/vertical",
-    "side": "compendium:block/material/wood/crabapple/planks/vertical",
-    "top": "compendium:block/material/wood/crabapple/planks/vertical"
-  }
-}

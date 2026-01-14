@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:extra/split_log_stage2",
-  "textures": {
-    "0": "bloomingnature:block/cypress_log",
-    "1": "bloomingnature:block/cypress_log_top",
-    "2": "compendium:block/material/wood/cypress/logs/log_split_side"
-  }
-}

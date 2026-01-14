@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_outer",
-  "textures": {
-    "0": "hazennstuff:block/wisewood_log",
-    "1": "hazennstuff:block/wisewood_log",
-    "particle": "hazennstuff:block/wisewood_log"
-  }
-}

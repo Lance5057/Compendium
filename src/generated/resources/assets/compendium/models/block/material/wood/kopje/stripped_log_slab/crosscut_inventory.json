@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
+  "textures": {
+    "0": "koopascritters:block/stripped_kopje_log",
+    "1": "koopascritters:block/stripped_kopje_log_top",
+    "particle": "koopascritters:block/stripped_kopje_log"
+  }
+}

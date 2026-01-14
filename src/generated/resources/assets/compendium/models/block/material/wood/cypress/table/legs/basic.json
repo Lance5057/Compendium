@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/legs/basic_leg",
-  "textures": {
-    "0": "bloomingnature:block/cypress_planks"
-  }
-}

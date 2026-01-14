@@ -1,8 +1,0 @@
-{
-  "name": "gingham_light_gray",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "EXISTS",
-  "extensions": []
-}

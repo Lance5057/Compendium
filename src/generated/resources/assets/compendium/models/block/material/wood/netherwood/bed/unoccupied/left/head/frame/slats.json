@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/frame/slats",
-  "textures": {
-    "0": "silentgear:block/netherwood_planks",
-    "1": "compendium:block/material/wood/netherwood/slats"
-  }
-}

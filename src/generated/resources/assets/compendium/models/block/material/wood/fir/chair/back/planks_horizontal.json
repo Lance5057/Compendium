@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/planks_horizontal",
-  "textures": {
-    "0": "bloomingnature:block/fir_planks"
-  }
-}

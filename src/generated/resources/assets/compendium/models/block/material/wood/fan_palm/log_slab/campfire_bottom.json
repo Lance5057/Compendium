@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_bottom",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_log",
-    "1": "compendium:block/material/wood/fan_palm/logs/extra_caps",
-    "particle": "bloomingnature:block/fan_palm_log"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "name": "gingham_white",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "EXISTS",
-  "extensions": []
-}

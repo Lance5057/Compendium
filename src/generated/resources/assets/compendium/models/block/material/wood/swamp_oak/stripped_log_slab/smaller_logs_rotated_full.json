@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_rotated_full",
-  "textures": {
-    "0": "bloomingnature:block/stripped_swamp_oak_log",
-    "1": "compendium:block/material/wood/swamp_oak/logs/stripped_extra_caps",
-    "particle": "bloomingnature:block/stripped_swamp_oak_log"
-  }
-}

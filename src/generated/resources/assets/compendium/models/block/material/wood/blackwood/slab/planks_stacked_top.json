@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "compendium:block/material/wood/blackwood/planks/planks_stacked",
-    "side": "compendium:block/material/wood/blackwood/planks/planks_stacked",
-    "top": "compendium:block/material/wood/blackwood/planks/planks_stacked"
-  }
-}

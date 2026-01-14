@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "cataclysm:block/stripped_chorus_log_top",
-    "side": "compendium:block/material/wood/chorus/logs/bark_shred_2",
-    "top": "cataclysm:block/chorus_log_top"
-  }
-}

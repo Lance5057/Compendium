@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_bottom",
-  "textures": {
-    "0": "abyssal_decor:block/blackwood_log",
-    "1": "compendium:block/material/wood/blackwood/logs/extra_caps",
-    "particle": "abyssal_decor:block/blackwood_log"
-  }
-}

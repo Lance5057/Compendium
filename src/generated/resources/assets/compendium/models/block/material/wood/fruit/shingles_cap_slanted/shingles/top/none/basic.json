@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/none/basic",
-  "textures": {
-    "0": "extradelight:block/fruit_planks"
-  }
-}

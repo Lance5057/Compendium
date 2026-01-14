@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "enchanted:block/hawthorn_log_top",
-    "side": "compendium:block/material/wood/hawthorn/logs/stripped_bark_shred_2",
-    "top": "enchanted:block/stripped_hawthorn_log_top"
-  }
-}

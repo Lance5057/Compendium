@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/plank/basic",
-  "textures": {
-    "0": "compendium:block/material/wood/fluorescent_maple/planks/plank"
-  }
-}

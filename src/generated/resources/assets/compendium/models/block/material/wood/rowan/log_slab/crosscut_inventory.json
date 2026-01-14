@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
-  "textures": {
-    "0": "enchanted:block/rowan_log",
-    "1": "enchanted:block/rowan_log_top",
-    "particle": "enchanted:block/rowan_log"
-  }
-}

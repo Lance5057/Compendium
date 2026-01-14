@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/seat/weave",
-  "textures": {
-    "0": "silentgear:block/netherwood_planks",
-    "1": "compendium:block/material/wood/netherwood/weave"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/post/basic_inventory",
-  "textures": {
-    "0": "dawnoftimebuilder:block/waxed_oak_planks"
-  }
-}

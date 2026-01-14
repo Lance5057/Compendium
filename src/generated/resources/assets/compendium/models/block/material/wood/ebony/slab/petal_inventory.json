@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "compendium:block/material/wood/ebony/planks/petal",
-    "side": "compendium:block/material/wood/ebony/planks/petal",
-    "top": "compendium:block/material/wood/ebony/planks/petal"
-  }
-}

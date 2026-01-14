@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/chair/back/planks_horizontal_angled",
+  "textures": {
+    "0": "koopascritters:block/kopje_planks"
+  }
+}

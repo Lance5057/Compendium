@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_top",
-  "textures": {
-    "0": "bloomingnature:block/swamp_oak_log",
-    "1": "bloomingnature:block/swamp_oak_log_top",
-    "particle": "bloomingnature:block/swamp_oak_log"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "silentgear:block/stripped_netherwood_log_top",
-    "side": "compendium:block/material/wood/netherwood/logs/bark_shred_1",
-    "top": "silentgear:block/netherwood_log_top"
-  }
-}

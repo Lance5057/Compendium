@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/splat_slat",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_planks"
-  }
-}

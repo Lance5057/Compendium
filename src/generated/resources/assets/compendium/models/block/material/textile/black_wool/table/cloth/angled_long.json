@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/cloth/angled_long",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "0": "minecraft:block/black_wool",
-    "1": "minecraft:block/material/textile/black_wool/diagonal_half"
-  }
-}

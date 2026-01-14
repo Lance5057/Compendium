@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/center/foot/frame/slats",
-  "textures": {
-    "0": "enchanted:block/hawthorn_planks",
-    "1": "compendium:block/material/wood/hawthorn/slats"
-  }
-}

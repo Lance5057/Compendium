@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/stripped_birch_log",
-    "1": "minecraft:block/stripped_birch_log",
-    "particle": "minecraft:block/stripped_birch_log"
-  }
-}

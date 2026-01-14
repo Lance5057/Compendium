@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/blue_mushroom/planks/domed",
-    "side": "compendium:block/material/wood/blue_mushroom/planks/domed",
-    "top": "compendium:block/material/wood/blue_mushroom/planks/domed"
-  }
-}

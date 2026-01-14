@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_full",
-  "textures": {
-    "0": "abyssal_decor:block/blackwood_log",
-    "1": "compendium:block/material/wood/blackwood/logs/extra_caps",
-    "particle": "abyssal_decor:block/blackwood_log"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_bottom",
-  "textures": {
-    "0": "extradelight:block/fruit_log",
-    "1": "extradelight:block/fruit_log_top",
-    "2": "compendium:block/material/wood/fruit/logs/log_split_side",
-    "particle": "extradelight:block/fruit_log"
-  }
-}

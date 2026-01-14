@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/center/head/frame/cross",
-  "textures": {
-    "0": "bloomingnature:block/swamp_oak_planks"
-  }
-}

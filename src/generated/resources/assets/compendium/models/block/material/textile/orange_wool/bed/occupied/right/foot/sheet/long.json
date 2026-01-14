@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/occupied/right/foot/sheet/long",
-  "textures": {
-    "0": "minecraft:block/orange_wool"
-  }
-}

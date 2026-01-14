@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_top",
-  "textures": {
-    "0": "bloomingnature:block/fir_log",
-    "1": "bloomingnature:block/fir_log_top",
-    "2": "compendium:block/material/wood/fir/logs/log_split_side",
-    "particle": "bloomingnature:block/fir_log"
-  }
-}

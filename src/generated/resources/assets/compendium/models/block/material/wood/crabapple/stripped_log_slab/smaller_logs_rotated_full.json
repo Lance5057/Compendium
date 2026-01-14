@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_rotated_full",
-  "textures": {
-    "0": "cluttered:block/stripped_crabapple_log",
-    "1": "compendium:block/material/wood/crabapple/logs/stripped_extra_caps",
-    "particle": "cluttered:block/stripped_crabapple_log"
-  }
-}

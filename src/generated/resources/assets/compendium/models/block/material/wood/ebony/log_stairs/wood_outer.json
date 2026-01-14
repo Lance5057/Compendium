@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_outer",
-  "textures": {
-    "0": "bloomingnature:block/ebony_log",
-    "1": "bloomingnature:block/ebony_log",
-    "particle": "bloomingnature:block/ebony_log"
-  }
-}

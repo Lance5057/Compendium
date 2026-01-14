@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/trellis/trellis_top",
-  "textures": {
-    "0": "bloomingnature:block/swamp_oak_log"
-  }
-}

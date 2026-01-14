@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_bottom",
-  "textures": {
-    "0": "bloomingnature:block/stripped_fir_log",
-    "1": "compendium:block/material/wood/fir/logs/stripped_extra_caps",
-    "particle": "bloomingnature:block/stripped_fir_log"
-  }
-}

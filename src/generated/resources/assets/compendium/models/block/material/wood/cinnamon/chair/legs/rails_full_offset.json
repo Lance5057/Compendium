@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_full_offset",
-  "textures": {
-    "0": "extradelight:block/cinnamon_planks"
-  }
-}

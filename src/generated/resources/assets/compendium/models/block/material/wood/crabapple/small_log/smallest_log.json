@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/small_log/smallest_log",
-  "textures": {
-    "0": "compendium:block/material/wood/crabapple/logs/extra_caps",
-    "1": "compendium:block/material/wood/crabapple/logs/small_logs"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "hazennstuff:block/frostbite_birch_log_top",
-    "side": "compendium:block/material/wood/frostbite_birch/logs/stripped_bark_shred_1",
-    "top": "hazennstuff:block/stripped_frostbite_birch_log_top"
-  }
-}

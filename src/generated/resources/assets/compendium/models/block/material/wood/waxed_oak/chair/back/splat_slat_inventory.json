@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/splat_slat",
-  "textures": {
-    "0": "dawnoftimebuilder:block/waxed_oak_planks"
-  }
-}

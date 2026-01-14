@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_full",
-  "textures": {
-    "0": "extradelight:block/stripped_cinnamon_log",
-    "1": "compendium:block/material/wood/cinnamon/logs/stripped_extra_caps",
-    "particle": "extradelight:block/stripped_cinnamon_log"
-  }
-}

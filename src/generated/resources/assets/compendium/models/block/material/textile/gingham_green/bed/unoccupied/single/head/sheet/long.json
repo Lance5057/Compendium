@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/single/head/sheet/long",
-  "textures": {
-    "0": "compendium:block/gingham_green"
-  }
-}

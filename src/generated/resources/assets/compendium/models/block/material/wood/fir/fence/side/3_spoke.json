@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/3_spoke",
-  "textures": {
-    "0": "bloomingnature:block/fir_planks"
-  }
-}

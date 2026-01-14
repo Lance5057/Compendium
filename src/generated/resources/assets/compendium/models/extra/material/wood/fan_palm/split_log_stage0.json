@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:extra/split_log_stage0",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_log",
-    "1": "bloomingnature:block/fan_palm_log_top"
-  }
-}

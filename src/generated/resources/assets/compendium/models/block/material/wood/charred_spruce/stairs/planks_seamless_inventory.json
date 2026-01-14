@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/charred_spruce/planks/planks_seamless",
-    "side": "compendium:block/material/wood/charred_spruce/planks/planks_seamless",
-    "top": "compendium:block/material/wood/charred_spruce/planks/planks_seamless"
-  }
-}

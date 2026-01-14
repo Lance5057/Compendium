@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/campfire_bottom",
+  "textures": {
+    "0": "koopascritters:block/stripped_kopje_log",
+    "1": "compendium:block/material/wood/kopje/logs/stripped_extra_caps",
+    "particle": "koopascritters:block/stripped_kopje_log"
+  }
+}

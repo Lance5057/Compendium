@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/table/legs/side/basic_inventory",
-  "textures": {
-    "0": "hazennstuff:block/wisewood_planks"
-  }
-}

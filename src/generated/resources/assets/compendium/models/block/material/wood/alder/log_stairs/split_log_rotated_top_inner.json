@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_top_inner",
-  "textures": {
-    "0": "enchanted:block/alder_log",
-    "1": "enchanted:block/alder_log_top",
-    "2": "compendium:block/material/wood/alder/logs/log_split_side",
-    "particle": "enchanted:block/alder_log"
-  }
-}

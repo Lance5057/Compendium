@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_top",
-  "textures": {
-    "0": "cataclysm:block/stripped_chorus_log",
-    "1": "cataclysm:block/stripped_chorus_log",
-    "particle": "cataclysm:block/stripped_chorus_log"
-  }
-}

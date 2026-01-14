@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_slanted/shingles/inner_corner/basic",
-  "textures": {
-    "0": "bloomingnature:block/ebony_planks"
-  }
-}

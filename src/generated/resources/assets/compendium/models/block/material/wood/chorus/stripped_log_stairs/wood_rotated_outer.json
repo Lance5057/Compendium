@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_outer",
-  "textures": {
-    "0": "cataclysm:block/stripped_chorus_log",
-    "1": "cataclysm:block/stripped_chorus_log",
-    "particle": "cataclysm:block/stripped_chorus_log"
-  }
-}

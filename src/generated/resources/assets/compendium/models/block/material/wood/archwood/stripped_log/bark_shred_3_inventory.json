@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "ars_nouveau:block/stripped_archwood_log_top",
-    "side": "compendium:block/material/wood/archwood/logs/stripped_bark_shred_3",
-    "top": "ars_nouveau:block/archwood_log_top"
-  }
-}

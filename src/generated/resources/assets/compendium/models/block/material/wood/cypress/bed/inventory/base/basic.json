@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/inventory/base/basic",
-  "textures": {
-    "0": "bloomingnature:block/cypress_planks"
-  }
-}

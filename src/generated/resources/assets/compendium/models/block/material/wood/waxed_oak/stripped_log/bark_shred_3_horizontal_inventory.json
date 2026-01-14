@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "dawnoftimebuilder:block/stripped_waxed_oak_log_top",
-    "side": "compendium:block/material/wood/waxed_oak/logs/stripped_bark_shred_3",
-    "top": "dawnoftimebuilder:block/waxed_oak_log_top"
-  }
-}

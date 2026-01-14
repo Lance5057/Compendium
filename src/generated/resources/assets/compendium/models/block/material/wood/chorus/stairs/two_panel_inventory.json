@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/chorus/planks/two_panel",
-    "side": "compendium:block/material/wood/chorus/planks/two_panel",
-    "top": "compendium:block/material/wood/chorus/planks/two_panel"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
-  "textures": {
-    "0": "silentgear:block/netherwood_log",
-    "1": "silentgear:block/netherwood_log_top",
-    "particle": "silentgear:block/netherwood_log"
-  }
-}

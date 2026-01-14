@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/post/basic",
-  "textures": {
-    "0": "cataclysm:block/chorus_planks"
-  }
-}

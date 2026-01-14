@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/side/solid",
+  "textures": {
+    "0": "koopascritters:block/kopje_planks"
+  }
+}

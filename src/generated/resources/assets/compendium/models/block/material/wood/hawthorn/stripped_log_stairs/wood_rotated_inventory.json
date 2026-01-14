@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front",
-  "textures": {
-    "0": "enchanted:block/stripped_hawthorn_log",
-    "1": "enchanted:block/stripped_hawthorn_log",
-    "particle": "enchanted:block/stripped_hawthorn_log"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_full",
-  "textures": {
-    "0": "cluttered:block/crabapple_log",
-    "1": "compendium:block/material/wood/crabapple/logs/extra_caps",
-    "particle": "cluttered:block/crabapple_log"
-  }
-}

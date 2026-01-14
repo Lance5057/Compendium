@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_rotated_full",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_log",
-    "1": "compendium:block/material/wood/fan_palm/logs/extra_caps",
-    "particle": "bloomingnature:block/fan_palm_log"
-  }
-}

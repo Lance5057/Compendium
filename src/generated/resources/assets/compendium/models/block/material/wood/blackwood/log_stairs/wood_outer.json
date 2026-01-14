@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_outer",
-  "textures": {
-    "0": "abyssal_decor:block/blackwood_log",
-    "1": "abyssal_decor:block/blackwood_log",
-    "particle": "abyssal_decor:block/blackwood_log"
-  }
-}

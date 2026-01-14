@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "compendium:block/material/wood/netherwood/planks/banded",
-    "side": "compendium:block/material/wood/netherwood/planks/banded",
-    "top": "compendium:block/material/wood/netherwood/planks/banded"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
-  "textures": {
-    "0": "hazennstuff:block/frostbite_birch_log",
-    "1": "hazennstuff:block/frostbite_birch_log_top",
-    "particle": "hazennstuff:block/frostbite_birch_log"
-  }
-}

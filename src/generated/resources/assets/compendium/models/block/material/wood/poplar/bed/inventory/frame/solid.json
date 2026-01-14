@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/inventory/frame/solid",
-  "textures": {
-    "0": "cluttered:block/poplar_planks"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_full",
-  "textures": {
-    "0": "dawnoftimebuilder:block/stripped_charred_spruce_log",
-    "1": "dawnoftimebuilder:block/stripped_charred_spruce_log_top",
-    "2": "compendium:block/material/wood/charred_spruce/logs/stripped_log_split_side",
-    "particle": "dawnoftimebuilder:block/stripped_charred_spruce_log"
-  }
-}

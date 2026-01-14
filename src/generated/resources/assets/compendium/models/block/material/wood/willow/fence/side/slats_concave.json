@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/slats_concave",
-  "textures": {
-    "0": "cluttered:block/willow_planks"
-  }
-}

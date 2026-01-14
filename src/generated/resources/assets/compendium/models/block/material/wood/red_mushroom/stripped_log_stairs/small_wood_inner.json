@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_inner",
-  "textures": {
-    "0": "compendium:block/material/wood/red_mushroom/logs/stripped_small_logs",
-    "1": "compendium:block/material/wood/red_mushroom/logs/stripped_small_logs",
-    "particle": "compendium:block/material/wood/red_mushroom/logs/stripped_small_logs"
-  }
-}

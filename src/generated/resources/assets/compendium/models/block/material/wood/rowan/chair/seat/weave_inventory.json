@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/seat/weave",
-  "textures": {
-    "0": "enchanted:block/rowan_planks",
-    "1": "compendium:block/material/wood/rowan/weave"
-  }
-}

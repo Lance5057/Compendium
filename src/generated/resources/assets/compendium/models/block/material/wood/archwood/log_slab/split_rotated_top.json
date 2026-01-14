@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_top",
-  "textures": {
-    "0": "ars_nouveau:block/archwood_log",
-    "1": "ars_nouveau:block/archwood_log_top",
-    "2": "compendium:block/material/wood/archwood/logs/log_split_side",
-    "particle": "ars_nouveau:block/archwood_log"
-  }
-}

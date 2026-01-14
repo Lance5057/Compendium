@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/small_log_inventory",
-  "textures": {
-    "0": "compendium:block/material/wood/charred_spruce/logs/extra_caps",
-    "1": "compendium:block/material/wood/charred_spruce/logs/small_logs"
-  }
-}

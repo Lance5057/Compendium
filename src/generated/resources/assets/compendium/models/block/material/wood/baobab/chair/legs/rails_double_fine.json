@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_double_fine",
-  "textures": {
-    "0": "bloomingnature:block/baobab_planks"
-  }
-}

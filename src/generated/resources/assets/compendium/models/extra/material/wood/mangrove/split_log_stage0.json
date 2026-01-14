@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:extra/split_log_stage0",
-  "textures": {
-    "0": "minecraft:block/mangrove_log",
-    "1": "minecraft:block/mangrove_log_top"
-  }
-}

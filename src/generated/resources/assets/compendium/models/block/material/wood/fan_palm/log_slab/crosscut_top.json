@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_top",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_log",
-    "1": "bloomingnature:block/fan_palm_log_top",
-    "particle": "bloomingnature:block/fan_palm_log"
-  }
-}

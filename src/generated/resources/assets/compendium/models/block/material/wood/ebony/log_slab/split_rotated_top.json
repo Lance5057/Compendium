@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_top",
-  "textures": {
-    "0": "bloomingnature:block/ebony_log",
-    "1": "bloomingnature:block/ebony_log_top",
-    "2": "compendium:block/material/wood/ebony/logs/log_split_side",
-    "particle": "bloomingnature:block/ebony_log"
-  }
-}

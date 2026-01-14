@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_bottom",
-  "textures": {
-    "0": "hazennstuff:block/stripped_frostbite_birch_log",
-    "1": "hazennstuff:block/stripped_frostbite_birch_log_top",
-    "2": "compendium:block/material/wood/frostbite_birch/logs/stripped_log_split_side",
-    "particle": "hazennstuff:block/stripped_frostbite_birch_log"
-  }
-}

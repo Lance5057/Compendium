@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/base/slats",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_planks"
-  }
-}

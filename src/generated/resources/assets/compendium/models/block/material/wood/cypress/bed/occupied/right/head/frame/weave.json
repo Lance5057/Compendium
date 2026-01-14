@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/head/frame/weave",
-  "textures": {
-    "0": "bloomingnature:block/cypress_planks",
-    "1": "compendium:block/material/wood/cypress/weave"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/privacy",
-  "textures": {
-    "0": "hazennstuff:block/wisewood_planks"
-  }
-}

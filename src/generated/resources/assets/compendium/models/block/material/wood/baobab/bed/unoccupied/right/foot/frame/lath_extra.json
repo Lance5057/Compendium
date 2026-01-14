@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/frame/lath_extra",
-  "textures": {
-    "0": "bloomingnature:block/baobab_planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_full",
-  "textures": {
-    "0": "bloomingnature:block/aspen_log",
-    "1": "bloomingnature:block/aspen_log",
-    "particle": "bloomingnature:block/aspen_log"
-  }
-}

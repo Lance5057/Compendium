@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "compendium:block/material/wood/acacia/planks/boards",
-    "side": "compendium:block/material/wood/acacia/planks/boards",
-    "top": "compendium:block/material/wood/acacia/planks/boards"
-  }
-}

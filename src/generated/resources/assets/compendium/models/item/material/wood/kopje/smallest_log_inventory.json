@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/smallest_log_inventory",
+  "textures": {
+    "0": "compendium:block/material/wood/kopje/logs/extra_caps",
+    "1": "compendium:block/material/wood/kopje/logs/small_logs"
+  }
+}

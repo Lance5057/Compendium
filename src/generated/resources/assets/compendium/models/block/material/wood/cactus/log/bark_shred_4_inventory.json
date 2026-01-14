@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/cactus_log_top",
-    "side": "compendium:block/material/wood/cactus/logs/bark_shred_4",
-    "top": "bloomingnature:block/stripped_cactus_log_top"
-  }
-}

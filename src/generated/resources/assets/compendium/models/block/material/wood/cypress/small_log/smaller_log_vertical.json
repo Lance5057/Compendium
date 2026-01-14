@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/small_log/smaller_log_vertical",
-  "textures": {
-    "0": "compendium:block/material/wood/cypress/logs/extra_caps",
-    "1": "compendium:block/material/wood/cypress/logs/small_logs"
-  }
-}

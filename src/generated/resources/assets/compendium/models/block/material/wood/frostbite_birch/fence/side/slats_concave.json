@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/slats_concave",
-  "textures": {
-    "0": "hazennstuff:block/frostbite_birch_planks"
-  }
-}

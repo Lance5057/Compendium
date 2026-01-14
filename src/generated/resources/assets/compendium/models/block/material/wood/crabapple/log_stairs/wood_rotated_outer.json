@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_outer",
-  "textures": {
-    "0": "cluttered:block/crabapple_log",
-    "1": "cluttered:block/crabapple_log",
-    "particle": "cluttered:block/crabapple_log"
-  }
-}

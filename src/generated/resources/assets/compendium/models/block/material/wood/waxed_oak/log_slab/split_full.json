@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_full",
-  "textures": {
-    "0": "dawnoftimebuilder:block/waxed_oak_log",
-    "1": "dawnoftimebuilder:block/waxed_oak_log_top",
-    "2": "compendium:block/material/wood/waxed_oak/logs/log_split_side",
-    "particle": "dawnoftimebuilder:block/waxed_oak_log"
-  }
-}

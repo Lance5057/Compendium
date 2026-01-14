@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/aspen/planks/boards",
-    "side": "compendium:block/material/wood/aspen/planks/boards",
-    "top": "compendium:block/material/wood/aspen/planks/boards"
-  }
-}

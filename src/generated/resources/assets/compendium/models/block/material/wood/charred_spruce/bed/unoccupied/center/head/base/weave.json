@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/center/head/base/weave",
-  "textures": {
-    "0": "dawnoftimebuilder:block/charred_spruce_planks",
-    "1": "compendium:block/material/wood/charred_spruce/weave"
-  }
-}

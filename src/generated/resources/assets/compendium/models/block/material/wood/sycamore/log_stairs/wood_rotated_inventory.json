@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front",
-  "textures": {
-    "0": "cluttered:block/sycamore_log",
-    "1": "cluttered:block/sycamore_log",
-    "particle": "cluttered:block/sycamore_log"
-  }
-}

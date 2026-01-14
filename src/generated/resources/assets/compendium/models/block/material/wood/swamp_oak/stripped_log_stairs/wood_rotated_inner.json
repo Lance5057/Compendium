@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_inner",
-  "textures": {
-    "0": "bloomingnature:block/stripped_swamp_oak_log",
-    "1": "bloomingnature:block/stripped_swamp_oak_log",
-    "particle": "bloomingnature:block/stripped_swamp_oak_log"
-  }
-}

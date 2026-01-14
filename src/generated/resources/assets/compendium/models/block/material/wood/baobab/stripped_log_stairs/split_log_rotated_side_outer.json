@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_side_outer",
-  "textures": {
-    "0": "bloomingnature:block/stripped_baobab_log",
-    "1": "bloomingnature:block/stripped_baobab_log_top",
-    "2": "compendium:block/material/wood/baobab/logs/stripped_log_split_side",
-    "particle": "bloomingnature:block/stripped_baobab_log"
-  }
-}

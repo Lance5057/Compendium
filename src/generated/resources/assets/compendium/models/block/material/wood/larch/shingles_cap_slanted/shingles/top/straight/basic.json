@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/straight/basic",
-  "textures": {
-    "0": "bloomingnature:block/larch_planks"
-  }
-}

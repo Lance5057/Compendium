@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_full",
-  "textures": {
-    "0": "silentgear:block/netherwood_log",
-    "1": "compendium:block/material/wood/netherwood/logs/extra_caps",
-    "particle": "silentgear:block/netherwood_log"
-  }
-}

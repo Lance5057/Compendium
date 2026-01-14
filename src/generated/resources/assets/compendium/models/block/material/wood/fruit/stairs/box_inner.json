@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/fruit/planks/box",
-    "side": "compendium:block/material/wood/fruit/planks/box",
-    "top": "compendium:block/material/wood/fruit/planks/box"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/stripped_chestnut_log_top",
-    "side": "compendium:block/material/wood/chestnut/logs/bark_shred_1",
-    "top": "bloomingnature:block/chestnut_log_top"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_bottom",
-  "textures": {
-    "0": "bloomingnature:block/chestnut_log",
-    "1": "compendium:block/material/wood/chestnut/logs/extra_caps",
-    "particle": "bloomingnature:block/chestnut_log"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_top",
-  "textures": {
-    "0": "cluttered:block/willow_log",
-    "1": "cluttered:block/willow_log_top",
-    "2": "compendium:block/material/wood/willow/logs/log_split_side",
-    "particle": "cluttered:block/willow_log"
-  }
-}

@@ -1,0 +1,31 @@
+{
+  "bark_shred_1": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/bark_shred_1_horizontal"
+  },
+  "bark_shred_2": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/bark_shred_2_horizontal"
+  },
+  "bark_shred_3": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/bark_shred_3_horizontal"
+  },
+  "bark_shred_4": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/bark_shred_4_horizontal"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "basic": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/basic_horizontal"
+  },
+  "corner": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/corner_horizontal"
+  },
+  "count": 7,
+  "loader": "compendium:style",
+  "small_wood": {
+    "model": "compendium:block/material/wood/kopje/stripped_log/small_wood_horizontal"
+  }
+}

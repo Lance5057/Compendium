@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "bloomingnature:block/cypress_log",
-    "1": "bloomingnature:block/cypress_log_top",
-    "particle": "bloomingnature:block/cypress_log"
-  }
-}

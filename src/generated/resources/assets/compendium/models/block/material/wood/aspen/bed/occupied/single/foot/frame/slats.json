@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/single/foot/frame/slats",
-  "textures": {
-    "0": "bloomingnature:block/aspen_planks",
-    "1": "compendium:block/material/wood/aspen/slats"
-  }
-}

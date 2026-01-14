@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/braced",
-  "textures": {
-    "0": "bloomingnature:block/baobab_planks"
-  }
-}

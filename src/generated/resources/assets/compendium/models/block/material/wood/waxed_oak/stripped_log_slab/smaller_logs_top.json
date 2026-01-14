@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_top",
-  "textures": {
-    "0": "dawnoftimebuilder:block/stripped_waxed_oak_log",
-    "1": "compendium:block/material/wood/waxed_oak/logs/stripped_extra_caps",
-    "particle": "dawnoftimebuilder:block/stripped_waxed_oak_log"
-  }
-}

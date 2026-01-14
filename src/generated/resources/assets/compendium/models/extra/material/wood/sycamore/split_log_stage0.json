@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:extra/split_log_stage0",
-  "textures": {
-    "0": "cluttered:block/sycamore_log",
-    "1": "cluttered:block/sycamore_log_top"
-  }
-}

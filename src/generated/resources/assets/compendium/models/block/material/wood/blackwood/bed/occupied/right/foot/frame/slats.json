@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/frame/slats",
-  "textures": {
-    "0": "abyssal_decor:block/blackwood_planks",
-    "1": "compendium:block/material/wood/blackwood/slats"
-  }
-}

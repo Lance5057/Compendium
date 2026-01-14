@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "dawnoftimebuilder:block/waxed_oak_log",
-    "side": "dawnoftimebuilder:block/waxed_oak_log"
-  }
-}

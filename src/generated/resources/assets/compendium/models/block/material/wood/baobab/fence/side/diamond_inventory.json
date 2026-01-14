@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/diamond_inventory",
-  "textures": {
-    "0": "bloomingnature:block/baobab_planks"
-  }
-}

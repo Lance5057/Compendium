@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/turned_panel_weave",
-  "textures": {
-    "0": "hazennstuff:block/wisewood_planks",
-    "1": "compendium:block/material/wood/wisewood/weave"
-  }
-}

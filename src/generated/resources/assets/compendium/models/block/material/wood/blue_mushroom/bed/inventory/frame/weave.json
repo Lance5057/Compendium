@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/inventory/frame/weave",
-  "textures": {
-    "0": "cluttered:block/blue_mushroom_planks",
-    "1": "compendium:block/material/wood/blue_mushroom/weave"
-  }
-}

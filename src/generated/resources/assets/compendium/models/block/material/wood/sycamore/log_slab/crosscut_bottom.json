@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_bottom",
-  "textures": {
-    "0": "cluttered:block/sycamore_log",
-    "1": "cluttered:block/sycamore_log_top",
-    "particle": "cluttered:block/sycamore_log"
-  }
-}

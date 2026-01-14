@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/sheet/basic",
-  "textures": {
-    "0": "compendium:block/gingham_icy_blue"
-  }
-}

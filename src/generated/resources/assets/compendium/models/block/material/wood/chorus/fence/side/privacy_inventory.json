@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/privacy_inventory",
-  "textures": {
-    "0": "cataclysm:block/chorus_planks"
-  }
-}

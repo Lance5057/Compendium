@@ -1,0 +1,9 @@
+{
+  "parent": "compendium:block/bases/log_stairs/split_log_rotated_top_outer",
+  "textures": {
+    "0": "koopascritters:block/stripped_kopje_log",
+    "1": "koopascritters:block/stripped_kopje_log_top",
+    "2": "compendium:block/material/wood/kopje/logs/stripped_log_split_side",
+    "particle": "koopascritters:block/stripped_kopje_log"
+  }
+}

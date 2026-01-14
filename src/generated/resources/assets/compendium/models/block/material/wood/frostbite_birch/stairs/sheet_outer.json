@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/frostbite_birch/planks/sheet",
-    "side": "compendium:block/material/wood/frostbite_birch/planks/sheet",
-    "top": "compendium:block/material/wood/frostbite_birch/planks/sheet"
-  }
-}

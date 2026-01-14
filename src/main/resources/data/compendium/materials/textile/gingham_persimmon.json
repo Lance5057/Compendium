@@ -1,8 +1,0 @@
-{
-  "name": "gingham_persimmon",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "GENERATE",
-  "extensions": []
-}

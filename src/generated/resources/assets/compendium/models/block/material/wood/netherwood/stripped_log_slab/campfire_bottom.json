@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_bottom",
-  "textures": {
-    "0": "silentgear:block/stripped_netherwood_log",
-    "1": "compendium:block/material/wood/netherwood/logs/stripped_extra_caps",
-    "particle": "silentgear:block/stripped_netherwood_log"
-  }
-}

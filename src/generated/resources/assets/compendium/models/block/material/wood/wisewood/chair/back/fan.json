@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/fan",
-  "textures": {
-    "0": "hazennstuff:block/wisewood_planks"
-  }
-}

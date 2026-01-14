@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/slats_convex_inventory",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_planks"
-  }
-}

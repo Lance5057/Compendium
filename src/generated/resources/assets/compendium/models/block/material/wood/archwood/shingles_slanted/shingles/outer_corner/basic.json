@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_slanted/shingles/outer_corner/basic",
-  "textures": {
-    "0": "ars_nouveau:block/archwood_planks"
-  }
-}

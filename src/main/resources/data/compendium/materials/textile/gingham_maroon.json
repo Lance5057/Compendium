@@ -1,8 +1,0 @@
-{
-  "name": "gingham_maroon",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "GENERATE",
-  "extensions": []
-}

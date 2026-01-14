@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "cluttered:block/willow_log_top",
-    "side": "compendium:block/material/wood/willow/logs/stripped_bark_shred_1",
-    "top": "cluttered:block/stripped_willow_log_top"
-  }
-}

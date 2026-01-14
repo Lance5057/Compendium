@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_rotated_full",
-  "textures": {
-    "0": "cluttered:block/fluorescent_maple_log",
-    "1": "cluttered:block/fluorescent_maple_log",
-    "particle": "cluttered:block/fluorescent_maple_log"
-  }
-}

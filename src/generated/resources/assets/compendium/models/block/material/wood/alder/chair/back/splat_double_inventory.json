@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/splat_double",
-  "textures": {
-    "0": "enchanted:block/alder_planks"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/single/foot/frame/weave",
-  "textures": {
-    "0": "cluttered:block/crabapple_planks",
-    "1": "compendium:block/material/wood/crabapple/weave"
-  }
-}

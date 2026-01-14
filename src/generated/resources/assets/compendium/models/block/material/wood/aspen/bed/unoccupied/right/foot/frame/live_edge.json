@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/frame/live_edge",
-  "textures": {
-    "0": "compendium:block/material/wood/aspen/logs/log_split_side",
-    "1": "minecraft:block/aspen_log"
-  }
-}

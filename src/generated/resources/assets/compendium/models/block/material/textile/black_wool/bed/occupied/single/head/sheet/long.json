@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/occupied/single/head/sheet/long",
-  "textures": {
-    "0": "minecraft:block/black_wool"
-  }
-}

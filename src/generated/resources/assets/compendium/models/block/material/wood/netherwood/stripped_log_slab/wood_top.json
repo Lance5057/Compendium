@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_top",
-  "textures": {
-    "0": "silentgear:block/stripped_netherwood_log",
-    "1": "silentgear:block/stripped_netherwood_log",
-    "particle": "silentgear:block/stripped_netherwood_log"
-  }
-}

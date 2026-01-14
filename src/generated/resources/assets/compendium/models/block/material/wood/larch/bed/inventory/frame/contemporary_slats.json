@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/inventory/frame/contemporary_slats",
-  "textures": {
-    "0": "bloomingnature:block/larch_planks"
-  }
-}

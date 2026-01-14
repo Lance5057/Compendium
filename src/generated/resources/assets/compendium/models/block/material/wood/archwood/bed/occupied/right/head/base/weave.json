@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/head/base/weave",
-  "textures": {
-    "0": "ars_nouveau:block/archwood_planks",
-    "1": "compendium:block/material/wood/archwood/weave"
-  }
-}

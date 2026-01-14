@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "cluttered:block/stripped_red_mushroom_log",
-    "1": "cluttered:block/stripped_red_mushroom_log_top",
-    "particle": "cluttered:block/stripped_red_mushroom_log"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/criss-cross",
-  "textures": {
-    "0": "silentgear:block/netherwood_planks"
-  }
-}

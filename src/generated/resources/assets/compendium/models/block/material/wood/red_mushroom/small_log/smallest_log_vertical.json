@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/bases/small_log/smallest_log_vertical",
-  "textures": {
-    "0": "compendium:block/material/wood/red_mushroom/logs/extra_caps",
-    "1": "compendium:block/material/wood/red_mushroom/logs/small_logs"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_bottom",
-  "textures": {
-    "0": "ars_nouveau:block/archwood_log",
-    "1": "compendium:block/material/wood/archwood/logs/extra_caps",
-    "particle": "ars_nouveau:block/archwood_log"
-  }
-}

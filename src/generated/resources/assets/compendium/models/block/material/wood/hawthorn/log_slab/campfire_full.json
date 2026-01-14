@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_full",
-  "textures": {
-    "0": "enchanted:block/hawthorn_log",
-    "1": "compendium:block/material/wood/hawthorn/logs/extra_caps",
-    "particle": "enchanted:block/hawthorn_log"
-  }
-}

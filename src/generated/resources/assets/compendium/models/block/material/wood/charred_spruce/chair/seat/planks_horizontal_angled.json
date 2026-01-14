@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/seat/planks_horizontal_angled",
-  "textures": {
-    "0": "dawnoftimebuilder:block/charred_spruce_planks"
-  }
-}

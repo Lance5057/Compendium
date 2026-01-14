@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_rotated_bottom",
-  "textures": {
-    "0": "extradelight:block/fruit_log",
-    "1": "extradelight:block/fruit_log",
-    "particle": "extradelight:block/fruit_log"
-  }
-}

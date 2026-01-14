@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/laced",
-  "textures": {
-    "0": "silentgear:block/netherwood_planks"
-  }
-}

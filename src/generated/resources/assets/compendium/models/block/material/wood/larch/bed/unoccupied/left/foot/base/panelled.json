@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/foot/base/panelled",
-  "textures": {
-    "0": "bloomingnature:block/larch_planks"
-  }
-}

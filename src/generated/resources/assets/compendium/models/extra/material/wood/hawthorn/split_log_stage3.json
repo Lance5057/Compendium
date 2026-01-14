@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:extra/split_log_stage3",
-  "textures": {
-    "0": "enchanted:block/hawthorn_log",
-    "1": "enchanted:block/hawthorn_log_top",
-    "2": "compendium:block/material/wood/hawthorn/logs/log_split_side"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "cataclysm:block/chorus_log",
-    "1": "cataclysm:block/chorus_log_top",
-    "particle": "cataclysm:block/chorus_log"
-  }
-}

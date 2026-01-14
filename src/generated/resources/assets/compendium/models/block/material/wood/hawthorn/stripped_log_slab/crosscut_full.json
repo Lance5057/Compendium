@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "enchanted:block/stripped_hawthorn_log",
-    "1": "enchanted:block/stripped_hawthorn_log_top",
-    "particle": "enchanted:block/stripped_hawthorn_log"
-  }
-}

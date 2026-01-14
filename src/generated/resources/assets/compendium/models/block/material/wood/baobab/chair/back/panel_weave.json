@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/panel_weave",
-  "textures": {
-    "0": "bloomingnature:block/baobab_planks",
-    "1": "compendium:block/material/wood/baobab/weave"
-  }
-}

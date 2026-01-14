@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/red_mushroom/planks/walkway",
-    "side": "compendium:block/material/wood/red_mushroom/planks/walkway",
-    "top": "compendium:block/material/wood/red_mushroom/planks/walkway"
-  }
-}

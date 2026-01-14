@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_top",
-  "textures": {
-    "0": "extradelight:block/stripped_fruit_log",
-    "1": "extradelight:block/stripped_fruit_log_top",
-    "2": "compendium:block/material/wood/fruit/logs/stripped_log_split_side",
-    "particle": "extradelight:block/stripped_fruit_log"
-  }
-}

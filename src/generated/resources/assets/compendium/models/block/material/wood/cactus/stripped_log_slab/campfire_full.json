@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/campfire_full",
-  "textures": {
-    "0": "bloomingnature:block/stripped_cactus_log",
-    "1": "compendium:block/material/wood/cactus/logs/stripped_extra_caps",
-    "particle": "bloomingnature:block/stripped_cactus_log"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_rotated_full",
-  "textures": {
-    "0": "bloomingnature:block/stripped_cypress_log",
-    "1": "bloomingnature:block/stripped_cypress_log_top",
-    "2": "compendium:block/material/wood/cypress/logs/stripped_log_split_side",
-    "particle": "bloomingnature:block/stripped_cypress_log"
-  }
-}

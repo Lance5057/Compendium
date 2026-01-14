@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/cypress_log_top",
-    "side": "compendium:block/material/wood/cypress/logs/bark_shred_3",
-    "top": "bloomingnature:block/stripped_cypress_log_top"
-  }
-}

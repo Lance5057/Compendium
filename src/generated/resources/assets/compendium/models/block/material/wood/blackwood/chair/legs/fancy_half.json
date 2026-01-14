@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/fancy_half",
-  "textures": {
-    "0": "abyssal_decor:block/blackwood_planks"
-  }
-}

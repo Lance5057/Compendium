@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/cherry/planks/wainscotting_double",
-    "side": "compendium:block/material/wood/cherry/planks/wainscotting_double",
-    "top": "compendium:block/material/wood/cherry/planks/wainscotting_double"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/no_top/all/angled",
-  "textures": {
-    "0": "enchanted:block/alder_planks"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/cross_framed",
-  "textures": {
-    "0": "cluttered:block/crabapple_planks"
-  }
-}

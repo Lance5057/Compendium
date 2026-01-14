@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/solid_sheet",
-  "textures": {
-    "0": "compendium:block/material/wood/hawthorn/planks/sheet"
-  }
-}

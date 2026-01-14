@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/foot/frame/live_edge",
-  "textures": {
-    "0": "compendium:block/material/wood/red_mushroom/logs/log_split_side",
-    "1": "minecraft:block/red_mushroom_log"
-  }
-}

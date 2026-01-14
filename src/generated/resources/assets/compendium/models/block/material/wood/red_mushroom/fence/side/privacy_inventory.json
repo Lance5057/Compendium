@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/privacy_inventory",
-  "textures": {
-    "0": "cluttered:block/red_mushroom_planks"
-  }
-}

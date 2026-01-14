@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_top",
-  "textures": {
-    "0": "bloomingnature:block/stripped_ebony_log",
-    "1": "bloomingnature:block/stripped_ebony_log_top",
-    "2": "compendium:block/material/wood/ebony/logs/stripped_log_split_side",
-    "particle": "bloomingnature:block/stripped_ebony_log"
-  }
-}

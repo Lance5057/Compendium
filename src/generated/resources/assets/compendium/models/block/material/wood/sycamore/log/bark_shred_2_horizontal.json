@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "cluttered:block/stripped_sycamore_log_top",
-    "side": "compendium:block/material/wood/sycamore/logs/bark_shred_2",
-    "top": "cluttered:block/sycamore_log_top"
-  }
-}

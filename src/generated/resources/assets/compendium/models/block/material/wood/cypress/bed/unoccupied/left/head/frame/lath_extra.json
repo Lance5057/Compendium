@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/frame/lath_extra",
-  "textures": {
-    "0": "bloomingnature:block/cypress_planks"
-  }
-}

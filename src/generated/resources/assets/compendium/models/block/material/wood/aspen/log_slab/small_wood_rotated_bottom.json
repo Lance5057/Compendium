@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_rotated_bottom",
-  "textures": {
-    "0": "compendium:block/material/wood/aspen/logs/small_logs",
-    "1": "compendium:block/material/wood/aspen/logs/small_logs",
-    "particle": "compendium:block/material/wood/aspen/logs/small_logs"
-  }
-}

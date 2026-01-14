@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_connected_fine",
-  "textures": {
-    "0": "bloomingnature:block/swamp_cypress_planks"
-  }
-}

@@ -151,86 +151,86 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.IGNORE)));
 
-		buildDefault(new MaterialGlass("clear", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("white_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("light_gray_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("gray_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("black_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("brown_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("red_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("orange_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("yellow_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("lime_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("green_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("cyan_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("light_blue_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("blue_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("purple_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("magenta_stained", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("pink_stained", "minecraft", Generate.EXISTS));
-//		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
-
-		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("birch", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("spruce", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("jungle", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("acacia", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("dark_oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("mangrove", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("cherry", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-		buildDefault(new MaterialWood("crimson", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-		buildDefault(new MaterialWood("warped", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//		buildDefault(new MaterialGlass("clear", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("white_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("light_gray_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("gray_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("black_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("brown_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("red_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("orange_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("yellow_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("lime_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("green_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("cyan_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("light_blue_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("blue_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("purple_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("magenta_stained", "minecraft", Generate.EXISTS));
+//		buildDefault(new MaterialGlass("pink_stained", "minecraft", Generate.EXISTS));
+////		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
+//
+//		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("birch", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("spruce", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("jungle", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("acacia", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("dark_oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("mangrove", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("cherry", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+////		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+//		buildDefault(new MaterialWood("crimson", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("warped", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 
 //		buildDefault(new MaterialWood("fruit", "extradelight", Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //				Generate.GENERATE, Generate.GENERATE)
@@ -265,86 +265,86 @@ public class IndexInitialResourceLoader {
 //				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
-		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE));
+//
+//		buildDefault(new MaterialTextile("gingham_amber", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_aquamarine", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_bubblegum", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_cherenkov", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_conifer", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_fluorescent", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_honey", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_icy_blue", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_lavender", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_maroon", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_mint", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_navy", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_peach", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_persimmon", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_rose", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_spring_green", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_ultramarine", "compendium", Generate.GENERATE, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_wine", "compendium", Generate.GENERATE, Generate.IGNORE));
+//
+//		buildDefault(new MaterialTextile("gingham_white", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_light_gray", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_gray", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_black", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_brown", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_red", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_orange", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_yellow", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_lime", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_green", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_cyan", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_light_blue", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_blue", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_purple", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_magenta", "compendium", Generate.EXISTS, Generate.IGNORE));
+//		buildDefault(new MaterialTextile("gingham_pink", "compendium", Generate.EXISTS, Generate.IGNORE));
 
-		buildDefault(new MaterialTextile("gingham_amber", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_aquamarine", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_bubblegum", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_cherenkov", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_conifer", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_fluorescent", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_honey", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_icy_blue", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_lavender", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_maroon", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_mint", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_navy", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_peach", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_persimmon", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_rose", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_spring_green", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_ultramarine", "compendium", Generate.GENERATE, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_wine", "compendium", Generate.GENERATE, Generate.IGNORE));
-
-		buildDefault(new MaterialTextile("gingham_white", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_light_gray", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_gray", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_black", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_brown", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_red", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_orange", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_yellow", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_lime", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_green", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_cyan", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_light_blue", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_blue", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_purple", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_magenta", "compendium", Generate.EXISTS, Generate.IGNORE));
-		buildDefault(new MaterialTextile("gingham_pink", "compendium", Generate.EXISTS, Generate.IGNORE));
-
-		buildDefault(new MaterialWood("alder", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("archwood", "ars_nouveau", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("aspen", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("baobab", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("alder", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("archwood", "ars_nouveau", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("aspen", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("baobab", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 
 //		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
 //				Generate.IGNORE, Generate.IGNORE)
@@ -353,194 +353,194 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 
-		buildDefault(new MaterialWood("blackwood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("blackwood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("blue_mushroom", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
+//				Generate.EXISTS, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("cactus", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.IGNORE,
+//				Generate.IGNORE, Generate.IGNORE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("charred_spruce", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
+//				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("chestnut", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("chorus", "cataclysm", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
+//				Generate.IGNORE, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("cinnamon", "extradelight", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("cinnamon", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("crabapple", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("cypress", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("ebony", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("fan_palm", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("fir", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("fluorescent_maple", "cluttered", Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff", Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("fruit", "extradelight", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("hawthorn", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 
-		buildDefault(new MaterialWood("blue_mushroom", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
-				Generate.EXISTS, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("cactus", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.IGNORE,
+		buildDefault(new MaterialWood("kopje", "koopascritters", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 				Generate.IGNORE, Generate.IGNORE)
 				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
 
-		buildDefault(new MaterialWood("charred_spruce", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
-				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("chestnut", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("chorus", "cataclysm", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
-				Generate.IGNORE, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("cinnamon", "extradelight", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("cinnamon", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("crabapple", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("cypress", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("ebony", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("fan_palm", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("fir", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("fluorescent_maple", "cluttered", Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff", Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("fruit", "extradelight", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("hawthorn", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-//		buildDefault(new MaterialWood("kopje", "koopascritters", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.IGNORE, Generate.IGNORE)
+//		buildDefault(new MaterialWood("larch", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("larch", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("netherwood", "silentgear", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("poplar", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("red_mushroom", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
-				Generate.EXISTS, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("rowan", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("swamp_cypress", "bloomingnature", Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("swamp_oak", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("sycamore", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("waxed_oak", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
-				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("netherwood", "silentgear", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("poplar", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("red_mushroom", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
+//				Generate.EXISTS, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("rowan", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("swamp_cypress", "bloomingnature", Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("swamp_oak", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("sycamore", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("waxed_oak", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
+//				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 
 //		buildDefault(new MaterialWood("whitewood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
 //				Generate.EXISTS, Generate.GENERATE)
@@ -549,19 +549,19 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 
-		buildDefault(new MaterialWood("willow", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
-
-		buildDefault(new MaterialWood("wisewood", "hazennstuff", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
-				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("willow", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
+//
+//		buildDefault(new MaterialWood("wisewood", "hazennstuff", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

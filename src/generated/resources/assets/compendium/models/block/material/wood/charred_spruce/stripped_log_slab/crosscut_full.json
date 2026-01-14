@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_full",
-  "textures": {
-    "0": "dawnoftimebuilder:block/stripped_charred_spruce_log",
-    "1": "dawnoftimebuilder:block/stripped_charred_spruce_log_top",
-    "particle": "dawnoftimebuilder:block/stripped_charred_spruce_log"
-  }
-}

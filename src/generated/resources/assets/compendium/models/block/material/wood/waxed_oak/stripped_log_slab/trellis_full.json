@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/trellis/trellis_full",
-  "textures": {
-    "0": "dawnoftimebuilder:block/stripped_waxed_oak_log"
-  }
-}

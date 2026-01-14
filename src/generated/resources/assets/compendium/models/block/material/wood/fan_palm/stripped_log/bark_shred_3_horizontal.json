@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/stripped_fan_palm_log_top",
-    "side": "compendium:block/material/wood/fan_palm/logs/stripped_bark_shred_3",
-    "top": "bloomingnature:block/fan_palm_log_top"
-  }
-}

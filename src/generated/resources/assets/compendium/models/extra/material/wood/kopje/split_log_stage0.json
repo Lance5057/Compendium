@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:extra/split_log_stage0",
+  "textures": {
+    "0": "koopascritters:block/kopje_log",
+    "1": "koopascritters:block/kopje_log_top"
+  }
+}

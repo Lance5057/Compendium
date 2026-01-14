@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/hawthorn/planks/parquet",
-    "side": "compendium:block/material/wood/hawthorn/planks/parquet",
-    "top": "compendium:block/material/wood/hawthorn/planks/parquet"
-  }
-}

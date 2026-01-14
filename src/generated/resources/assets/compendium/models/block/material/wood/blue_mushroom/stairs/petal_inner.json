@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "compendium:block/material/wood/blue_mushroom/planks/petal",
-    "side": "compendium:block/material/wood/blue_mushroom/planks/petal",
-    "top": "compendium:block/material/wood/blue_mushroom/planks/petal"
-  }
-}

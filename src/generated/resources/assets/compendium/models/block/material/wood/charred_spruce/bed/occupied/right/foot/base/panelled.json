@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/base/panelled",
-  "textures": {
-    "0": "dawnoftimebuilder:block/charred_spruce_planks"
-  }
-}

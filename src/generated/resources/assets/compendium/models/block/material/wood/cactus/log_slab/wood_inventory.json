@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_bottom",
-  "textures": {
-    "0": "bloomingnature:block/cactus_log",
-    "1": "bloomingnature:block/cactus_log",
-    "particle": "bloomingnature:block/cactus_log"
-  }
-}

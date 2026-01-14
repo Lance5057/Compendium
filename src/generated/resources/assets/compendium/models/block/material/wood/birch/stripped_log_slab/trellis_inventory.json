@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/trellis/trellis_bottom",
-  "textures": {
-    "0": "minecraft:block/stripped_birch_log"
-  }
-}

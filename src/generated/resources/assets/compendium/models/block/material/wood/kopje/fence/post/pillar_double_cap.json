@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar_double_cap",
+  "textures": {
+    "0": "koopascritters:block/kopje_planks"
+  }
+}

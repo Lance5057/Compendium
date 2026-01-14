@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/ladder",
-  "textures": {
-    "0": "bloomingnature:block/cactus_planks"
-  }
-}

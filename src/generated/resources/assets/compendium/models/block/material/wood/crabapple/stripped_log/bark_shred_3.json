@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "cluttered:block/stripped_crabapple_log_top",
-    "side": "compendium:block/material/wood/crabapple/logs/stripped_bark_shred_3",
-    "top": "cluttered:block/crabapple_log_top"
-  }
-}

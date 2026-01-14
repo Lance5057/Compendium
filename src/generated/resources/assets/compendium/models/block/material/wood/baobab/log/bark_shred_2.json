@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/stripped_baobab_log_top",
-    "side": "compendium:block/material/wood/baobab/logs/bark_shred_2",
-    "top": "bloomingnature:block/baobab_log_top"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_bottom",
-  "textures": {
-    "0": "bloomingnature:block/fan_palm_log",
-    "1": "bloomingnature:block/fan_palm_log_top",
-    "2": "compendium:block/material/wood/fan_palm/logs/log_split_side",
-    "particle": "bloomingnature:block/fan_palm_log"
-  }
-}

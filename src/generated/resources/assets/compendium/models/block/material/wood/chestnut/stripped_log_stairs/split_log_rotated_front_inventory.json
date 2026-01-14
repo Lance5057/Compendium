@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_front",
-  "textures": {
-    "0": "bloomingnature:block/stripped_chestnut_log",
-    "1": "bloomingnature:block/stripped_chestnut_log_top",
-    "2": "compendium:block/material/wood/chestnut/logs/stripped_log_split_side",
-    "particle": "bloomingnature:block/stripped_chestnut_log"
-  }
-}

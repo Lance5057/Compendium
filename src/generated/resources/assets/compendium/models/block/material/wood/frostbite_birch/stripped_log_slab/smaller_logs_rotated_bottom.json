@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smaller_logs_rotated_bottom",
-  "textures": {
-    "0": "hazennstuff:block/stripped_frostbite_birch_log",
-    "1": "compendium:block/material/wood/frostbite_birch/logs/stripped_extra_caps",
-    "particle": "hazennstuff:block/stripped_frostbite_birch_log"
-  }
-}

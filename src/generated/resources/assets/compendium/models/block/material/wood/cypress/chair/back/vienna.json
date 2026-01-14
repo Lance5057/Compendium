@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/back/vienna",
-  "textures": {
-    "0": "bloomingnature:block/cypress_planks"
-  }
-}

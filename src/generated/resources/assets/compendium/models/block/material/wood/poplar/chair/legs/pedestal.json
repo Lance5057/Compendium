@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/pedestal",
-  "textures": {
-    "0": "cluttered:block/poplar_planks"
-  }
-}

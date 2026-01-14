@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_outer",
-  "textures": {
-    "0": "compendium:block/material/wood/fluorescent_maple/logs/small_logs",
-    "1": "compendium:block/material/wood/fluorescent_maple/logs/small_logs_top",
-    "particle": "compendium:block/material/wood/fluorescent_maple/logs/small_logs"
-  }
-}

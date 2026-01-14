@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/side/basic",
-  "textures": {
-    "0": "bloomingnature:block/swamp_oak_planks"
-  }
-}

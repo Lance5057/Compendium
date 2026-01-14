@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/plank/basic_vertical",
-  "textures": {
-    "0": "compendium:block/material/wood/swamp_cypress/planks/plank"
-  }
-}

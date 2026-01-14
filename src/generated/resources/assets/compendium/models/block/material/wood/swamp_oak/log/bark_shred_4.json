@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "bloomingnature:block/swamp_oak_log_top",
-    "side": "compendium:block/material/wood/swamp_oak/logs/bark_shred_4",
-    "top": "bloomingnature:block/stripped_swamp_oak_log_top"
-  }
-}

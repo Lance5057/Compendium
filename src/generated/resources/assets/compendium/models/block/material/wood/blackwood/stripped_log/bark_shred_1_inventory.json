@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "abyssal_decor:block/blackwood_log_top",
-    "side": "compendium:block/material/wood/blackwood/logs/stripped_bark_shred_1",
-    "top": "abyssal_decor:block/stripped_blackwood_log_top"
-  }
-}

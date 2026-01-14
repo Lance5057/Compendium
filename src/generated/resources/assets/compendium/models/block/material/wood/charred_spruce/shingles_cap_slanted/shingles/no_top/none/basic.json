@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/no_top/none/basic",
-  "textures": {
-    "0": "dawnoftimebuilder:block/charred_spruce_planks"
-  }
-}

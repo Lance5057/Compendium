@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_top",
-  "textures": {
-    "0": "bloomingnature:block/stripped_ebony_log",
-    "1": "compendium:block/material/wood/ebony/logs/stripped_extra_caps",
-    "particle": "bloomingnature:block/stripped_ebony_log"
-  }
-}

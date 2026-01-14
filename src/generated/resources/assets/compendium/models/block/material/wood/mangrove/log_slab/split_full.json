@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/split_full",
-  "textures": {
-    "0": "minecraft:block/mangrove_log",
-    "1": "minecraft:block/mangrove_log_top",
-    "2": "compendium:block/material/wood/mangrove/logs/log_split_side",
-    "particle": "minecraft:block/mangrove_log"
-  }
-}
