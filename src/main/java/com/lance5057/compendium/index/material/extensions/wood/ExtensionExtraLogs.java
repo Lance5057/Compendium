@@ -798,10 +798,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		}
 		if (textureName.equals("log")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/whitewoodstrippedlog");
+					"block/" + stripped_text + base.name + "_" + logstem);
 		} else if (textureName.equals("log_top")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/whitewoodstrippedlogtop");
+					"block/" + stripped_text + base.name + "_" + logstem + "_top");
 		} else if (textureName.split("_", 1)[0].equals("planks")) {
 			return ResourceLocation.fromNamespaceAndPath(base.namespace,
 					"block/" + stripped_text + base.name + "_planks");

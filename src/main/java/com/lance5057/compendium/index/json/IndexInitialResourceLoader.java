@@ -232,12 +232,6 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 
-//		buildDefault(new MaterialWood("fruit", "extradelight", Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//				Generate.GENERATE, Generate.GENERATE)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
 //		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
 //				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
@@ -415,6 +409,12 @@ public class IndexInitialResourceLoader {
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("flowering_crabapple", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+//						Generate.IGNORE)));
 //
 //		buildDefault(new MaterialWood("cypress", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 //				Generate.EXISTS, Generate.EXISTS)
@@ -499,6 +499,12 @@ public class IndexInitialResourceLoader {
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("flowering_poplar", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+//						Generate.IGNORE)));
 //
 //		buildDefault(new MaterialWood("red_mushroom", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.GENERATE,
 //				Generate.EXISTS, Generate.GENERATE)
@@ -555,6 +561,12 @@ public class IndexInitialResourceLoader {
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("flowering_willow", "cluttered", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+//				Generate.EXISTS, Generate.EXISTS)
+//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+//						Generate.IGNORE)));
 //
 //		buildDefault(new MaterialWood("wisewood", "hazennstuff", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 //				Generate.EXISTS, Generate.EXISTS)
