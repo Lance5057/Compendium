@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import com.lance5057.compendium.commands.CompendiumCommands;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.network.ChecksumVerificationPacket;
@@ -17,6 +18,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT)
@@ -55,5 +57,10 @@ public class CompendiumEvents {
 				tooltip.add(i);
 			}, flag);
 		}
+	}
+
+	@SubscribeEvent
+	public static void registerCommands(RegisterCommandsEvent  event) {
+		CompendiumCommands.register(event.getDispatcher(), event.getBuildContext());
 	}
 }
