@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_side_inner",
-  "textures": {
-    "0": "minecraft:block/stripped_jungle_log",
-    "1": "minecraft:block/stripped_jungle_log_top",
-    "2": "compendium:block/material/wood/jungle/logs/stripped_log_split_side",
-    "particle": "minecraft:block/stripped_jungle_log"
-  }
-}

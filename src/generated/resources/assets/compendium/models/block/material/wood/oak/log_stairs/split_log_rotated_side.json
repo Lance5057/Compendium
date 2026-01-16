@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_side",
-  "textures": {
-    "0": "minecraft:block/oak_log",
-    "1": "minecraft:block/oak_log_top",
-    "2": "compendium:block/material/wood/oak/logs/log_split_side",
-    "particle": "minecraft:block/oak_log"
-  }
-}

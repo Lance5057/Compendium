@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/cube_column_ends",
-  "textures": {
-    "bottom": "minecraft:block/whitewoodstrippedlogtop",
-    "side": "compendium:block/material/wood/crimson/logs/bark_shred_1",
-    "top": "minecraft:block/whitewoodstrippedlogtop"
-  }
-}

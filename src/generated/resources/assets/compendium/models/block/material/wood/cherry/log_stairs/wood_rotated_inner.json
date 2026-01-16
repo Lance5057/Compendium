@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_inner",
-  "textures": {
-    "0": "minecraft:block/cherry_log",
-    "1": "minecraft:block/cherry_log",
-    "particle": "minecraft:block/cherry_log"
-  }
-}
