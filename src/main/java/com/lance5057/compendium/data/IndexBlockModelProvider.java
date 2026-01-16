@@ -539,7 +539,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", mcLoc("block/" + mb.name + "_" + logstem));
+									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,"block/" + mb.name + "_" + logstem));
 
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/occupied/"
@@ -548,13 +548,13 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", mcLoc("block/" + mb.name + "_" + logstem));
+									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,"block/" + mb.name + "_" + logstem));
 
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", mcLoc("block/" + mb.name + "_" + logstem));
+									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,"block/" + mb.name + "_" + logstem));
 						} else if (b.equals("weave")) {
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/unoccupied/"
