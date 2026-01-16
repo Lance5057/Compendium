@@ -1,9 +1,0 @@
-{
-  "name": "gingham_aquamarine",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "GENERATE",
-  "loadCarpet": "GENERATE",
-  "extensions": []
-}

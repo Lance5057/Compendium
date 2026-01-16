@@ -29,8 +29,6 @@ public class CompendiumIndex {
 
 	public static List<IIndexEntry> index = new ArrayList<IIndexEntry>();
 
-//	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
-//	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
 
@@ -57,6 +55,17 @@ public class CompendiumIndex {
 		default:
 			return "oak";
 		}
+	}
+
+	public static List<String> getAllMaterialsForType(List<MATERIAL_TYPES> types) {
+		List<String> materials = new ArrayList<String>();
+
+		for (IIndexEntry i : index)
+			if (i instanceof _MaterialBase mb)
+				if (types.contains(mb.getType()))
+					materials.add(mb.name);
+
+		return materials;
 	}
 
 	public static void addEntry(IIndexEntry i) {

@@ -50,10 +50,16 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.BED_FRAME, StyleData.BED_BASE, StyleData.BED_MATTRESS, StyleData.BED_PILLOW,
+				StyleData.BED_SHEET, StyleData.BED_BLANKET };
+	}
+
+	@Override
 	protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;
 	}
-	
+
 	@Override
 	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
 			Player player, InteractionHand hand, BlockHitResult hitResult) {

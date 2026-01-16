@@ -130,4 +130,8 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		return this.styleBases.get(current);
 	}
 
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styles;
+	}
 }

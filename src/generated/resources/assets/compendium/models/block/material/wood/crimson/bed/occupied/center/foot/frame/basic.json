@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/center/foot/frame/basic",
+  "textures": {
+    "0": "minecraft:block/crimson_planks"
+  }
+}

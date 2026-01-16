@@ -2,6 +2,8 @@ package com.lance5057.compendium.styleblock;
 
 import java.util.List;
 
+import com.lance5057.compendium.style.StyleData;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -12,4 +14,5 @@ public interface IStyleBlock {
 	public ResourceLocation getItemModelLocation();
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state);
 	public String getBaseStyleName(int current);
+	public StyleData[] getStyleData();
 }

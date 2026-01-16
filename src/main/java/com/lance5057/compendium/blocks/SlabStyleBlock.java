@@ -66,4 +66,9 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styles;
+	}
 }

@@ -60,4 +60,9 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styles;
+	}
 }

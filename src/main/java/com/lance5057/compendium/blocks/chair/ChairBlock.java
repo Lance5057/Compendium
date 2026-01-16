@@ -100,6 +100,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.CHAIR_BACK, StyleData.CHAIR_SEAT, StyleData.CHAIR_LEGS };
+	}
+
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		Direction d = state.getValue(HorizontalDirectionalBlock.FACING);
 

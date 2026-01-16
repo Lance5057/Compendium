@@ -39,6 +39,11 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 		return List.of(StyleData.SHINGLES_SHINGLES.getTypes().get(current.get(0)),
 				StyleData.SUPPORT_SHINGLES.getTypes().get(current.get(1)));
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.SHINGLES_SHINGLES, StyleData.SUPPORT_SHINGLES };
+	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/thick",
+  "textures": {
+    "0": "minecraft:block/warped_planks"
+  }
+}

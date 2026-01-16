@@ -66,4 +66,9 @@ public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBl
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styleData;
+	}
 }

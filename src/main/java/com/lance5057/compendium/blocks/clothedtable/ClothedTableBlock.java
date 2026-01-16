@@ -37,6 +37,11 @@ public class ClothedTableBlock extends TableBase implements EntityBlock, IStyleB
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.TABLE_TOP, StyleData.TABLE_LEGS, StyleData.TABLE_CLOTH };
+	}
+	
+	@Override
 	public ResourceLocation getItemModelLocation() {
 		return Compendium.modLoc("extra/clothed_table");
 	}

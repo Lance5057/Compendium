@@ -1,9 +1,0 @@
-{
-  "name": "gingham_orange",
-  "tagNamespace": "compendium",
-  "type": "TEXTILE",
-  "loadString": "IGNORE",
-  "loadBlock": "EXISTS",
-  "loadCarpet": "EXISTS",
-  "extensions": []
-}

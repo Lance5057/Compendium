@@ -34,6 +34,11 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 		return List.of(StyleData.FENCE_POST.getTypes().get(current.get(0)),
 				StyleData.FENCE_SIDE.getTypes().get(current.get(1)));
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.FENCE_POST, StyleData.FENCE_SIDE };
+	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {

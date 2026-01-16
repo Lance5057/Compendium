@@ -62,4 +62,9 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 		return this.styleBases.get(current);
 	}
 
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styles;
+	}
+
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:block/bases/log_slab/campfire_top",
+  "textures": {
+    "0": "minecraft:block/stripped_jungle_log",
+    "1": "compendium:block/material/wood/jungle/logs/stripped_extra_caps",
+    "particle": "minecraft:block/stripped_jungle_log"
+  }
+}

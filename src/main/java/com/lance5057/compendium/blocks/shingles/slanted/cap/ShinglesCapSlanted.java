@@ -43,6 +43,11 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.SHINGLES_SHINGLES, StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES };
+	}
+
+	@Override
 	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,
 			BlockPos currentPos, BlockPos facingPos) {
 		BlockPos blockpos1 = currentPos.north();
@@ -124,13 +129,14 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
-		switch(current)
-		{
-		case 0: return "shingles";
-		case 1: return "support";
+		switch (current) {
+		case 0:
+			return "shingles";
+		case 1:
+			return "support";
 		}
 		return "error";
 	}

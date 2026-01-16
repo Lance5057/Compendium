@@ -1,0 +1,7 @@
+{
+  "parent": "compendium:block/slightlysmallerblock",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "minecraft:block/glass"
+  }
+}

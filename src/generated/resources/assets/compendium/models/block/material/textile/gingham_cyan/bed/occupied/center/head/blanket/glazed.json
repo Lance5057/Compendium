@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/occupied/center/head/blanket/basic",
-  "textures": {
-    "0": "compendium:block/material/textile/gingham_cyan/woolly_glazed"
-  }
-}

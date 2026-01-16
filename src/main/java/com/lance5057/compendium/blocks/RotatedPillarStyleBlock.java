@@ -65,4 +65,9 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
+	
+	@Override
+	public StyleData[] getStyleData() {
+		return this.styles;
+	}
 }
