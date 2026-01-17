@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/center/foot/frame/full",
+  "textures": {
+    "0": "butchercraft:block/barn_wood_block"
+  }
+}

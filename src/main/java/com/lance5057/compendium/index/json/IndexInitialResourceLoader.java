@@ -35,8 +35,8 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
-import com.lance5057.compendium.index.material.base.MaterialTextile;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.wood.ExistsLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.SpecialTextureLocationsWood;
@@ -613,7 +613,9 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 
-		SpecialLocationsWood barn_wood = new SpecialLocationsWood(null, null,
+		SpecialLocationsWood barn_wood = new SpecialLocationsWood(
+				new ExistsLocationsWood("barn_wood_block_item", null, null, null, null),
+				new ExistsLocationsWood("barn_wood_block", null, null, null, null),
 				new SpecialTextureLocationsWood("block/barn_wood_block", null, null));
 		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
 				Generate.IGNORE, Generate.IGNORE, barn_wood)

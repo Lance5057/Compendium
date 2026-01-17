@@ -1,0 +1,14 @@
+// 1.21.1	2026-01-16T16:57:59.4241198	Tags for minecraft:item mod id compendium
+100edb163edeb7315e2773614a0c2ed9b950a6f4 data/c/tags/item/plank.json
+1a8cae10586e6707820f19f71d5866b4aec4ee8f data/c/tags/item/planks/barn_wood.json
+100edb163edeb7315e2773614a0c2ed9b950a6f4 data/c/tags/item/plank/barn_wood.json
+6dc484032c5e3ac39faba1687cb3454b22cbbad6 data/c/tags/item/slabs/planks/barn_wood.json
+0c256f93818ea0d2775e8107deb34f459c39fb61 data/c/tags/item/stairs/planks/barn_wood.json
+5c9f51e3d4bb815c221306ed4daf1959c9878240 data/c/tags/item/tools/hammer.json
+8d68bf5d7eaeb0e6356f66a46cbb1284b6d34ea2 data/c/tags/item/tools/melee_weapon.json
+c74c5e7d2d0b390b9dbca7567bf556ec28212712 data/c/tags/item/tools/prybar.json
+8ea3bf3b2e457e42347922407febb47fff2db77b data/c/tags/item/tools/saw.json
+5f14b9b0110f0de02a314cf62410e250a719ceab data/c/tags/item/tools/shear.json
+6dc484032c5e3ac39faba1687cb3454b22cbbad6 data/c/tags/item/wooden_slabs/barn_wood.json
+0c256f93818ea0d2775e8107deb34f459c39fb61 data/c/tags/item/wooden_stairs/barn_wood.json
+8d68bf5d7eaeb0e6356f66a46cbb1284b6d34ea2 data/minecraft/tags/item/swords.json

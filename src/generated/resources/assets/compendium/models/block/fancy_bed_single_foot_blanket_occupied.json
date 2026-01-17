@@ -1,0 +1,25 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 5,
+    "modelBase": "bed",
+    "modelPart": "occupied/single/foot/blanket",
+    "styleLayer": 5,
+    "styles": [
+      "basic",
+      "llama",
+      "glazed"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer_count": 1,
+  "loader": "compendium:multi_style_material"
+}

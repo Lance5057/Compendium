@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "s s",
+    " s ",
+    "s s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:saw_buck"
+  }
+}

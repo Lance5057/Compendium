@@ -34,11 +34,22 @@ public class ExistsLocationsWood {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String plank = j.get("plankLocation").getAsString();
-			String log = j.get("logLocation").getAsString();
-			String strippedLog = j.get("strippedLogLocation").getAsString();
-			String wood = j.get("woodLocation").getAsString();
-			String strippedWood = j.get("strippedWoodLocation").getAsString();
+			String plank = null;
+			String log = null;
+			String strippedLog = null;
+			String wood = null;
+			String strippedWood = null;
+
+			if (j.get("plankLocation") != null)
+				plank = j.get("plankLocation").getAsString();
+			if (j.get("logLocation") != null)
+				log = j.get("logLocation").getAsString();
+			if (j.get("strippedLogLocation") != null)
+				strippedLog = j.get("strippedLogLocation").getAsString();
+			if (j.get("woodLocation") != null)
+				wood = j.get("woodLocation").getAsString();
+			if (j.get("strippedWoodLocation") != null)
+				strippedWood = j.get("strippedWoodLocation").getAsString();
 
 			return new ExistsLocationsWood(plank, log, strippedLog, wood, strippedWood);
 		}
@@ -47,11 +58,16 @@ public class ExistsLocationsWood {
 		public JsonElement serialize(ExistsLocationsWood src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
 
-			j.addProperty("plankLocation", src.plankLocation);
-			j.addProperty("logLocation", src.logLocation);
-			j.addProperty("strippedLogLocation", src.strippedLogLocation);
-			j.addProperty("woodLocation", src.woodLocation);
-			j.addProperty("strippedWoodLocation", src.strippedWoodLocation);
+			if (src.plankLocation != null)
+				j.addProperty("plankLocation", src.plankLocation);
+			if (src.logLocation != null)
+				j.addProperty("logLocation", src.logLocation);
+			if (src.strippedLogLocation != null)
+				j.addProperty("strippedLogLocation", src.strippedLogLocation);
+			if (src.woodLocation != null)
+				j.addProperty("woodLocation", src.woodLocation);
+			if (src.strippedWoodLocation != null)
+				j.addProperty("strippedWoodLocation", src.strippedWoodLocation);
 
 			return j;
 		}

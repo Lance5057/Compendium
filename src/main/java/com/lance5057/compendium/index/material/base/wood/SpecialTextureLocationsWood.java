@@ -11,9 +11,9 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
 public class SpecialTextureLocationsWood {
-	String plankLocation;
-	String logLocation;
-	String strippedLogLocation;
+	public final String plankLocation;
+	public final String logLocation;
+	public final String strippedLogLocation;
 
 	public SpecialTextureLocationsWood(String plankLoc, String logLoc, String strippedLogLoc) {
 		this.plankLocation = plankLoc;

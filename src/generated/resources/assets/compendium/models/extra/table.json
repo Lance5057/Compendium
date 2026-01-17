@@ -1,0 +1,40 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "modelBase": "table",
+    "modelPart": "top",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "trimmed",
+      "smooth"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "table",
+    "modelPart": "legs",
+    "styleLayer": 1,
+    "styles": [
+      "basic",
+      "bar",
+      "fancy"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 2,
+  "loader": "compendium:multi_style_material"
+}

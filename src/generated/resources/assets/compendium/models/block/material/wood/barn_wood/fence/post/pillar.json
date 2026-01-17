@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/pillar",
+  "textures": {
+    "0": "butchercraft:block/barn_wood_block"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "render_type": "minecraft:translucent",
+    "textures": {
+      "all": "minecraft:block/glass"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "modelBase": "window",
+    "modelPart": "glass",
+    "styleLayer": 0,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "GLASS"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "window",
+    "modelPart": "trim",
+    "styleLayer": 1,
+    "styles": [
+      "quarter",
+      "bars",
+      "bars_trimmed",
+      "bars_horizontal",
+      "bars_horizontal_trimmed",
+      "diamond",
+      "diamond_trimmed",
+      "double",
+      "full",
+      "lattice",
+      "lattice_trimmed",
+      "round",
+      "weave",
+      "diagonal",
+      "diagonal_trimmed",
+      "caged",
+      "framed",
+      "trimmed",
+      "caged_grate",
+      "framed_grate",
+      "trimmed_grate",
+      "grate",
+      "grate_edgeless",
+      "braced",
+      "fancy_frame",
+      "caged_lattice",
+      "grill",
+      "porthole",
+      "warped",
+      "woven"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD",
+      "METAL"
+    ]
+  },
+  "layer_count": 2,
+  "loader": "compendium:multi_style_material"
+}

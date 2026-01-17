@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/center/head/frame/contemporary_slats",
+  "textures": {
+    "0": "butchercraft:block/barn_wood_block"
+  }
+}
