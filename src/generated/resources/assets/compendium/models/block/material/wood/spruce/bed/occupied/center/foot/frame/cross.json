@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/unoccupied/center/foot/frame/cross",
+  "textures": {
+    "0": "minecraft:block/spruce_planks"
+  }
+}

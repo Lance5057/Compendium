@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/split_log_rotated_top_outer",
-  "textures": {
-    "0": "butchercraft:block/stripped_barn_wood_log",
-    "1": "butchercraft:block/stripped_barn_wood_log_top",
-    "2": "compendium:block/material/wood/barn_wood/logs/stripped_log_split_side",
-    "particle": "butchercraft:block/stripped_barn_wood_log"
-  }
-}

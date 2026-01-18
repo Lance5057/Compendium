@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:item/plank",
+  "textures": {
+    "0": "compendium:block/material/wood/warped/planks/plank"
+  }
+}

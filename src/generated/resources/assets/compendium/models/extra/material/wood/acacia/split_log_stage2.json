@@ -1,0 +1,8 @@
+{
+  "parent": "compendium:extra/split_log_stage2",
+  "textures": {
+    "0": "minecraft:block/acacia_log",
+    "1": "minecraft:block/whitewoodstrippedlogtop",
+    "2": "compendium:block/material/wood/acacia/logs/log_split_side"
+  }
+}

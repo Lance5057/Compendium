@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/smallest_logs_rotated_full",
-  "textures": {
-    "0": "butchercraft:block/stripped_barn_wood_log",
-    "1": "compendium:block/material/wood/barn_wood/logs/stripped_extra_caps",
-    "particle": "butchercraft:block/stripped_barn_wood_log"
-  }
-}

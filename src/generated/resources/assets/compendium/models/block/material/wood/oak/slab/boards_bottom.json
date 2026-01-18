@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "compendium:block/material/wood/oak/planks/boards",
+    "side": "compendium:block/material/wood/oak/planks/boards",
+    "top": "compendium:block/material/wood/oak/planks/boards"
+  }
+}

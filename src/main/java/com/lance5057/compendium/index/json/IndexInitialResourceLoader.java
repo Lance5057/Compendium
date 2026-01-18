@@ -36,6 +36,9 @@ import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
+import com.lance5057.compendium.index.material.base.textile.SpecialLocationsTextile;
+import com.lance5057.compendium.index.material.base.textile.SpecialTextureLocationsTextile;
 import com.lance5057.compendium.index.material.base.wood.ExistsLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.SpecialLocationsWood;
@@ -172,118 +175,118 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialGlass("pink_stained", "minecraft", Generate.EXISTS));
 //		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
 
-//		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("birch", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("spruce", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("jungle", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("acacia", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("dark_oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("mangrove", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("cherry", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-////		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-//		buildDefault(new MaterialWood("crimson", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//		buildDefault(new MaterialWood("warped", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
-//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE)));
-//
-////		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(new MaterialStone("red_sandstone", false, false, false)
-////				.addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(
-////				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-////		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//
-//		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("birch", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("spruce", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("jungle", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("acacia", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("dark_oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("mangrove", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("cherry", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+//		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		buildDefault(new MaterialWood("crimson", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+		buildDefault(new MaterialWood("warped", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
+				Generate.EXISTS, Generate.EXISTS)
+				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+						Generate.GENERATE)));
+
+//		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//				new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//				new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//				new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//				new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(
-//				new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//
+//				new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(new MaterialStone("red_sandstone", false, false, false)
+//				.addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(
+//				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+//		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
+
+		buildDefault(new MaterialTextile("white_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("light_gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("gray_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("black_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("brown_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("red_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("orange_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("yellow_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("lime_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("green_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("cyan_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("light_blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("blue_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("purple_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(
+				new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+
 //		buildDefault(new MaterialTextile("gingham_amber", "compendium", Generate.GENERATE, Generate.IGNORE,
 //				Generate.GENERATE));
 //		buildDefault(new MaterialTextile("gingham_aquamarine", "compendium", Generate.GENERATE, Generate.IGNORE,
@@ -321,38 +324,55 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialTextile("gingham_wine", "compendium", Generate.GENERATE, Generate.IGNORE,
 //				Generate.GENERATE));
 //
-//		buildDefault(
-//				new MaterialTextile("gingham_white", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("gingham_light_gray", "compendium", Generate.EXISTS, Generate.IGNORE,
-//				Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_gray", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_black", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_brown", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_red", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_orange", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_yellow", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_lime", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_green", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_cyan", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("gingham_light_blue", "compendium", Generate.EXISTS, Generate.IGNORE,
-//				Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_blue", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_purple", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//		buildDefault(new MaterialTextile("gingham_magenta", "compendium", Generate.EXISTS, Generate.IGNORE,
-//				Generate.EXISTS));
-//		buildDefault(
-//				new MaterialTextile("gingham_pink", "compendium", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
+//		buildDefault(new MaterialTextile("gingham_white", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/white", null, null))));
+//		buildDefault(new MaterialTextile("gingham_light_gray", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/light_gray", null, null))));
+//		buildDefault(new MaterialTextile("gingham_gray", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/gray", null, null))));
+//		buildDefault(new MaterialTextile("gingham_black", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/black", null, null))));
+//		buildDefault(new MaterialTextile("gingham_brown", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/brown", null, null))));
+//		buildDefault(new MaterialTextile("gingham_red", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/red", null, null))));
+//		buildDefault(new MaterialTextile("gingham_orange", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/orange", null, null))));
+//		buildDefault(new MaterialTextile("gingham_yellow", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/yellow", null, null))));
+//		buildDefault(new MaterialTextile("gingham_lime", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/lime", null, null))));
+//		buildDefault(new MaterialTextile("gingham_green", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/green", null, null))));
+//		buildDefault(new MaterialTextile("gingham_cyan", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/cyan", null, null))));
+//		buildDefault(new MaterialTextile("gingham_light_blue", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/light_blue", null, null))));
+//		buildDefault(new MaterialTextile("gingham_blue", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/blue", null, null))));
+//		buildDefault(new MaterialTextile("gingham_purple", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/purple", null, null))));
+//		buildDefault(new MaterialTextile("gingham_magenta", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/magenta", null, null))));
+//		buildDefault(new MaterialTextile("gingham_pink", "extradelight", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, new SpecialLocationsTextile(null, null,
+//						new SpecialTextureLocationsTextile("block/gingham/pink", null, null))));
 //
 //		buildDefault(new MaterialWood("alder", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 //				Generate.GENERATE, Generate.GENERATE)
@@ -595,8 +615,8 @@ public class IndexInitialResourceLoader {
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
-
-		// The problem children
+//
+//		// The problem children
 //		SpecialLocationsWood whitewood = new SpecialLocationsWood(null, null,
 //				new SpecialTextureLocationsWood("block/whitewoodplanks", null, "block/whitewoodstrippedlog"));
 //		buildDefault(new MaterialWood("white_wood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.IGNORE,
@@ -606,23 +626,27 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood kopje = new SpecialLocationsWood(
+//				new ExistsLocationsWood("kopje_fig_planks", "kopje_fig_log", "stripped_kopje_log", null, null), null,
+//				new SpecialTextureLocationsWood("block/kopjeplanks", "block/kopjelogside",
+//						"block/kopjelogstrippedside"));
 //		buildDefault(new MaterialWood("kopje", "koopascritters", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.IGNORE, Generate.IGNORE)
+//				Generate.IGNORE, Generate.IGNORE, kopje)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
-
-		SpecialLocationsWood barn_wood = new SpecialLocationsWood(
-				new ExistsLocationsWood("barn_wood_block_item", null, null, null, null),
-				new ExistsLocationsWood("barn_wood_block", null, null, null, null),
-				new SpecialTextureLocationsWood("block/barn_wood_block", null, null));
-		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
-				Generate.IGNORE, Generate.IGNORE, barn_wood)
-				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
-						Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE))
-				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-						Generate.GENERATE)));
+//
+//		SpecialLocationsWood barn_wood = new SpecialLocationsWood(
+//				new ExistsLocationsWood("barn_wood_block_item", null, null, null, null),
+//				new ExistsLocationsWood("barn_wood_block", null, null, null, null),
+//				new SpecialTextureLocationsWood("block/barn_wood_block", null, null));
+//		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
+//				Generate.IGNORE, Generate.IGNORE, barn_wood)
+//				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+//						Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE))
+//				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
+//						Generate.GENERATE)));
 	}
 
 	static void buildDefault(_MaterialBase mat) {

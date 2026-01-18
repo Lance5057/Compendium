@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/left/head/base/panelled",
-  "textures": {
-    "0": "butchercraft:block/barn_wood_block"
-  }
-}

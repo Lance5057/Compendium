@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/chair/legs/rails_full",
-  "textures": {
-    "0": "butchercraft:block/barn_wood_planks"
-  }
-}

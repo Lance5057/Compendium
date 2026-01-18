@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:birch_plank_slab_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:birch_plank_item"
+  }
+}

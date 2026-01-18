@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "compendium:block/material/wood/spruce/planks/box",
+    "side": "compendium:block/material/wood/spruce/planks/box",
+    "top": "compendium:block/material/wood/spruce/planks/box"
+  }
+}

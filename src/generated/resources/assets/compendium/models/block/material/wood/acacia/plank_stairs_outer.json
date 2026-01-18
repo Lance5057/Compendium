@@ -1,0 +1,148 @@
+{
+  "alternate_weave": {
+    "model": "compendium:block/material/wood/acacia/stairs/alternate_weave_outer"
+  },
+  "banded": {
+    "model": "compendium:block/material/wood/acacia/stairs/banded_outer"
+  },
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "big_weave": {
+    "model": "compendium:block/material/wood/acacia/stairs/big_weave_outer"
+  },
+  "blocks": {
+    "model": "compendium:block/material/wood/acacia/stairs/blocks_outer"
+  },
+  "blocks_offset": {
+    "model": "compendium:block/material/wood/acacia/stairs/blocks_offset_outer"
+  },
+  "boards": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_outer"
+  },
+  "boards_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_rotated_outer"
+  },
+  "boards_seamless": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_seamless_outer"
+  },
+  "boards_seamless_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_seamless_rotated_outer"
+  },
+  "boards_stacked": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_stacked_outer"
+  },
+  "boards_stacked_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/boards_stacked_rotated_outer"
+  },
+  "box": {
+    "model": "compendium:block/material/wood/acacia/stairs/box_outer"
+  },
+  "chiseled": {
+    "model": "compendium:block/material/wood/acacia/stairs/chiseled_outer"
+  },
+  "close_weave": {
+    "model": "compendium:block/material/wood/acacia/stairs/close_weave_outer"
+  },
+  "count": 46,
+  "cross": {
+    "model": "compendium:block/material/wood/acacia/stairs/cross_outer"
+  },
+  "diagonal": {
+    "model": "compendium:block/material/wood/acacia/stairs/diagonal_outer"
+  },
+  "diagonal_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/diagonal_rotated_outer"
+  },
+  "domed": {
+    "model": "compendium:block/material/wood/acacia/stairs/domed_outer"
+  },
+  "double_herringbone": {
+    "model": "compendium:block/material/wood/acacia/stairs/double_herringbone_outer"
+  },
+  "double_weave": {
+    "model": "compendium:block/material/wood/acacia/stairs/double_weave_outer"
+  },
+  "five": {
+    "model": "compendium:block/material/wood/acacia/stairs/five_outer"
+  },
+  "four_panels": {
+    "model": "compendium:block/material/wood/acacia/stairs/four_panels_outer"
+  },
+  "herringbone": {
+    "model": "compendium:block/material/wood/acacia/stairs/herringbone_outer"
+  },
+  "loader": "compendium:style",
+  "nine_panels": {
+    "model": "compendium:block/material/wood/acacia/stairs/nine_panels_outer"
+  },
+  "panel": {
+    "model": "compendium:block/material/wood/acacia/stairs/panel_outer"
+  },
+  "paper": {
+    "model": "compendium:block/material/wood/acacia/stairs/paper_outer"
+  },
+  "parquet": {
+    "model": "compendium:block/material/wood/acacia/stairs/parquet_outer"
+  },
+  "petal": {
+    "model": "compendium:block/material/wood/acacia/stairs/petal_outer"
+  },
+  "planks_seamless": {
+    "model": "compendium:block/material/wood/acacia/stairs/planks_seamless_outer"
+  },
+  "planks_seamless_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/planks_seamless_rotated_outer"
+  },
+  "planks_stacked": {
+    "model": "compendium:block/material/wood/acacia/stairs/planks_stacked_outer"
+  },
+  "planks_stacked_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/planks_stacked_rotated_outer"
+  },
+  "sheet": {
+    "model": "compendium:block/material/wood/acacia/stairs/sheet_outer"
+  },
+  "small_blocks": {
+    "model": "compendium:block/material/wood/acacia/stairs/small_blocks_outer"
+  },
+  "small_blocks_offset": {
+    "model": "compendium:block/material/wood/acacia/stairs/small_blocks_offset_outer"
+  },
+  "thin": {
+    "model": "compendium:block/material/wood/acacia/stairs/thin_outer"
+  },
+  "thin_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/thin_rotated_outer"
+  },
+  "two_panel": {
+    "model": "compendium:block/material/wood/acacia/stairs/two_panel_outer"
+  },
+  "vertical": {
+    "model": "compendium:block/material/wood/acacia/stairs/vertical_outer"
+  },
+  "wainscotting_double": {
+    "model": "compendium:block/material/wood/acacia/stairs/wainscotting_double_outer"
+  },
+  "wainscotting_grate": {
+    "model": "compendium:block/material/wood/acacia/stairs/wainscotting_grate_outer"
+  },
+  "wainscotting_seamless": {
+    "model": "compendium:block/material/wood/acacia/stairs/wainscotting_seamless_outer"
+  },
+  "wainscotting_single": {
+    "model": "compendium:block/material/wood/acacia/stairs/wainscotting_single_outer"
+  },
+  "walkway": {
+    "model": "compendium:block/material/wood/acacia/stairs/walkway_outer"
+  },
+  "walkway_rotated": {
+    "model": "compendium:block/material/wood/acacia/stairs/walkway_rotated_outer"
+  },
+  "wicker": {
+    "model": "compendium:block/material/wood/acacia/stairs/wicker_outer"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/furniture/bed/occupied/single/head/blanket/basic",
+  "textures": {
+    "0": "compendium:block/material/textile/brown_wool/woolly_glazed"
+  }
+}

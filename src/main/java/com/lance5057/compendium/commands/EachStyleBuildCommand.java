@@ -8,6 +8,7 @@ import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.brigadier.Command;
@@ -50,6 +51,11 @@ public class EachStyleBuildCommand {
 				StyleBlockComponent sbc = stack.get(CompendiumComponents.STYLE);
 				MultiMaterialBlockComponent mmc = stack.get(CompendiumComponents.MULTI_MATERIAL);
 
+				List<MultiMaterialType> mm = new ArrayList<MultiMaterialType>(mmc.types());
+				for (MultiMaterialType m : mm) {
+					m.setCurrentMaterial("");
+				}
+
 				List<Integer> styles = sbc.styles();
 				StyleData[] data = sb.getStyleData();
 
@@ -70,7 +76,7 @@ public class EachStyleBuildCommand {
 
 							List<Integer> newStyles = new ArrayList<Integer>(styles);
 							newStyles.set(d, i);
-							bentity.setMaterials(mmc.types());
+							bentity.setMaterials(mm);
 							bentity.setMaterial(d, mats.get(m));
 							bentity.setCurrentStyles(newStyles);
 

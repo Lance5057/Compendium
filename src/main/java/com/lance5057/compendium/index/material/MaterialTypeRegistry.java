@@ -6,9 +6,12 @@ import java.util.Map;
 import com.google.gson.GsonBuilder;
 import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
-import com.lance5057.compendium.index.material.base.MaterialTextile;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.textile.ExistsLocationsTextile;
+import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
+import com.lance5057.compendium.index.material.base.textile.SpecialLocationsTextile;
+import com.lance5057.compendium.index.material.base.textile.SpecialTextureLocationsTextile;
 import com.lance5057.compendium.index.material.base.wood.ExistsLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.SpecialLocationsWood;
@@ -42,10 +45,14 @@ public class MaterialTypeRegistry {
 		for (Map.Entry<Class<?>, MaterialExtensionSerializer<?>> entry : extensions.entrySet()) {
 			g.registerTypeAdapter(entry.getKey(), entry.getValue());
 		}
-		
+
 		g.registerTypeAdapter(SpecialLocationsWood.class, new SpecialLocationsWood.Serializer());
 		g.registerTypeAdapter(ExistsLocationsWood.class, new ExistsLocationsWood.Serializer());
 		g.registerTypeAdapter(SpecialTextureLocationsWood.class, new SpecialTextureLocationsWood.Serializer());
+
+		g.registerTypeAdapter(SpecialLocationsTextile.class, new SpecialLocationsTextile.Serializer());
+		g.registerTypeAdapter(ExistsLocationsTextile.class, new ExistsLocationsTextile.Serializer());
+		g.registerTypeAdapter(SpecialTextureLocationsTextile.class, new SpecialTextureLocationsTextile.Serializer());
 		return g;
 	}
 

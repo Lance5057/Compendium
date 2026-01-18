@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:oak_plank_stairs_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:oak_plank_item"
+  }
+}

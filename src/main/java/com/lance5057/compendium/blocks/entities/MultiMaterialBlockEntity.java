@@ -46,6 +46,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 
 		materials = newMats;
 		this.setChanged();
+		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 	}
 
 	public void setMaterial(MultiMaterialType[] s) {

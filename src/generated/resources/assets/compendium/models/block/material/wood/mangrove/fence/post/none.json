@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/fence/post/none",
+  "textures": {
+    "0": "minecraft:block/mangrove_planks"
+  }
+}

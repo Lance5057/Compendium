@@ -1,0 +1,61 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "campfire": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/campfire_full"
+  },
+  "count": 17,
+  "crosscut": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/crosscut_full"
+  },
+  "crosscut_small": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/crosscut_small_full"
+  },
+  "firewood": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/firewood_full"
+  },
+  "loader": "compendium:style",
+  "small_logs": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/small_logs_full"
+  },
+  "small_logs_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/small_logs_rotated_full"
+  },
+  "small_wood": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/small_wood_full"
+  },
+  "small_wood_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/small_wood_rotated_full"
+  },
+  "smaller_logs": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/smaller_logs_full"
+  },
+  "smaller_logs_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/smaller_logs_rotated_full"
+  },
+  "smallest_logs": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/smallest_logs_full"
+  },
+  "smallest_logs_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/smallest_logs_rotated_full"
+  },
+  "split": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/split_full"
+  },
+  "split_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/split_rotated_full"
+  },
+  "trellis": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/trellis_full"
+  },
+  "wood": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/wood_full"
+  },
+  "wood_rotated": {
+    "model": "compendium:block/material/wood/cherry/stripped_log_slab/wood_rotated_full"
+  }
+}

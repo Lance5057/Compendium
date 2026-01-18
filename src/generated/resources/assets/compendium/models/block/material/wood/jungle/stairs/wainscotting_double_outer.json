@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "compendium:block/material/wood/jungle/planks/wainscotting_double",
+    "side": "compendium:block/material/wood/jungle/planks/wainscotting_double",
+    "top": "compendium:block/material/wood/jungle/planks/wainscotting_double"
+  }
+}
