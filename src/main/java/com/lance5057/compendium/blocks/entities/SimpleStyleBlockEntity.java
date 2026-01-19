@@ -35,6 +35,10 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	public List<StyleData> getStyles() {
 		return styles;
 	}
+	
+	public void setCurrentStyles(List<Integer> currentStyles) {
+		this.currentStyles = currentStyles;
+	}
 
 //	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
 //		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);

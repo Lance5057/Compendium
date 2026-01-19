@@ -578,10 +578,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
 						.requires(PLANK_SLAB.BLOCK_ITEM)
-						.unlockedBy("plank_slab", CriteriaTriggers.INVENTORY_CHANGED
-								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-										List.of(ItemPredicate.Builder.item().of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+						.unlockedBy("plank_slab",
+								CriteriaTriggers.INVENTORY_CHANGED
+										.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+												InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+												List.of(ItemPredicate.Builder.item().of(PLANK_SLAB.BLOCK_ITEM.asItem())
+														.build()))))
 						.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
 			}
 
@@ -602,8 +604,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 								CriteriaTriggers.INVENTORY_CHANGED
 										.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 												InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-												List.of(ItemPredicate.Builder.item().of(PLANK_STAIRS.BLOCK_ITEM.asItem())
-														.build()))))
+												List.of(ItemPredicate.Builder.item()
+														.of(PLANK_STAIRS.BLOCK_ITEM.asItem()).build()))))
 						.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
 			}
 		}

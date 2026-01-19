@@ -2,6 +2,6 @@
   "parent": "compendium:extra/split_log_stage0",
   "textures": {
     "0": "minecraft:block/warped_stem",
-    "1": "minecraft:block/whitewoodstrippedlogtop"
+    "1": "minecraft:block/warped_stem_top"
   }
 }

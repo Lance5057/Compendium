@@ -2,7 +2,7 @@
   "parent": "compendium:extra/split_log_stage3",
   "textures": {
     "0": "minecraft:block/jungle_log",
-    "1": "minecraft:block/whitewoodstrippedlogtop",
+    "1": "minecraft:block/jungle_log_top",
     "2": "compendium:block/material/wood/jungle/logs/log_split_side"
   }
 }

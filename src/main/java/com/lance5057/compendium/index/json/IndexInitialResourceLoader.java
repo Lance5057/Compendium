@@ -286,7 +286,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(
 				new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
 		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-
+//
 //		buildDefault(new MaterialTextile("gingham_amber", "compendium", Generate.GENERATE, Generate.IGNORE,
 //				Generate.GENERATE));
 //		buildDefault(new MaterialTextile("gingham_aquamarine", "compendium", Generate.GENERATE, Generate.IGNORE,
@@ -423,8 +423,12 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood charred_spruce = new SpecialLocationsWood(
+//				new ExistsLocationsWood(null, null, "charred_spruce_log_stripped", null, null),
+//				new ExistsLocationsWood(null, null, "charred_spruce_log_stripped", null, null),
+//				new SpecialTextureLocationsWood(null, null, "block/charred_spruce_log_stripped", null, null));
 //		buildDefault(new MaterialWood("charred_spruce", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
-//				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
+//				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE, charred_spruce)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
@@ -589,10 +593,10 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
-//		buildDefault(new MaterialWood("waxed_oak", "dawnoftimebuilder", Generate.EXISTS, Generate.GENERATE,
-//				Generate.EXISTS, Generate.GENERATE, Generate.GENERATE)
-//				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
+//		buildDefault(new MaterialWood("waxed_oak", "dawnoftimebuilder", Generate.EXISTS, Generate.IGNORE,
+//				Generate.EXISTS, Generate.IGNORE, Generate.GENERATE)
+//				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
+//						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
@@ -617,8 +621,8 @@ public class IndexInitialResourceLoader {
 //						Generate.GENERATE)));
 //
 //		// The problem children
-//		SpecialLocationsWood whitewood = new SpecialLocationsWood(null, null,
-//				new SpecialTextureLocationsWood("block/whitewoodplanks", null, "block/whitewoodstrippedlog"));
+//		SpecialLocationsWood whitewood = new SpecialLocationsWood(null, null, new SpecialTextureLocationsWood(
+//				"block/whitewoodplanks", null, "block/whitewoodstrippedlog", null, null));
 //		buildDefault(new MaterialWood("white_wood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.IGNORE,
 //				Generate.EXISTS, Generate.IGNORE, whitewood)
 //				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,
@@ -628,8 +632,8 @@ public class IndexInitialResourceLoader {
 //
 //		SpecialLocationsWood kopje = new SpecialLocationsWood(
 //				new ExistsLocationsWood("kopje_fig_planks", "kopje_fig_log", "stripped_kopje_log", null, null), null,
-//				new SpecialTextureLocationsWood("block/kopjeplanks", "block/kopjelogside",
-//						"block/kopjelogstrippedside"));
+//				new SpecialTextureLocationsWood("block/kopjeplanks", "block/kopjelogside", "block/kopjelogstrippedside",
+//						null, null));
 //		buildDefault(new MaterialWood("kopje", "koopascritters", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 //				Generate.IGNORE, Generate.IGNORE, kopje)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
@@ -640,7 +644,7 @@ public class IndexInitialResourceLoader {
 //		SpecialLocationsWood barn_wood = new SpecialLocationsWood(
 //				new ExistsLocationsWood("barn_wood_block_item", null, null, null, null),
 //				new ExistsLocationsWood("barn_wood_block", null, null, null, null),
-//				new SpecialTextureLocationsWood("block/barn_wood_block", null, null));
+//				new SpecialTextureLocationsWood("block/barn_wood_block", null, null, null, null));
 //		buildDefault(new MaterialWood("barn_wood", "butchercraft", Generate.EXISTS, Generate.IGNORE, Generate.IGNORE,
 //				Generate.IGNORE, Generate.IGNORE, barn_wood)
 //				.addExtension(new ExtensionExtraLogs(Generate.IGNORE, Generate.IGNORE, Generate.IGNORE, Generate.IGNORE,

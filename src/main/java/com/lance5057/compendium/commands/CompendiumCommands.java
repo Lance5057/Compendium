@@ -13,12 +13,14 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 
 public class CompendiumCommands {
-	public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext commandBuildContext) {
+	public static void register(CommandDispatcher<CommandSourceStack> dispatcher,
+			CommandBuildContext commandBuildContext) {
 		LiteralArgumentBuilder<CommandSourceStack> builder = Commands.literal("compendium")
-				.executes(CompendiumCommands::run).then(EachStyleBuildCommand.register(commandBuildContext));
-		
+				.then(EachStyleBuildCommand.register(commandBuildContext))
+				.then(EntireIndexBuildCommand.register(commandBuildContext));
+
 		LiteralCommandNode<CommandSourceStack> node = dispatcher.register(builder);
-        dispatcher.register(Commands.literal("comp").executes(CompendiumCommands::run).redirect(node));
+		dispatcher.register(Commands.literal("comp").executes(CompendiumCommands::run).redirect(node));
 	}
 
 	private static int run(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
