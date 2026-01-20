@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/crimson_stem",
     "1": "minecraft:block/crimson_stem",
+    "2": "compendium:small_logs_rotated_side",
     "particle": "minecraft:block/crimson_stem"
   }
 }

@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/spruce_log",
     "1": "minecraft:block/spruce_log",
+    "2": "compendium:block/material/wood/spruce/logs/small_logs",
     "particle": "minecraft:block/spruce_log"
   }
 }

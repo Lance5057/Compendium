@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/acacia_log",
     "1": "minecraft:block/acacia_log",
+    "2": "compendium:small_logs_rotated_front",
     "particle": "minecraft:block/acacia_log"
   }
 }

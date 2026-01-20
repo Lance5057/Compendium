@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/cherry_log",
     "1": "minecraft:block/cherry_log",
+    "2": "compendium:block/material/wood/cherry/logs/small_logs",
     "particle": "minecraft:block/cherry_log"
   }
 }

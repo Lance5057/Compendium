@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/stripped_dark_oak_log",
     "1": "minecraft:block/stripped_dark_oak_log",
+    "2": "compendium:block/material/wood/dark_oak/logs/stripped_small_logs",
     "particle": "minecraft:block/stripped_dark_oak_log"
   }
 }

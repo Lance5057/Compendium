@@ -274,8 +274,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				logstem = "log";
 			}
 
-			String logTexture = ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")
-					.toString();
+			String logTexture = ResourceLocation
+					.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem).toString();
 			if (mw.specialLocations != null) {
 				if (mw.specialLocations.textures != null)
 					if (mw.specialLocations.textures.logLocation != null)
@@ -285,596 +285,430 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			}
 
 			String strippedLogTexture = ResourceLocation
-					.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks").toString();
+					.fromNamespaceAndPath(base.namespace, "block/stripped_" + base.name + "_" + logstem).toString();
 			if (mw.specialLocations != null) {
 				if (mw.specialLocations.textures != null)
 					if (mw.specialLocations.textures.strippedLogLocation != null)
-						logTexture = ResourceLocation
+						strippedLogTexture = ResourceLocation
 								.fromNamespaceAndPath(base.namespace, mw.specialLocations.textures.strippedLogLocation)
 								.toString();
 			}
 
-			for (String s : StyleData.SMALL_LOG.getTypes()) {
-				ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s,
-						ibmp.modLoc("block/bases/small_log/" + s))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
-
-				ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal",
-						ibmp.modLoc("block/bases/small_log/" + s + "_horizontal"))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
-
-				ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_rot",
-						ibmp.modLoc("block/bases/small_log/" + s + "_horizontal2"))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
-
-				ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_vertical",
-						ibmp.modLoc("block/bases/small_log/" + s + "_vertical"))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
-
-				ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_cap",
-						ibmp.modLoc("block/bases/small_log/" + s + "_cap"))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/" + "small_logs"));
-
-				ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s,
-						ibmp.modLoc("block/bases/stripped_small_log/small_log"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
-
-				ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal",
-						ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
-
-				ibmp.withExistingParent(
-						STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal_rot",
-						ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal2"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
-
-				ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_vertical",
-						ibmp.modLoc("block/bases/stripped_small_log/" + s + "_vertical"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
-
-				ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_cap",
-						ibmp.modLoc("block/bases/stripped_small_log/" + s + "_cap"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/" + "stripped_small_logs"));
-
-				ibmp.withExistingParent("compendium:" + base.itemFolder() + s + "_inventory",
-						ibmp.mcLoc("item/" + s + "_inventory"))
-						.texture("0", ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps"))
-						.texture("1", ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs"));
-
-				ibmp.withExistingParent(base.itemFolder() + "stripped_" + s + "_inventory",
-						ibmp.modLoc("item/" + s + "_inventory"))
-						.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_extra_caps"))
-						.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_small_logs"));
-
+			String logTopTexture = ResourceLocation
+					.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem + "_top").toString();
+			if (mw.specialLocations != null) {
+				if (mw.specialLocations.textures != null)
+					if (mw.specialLocations.textures.logTopLocation != null)
+						logTopTexture = ResourceLocation
+								.fromNamespaceAndPath(base.namespace, mw.specialLocations.textures.logTopLocation)
+								.toString();
 			}
 
-			ibmp.withExistingParent(LOG.location(base) + "/log/basic", ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/basic_inventory", ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-
-			ibmp.withExistingParent(LOG.location(base) + "/log/basic_horizontal",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/basic_horizontal_inventory",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-
-			ibmp.withExistingParent(LOG.location(base) + "/log/corner",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/corner_inventory",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-
-			ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal_inventory",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs_top"));
-
-			ibmp.withExistingParent(LOG.location(base) + "/log/small_wood", ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_inventory", ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"));
-
-			ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_horizontal",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"));
-			ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_horizontal_inventory",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "small_logs"));
-
-			String[] shreds = { "1", "2" };
-			for (String shred : shreds) {
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/stripped_" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/" + base.name + "_" + logstem + "_top"));
-			}
-			shreds = new String[] { "3", "4" };
-			for (String shred : shreds) {
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
-						.texture("bottom",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("top", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
-				ibmp.withExistingParent(
-						STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
-						ibmp.modLoc("block/cube_column_ends"))
-						.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
-						.texture("top",
-								ResourceLocation.fromNamespaceAndPath(base.namespace,
-										"block/" + base.name + "_" + logstem + "_top"))
-						.texture("bottom", ResourceLocation.fromNamespaceAndPath(base.namespace,
-								"block/stripped_" + base.name + "_" + logstem + "_top"));
+			String strippedLogTopTexture = ResourceLocation
+					.fromNamespaceAndPath(base.namespace, "block/stripped_" + base.name + "_" + logstem + "_top")
+					.toString();
+			if (mw.specialLocations != null) {
+				if (mw.specialLocations.textures != null)
+					if (mw.specialLocations.textures.strippedLogTopLocation != null)
+						strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(base.namespace,
+								mw.specialLocations.textures.strippedLogTopLocation).toString();
 			}
 
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic",
-					ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_inventory",
-					ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_horizontal",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_horizontal_inventory",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+			String extraCaps = ibmp.modLoc(SMALL_LOG.location(base) + "logs/extra_caps").toString();
+			String smallLogs = ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs").toString();
+			String strippedExtraCaps = ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_extra_caps")
+					.toString();
+			String strippedSmallLogs = ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_small_logs")
+					.toString();
+			String smallLogsTop = ibmp.modLoc(SMALL_LOG.location(base) + "logs/small_logs_top").toString();
+			String strippedSmallLogsTop = ibmp.modLoc(SMALL_LOG.location(base) + "logs/stripped_small_logs_top")
+					.toString();
+			String logSplit = ibmp.modLoc(SMALL_LOG.location(base) + "logs/log_split_side").toString();
+			String strippedLogSplit = ibmp.modLoc(SMALL_LOG.location(base) + "logs/stripped_log_split_side").toString();
 
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_inventory",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal_inventory",
-					ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
-					.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+			genLogSlabs(base, ibmp, logTexture, logTopTexture, extraCaps, smallLogs, smallLogsTop, logSplit, false);
+			genLogSlabs(base, ibmp, strippedLogTexture, strippedLogTopTexture, strippedExtraCaps, strippedSmallLogs,
+					strippedSmallLogsTop, strippedLogSplit, true);
 
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood",
-					ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_inventory",
-					ibmp.mcLoc("block/cube_column"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_horizontal",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
-			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_horizontal_inventory",
-					ibmp.mcLoc("block/cube_column_horizontal"))
-					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
-					.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
+			genSmallLog(base, ibmp, extraCaps, smallLogs, strippedExtraCaps, strippedSmallLogs);
 
-			logSlabBlockModel(base, ibmp);
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_bottom",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_top",
-					ibmp.modLoc("block/trellis/trellis_top"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_full",
-					ibmp.modLoc("block/trellis/trellis_full"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_inventory",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_bottom",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_top",
-					ibmp.modLoc("block/trellis/trellis_top"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_full",
-					ibmp.modLoc("block/trellis/trellis_full"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_inventory",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
+			genLogs(base, ibmp, logTopTexture, strippedLogTopTexture, smallLogs, smallLogsTop);
 
-			logStairsBlockModel(base, ibmp);
-
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_bottom",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_top",
-					ibmp.modLoc("block/trellis/trellis_top"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_full",
-					ibmp.modLoc("block/trellis/trellis_full"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/log_slab/trellis_inventory",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_bottom",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_top",
-					ibmp.modLoc("block/trellis/trellis_top"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_full",
-					ibmp.modLoc("block/trellis/trellis_full"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-			ibmp.withExistingParent(LOG.location(base) + "/stripped_log_slab/trellis_inventory",
-					ibmp.modLoc("block/trellis/trellis_bottom"))
-					.texture("0", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/stripped_" + base.name + "_" + logstem));
-
-			logStairsBlockModel(base, ibmp);
-
-			ibmp.withExistingParent(base.extraFolder() + "split_log_stage0", ibmp.modLoc("extra/split_log_stage0"))
-					.texture("0",
-							ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
-					.texture("1", ResourceLocation.fromNamespaceAndPath(base.namespace,
-							"block/" + base.name + "_" + logstem + "_top"));
-
-			ibmp.withExistingParent(base.extraFolder() + "split_log_stage1", ibmp.modLoc("extra/split_log_stage1"))
-					.texture("0",
-							ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
-					.texture("1",
-							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
-					.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
-
-			ibmp.withExistingParent(base.extraFolder() + "split_log_stage2", ibmp.modLoc("extra/split_log_stage2"))
-					.texture("0",
-							ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
-					.texture("1",
-							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
-					.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
-
-			ibmp.withExistingParent(base.extraFolder() + "split_log_stage3", ibmp.modLoc("extra/split_log_stage3"))
-					.texture("0",
-							ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_" + logstem))
-					.texture("1",
-							ResourceLocation.fromNamespaceAndPath(base.namespace,
-									"block/" + base.name + "_" + logstem + "_top"))
-					.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
+			genSplitLogs(base, ibmp, logTexture, logTopTexture);
 		}
 	}
 
-	private void logSlabBlockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs", "small_logs", "small_logs_top",
-				true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs_rotated", "small_logs",
-				"small_logs_top", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "split", "log", "log_top", "log_split_side", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "split_rotated", "log", "log_top",
-				"log_split_side", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "crosscut", "log", "log_top", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "crosscut_small", "small_logs", "small_logs_top",
-				true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_wood", "small_logs", "small_logs", true,
-				"small_logs");
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_wood_rotated", "small_logs", "small_logs",
-				true, "small_logs_rotated");
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "wood", "log", "log", true, "small_logs");
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "wood_rotated", "log", "log", true,
-				"small_logs_rotated");
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "campfire", "log", "extra_caps", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "firewood", "log", "log_top", "log_split_side",
-				true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "smaller_logs", "log", "extra_caps", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "smaller_logs_rotated", "log", "extra_caps", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "smallest_logs", "log", "extra_caps", true);
-		styledModel(LOG_SLAB.location(base), base, ibmp, "log_slab", "smallest_logs_rotated", "log", "extra_caps",
-				true);
+	private void genLogs(_MaterialBase base, IndexBlockModelProvider ibmp, String logTopTexture,
+			String strippedLogTopTexture, String smallLogs, String smallLogsTop) {
+		ibmp.withExistingParent(LOG.location(base) + "/log/basic", ibmp.mcLoc("block/cube_column"))
+				.texture("side", smallLogs).texture("end", smallLogsTop);
+		ibmp.withExistingParent(LOG.location(base) + "/log/basic_inventory", ibmp.mcLoc("block/cube_column"))
+				.texture("side", smallLogs).texture("end", smallLogsTop);
+
+		ibmp.withExistingParent(LOG.location(base) + "/log/basic_horizontal",
+				ibmp.mcLoc("block/cube_column_horizontal")).texture("side", smallLogs).texture("end", smallLogsTop);
+		ibmp.withExistingParent(LOG.location(base) + "/log/basic_horizontal_inventory",
+				ibmp.mcLoc("block/cube_column_horizontal")).texture("side", smallLogs).texture("end", smallLogsTop);
+
+		ibmp.withExistingParent(LOG.location(base) + "/log/corner",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner")).texture("1", smallLogs)
+				.texture("2", smallLogsTop);
+		ibmp.withExistingParent(LOG.location(base) + "/log/corner_inventory",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner")).texture("1", smallLogs)
+				.texture("2", smallLogsTop);
+
+		ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal")).texture("1", smallLogs)
+				.texture("2", smallLogsTop);
+		ibmp.withExistingParent(LOG.location(base) + "/log/corner_horizontal_inventory",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal")).texture("1", smallLogs)
+				.texture("2", smallLogsTop);
+
+		ibmp.withExistingParent(LOG.location(base) + "/log/small_wood", ibmp.mcLoc("block/cube_column"))
+				.texture("side", smallLogs).texture("end", smallLogs);
+		ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_inventory", ibmp.mcLoc("block/cube_column"))
+				.texture("side", smallLogs).texture("end", smallLogs);
+
+		ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_horizontal",
+				ibmp.mcLoc("block/cube_column_horizontal")).texture("side", smallLogs).texture("end", smallLogs);
+		ibmp.withExistingParent(LOG.location(base) + "/log/small_wood_horizontal_inventory",
+				ibmp.mcLoc("block/cube_column_horizontal")).texture("side", smallLogs).texture("end", smallLogs);
+
+		genBarkLogs(base, ibmp, logTopTexture, strippedLogTopTexture);
+
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic", ibmp.mcLoc("block/cube_column"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_inventory",
+				ibmp.mcLoc("block/cube_column"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_horizontal",
+				ibmp.mcLoc("block/cube_column_horizontal"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/basic_horizontal_inventory",
+				ibmp.mcLoc("block/cube_column_horizontal"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_inventory",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/corner_horizontal_inventory",
+				ibmp.modLoc("block/bases/small_log/small_logs_corner_horizontal"))
+				.texture("1", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("2", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs_top"));
+
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood",
+				ibmp.mcLoc("block/cube_column"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_inventory",
+				ibmp.mcLoc("block/cube_column"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_horizontal",
+				ibmp.mcLoc("block/cube_column_horizontal"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
+		ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/small_wood_horizontal_inventory",
+				ibmp.mcLoc("block/cube_column_horizontal"))
+				.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"))
+				.texture("end", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_small_logs"));
 	}
 
-	private void logStairsBlockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs", "small_logs", "small_logs_top",
-				true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_side", "small_logs",
-				"small_logs_top", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_front", "small_logs",
-				"small_logs_top", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_top", "small_logs",
-				"small_logs_top", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_side", "log", "log_top",
-				"log_split_side", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_front", "log", "log_top",
-				"log_split_side", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_top", "log", "log_top",
-				"log_split_side", true);
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_wood", "small_logs", "small_logs", true,
-				"small_logs_rotated_side");
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_wood_rotated", "small_logs",
-				"small_logs", true, "small_logs_rotated_front");
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "wood", "log", "log", true,
-				"small_logs_rotated_side");
-		styledModel(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "wood_rotated", "log", "log", true,
-				"small_logs_rotated_front");
+	private void genSplitLogs(_MaterialBase base, IndexBlockModelProvider ibmp, String logTexture,
+			String logTopTexture) {
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage0", ibmp.modLoc("extra/split_log_stage0"))
+				.texture("0", logTexture).texture("1", logTopTexture);
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage1", ibmp.modLoc("extra/split_log_stage1"))
+				.texture("0", logTexture).texture("1", logTopTexture)
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage2", ibmp.modLoc("extra/split_log_stage2"))
+				.texture("0", logTexture).texture("1", logTopTexture)
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
+
+		ibmp.withExistingParent(base.extraFolder() + "split_log_stage3", ibmp.modLoc("extra/split_log_stage3"))
+				.texture("0", logTexture).texture("1", logTopTexture)
+				.texture("2", ibmp.modLoc(base.blockFolder() + "logs/log_split_side"));
 	}
 
-	private void styledModel(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
-			String modelName, String texture0, String texture1, Boolean stripped) {
-		styledModel(location, base, ibmp, block, modelName, texture0, texture1, stripped, modelName);
+	private void genLogSlabs(_MaterialBase base, IndexBlockModelProvider ibmp, String logTexture, String logTopTexture,
+			String extraCaps, String smallLogs, String smallLogsTop, String logSplit, boolean stripped) {
+		String extra = stripped ? "stripped_" : "";
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs", "small_logs", smallLogs,
+				smallLogsTop, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs_rotated", "small_logs_rotated",
+				smallLogs, smallLogsTop, extra);
+		logSlabModel3Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "split", "split", logTexture, logTopTexture,
+				logSplit, extra);
+		logSlabModel3Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "split_rotated", "split_rotated", logTexture,
+				logTopTexture, logSplit, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "crosscut", "crosscut", logTexture,
+				logTopTexture, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "crosscut_small", "crosscut_small", smallLogs,
+				smallLogsTop, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs", "small_wood", smallLogs,
+				smallLogs, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs_rotated", "small_wood_rotated",
+				smallLogs, smallLogs, extra);
+		logSlabModel3Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs", "wood", logTexture, logTexture,
+				smallLogs, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "small_logs_rotated", "wood_rotated",
+				logTexture, logTexture, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "campfire", "campfire", logTexture, extraCaps,
+				extra);
+		logSlabModel3Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "firewood", "firewood", logTexture,
+				logTopTexture, logSplit, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "smaller_logs", "smaller_logs", logTexture,
+				extraCaps, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "smaller_logs_rotated",
+				"smaller_logs_rotated", logTexture, extraCaps, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "smallest_logs", "smallest_logs", logTexture,
+				extraCaps, extra);
+		logSlabModel2Tex(LOG_SLAB.location(base), base, ibmp, "log_slab", "smallest_logs_rotated",
+				"smallest_logs_rotated", logTexture, extraCaps, extra);
+
+		ibmp.withExistingParent(LOG.location(base) + "/" + extra + "log_slab/trellis_bottom",
+				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", logTexture);
+		ibmp.withExistingParent(LOG.location(base) + "/" + extra + "log_slab/trellis_top",
+				ibmp.modLoc("block/trellis/trellis_top")).texture("0", logTexture);
+		ibmp.withExistingParent(LOG.location(base) + "/" + extra + "log_slab/trellis_full",
+				ibmp.modLoc("block/trellis/trellis_full")).texture("0", logTexture);
+		ibmp.withExistingParent(LOG.location(base) + "/" + extra + "log_slab/trellis_inventory",
+				ibmp.modLoc("block/trellis/trellis_bottom")).texture("0", logTexture);
+
+		logStairsModel2Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs", "small_logs", smallLogs,
+				smallLogsTop, extra);
+		logStairsModel2Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_side",
+				"small_logs_rotated_side", smallLogs, smallLogsTop, extra);
+		logStairsModel2Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_front",
+				"small_logs_rotated_front", smallLogs, smallLogsTop, extra);
+		logStairsModel2Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_top",
+				"small_logs_rotated_top", smallLogs, smallLogsTop, extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_side",
+				"split_log_rotated_side", logTexture, logTopTexture, logSplit, extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_front",
+				"split_log_rotated_front", logTexture, logTopTexture, logSplit, extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "split_log_rotated_top",
+				"split_log_rotated_top", logTexture, logTopTexture, logSplit, extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_side", "small_wood",
+				smallLogs, smallLogs, "small_logs_rotated_side", extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_front",
+				"small_wood_rotated", smallLogs, smallLogs, "small_logs_rotated_front", extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_side", "wood",
+				logTexture, logTexture, "small_logs_rotated_side", extra);
+		logStairsModel3Tex(LOG_STAIRS.location(base), base, ibmp, "log_stairs", "small_logs_rotated_front",
+				"wood_rotated", logTexture, logTexture, "small_logs_rotated_front", extra);
 	}
 
-	private void styledModel(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
-			String modelName, String texture0, String texture1, Boolean stripped, String modelSource) {
-		String[] types = new String[0];
-		if (block.equals("log_slab")) {
-			types = new String[] { "_bottom", "_top", "_full" };
-		} else if (block.equals("log_stairs")) {
-			types = new String[] { "", "_inner", "_outer" };
+	private void genBarkLogs(_MaterialBase base, IndexBlockModelProvider ibmp, String logTopTexture,
+			String strippedLogTopTexture) {
+		String[] shreds = { "1", "2" };
+		for (String shred : shreds) {
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", strippedLogTopTexture).texture("top", logTopTexture);
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", strippedLogTopTexture).texture("top", logTopTexture);
+
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", strippedLogTopTexture).texture("top", logTopTexture);
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", strippedLogTopTexture).texture("top", logTopTexture);
+
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", strippedLogTopTexture).texture("bottom", logTopTexture);
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", strippedLogTopTexture).texture("bottom", logTopTexture);
+
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", strippedLogTopTexture).texture("bottom", logTopTexture);
+			ibmp.withExistingParent(
+					STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", strippedLogTopTexture).texture("bottom", logTopTexture);
 		}
+		shreds = new String[] { "3", "4" };
+		for (String shred : shreds) {
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred,
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", logTopTexture).texture("top", strippedLogTopTexture);
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", logTopTexture).texture("top", strippedLogTopTexture);
+
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", logTopTexture).texture("top", strippedLogTopTexture);
+			ibmp.withExistingParent(LOG.location(base) + "/log/bark_shred_" + shred + "_horizontal_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "bark_shred_" + shred))
+					.texture("bottom", logTopTexture).texture("top", strippedLogTopTexture);
+
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred,
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", logTopTexture).texture("bottom", strippedLogTopTexture);
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", logTopTexture).texture("bottom", strippedLogTopTexture);
+
+			ibmp.withExistingParent(STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", logTopTexture).texture("bottom", strippedLogTopTexture);
+			ibmp.withExistingParent(
+					STRIPPED_LOG.location(base) + "/stripped_log/bark_shred_" + shred + "_horizontal_inventory",
+					ibmp.modLoc("block/cube_column_ends"))
+					.texture("side", ibmp.modLoc(LOG.location(base) + "logs/" + "stripped_bark_shred_" + shred))
+					.texture("top", logTopTexture).texture("bottom", strippedLogTopTexture);
+		}
+	}
+
+	private void genSmallLog(_MaterialBase base, IndexBlockModelProvider ibmp, String extraCaps, String smallLogs,
+			String strippedExtraCaps, String strippedSmallLogs) {
+		for (String s : StyleData.SMALL_LOG.getTypes()) {
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s,
+					ibmp.modLoc("block/bases/small_log/" + s)).texture("0", extraCaps).texture("1", smallLogs);
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal")).texture("0", extraCaps)
+					.texture("1", smallLogs);
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_horizontal_rot",
+					ibmp.modLoc("block/bases/small_log/" + s + "_horizontal2")).texture("0", extraCaps)
+					.texture("1", smallLogs);
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_vertical",
+					ibmp.modLoc("block/bases/small_log/" + s + "_vertical")).texture("0", extraCaps)
+					.texture("1", smallLogs);
+
+			ibmp.withExistingParent(SMALL_LOG.location(base) + "small_log/" + s + "_cap",
+					ibmp.modLoc("block/bases/small_log/" + s + "_cap")).texture("0", extraCaps).texture("1", smallLogs);
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s,
+					ibmp.modLoc("block/bases/stripped_small_log/small_log")).texture("0", strippedExtraCaps)
+					.texture("1", strippedSmallLogs);
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal")).texture("0", strippedExtraCaps)
+					.texture("1", strippedSmallLogs);
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_horizontal_rot",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_horizontal2")).texture("0", strippedExtraCaps)
+					.texture("1", strippedSmallLogs);
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_vertical",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_vertical")).texture("0", strippedExtraCaps)
+					.texture("1", strippedSmallLogs);
+
+			ibmp.withExistingParent(STRIPPED_SMALL_LOG.location(base) + "stripped_small_log/" + s + "_cap",
+					ibmp.modLoc("block/bases/stripped_small_log/" + s + "_cap")).texture("0", strippedExtraCaps)
+					.texture("1", strippedSmallLogs);
+
+			ibmp.withExistingParent("compendium:" + base.itemFolder() + s + "_inventory",
+					ibmp.mcLoc("item/" + s + "_inventory")).texture("0", extraCaps).texture("1", smallLogs);
+
+			ibmp.withExistingParent(base.itemFolder() + "stripped_" + s + "_inventory",
+					ibmp.modLoc("item/" + s + "_inventory"))
+					.texture("0", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_extra_caps"))
+					.texture("1", ibmp.modLoc(STRIPPED_SMALL_LOG.location(base) + "logs/stripped_small_logs"));
+
+		}
+	}
+
+	private void logSlabModel2Tex(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
+			String modelParent, String modelName, String texture0, String texture1, String extra) {
+		String[] types = new String[] { "_bottom", "_top", "_full" };
 
 		for (String type : types) {
-			ibmp.withExistingParent(location + "/" + block + "/" + modelName + type,
-					ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-					.texture("0", textureLocation(texture0, base, false))
-					.texture("1", textureLocation(texture1, base, false))
-					.texture("particle", textureLocation(texture0, base, false));
+			ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + type,
+					ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+					.texture("1", texture1).texture("particle", texture0);
 			if (type.equals("_bottom") || type.equals("")) {
 				ibmp.withExistingParent(location + "/" + block + "/" + modelName + "_inventory",
-						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-						.texture("0", textureLocation(texture0, base, false))
-						.texture("1", textureLocation(texture1, base, false))
-						.texture("particle", textureLocation(texture0, base, false));
-			}
-
-			if (stripped) {
-				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
-						ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-						.texture("0", textureLocation(texture0, base, true))
-						.texture("1", textureLocation(texture1, base, true))
-						.texture("particle", textureLocation(texture0, base, true));
-				if (type.equals("_bottom") || type.equals("")) {
-					ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
-							ibmp.modLoc("block/bases/" + block + "/" + modelSource + type))
-							.texture("0", textureLocation(texture0, base, true))
-							.texture("1", textureLocation(texture1, base, true))
-							.texture("particle", textureLocation(texture0, base, true));
-				}
+						ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+						.texture("1", texture1).texture("particle", texture0);
 			}
 		}
 	}
 
-	private void styledModel(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
-			String modelName, String texture0, String texture1, String texture2, Boolean stripped) {
-		String[] types = new String[0];
-		if (block.equals("log_slab")) {
-			types = new String[] { "_bottom", "_top", "_full" };
-		} else if (block.equals("log_stairs")) {
-			types = new String[] { "", "_inner", "_outer" };
-		}
+	private void logSlabModel3Tex(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
+			String modelParent, String modelName, String texture0, String texture1, String texture2, String extra) {
+		String[] types = new String[] { "_bottom", "_top", "_full" };
 
 		for (String type : types) {
-			ibmp.withExistingParent(location + "/" + block + "/" + modelName + type,
-					ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
-					.texture("0", textureLocation(texture0, base, false))
-					.texture("1", textureLocation(texture1, base, false))
-					.texture("2", textureLocation(texture2, base, false))
-					.texture("particle", textureLocation(texture0, base, false));
+			ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + type,
+					ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+					.texture("1", texture1).texture("2", texture2).texture("particle", texture0);
 			if (type.equals("_bottom") || type.equals("")) {
-				ibmp.withExistingParent(location + "/" + block + "/" + modelName + "_inventory",
-						ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
-						.texture("0", textureLocation(texture0, base, false))
-						.texture("1", textureLocation(texture1, base, false))
-						.texture("2", textureLocation(texture2, base, false))
-						.texture("particle", textureLocation(texture0, base, false));
-			}
-
-			if (stripped) {
-				ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + type,
-						ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
-						.texture("0", textureLocation(texture0, base, true))
-						.texture("1", textureLocation(texture1, base, true))
-						.texture("2", textureLocation(texture2, base, true))
-						.texture("particle", textureLocation(texture0, base, true));
-				if (type.equals("_bottom") || type.equals("")) {
-					ibmp.withExistingParent(location + "/stripped_" + block + "/" + modelName + "_inventory",
-							ibmp.modLoc("block/bases/" + block + "/" + modelName + type))
-							.texture("0", textureLocation(texture0, base, true))
-							.texture("1", textureLocation(texture1, base, true))
-							.texture("2", textureLocation(texture2, base, true))
-							.texture("particle", textureLocation(texture0, base, true));
-				}
+				ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + "_inventory",
+						ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+						.texture("1", texture1).texture("2", texture2).texture("particle", texture0);
 			}
 		}
 	}
 
-	private ResourceLocation textureLocation(String textureName, _MaterialBase base, Boolean stripped) {
-		String logstem;
-		String stripped_text;
-		if (base.name.equals("warped") || base.name.equals("crimson")) {
-			logstem = "stem";
-		} else {
-			logstem = "log";
+	private void logStairsModel2Tex(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
+			String modelParent, String modelName, String texture0, String texture1, String extra) {
+		String[] types = new String[] { "", "_inner", "_outer" };
+
+		for (String type : types) {
+			ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + type,
+					ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+					.texture("1", texture1).texture("particle", texture0);
+			if (type.equals("_bottom") || type.equals("")) {
+				ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + "_inventory",
+						ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+						.texture("1", texture1).texture("particle", texture0);
+			}
 		}
-		if (stripped) {
-			stripped_text = "stripped_";
-		} else {
-			stripped_text = "";
-		}
-		if (textureName.equals("log")) {
-			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/" + stripped_text + base.name + "_" + logstem);
-		} else if (textureName.equals("log_top")) {
-			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/" + stripped_text + base.name + "_" + logstem + "_top");
-		} else if (textureName.split("_", 1)[0].equals("planks")) {
-			return ResourceLocation.fromNamespaceAndPath(base.namespace,
-					"block/" + stripped_text + base.name + "_planks");
-		} else {
-			return Compendium.modLoc(LOG.location(base) + "logs/" + stripped_text + textureName);
+	}
+
+	private void logStairsModel3Tex(String location, _MaterialBase base, IndexBlockModelProvider ibmp, String block,
+			String modelParent, String modelName, String texture0, String texture1, String texture2, String extra) {
+		String[] types = new String[] { "", "_inner", "_outer" };
+
+		for (String type : types) {
+			ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + type,
+					ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+					.texture("1", texture1).texture("2", texture2).texture("particle", texture0);
+			if (type.equals("_bottom") || type.equals("")) {
+				ibmp.withExistingParent(location + "/" + extra + block + "/" + modelName + "_inventory",
+						ibmp.modLoc("block/bases/" + block + "/" + modelParent + type)).texture("0", texture0)
+						.texture("1", texture1).texture("2", texture2).texture("particle", texture0);
+			}
 		}
 	}
 

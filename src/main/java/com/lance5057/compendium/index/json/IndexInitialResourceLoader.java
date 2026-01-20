@@ -286,7 +286,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(
 				new MaterialTextile("magenta_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
 		buildDefault(new MaterialTextile("pink_wool", "minecraft", Generate.EXISTS, Generate.IGNORE, Generate.EXISTS));
-//
+
 //		buildDefault(new MaterialTextile("gingham_amber", "compendium", Generate.GENERATE, Generate.IGNORE,
 //				Generate.GENERATE));
 //		buildDefault(new MaterialTextile("gingham_aquamarine", "compendium", Generate.GENERATE, Generate.IGNORE,
@@ -388,22 +388,31 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood aspen = new SpecialLocationsWood(null, null,
+//				new SpecialTextureLocationsWood(null, "block/aspen_log_side", "block/aspen_log_side_stripped",
+//						"block/aspen_log_top", "block/aspen_log_top_stripped"));
 //		buildDefault(new MaterialWood("aspen", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
+//				Generate.EXISTS, Generate.EXISTS, aspen)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood baobab = new SpecialLocationsWood(null, null,
+//				new SpecialTextureLocationsWood(null, "block/baobab_log_side", "block/baobab_log_side_stripped",
+//						"block/baobab_log_top", "block/baobab_log_top_stripped"));
 //		buildDefault(new MaterialWood("baobab", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.EXISTS)
+//				Generate.EXISTS, Generate.EXISTS, baobab)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood blackwood = new SpecialLocationsWood(null, null,
+//				new SpecialTextureLocationsWood("block/blackwoodplanks", null, "block/blackwoodstrippedlogside", null,
+//						"block/blackwoodstrippedlogtop"));
 //		buildDefault(new MaterialWood("blackwood", "abyssal_decor", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-//				Generate.EXISTS, Generate.GENERATE)
+//				Generate.EXISTS, Generate.GENERATE, blackwood)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
@@ -416,8 +425,11 @@ public class IndexInitialResourceLoader {
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE)));
 //
+//		SpecialLocationsWood cactus = new SpecialLocationsWood(null, null,
+//				new SpecialTextureLocationsWood(null, null, null, "block/cactus_bottom",
+//						"block/cactus_side"));
 //		buildDefault(new MaterialWood("cactus", "bloomingnature", Generate.EXISTS, Generate.EXISTS, Generate.IGNORE,
-//				Generate.IGNORE, Generate.IGNORE)
+//				Generate.IGNORE, Generate.IGNORE, cactus)
 //				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 //						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 //				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,

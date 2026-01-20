@@ -3,6 +3,7 @@
   "textures": {
     "0": "minecraft:block/stripped_cherry_log",
     "1": "minecraft:block/stripped_cherry_log",
+    "2": "compendium:block/material/wood/cherry/logs/stripped_small_logs",
     "particle": "minecraft:block/stripped_cherry_log"
   }
 }
