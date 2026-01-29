@@ -244,7 +244,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		clothed_table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder bed = WorkbenchRecipeBuilder.shaped(CompendiumItems.FANCY_BED)
-				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.PLANKS))
 				.define('c', Ingredient.of(ItemTags.WOOL)).slotToMat(new SlotToMaterial(7, 1))
 				.slotToMat(new SlotToMaterial(3, 0)).slotToMat(new SlotToMaterial(4, 2))
 				.slotToMat(new SlotToMaterial(2, 3)).slotToMat(new SlotToMaterial(1, 4))
