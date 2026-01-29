@@ -160,6 +160,7 @@ dependencies {
 	implementation "curse.maven:azurelib-817423:7371539"
 	implementation "curse.maven:create-328085:7408951"
     implementation("xyz.brassgoggledcoders:PatchouliProvider:1.21.1-1.0.11-Snapshot.5")
+    implementation "curse.maven:dyenamics-509276:7138991"
 	
 	compileOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE:api"
     runtimeOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE"

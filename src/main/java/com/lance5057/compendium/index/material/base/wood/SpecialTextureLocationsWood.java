@@ -10,15 +10,17 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-public class SpecialTextureLocationsWood {
-	public final String plankLocation;
-	public final String logLocation;
-	public final String strippedLogLocation;
-	public final String logTopLocation;
-	public final String strippedLogTopLocation;
+import net.minecraft.resources.ResourceLocation;
 
-	public SpecialTextureLocationsWood(String plankLoc, String logLoc, String strippedLogLoc, String logTopLocation,
-			String strippedLogTopLocation) {
+public class SpecialTextureLocationsWood {
+	public final ResourceLocation plankLocation;
+	public final ResourceLocation logLocation;
+	public final ResourceLocation strippedLogLocation;
+	public final ResourceLocation logTopLocation;
+	public final ResourceLocation strippedLogTopLocation;
+
+	public SpecialTextureLocationsWood(ResourceLocation plankLoc, ResourceLocation logLoc,
+			ResourceLocation strippedLogLoc, ResourceLocation logTopLocation, ResourceLocation strippedLogTopLocation) {
 		this.plankLocation = plankLoc;
 		this.logLocation = logLoc;
 		this.strippedLogLocation = strippedLogLoc;
@@ -33,21 +35,22 @@ public class SpecialTextureLocationsWood {
 		public SpecialTextureLocationsWood deserialize(JsonElement json, Type typeOfT,
 				JsonDeserializationContext context) throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
-			String plank = null;
-			String log = null;
-			String strippedLog = null;
-			String logTop = null;
-			String strippedLogTop = null;
+			ResourceLocation plank = null;
+			ResourceLocation log = null;
+			ResourceLocation strippedLog = null;
+			ResourceLocation logTop = null;
+			ResourceLocation strippedLogTop = null;
+
 			if (j.get("plankLocation") != null)
-				plank = j.get("plankLocation").getAsString();
+				plank = ResourceLocation.parse(j.get("plankLocation").getAsString());
 			if (j.get("logLocation") != null)
-				log = j.get("logLocation").getAsString();
+				log = ResourceLocation.parse(j.get("logLocation").getAsString());
 			if (j.get("strippedLogLocation") != null)
-				strippedLog = j.get("strippedLogLocation").getAsString();
+				strippedLog = ResourceLocation.parse(j.get("strippedLogLocation").getAsString());
 			if (j.get("logTopLocation") != null)
-				logTop = j.get("logTopLocation").getAsString();
+				logTop = ResourceLocation.parse(j.get("logTopLocation").getAsString());
 			if (j.get("strippedLogTopLocation") != null)
-				strippedLogTop = j.get("strippedLogTopLocation").getAsString();
+				strippedLogTop = ResourceLocation.parse(j.get("strippedLogTopLocation").getAsString());
 
 			return new SpecialTextureLocationsWood(plank, log, strippedLog, logTop, strippedLogTop);
 		}
@@ -58,15 +61,15 @@ public class SpecialTextureLocationsWood {
 			JsonObject j = new JsonObject();
 
 			if (src.plankLocation != null)
-				j.addProperty("plankLocation", src.plankLocation);
+				j.addProperty("plankLocation", src.plankLocation.toString());
 			if (src.logLocation != null)
-				j.addProperty("logLocation", src.logLocation);
+				j.addProperty("logLocation", src.logLocation.toString());
 			if (src.strippedLogLocation != null)
-				j.addProperty("strippedLogLocation", src.strippedLogLocation);
-			if (src.logLocation != null)
-				j.addProperty("logTopLocation", src.logTopLocation);
-			if (src.strippedLogLocation != null)
-				j.addProperty("strippedLogTopLocation", src.strippedLogTopLocation);
+				j.addProperty("strippedLogLocation", src.strippedLogLocation.toString());
+			if (src.logTopLocation != null)
+				j.addProperty("logTopLocation", src.logTopLocation.toString());
+			if (src.strippedLogTopLocation != null)
+				j.addProperty("strippedLogTopLocation", src.strippedLogTopLocation.toString());
 
 			return j;
 		}

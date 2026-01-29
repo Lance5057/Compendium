@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SawBuckBlock extends StationGuiless {
 
 	public SawBuckBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion());
+		super(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).strength(3, 4).noOcclusion());
 	}
 
 	@Override

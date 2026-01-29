@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:oak_plank_stairs_item"
+      "tag": "c:stairs/planks/oak"
     }
   ],
   "result": {

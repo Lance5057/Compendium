@@ -229,7 +229,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		for (int i = 0; i < 5; i++) {
 			addParticle();
 		}
-		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
+		playFinalSound(player);
 
 		if (tool.isDamageableItem())
 			tool.hurtAndBreak(1, player, null);
@@ -238,6 +238,10 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		dropLoot(r.value().getTools().get(stage), player);
 		this.finishRecipe(player, r.value());
 		this.zeroProgress();
+	}
+
+	protected void playFinalSound(Player player) {
+		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
 	}
 
 	public ItemStack searchForNextItem(Level pLevel, Player player, InteractionHand hand, Ingredient ing) {

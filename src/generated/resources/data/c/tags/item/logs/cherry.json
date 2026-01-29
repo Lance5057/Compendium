@@ -1,5 +1,7 @@
 {
   "values": [
-    "compendium:cherry_logs_item"
+    "minecraft:cherry_log",
+    "minecraft:cherry_wood",
+    "compendium:cherry_small_logs_item"
   ]
 }

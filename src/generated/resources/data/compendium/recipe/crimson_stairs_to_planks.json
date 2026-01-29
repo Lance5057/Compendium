@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:crimson_plank_stairs_item"
+      "tag": "c:stairs/planks/crimson"
     }
   ],
   "result": {

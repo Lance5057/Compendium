@@ -1,5 +1,6 @@
 {
   "values": [
-    "compendium:warped_plank_block_item"
+    "minecraft:warped_planks",
+    "compendium:warped_planks_item"
   ]
 }

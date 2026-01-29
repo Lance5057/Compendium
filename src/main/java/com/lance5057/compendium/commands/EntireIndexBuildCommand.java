@@ -36,7 +36,7 @@ public class EntireIndexBuildCommand {
 
 	private static int run(CommandBuildContext ctx, Entity entity) throws CommandSyntaxException {
 		Level level = entity.level();
-		int x = 0;
+		int x = entity.getBlockX();
 		for (IIndexEntry ie : CompendiumIndex.index) {
 			if (ie instanceof _MaterialBase mb) {
 
@@ -51,7 +51,7 @@ public class EntireIndexBuildCommand {
 
 							for (int d = 0; d < data.length; d++) {
 								for (int i = 0; i < data[d].getTypes().size(); i++) {
-									BlockPos nPos = new BlockPos(x, 0, (i * 2));
+									BlockPos nPos = new BlockPos(x, entity.getBlockY(), entity.getBlockZ()+(i * 2));
 
 									level.setBlock(nPos, b.get().defaultBlockState(), Block.UPDATE_ALL);
 									SimpleStyleBlockEntity bentity = (SimpleStyleBlockEntity) level
@@ -68,7 +68,7 @@ public class EntireIndexBuildCommand {
 								}
 							}
 						} else {
-							BlockPos nPos = new BlockPos(x, 0, 0);
+							BlockPos nPos = new BlockPos(x, entity.getBlockY(), entity.getBlockZ());
 							level.setBlock(nPos, b.get().defaultBlockState(), Block.UPDATE_ALL);
 
 						}

@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -25,6 +26,8 @@ public class _DataGen {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 		ExistingFileHelper helperEmpty = new ExistingFileHelper(Set.of(Paths.get("", "")), Set.of(""), false, null,
 				null);
+		
+//		IndexInitialResourceLoader.doData();
 
 		generator.addProvider(event.includeClient(), new EngLoc(output));
 

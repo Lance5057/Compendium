@@ -19,7 +19,7 @@ public class CompendiumComponents {
 							.persistent(MultiMaterialBlockComponent.CODEC)
 							.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC).cacheEncoding().build());
 
-	public static Supplier<DataComponentType<StyleBlockComponent>> STYLE = COMPONENTS
-			.registerComponentType("style_block", builder -> builder.persistent(StyleBlockComponent.CODEC)
-					.networkSynchronized(StyleBlockComponent.STREAM_CODEC));
+	public static Supplier<DataComponentType<StyleBlockComponent>> STYLE = COMPONENTS.register("style_block",
+			() -> DataComponentType.<StyleBlockComponent>builder().persistent(StyleBlockComponent.CODEC)
+					.networkSynchronized(StyleBlockComponent.STREAM_CODEC).cacheEncoding().build());
 }

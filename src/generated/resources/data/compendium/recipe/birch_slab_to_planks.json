@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:birch_plank_slab_item"
+      "tag": "c:slabs/planks/birch"
     }
   ],
   "result": {

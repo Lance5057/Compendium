@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:jungle_plank_slab_item"
+      "tag": "c:slabs/planks/jungle"
     }
   ],
   "result": {

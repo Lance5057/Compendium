@@ -13,6 +13,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -35,6 +36,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -47,6 +49,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -56,9 +59,9 @@ public class MaterialTextile extends _MaterialBase {
 	 * 
 	 */
 	private static final long serialVersionUID = -2331511780363081257L;
-	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("block");
-	public CompendiumItemHandler STRING = new CompendiumItemHandler("string");
-	public CompendiumBlockHandler CARPET = new CompendiumBlockHandler("carpet");
+	public final CompendiumBlockHandler BLOCK;
+	public final CompendiumItemHandler STRING;
+	public final CompendiumBlockHandler CARPET;
 
 	@Nullable
 	@Since(1.1)
@@ -71,6 +74,9 @@ public class MaterialTextile extends _MaterialBase {
 	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string, Generate carpet,
 			SpecialLocationsTextile loc) {
 		super(name, tagNamespace);
+		BLOCK = new CompendiumBlockHandler(name + "_block");
+		STRING = new CompendiumItemHandler(name + "_string");
+		CARPET = new CompendiumBlockHandler(name + "_carpet");
 
 		BLOCK.setGenerate(block);
 		STRING.setGenerate(string);
@@ -84,7 +90,7 @@ public class MaterialTextile extends _MaterialBase {
 		return this.name;
 	}
 
-	private String fileLoc(String standard, String exists) {
+	private ResourceLocation fileLoc(ResourceLocation standard, ResourceLocation exists) {
 		if (exists != null) {
 			return exists;
 		}
@@ -111,37 +117,35 @@ public class MaterialTextile extends _MaterialBase {
 	}
 
 	private void setupCarpet(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
-		String standardItemLoc = this.name;
-		String standardBlockLoc = this.name;
+		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
+		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
 
 		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.blockLocation) : standardBlockLoc));
 
-//		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc,
+
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.blockLocation) : standardBlockLoc);
+
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
+		CARPET.setupItemTag(ItemTags.WOOL_CARPETS);
+		CARPET.setupBlockTag(ResourceLocation.fromNamespaceAndPath("farmersdelight", "mineable/knife"));
 	}
 
 	private void setupString(ExistsLocationsTextile existsItem) {
-		String standardItemLoc = this.name + "_string";
+		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_string");
 
-		STRING.setup(this, ResourceLocation.fromNamespaceAndPath(namespace,
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc));
+		STRING.setup(this, existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc);
 	}
 
 	private void setupBlock(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
-		String standardItemLoc = this.name;
-		String standardBlockLoc = this.name;
+		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
+		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
 
 		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.blockLocation) : standardBlockLoc));
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.carpetLocation) : standardItemLoc,
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.carpetLocation) : standardBlockLoc);
 
-//		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
+		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
 	}
 
@@ -172,11 +176,11 @@ public class MaterialTextile extends _MaterialBase {
 	public void itemModel(ItemModelProvider tmp) {
 		if (BLOCK.shouldGenerate())
 			tmp.getBuilder(BLOCK.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-					ResourceLocation.fromNamespaceAndPath(namespace, BLOCK.location(this) + "block")));
+					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + BLOCK.name)));
 
 		if (CARPET.shouldGenerate())
 			tmp.getBuilder(CARPET.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-					ResourceLocation.fromNamespaceAndPath(namespace, CARPET.location(this) + "carpet")));
+					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + CARPET.name)));
 
 		this.extensions.forEach(i -> i.itemModel(this, tmp));
 	}
@@ -209,14 +213,18 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void setupItemTags(ItemTagsProvider itp) {
-		// TODO Auto-generated method stub
+		BLOCK.itemTag(itp);
+		CARPET.itemTag(itp);
+		STRING.itemTag(itp);
 
+		this.extensions.forEach(i -> i.setupItemTags(this, itp));
 	}
 
 	@Override
-	public void setupBlockTags(BlockTagsProvider itp) {
-		// TODO Auto-generated method stub
-
+	public void setupBlockTags(BlockTagsProvider btp) {
+		BLOCK.blockTag(btp);
+		CARPET.blockTag(btp);
+		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
 	}
 
 	@Override

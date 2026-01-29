@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:cherry_plank_slab_item"
+      "tag": "c:slabs/planks/cherry"
     }
   ],
   "result": {

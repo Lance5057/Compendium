@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "tag": "c:plank/spruce"
+    }
+  },
+  "pattern": [
+    "p p",
+    "   ",
+    "p p"
+  ],
+  "result": {
+    "count": 2,
+    "id": "compendium:spruce_planks_item"
+  }
+}

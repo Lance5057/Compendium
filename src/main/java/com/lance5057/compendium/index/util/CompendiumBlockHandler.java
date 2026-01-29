@@ -7,7 +7,6 @@ import java.util.function.Supplier;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
-import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
@@ -39,8 +38,15 @@ public class CompendiumBlockHandler implements Serializable {
 	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 	public transient List<TagKey<Block>> blockTag = new ArrayList<TagKey<Block>>();
 
+	public CompendiumBlockHandler() {
+	}
+
 	public CompendiumBlockHandler(String n) {
 		name = n;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean shouldGenerate() {
@@ -81,11 +87,11 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
-		return base.BLOCKS.register(base.name + "_" + name, block);
+		return base.BLOCKS.register(name, block);
 	}
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
-		return base.ITEMS.register(base.name + "_" + name + "_item", item);
+		return base.ITEMS.register(name + "_item", item);
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
@@ -114,21 +120,23 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		for (TagKey<Item> tag : itemTag)
-			itp.tag(tag).add(BLOCK_ITEM.asItem());
+		if (!this.isIgnored())
+			for (TagKey<Item> tag : itemTag)
+				itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-		for (TagKey<Block> tag : blockTag)
-			btp.tag(tag).add(BLOCK.get());
+		if (!this.isIgnored())
+			for (TagKey<Block> tag : blockTag)
+				btp.tag(tag).add(BLOCK.get());
 	}
 
 	public boolean is(ItemStack item) {
 		if (BLOCK_ITEM != null && BLOCK_ITEM.isBound() && item.is(BLOCK_ITEM))
 			return true;
-		for (TagKey<Item> key : this.itemTag)
-			if (item.is(key))
-				return true;
+//		for (TagKey<Item> key : this.itemTag)
+//			if (item.is(key))
+//				return true;
 		return false;
 	}
 

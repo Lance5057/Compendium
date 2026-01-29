@@ -1,5 +1,6 @@
 {
   "values": [
-    "compendium:crimson_plank_block_item"
+    "minecraft:crimson_planks",
+    "compendium:crimson_planks_item"
   ]
 }

@@ -53,7 +53,7 @@ public class ToolRackBlock extends RecipeToolSupplierBlock implements EntityBloc
 	protected VoxelShape SHAPE_BOTTOM_WEST = Block.box(0.0D, 8.0D, 13.0D, 16.0D, 16.0D, 16.0D);
 
 	public ToolRackBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion());
+		super(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

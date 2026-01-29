@@ -2,22 +2,12 @@
   "type": "compendium:workbench_material",
   "input": {
     "key": {
-      "b": [
-        {
-          "tag": "c:storage_blocks"
-        },
-        {
-          "tag": "c:storage_blocks/iron"
-        }
-      ],
-      "i": [
-        {
-          "tag": "c:ingots"
-        },
-        {
-          "tag": "c:ingots/iron"
-        }
-      ],
+      "b": {
+        "tag": "c:ingots/iron"
+      },
+      "i": {
+        "tag": "c:ingots/iron"
+      },
       "s": {
         "item": "minecraft:stick"
       }

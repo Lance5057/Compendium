@@ -1,5 +1,7 @@
 {
   "values": [
-    "compendium:jungle_logs_item"
+    "minecraft:jungle_log",
+    "minecraft:jungle_wood",
+    "compendium:jungle_small_logs_item"
   ]
 }

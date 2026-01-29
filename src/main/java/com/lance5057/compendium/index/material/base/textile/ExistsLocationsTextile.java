@@ -10,14 +10,16 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-public class ExistsLocationsTextile {
-	String blockLocation;
-	String stringLocation;
-	String carpetLocation;
+import net.minecraft.resources.ResourceLocation;
 
-	public ExistsLocationsTextile(String block, String string, String carpet) {
+public class ExistsLocationsTextile {
+	ResourceLocation blockLocation;
+	ResourceLocation ResourceLocationLocation;
+	ResourceLocation carpetLocation;
+
+	public ExistsLocationsTextile(ResourceLocation block, ResourceLocation ResourceLocation, ResourceLocation carpet) {
 		this.blockLocation = block;
-		this.stringLocation = string;
+		this.ResourceLocationLocation = ResourceLocation;
 		this.carpetLocation = carpet;
 	}
 
@@ -29,18 +31,19 @@ public class ExistsLocationsTextile {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String block = null;
-			String string = null;
-			String carpet = null;
+			ResourceLocation block = null;
+			ResourceLocation ResourceLocation = null;
+			ResourceLocation carpet = null;
 
 			if (j.get("blockLocation") != null)
-				block = j.get("blockLocation").getAsString();
-			if (j.get("stringLocation") != null)
-				string = j.get("stringLocation").getAsString();
+				block = net.minecraft.resources.ResourceLocation.parse(j.get("blockLocation").toString());
+			if (j.get("ResourceLocationLocation") != null)
+				ResourceLocation = net.minecraft.resources.ResourceLocation
+						.parse(j.get("ResourceLocationLocation").toString());
 			if (j.get("carpetLocation") != null)
-				string = j.get("carpetLocation").getAsString();
+				ResourceLocation = net.minecraft.resources.ResourceLocation.parse(j.get("carpetLocation").toString());
 
-			return new ExistsLocationsTextile(block, string, carpet);
+			return new ExistsLocationsTextile(block, ResourceLocation, carpet);
 		}
 
 		@Override
@@ -48,11 +51,11 @@ public class ExistsLocationsTextile {
 			JsonObject j = new JsonObject();
 
 			if (src.blockLocation != null)
-				j.addProperty("blockLocation", src.blockLocation);
-			if (src.stringLocation != null)
-				j.addProperty("stringLocation", src.stringLocation);
+				j.addProperty("blockLocation", src.blockLocation.toString());
+			if (src.ResourceLocationLocation != null)
+				j.addProperty("ResourceLocationLocation", src.ResourceLocationLocation.toString());
 			if (src.carpetLocation != null)
-				j.addProperty("carpetLocation", src.carpetLocation);
+				j.addProperty("carpetLocation", src.carpetLocation.toString());
 
 			return j;
 		}

@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
@@ -47,6 +48,9 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.CommonTags;
+import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 public class MaterialWood extends _MaterialBase {
 
@@ -54,11 +58,11 @@ public class MaterialWood extends _MaterialBase {
 	 * 
 	 */
 	private static final long serialVersionUID = 9135211794674294863L;
-	public CompendiumBlockHandler PLANKS = new CompendiumBlockHandler("planks");
-	public CompendiumBlockHandler LOG = new CompendiumBlockHandler("log");
-	public CompendiumBlockHandler STRIPPED_LOG = new CompendiumBlockHandler("stripped_log");
-	public CompendiumBlockHandler WOOD = new CompendiumBlockHandler("wood");
-	public CompendiumBlockHandler STRIPPED_WOOD = new CompendiumBlockHandler("stripped_wood");
+	public final CompendiumBlockHandler PLANKS;
+	public final CompendiumBlockHandler LOG;
+	public final CompendiumBlockHandler STRIPPED_LOG;
+	public final CompendiumBlockHandler WOOD;
+	public final CompendiumBlockHandler STRIPPED_WOOD;
 
 	@Nullable
 	@Since(1.1)
@@ -78,6 +82,12 @@ public class MaterialWood extends _MaterialBase {
 			Generate wood, Generate stripped_wood, SpecialLocationsWood loc) {
 		super(name, namespace);
 
+		PLANKS = new CompendiumBlockHandler(name + "_planks");
+		LOG = new CompendiumBlockHandler(name + "_log");
+		STRIPPED_LOG = new CompendiumBlockHandler("stripped_" + name + "_log");
+		WOOD = new CompendiumBlockHandler(name + "_wood");
+		STRIPPED_WOOD = new CompendiumBlockHandler("stripped_" + name + "_wood");
+
 		PLANKS.setGenerate(planks);
 		LOG.setGenerate(log);
 		STRIPPED_LOG.setGenerate(stripped_log);
@@ -92,12 +102,12 @@ public class MaterialWood extends _MaterialBase {
 		return this.name;
 	}
 
-	private String fileLoc(String standard, String exists) {
-		if (exists != null) {
-			return exists;
+	private ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation strippedWoodLocation) {
+		if (strippedWoodLocation != null) {
+			return strippedWoodLocation;
 		}
 
-		return standard;
+		return standardLoc;
 	}
 
 	@Override
@@ -124,13 +134,12 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupStrippedWood(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
-		String standardLoc = this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae");
+		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace,
+				"stripped_" + this.name + (!isNether ? "_wood" : "_hyphae"));
 
 		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardLoc, existsItem.strippedWoodLocation) : standardLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedWoodLocation) : standardLoc));
+				existsItem != null ? fileLoc(standardLoc, existsItem.strippedWoodLocation) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedWoodLocation) : standardLoc);
 
 		STRIPPED_WOOD.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -140,13 +149,12 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupWood(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
-		String standardLoc = this.name + "_stripped" + (!isNether ? "_wood" : "_hyphae");
+		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace,
+				this.name + (!isNether ? "_wood" : "_hyphae"));
 
 		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardLoc, existsItem.woodLocation) : standardLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardLoc, existsBlock.woodLocation) : standardLoc));
+				existsItem != null ? fileLoc(standardLoc, existsItem.woodLocation) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.woodLocation) : standardLoc);
 
 		WOOD.setupItemTag(ItemTags.LOGS);
 		WOOD.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -156,13 +164,12 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupStrippedLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
-		String standardLoc = this.name + "_stripped" + (!isNether ? "_log" : "_stem");
+		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace,
+				"stripped_" + this.name + (!isNether ? "_log" : "_stem"));
 
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardLoc, existsItem.strippedLogLocation) : standardLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedLogLocation) : standardLoc));
+				existsItem != null ? fileLoc(standardLoc, existsItem.strippedLogLocation) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedLogLocation) : standardLoc);
 
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -170,13 +177,12 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
-		String standardLoc = this.name + (!isNether ? "_log" : "_stem");
+		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace,
+				this.name + (!isNether ? "_log" : "_stem"));
 
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsItem != null ? fileLoc(standardLoc, existsItem.plankLocation) : standardLoc),
-				ResourceLocation.fromNamespaceAndPath(namespace,
-						existsBlock != null ? fileLoc(standardLoc, existsBlock.plankLocation) : standardLoc));
+				existsItem != null ? fileLoc(standardLoc, existsItem.logLocation) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.logLocation) : standardLoc);
 
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -184,14 +190,15 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupPlanks(ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
-		String standardLoc = this.name + "_planks";
+		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_planks");
 
-		String specialItem = existsItem != null ? fileLoc(standardLoc, existsItem.plankLocation) : standardLoc;
-		String specialBlock = existsBlock != null ? fileLoc(standardLoc, existsBlock.plankLocation) : standardLoc;
+		ResourceLocation specialItem = existsItem != null ? fileLoc(standardLoc, existsItem.plankLocation)
+				: standardLoc;
+		ResourceLocation specialBlock = existsBlock != null ? fileLoc(standardLoc, existsBlock.plankLocation)
+				: standardLoc;
 
-		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
-				ResourceLocation.fromNamespaceAndPath(namespace, specialItem),
-				ResourceLocation.fromNamespaceAndPath(namespace, specialBlock));
+		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), specialItem,
+				specialBlock);
 
 		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
@@ -211,29 +218,47 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void blockStateModel(BlockStateProvider bsp) {
+		ResourceLocation plankTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_planks");
+		ResourceLocation logTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log");
+		ResourceLocation logTopTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log_top");
+		ResourceLocation strippedLogTexture = ResourceLocation.fromNamespaceAndPath(namespace,
+				"block/stripped_" + name + "_log");
+		ResourceLocation strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(namespace,
+				"block/stripped_" + name + "_log_top");
+
+		if (this.specialLocations != null) {
+			if (specialLocations.textures != null) {
+				if (specialLocations.textures.plankLocation != null)
+					plankTexture = specialLocations.textures.plankLocation;
+				if (specialLocations.textures.logLocation != null)
+					logTexture = specialLocations.textures.logLocation;
+				if (specialLocations.textures.logTopLocation != null)
+					logTopTexture = specialLocations.textures.logTopLocation;
+				if (specialLocations.textures.strippedLogLocation != null)
+					strippedLogTexture = specialLocations.textures.strippedLogLocation;
+				if (specialLocations.textures.strippedLogTopLocation != null)
+					strippedLogTopTexture = specialLocations.textures.strippedLogTopLocation;
+			}
+		}
 		if (PLANKS.shouldGenerate()) {
-			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState().addModels(new ConfiguredModel(
-					bsp.models().cubeAll(this.blockFolder() + PLANKS.name, bsp.blockTexture(PLANKS.BLOCK.get()))));
+			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState().addModels(
+					new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + PLANKS.name, plankTexture)));
 		}
 
 		if (LOG.shouldGenerate()) {
-			bsp.logBlock((RotatedPillarBlock) LOG.BLOCK.get());
+			bsp.axisBlock((RotatedPillarBlock) LOG.BLOCK.get(), logTexture, logTopTexture);
 		}
 
 		if (STRIPPED_LOG.shouldGenerate()) {
-			bsp.logBlock((RotatedPillarBlock) STRIPPED_LOG.BLOCK.get());
+			bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG.BLOCK.get(), strippedLogTexture, strippedLogTopTexture);
 		}
 
 		if (WOOD.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) WOOD.BLOCK.get(),
-					ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log"),
-					ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log"));
+			bsp.axisBlock((RotatedPillarBlock) WOOD.BLOCK.get(), logTexture, logTexture);
 		}
 
 		if (STRIPPED_WOOD.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) STRIPPED_WOOD.BLOCK.get(),
-					ResourceLocation.fromNamespaceAndPath(namespace, "block/stripped_" + name + "_log"),
-					ResourceLocation.fromNamespaceAndPath(namespace, "block/stripped_" + name + "_log"));
+			bsp.axisBlock((RotatedPillarBlock) STRIPPED_WOOD.BLOCK.get(), strippedLogTexture, strippedLogTexture);
 		}
 
 		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
@@ -275,6 +300,20 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
+		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
+			CuttingBoardRecipeBuilder
+					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+							STRIPPED_LOG.BLOCK_ITEM, 1)
+					.addResult(ModItems.TREE_BARK.get())
+					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_log"));
+
+		if (!WOOD.isIgnored() && !STRIPPED_WOOD.isIgnored())
+			CuttingBoardRecipeBuilder
+					.cuttingRecipe(Ingredient.of(WOOD.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+							STRIPPED_WOOD.BLOCK_ITEM, 1)
+					.addResult(ModItems.TREE_BARK.get())
+					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_wood"));
+
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
@@ -295,11 +334,23 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void setupItemTags(ItemTagsProvider itp) {
+		LOG.itemTag(itp);
+		PLANKS.itemTag(itp);
+		STRIPPED_LOG.itemTag(itp);
+		STRIPPED_WOOD.itemTag(itp);
+		WOOD.itemTag(itp);
+
 		this.extensions.forEach(i -> i.setupItemTags(this, itp));
 	}
 
 	@Override
 	public void setupBlockTags(BlockTagsProvider btp) {
+		LOG.blockTag(btp);
+		PLANKS.blockTag(btp);
+		STRIPPED_LOG.blockTag(btp);
+		STRIPPED_WOOD.blockTag(btp);
+		WOOD.blockTag(btp);
+
 		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
 	}
 

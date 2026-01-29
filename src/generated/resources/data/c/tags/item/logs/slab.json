@@ -1,14 +1,14 @@
 {
   "values": [
-    "compendium:acacia_logs_slab_item",
-    "compendium:birch_logs_slab_item",
-    "compendium:cherry_logs_slab_item",
-    "compendium:crimson_logs_slab_item",
-    "compendium:dark_oak_logs_slab_item",
-    "compendium:jungle_logs_slab_item",
-    "compendium:mangrove_logs_slab_item",
-    "compendium:oak_logs_slab_item",
-    "compendium:spruce_logs_slab_item",
-    "compendium:warped_logs_slab_item"
+    "compendium:acacia_small_logs_slab_item",
+    "compendium:birch_small_logs_slab_item",
+    "compendium:cherry_small_logs_slab_item",
+    "compendium:crimson_small_logs_slab_item",
+    "compendium:dark_oak_small_logs_slab_item",
+    "compendium:jungle_small_logs_slab_item",
+    "compendium:mangrove_small_logs_slab_item",
+    "compendium:oak_small_logs_slab_item",
+    "compendium:spruce_small_logs_slab_item",
+    "compendium:warped_small_logs_slab_item"
   ]
 }

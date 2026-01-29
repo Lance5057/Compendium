@@ -1,5 +1,7 @@
 {
   "values": [
-    "compendium:acacia_logs_item"
+    "minecraft:acacia_log",
+    "minecraft:acacia_wood",
+    "compendium:acacia_small_logs_item"
   ]
 }

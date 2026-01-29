@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:acacia_plank_stairs_item"
+      "tag": "c:stairs/planks/acacia"
     }
   ],
   "result": {

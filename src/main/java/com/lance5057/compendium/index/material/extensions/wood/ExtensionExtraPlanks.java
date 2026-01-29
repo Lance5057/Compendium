@@ -35,7 +35,6 @@ import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
-import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
@@ -57,6 +56,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
@@ -99,10 +99,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK_STAIRS;
 
 	public ExtensionExtraPlanks(Generate plank, Generate plankBlock, Generate plankSlab, Generate plankStairs) {
-		PLANK = new CompendiumBlockHandler("plank");
-		PLANK_BLOCK = new CompendiumBlockHandler("plank_block");
-		PLANK_SLAB = new CompendiumBlockHandler("plank_slab");
-		PLANK_STAIRS = new CompendiumBlockHandler("plank_stairs");
+		PLANK = new CompendiumBlockHandler();
+		PLANK_BLOCK = new CompendiumBlockHandler();
+		PLANK_SLAB = new CompendiumBlockHandler();
+		PLANK_STAIRS = new CompendiumBlockHandler();
 
 		PLANK.setGenerate(plank);
 		PLANK_BLOCK.setGenerate(plankBlock);
@@ -112,6 +112,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
+		PLANK.setName(base.name + "_plank");
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.extraFolder() + "plank"), List.of("plank"), StyleData.PLANK),
@@ -125,6 +126,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		PLANK.setAsValidStyleBlock();
 
+		PLANK_BLOCK.setName(base.name + "_planks");
 		PLANK_BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.extraFolder() + "planks"), List.of("plank_block"), StyleData.PLANKS),
@@ -139,6 +141,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_BLOCK.setAsValidStyleBlock();
 		PLANK_BLOCK.setAsValidStyleItem();
 
+		PLANK_SLAB.setName(base.name + "_planks_slab");
 		PLANK_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
 						Compendium.modLoc(base.extraFolder() + "plank_slab"), List.of("plank_block"), StyleData.PLANKS),
@@ -154,6 +157,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setAsValidStyleBlock();
 		PLANK_SLAB.setAsValidStyleItem();
 
+		PLANK_STAIRS.setName(base.name + "_planks_stairs");
 		PLANK_STAIRS.setup(base, () -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
 				Compendium.modLoc(base.extraFolder() + "plank_stairs"), List.of("plank_block"), StyleData.PLANKS),
@@ -522,30 +526,21 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
 		if (!this.PLANK.isIgnored()) {
 			SawBuckRecipeBuilder
-					.saw(Ingredient.of(TagKey.create(Registries.ITEM,
-							ResourceLocation.withDefaultNamespace("log/small/" + base.name))),
+					.saw(Ingredient.of(TagKey.create(Registries.ITEM, TagUtil.neoTag("logs/small/" + base.name))),
 							new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
 					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
-							new BlacklistedModel(TagUtil.modLoc("extra/split_log_stage3"), true,
-									new AnimationFloatTransform()
-											.setRotation(new AnimatedFloatVector3().setY(
-													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
-											.setLocation(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.000F, -8.000F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.000F, -13.000F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.000F, 20.000F, 0.000F, 0.000F, false,
-															false)))
-											.setScale(new AnimatedFloatVector3()
-													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-															false))
-													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-															false))
-													.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false,
-															false)))))
-					.save(consumer);
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage3"), 0))
+					.save(consumer, base.name + "_plank_from_small");
+
+			SawBuckRecipeBuilder
+					.saw(Ingredient
+							.of(TagKey.create(Registries.ITEM, TagUtil.neoTag("stripped_logs/small/" + base.name))),
+							new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
+					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
+							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("extra/split_log_stage3"), 0))
+					.save(consumer, base.name + "_plank_from_stripped");
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ((MaterialWood) base).PLANKS.BLOCK_ITEM, 2)
 					.define('p', PLANK.BLOCK_ITEM).pattern("pp").pattern("pp")
@@ -557,56 +552,70 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			if (!this.PLANK_BLOCK.isIgnored()) {
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
-						.define('p', PLANK.BLOCK_ITEM).pattern("p p").pattern("   ").pattern("p p")
+						.define('p', ItemTags.create(TagUtil.neoTag("plank/" + base.name))).pattern("p p")
+						.pattern("   ").pattern("p p")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
 										List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
 						.save(consumer);
+
+				if (!this.PLANK.isIgnored()) {
+					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 2)
+							.requires(ItemTags.create(TagUtil.neoTag("planks/" + base.name)))
+							.unlockedBy("plank_slab",
+									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
+											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+													List.of(ItemPredicate.Builder.item()
+															.of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+							.save(consumer, TagUtil.modLoc(base.name + "_planks_to_planks"));
+				}
 			}
 
 			if (!this.PLANK_SLAB.isIgnored()) {
-				WorkbenchRecipeBuilder.shaped(PLANK_SLAB.BLOCK_ITEM, 6).define('p', PLANK.BLOCK_ITEM).pattern("ppp")
+				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_SLAB.BLOCK_ITEM, 6)
+						.define('p', ItemTags.create(TagUtil.neoTag("plank/" + base.name))).pattern("ppp")
 						.pattern("ppp")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
 										List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
-				ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-						.requires(PLANK_SLAB.BLOCK_ITEM)
-						.unlockedBy("plank_slab",
-								CriteriaTriggers.INVENTORY_CHANGED
-										.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-												InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-												List.of(ItemPredicate.Builder.item().of(PLANK_SLAB.BLOCK_ITEM.asItem())
-														.build()))))
-						.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
+				if (!this.PLANK.isIgnored()) {
+					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
+							.requires(ItemTags.create(TagUtil.neoTag("slabs/planks/" + base.name)))
+							.unlockedBy("plank_slab",
+									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
+											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+													List.of(ItemPredicate.Builder.item()
+															.of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+							.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
+				}
 			}
 
 			if (!this.PLANK_STAIRS.isIgnored()) {
-				WorkbenchRecipeBuilder.shaped(PLANK_STAIRS.BLOCK_ITEM, 6).define('p', PLANK.BLOCK_ITEM).pattern("p  ")
-						.pattern("pp ").pattern("ppp")
+				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_STAIRS.BLOCK_ITEM, 6)
+						.define('p', PLANK.BLOCK_ITEM).pattern("p  ").pattern("pp ").pattern("ppp")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
 										List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem()).build()))))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
-				ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-						.requires(PLANK_STAIRS.BLOCK_ITEM)
-						.unlockedBy("plank_stairs",
-								CriteriaTriggers.INVENTORY_CHANGED
-										.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-												InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-												List.of(ItemPredicate.Builder.item()
-														.of(PLANK_STAIRS.BLOCK_ITEM.asItem()).build()))))
-						.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
+				if (!this.PLANK.isIgnored()) {
+					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
+							.requires(ItemTags.create(TagUtil.neoTag("stairs/planks/" + base.name)))
+							.unlockedBy("plank_stairs",
+									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
+											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+													List.of(ItemPredicate.Builder.item()
+															.of(PLANK_STAIRS.BLOCK_ITEM.asItem()).build()))))
+							.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
+				}
 			}
 		}
 	}
@@ -617,7 +626,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			blp.add(PLANK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK.BLOCK.get()));
 		}
 		if (!this.PLANK_BLOCK.isIgnored()) {
-			blp.add(PLANK_BLOCK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_STAIRS.BLOCK.get()));
+			blp.add(PLANK_BLOCK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_BLOCK.BLOCK.get()));
 		}
 		if (!this.PLANK_SLAB.isIgnored()) {
 			blp.add(PLANK_SLAB.BLOCK.get(), this.createSlabItemTable(PLANK_SLAB.BLOCK.get()));

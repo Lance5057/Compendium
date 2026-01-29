@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:dark_oak_plank_slab_item"
+      "tag": "c:slabs/planks/dark_oak"
     }
   ],
   "result": {

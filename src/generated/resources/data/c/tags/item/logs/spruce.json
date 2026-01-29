@@ -1,5 +1,7 @@
 {
   "values": [
-    "compendium:spruce_logs_item"
+    "minecraft:spruce_log",
+    "minecraft:spruce_wood",
+    "compendium:spruce_small_logs_item"
   ]
 }

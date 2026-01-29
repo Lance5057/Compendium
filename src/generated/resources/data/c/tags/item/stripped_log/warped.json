@@ -1,5 +1,7 @@
 {
   "values": [
-    "compendium:warped_stripped_logs_item"
+    "minecraft:stripped_warped_stem",
+    "minecraft:stripped_warped_hyphae",
+    "compendium:stripped_warped_small_logs_item"
   ]
 }

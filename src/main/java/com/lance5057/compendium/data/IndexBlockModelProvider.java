@@ -86,8 +86,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 	public void doTextile(_MaterialBase mb) {
 		if (mb instanceof MaterialTextile mt) {
 
-			String blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name)
-					.toString();
+			String blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name).toString();
 			if (mt.specialLocations != null) {
 				if (mt.specialLocations.textures != null)
 					if (mt.specialLocations.textures.blockLocation != null)
@@ -318,14 +317,12 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				logstem = "log";
 			}
 
-			String planksTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name + "_planks")
-					.toString();
+			ResourceLocation planksTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+					"block/" + mb.name + "_planks");
 			if (mw.specialLocations != null) {
 				if (mw.specialLocations.textures != null)
 					if (mw.specialLocations.textures.plankLocation != null)
-						planksTexture = ResourceLocation
-								.fromNamespaceAndPath(mb.namespace, mw.specialLocations.textures.plankLocation)
-								.toString();
+						planksTexture = mw.specialLocations.textures.plankLocation;
 			}
 
 			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
@@ -516,8 +513,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,
-											"block/" + mb.name + "_" + logstem));
+									.texture("1", planksTexture);
 
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/occupied/"
@@ -526,15 +522,13 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,
-											"block/" + mb.name + "_" + logstem));
+									.texture("1", planksTexture);
 
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
 									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
 									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-									.texture("1", ResourceLocation.fromNamespaceAndPath(mb.namespace,
-											"block/" + mb.name + "_" + logstem));
+									.texture("1", planksTexture);
 						} else if (b.equals("weave")) {
 							withExistingParent(
 									"block/material/wood/" + mb.name + "/bed/unoccupied/"

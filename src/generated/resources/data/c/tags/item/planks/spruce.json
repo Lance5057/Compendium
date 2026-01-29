@@ -1,5 +1,6 @@
 {
   "values": [
-    "compendium:spruce_plank_block_item"
+    "minecraft:spruce_planks",
+    "compendium:spruce_planks_item"
   ]
 }

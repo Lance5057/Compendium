@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "compendium:oak_plank_slab_item"
+      "tag": "c:slabs/planks/oak"
     }
   ],
   "result": {

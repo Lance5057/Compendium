@@ -10,15 +10,17 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-public class ExistsLocationsWood {
-	String plankLocation;
-	String logLocation;
-	String strippedLogLocation;
-	String woodLocation;
-	String strippedWoodLocation;
+import net.minecraft.resources.ResourceLocation;
 
-	public ExistsLocationsWood(String plankLoc, String logLoc, String strippedLogLoc, String woodLoc,
-			String strippedWoodLoc) {
+public class ExistsLocationsWood {
+	ResourceLocation plankLocation;
+	ResourceLocation logLocation;
+	ResourceLocation strippedLogLocation;
+	ResourceLocation woodLocation;
+	ResourceLocation strippedWoodLocation;
+
+	public ExistsLocationsWood(ResourceLocation plankLoc, ResourceLocation logLoc, ResourceLocation strippedLogLoc,
+			ResourceLocation woodLoc, ResourceLocation strippedWoodLoc) {
 		this.plankLocation = plankLoc;
 		this.logLocation = logLoc;
 		this.strippedLogLocation = strippedLogLoc;
@@ -34,22 +36,22 @@ public class ExistsLocationsWood {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String plank = null;
-			String log = null;
-			String strippedLog = null;
-			String wood = null;
-			String strippedWood = null;
+			ResourceLocation plank = null;
+			ResourceLocation log = null;
+			ResourceLocation strippedLog = null;
+			ResourceLocation wood = null;
+			ResourceLocation strippedWood = null;
 
 			if (j.get("plankLocation") != null)
-				plank = j.get("plankLocation").getAsString();
+				plank = ResourceLocation.parse(j.get("plankLocation").getAsString());
 			if (j.get("logLocation") != null)
-				log = j.get("logLocation").getAsString();
+				log = ResourceLocation.parse(j.get("logLocation").getAsString());
 			if (j.get("strippedLogLocation") != null)
-				strippedLog = j.get("strippedLogLocation").getAsString();
+				strippedLog = ResourceLocation.parse(j.get("strippedLogLocation").getAsString());
 			if (j.get("woodLocation") != null)
-				wood = j.get("woodLocation").getAsString();
+				wood = ResourceLocation.parse(j.get("woodLocation").getAsString());
 			if (j.get("strippedWoodLocation") != null)
-				strippedWood = j.get("strippedWoodLocation").getAsString();
+				strippedWood = ResourceLocation.parse(j.get("strippedWoodLocation").getAsString());
 
 			return new ExistsLocationsWood(plank, log, strippedLog, wood, strippedWood);
 		}
@@ -59,15 +61,15 @@ public class ExistsLocationsWood {
 			JsonObject j = new JsonObject();
 
 			if (src.plankLocation != null)
-				j.addProperty("plankLocation", src.plankLocation);
+				j.addProperty("plankLocation", src.plankLocation.toString());
 			if (src.logLocation != null)
-				j.addProperty("logLocation", src.logLocation);
+				j.addProperty("logLocation", src.logLocation.toString());
 			if (src.strippedLogLocation != null)
-				j.addProperty("strippedLogLocation", src.strippedLogLocation);
+				j.addProperty("strippedLogLocation", src.strippedLogLocation.toString());
 			if (src.woodLocation != null)
-				j.addProperty("woodLocation", src.woodLocation);
+				j.addProperty("woodLocation", src.woodLocation.toString());
 			if (src.strippedWoodLocation != null)
-				j.addProperty("strippedWoodLocation", src.strippedWoodLocation);
+				j.addProperty("strippedWoodLocation", src.strippedWoodLocation.toString());
 
 			return j;
 		}

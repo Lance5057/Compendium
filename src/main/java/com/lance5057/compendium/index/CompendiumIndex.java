@@ -39,22 +39,36 @@ public class CompendiumIndex {
 	public static String getDefaultMaterialFromType(MATERIAL_TYPES type) {
 		switch (type) {
 		case METAL:
-			return "iron";
+			return findDefault(MATERIAL_TYPES.METAL);
 		case WOOD:
-			return "oak";
+			return findDefault(MATERIAL_TYPES.WOOD);
 		case GEM:
-			return "diamond";
+			return findDefault(MATERIAL_TYPES.GEM);
 		case GLASS:
-			return "clear";
+			return findDefault(MATERIAL_TYPES.GLASS);
 		case TEXTILE:
-			return "white_wool";
+			return findDefault(MATERIAL_TYPES.TEXTILE);
 		case CERAMIC:
-			return "terracotta";
+			return findDefault(MATERIAL_TYPES.CERAMIC);
 		case STONE:
-			return "stone";
+			return findDefault(MATERIAL_TYPES.STONE);
 		default:
-			return "oak";
+			return "";
 		}
+	}
+
+	private static String findDefault(MATERIAL_TYPES type) {
+		Optional<IIndexEntry> metal = index.stream().filter(i -> {
+			if (i instanceof _MaterialBase mb)
+				return mb.getType() == type;
+			return false;
+		}).findAny();
+
+		if (metal.isPresent())
+			return metal.get().getName();
+
+		Compendium.LOGGER.error("No valid" + type.toString() + " types in index!");
+		return "";
 	}
 
 	public static List<String> getAllMaterialsForType(List<MATERIAL_TYPES> types) {

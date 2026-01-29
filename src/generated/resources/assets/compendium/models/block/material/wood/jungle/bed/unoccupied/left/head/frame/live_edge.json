@@ -2,6 +2,6 @@
   "parent": "compendium:block/furniture/bed/unoccupied/left/head/frame/live_edge",
   "textures": {
     "0": "compendium:block/material/wood/jungle/logs/log_split_side",
-    "1": "minecraft:block/jungle_log"
+    "1": "minecraft:block/jungle_planks"
   }
 }

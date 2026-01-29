@@ -137,9 +137,9 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false, false))
 								.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
 						.setScale(new AnimatedFloatVector3()
-								.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
-								.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
-								.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))));
+								.setX(new AnimatedFloat(1.000F, 2.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))));
 	}
 
 	public static BlacklistedModel standardWorkbenchRightHandItemModel(ResourceLocation i, float yOffset) {
