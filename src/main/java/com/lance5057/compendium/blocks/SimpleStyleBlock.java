@@ -20,7 +20,8 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	final ResourceLocation itemRendererLocation;
 	List<String> styleBases;
 
-	public SimpleStyleBlock(Properties properties, ResourceLocation itemRendererLocation,List<String> styleBases, StyleData... styles) {
+	public SimpleStyleBlock(Properties properties, ResourceLocation itemRendererLocation, List<String> styleBases,
+			StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
@@ -37,7 +38,8 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
 			if (styles.length > i) {
-				s.add(styles[i].getTypes().get(current.get(i)));
+				if (styles[i].getTypes().size() > current.get(i))
+					s.add(styles[i].getTypes().get(current.get(i)));
 			}
 		}
 
@@ -60,7 +62,7 @@ public class SimpleStyleBlock extends Block implements EntityBlock, IStyleBlock 
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
-	
+
 	@Override
 	public StyleData[] getStyleData() {
 		return this.styles;

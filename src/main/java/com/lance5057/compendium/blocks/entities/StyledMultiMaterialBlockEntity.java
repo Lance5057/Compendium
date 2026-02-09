@@ -126,7 +126,7 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 
 		MultiMaterialBlockComponent mm = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (mm != null) {
-			this.setMaterials(mm.types());
+			this.setMaterials(mm.getTypes());
 		}
 	}
 

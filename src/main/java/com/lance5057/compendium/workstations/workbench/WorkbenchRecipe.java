@@ -87,8 +87,8 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 		if (s.has(CompendiumComponents.MULTI_MATERIAL)) {
 			MultiMaterialBlockComponent mmbc = s.get(CompendiumComponents.MULTI_MATERIAL);
 
-			List<MultiMaterialType> mats = mmbc.types(); // Immutable
-			List<MultiMaterialType> newMats = new ArrayList<MultiMaterialType>(mmbc.types());
+			List<MultiMaterialType> mats = mmbc.getTypes(); // Immutable
+			List<MultiMaterialType> newMats = new ArrayList<MultiMaterialType>(mmbc.getTypes());
 
 			for (SlotToMaterial sm : matSlots) {
 				ItemStack i = input.getItem(sm.getSlot());
@@ -107,6 +107,7 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 				}
 			}
 
+			s.remove(CompendiumComponents.MULTI_MATERIAL);
 			s.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(newMats));
 		}
 

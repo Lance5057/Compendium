@@ -57,7 +57,7 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				Builder md = ModelData.builder();
 
 				if (mmt != null)
-					md.with(MultiMaterialModelData.STATE, mmt.types());
+					md.with(MultiMaterialModelData.STATE, mmt.getTypes());
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 
@@ -74,7 +74,7 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 
 				if (ir != null) {
 					ir.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
-							overlay, overlay, null);
+							overlay, 0, null);
 
 				}
 

@@ -54,7 +54,7 @@ public class EachStyleBuildCommand {
 
 				List<MultiMaterialType> mm = null;
 				if (mmc != null) {
-					mm = new ArrayList<MultiMaterialType>(mmc.types());
+					mm = new ArrayList<MultiMaterialType>(mmc.getTypes());
 					for (MultiMaterialType m : mm) {
 						m.setCurrentMaterial("");
 					}
@@ -70,7 +70,7 @@ public class EachStyleBuildCommand {
 					for (int i = 0; i < data[d].getTypes().size(); i++) {
 
 						if (mm != null) {
-							List<String> mats = CompendiumIndex.getAllMaterialsForType(mmc.types().get(d).getType());
+							List<String> mats = CompendiumIndex.getAllMaterialsForType(mmc.getTypes().get(d).getType());
 
 							for (int m = 0; m < mats.size(); m++) {
 								BlockPos nPos = new BlockPos(pos.getX() + (d * 2), pos.getY() + (m * 2),

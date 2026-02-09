@@ -2,6 +2,7 @@ package com.lance5057.compendium.components.block;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
@@ -13,18 +14,29 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipProvider;
 
-public record MultiMaterialBlockComponent(List<MultiMaterialType> types) implements TooltipProvider {
+public class MultiMaterialBlockComponent {
+	List<MultiMaterialType> types;
+
+	public List<MultiMaterialType> getTypes() {
+		return types;
+	}
+
+	public void setTypes(List<MultiMaterialType> types) {
+		this.types = types;
+	}
+
 	public static final Codec<MultiMaterialBlockComponent> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
-			.group(Codec.list(MultiMaterialType.CODEC).fieldOf("types").forGetter(MultiMaterialBlockComponent::types))
+			.group(Codec.list(MultiMaterialType.CODEC).fieldOf("types")
+					.forGetter(MultiMaterialBlockComponent::getTypes))
 			.apply(p_337946_, MultiMaterialBlockComponent::new));
-
-//	public static final StreamCodec<ByteBuf, MultiMaterialBlockComponent> UNIT_STREAM_CODEC = StreamCodec
-//			.unit(new MultiMaterialBlockComponent(List.of()));
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, MultiMaterialBlockComponent> STREAM_CODEC = StreamCodec
 			.of(MultiMaterialBlockComponent::write, MultiMaterialBlockComponent::read);
+
+	public MultiMaterialBlockComponent(List<MultiMaterialType> types) {
+		this.types = types;
+	}
 
 	private static MultiMaterialBlockComponent read(RegistryFriendlyByteBuf buffer) {
 		List<MultiMaterialType> s = new ArrayList<MultiMaterialType>();
@@ -45,7 +57,6 @@ public record MultiMaterialBlockComponent(List<MultiMaterialType> types) impleme
 		}
 	}
 
-	@Override
 	public void addToTooltip(TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {
 		if (tooltipFlag.hasShiftDown()) {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.material"));
@@ -57,4 +68,20 @@ public record MultiMaterialBlockComponent(List<MultiMaterialType> types) impleme
 
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.types);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		} else {
+			if (obj instanceof MultiMaterialBlockComponent mm)
+				if (this.getTypes().equals(mm.getTypes()))
+					return true;
+			return false;
+		}
+	}
 }

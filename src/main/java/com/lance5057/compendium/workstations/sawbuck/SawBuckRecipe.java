@@ -46,7 +46,7 @@ public class SawBuckRecipe extends MultiToolRecipe
 
 	@Override
 	public ItemStack assemble(MultiToolRecipeWrapper input, Provider registries) {
-		return ItemStack.EMPTY;
+		return getItemOut();
 	}
 
 	@Override

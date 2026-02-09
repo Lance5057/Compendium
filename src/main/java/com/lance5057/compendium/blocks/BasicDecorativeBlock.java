@@ -23,8 +23,8 @@ public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBl
 	final ResourceLocation itemRendererLocation;
 	List<String> styleBases;
 
-	public BasicDecorativeBlock(Properties properties, int materials, int styles, ResourceLocation itemRendererLocation,List<String> styleBases,
-			StyleData... styleData) {
+	public BasicDecorativeBlock(Properties properties, int materials, int styles, ResourceLocation itemRendererLocation,
+			List<String> styleBases, StyleData... styleData) {
 
 		super(properties);
 		this.materials = materials;
@@ -40,18 +40,6 @@ public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBl
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		List<String> s = new ArrayList<String>();
-		for (int i = 0; i < current.size(); i++) {
-			if (styleData.length > i) {
-				s.add(styleData[i].getTypes().get(current.get(i)));
-			}
-		}
-
-		return s;
-	}
-
-	@Override
 	public ResourceLocation getItemModelLocation() {
 		return itemRendererLocation;
 	}
@@ -61,12 +49,12 @@ public class BasicDecorativeBlock extends Block implements EntityBlock, IStyleBl
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
-	
+
 	@Override
 	public StyleData[] getStyleData() {
 		return this.styleData;

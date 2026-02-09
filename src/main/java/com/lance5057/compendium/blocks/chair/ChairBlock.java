@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.chair;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
@@ -132,14 +130,6 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 		if (context.getPlayer().isCrouching())
 			return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
 		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
-	}
-
-	@Override
-	public List<String> getStyles(List<Integer> current) {
-
-		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
-				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)),
-				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)));
 	}
 
 	@Override

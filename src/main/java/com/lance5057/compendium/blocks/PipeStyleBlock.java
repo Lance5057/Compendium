@@ -109,7 +109,8 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		List<String> r = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
 			if (styles.length > i)
-				r.add(this.styles[i].getTypes().get(i));
+				if (styles[i].getTypes().size() > current.get(i))
+					r.add(this.styles[i].getTypes().get(i));
 		}
 		return r;
 	}

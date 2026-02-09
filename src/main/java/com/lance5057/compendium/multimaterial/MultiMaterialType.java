@@ -2,7 +2,9 @@ package com.lance5057.compendium.multimaterial;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.mojang.serialization.Codec;
@@ -133,5 +135,23 @@ public class MultiMaterialType {
 			types.putString("type" + i, mmt.types.get(i).toString().toLowerCase());
 		nbt.put("types", types);
 		nbt.putString("current_material", mmt.currentMaterial);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.types, currentMaterial);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		} else {
+			if (obj instanceof MultiMaterialType mm)
+				if (this.types.equals(mm.types))
+					if (this.currentMaterial.compareTo(mm.currentMaterial) == 0)
+						return true;
+			return false;
+		}
 	}
 }

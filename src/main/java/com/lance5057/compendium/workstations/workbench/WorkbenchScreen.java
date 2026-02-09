@@ -32,7 +32,7 @@ public class WorkbenchScreen extends AbstractContainerScreen<WorkbenchMenu> {
 
 	@Override
 	protected void renderBg(GuiGraphics graphics, float pPartialTick, int pMouseX, int pMouseY) {
-		RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+//		RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
 		if (this.minecraft == null)
 			return;
 

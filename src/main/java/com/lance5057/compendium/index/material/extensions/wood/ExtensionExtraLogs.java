@@ -41,7 +41,6 @@ import com.lance5057.compendium.util.TagUtil;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -51,7 +50,6 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
@@ -85,9 +83,6 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import vectorwing.farmersdelight.common.registry.ModItems;
-import vectorwing.farmersdelight.common.tag.CommonTags;
-import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
 	/**
@@ -1319,19 +1314,19 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.save(consumer);
 		}
 
-		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
-			CuttingBoardRecipeBuilder
-					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-							STRIPPED_LOG.BLOCK_ITEM, 1)
-					.addResult(ModItems.TREE_BARK.get())
-					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_logs"));
-
-		if (!SMALL_LOG.isIgnored() && !STRIPPED_SMALL_LOG.isIgnored())
-			CuttingBoardRecipeBuilder
-					.cuttingRecipe(Ingredient.of(SMALL_LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-							STRIPPED_SMALL_LOG.BLOCK_ITEM, 1)
-					.addResult(ModItems.TREE_BARK.get())
-					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_small_logs"));
+//		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
+//			CuttingBoardRecipeBuilder
+//					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+//							STRIPPED_LOG.BLOCK_ITEM, 1)
+//					.addResult(ModItems.TREE_BARK.get())
+//					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_logs"));
+//
+//		if (!SMALL_LOG.isIgnored() && !STRIPPED_SMALL_LOG.isIgnored())
+//			CuttingBoardRecipeBuilder
+//					.cuttingRecipe(Ingredient.of(SMALL_LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+//							STRIPPED_SMALL_LOG.BLOCK_ITEM, 1)
+//					.addResult(ModItems.TREE_BARK.get())
+//					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_small_logs"));
 	}
 
 	@Override

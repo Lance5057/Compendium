@@ -66,7 +66,7 @@ public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
 
 	@Override
 	public void finishRecipe(Player Player, SawBuckRecipe recipe) {
-		ItemUtil.giveOrDrop(recipe.getItemOut(), Player);
+		ItemUtil.giveOrDrop(recipe.assemble(MultiToolRecipeWrapper.of(this.getInventory()), null), Player);
 		this.getInventory().shrinkAll();
 	}
 
@@ -87,7 +87,7 @@ public class SawBuckBlockEntity extends MultiToolRecipeStation<SawBuckRecipe> {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	protected void playFinalSound(Player player) {
 		level.playSound(player, worldPosition, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1, 0);

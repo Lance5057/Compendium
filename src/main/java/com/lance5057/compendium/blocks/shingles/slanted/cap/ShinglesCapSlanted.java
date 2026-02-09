@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.shingles.slanted.cap;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -111,12 +109,6 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(NORTH, EAST, SOUTH, WEST, TOP);
-	}
-
-	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.SHINGLES_SHINGLES.getTypes().get(current.get(0)),
-				StyleData.SUPPORT_SHINGLES.getTypes().get(current.get(1)));
 	}
 
 	@Override

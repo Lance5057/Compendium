@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-25T16:32:45.9416832	Recipes
+// 1.21.1	2026-01-29T15:57:38.3615271	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -383,7 +383,7 @@ b6251966c1e5707dc41a41c173d323aa6c503d89 data/compendium/recipe/workbench/copper
 f275dedca0891fe9f8d147cbef657b66e2543a2f data/compendium/recipe/workbench/copper_shears_item.json
 ccaaab1b62e2dd9e368c36ad237b0d306810bb0f data/compendium/recipe/workbench/copper_zweihander_item.json
 9c3138ecd05dd70feb0942c0ab7eef92a64e405d data/compendium/recipe/workbench/cosmetic_toolbox.json
-5b40d3704350b42d2c856e3aa1d866d11f1e8a81 data/compendium/recipe/workbench/fancy_bed.json
+57cd2b9310a73ffe5351dbb331c84ac8fce1a653 data/compendium/recipe/workbench/fancy_bed.json
 82c37e847d9ca2f97af9b7a50feeef0f42a38a9f data/compendium/recipe/workbench/fancy_fence.json
 dcb785007f1994ea1c66330ba08b36ae7507db52 data/compendium/recipe/workbench/gold_hammer_item.json
 d64f4e89b2c5fa666e588a7f6473aca86efadae3 data/compendium/recipe/workbench/gold_prybar_item.json

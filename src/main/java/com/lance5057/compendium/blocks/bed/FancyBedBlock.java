@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.bed;
 
-import java.util.List;
-
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.Compendium;
@@ -185,13 +183,6 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, PART, OCCUPIED, SIDE);
-	}
-
-	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.BED_BASE.getTypeSafe(current.get(0)), StyleData.BED_FRAME.getTypeSafe(current.get(1)),
-				StyleData.BED_MATTRESS.getTypeSafe(current.get(2)), StyleData.BED_PILLOW.getTypeSafe(current.get(3)),
-				StyleData.BED_SHEET.getTypeSafe(current.get(4)), StyleData.BED_BLANKET.getTypeSafe(current.get(5)));
 	}
 
 	@Override

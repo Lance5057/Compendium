@@ -1,0 +1,6 @@
+{
+  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/no_top/straight/angled_left",
+  "textures": {
+    "0": "minecraft:block/crimson_planks"
+  }
+}

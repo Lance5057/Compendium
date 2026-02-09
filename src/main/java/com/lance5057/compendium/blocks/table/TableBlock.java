@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.table;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -23,12 +21,6 @@ public class TableBlock extends TableBase implements EntityBlock, IStyleBlock {
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2, StyleData.TABLE_TOP, StyleData.TABLE_LEGS);
-	}
-
-	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.TABLE_TOP.getTypes().get(current.get(0)),
-				StyleData.TABLE_LEGS.getTypes().get(current.get(1)));
 	}
 
 	@Override

@@ -144,7 +144,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		MultiMaterialBlockComponent m = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (m != null) {
 			this.materials = new ArrayList<MultiMaterialType>();
-			m.types().forEach(i -> materials.add(i.copy()));
+			m.getTypes().forEach(i -> materials.add(i.copy()));
 		}
 	}
 

@@ -38,7 +38,8 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
 			if (styles.length > i) {
-				s.add(styles[i].getTypes().get(current.get(i)));
+				if (styles[i].getTypes().size() > current.get(i))
+					s.add(styles[i].getTypes().get(current.get(i)));
 			}
 		}
 

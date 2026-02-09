@@ -21,7 +21,8 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	final ResourceLocation itemRendererLocation;
 	List<String> styleBases;
 
-	public SlabStyleBlock(Properties properties, ResourceLocation itemRendererLocation, List<String> styleBases,StyleData... styles) {
+	public SlabStyleBlock(Properties properties, ResourceLocation itemRendererLocation, List<String> styleBases,
+			StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
@@ -37,13 +38,14 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	public RenderShape getRenderShape(BlockState pState) {
 		return RenderShape.MODEL;
 	}
-	
+
 	@Override
 	public List<String> getStyles(List<Integer> current) {
 		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
 			if (styles.length > i) {
-				s.add(styles[i].getTypes().get(current.get(i)));
+				if (styles[i].getTypes().size() > current.get(i))
+					s.add(styles[i].getTypes().get(current.get(i)));
 			}
 		}
 
@@ -59,14 +61,14 @@ public class SlabStyleBlock extends SlabBlock implements EntityBlock, IStyleBloc
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
-	
+
 	@Override
 	public StyleData[] getStyleData() {
 		return this.styles;

@@ -48,9 +48,6 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import vectorwing.farmersdelight.common.registry.ModItems;
-import vectorwing.farmersdelight.common.tag.CommonTags;
-import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 public class MaterialWood extends _MaterialBase {
 
@@ -300,19 +297,19 @@ public class MaterialWood extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
-			CuttingBoardRecipeBuilder
-					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-							STRIPPED_LOG.BLOCK_ITEM, 1)
-					.addResult(ModItems.TREE_BARK.get())
-					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_log"));
-
-		if (!WOOD.isIgnored() && !STRIPPED_WOOD.isIgnored())
-			CuttingBoardRecipeBuilder
-					.cuttingRecipe(Ingredient.of(WOOD.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-							STRIPPED_WOOD.BLOCK_ITEM, 1)
-					.addResult(ModItems.TREE_BARK.get())
-					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_wood"));
+//		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
+//			CuttingBoardRecipeBuilder
+//					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+//							STRIPPED_LOG.BLOCK_ITEM, 1)
+//					.addResult(ModItems.TREE_BARK.get())
+//					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_log"));
+//
+//		if (!WOOD.isIgnored() && !STRIPPED_WOOD.isIgnored())
+//			CuttingBoardRecipeBuilder
+//					.cuttingRecipe(Ingredient.of(WOOD.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
+//							STRIPPED_WOOD.BLOCK_ITEM, 1)
+//					.addResult(ModItems.TREE_BARK.get())
+//					.build(consumer, Compendium.modLoc("cutting/" + name + "_scrape_wood"));
 
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}

@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import com.lance5057.compendium.commands.CompendiumCommands;
+import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.network.ChecksumVerificationPacket;
@@ -42,7 +43,7 @@ public class CompendiumEvents {
 		List<Component> tooltip = event.getToolTip();
 		TooltipFlag flag = event.getFlags();
 
-		TooltipProvider tooltipProvider = stack.get(CompendiumComponents.MULTI_MATERIAL);
+		MultiMaterialBlockComponent tooltipProvider = stack.get(CompendiumComponents.MULTI_MATERIAL.get());
 
 		if (tooltipProvider != null) {
 			tooltipProvider.addToTooltip(ctx, i -> {
