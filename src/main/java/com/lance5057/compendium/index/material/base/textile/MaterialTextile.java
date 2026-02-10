@@ -193,13 +193,15 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CARPET.BLOCK_ITEM, 3).define('p', BLOCK.BLOCK_ITEM)
-				.pattern("pp")
-				.unlockedBy("block",
-						CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(
-								Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-								List.of(ItemPredicate.Builder.item().of(BLOCK.BLOCK_ITEM.asItem()).build()))))
-				.save(consumer, TagUtil.modLoc(this.name + "_carpet"));
+		if (CARPET.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CARPET.BLOCK_ITEM, 3).define('p', BLOCK.BLOCK_ITEM)
+					.pattern("pp")
+					.unlockedBy("block",
+							CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(
+									Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+									List.of(ItemPredicate.Builder.item().of(BLOCK.BLOCK_ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(this.name + "_carpet"));
+		}
 	}
 
 	@Override
