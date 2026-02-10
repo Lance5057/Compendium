@@ -1,8 +1,11 @@
 package com.lance5057.compendium;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.Maps;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
@@ -30,8 +33,12 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.resources.model.SimpleBakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.Item;
@@ -40,6 +47,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
@@ -140,4 +148,21 @@ public class CompendiumClient {
 		}, Compendium.styleItemRenderers.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Item[0]));
 
 	}
+
+//	@SubscribeEvent
+//	public static void extraModels(ModifyBakingResult event) {
+//		Map<ModelResourceLocation, BakedModel> models = event.getModels();
+//
+//		ModelResourceLocation m = ModelResourceLocation.standalone(Compendium.modLoc("extra/window_base"));
+//
+//		List<BakedQuad> unculledFaces = new ArrayList<BakedQuad>();
+//		Map<Direction, List<BakedQuad>> culledFaces = Maps.newEnumMap(Direction.class);
+//		if (models.containsKey(m)) {
+//			BakedModel bm = models.get(m);
+//
+//			if (bm instanceof SimpleBakedModel sbm) {
+//				sbm.getQuads(null, null, null);
+//			}
+//		}
+//	}
 }
