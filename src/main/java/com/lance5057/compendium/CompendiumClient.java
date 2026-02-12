@@ -1,11 +1,8 @@
 package com.lance5057.compendium;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.google.common.collect.Maps;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
@@ -22,6 +19,10 @@ import com.lance5057.compendium.client.renderer.blockentity.SimpleStyleBlockRend
 import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
 import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
 import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
+import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
@@ -29,18 +30,18 @@ import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRenderer;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRenderer;
 import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
+import com.mojang.datafixers.util.Either;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.BlockModelRotation;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.client.resources.model.SimpleBakedModel;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -49,6 +50,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.TextureAtlasStitchedEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
@@ -91,28 +93,28 @@ public class CompendiumClient {
 		event.register(CompendiumMenus.COMPONENT_DRAWER_MENU.get(), ComponentDrawerScreen::new);
 	}
 
-	@SubscribeEvent
-	public static void RegisterExtraModels(ModelEvent.RegisterAdditional event) {
-		Map<ResourceLocation, Resource> rrs = Minecraft.getInstance().getResourceManager().listResources("models/extra",
-				(p_215600_) -> {
-					return p_215600_.getPath().endsWith(".json");
-				});
-
-//		rrs.putAll(Minecraft.getInstance().getResourceManager().listResources("models/block/material", (p_215600_) -> {
-//			return p_215600_.getPath().endsWith(".json");
-//		}));
-
-		rrs.forEach((rl, r) -> {
-			String s = rl.toString();
-
-			s = s.substring(s.indexOf('/') + 1, s.indexOf('.'));
-
-			ModelResourceLocation rl2 = ModelResourceLocation
-					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
-
-			event.register(rl2);
-		});
-	}
+//	@SubscribeEvent
+//	public static void RegisterExtraModels(ModelEvent.RegisterAdditional event) {
+//		Map<ResourceLocation, Resource> rrs = Minecraft.getInstance().getResourceManager().listResources("models/extra",
+//				(p_215600_) -> {
+//					return p_215600_.getPath().endsWith(".json");
+//				});
+//
+////		rrs.putAll(Minecraft.getInstance().getResourceManager().listResources("models/block/material", (p_215600_) -> {
+////			return p_215600_.getPath().endsWith(".json");
+////		}));
+//
+//		rrs.forEach((rl, r) -> {
+//			String s = rl.toString();
+//
+//			s = s.substring(s.indexOf('/') + 1, s.indexOf('.'));
+//
+//			ModelResourceLocation rl2 = ModelResourceLocation
+//					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
+//
+//			event.register(rl2);
+//		});
+//	}
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
@@ -149,20 +151,72 @@ public class CompendiumClient {
 
 	}
 
-//	@SubscribeEvent
-//	public static void extraModels(ModifyBakingResult event) {
+	@SubscribeEvent
+	public static void extraModels(ModifyBakingResult event) {
 //		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 //
-//		ModelResourceLocation m = ModelResourceLocation.standalone(Compendium.modLoc("extra/window_base"));
+//		ResourceLocation rc = Compendium.modLoc("window");
+//		ResourceLocation texture = Compendium.modLoc("block/material/wood/acacia/windows/bars");
 //
-//		List<BakedQuad> unculledFaces = new ArrayList<BakedQuad>();
-//		Map<Direction, List<BakedQuad>> culledFaces = Maps.newEnumMap(Direction.class);
-//		if (models.containsKey(m)) {
-//			BakedModel bm = models.get(m);
+//		ModelResourceLocation ml = ModelResourceLocation.inventory(rc);
+//		models.put(ml, buildModel(event, ml, texture));
 //
-//			if (bm instanceof SimpleBakedModel sbm) {
-//				sbm.getQuads(null, null, null);
-//			}
-//		}
+//		ModelResourceLocation ml2 = new ModelResourceLocation(rc, "");
+//		models.put(ml2, buildModel(event, ml2, texture));
+
+		CompendiumIndex.index.forEach(i -> {
+			if (i instanceof _MaterialBase mb) {
+				doMetal(event, mb);
+			}
+		});
+
+	}
+
+	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
+		if (mb.getType() == MATERIAL_TYPES.METAL) {
+			Map<ModelResourceLocation, BakedModel> models = event.getModels();
+			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
+				ResourceLocation rc = Compendium.modLoc("extra/window_frame");
+
+				BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
+				ResourceLocation texture = Compendium
+						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
+				ResourceLocation output_location = Compendium
+						.modLoc("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase());
+
+				ModelResourceLocation inventory_model = ModelResourceLocation.inventory(output_location);
+				ModelResourceLocation block_model = new ModelResourceLocation(output_location, "");
+
+				ResourceLocation rl = frame_model.textureMap.get("all").left().get().atlasLocation();
+
+				frame_model.textureMap.put("all", Either.left(new Material(rl, texture)));
+
+				ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl(
+						(modelLoc, material) -> material.sprite(), inventory_model);
+
+				frame_model.resolveParents(i -> baker.getModel(i));
+
+				BakedModel bm = frame_model.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+
+				models.put(inventory_model, bm);
+				models.put(block_model, bm);
+			});
+		}
+	}
+
+//	private static BakedModel buildModel(ModifyBakingResult event, ModelResourceLocation ml, ResourceLocation texture) {
+//		BlockModel um = (BlockModel) event.getModelBakery().getModel(Compendium.modLoc("extra/window_base"));
+//
+//		ResourceLocation rl = um.textureMap.get("all").left().get().atlasLocation();
+//
+//		um.textureMap.put("all", Either.left(new Material(rl, texture)));
+//
+//		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
+//
+//		um.resolveParents(i -> baker.getModel(i));
+//
+//		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+//		return bm;
 //	}
+
 }

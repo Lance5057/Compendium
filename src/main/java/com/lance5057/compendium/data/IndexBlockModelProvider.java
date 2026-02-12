@@ -31,7 +31,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 				doWood(mb);
 				doTextile(mb);
 				doGlass(mb);
-				doMetal(mb);
+//				doMetal(mb);
 			}
 		});
 
