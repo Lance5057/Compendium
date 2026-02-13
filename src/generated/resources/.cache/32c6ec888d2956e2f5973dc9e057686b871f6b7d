@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-11T00:37:03.160385	Block States: compendium
+// 1.21.1	2026-02-12T11:04:04.3352654	Block States: compendium
 9a435ff91c0854a740c969b9f70f913d34c602ee assets/compendium/blockstates/acacia_plank.json
 191b26e14c194ee2966d6360f73d77788da7c88f assets/compendium/blockstates/acacia_planks.json
 2b3a7e62135fab2197911fefe753e008b29bf39c assets/compendium/blockstates/acacia_planks_slab.json
@@ -132,7 +132,6 @@ ef4be253bc1ea549691951160d1e9e3e3fe445d9 assets/compendium/blockstates/warped_sm
 ca527d0c93ac3e8a450c81b0a0980cb9db666b0e assets/compendium/blockstates/warped_small_logs.json
 8c898fb34d3bbe5e248d62e6d9cfe2667a77c095 assets/compendium/blockstates/warped_small_logs_slab.json
 3db651d8ce52d76b07663b615266db23bb67a379 assets/compendium/blockstates/warped_small_logs_stairs.json
-cd980d1d2d3cc7936e87539eeefb4008b09dbeb1 assets/compendium/blockstates/window.json
 582e89701fd00d514bd540824d90e32d36604817 assets/compendium/blockstates/workbench.json
 1f713e079416c2c9d8f053350bb2a517b95fef5a assets/compendium/models/block/acacia_plank_base.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/bed_base.json
@@ -732,7 +731,6 @@ ceee37e5416de36b8f67dfaec980c9d6c8f76f86 assets/compendium/models/block/table_le
 98afe7c24db828c39e5dec58411f6b06e9c31ea1 assets/compendium/models/block/table_top.json
 8809529b2459734217c5f0026d1cf79666883114 assets/compendium/models/block/table_top_model.json
 b79f6ff5e938f18bf873b10d917cf8d02b87f050 assets/compendium/models/block/warped_plank_base.json
-6e8d28398fa976f0ca2c6c1ad0bd8b57731d36fc assets/compendium/models/block/window.json
 bcefdbc707185c24d6661b3b8364b17f449dac34 assets/compendium/models/block/window_base.json
 08e46653c2c890f5f79432b531224638f91d8718 assets/compendium/models/extra/chair.json
 a727b71234d35a80137fa736e7a9c9c3e3d73821 assets/compendium/models/extra/clothed_table.json

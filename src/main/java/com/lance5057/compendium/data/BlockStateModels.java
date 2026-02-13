@@ -83,21 +83,21 @@ public class BlockStateModels extends BlockStateProvider {
 					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
 		});
 
-		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
-			Builder<?> b = ConfiguredModel.builder();
-			MultiStyleMaterialBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
-					.customLoader(MultiStyleMaterialBuilder::begin);
-			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("translucent"));
-
-			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "glass", List.of(MATERIAL_TYPES.GLASS),
-					StyleData.WINDOW_GLASS.getTypes(), 0, 0));
-			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "trim",
-					List.of(MATERIAL_TYPES.WOOD, MATERIAL_TYPES.METAL), StyleData.WINDOW_TRIM.getTypes(), 1, 1));
-
-			BlockModelBuilder bmb = msmb.end();
-			b.modelFile(bmb);
-			return b.build();
-		});
+//		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
+//			Builder<?> b = ConfiguredModel.builder();
+//			MultiStyleMaterialBuilder<BlockModelBuilder> msmb = models().getBuilder("window")
+//					.customLoader(MultiStyleMaterialBuilder::begin);
+//			msmb.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("translucent"));
+//
+//			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "glass", List.of(MATERIAL_TYPES.GLASS),
+//					StyleData.WINDOW_GLASS.getTypes(), 0, 0));
+//			msmb.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "trim",
+//					List.of(MATERIAL_TYPES.WOOD, MATERIAL_TYPES.METAL), StyleData.WINDOW_TRIM.getTypes(), 1, 1));
+//
+//			BlockModelBuilder bmb = msmb.end();
+//			b.modelFile(bmb);
+//			return b.build();
+//		});
 
 		getVariantBuilder(CompendiumBlocks.CHAIR.get()).forAllStates(state -> {
 			Builder<?> b = ConfiguredModel.builder();

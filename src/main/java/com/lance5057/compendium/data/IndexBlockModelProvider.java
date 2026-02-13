@@ -30,7 +30,7 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			if (i instanceof _MaterialBase mb) {
 				doWood(mb);
 				doTextile(mb);
-				doGlass(mb);
+//				doGlass(mb);
 //				doMetal(mb);
 			}
 		});

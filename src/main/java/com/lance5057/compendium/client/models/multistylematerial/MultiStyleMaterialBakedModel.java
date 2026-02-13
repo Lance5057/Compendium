@@ -7,17 +7,21 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
@@ -91,14 +95,14 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 	public static class BakedLayer {
 		public final List<MATERIAL_TYPES> validTypes;
-		public final Map<String, Map<String, BakedModel>> models;
+//		public final Map<String, Map<String, BakedModel>> models;
 		public final int materialLayer;
 		public final int styleLayer;
 
 		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, Map<String, BakedModel>> bakedModels,
 				int materialLayer, int styleLayer) {
 			this.validTypes = validTypes;
-			this.models = bakedModels;
+//			this.models = bakedModels;
 			this.materialLayer = materialLayer;
 			this.styleLayer = styleLayer;
 
@@ -111,22 +115,35 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
 			if (s != null && s.size() > 0)
-				if (mats != null && mats.size() != 0 && mats.size() > materialLayer && mats.get(materialLayer) != null) {
-					Map<String, BakedModel> m = models.get(mats.get(materialLayer).getCurrentMaterial());
-					if (m != null && !m.isEmpty() && s.size() > styleLayer) {
-						BakedModel q = m.getOrDefault(s.get(styleLayer), null);
-						if (q != null) {
-							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-							
-							if (r != null && !r.isEmpty()) {
-								if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
-									l.addAll(r);
-							}
-						}
-					}
+				if (mats != null && mats.size() != 0 && mats.size() > materialLayer
+						&& mats.get(materialLayer) != null) {
+
+					String m = mats.get(materialLayer).getCurrentMaterial();
+					String st = s.get(styleLayer);
+
+					ResourceLocation rc = ClientUtil
+							.createMaterialStyleLocation(mats.get(materialLayer).getType().getFirst(), m, st);
+					BakedModel t = Minecraft.getInstance().getModelManager()
+							.getModel(new ModelResourceLocation(rc, ""));
+
+					t.getQuads(state, side, rand, extraData, renderType);
+					workin here
+//					Map<String, BakedModel> m = models.get(mats.get(materialLayer).getCurrentMaterial());
+//					if (m != null && !m.isEmpty() && s.size() > styleLayer) {
+//						BakedModel q = m.getOrDefault(s.get(styleLayer), null);
+//						if (q != null) {
+//							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
+//							
+//							if (r != null && !r.isEmpty()) {
+//								if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
+//									l.addAll(r);
+//							}
+//						}
+//					}
 				}
 
 			return l;
+
 		}
 
 	}
