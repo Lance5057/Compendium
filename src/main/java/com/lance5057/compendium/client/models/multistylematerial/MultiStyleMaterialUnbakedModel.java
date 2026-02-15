@@ -155,7 +155,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 				bakedModels.put(k, bm);
 			});
-			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels, this.materialLayer,
+			return new MultiStyleMaterialBakedModel.BakedLayer(bakedModels, modelBase, modelPart, this.materialLayer,
 					this.styleLayer);
 		}
 

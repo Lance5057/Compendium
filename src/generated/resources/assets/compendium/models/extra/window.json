@@ -14,7 +14,7 @@
     "styles": [
       "basic"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "GLASS"
     ]
@@ -56,7 +56,7 @@
       "warped",
       "woven"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD",
       "METAL"

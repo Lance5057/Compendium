@@ -28,8 +28,8 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 			i.blockModel(this);
 
 			if (i instanceof _MaterialBase mb) {
-				doWood(mb);
-				doTextile(mb);
+//				doWood(mb);
+//				doTextile(mb);
 //				doGlass(mb);
 //				doMetal(mb);
 			}

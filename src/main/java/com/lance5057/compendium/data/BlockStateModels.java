@@ -117,16 +117,14 @@ public class BlockStateModels extends BlockStateProvider {
 			return b.rotationY(((int) state.getValue(ChairBlock.FACING).toYRot()) % 360).build();
 		});
 
-		ConfiguredModel.builder()
-				.modelFile(models().getBuilder("extra/window").customLoader(MultiStyleMaterialBuilder::begin)
-						.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("translucent"))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "glass",
-								List.of(MATERIAL_TYPES.GLASS), StyleData.WINDOW_GLASS.getTypes(), 0, 0, "_inventory"))
-						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "trim",
-								List.of(MATERIAL_TYPES.WOOD, MATERIAL_TYPES.METAL), StyleData.WINDOW_TRIM.getTypes(), 1,
-								1, "_inventory"))
-						.end())
-				.build();
+		ConfiguredModel.builder().modelFile(models().getBuilder("extra/window")
+				.customLoader(MultiStyleMaterialBuilder::begin)
+				.base(models().cubeAll("window_base", mcLoc("block/glass")).renderType("translucent"))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "glass", List.of(MATERIAL_TYPES.GLASS),
+						StyleData.WINDOW_GLASS.getTypes(), 0, 0))
+				.addLayer(new MultiStyleMaterialUnbakedModel.Layer("window", "trim",
+						List.of(MATERIAL_TYPES.WOOD, MATERIAL_TYPES.METAL), StyleData.WINDOW_TRIM.getTypes(), 1, 1))
+				.end()).build();
 
 		ConfiguredModel.builder()
 				.modelFile(models().getBuilder("extra/table").customLoader(MultiStyleMaterialBuilder::begin)

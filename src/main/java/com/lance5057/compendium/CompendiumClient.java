@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
+import com.lance5057.compendium.blocks.bed.BedSideType;
+import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
 import com.lance5057.compendium.client.armor.ModelGreaves;
@@ -23,6 +25,8 @@ import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
+import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
@@ -46,6 +50,7 @@ import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -169,6 +174,8 @@ public class CompendiumClient {
 			if (i instanceof _MaterialBase mb) {
 				doMetal(event, mb);
 				doGlass(event, mb);
+				doTextile(event, mb);
+				doWood(event, mb);
 			}
 		});
 
@@ -182,7 +189,7 @@ public class CompendiumClient {
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
 
-		ModelResourceLocation ml2 = ModelResourceLocation.inventory(rc);
+		ModelResourceLocation ml2 = ModelResourceLocation.inventory(Compendium.modLoc("window"));
 		BlockModel um2 = (BlockModel) event.getModelBakery().getModel(rc);
 		ModelBakerImpl baker2 = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
 				ml2);
@@ -195,22 +202,10 @@ public class CompendiumClient {
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.METAL) {
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
-				ResourceLocation rc = Compendium.modLoc("extra/window_frame");
-				ResourceLocation rc_inventory = Compendium.modLoc("extra/window_frame_inventory");
-
 				ResourceLocation texture = Compendium
 						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
 
-				ResourceLocation output_location = Compendium
-						.modLoc("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase());
-				ResourceLocation output_location_inventory = Compendium
-						.modLoc("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase() + "_inventory");
-
-				BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
-				BlockModel frame_model_inventory = (BlockModel) event.getModelBakery().getModel(rc_inventory);
-
-				buildModel(event, frame_model, output_location, Pair.of("all", texture));
-				buildModel(event, frame_model_inventory, output_location_inventory, Pair.of("all", texture));
+				basicModelAllTexture(event, mb, texture, "window", "trim", "window_frame", b);
 			});
 		}
 	}
@@ -219,40 +214,746 @@ public class CompendiumClient {
 		if (mb.getType() == MATERIAL_TYPES.GLASS) {
 			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
 				if (mb.name.equalsIgnoreCase("clear")) {
-					ResourceLocation rc = Compendium.modLoc("extra/window_glass");
-					ResourceLocation rc_inventory = Compendium.modLoc("extra/window_glass_inventory");
-
 					ResourceLocation texture = TagUtil.mcLoc("block/glass");
 
-					ResourceLocation output_location = Compendium
-							.modLoc("block/material/glass/" + mb.name + "/window/" + b.toLowerCase());
-					ResourceLocation output_location_inventory = Compendium
-							.modLoc("block/material/glass/" + mb.name + "/window/" + b.toLowerCase() + "_inventory");
-
-					BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
-					BlockModel frame_model_inventory = (BlockModel) event.getModelBakery().getModel(rc_inventory);
-
-					buildModel(event, frame_model, output_location, Pair.of("all", texture));
-					buildModel(event, frame_model_inventory, output_location_inventory, Pair.of("all", texture));
+					basicModelAllTexture(event, mb, texture, "window", "glass", "window_glass", b);
 				} else {
-					ResourceLocation rc = Compendium.modLoc("extra/window_glass");
-					ResourceLocation rc_inventory = Compendium.modLoc("extra/window_glass_inventory");
-
 					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
 
-					ResourceLocation output_location = Compendium
-							.modLoc("block/material/glass/" + mb.name + "/window/" + b.toLowerCase());
-					ResourceLocation output_location_inventory = Compendium
-							.modLoc("block/material/glass/" + mb.name + "/window/" + b.toLowerCase() + "_inventory");
-
-					BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
-					BlockModel frame_model_inventory = (BlockModel) event.getModelBakery().getModel(rc_inventory);
-
-					buildModel(event, frame_model, output_location, Pair.of("all", texture));
-					buildModel(event, frame_model_inventory, output_location_inventory, Pair.of("all", texture));
+					basicModelAllTexture(event, mb, texture, "window", "glass", "window_glass", b);
 				}
 			});
 		}
+	}
+
+	public static void doTextile(ModifyBakingResult event, _MaterialBase mb) {
+		if (mb instanceof MaterialTextile mt) {
+
+			ResourceLocation blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
+			if (mt.specialLocations != null) {
+				if (mt.specialLocations.textures != null)
+					if (mt.specialLocations.textures.blockLocation != null)
+						blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+								mt.specialLocations.textures.blockLocation);
+			}
+
+			for (String b : StyleData.TABLE_CLOTH.getTypes()) {
+				basicModelAllTexture(event, mb, blockTexture, "table", "cloth", "table_cloth", b);
+			}
+
+//			for (String b : StyleData.BED_MATTRESS.getTypes()) {
+//				for (BedSideType sideType : BedSideType.values()) {
+//					for (BedPart part : BedPart.values()) {
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/mattress/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/occupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/mattress/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//
+//					}
+//				}
+//
+//				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/mattress/" + b.toLowerCase(),
+//						modLoc("block/furniture/bed/inventory/mattress/" + b.toLowerCase())).texture("0", blockTexture);
+//			}
+//
+//			for (String b : StyleData.BED_SHEET.getTypes()) {
+//				for (BedSideType sideType : BedSideType.values()) {
+//					for (BedPart part : BedPart.values()) {
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/sheet/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/occupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/sheet/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//					}
+//				}
+//
+//				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/sheet/" + b.toLowerCase(),
+//						modLoc("block/furniture/bed/inventory/sheet/" + b.toLowerCase())).texture("0", blockTexture);
+//			}
+//
+//			for (String b : StyleData.BED_PILLOW.getTypes()) {
+//				for (BedSideType sideType : BedSideType.values()) {
+//					for (BedPart part : BedPart.values()) {
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/pillow/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//
+//						withExistingParent(
+//								"block/material/textile/" + mb.name + "/bed/occupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/pillow/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
+//								.texture("0", blockTexture);
+//					}
+//				}
+//
+//				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/pillow/" + b.toLowerCase(),
+//						modLoc("block/furniture/bed/inventory/pillow/" + b.toLowerCase())).texture("0", blockTexture);
+//			}
+//
+//			for (String b : StyleData.BED_BLANKET.getTypes()) {
+//				if (b.equals("llama"))
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
+//							.texture("2", modLoc(mb.blockFolder() + "llama"))
+//							.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
+//
+//				else if (b.equals("glazed"))
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/basic"))
+//							.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//				else
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
+//							.texture("0", blockTexture);
+//
+//				for (BedSideType sideType : BedSideType.values()) {
+//					for (BedPart part : BedPart.values()) {
+//						if (b.equals("llama")) {
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+//									.texture("2", modLoc(mb.blockFolder() + "llama"))
+//									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
+//
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+//									.texture("2", modLoc(mb.blockFolder() + "llama"))
+//									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
+//
+//						} else if (b.equals("glazed")) {
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/basic"))
+//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/basic"))
+//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//						} else {
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+//									.texture("0", blockTexture);
+//
+//							withExistingParent(
+//									"block/material/textile/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/blanket/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
+//									.texture("0", blockTexture);
+//
+//						}
+//					}
+//				}
+//			}
+//
+//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled",
+//					modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_inventory",
+//					modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+//
+//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_short",
+//					modLoc("block/furniture/table/cloth/angled_short")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_short_inventory",
+//					modLoc("block/furniture/table/cloth/angled_short")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+//
+//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_long",
+//					modLoc("block/furniture/table/cloth/angled_long")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_long_inventory",
+//					modLoc("block/furniture/table/cloth/angled_long")).texture("0", mcLoc("block/" + mb.name))
+//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
+//							"block/material/textile/" + mb.name + "/diagonal_half"))
+//					.renderType("cutout");
+		}
+
+	}
+
+	public static void doWood(ModifyBakingResult event, _MaterialBase mb) {
+		if (mb instanceof MaterialWood mw) {
+
+			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+					"block/" + mb.name + "_planks");
+			if (mw.specialLocations != null) {
+				if (mw.specialLocations.textures != null)
+					if (mw.specialLocations.textures.plankLocation != null)
+						texture = mw.specialLocations.textures.plankLocation;
+			}
+
+			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
+				basicModelAllTexture(event, mb, texture, "window", "trim", "window_frame", b);
+			}
+
+//			for (String b : StyleData.CHAIR_BACK.getTypes())
+//				if (b.contains("weave")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//				} else if (b.contains("sheet")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//				} else if (b.equals("windsor") || b.equals("slats")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//				} else if (b.equals("lozenge")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
+//				} else if (b.equals("live_edge")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
+//				} else {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture);
+//				}
+//
+//			for (String b : StyleData.CHAIR_LEGS.getTypes()) {
+//				if (b.contains("rails_side_lath")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//				} else {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.CHAIR_SEAT.getTypes()) {
+//				if (b.equals("live_edge")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
+//				} else if (b.contains("weave")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//				} else if (b.contains("sheet")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//				} else {
+//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.TABLE_LEGS.getTypes()) {
+//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase(),
+//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg")).texture("0", planksTexture);
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase(),
+//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase() + "_inventory",
+//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
+//						.texture("0", planksTexture);
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/clothed_table/legs/" + b.toLowerCase() + "_inventory",
+//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase() + "_inventory",
+//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
+//						.texture("0", planksTexture);
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/clothed_table/legs/side/" + b.toLowerCase() + "_inventory",
+//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
+//						.texture("0", planksTexture);
+//			}
+//
+//			for (String b : StyleData.TABLE_TOP.getTypes()) {
+//				if (b.equals("smooth")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
+//							modLoc("block/furniture/table/top/smooth")).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture)
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//				} else {
+//					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
+//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.BED_FRAME.getTypes()) {
+//				for (BedSideType sideType : BedSideType.values())
+//					for (BedPart part : BedPart.values()) {
+//						if (b.equals("live_edge")) {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
+//									.texture("1", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
+//									.texture("1", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
+//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
+//									.texture("1", planksTexture);
+//						} else if (b.equals("weave")) {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//						} else if (b.equals("slats")) {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
+//						} else {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//						}
+//					}
+//			}
+//
+//			for (String b : StyleData.BED_BASE.getTypes()) {
+//				for (BedSideType sideType : BedSideType.values())
+//					for (BedPart part : BedPart.values()) {
+//						if (b.equals("weave")) {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture)
+//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//						} else {
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/occupied/"
+//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//											+ "/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//
+//							withExistingParent(
+//									"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
+//									modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
+//									.texture("0", planksTexture);
+//						}
+//					}
+//			}
+//
+//			for (String b : StyleData.FENCE_POST.getTypes()) {
+//				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
+//						modLoc("block/bases/fence/post/" + b.toLowerCase())).texture("0", planksTexture);
+//				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
+//						modLoc("block/bases/fence/post/" + b.toLowerCase() + "_inventory")).texture("0", planksTexture);
+//			}
+//
+//			for (String b : StyleData.FENCE_SIDE.getTypes()) {
+//				if (b.contains("sheet")) {
+//					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
+//							modLoc("block/bases/fence/side/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//				} else {
+//					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
+//							modLoc("block/bases/fence/side/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+//							.texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.SHINGLES_SHINGLES.getTypes()) {
+//				String[] top = new String[] { "no_top/", "top/" };
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase()
+//						+ "_inventory", modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/outer_corner/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/inner_corner/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/inventory/" + b.toLowerCase()
+//								+ "_inventory",
+//						modLoc("block/bases/shingles_cap_slanted/shingles/no_top/straight/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				for (String s : top) {
+//					// caps
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "all/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "all/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "straight/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "straight/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "tri/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "tri/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "none/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "none/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "end/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "end/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "corner/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "corner/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
+//				String[] top = new String[] { "no_top/", "top/" };
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase()
+//						+ "_inventory", modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/inventory/" + b.toLowerCase()
+//								+ "_inventory",
+//						modLoc("block/bases/shingles_cap_slanted/support/no_top/straight/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				for (String s : top) {
+//					// caps
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "all/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "all/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "straight/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "straight/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "tri/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "tri/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "none/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "none/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "end/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "end/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "corner/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "corner/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//				}
+//			}
+		}
+	}
+
+	private static void basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb, ResourceLocation blockTexture,
+			String modelBase, String modelLayer, String modelExtraName, String style) {
+		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
+		ResourceLocation rc_inventory = Compendium.modLoc("extra/" + modelExtraName + "_inventory");
+
+		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
+				style.toLowerCase());
+		ResourceLocation output_location_inventory = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer,
+				mb.name, style.toLowerCase(), "inventory");
+
+		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
+		BlockModel frame_model_inventory = (BlockModel) event.getModelBakery().getModel(rc_inventory);
+
+		buildModel(event, frame_model, output_location, Pair.of("all", blockTexture));
+		buildModel(event, frame_model_inventory, output_location_inventory, Pair.of("all", blockTexture));
 	}
 
 	@SafeVarargs

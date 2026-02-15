@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-12T11:04:04.3352654	Block States: compendium
+// 1.21.1	2026-02-14T18:27:15.8206222	Block States: compendium
 9a435ff91c0854a740c969b9f70f913d34c602ee assets/compendium/blockstates/acacia_plank.json
 191b26e14c194ee2966d6360f73d77788da7c88f assets/compendium/blockstates/acacia_planks.json
 2b3a7e62135fab2197911fefe753e008b29bf39c assets/compendium/blockstates/acacia_planks_slab.json
@@ -829,4 +829,4 @@ d6e2698f966bf26963a5e6f0a8e669b5abf66f2a assets/compendium/models/extra/material
 095a7c85da996da116e8b49ebf946952858e5b56 assets/compendium/models/extra/shingles_cap_slanted.json
 5bd5c096f6b944d1b4dd24e73fde79c01a9d9947 assets/compendium/models/extra/shingles_slanted.json
 81db7561945e9434333efb423c12f7417c9e3eab assets/compendium/models/extra/table.json
-ccae91ab36560cd916212fa5a581a707fb7479c5 assets/compendium/models/extra/window.json
+6e8d28398fa976f0ca2c6c1ad0bd8b57731d36fc assets/compendium/models/extra/window.json

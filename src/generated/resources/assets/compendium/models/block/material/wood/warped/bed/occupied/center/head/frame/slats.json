@@ -1,7 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/center/head/frame/slats",
-  "textures": {
-    "0": "minecraft:block/warped_planks",
-    "1": "compendium:block/material/wood/warped/slats"
-  }
-}

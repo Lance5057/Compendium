@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"all": "minecraft:glass",
-		"particle": "minecraft:glass"
+		"all": "minecraft:block/glass",
+		"particle": "minecraft:block/glass"
 	},
 	"elements": [
 		{
