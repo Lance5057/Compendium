@@ -1,0 +1,6 @@
+{
+	"parent": "compendium:extra/chair/legs/solid_sides",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/planks/sheet"
+	}
+}

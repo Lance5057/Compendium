@@ -3,6 +3,7 @@ package com.lance5057.compendium.client.models.multistylematerial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,6 +24,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
 import net.neoforged.neoforge.client.model.IDynamicBakedModel;
 import net.neoforged.neoforge.client.model.data.ModelData;
@@ -90,8 +92,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 		public final int styleLayer;
 		public final String baseName;
 
-		public BakedLayer(Map<String, Map<String, BakedModel>> bakedModels, String baseName, String layerName,
-				int materialLayer, int styleLayer) {
+		public BakedLayer(String baseName, String layerName, int materialLayer, int styleLayer) {
 			this.baseName = baseName;
 			this.layerName = layerName;
 			this.materialLayer = materialLayer;
@@ -113,8 +114,15 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					String st = s.get(styleLayer);
 
 					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st);
+
+					Map<Property<?>, Comparable<?>> p = state.getValues();
+					String variant = "";
+
+					for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
+						variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue());
+					}
 					BakedModel t = Minecraft.getInstance().getModelManager()
-							.getModel(new ModelResourceLocation(rc, ""));
+							.getModel(new ModelResourceLocation(rc, variant));
 
 					if (t != null) {
 						List<BakedQuad> r = t.getQuads(state, side, rand, extraData, renderType);
@@ -131,6 +139,10 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 		}
 
+	}
+
+	private static <T extends Comparable<T>> String getName(Property<T> property, Comparable<?> value) {
+		return property.getName((T) value);
 	}
 
 }

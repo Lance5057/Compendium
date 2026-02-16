@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
-import com.lance5057.compendium.blocks.bed.BedSideType;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
@@ -48,9 +47,9 @@ import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.properties.BedPart;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -179,9 +178,45 @@ public class CompendiumClient {
 			}
 		});
 
-		ResourceLocation rc = Compendium.modLoc("extra/window");
+		buildStateModelBasic(event, models, "window");
 
-		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc("window"), "");
+		buildStateModelVariant(event, models, "chair", "facing=south");
+		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
+		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
+		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
+	}
+
+	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
+			String w, String variant, BlockModelRotation rotation) {
+		ResourceLocation rc = Compendium.modLoc("extra/" + w);
+
+		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(w), variant);
+		BlockModel um = (BlockModel) event.getModelBakery().getModel(rc);
+		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
+		um.resolveParents(i -> baker.getModel(i));
+
+		BakedModel bm = um.bake(baker, event.getTextureGetter(), rotation);
+		models.put(ml, bm);
+	}
+
+	private static void buildStateModelVariant(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
+			String w, String variant) {
+		ResourceLocation rc = Compendium.modLoc("extra/" + w);
+
+		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(w), variant);
+		BlockModel um = (BlockModel) event.getModelBakery().getModel(rc);
+		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
+		um.resolveParents(i -> baker.getModel(i));
+
+		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+		models.put(ml, bm);
+	}
+
+	private static void buildStateModelBasic(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
+			String w) {
+		ResourceLocation rc = Compendium.modLoc("extra/" + w);
+
+		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(w), "");
 		BlockModel um = (BlockModel) event.getModelBakery().getModel(rc);
 		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
 		um.resolveParents(i -> baker.getModel(i));
@@ -189,7 +224,7 @@ public class CompendiumClient {
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
 
-		ModelResourceLocation ml2 = ModelResourceLocation.inventory(Compendium.modLoc("window"));
+		ModelResourceLocation ml2 = ModelResourceLocation.inventory(Compendium.modLoc(w));
 		BlockModel um2 = (BlockModel) event.getModelBakery().getModel(rc);
 		ModelBakerImpl baker2 = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
 				ml2);
@@ -205,7 +240,8 @@ public class CompendiumClient {
 				ResourceLocation texture = Compendium
 						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
 
-				basicModelAllTexture(event, mb, texture, "window", "trim", "window_frame", b);
+				basicModelAllTexture(event, mb, texture, "window", "trim", "window/window_frame", b, "",
+						BlockModelRotation.X0_Y0, "all");
 			});
 		}
 	}
@@ -216,11 +252,13 @@ public class CompendiumClient {
 				if (mb.name.equalsIgnoreCase("clear")) {
 					ResourceLocation texture = TagUtil.mcLoc("block/glass");
 
-					basicModelAllTexture(event, mb, texture, "window", "glass", "window_glass", b);
+					basicModelAllTexture(event, mb, texture, "window", "glass", "window/window_glass", b, "",
+							BlockModelRotation.X0_Y0, "all");
 				} else {
 					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
 
-					basicModelAllTexture(event, mb, texture, "window", "glass", "window_glass", b);
+					basicModelAllTexture(event, mb, texture, "window", "glass", "window/window_glass", b, "",
+							BlockModelRotation.X0_Y0, "all");
 				}
 			});
 		}
@@ -237,9 +275,9 @@ public class CompendiumClient {
 								mt.specialLocations.textures.blockLocation);
 			}
 
-			for (String b : StyleData.TABLE_CLOTH.getTypes()) {
-				basicModelAllTexture(event, mb, blockTexture, "table", "cloth", "table_cloth", b);
-			}
+//			for (String b : StyleData.TABLE_CLOTH.getTypes()) {
+//				basicModelAllTexture(event, mb, blockTexture, "table", "cloth", "table_cloth", b);
+//			}
 
 //			for (String b : StyleData.BED_MATTRESS.getTypes()) {
 //				for (BedSideType sideType : BedSideType.values()) {
@@ -445,121 +483,55 @@ public class CompendiumClient {
 			}
 
 			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
-				basicModelAllTexture(event, mb, texture, "window", "trim", "window_frame", b);
+				basicModelAllTexture(event, mb, texture, "window", "trim", "window/window_frame", b, "",
+						BlockModelRotation.X0_Y0, "all");
 			}
 
-//			for (String b : StyleData.CHAIR_BACK.getTypes())
-//				if (b.contains("weave")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//				} else if (b.contains("sheet")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//				} else if (b.equals("windsor") || b.equals("slats")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//				} else if (b.equals("lozenge")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/lozenge"));
-//				} else if (b.equals("live_edge")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
-//				} else {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/back/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/back/" + b.toLowerCase())).texture("0", planksTexture);
-//				}
-//
-//			for (String b : StyleData.CHAIR_LEGS.getTypes()) {
-//				if (b.contains("rails_side_lath")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//				} else {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/legs/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/legs/" + b.toLowerCase())).texture("0", planksTexture);
-//				}
-//			}
-//
-//			for (String b : StyleData.CHAIR_SEAT.getTypes()) {
-//				if (b.equals("live_edge")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"));
-//				} else if (b.contains("weave")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//				} else if (b.contains("sheet")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//				} else {
-//					withExistingParent("block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase(),
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/chair/seat/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/chair/seat/" + b.toLowerCase())).texture("0", planksTexture);
-//				}
-//			}
+			for (String b : StyleData.CHAIR_BACK.getTypes()) {
+				if (b.contains("weave")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
+				} else if (b.contains("sheet")) {
+					doChair(event, mb, "back", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
+				} else if (b.equals("windsor") || b.equals("slats")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
+				} else if (b.equals("lozenge")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/lozenge")));
+				} else if (b.equals("live_edge")) {
+					doChair(event, mb, "back", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
+				} else {
+					doChair(event, mb, "back", b, Pair.of("0", texture));
+				}
+			}
+
+			for (String b : StyleData.CHAIR_LEGS.getTypes()) {
+				if (b.contains("rails_side_lath")) {
+					doChair(event, mb, "legs", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
+				} else {
+					doChair(event, mb, "legs", b, Pair.of("0", texture));
+				}
+
+			}
+
+			for (String b : StyleData.CHAIR_SEAT.getTypes()) {
+				if (b.equals("live_edge")) {
+					doChair(event, mb, "seat", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
+				} else if (b.contains("weave")) {
+					doChair(event, mb, "seat", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
+				} else if (b.contains("sheet")) {
+					doChair(event, mb, "seat", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
+				} else {
+					doChair(event, mb, "seat", b, Pair.of("0", texture));
+				}
+			}
 //
 //			for (String b : StyleData.TABLE_LEGS.getTypes()) {
 //				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase(),
@@ -939,29 +911,52 @@ public class CompendiumClient {
 		}
 	}
 
+	@SafeVarargs
+	private static void doChair(ModifyBakingResult event, _MaterialBase mb, String part, String b,
+			Pair<String, ResourceLocation>... textures) {
+		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=west",
+				BlockModelRotation.X0_Y90, textures);
+		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=north",
+				BlockModelRotation.X0_Y180, textures);
+		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=east",
+				BlockModelRotation.X0_Y270, textures);
+		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=south",
+				BlockModelRotation.X0_Y0, textures);
+	}
+
 	private static void basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb, ResourceLocation blockTexture,
-			String modelBase, String modelLayer, String modelExtraName, String style) {
+			String modelBase, String modelLayer, String modelExtraName, String style, String variant, ModelState state,
+			String textureName) {
 		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
-		ResourceLocation rc_inventory = Compendium.modLoc("extra/" + modelExtraName + "_inventory");
 
 		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
 				style.toLowerCase());
-		ResourceLocation output_location_inventory = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer,
-				mb.name, style.toLowerCase(), "inventory");
 
 		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
-		BlockModel frame_model_inventory = (BlockModel) event.getModelBakery().getModel(rc_inventory);
 
-		buildModel(event, frame_model, output_location, Pair.of("all", blockTexture));
-		buildModel(event, frame_model_inventory, output_location_inventory, Pair.of("all", blockTexture));
+		buildModel(event, frame_model, output_location, variant, state, Pair.of(textureName, blockTexture));
+	}
+
+	@SafeVarargs
+	private static void basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb, String modelBase,
+			String modelLayer, String modelExtraName, String style, String variant, ModelState state,
+			Pair<String, ResourceLocation>... textures) {
+		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
+
+		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
+				style.toLowerCase());
+
+		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
+
+		buildModel(event, frame_model, output_location, variant, state, textures);
 	}
 
 	@SafeVarargs
 	public static void buildModel(ModifyBakingResult event, BlockModel model, ResourceLocation output_location,
-			Pair<String, ResourceLocation>... textures) {
+			String variant, ModelState state, Pair<String, ResourceLocation>... textures) {
 		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
-		ModelResourceLocation block_model = new ModelResourceLocation(output_location, "");
+		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
 
 		for (Pair<String, ResourceLocation> p : textures) {
 
@@ -985,7 +980,7 @@ public class CompendiumClient {
 
 		model.resolveParents(i -> baker.getModel(i));
 
-		BakedModel bm = model.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+		BakedModel bm = model.bake(baker, event.getTextureGetter(), state);
 
 		models.put(block_model, bm);
 	}

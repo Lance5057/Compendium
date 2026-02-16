@@ -1,6 +1,0 @@
-{
-	"parent": "compendium:block/furniture/chair/back/flat",
-	"textures": {
-		"0": "compendium:block/material/wood/acacia/planks/sheet"
-	}
-}
