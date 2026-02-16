@@ -184,6 +184,8 @@ public class CompendiumClient {
 		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
 		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
+
+		buildStateModelVariant(event, models, "table", "n=false,s=false,e=false,w=false,nw=false,ne=false,sw=false,se=false");
 	}
 
 	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -483,7 +485,11 @@ public class CompendiumClient {
 			}
 
 			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
-				basicModelAllTexture(event, mb, texture, "window", "trim", "window/window_frame", b, "",
+
+				ResourceLocation t = Compendium
+						.modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase());
+
+				basicModelAllTexture(event, mb, t, "window", "trim", "window/window_frame", b, "",
 						BlockModelRotation.X0_Y0, "all");
 			}
 
@@ -532,8 +538,9 @@ public class CompendiumClient {
 					doChair(event, mb, "seat", b, Pair.of("0", texture));
 				}
 			}
-//
-//			for (String b : StyleData.TABLE_LEGS.getTypes()) {
+
+			for (String b : StyleData.TABLE_LEGS.getTypes()) {
+				doTableLeg(event, mb, b, Pair.of("0", texture));
 //				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase(),
 //						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg")).texture("0", planksTexture);
 //
@@ -556,10 +563,10 @@ public class CompendiumClient {
 //						"block/material/wood/" + mb.name + "/clothed_table/legs/side/" + b.toLowerCase() + "_inventory",
 //						modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
 //						.texture("0", planksTexture);
-//			}
-//
-//			for (String b : StyleData.TABLE_TOP.getTypes()) {
-//				if (b.equals("smooth")) {
+			}
+
+			for (String b : StyleData.TABLE_TOP.getTypes()) {
+				if (b.equals("smooth")) {
 //					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
 //							modLoc("block/furniture/table/top/smooth")).texture("0", planksTexture)
 //							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
@@ -572,7 +579,10 @@ public class CompendiumClient {
 //							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
 //							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture)
 //							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//				} else {
+					basicModelAllTexture(event, mb,
+							Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), "table", "top",
+							"table/top", b, "n=false,s=false,e=false,w=false,nw=false,ne=false,sw=false,se=false", BlockModelRotation.X0_Y0, "all");
+				} else {
 //					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
 //							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
 //
@@ -582,8 +592,10 @@ public class CompendiumClient {
 //					withExistingParent(
 //							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
 //							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
-//				}
-//			}
+					basicModelAllTexture(event, mb, texture, "table", "top", "table/top", b, "",
+							BlockModelRotation.X0_Y0, "all");
+				}
+			}
 //
 //			for (String b : StyleData.BED_FRAME.getTypes()) {
 //				for (BedSideType sideType : BedSideType.values())
@@ -909,6 +921,19 @@ public class CompendiumClient {
 //				}
 //			}
 		}
+	}
+
+	@SafeVarargs
+	private static void doTableLeg(ModifyBakingResult event, _MaterialBase mb, String b,
+			Pair<String, ResourceLocation>... textures) {
+		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=west", BlockModelRotation.X0_Y90,
+				textures);
+		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=north",
+				BlockModelRotation.X0_Y180, textures);
+		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=east", BlockModelRotation.X0_Y270,
+				textures);
+		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=south", BlockModelRotation.X0_Y0,
+				textures);
 	}
 
 	@SafeVarargs

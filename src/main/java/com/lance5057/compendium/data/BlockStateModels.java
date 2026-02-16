@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.blocks.table.TableBlock;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
