@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
+import com.lance5057.compendium.blocks.table.TableBase;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
 import com.lance5057.compendium.client.armor.ModelBreastplate;
@@ -48,6 +49,7 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.ModelState;
+import net.minecraft.client.resources.model.MultiPartBakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
@@ -185,7 +187,8 @@ public class CompendiumClient {
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
 		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
 
-		buildStateModelVariant(event, models, "table", "n=false,s=false,e=false,w=false,nw=false,ne=false,sw=false,se=false");
+		buildStateModelVariant(event, models, "table",
+				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false");
 	}
 
 	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -581,7 +584,8 @@ public class CompendiumClient {
 //							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
 					basicModelAllTexture(event, mb,
 							Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), "table", "top",
-							"table/top", b, "n=false,s=false,e=false,w=false,nw=false,ne=false,sw=false,se=false", BlockModelRotation.X0_Y0, "all");
+							"table/top/" + b, b, "e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false",
+							BlockModelRotation.X0_Y0, "0");
 				} else {
 //					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
 //							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
@@ -592,8 +596,9 @@ public class CompendiumClient {
 //					withExistingParent(
 //							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
 //							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
-					basicModelAllTexture(event, mb, texture, "table", "top", "table/top", b, "",
-							BlockModelRotation.X0_Y0, "all");
+					basicModelAllTexture(event, mb, texture, "table", "top", "table/top/" + b, b,
+							"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false",
+							BlockModelRotation.X0_Y0, "0");
 				}
 			}
 //
@@ -926,62 +931,109 @@ public class CompendiumClient {
 	@SafeVarargs
 	private static void doTableLeg(ModifyBakingResult event, _MaterialBase mb, String b,
 			Pair<String, ResourceLocation>... textures) {
-		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=west", BlockModelRotation.X0_Y90,
+		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
+				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y90,
 				textures);
-		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=north",
-				BlockModelRotation.X0_Y180, textures);
-		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=east", BlockModelRotation.X0_Y270,
+		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
+				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y180,
 				textures);
-		basicModelManyTexture(event, mb, "table", "leg", "table/leg/" + b, b, "facing=south", BlockModelRotation.X0_Y0,
+		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
+				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y270,
 				textures);
+		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
+				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y0,
+				textures);
+
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> !s.getValue(TableBase.E) && !s.getValue(TableBase.NE) && !s.getValue(TableBase.N), null);
 	}
 
 	@SafeVarargs
 	private static void doChair(ModifyBakingResult event, _MaterialBase mb, String part, String b,
 			Pair<String, ResourceLocation>... textures) {
-		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=west",
-				BlockModelRotation.X0_Y90, textures);
-		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=north",
-				BlockModelRotation.X0_Y180, textures);
-		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=east",
-				BlockModelRotation.X0_Y270, textures);
-		basicModelManyTexture(event, mb, "chair", part, "chair/" + part + "/" + b, b, "facing=south",
-				BlockModelRotation.X0_Y0, textures);
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("chair", part, mb.name,
+				b.toLowerCase());
+		ResourceLocation loc = Compendium.modLoc("extra/" + "chair/" + part + "/" + b);
+
+		ModelResourceLocation w = new ModelResourceLocation(modelLoc, "facing=west");
+		event.getModels().put(w, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y90, textures));
+		ModelResourceLocation n = new ModelResourceLocation(modelLoc, "facing=north");
+		event.getModels().put(n, basicModelManyTexture(event, mb, loc, n, BlockModelRotation.X0_Y180, textures));
+		ModelResourceLocation e = new ModelResourceLocation(modelLoc, "facing=east");
+		event.getModels().put(e, basicModelManyTexture(event, mb, loc, e, BlockModelRotation.X0_Y270, textures));
+		ModelResourceLocation s = new ModelResourceLocation(modelLoc, "facing=south");
+		event.getModels().put(s, basicModelManyTexture(event, mb, loc, s, BlockModelRotation.X0_Y0, textures));
 	}
 
-	private static void basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb, ResourceLocation blockTexture,
-			String modelBase, String modelLayer, String modelExtraName, String style, String variant, ModelState state,
-			String textureName) {
-		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
+	private static BakedModel basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb,
+			ResourceLocation blockTexture, ResourceLocation location, ModelResourceLocation modelLocation,
+			ModelState state, String textureName) {
+//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
 
-		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-				style.toLowerCase());
+//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
+//				style.toLowerCase());
 
-		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
+		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
 
-		buildModel(event, frame_model, output_location, variant, state, Pair.of(textureName, blockTexture));
+		return buildModel(event, frame_model, modelLocation, state, Pair.of(textureName, blockTexture));
 	}
 
 	@SafeVarargs
-	private static void basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb, String modelBase,
-			String modelLayer, String modelExtraName, String style, String variant, ModelState state,
+	private static BakedModel basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb,
+			ResourceLocation location, ModelResourceLocation modelLocation, ModelState state,
 			Pair<String, ResourceLocation>... textures) {
-		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
+//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
 
-		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-				style.toLowerCase());
+//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
+//				style.toLowerCase());
 
-		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(rc);
+		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
 
-		buildModel(event, frame_model, output_location, variant, state, textures);
+		return buildModel(event, frame_model, modelLocation, state, textures);
 	}
 
+//	@SafeVarargs
+//	public static void buildModel(ModifyBakingResult event, BlockModel model, ResourceLocation output_location,
+//			String variant, ModelState state, Pair<String, ResourceLocation>... textures) {
+//		Map<ModelResourceLocation, BakedModel> models = event.getModels();
+//
+//		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
+//
+//		for (Pair<String, ResourceLocation> p : textures) {
+//
+//			if (model.textureMap.containsKey(p.getFirst())) {
+//				Either<Material, String> e = model.textureMap.get(p.getFirst());
+//				if (e.left().isPresent()) {
+//					ResourceLocation rl = e.left().get().atlasLocation();
+//
+//					model.textureMap.put(p.getFirst(), Either.left(new Material(rl, p.getSecond())));
+//				} else {
+//					throw new MissingResourceException("missing atlas location, texture likely incorrect",
+//							"CompendiumClient::buildModel", "");
+//				}
+//			} else {
+//				Compendium.LOGGER.error(
+//						"textureMap does not contain key: " + p.getFirst() + " - for model: " + block_model.toString());
+//			}
+//		}
+//
+//		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
+//				block_model);
+//
+//		model.resolveParents(i -> baker.getModel(i));
+//
+//		BakedModel bm = model.bake(baker, event.getTextureGetter(), state);
+//
+//		models.put(block_model, bm);
+//	}
+
 	@SafeVarargs
-	public static void buildModel(ModifyBakingResult event, BlockModel model, ResourceLocation output_location,
-			String variant, ModelState state, Pair<String, ResourceLocation>... textures) {
+	public static BakedModel buildModel(ModifyBakingResult event, BlockModel model, ModelResourceLocation modelResource,
+			ModelState state, Pair<String, ResourceLocation>... textures) {
 		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
-		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
+//		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
 
 		for (Pair<String, ResourceLocation> p : textures) {
 
@@ -996,18 +1048,17 @@ public class CompendiumClient {
 							"CompendiumClient::buildModel", "");
 				}
 			} else {
-				Compendium.LOGGER.error("textureMap does not contain key: " + p.getFirst());
+				Compendium.LOGGER.error("textureMap does not contain key: " + p.getFirst() + " - for model: "
+						+ modelResource.toString());
 			}
 		}
 
 		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
-				block_model);
+				modelResource);
 
 		model.resolveParents(i -> baker.getModel(i));
 
-		BakedModel bm = model.bake(baker, event.getTextureGetter(), state);
-
-		models.put(block_model, bm);
+		return model.bake(baker, event.getTextureGetter(), state);
 	}
 
 }
