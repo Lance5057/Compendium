@@ -241,12 +241,17 @@ public class CompendiumClient {
 
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.METAL) {
+
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
+				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("windows", "trim", mb.name,
+						b.toLowerCase());
+
 				ResourceLocation texture = Compendium
 						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
 
-				basicModelAllTexture(event, mb, texture, "window", "trim", "window/window_frame", b, "",
-						BlockModelRotation.X0_Y0, "all");
+				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
+						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 			});
 		}
 	}
@@ -254,16 +259,20 @@ public class CompendiumClient {
 	public static void doGlass(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb.getType() == MATERIAL_TYPES.GLASS) {
 			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
+				ResourceLocation loc = Compendium.modLoc("extra/windows/window_glass");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("windows", "glass", mb.name,
+						b.toLowerCase());
+
 				if (mb.name.equalsIgnoreCase("clear")) {
 					ResourceLocation texture = TagUtil.mcLoc("block/glass");
 
-					basicModelAllTexture(event, mb, texture, "window", "glass", "window/window_glass", b, "",
-							BlockModelRotation.X0_Y0, "all");
+					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
+							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 				} else {
 					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
 
-					basicModelAllTexture(event, mb, texture, "window", "glass", "window/window_glass", b, "",
-							BlockModelRotation.X0_Y0, "all");
+					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
+							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 				}
 			});
 		}
@@ -488,12 +497,14 @@ public class CompendiumClient {
 			}
 
 			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
-
+				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("windows", "trim", mb.name,
+						b.toLowerCase());
 				ResourceLocation t = Compendium
 						.modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase());
 
-				basicModelAllTexture(event, mb, t, "window", "trim", "window/window_frame", b, "",
-						BlockModelRotation.X0_Y0, "all");
+				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, t, loc,
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 			}
 
 			for (String b : StyleData.CHAIR_BACK.getTypes()) {
@@ -569,36 +580,24 @@ public class CompendiumClient {
 			}
 
 			for (String b : StyleData.TABLE_TOP.getTypes()) {
+				ResourceLocation loc = Compendium.modLoc("extra/table/top/" + b);
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("table", "top", mb.name,
+						b.toLowerCase());
+				ModelResourceLocation m = new ModelResourceLocation(modelLoc,
+						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false");
 				if (b.equals("smooth")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/table/top/smooth",
-//							modLoc("block/furniture/table/top/smooth")).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture)
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-					basicModelAllTexture(event, mb,
-							Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), "table", "top",
-							"table/top/" + b, b, "e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false",
-							BlockModelRotation.X0_Y0, "0");
+					event.getModels().put(m,
+							basicModelAllTexture(event, mb,
+									Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), loc,
+									new ModelResourceLocation(modelLoc,
+											"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+									BlockModelRotation.X0_Y0, "0"));
 				} else {
-//					withExistingParent("block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase(),
-//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/table/top/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/clothed_table/top/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/furniture/table/top/" + b.toLowerCase())).texture("0", planksTexture);
-					basicModelAllTexture(event, mb, texture, "table", "top", "table/top/" + b, b,
-							"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false",
-							BlockModelRotation.X0_Y0, "0");
+					event.getModels().put(m,
+							basicModelAllTexture(event, mb, texture, loc,
+									new ModelResourceLocation(modelLoc,
+											"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+									BlockModelRotation.X0_Y0, "0"));
 				}
 			}
 //
@@ -931,18 +930,26 @@ public class CompendiumClient {
 	@SafeVarargs
 	private static void doTableLeg(ModifyBakingResult event, _MaterialBase mb, String b,
 			Pair<String, ResourceLocation>... textures) {
-		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
-				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y90,
-				textures);
-		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
-				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y180,
-				textures);
-		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
-				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y270,
-				textures);
-		basicModelManyTexture(event, mb, "table", "legs", "table/legs/" + b, b,
-				"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false", BlockModelRotation.X0_Y0,
-				textures);
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("table", "legs", mb.name,
+				b.toLowerCase());
+		ResourceLocation loc = Compendium.modLoc("extra/table/legs/" + b);
+
+		basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc,
+						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+				BlockModelRotation.X0_Y90, textures);
+		basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc,
+						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+				BlockModelRotation.X0_Y180, textures);
+		basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc,
+						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+				BlockModelRotation.X0_Y270, textures);
+		basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc,
+						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
+				BlockModelRotation.X0_Y0, textures);
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 

@@ -121,7 +121,8 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
 						variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
 					}
-					variant = variant.substring(0, variant.length() - 1);
+					if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
+						variant = variant.substring(0, variant.length() - 1);
 					BakedModel t = Minecraft.getInstance().getModelManager()
 							.getModel(new ModelResourceLocation(rc, variant));
 
