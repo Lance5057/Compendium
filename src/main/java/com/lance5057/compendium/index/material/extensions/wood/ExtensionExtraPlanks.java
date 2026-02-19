@@ -561,14 +561,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 2)
-							.requires(ItemTags.create(TagUtil.neoTag("planks/" + base.name)))
-							.unlockedBy("plank_slab",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item()
-															.of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+					WorkbenchRecipeBuilder.shaped(PLANK.BLOCK_ITEM, 2)
+							.define('p', ItemTags.create(TagUtil.neoTag("planks/" + base.name))).pattern("p")
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 4, true, RecipeLootTables.EMPTY, List.of(),
+									Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 							.save(consumer, TagUtil.modLoc(base.name + "_planks_to_planks"));
 				}
 			}
@@ -584,14 +580,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-							.requires(ItemTags.create(TagUtil.neoTag("slabs/planks/" + base.name)))
-							.unlockedBy("plank_slab",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item()
-															.of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
+					WorkbenchRecipeBuilder.shaped(PLANK.BLOCK_ITEM, 1)
+							.define('p', ItemTags.create(TagUtil.neoTag("slabs/planks/" + base.name))).pattern("p")
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 4, true, RecipeLootTables.EMPTY, List.of(),
+									Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 							.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
 				}
 			}
@@ -606,14 +598,10 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-							.requires(ItemTags.create(TagUtil.neoTag("stairs/planks/" + base.name)))
-							.unlockedBy("plank_stairs",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item()
-															.of(PLANK_STAIRS.BLOCK_ITEM.asItem()).build()))))
+					WorkbenchRecipeBuilder.shaped(PLANK.BLOCK_ITEM, 1)
+							.define('p', ItemTags.create(TagUtil.neoTag("stairs/planks/" + base.name))).pattern("p")
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 4, true, RecipeLootTables.EMPTY, List.of(),
+									Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 							.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
 				}
 			}
