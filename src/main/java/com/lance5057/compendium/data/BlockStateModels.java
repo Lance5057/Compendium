@@ -1,15 +1,8 @@
 package com.lance5057.compendium.data;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
-import com.lance5057.compendium.blocks.table.TableBlock;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
-import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.data.PackOutput;
@@ -69,6 +62,14 @@ public class BlockStateModels extends BlockStateProvider {
 							models().existingFileHelper))
 					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
 		});
+
+		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.FANCY_BED.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
 
 //		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 //			Builder<?> b = ConfiguredModel.builder();
