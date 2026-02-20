@@ -1,16 +1,25 @@
 package com.lance5057.compendium.data;
 
+import java.util.List;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
+import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class BlockStateModels extends BlockStateProvider {
@@ -64,9 +73,9 @@ public class BlockStateModels extends BlockStateProvider {
 		});
 
 		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("block/air")));
-//		this.simpleBlock(CompendiumBlocks.TABLE.get(), models().getExistingFile(mcLoc("block/air")));
-//		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
 		this.simpleBlock(CompendiumBlocks.FANCY_BED.get(), models().getExistingFile(mcLoc("block/air")));
 		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
 		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
@@ -609,29 +618,30 @@ public class BlockStateModels extends BlockStateProvider {
 //		return 90;
 //	}
 //
-//	public void fence() {
-//		MultiPartBlockStateBuilder builder = getMultipartBuilder(CompendiumBlocks.FANCY_FENCE.get()).part()
-//				.modelFile(models().getBuilder("fancy_fence_post").customLoader(MultiStyleMaterialBuilder::begin)
-//						.base(models().cubeAll("fancy_fence_post_model", mcLoc("block/oak_planks")))
-//						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "post",
-//								List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_POST.getTypes(), 0, 0))
-//						.end())
-//				.addModel().end();
-//		PipeBlock.PROPERTY_BY_DIRECTION.entrySet().forEach(e -> {
-//			Direction dir = e.getKey();
-//			if (dir.getAxis().isHorizontal()) {
-//				builder.part()
-//						.modelFile(models().getBuilder("fancy_fence_side")
-//								.customLoader(MultiStyleMaterialBuilder::begin)
-//								.base(models().cubeAll("fancy_fence_side_model", mcLoc("block/oak_planks")))
-//								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "side",
-//										List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_SIDE.getTypes(), 1, 1))
-//								.end())
-//						.rotationY((((int) dir.toYRot()) + 180) % 360).uvLock(false).addModel()
-//						.condition(e.getValue(), true).end();
-//			}
-//		});
-//	}
+	}
+	public void fence() {
+		MultiPartBlockStateBuilder builder = getMultipartBuilder(CompendiumBlocks.FANCY_FENCE.get()).part()
+				.modelFile(models().getBuilder("fancy_fence_post").customLoader(MultiStyleMaterialBuilder::begin)
+						.base(models().cubeAll("fancy_fence_post_model", mcLoc("block/oak_planks")))
+						.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "post",
+								List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_POST.getTypes(), 0, 0))
+						.end())
+				.addModel().end();
+		PipeBlock.PROPERTY_BY_DIRECTION.entrySet().forEach(e -> {
+			Direction dir = e.getKey();
+			if (dir.getAxis().isHorizontal()) {
+				builder.part()
+						.modelFile(models().getBuilder("fancy_fence_side")
+								.customLoader(MultiStyleMaterialBuilder::begin)
+								.base(models().cubeAll("fancy_fence_side_model", mcLoc("block/oak_planks")))
+								.addLayer(new MultiStyleMaterialUnbakedModel.Layer("fence", "side",
+										List.of(MATERIAL_TYPES.WOOD), StyleData.FENCE_SIDE.getTypes(), 1, 1))
+								.end())
+						.rotationY((((int) dir.toYRot()) + 180) % 360).uvLock(false).addModel()
+						.condition(e.getValue(), true).end();
+			}
+		});
+	}
 //
 //	private void bedPart(MultiPartBlockStateBuilder mpbsb, BedPart topBottom, BedSideType bedSideType, String part,
 //			StyleData data, int material, int style, List<MATERIAL_TYPES> mats, boolean occupied) {
@@ -701,5 +711,4 @@ public class BlockStateModels extends BlockStateProvider {
 ////					.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 ////					.condition(FancyBedBlock.PART, topBottom).condition(FancyBedBlock.SIDE, bedSideType)
 ////					.condition(FancyBedBlock.OCCUPIED, occupied).end();
-	}
 }

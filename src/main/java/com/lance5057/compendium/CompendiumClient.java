@@ -202,6 +202,13 @@ public class CompendiumClient {
 					+ ",sw=" + bitToConditionString(i, 0b000000010) + ",w=" + bitToConditionString(i, 0b000000001);
 			buildStateModelVariant(event, models, "clothed_table", v);
 		}
+
+		for (int i = 0b00000; i < 0b1111; i++) {
+			String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
+					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
+					+ ",west=" + bitToConditionString(i, 0b00001);
+			buildStateModelVariant(event, models, "fancy_fence", v);
+		}
 	}
 
 	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -319,7 +326,8 @@ public class CompendiumClient {
 					if (b.contains("angled")) {
 
 						event.getModels().put(m, basicModelManyTexture(event, mb, loc, m, BlockModelRotation.X0_Y0,
-								Pair.of("0", texture),Pair.of("1", Compendium.modLoc("block/material/textile/" + mb.name+"/diagonal_half"))));
+								Pair.of("0", texture), Pair.of("1",
+										Compendium.modLoc("block/material/textile/" + mb.name + "/diagonal_half"))));
 					} else
 						event.getModels().put(m,
 								basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
@@ -802,33 +810,65 @@ public class CompendiumClient {
 //					}
 //			}
 //
-//			for (String b : StyleData.FENCE_POST.getTypes()) {
-//				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
-//						modLoc("block/bases/fence/post/" + b.toLowerCase())).texture("0", planksTexture);
-//				withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
-//						modLoc("block/bases/fence/post/" + b.toLowerCase() + "_inventory")).texture("0", planksTexture);
-//			}
-//
-//			for (String b : StyleData.FENCE_SIDE.getTypes()) {
-//				if (b.contains("sheet")) {
-//					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
-//							modLoc("block/bases/fence/side/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//
+			for (String b : StyleData.FENCE_POST.getTypes()) {
+				for (int i = 0b0000; i < 0b1111; i++) {
+					String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
+					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
+					+ ",west=" + bitToConditionString(i, 0b00001);
+					ResourceLocation loc = Compendium.modLoc("extra/fence/post/" + b);
+					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "post",
+							mb.name, b.toLowerCase());
+					ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+					event.getModels().put(m,
+							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+//					withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
+//							modLoc("block/bases/fence/post/" + b.toLowerCase())).texture("0", planksTexture);
 //					withExistingParent(
-//							"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//				} else {
-//					withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
-//							modLoc("block/bases/fence/side/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+//							"block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
+//							modLoc("block/bases/fence/post/" + b.toLowerCase() + "_inventory"))
 //							.texture("0", planksTexture);
-//				}
-//			}
+				}
+			}
+
+			for (String b : StyleData.FENCE_SIDE.getTypes()) {
+				for (int i = 0b0000; i < 0b1111; i++) {
+					String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
+					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
+					+ ",west=" + bitToConditionString(i, 0b00001);
+					ResourceLocation loc = Compendium.modLoc("extra/fence/side/" + b);
+					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "side",
+							mb.name, b.toLowerCase());
+					ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+//					event.getModels().put(m,
+//							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+					if (b.contains("sheet")) {
+
+						event.getModels().put(m,
+								basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+//						
+//						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
+//								modLoc("block/bases/fence/side/" + b.toLowerCase()))
+//								.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+//
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+//								modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+//								.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+					} else {
+						event.getModels().put(m,
+								basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+//						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
+//								modLoc("block/bases/fence/side/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
+//								modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
+//								.texture("0", planksTexture);
+					}
+				}
+			}
 //
 //			for (String b : StyleData.SHINGLES_SHINGLES.getTypes()) {
 //				String[] top = new String[] { "no_top/", "top/" };
@@ -988,23 +1028,6 @@ public class CompendiumClient {
 		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation(table, "legs", mb.name,
 				b.toLowerCase());
 		ResourceLocation loc = Compendium.modLoc("extra/" + table + "/legs/" + b);
-
-//		basicModelManyTexture(event, mb, loc,
-//				new ModelResourceLocation(modelLoc,
-//						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
-//				BlockModelRotation.X0_Y90, textures);
-//		basicModelManyTexture(event, mb, loc,
-//				new ModelResourceLocation(modelLoc,
-//						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
-//				BlockModelRotation.X0_Y180, textures);
-//		basicModelManyTexture(event, mb, loc,
-//				new ModelResourceLocation(modelLoc,
-//						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
-//				BlockModelRotation.X0_Y270, textures);
-//		basicModelManyTexture(event, mb, loc,
-//				new ModelResourceLocation(modelLoc,
-//						"e=false,n=false,ne=false,nw=false,s=false,se=false,sw=false,w=false"),
-//				BlockModelRotation.X0_Y0, textures);
 
 		for (int i = 0b000000000; i < 0b111111111; i++) {
 			String v = "e=" + bitToConditionString(i, 0b100000000) + ",n=" + bitToConditionString(i, 0b010000000)

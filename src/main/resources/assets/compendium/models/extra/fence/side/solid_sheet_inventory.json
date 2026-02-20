@@ -1,0 +1,6 @@
+{
+	"parent": "compendium:block/bases/fence/side/solid_inventory",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/planks/sheet"
+	}
+}
