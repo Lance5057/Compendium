@@ -989,48 +989,39 @@ public class CompendiumClient {
 			mmb.add(s -> !s.getValue(TableBase.W) && !s.getValue(TableBase.NW) && !s.getValue(TableBase.N),
 					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
 							BlockModelRotation.X0_Y0, textures));
-			
+
 			mmb.add(s -> s.getValue(TableBase.N) && !s.getValue(TableBase.NW) && s.getValue(TableBase.W),
 					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
 							BlockModelRotation.X0_Y0, textures));
-			
+
 			mmb.add(s -> s.getValue(TableBase.N) && !s.getValue(TableBase.NE) && s.getValue(TableBase.E),
 					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-							BlockModelRotation.X0_Y0, textures));
+							BlockModelRotation.X0_Y90, textures));
 
 			mmb.add(s -> s.getValue(TableBase.S) && !s.getValue(TableBase.SE) && s.getValue(TableBase.E),
 					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
 							BlockModelRotation.X0_Y180, textures));
+			
+			mmb.add(s -> !s.getValue(TableBase.SW) && s.getValue(TableBase.W) && s.getValue(TableBase.S),
+					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+							BlockModelRotation.X0_Y270, textures));
+			
+			mmb.add(s -> s.getValue(TableBase.NW) && !s.getValue(TableBase.W) && !s.getValue(TableBase.N),
+					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+							BlockModelRotation.X0_Y0, textures));
 
+			mmb.add(s -> s.getValue(TableBase.NE) && !s.getValue(TableBase.E) && !s.getValue(TableBase.N),
+					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+							BlockModelRotation.X0_Y90, textures));
 
-//			.modelFile(models().getBuilder("table_legs").customLoader(MultiStyleMaterialBuilder::begin)
-//					.base(models().cubeAll("table_legs_model", mcLoc("block/oak_planks")))
-//					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-//							List.of(MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1, 1))
-//					.end())
-//			.rotationY(270).addModel().condition(TableBlock.SW, false).condition(TableBlock.W, true)
-//			.condition(TableBlock.S, true).end().part()
-//			.modelFile(models().getBuilder("table_legs").customLoader(MultiStyleMaterialBuilder::begin)
-//					.base(models().cubeAll("table_legs_model", mcLoc("block/oak_planks")))
-//					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-//							List.of(MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1, 1))
-//					.end())
-//			.rotationY(0).addModel().condition(TableBlock.N, false).condition(TableBlock.NW, true)
-//			.condition(TableBlock.W, false).end().part()
-//			.modelFile(models().getBuilder("table_legs").customLoader(MultiStyleMaterialBuilder::begin)
-//					.base(models().cubeAll("table_legs_model", mcLoc("block/oak_planks")))
-//					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-//							List.of(MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1, 1))
-//					.end())
-//			.rotationY(90).addModel().condition(TableBlock.N, false).condition(TableBlock.E, false)
-//			.condition(TableBlock.NE, true).end().part()
-//			.modelFile(models().getBuilder("table_legs").customLoader(MultiStyleMaterialBuilder::begin)
-//					.base(models().cubeAll("table_legs_model", mcLoc("block/oak_planks")))
-//					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
-//							List.of(MATERIAL_TYPES.WOOD), StyleData.TABLE_LEGS.getTypes(), 1, 1))
-//					.end())
-//			.rotationY(180).addModel().condition(TableBlock.S, false).condition(TableBlock.E, false)
-//			.condition(TableBlock.SE, true).end().part()
+			mmb.add(s -> s.getValue(TableBase.SE) && !s.getValue(TableBase.E) && !s.getValue(TableBase.S),
+					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+							BlockModelRotation.X0_Y180, textures));
+
+			mmb.add(s -> s.getValue(TableBase.SW) && !s.getValue(TableBase.W) && !s.getValue(TableBase.S),
+					basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+							BlockModelRotation.X0_Y270, textures));
+			
 //			.modelFile(models().getBuilder("table_legs").customLoader(MultiStyleMaterialBuilder::begin)
 //					.base(models().cubeAll("table_legs_model", mcLoc("block/oak_planks")))
 //					.addLayer(new MultiStyleMaterialUnbakedModel.Layer("table", "legs",
@@ -1039,8 +1030,7 @@ public class CompendiumClient {
 //			.rotationY(270).addModel().condition(TableBlock.SW, true).condition(TableBlock.W, false)
 //			.condition(TableBlock.S, false).end()
 
-			event.getModels().put(new ModelResourceLocation(modelLoc,
-					v), mmb.build());
+			event.getModels().put(new ModelResourceLocation(modelLoc, v), mmb.build());
 		}
 	}
 
