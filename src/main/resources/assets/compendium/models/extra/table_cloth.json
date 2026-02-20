@@ -6,6 +6,36 @@
     }
   },
   "layer0": {
+    "materialLayer": 0,
+    "modelBase": "table",
+    "modelPart": "top",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "trimmed",
+      "smooth"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "table",
+    "modelPart": "legs",
+    "styleLayer": 1,
+    "styles": [
+      "basic",
+      "bar",
+      "fancy"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer2": {
     "materialLayer": 2,
     "modelBase": "table",
     "modelPart": "cloth",
@@ -23,6 +53,6 @@
       "TEXTILE"
     ]
   },
-  "layer_count": 1,
+  "layer_count": 3,
   "loader": "compendium:multi_style_material"
 }
