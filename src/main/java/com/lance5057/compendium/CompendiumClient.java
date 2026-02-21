@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
+import com.lance5057.compendium.blocks.bed.BedSideType;
+import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.table.TableBase;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
@@ -50,8 +52,12 @@ import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.MultiPartBakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -203,12 +209,31 @@ public class CompendiumClient {
 			buildStateModelVariant(event, models, "clothed_table", v);
 		}
 
-		for (int i = 0b00000; i < 0b1111; i++) {
+		for (int i = 0b000000; i < 0b11111; i++) {
 			String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
 					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
 					+ ",west=" + bitToConditionString(i, 0b00001);
 			buildStateModelVariant(event, models, "fancy_fence", v);
 		}
+
+		for (BedSideType sideType : BedSideType.values())
+			for (BedPart part : BedPart.values()) {
+				for (Direction dir : Direction.Plane.HORIZONTAL) {
+					for (int occupied = 0; occupied < 2; occupied++) {
+
+						String sideString = sideType.toString().toLowerCase();
+						String partString = part.toString().toLowerCase();
+						String dirString = dir.toString().toLowerCase();
+						String occupiedString = occupied != 0 ? "occupied" : "unoccupied";
+
+						String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+								+ ",type=" + sideString;
+
+						buildStateModelVariant(event, models, "fancy_bed", v);
+					}
+				}
+			}
+
 	}
 
 	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -657,106 +682,145 @@ public class CompendiumClient {
 					}
 				}
 			}
-//
-//			for (String b : StyleData.BED_FRAME.getTypes()) {
-//				for (BedSideType sideType : BedSideType.values())
-//					for (BedPart part : BedPart.values()) {
-//						if (b.equals("live_edge")) {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-//									.texture("1", planksTexture);
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-//									.texture("1", planksTexture);
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
-//									.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/log_split_side"))
-//									.texture("1", planksTexture);
-//						} else if (b.equals("weave")) {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//						} else if (b.equals("slats")) {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/slats"));
-//						} else {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
-//
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/frame/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/frame/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
-//						}
-//					}
-//			}
+
+			for (String b : StyleData.BED_FRAME.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "occupied" : "unoccupied";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation loc = Compendium.modLoc("extra/bed/" + occupiedString + "/"
+										+ sideString + "/" + partString + "/frame/" + b);
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "frame",
+										mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								if (b.equals("live_edge")) {
+
+									ResourceLocation tex = Compendium
+											.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side");
+
+									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
+													Pair.of("0", tex), Pair.of("1", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
+													Pair.of("0", tex), Pair.of("1", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
+													Pair.of("0", tex), Pair.of("1", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
+													Pair.of("0", tex), Pair.of("1", texture)));
+
+									event.getModels().put(m, mmb.build());
+
+								} else if (b.equals("weave")) {
+
+									ResourceLocation tex = Compendium
+											.modLoc("block/material/wood/" + mb.name + "/weave");
+
+									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									event.getModels().put(m, mmb.build());
+
+								} else if (b.equals("slats")) {
+									ResourceLocation tex = Compendium
+											.modLoc("block/material/wood/" + mb.name + "/slats");
+
+									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
+													Pair.of("0", texture), Pair.of("1", tex)));
+
+									event.getModels().put(m, mmb.build());
+
+								} else {
+									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
+													Pair.of("0", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
+													Pair.of("0", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
+													Pair.of("0", texture)));
+
+									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
+											basicModelManyTexture(event, mb, loc,
+													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
+													Pair.of("0", texture)));
+
+									event.getModels().put(m, mmb.build());
+
+								}
+							}
+
+						}
+					}
+				}
+			}
 //
 //			for (String b : StyleData.BED_BASE.getTypes()) {
 //				for (BedSideType sideType : BedSideType.values())
@@ -811,61 +875,72 @@ public class CompendiumClient {
 //			}
 //
 			for (String b : StyleData.FENCE_POST.getTypes()) {
-				for (int i = 0b0000; i < 0b1111; i++) {
+				for (int i = 0b00000; i < 0b11111; i++) {
 					String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
-					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
-					+ ",west=" + bitToConditionString(i, 0b00001);
+							+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged="
+							+ bitToConditionString(i, 0b00010) + ",west=" + bitToConditionString(i, 0b00001);
 					ResourceLocation loc = Compendium.modLoc("extra/fence/post/" + b);
-					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "post",
-							mb.name, b.toLowerCase());
+					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "post", mb.name,
+							b.toLowerCase());
 					ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
 
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
-//					withExistingParent("block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase(),
-//							modLoc("block/bases/fence/post/" + b.toLowerCase())).texture("0", planksTexture);
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/fence/post/" + b.toLowerCase() + "_inventory",
-//							modLoc("block/bases/fence/post/" + b.toLowerCase() + "_inventory"))
-//							.texture("0", planksTexture);
 				}
 			}
 
 			for (String b : StyleData.FENCE_SIDE.getTypes()) {
-				for (int i = 0b0000; i < 0b1111; i++) {
+				for (int i = 0b00000; i < 0b11111; i++) {
 					String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
-					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
-					+ ",west=" + bitToConditionString(i, 0b00001);
+							+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged="
+							+ bitToConditionString(i, 0b00010) + ",west=" + bitToConditionString(i, 0b00001);
 					ResourceLocation loc = Compendium.modLoc("extra/fence/side/" + b);
-					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "side",
-							mb.name, b.toLowerCase());
+					ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "side", mb.name,
+							b.toLowerCase());
 					ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
 
-//					event.getModels().put(m,
-//							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
 					if (b.contains("sheet")) {
 
-						event.getModels().put(m,
-								basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
-//						
-//						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
-//								modLoc("block/bases/fence/side/" + b.toLowerCase()))
-//								.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
-//
-//						withExistingParent(
-//								"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
-//								modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
-//								.texture("0", modLoc("block/material/wood/" + mb.name + "/planks/sheet"));
+						MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+						mmb.add(s -> s.getValue(FenceBlock.EAST),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.NORTH),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y0, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.SOUTH),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y180, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.WEST),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y270, Pair.of("0", texture)));
+
+						event.getModels().put(m, mmb.build());
+
 					} else {
-						event.getModels().put(m,
-								basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
-//						withExistingParent("block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase(),
-//								modLoc("block/bases/fence/side/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//						withExistingParent(
-//								"block/material/wood/" + mb.name + "/fence/side/" + b.toLowerCase() + "_inventory",
-//								modLoc("block/bases/fence/side/" + b.toLowerCase() + "_inventory"))
-//								.texture("0", planksTexture);
+						MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+						mmb.add(s -> s.getValue(FenceBlock.EAST),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.NORTH),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y0, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.SOUTH),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y180, Pair.of("0", texture)));
+
+						mmb.add(s -> s.getValue(FenceBlock.WEST),
+								basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+										BlockModelRotation.X0_Y270, Pair.of("0", texture)));
+
+						event.getModels().put(m, mmb.build());
 					}
 				}
 			}
