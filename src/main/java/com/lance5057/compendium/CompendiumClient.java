@@ -56,7 +56,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -224,12 +223,14 @@ public class CompendiumClient {
 						String sideString = sideType.toString().toLowerCase();
 						String partString = part.toString().toLowerCase();
 						String dirString = dir.toString().toLowerCase();
-						String occupiedString = occupied != 0 ? "occupied" : "unoccupied";
+						String occupiedString = occupied != 0 ? "true" : "false";
 
 						String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
 								+ ",type=" + sideString;
-
+//						facing=south,occupied=false,part=head,type=single
 						buildStateModelVariant(event, models, "fancy_bed", v);
+
+//						models.put(new ModelResourceLocation(Compendium.modLoc("extra/fancy_bed"), v), null);
 					}
 				}
 			}
@@ -685,14 +686,16 @@ public class CompendiumClient {
 
 			for (String b : StyleData.BED_FRAME.getTypes()) {
 				for (BedSideType sideType : BedSideType.values()) {
-					for (BedPart part : BedPart.values()) {
-						for (Direction dir : Direction.Plane.HORIZONTAL) {
-							for (int occupied = 0; occupied < 2; occupied++) {
 
+					for (BedPart part : BedPart.values()) {
+
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+
+							for (int occupied = 0; occupied < 2; occupied++) {
 								String sideString = sideType.toString().toLowerCase();
 								String partString = part.toString().toLowerCase();
 								String dirString = dir.toString().toLowerCase();
-								String occupiedString = occupied != 0 ? "occupied" : "unoccupied";
+								String occupiedString = occupied != 0 ? "true" : "false";
 
 								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
 										+ ",type=" + sideString;
@@ -708,111 +711,36 @@ public class CompendiumClient {
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side");
 
-									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+											Pair.of("0", tex), Pair.of("1", texture));
 
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
-													Pair.of("0", tex), Pair.of("1", texture)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
-													Pair.of("0", tex), Pair.of("1", texture)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
-													Pair.of("0", tex), Pair.of("1", texture)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
-													Pair.of("0", tex), Pair.of("1", texture)));
-
-									event.getModels().put(m, mmb.build());
+									event.getModels().put(m, bm);
 
 								} else if (b.equals("weave")) {
 
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/weave");
 
-									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+											Pair.of("0", texture), Pair.of("1", tex));
 
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									event.getModels().put(m, mmb.build());
+									event.getModels().put(m, bm);
 
 								} else if (b.equals("slats")) {
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/slats");
 
-									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+											Pair.of("0", texture), Pair.of("1", tex));
 
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
-													Pair.of("0", texture), Pair.of("1", tex)));
-
-									event.getModels().put(m, mmb.build());
+									event.getModels().put(m, bm);
 
 								} else {
-									MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90,
-													Pair.of("0", texture)));
+									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+											Pair.of("0", texture));
 
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0,
-													Pair.of("0", texture)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180,
-													Pair.of("0", texture)));
-
-									mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST,
-											basicModelManyTexture(event, mb, loc,
-													new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270,
-													Pair.of("0", texture)));
-
-									event.getModels().put(m, mmb.build());
+									event.getModels().put(m, bm);
 
 								}
 							}
@@ -1091,6 +1019,82 @@ public class CompendiumClient {
 		}
 	}
 
+	@SafeVarargs
+	private static BakedModel doBed(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType, BedPart part,
+			Direction dir, int occupied, String style, Pair<String, ResourceLocation>... textures) {
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.SINGLE,
+				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.CENTER,
+				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.LEFT,
+				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.RIGHT,
+				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		return mmb.build();
+	}
+
+	private static BakedModel doBedPartType(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
+			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>[] textures) {
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> s.getValue(FancyBedBlock.PART) == BedPart.HEAD,
+				doBedOccupiedType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.PART) == BedPart.FOOT,
+				doBedOccupiedType(event, mb, sideType, part, dir, occupied, style, textures));
+
+		return mmb.build();
+	}
+
+	private static BakedModel doBedOccupiedType(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
+			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>[] textures) {
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == (occupied != 0),
+				doBedDirectionStep(event, mb, sideType, part, dir, occupied, style, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == (occupied == 0),
+				doBedDirectionStep(event, mb, sideType, part, dir, occupied, style, textures));
+
+		return mmb.build();
+	}
+
+	@SafeVarargs
+	private static BakedModel doBedDirectionStep(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
+			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>... textures) {
+		String sideString = sideType.toString().toLowerCase();
+		String partString = part.toString().toLowerCase();
+//		String dirString = dir.toString().toLowerCase();
+		String occupiedString = occupied != 0 ? "occupied" : "unoccupied";
+
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		ResourceLocation loc = Compendium
+				.modLoc("extra/bed/" + occupiedString + "/" + sideString + "/" + partString + "/frame/" + style);
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "frame", mb.name,
+				style.toLowerCase());
+
+		mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.SOUTH, basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.NORTH, basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.EAST, basicModelManyTexture(event, mb, loc,
+				new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		return mmb.build();
+	}
+
 	public static String bitToConditionString(int i, int b) {
 		if ((i & b) == 0)
 			return "false";
@@ -1208,45 +1212,10 @@ public class CompendiumClient {
 		return buildModel(event, frame_model, modelLocation, state, textures);
 	}
 
-//	@SafeVarargs
-//	public static void buildModel(ModifyBakingResult event, BlockModel model, ResourceLocation output_location,
-//			String variant, ModelState state, Pair<String, ResourceLocation>... textures) {
-//		Map<ModelResourceLocation, BakedModel> models = event.getModels();
-//
-//		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
-//
-//		for (Pair<String, ResourceLocation> p : textures) {
-//
-//			if (model.textureMap.containsKey(p.getFirst())) {
-//				Either<Material, String> e = model.textureMap.get(p.getFirst());
-//				if (e.left().isPresent()) {
-//					ResourceLocation rl = e.left().get().atlasLocation();
-//
-//					model.textureMap.put(p.getFirst(), Either.left(new Material(rl, p.getSecond())));
-//				} else {
-//					throw new MissingResourceException("missing atlas location, texture likely incorrect",
-//							"CompendiumClient::buildModel", "");
-//				}
-//			} else {
-//				Compendium.LOGGER.error(
-//						"textureMap does not contain key: " + p.getFirst() + " - for model: " + block_model.toString());
-//			}
-//		}
-//
-//		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
-//				block_model);
-//
-//		model.resolveParents(i -> baker.getModel(i));
-//
-//		BakedModel bm = model.bake(baker, event.getTextureGetter(), state);
-//
-//		models.put(block_model, bm);
-//	}
-
 	@SafeVarargs
 	public static BakedModel buildModel(ModifyBakingResult event, BlockModel model, ModelResourceLocation modelResource,
 			ModelState state, Pair<String, ResourceLocation>... textures) {
-		Map<ModelResourceLocation, BakedModel> models = event.getModels();
+//		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
 //		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
 
