@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-21T02:19:09.1132961	Block States: compendium
+// 1.21.1	2026-02-24T13:28:02.2685774	Block States: compendium
 9a435ff91c0854a740c969b9f70f913d34c602ee assets/compendium/blockstates/acacia_plank.json
 191b26e14c194ee2966d6360f73d77788da7c88f assets/compendium/blockstates/acacia_planks.json
 2b3a7e62135fab2197911fefe753e008b29bf39c assets/compendium/blockstates/acacia_planks_slab.json
@@ -43,6 +43,8 @@ aa2d839f981277c952a40fc55fbb9c530530bb7c assets/compendium/blockstates/crimson_s
 0561227d795ae8e02e5cb272a7225b6e93525885 assets/compendium/blockstates/dark_oak_small_logs_slab.json
 2f0c4ac073067ad58e13df191fb5b66fbac0231a assets/compendium/blockstates/dark_oak_small_logs_stairs.json
 f58fc8fe05666719489fdf5b061670327ea573ec assets/compendium/blockstates/drawer.json
+3dff9e1ec59415779195d2abfa9f07bc17b428a1 assets/compendium/blockstates/fancy_bed.json
+3dff9e1ec59415779195d2abfa9f07bc17b428a1 assets/compendium/blockstates/fancy_fence.json
 06ba1db99efa07423015aeb81ea15a3a35ba475a assets/compendium/blockstates/hammering_station.json
 877792fb67913c1a0e3257041e5063245d6b0758 assets/compendium/blockstates/jungle_plank.json
 b4db96304f097a5b25c4f0067df66bdd0f2db049 assets/compendium/blockstates/jungle_planks.json
