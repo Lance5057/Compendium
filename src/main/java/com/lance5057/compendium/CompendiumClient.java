@@ -67,7 +67,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
-@EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT)
 public class CompendiumClient {
 	public static final ModelLayerLocation HELM = register("helm", "main");
 	public static final ModelLayerLocation BREASTPLATE = register("breastplate", "main");
@@ -105,29 +105,6 @@ public class CompendiumClient {
 		event.register(CompendiumMenus.WORKBENCH_MENU.get(), WorkbenchScreen::new);
 		event.register(CompendiumMenus.COMPONENT_DRAWER_MENU.get(), ComponentDrawerScreen::new);
 	}
-
-//	@SubscribeEvent
-//	public static void RegisterExtraModels(ModelEvent.RegisterAdditional event) {
-//		Map<ResourceLocation, Resource> rrs = Minecraft.getInstance().getResourceManager().listResources("models/extra",
-//				(p_215600_) -> {
-//					return p_215600_.getPath().endsWith(".json");
-//				});
-//
-////		rrs.putAll(Minecraft.getInstance().getResourceManager().listResources("models/block/material", (p_215600_) -> {
-////			return p_215600_.getPath().endsWith(".json");
-////		}));
-//
-//		rrs.forEach((rl, r) -> {
-//			String s = rl.toString();
-//
-//			s = s.substring(s.indexOf('/') + 1, s.indexOf('.'));
-//
-//			ModelResourceLocation rl2 = ModelResourceLocation
-//					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
-//
-//			event.register(rl2);
-//		});
-//	}
 
 	@SubscribeEvent
 	public static void registerLoader(ModelEvent.RegisterGeometryLoaders registerGeometryLoaders) {
@@ -167,14 +144,6 @@ public class CompendiumClient {
 	@SubscribeEvent
 	public static void extraModels(ModifyBakingResult event) {
 		Map<ModelResourceLocation, BakedModel> models = event.getModels();
-//
-
-//
-//		ModelResourceLocation ml = ModelResourceLocation.inventory(rc);
-//		models.put(ml, buildModel(event, ml, texture));
-//
-//		ModelResourceLocation ml2 = new ModelResourceLocation(rc, "");
-//		models.put(ml2, buildModel(event, ml2, texture));
 
 		CompendiumIndex.index.forEach(i -> {
 			if (i instanceof _MaterialBase mb) {
@@ -227,10 +196,8 @@ public class CompendiumClient {
 
 						String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
 								+ ",type=" + sideString;
-//						facing=south,occupied=false,part=head,type=single
-						buildStateModelVariant(event, models, "fancy_bed", v);
 
-//						models.put(new ModelResourceLocation(Compendium.modLoc("extra/fancy_bed"), v), null);
+						buildStateModelVariant(event, models, "fancy_bed", v);
 					}
 				}
 			}
@@ -360,9 +327,31 @@ public class CompendiumClient {
 				}
 			}
 
-//			for (String b : StyleData.BED_MATTRESS.getTypes()) {
-//				for (BedSideType sideType : BedSideType.values()) {
-//					for (BedPart part : BedPart.values()) {
+			for (String b : StyleData.BED_MATTRESS.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "true" : "false";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed",
+										"mattress", mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								BakedModel bm = doBed(event, mb, "mattress", sideType, part, dir, occupied, b,
+										Pair.of("0", texture));
+
+								event.getModels().put(m, bm);
+							}
+						}
+					}
+				}
 //						withExistingParent(
 //								"block/material/textile/" + mb.name + "/bed/unoccupied/"
 //										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
@@ -378,178 +367,103 @@ public class CompendiumClient {
 //								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
 //										+ part.toString().toLowerCase() + "/mattress/" + b.toLowerCase()))
 //								.texture("0", blockTexture);
-//
-//					}
-//				}
-//
+
 //				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/mattress/" + b.toLowerCase(),
 //						modLoc("block/furniture/bed/inventory/mattress/" + b.toLowerCase())).texture("0", blockTexture);
-//			}
-//
-//			for (String b : StyleData.BED_SHEET.getTypes()) {
-//				for (BedSideType sideType : BedSideType.values()) {
-//					for (BedPart part : BedPart.values()) {
-//						withExistingParent(
-//								"block/material/textile/" + mb.name + "/bed/unoccupied/"
-//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//										+ "/sheet/" + b.toLowerCase(),
-//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase()))
-//								.texture("0", blockTexture);
-//
-//						withExistingParent(
-//								"block/material/textile/" + mb.name + "/bed/occupied/"
-//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//										+ "/sheet/" + b.toLowerCase(),
-//								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-//										+ part.toString().toLowerCase() + "/sheet/" + b.toLowerCase()))
-//								.texture("0", blockTexture);
-//					}
-//				}
-//
-//				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/sheet/" + b.toLowerCase(),
-//						modLoc("block/furniture/bed/inventory/sheet/" + b.toLowerCase())).texture("0", blockTexture);
-//			}
-//
-//			for (String b : StyleData.BED_PILLOW.getTypes()) {
-//				for (BedSideType sideType : BedSideType.values()) {
-//					for (BedPart part : BedPart.values()) {
-//						withExistingParent(
-//								"block/material/textile/" + mb.name + "/bed/unoccupied/"
-//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//										+ "/pillow/" + b.toLowerCase(),
-//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
-//								.texture("0", blockTexture);
-//
-//						withExistingParent(
-//								"block/material/textile/" + mb.name + "/bed/occupied/"
-//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//										+ "/pillow/" + b.toLowerCase(),
-//								modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-//										+ part.toString().toLowerCase() + "/pillow/" + b.toLowerCase()))
-//								.texture("0", blockTexture);
-//					}
-//				}
-//
-//				withExistingParent("block/material/textile/" + mb.name + "/bed/inventory/pillow/" + b.toLowerCase(),
-//						modLoc("block/furniture/bed/inventory/pillow/" + b.toLowerCase())).texture("0", blockTexture);
-//			}
-//
-//			for (String b : StyleData.BED_BLANKET.getTypes()) {
-//				if (b.equals("llama"))
-//					withExistingParent(
-//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
-//							.texture("2", modLoc(mb.blockFolder() + "llama"))
-//							.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
-//
-//				else if (b.equals("glazed"))
-//					withExistingParent(
-//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-//							modLoc("block/furniture/bed/inventory/blanket/basic"))
-//							.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-//
-//				else
-//					withExistingParent(
-//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
-//							.texture("0", blockTexture);
-//
-//				for (BedSideType sideType : BedSideType.values()) {
-//					for (BedPart part : BedPart.values()) {
-//						if (b.equals("llama")) {
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-//									.texture("2", modLoc(mb.blockFolder() + "llama"))
-//									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
-//
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-//									.texture("2", modLoc(mb.blockFolder() + "llama"))
-//									.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
-//
-//						} else if (b.equals("glazed")) {
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/basic"))
-//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-//
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/basic"))
-//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-//
-//						} else {
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-//									.texture("0", blockTexture);
-//
-//							withExistingParent(
-//									"block/material/textile/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/blanket/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase()))
-//									.texture("0", blockTexture);
-//
-//						}
-//					}
-//				}
-//			}
-//
-//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled",
-//					modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_inventory",
-//					modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-//
-//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_short",
-//					modLoc("block/furniture/table/cloth/angled_short")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_short_inventory",
-//					modLoc("block/furniture/table/cloth/angled_short")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-//
-//			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled_long",
-//					modLoc("block/furniture/table/cloth/angled_long")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-//			withExistingParent("block/material/textile/" + mb.name + "/clothed_table/cloth/angled_long_inventory",
-//					modLoc("block/furniture/table/cloth/angled_long")).texture("0", mcLoc("block/" + mb.name))
-//					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
-//							"block/material/textile/" + mb.name + "/diagonal_half"))
-//					.renderType("cutout");
-		}
+			}
 
+			for (String b : StyleData.BED_SHEET.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "true" : "false";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "sheet",
+										mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								BakedModel bm = doBed(event, mb, "sheet", sideType, part, dir, occupied, b,
+										Pair.of("0", texture));
+
+								event.getModels().put(m, bm);
+							}
+						}
+					}
+				}
+			}
+
+			for (String b : StyleData.BED_PILLOW.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "true" : "false";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "pillow",
+										mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								BakedModel bm = doBed(event, mb, "pillow", sideType, part, dir, occupied, b,
+										Pair.of("0", texture));
+
+								event.getModels().put(m, bm);
+							}
+						}
+					}
+				}
+			}
+
+			for (String b : StyleData.BED_BLANKET.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "true" : "false";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed",
+										"blanket", mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								if (b.equals("llama")) {
+									BakedModel bm = doBed(event, mb, "blanket", sideType, part, dir, occupied, b,
+											Pair.of("3", Compendium.modLoc(mb.blockFolder() + "llama_trim")),
+											Pair.of("2", Compendium.modLoc(mb.blockFolder() + "llama")));
+									event.getModels().put(m, bm);
+								} else if (b.equals("glazed")) {
+									BakedModel bm = doBed(event, mb, "blanket", sideType, part, dir, occupied, b,
+											Pair.of("0", Compendium.modLoc(mb.blockFolder() + "woolly_glazed")));
+									event.getModels().put(m, bm);
+								} else {
+									BakedModel bm = doBed(event, mb, "blanket", sideType, part, dir, occupied, b,
+											Pair.of("0", texture));
+									event.getModels().put(m, bm);
+								}
+
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	public static void doWood(ModifyBakingResult event, _MaterialBase mb) {
@@ -623,28 +537,6 @@ public class CompendiumClient {
 			for (String b : StyleData.TABLE_LEGS.getTypes()) {
 				doTableLeg(event, mb, b, "table", Pair.of("0", texture));
 				doTableLeg(event, mb, b, "clothed_table", Pair.of("0", texture));
-//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase(),
-//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg")).texture("0", planksTexture);
-//
-//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase(),
-//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//				withExistingParent("block/material/wood/" + mb.name + "/table/legs/" + b.toLowerCase() + "_inventory",
-//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
-//						.texture("0", planksTexture);
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/clothed_table/legs/" + b.toLowerCase() + "_inventory",
-//						modLoc("block/furniture/table/legs/" + b.toLowerCase() + "_leg_inventory"))
-//						.texture("0", planksTexture);
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/table/legs/side/" + b.toLowerCase() + "_inventory",
-//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
-//						.texture("0", planksTexture);
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/clothed_table/legs/side/" + b.toLowerCase() + "_inventory",
-//						modLoc("block/furniture/table/legs/side/" + b.toLowerCase() + "_inventory"))
-//						.texture("0", planksTexture);
 			}
 
 			for (String b : StyleData.TABLE_TOP.getTypes()) {
@@ -686,11 +578,8 @@ public class CompendiumClient {
 
 			for (String b : StyleData.BED_FRAME.getTypes()) {
 				for (BedSideType sideType : BedSideType.values()) {
-
 					for (BedPart part : BedPart.values()) {
-
 						for (Direction dir : Direction.Plane.HORIZONTAL) {
-
 							for (int occupied = 0; occupied < 2; occupied++) {
 								String sideString = sideType.toString().toLowerCase();
 								String partString = part.toString().toLowerCase();
@@ -700,8 +589,6 @@ public class CompendiumClient {
 								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
 										+ ",type=" + sideString;
 
-								ResourceLocation loc = Compendium.modLoc("extra/bed/" + occupiedString + "/"
-										+ sideString + "/" + partString + "/frame/" + b);
 								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "frame",
 										mb.name, b.toLowerCase());
 								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
@@ -711,7 +598,7 @@ public class CompendiumClient {
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side");
 
-									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+									BakedModel bm = doBed(event, mb, "frame", sideType, part, dir, occupied, b,
 											Pair.of("0", tex), Pair.of("1", texture));
 
 									event.getModels().put(m, bm);
@@ -721,7 +608,7 @@ public class CompendiumClient {
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/weave");
 
-									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+									BakedModel bm = doBed(event, mb, "frame", sideType, part, dir, occupied, b,
 											Pair.of("0", texture), Pair.of("1", tex));
 
 									event.getModels().put(m, bm);
@@ -730,14 +617,55 @@ public class CompendiumClient {
 									ResourceLocation tex = Compendium
 											.modLoc("block/material/wood/" + mb.name + "/slats");
 
-									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+									BakedModel bm = doBed(event, mb, "frame", sideType, part, dir, occupied, b,
 											Pair.of("0", texture), Pair.of("1", tex));
 
 									event.getModels().put(m, bm);
 
 								} else {
 
-									BakedModel bm = doBed(event, mb, sideType, part, dir, occupied, b,
+									BakedModel bm = doBed(event, mb, "frame", sideType, part, dir, occupied, b,
+											Pair.of("0", texture));
+
+									event.getModels().put(m, bm);
+
+								}
+							}
+						}
+					}
+				}
+			}
+
+			for (String b : StyleData.BED_BASE.getTypes()) {
+				for (BedSideType sideType : BedSideType.values()) {
+					for (BedPart part : BedPart.values()) {
+						for (Direction dir : Direction.Plane.HORIZONTAL) {
+							for (int occupied = 0; occupied < 2; occupied++) {
+								String sideString = sideType.toString().toLowerCase();
+								String partString = part.toString().toLowerCase();
+								String dirString = dir.toString().toLowerCase();
+								String occupiedString = occupied != 0 ? "true" : "false";
+
+								String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
+										+ ",type=" + sideString;
+
+								ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "base",
+										mb.name, b.toLowerCase());
+								ModelResourceLocation m = new ModelResourceLocation(modelLoc, v);
+
+								if (b.equals("weave")) {
+
+									ResourceLocation tex = Compendium
+											.modLoc("block/material/wood/" + mb.name + "/weave");
+
+									BakedModel bm = doBed(event, mb, "base", sideType, part, dir, occupied, b,
+											Pair.of("0", texture), Pair.of("1", tex));
+
+									event.getModels().put(m, bm);
+
+								} else {
+
+									BakedModel bm = doBed(event, mb, "base", sideType, part, dir, occupied, b,
 											Pair.of("0", texture));
 
 									event.getModels().put(m, bm);
@@ -748,60 +676,58 @@ public class CompendiumClient {
 						}
 					}
 				}
-			}
-//
-//			for (String b : StyleData.BED_BASE.getTypes()) {
+
 //				for (BedSideType sideType : BedSideType.values())
-//					for (BedPart part : BedPart.values()) {
-//						if (b.equals("weave")) {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//				for (BedPart part : BedPart.values()) {
+//					if (b.equals("weave")) {
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture)
+//								.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 //
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/occupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture)
+//								.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
 //
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture)
-//									.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
-//						} else {
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/unoccupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture)
+//								.texture("1", modLoc("block/material/wood/" + mb.name + "/weave"));
+//					} else {
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/unoccupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture);
 //
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/occupied/"
-//											+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
-//											+ "/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-//											+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/occupied/"
+//										+ sideType.toString().toLowerCase() + "/" + part.toString().toLowerCase()
+//										+ "/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//										+ part.toString().toLowerCase() + "/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture);
 //
-//							withExistingParent(
-//									"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
-//									modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
-//									.texture("0", planksTexture);
-//						}
+//						withExistingParent(
+//								"block/material/wood/" + mb.name + "/bed/inventory/base/" + b.toLowerCase(),
+//								modLoc("block/furniture/bed/inventory/base/" + b.toLowerCase()))
+//								.texture("0", planksTexture);
 //					}
-//			}
-//
+//				}
+			}
+
 			for (String b : StyleData.FENCE_POST.getTypes()) {
 				for (int i = 0b00000; i < 0b11111; i++) {
 					String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
@@ -1020,54 +946,57 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	private static BakedModel doBed(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType, BedPart part,
-			Direction dir, int occupied, String style, Pair<String, ResourceLocation>... textures) {
+	private static BakedModel doBed(ModifyBakingResult event, _MaterialBase mb, String multiPart, BedSideType sideType,
+			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>... textures) {
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
 		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.SINGLE,
-				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedPartType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.CENTER,
-				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedPartType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.LEFT,
-				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedPartType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		mmb.add(s -> s.getValue(FancyBedBlock.SIDE) == BedSideType.RIGHT,
-				doBedPartType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedPartType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		return mmb.build();
 	}
 
-	private static BakedModel doBedPartType(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
-			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>[] textures) {
+	private static BakedModel doBedPartType(ModifyBakingResult event, _MaterialBase mb, String multiPart,
+			BedSideType sideType, BedPart part, Direction dir, int occupied, String style,
+			Pair<String, ResourceLocation>[] textures) {
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
 		mmb.add(s -> s.getValue(FancyBedBlock.PART) == BedPart.HEAD,
-				doBedOccupiedType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedOccupiedType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		mmb.add(s -> s.getValue(FancyBedBlock.PART) == BedPart.FOOT,
-				doBedOccupiedType(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedOccupiedType(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		return mmb.build();
 	}
 
-	private static BakedModel doBedOccupiedType(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
-			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>[] textures) {
+	private static BakedModel doBedOccupiedType(ModifyBakingResult event, _MaterialBase mb, String multiPart,
+			BedSideType sideType, BedPart part, Direction dir, int occupied, String style,
+			Pair<String, ResourceLocation>[] textures) {
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
 		mmb.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == (occupied != 0),
-				doBedDirectionStep(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedDirectionStep(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		mmb.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == (occupied == 0),
-				doBedDirectionStep(event, mb, sideType, part, dir, occupied, style, textures));
+				doBedDirectionStep(event, mb, multiPart, sideType, part, dir, occupied, style, textures));
 
 		return mmb.build();
 	}
 
 	@SafeVarargs
-	private static BakedModel doBedDirectionStep(ModifyBakingResult event, _MaterialBase mb, BedSideType sideType,
-			BedPart part, Direction dir, int occupied, String style, Pair<String, ResourceLocation>... textures) {
+	private static BakedModel doBedDirectionStep(ModifyBakingResult event, _MaterialBase mb, String multiPart,
+			BedSideType sideType, BedPart part, Direction dir, int occupied, String style,
+			Pair<String, ResourceLocation>... textures) {
 		String sideString = sideType.toString().toLowerCase();
 		String partString = part.toString().toLowerCase();
 //		String dirString = dir.toString().toLowerCase();
@@ -1075,9 +1004,9 @@ public class CompendiumClient {
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
-		ResourceLocation loc = Compendium
-				.modLoc("extra/bed/" + occupiedString + "/" + sideString + "/" + partString + "/frame/" + style);
-		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", "frame", mb.name,
+		ResourceLocation loc = Compendium.modLoc(
+				"extra/bed/" + occupiedString + "/" + sideString + "/" + partString + "/" + multiPart + "/" + style);
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("bed", multiPart, mb.name,
 				style.toLowerCase());
 
 		mmb.add(s -> s.getValue(FancyBedBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc,

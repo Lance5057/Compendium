@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/logs/small_logs",
+		"particle": "compendium:block/material/wood/acacia/logs/small_logs"
+	},
+	"elements": [
+		{
+			"name": "shingle",
+			"from": [3.99, -0.01, 3.99],
+			"to": [12.01, 8.01, 12.01],
+			"rotation": {"angle": 0, "axis": "x", "origin": [7.988, 0.63232, 4.30389]},
+			"faces": {
+				"north": {"uv": [0, 7.98, 8.02, 16], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [0, 0, 8.02, 8.02], "rotation": 90, "texture": "#0", "cullface": "east"},
+				"south": {"uv": [7.98, 7.98, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 8.02, 8.02], "rotation": 90, "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 0, 8.02, 8.02], "texture": "#0"},
+				"down": {"uv": [0, 0, 8.02, 8.02], "texture": "#0"}
+			}
+		}
+	]
+}

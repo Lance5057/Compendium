@@ -1,0 +1,68 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/logs/small_logs",
+		"1": "compendium:block/material/wood/acacia/logs/small_logs_top",
+		"particle": "compendium:block/material/wood/acacia/logs/small_logs"
+	},
+	"elements": [
+		{
+			"name": "shingle",
+			"from": [3.99, -0.01, 3.99],
+			"to": [12.01, 8.01, 16.01],
+			"rotation": {"angle": 0, "axis": "x", "origin": [7.988, 0.63232, 4.30389]},
+			"faces": {
+				"north": {"uv": [0, 3.98, 8.02, 12], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [0, 0, 8.02, 12.02], "rotation": 90, "texture": "#0", "cullface": "east"},
+				"south": {"uv": [7.98, 0, 16, 8.02], "texture": "#1"},
+				"west": {"uv": [0, 0, 8.02, 12.02], "rotation": 90, "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 0, 8.02, 12.02], "texture": "#0"},
+				"down": {"uv": [0, 0, 8.02, 12.02], "texture": "#0"}
+			}
+		},
+		{
+			"name": "shingle",
+			"from": [11.99, -0.01, 3.99],
+			"to": [16.01, 8.01, 12.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8.02, 4.02], "rotation": 90, "texture": "#0", "cullface": "west"},
+				"east": {"uv": [7.98, 0, 16, 8.02], "rotation": 180, "texture": "#1"},
+				"south": {"uv": [0, 0, 8.02, 4.02], "rotation": 90, "texture": "#0", "cullface": "east"},
+				"west": {"uv": [7.98, 0, 16, 8.02], "texture": "#0"},
+				"up": {"uv": [0, 0, 8.02, 4.02], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 8.02, 4.02], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "log",
+			"from": [4, 2, -0.5],
+			"to": [12, 10, 7.75],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 6, 12]},
+			"faces": {
+				"north": {"uv": [7.98, 0, 15.98, 8], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [0, 0, 8, 8.25], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [7.98, 0, 15.98, 8], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 8.25], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 8.25], "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 8.25], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "log",
+			"from": [-0.5, 2, 4.001],
+			"to": [7.75, 10, 11.999],
+			"rotation": {"angle": 45, "axis": "z", "origin": [12, 6, 8]},
+			"faces": {
+				"north": {"uv": [0, 4.75, 8, 13], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [7.98, 8, 15.98, 15.998], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 4.75, 8, 13], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [7.999, 0, 15.999, 7.998], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0.001, 4.75, 7.999, 13], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0.001, 4.75, 7.999, 13], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}
