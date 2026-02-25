@@ -156,7 +156,6 @@ public class CompendiumClient {
 
 		buildStateModelBasic(event, models, "window");
 
-//		buildStateModelVariant(event, models, "chair", "inventory");
 		buildStateModelVariant(event, models, "chair", "facing=south");
 		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
@@ -1155,23 +1154,24 @@ public class CompendiumClient {
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 		ModelResourceLocation w = new ModelResourceLocation(modelLoc, "");
-		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y90, textures));
-		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.NORTH, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y180, textures));
-		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.EAST, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y270, textures));
-		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y0, textures));
-		event.getModels().put(w,mmb.build());
-		
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.WEST,
+				basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y90, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.NORTH,
+				basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y180, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.EAST,
+				basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y270, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH,
+				basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y0, textures));
+		event.getModels().put(w, mmb.build());
+
 		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("chair", part, mb.name,
 				b.toLowerCase(), "_inventory");
-		ResourceLocation loc_inv = Compendium.modLoc("extra/" + "chair/" + part + "/" + b);
+		ResourceLocation loc_inv = Compendium.modLoc("extra/" + "chair/" + part + "/" + b + "_inventory");
 
-		MultiPartBakedModel.Builder mmb_inv = new MultiPartBakedModel.Builder();
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
-		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y90, textures));
-		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.NORTH, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y180, textures));
-		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.EAST, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y270, textures));
-		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y0, textures));
-		event.getModels().put(w_inv,mmb_inv.build());
+
+		event.getModels().put(w_inv,
+				basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y90, textures));
 	}
 
 	private static BakedModel basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb,

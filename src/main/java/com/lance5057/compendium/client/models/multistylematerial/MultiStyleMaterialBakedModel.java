@@ -115,7 +115,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st);
 
-					Map<Property<?>, Comparable<?>> p = state.getValues();
+//					Map<Property<?>, Comparable<?>> p = state.getValues();
 					String variant = "";
 
 //					for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
