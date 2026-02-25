@@ -9,6 +9,7 @@ import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawer
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
 import com.lance5057.compendium.blocks.bed.BedSideType;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
+import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.table.TableBase;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
@@ -155,6 +156,7 @@ public class CompendiumClient {
 
 		buildStateModelBasic(event, models, "window");
 
+//		buildStateModelVariant(event, models, "chair", "inventory");
 		buildStateModelVariant(event, models, "chair", "facing=south");
 		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
@@ -490,62 +492,62 @@ public class CompendiumClient {
 						texture = mw.specialLocations.textures.plankLocation;
 			}
 
-//			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
-//				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
-//				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
-//						b.toLowerCase());
-//				ResourceLocation t = Compendium
-//						.modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase());
-//
-//				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, t, loc,
-//						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-//			}
-//
-//			for (String b : StyleData.CHAIR_BACK.getTypes()) {
-//				if (b.contains("weave")) {
-//					doChair(event, mb, "back", b, Pair.of("0", texture),
-//							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
-//				} else if (b.contains("sheet")) {
-//					doChair(event, mb, "back", b,
-//							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
-//				} else if (b.equals("windsor") || b.equals("slats")) {
-//					doChair(event, mb, "back", b, Pair.of("0", texture),
-//							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
-//				} else if (b.equals("lozenge")) {
-//					doChair(event, mb, "back", b, Pair.of("0", texture),
-//							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/lozenge")));
-//				} else if (b.equals("live_edge")) {
-//					doChair(event, mb, "back", b,
-//							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
-//				} else {
-//					doChair(event, mb, "back", b, Pair.of("0", texture));
-//				}
-//			}
-//
-//			for (String b : StyleData.CHAIR_LEGS.getTypes()) {
-//				if (b.contains("rails_side_lath")) {
-//					doChair(event, mb, "legs", b, Pair.of("0", texture),
-//							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
-//				} else {
-//					doChair(event, mb, "legs", b, Pair.of("0", texture));
-//				}
-//
-//			}
-//
-//			for (String b : StyleData.CHAIR_SEAT.getTypes()) {
-//				if (b.equals("live_edge")) {
-//					doChair(event, mb, "seat", b,
-//							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
-//				} else if (b.contains("weave")) {
-//					doChair(event, mb, "seat", b, Pair.of("0", texture),
-//							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
-//				} else if (b.contains("sheet")) {
-//					doChair(event, mb, "seat", b,
-//							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
-//				} else {
-//					doChair(event, mb, "seat", b, Pair.of("0", texture));
-//				}
-//			}
+			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
+				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
+						b.toLowerCase());
+				ResourceLocation t = Compendium
+						.modLoc("block/material/wood/" + mb.name + "/windows/" + b.toLowerCase());
+
+				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, t, loc,
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+			}
+
+			for (String b : StyleData.CHAIR_BACK.getTypes()) {
+				if (b.contains("weave")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
+				} else if (b.contains("sheet")) {
+					doChair(event, mb, "back", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
+				} else if (b.equals("windsor") || b.equals("slats")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
+				} else if (b.equals("lozenge")) {
+					doChair(event, mb, "back", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/lozenge")));
+				} else if (b.equals("live_edge")) {
+					doChair(event, mb, "back", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
+				} else {
+					doChair(event, mb, "back", b, Pair.of("0", texture));
+				}
+			}
+
+			for (String b : StyleData.CHAIR_LEGS.getTypes()) {
+				if (b.contains("rails_side_lath")) {
+					doChair(event, mb, "legs", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/slats")));
+				} else {
+					doChair(event, mb, "legs", b, Pair.of("0", texture));
+				}
+
+			}
+
+			for (String b : StyleData.CHAIR_SEAT.getTypes()) {
+				if (b.equals("live_edge")) {
+					doChair(event, mb, "seat", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/logs/log_split_side")));
+				} else if (b.contains("weave")) {
+					doChair(event, mb, "seat", b, Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/wood/" + mb.name + "/weave")));
+				} else if (b.contains("sheet")) {
+					doChair(event, mb, "seat", b,
+							Pair.of("0", Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet")));
+				} else {
+					doChair(event, mb, "seat", b, Pair.of("0", texture));
+				}
+			}
 //
 //			for (String b : StyleData.TABLE_LEGS.getTypes()) {
 //				doTableLeg(event, mb, b, "table", Pair.of("0", texture));
@@ -783,13 +785,19 @@ public class CompendiumClient {
 							else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
 								loc = Compendium.modLoc("extra/shingles_slanted/shingles/outer_corner/" + b);
 
+							int h = half == Half.BOTTOM ? 0 : 180;
+							int hy = half == Half.BOTTOM ? 0 : 180;
+
+							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
+								hy += 90;
+
 							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
 									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(0, (int) dir.toYRot()), Pair.of("0", texture)));
+											BlockModelRotation.by(h, (int) dir.toYRot() + hy), Pair.of("0", texture)));
 
 							mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
 									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(0, (int) dir.toYRot()), Pair.of("0", texture)));
+											BlockModelRotation.by(h, (int) dir.toYRot() + hy), Pair.of("0", texture)));
 
 							mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
 						}
@@ -878,13 +886,26 @@ public class CompendiumClient {
 							else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
 								loc = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
 
+							int hx = half == Half.BOTTOM ? 0 : 180;
+							int hy = half == Half.BOTTOM ? 0 : 180;
+
+							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
+								hy += 90;
+
+							ResourceLocation log = Compendium
+									.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+							ResourceLocation log_cap = Compendium
+									.modLoc("block/material/wood/" + mb.name + "/logs/extra_caps");
+
 							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
 									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(0, (int) dir.toYRot()), Pair.of("0", texture)));
+											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
+											Pair.of("1", log_cap)));
 
 							mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
 									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(0, (int) dir.toYRot()), Pair.of("0", texture)));
+											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
+											Pair.of("1", log_cap)));
 
 							mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
 						}
@@ -1132,14 +1153,25 @@ public class CompendiumClient {
 				b.toLowerCase());
 		ResourceLocation loc = Compendium.modLoc("extra/" + "chair/" + part + "/" + b);
 
-		ModelResourceLocation w = new ModelResourceLocation(modelLoc, "facing=west");
-		event.getModels().put(w, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y90, textures));
-		ModelResourceLocation n = new ModelResourceLocation(modelLoc, "facing=north");
-		event.getModels().put(n, basicModelManyTexture(event, mb, loc, n, BlockModelRotation.X0_Y180, textures));
-		ModelResourceLocation e = new ModelResourceLocation(modelLoc, "facing=east");
-		event.getModels().put(e, basicModelManyTexture(event, mb, loc, e, BlockModelRotation.X0_Y270, textures));
-		ModelResourceLocation s = new ModelResourceLocation(modelLoc, "facing=south");
-		event.getModels().put(s, basicModelManyTexture(event, mb, loc, s, BlockModelRotation.X0_Y0, textures));
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+		ModelResourceLocation w = new ModelResourceLocation(modelLoc, "");
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y90, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.NORTH, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y180, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.EAST, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y270, textures));
+		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH, basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y0, textures));
+		event.getModels().put(w,mmb.build());
+		
+		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("chair", part, mb.name,
+				b.toLowerCase(), "_inventory");
+		ResourceLocation loc_inv = Compendium.modLoc("extra/" + "chair/" + part + "/" + b);
+
+		MultiPartBakedModel.Builder mmb_inv = new MultiPartBakedModel.Builder();
+		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
+		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.WEST, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y90, textures));
+		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.NORTH, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y180, textures));
+		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.EAST, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y270, textures));
+		mmb_inv.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH, basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y0, textures));
+		event.getModels().put(w_inv,mmb_inv.build());
 	}
 
 	private static BakedModel basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb,

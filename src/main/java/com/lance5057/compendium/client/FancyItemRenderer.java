@@ -1,5 +1,8 @@
 package com.lance5057.compendium.client;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
@@ -22,6 +25,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
 import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
@@ -60,9 +64,18 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 					md.with(MultiMaterialModelData.STATE, mmt.getTypes());
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
+				
+				Map<Property<?>, Comparable<?>> p = bi.getBlock().defaultBlockState().getValues();
+				String variant = "";
+
+				for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
+					variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
+				}
+				if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
+					variant = variant.substring(0, variant.length() - 1);
 
 				BakedModel bm = Minecraft.getInstance().getModelManager()
-						.getModel(ModelResourceLocation.standalone(st.getItemModelLocation()));
+						.getModel(new ModelResourceLocation(st.getItemModelLocation(), variant));
 
 				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				IRenderable<ModelData> ir = bmr.withModelDataContext();
@@ -83,5 +96,9 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 
 		ps.popPose();
 
+	}
+	
+	private static <T extends Comparable<T>> String getName(Property<T> property, Comparable<?> value) {
+		return property.getName((T) value);
 	}
 }
