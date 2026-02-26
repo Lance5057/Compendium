@@ -156,7 +156,7 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 //				bakedModels.put(k, bm);
 //			});
 			return new MultiStyleMaterialBakedModel.BakedLayer(modelBase, modelPart, this.materialLayer,
-					this.styleLayer);
+					this.styleLayer, suffix);
 		}
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)

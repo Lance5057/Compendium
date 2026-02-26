@@ -1,0 +1,6 @@
+{
+	"parent": "compendium:extra/chair/back/contemporary_slats",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/planks/sheet"
+	}
+}

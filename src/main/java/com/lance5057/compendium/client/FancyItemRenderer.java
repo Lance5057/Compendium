@@ -65,17 +65,17 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
 				
-				Map<Property<?>, Comparable<?>> p = bi.getBlock().defaultBlockState().getValues();
-				String variant = "";
-
-				for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
-					variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
-				}
-				if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
-					variant = variant.substring(0, variant.length() - 1);
+//				Map<Property<?>, Comparable<?>> p = bi.getBlock().defaultBlockState().getValues();
+//				String variant = "";
+//
+//				for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
+//					variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
+//				}
+//				if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
+//					variant = variant.substring(0, variant.length() - 1);
 
 				BakedModel bm = Minecraft.getInstance().getModelManager()
-						.getModel(new ModelResourceLocation(st.getItemModelLocation(), variant));
+						.getModel(new ModelResourceLocation(st.getItemModelLocation(), ""));
 
 				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				IRenderable<ModelData> ir = bmr.withModelDataContext();

@@ -91,13 +91,14 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 		public final int materialLayer;
 		public final int styleLayer;
 		public final String baseName;
+		public final String suffix;
 
-		public BakedLayer(String baseName, String layerName, int materialLayer, int styleLayer) {
+		public BakedLayer(String baseName, String layerName, int materialLayer, int styleLayer, String suffix) {
 			this.baseName = baseName;
 			this.layerName = layerName;
 			this.materialLayer = materialLayer;
 			this.styleLayer = styleLayer;
-
+			this.suffix = suffix;
 		}
 
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
@@ -113,16 +114,10 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					String m = mats.get(materialLayer).getCurrentMaterial();
 					String st = s.get(styleLayer);
 
-					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st);
+					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st, suffix);
 
-//					Map<Property<?>, Comparable<?>> p = state.getValues();
 					String variant = "";
 
-//					for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
-//						variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
-//					}
-//					if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
-//						variant = variant.substring(0, variant.length() - 1);
 					BakedModel t = Minecraft.getInstance().getModelManager()
 							.getModel(new ModelResourceLocation(rc, variant));
 
@@ -141,10 +136,6 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 		}
 
-	}
-
-	private static <T extends Comparable<T>> String getName(Property<T> property, Comparable<?> value) {
-		return property.getName((T) value);
 	}
 
 }

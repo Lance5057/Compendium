@@ -1,0 +1,39 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "block/acacia_planks",
+		"particle": "block/acacia_planks"
+	},
+	"elements": [
+		{
+			"name": "front leg",
+			"from": [2, 0, 2],
+			"to": [14, 9, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 6, 12, 15], "texture": "#0"},
+				"east": {"uv": [14, 6, 16, 15], "texture": "#0"},
+				"south": {"uv": [0, 6, 12, 15], "texture": "#0"},
+				"west": {"uv": [12, 6, 14, 15], "texture": "#0"},
+				"up": {"uv": [0, 1, 12, 3], "texture": "#0"},
+				"down": {"uv": [0, 1, 12, 3], "texture": "#0"}
+			}
+		},
+		{
+			"name": "back leg",
+			"from": [2, 0, 12],
+			"to": [14, 9, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 11]},
+			"faces": {
+				"north": {"uv": [0, 2, 12, 11], "texture": "#0"},
+				"east": {"uv": [12, 2, 14, 11], "texture": "#0"},
+				"south": {"uv": [0, 2, 12, 11], "texture": "#0"},
+				"west": {"uv": [14, 2, 16, 11], "texture": "#0"},
+				"up": {"uv": [0, 1, 12, 3], "texture": "#0"},
+				"down": {"uv": [0, 1, 12, 3], "texture": "#0"}
+			}
+		}
+	]
+}

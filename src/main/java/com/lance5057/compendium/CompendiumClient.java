@@ -156,6 +156,8 @@ public class CompendiumClient {
 
 		buildStateModelBasic(event, models, "window");
 
+		buildStateModelVariant(event, models, "chair_inventory", "");
+
 		buildStateModelVariant(event, models, "chair", "facing=south");
 		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
@@ -242,6 +244,8 @@ public class CompendiumClient {
 
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
+
+		Compendium.LOGGER.debug(ml.toString());
 	}
 
 	private static void buildStateModelBasic(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -1163,15 +1167,18 @@ public class CompendiumClient {
 		mmb.add(s -> s.getValue(ChairBlock.FACING) == Direction.SOUTH,
 				basicModelManyTexture(event, mb, loc, w, BlockModelRotation.X0_Y0, textures));
 		event.getModels().put(w, mmb.build());
-
+		
 		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("chair", part, mb.name,
 				b.toLowerCase(), "_inventory");
-		ResourceLocation loc_inv = Compendium.modLoc("extra/" + "chair/" + part + "/" + b + "_inventory");
+		ResourceLocation loc_inv = Compendium.modLoc("extra/chair/" + part + "/" + b + "_inventory");
+		
+		Compendium.LOGGER.debug(modelLoc_inv.toString());
+		Compendium.LOGGER.debug(loc_inv.toString());
 
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
 
 		event.getModels().put(w_inv,
-				basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y90, textures));
+				basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y0, textures));
 	}
 
 	private static BakedModel basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb,

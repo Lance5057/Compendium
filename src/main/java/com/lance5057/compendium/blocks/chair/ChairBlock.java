@@ -134,7 +134,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("chair");
+		return Compendium.modLoc("chair_inventory");
 	}
 
 	@Override
