@@ -1112,6 +1112,7 @@ public class CompendiumClient {
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
+		// All
 		mmb.add(s -> shingleState(s) == 4 && s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/all/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
@@ -1121,6 +1122,7 @@ public class CompendiumClient {
 						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/all/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
+		// Tri
 		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/tri/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
@@ -1130,8 +1132,37 @@ public class CompendiumClient {
 						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/tri/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
-//		case 3:
-//			return shingle("tri", shingleRotation(!N, !S, !W, !E) + 180, TOP);
+		// Straight
+		// N-S
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.NORTH) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.NORTH) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		// E-W
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.WEST))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.WEST))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
 //		case 2:
 //			if ((N && S) || (W && E))
 //				return shingle("straight", N ? 90 : 0, TOP);
