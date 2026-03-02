@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialBuilder;
 import com.lance5057.compendium.client.models.multistylematerial.MultiStyleMaterialUnbakedModel;
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -11,15 +12,12 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class BlockStateModels extends BlockStateProvider {
@@ -618,7 +616,7 @@ public class BlockStateModels extends BlockStateProvider {
 //		return 90;
 //	}
 //
-	}
+//	}
 //	public void fence() {
 //		MultiPartBlockStateBuilder builder = getMultipartBuilder(CompendiumBlocks.FANCY_FENCE.get()).part()
 //				.modelFile(models().getBuilder("fancy_fence_post").customLoader(MultiStyleMaterialBuilder::begin)
@@ -711,4 +709,5 @@ public class BlockStateModels extends BlockStateProvider {
 ////					.rotationY(270).addModel().condition(FancyBedBlock.FACING, Direction.EAST)
 ////					.condition(FancyBedBlock.PART, topBottom).condition(FancyBedBlock.SIDE, bedSideType)
 ////					.condition(FancyBedBlock.OCCUPIED, occupied).end();
+}
 }

@@ -1,15 +1,19 @@
 package com.lance5057.compendium;
 
+import java.util.Comparator;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.SortedMap;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.Maps;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
 import com.lance5057.compendium.blocks.bed.BedSideType;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
+import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
 import com.lance5057.compendium.blocks.table.TableBase;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.FancyItemRenderer;
@@ -26,10 +30,13 @@ import com.lance5057.compendium.client.renderer.entity.SeatRenderer;
 import com.lance5057.compendium.gui.AdjustinatorMultiMaterialScreen;
 import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.base.MaterialGlass;
+import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
@@ -56,8 +63,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -165,61 +174,64 @@ public class CompendiumClient {
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
 		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
 
-		for (int i = 0b000000000; i < 0b111111111; i++) {
-			String v = "e=" + bitToConditionString(i, 0b100000000) + ",n=" + bitToConditionString(i, 0b010000000)
-					+ ",ne=" + bitToConditionString(i, 0b001000000) + ",nw=" + bitToConditionString(i, 0b000100000)
-					+ ",s=" + bitToConditionString(i, 0b000001000) + ",se=" + bitToConditionString(i, 0b000000100)
-					+ ",sw=" + bitToConditionString(i, 0b000000010) + ",w=" + bitToConditionString(i, 0b000000001);
+		for (BlockState state : CompendiumBlocks.TABLE.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
 			buildStateModelVariant(event, models, "table", v);
 		}
 
-		for (int i = 0b000000000; i < 0b111111111; i++) {
-			String v = "e=" + bitToConditionString(i, 0b100000000) + ",n=" + bitToConditionString(i, 0b010000000)
-					+ ",ne=" + bitToConditionString(i, 0b001000000) + ",nw=" + bitToConditionString(i, 0b000100000)
-					+ ",s=" + bitToConditionString(i, 0b000001000) + ",se=" + bitToConditionString(i, 0b000000100)
-					+ ",sw=" + bitToConditionString(i, 0b000000010) + ",w=" + bitToConditionString(i, 0b000000001);
+		for (BlockState state : CompendiumBlocks.CLOTHED_TABLE.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
 			buildStateModelVariant(event, models, "clothed_table", v);
 		}
 
-		for (int i = 0b000000; i < 0b11111; i++) {
-			String v = "east=" + bitToConditionString(i, 0b10000) + ",north=" + bitToConditionString(i, 0b01000)
-					+ ",south=" + bitToConditionString(i, 0b00100) + ",waterlogged=" + bitToConditionString(i, 0b00010)
-					+ ",west=" + bitToConditionString(i, 0b00001);
+		for (BlockState state : CompendiumBlocks.FANCY_FENCE.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
 			buildStateModelVariant(event, models, "fancy_fence", v);
 		}
 
-		for (BedSideType sideType : BedSideType.values())
-			for (BedPart part : BedPart.values()) {
-				for (Direction dir : Direction.Plane.HORIZONTAL) {
-					for (int occupied = 0; occupied < 2; occupied++) {
+		for (BlockState state : CompendiumBlocks.FANCY_BED.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
-						String sideString = sideType.toString().toLowerCase();
-						String partString = part.toString().toLowerCase();
-						String dirString = dir.toString().toLowerCase();
-						String occupiedString = occupied != 0 ? "true" : "false";
+			String v = stateToString(propertyValues);
 
-						String v = "facing=" + dirString + ",occupied=" + occupiedString + ",part=" + partString
-								+ ",type=" + sideString;
-
-						buildStateModelVariant(event, models, "fancy_bed", v);
-					}
-				}
-			}
-
-		for (Direction dir : Direction.Plane.HORIZONTAL) {
-			for (Half half : Half.values()) {
-				for (StairsShape shape : StairsShape.values()) {
-					for (int water = 0; water < 2; water++) {
-						String v = "facing=" + dir.toString().toLowerCase() + ",half=" + half.toString().toLowerCase()
-								+ ",shape=" + shape.toString().toLowerCase() + ",waterlogged="
-								+ (water != 0 ? "true" : "false");
-
-						buildStateModelVariant(event, models, "shingles_slanted", v);
-					}
-				}
-			}
+			buildStateModelVariant(event, models, "fancy_bed", v);
 		}
 
+		for (BlockState state : CompendiumBlocks.SHINGLES_SLANTED.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+			buildStateModelVariant(event, models, "shingles_slanted", v);
+		}
+
+		for (BlockState state : CompendiumBlocks.SHINGLES_CAP_SLANTED.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+			buildStateModelVariant(event, models, "shingles_cap_slanted", v);
+		}
+
+	}
+
+	public static String stateToString(Map<Property<?>, Comparable<?>> s) {
+		SortedMap<Property<?>, Comparable<?>> setStates = Maps.newTreeMap(Comparator.comparing(Property::getName));
+		setStates.putAll(s);
+		StringBuilder ret = new StringBuilder();
+		for (Map.Entry<Property<?>, Comparable<?>> entry : setStates.entrySet()) {
+			if (ret.length() > 0) {
+				ret.append(',');
+			}
+			ret.append(entry.getKey().getName()).append('=')
+					.append(((Property) entry.getKey()).getName(entry.getValue()));
+		}
+		return ret.toString();
 	}
 
 	private static void buildStateModelRotated(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -273,42 +285,42 @@ public class CompendiumClient {
 	}
 
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
-//		if (mb.getType() == MATERIAL_TYPES.METAL) {
-//
-//			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
-//				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
-//				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
-//						b.toLowerCase());
-//
-//				ResourceLocation texture = Compendium
-//						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
-//
-//				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
-//						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-//			});
-//		}
+		if (mb instanceof MaterialMetal mm) {
+
+			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
+				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
+						b.toLowerCase());
+
+				ResourceLocation texture = Compendium
+						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
+
+				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
+						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+			});
+		}
 	}
 
 	public static void doGlass(ModifyBakingResult event, _MaterialBase mb) {
-//		if (mb.getType() == MATERIAL_TYPES.GLASS) {
-//			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
-//				ResourceLocation loc = Compendium.modLoc("extra/window/window_glass");
-//				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "glass", mb.name,
-//						b.toLowerCase());
-//
-//				if (mb.name.equalsIgnoreCase("clear")) {
-//					ResourceLocation texture = TagUtil.mcLoc("block/glass");
-//
-//					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
-//							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-//				} else {
-//					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
-//
-//					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
-//							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-//				}
-//			});
-//		}
+		if (mb instanceof MaterialGlass mg) {
+			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
+				ResourceLocation loc = Compendium.modLoc("extra/window/window_glass");
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("window", "glass", mb.name,
+						b.toLowerCase());
+
+				if (mb.name.equalsIgnoreCase("clear")) {
+					ResourceLocation texture = TagUtil.mcLoc("block/glass");
+
+					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
+							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+				} else {
+					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
+
+					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
+							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+				}
+			});
+		}
 	}
 
 	public static void doTextile(ModifyBakingResult event, _MaterialBase mb) {
@@ -784,6 +796,14 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
 				}
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
+
+//				for (BlockState state : CompendiumBlocks.SHINGLES_CAP_SLANTED.get().getStateDefinition()
+//						.getPossibleStates()) {
+//
+//				}
+
+				doShingleCap(event, mb, b, Pair.of("0", texture));
+
 //				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
 //						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
 //
@@ -1055,6 +1075,83 @@ public class CompendiumClient {
 		mmb.add(s -> s.getValue(TableBase.SW) && !s.getValue(TableBase.W) && !s.getValue(TableBase.S),
 				basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
 						BlockModelRotation.X0_Y270, textures));
+
+		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
+
+	}
+
+	public static int shingleState(BlockState s) {
+		boolean N = s.getValue(ShinglesCapSlanted.NORTH);
+		boolean S = s.getValue(ShinglesCapSlanted.SOUTH);
+		boolean W = s.getValue(ShinglesCapSlanted.WEST);
+		boolean E = s.getValue(ShinglesCapSlanted.EAST);
+
+		int i = N ? 1 : 0;
+		i += S ? 1 : 0;
+		i += W ? 1 : 0;
+		i += E ? 1 : 0;
+
+		return i;
+	}
+
+	static BlockModelRotation shingleRotation(boolean N, boolean S, boolean W, boolean E) {
+		if (N)
+			return BlockModelRotation.X0_Y0;
+		if (S)
+			return BlockModelRotation.X0_Y180;
+		if (W)
+			return BlockModelRotation.X0_Y270;
+		return BlockModelRotation.X0_Y90;
+	}
+
+	@SafeVarargs
+	private static void doShingleCap(ModifyBakingResult event, _MaterialBase mb, String b,
+			Pair<String, ResourceLocation>... textures) {
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_cap_slanted", "shingles",
+				mb.name, b.toLowerCase());
+
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> shingleState(s) == 4 && s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/all/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 4 && !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/all/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+//		case 3:
+//			return shingle("tri", shingleRotation(!N, !S, !W, !E) + 180, TOP);
+//		case 2:
+//			if ((N && S) || (W && E))
+//				return shingle("straight", N ? 90 : 0, TOP);
+//			else {
+//				if (N && E)
+//					return shingle("corner", 270, TOP);
+//				else if (N && W)
+//					return shingle("corner", 180, TOP);
+//
+//				else if (S && W)
+//					return shingle("corner", 90, TOP);
+//				else
+//					return shingle("corner", 0, TOP);
+//			}
+//		case 1:
+//			return shingle("end", shingleRotation(N, S, W, E) + 270, TOP);
+//		case 0:
+//		default:
+//			return shingle("none", 0, TOP);
+//		}
 
 		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
 

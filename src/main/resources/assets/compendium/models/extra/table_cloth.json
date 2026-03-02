@@ -15,7 +15,7 @@
       "trimmed",
       "smooth"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]
@@ -30,7 +30,7 @@
       "bar",
       "fancy"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]

@@ -114,7 +114,8 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					String m = mats.get(materialLayer).getCurrentMaterial();
 					String st = s.get(styleLayer);
 
-					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st, suffix);
+					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st,
+							suffix);
 
 					String variant = "";
 

@@ -21,7 +21,7 @@
       "thick",
       "thin"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]
@@ -45,7 +45,7 @@
       "solid",
       "solid_sheet"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]

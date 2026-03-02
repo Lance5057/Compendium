@@ -16,7 +16,7 @@
       "angled_left",
       "angled_right"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]
@@ -31,7 +31,7 @@
       "braced",
       "none"
     ],
-    "suffix": "_inventory",
+    "suffix": "",
     "valid": [
       "WOOD"
     ]
