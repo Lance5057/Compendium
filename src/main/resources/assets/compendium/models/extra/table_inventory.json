@@ -7,31 +7,30 @@
   },
   "layer0": {
     "materialLayer": 0,
-    "modelBase": "shingles_cap_slanted",
-    "modelPart": "shingles",
+    "modelBase": "table",
+    "modelPart": "top",
     "styleLayer": 0,
     "styles": [
       "basic",
-      "angled",
-      "angled_left",
-      "angled_right"
+      "trimmed",
+      "smooth"
     ],
-    "suffix": "",
+    "suffix": "_inventory",
     "valid": [
       "WOOD"
     ]
   },
   "layer1": {
     "materialLayer": 1,
-    "modelBase": "shingles_cap_slanted",
-    "modelPart": "support",
+    "modelBase": "table",
+    "modelPart": "legs",
     "styleLayer": 1,
     "styles": [
       "basic",
-      "braced",
-      "none"
+      "bar",
+      "fancy"
     ],
-    "suffix": "",
+    "suffix": "_inventory",
     "valid": [
       "WOOD"
     ]

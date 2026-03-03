@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/end/taper_right",
-  "textures": {
-    "0": "minecraft:block/jungle_planks"
-  }
-}

@@ -165,6 +165,7 @@ public class CompendiumClient {
 			}
 		});
 
+		buildStateModelBasic(event, models, "window_inventory");
 		buildStateModelBasic(event, models, "window");
 
 		buildStateModelVariant(event, models, "chair_inventory", "");
@@ -173,6 +174,8 @@ public class CompendiumClient {
 		buildStateModelRotated(event, models, "chair", "facing=east", BlockModelRotation.X0_Y270);
 		buildStateModelRotated(event, models, "chair", "facing=north", BlockModelRotation.X0_Y180);
 		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
+
+		buildStateModelVariant(event, models, "table_inventory", "");
 
 		for (BlockState state : CompendiumBlocks.TABLE.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
@@ -273,15 +276,6 @@ public class CompendiumClient {
 
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
-
-		ModelResourceLocation ml2 = ModelResourceLocation.inventory(Compendium.modLoc(w));
-		BlockModel um2 = (BlockModel) event.getModelBakery().getModel(rc);
-		ModelBakerImpl baker2 = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(),
-				ml2);
-		um2.resolveParents(i -> baker2.getModel(i));
-
-		BakedModel bm2 = um2.bake(baker2, event.getTextureGetter(), BlockModelRotation.X0_Y0);
-		models.put(ml2, bm2);
 	}
 
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
@@ -297,6 +291,17 @@ public class CompendiumClient {
 
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
 						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
+						b.toLowerCase(), "_inventory");
+				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
+
+				Compendium.LOGGER.debug(modelLoc_inv.toString());
+				Compendium.LOGGER.debug(loc_inv.toString());
+
+				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
+								BlockModelRotation.X0_Y0, "all"));
 			});
 		}
 	}
@@ -313,11 +318,33 @@ public class CompendiumClient {
 
 					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
 							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "glass",
+							mb.name, b.toLowerCase(), "_inventory");
+					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
+
+					Compendium.LOGGER.debug(modelLoc_inv.toString());
+					Compendium.LOGGER.debug(loc_inv.toString());
+
+					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+							basicModelAllTexture(event, mb, texture, loc_inv,
+									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
 				} else {
 					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
 
 					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
 							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "glass",
+							mb.name, b.toLowerCase(), "_inventory");
+					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
+
+					Compendium.LOGGER.debug(modelLoc_inv.toString());
+					Compendium.LOGGER.debug(loc_inv.toString());
+
+					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+							basicModelAllTexture(event, mb, texture, loc_inv,
+									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
 				}
 			});
 		}
@@ -519,6 +546,17 @@ public class CompendiumClient {
 
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, t, loc,
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
+						b.toLowerCase(), "_inventory");
+				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
+
+				Compendium.LOGGER.debug(modelLoc_inv.toString());
+				Compendium.LOGGER.debug(loc_inv.toString());
+
+				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
+								BlockModelRotation.X0_Y0, "all"));
 			}
 
 			for (String b : StyleData.CHAIR_BACK.getTypes()) {
@@ -593,11 +631,29 @@ public class CompendiumClient {
 							basicModelAllTexture(event, mb,
 									Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), loc_clothed,
 									m_clothed, BlockModelRotation.X0_Y0, "0"));
+
+					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs",
+							mb.name, b.toLowerCase(), "_inventory");
+					ResourceLocation loc_inv = Compendium.modLoc("extra/table/top/" + b + "_inventory");
+
+					ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
+
+					event.getModels().put(w_inv,
+							basicModelAllTexture(event, mb, texture, loc_inv, w_inv, BlockModelRotation.X0_Y0, "0"));
 				} else {
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
 					event.getModels().put(m_clothed, basicModelAllTexture(event, mb, texture, loc_clothed, m_clothed,
 							BlockModelRotation.X0_Y0, "0"));
+
+					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs",
+							mb.name, b.toLowerCase(), "_inventory");
+					ResourceLocation loc_inv = Compendium.modLoc("extra/table/top/" + b + "_inventory");
+
+					ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
+
+					event.getModels().put(w_inv,
+							basicModelAllTexture(event, mb, texture, loc_inv, w_inv, BlockModelRotation.X0_Y0, "0"));
 				}
 
 			}
@@ -802,7 +858,7 @@ public class CompendiumClient {
 //
 //				}
 
-				doShingleCap(event, mb, b, Pair.of("0", texture));
+				doShingleCap(event, mb, "shingles", b, Pair.of("0", texture));
 
 //				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
 //						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
@@ -912,7 +968,10 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
 				}
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
+
+				doShingleCap(event, mb, "support", b, Pair.of("0", texture));
 			}
+
 //				String[] top = new String[] { "no_top/", "top/" };
 //
 //				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
@@ -1078,6 +1137,17 @@ public class CompendiumClient {
 
 		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
 
+		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs", mb.name,
+				b.toLowerCase(), "_inventory");
+		ResourceLocation loc_inv = Compendium.modLoc("extra/table/legs/" + b + "_inventory");
+
+		Compendium.LOGGER.debug(modelLoc_inv.toString());
+		Compendium.LOGGER.debug(loc_inv.toString());
+
+		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
+
+		event.getModels().put(w_inv,
+				basicModelManyTexture(event, mb, loc_inv, w_inv, BlockModelRotation.X0_Y0, textures));
 	}
 
 	public static int shingleState(BlockState s) {
@@ -1105,32 +1175,74 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	private static void doShingleCap(ModifyBakingResult event, _MaterialBase mb, String b,
+	private static void doShingleCap(ModifyBakingResult event, _MaterialBase mb, String type, String b,
 			Pair<String, ResourceLocation>... textures) {
-		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_cap_slanted", "shingles",
-				mb.name, b.toLowerCase());
+		ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_cap_slanted", type, mb.name,
+				b.toLowerCase());
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
 		// All
 		mmb.add(s -> shingleState(s) == 4 && s.getValue(ShinglesCapSlanted.TOP),
-				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/all/" + b),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/all/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
 		mmb.add(s -> shingleState(s) == 4 && !s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/all/" + b),
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/all/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
 		// Tri
-		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP),
-				basicModelManyTexture(event, mb, Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/tri/" + b),
+		// North
+		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.NORTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.NORTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		// East
+		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP) && !s.getValue(ShinglesCapSlanted.EAST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.EAST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		// South
+		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.SOUTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/tri/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
-		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP),
+		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.SOUTH),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/tri/" + b),
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/tri/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		// West
+		mmb.add(s -> shingleState(s) == 3 && s.getValue(ShinglesCapSlanted.TOP) && !s.getValue(ShinglesCapSlanted.WEST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		mmb.add(s -> shingleState(s) == 3 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& !s.getValue(ShinglesCapSlanted.WEST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/tri/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
 
 		// Straight
 		// N-S
@@ -1138,51 +1250,149 @@ public class CompendiumClient {
 				&& (s.getValue(ShinglesCapSlanted.NORTH) && s.getValue(ShinglesCapSlanted.SOUTH))
 				&& s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/straight/" + b),
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
 
 		mmb.add(s -> shingleState(s) == 2
 				&& (s.getValue(ShinglesCapSlanted.NORTH) && s.getValue(ShinglesCapSlanted.SOUTH))
 				&& !s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/straight/" + b),
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/straight/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
 
 		// E-W
 		mmb.add(s -> shingleState(s) == 2
 				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.WEST))
 				&& s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/top/straight/" + b),
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/straight/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
 		mmb.add(s -> shingleState(s) == 2
 				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.WEST))
 				&& !s.getValue(ShinglesCapSlanted.TOP),
 				basicModelManyTexture(event, mb,
-						Compendium.modLoc("extra/shingles_cap_slanted/shingles/no_top/straight/" + b),
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/straight/" + b),
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
-//		case 2:
-//			if ((N && S) || (W && E))
-//				return shingle("straight", N ? 90 : 0, TOP);
-//			else {
-//				if (N && E)
-//					return shingle("corner", 270, TOP);
-//				else if (N && W)
-//					return shingle("corner", 180, TOP);
-//
-//				else if (S && W)
-//					return shingle("corner", 90, TOP);
-//				else
-//					return shingle("corner", 0, TOP);
-//			}
-//		case 1:
-//			return shingle("end", shingleRotation(N, S, W, E) + 270, TOP);
-//		case 0:
-//		default:
-//			return shingle("none", 0, TOP);
-//		}
+		// Corner
+		// N-E
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.NORTH))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.NORTH))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		// N-W
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.WEST) && s.getValue(ShinglesCapSlanted.NORTH))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.WEST) && s.getValue(ShinglesCapSlanted.NORTH))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		// S-W
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.WEST) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.WEST) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		// S-E
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 2
+				&& (s.getValue(ShinglesCapSlanted.EAST) && s.getValue(ShinglesCapSlanted.SOUTH))
+				&& !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/corner/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		// End
+		// North
+		mmb.add(s -> shingleState(s) == 1 && s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.NORTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		mmb.add(s -> shingleState(s) == 1 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& s.getValue(ShinglesCapSlanted.NORTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, textures));
+
+		// East
+		mmb.add(s -> shingleState(s) == 1 && s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.EAST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 1 && !s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.EAST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		// South
+		mmb.add(s -> shingleState(s) == 1 && s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.SOUTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		mmb.add(s -> shingleState(s) == 1 && !s.getValue(ShinglesCapSlanted.TOP)
+				&& s.getValue(ShinglesCapSlanted.SOUTH),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, textures));
+
+		// West
+		mmb.add(s -> shingleState(s) == 1 && s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.WEST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		mmb.add(s -> shingleState(s) == 1 && !s.getValue(ShinglesCapSlanted.TOP) && s.getValue(ShinglesCapSlanted.WEST),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/end/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, textures));
+
+		// None
+		mmb.add(s -> shingleState(s) == 0 && s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/top/none/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> shingleState(s) == 0 && !s.getValue(ShinglesCapSlanted.TOP),
+				basicModelManyTexture(event, mb,
+						Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/none/" + b),
+						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
 		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
 

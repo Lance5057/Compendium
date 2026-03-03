@@ -113,7 +113,7 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/shingles_cap_slanted");
+		return Compendium.modLoc("shingles_cap_slanted_inventory");
 	}
 
 	@Override

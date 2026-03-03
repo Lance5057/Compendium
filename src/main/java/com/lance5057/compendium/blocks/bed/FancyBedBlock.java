@@ -187,7 +187,7 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/fancy_bed");
+		return Compendium.modLoc("fancy_bed_inventory");
 	}
 
 	@Override

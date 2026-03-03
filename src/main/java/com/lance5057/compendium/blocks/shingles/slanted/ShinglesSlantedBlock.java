@@ -39,7 +39,7 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/shingles_slanted");
+		return Compendium.modLoc("shingles_slanted_inventory");
 	}
 
 	@Override

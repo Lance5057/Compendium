@@ -27,73 +27,73 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 		CompendiumIndex.index.forEach(i -> {
 			i.blockModel(this);
 
-			if (i instanceof _MaterialBase mb) {
-				doWood(mb);
-//				doTextile(mb);
-//				doGlass(mb);
-//				doMetal(mb);
-			}
+//			if (i instanceof _MaterialBase mb) {
+////				doWood(mb);
+////				doTextile(mb);
+////				doGlass(mb);
+////				doMetal(mb);
+//			}
 		});
 
 	}
 
-	private void doMetal(_MaterialBase mb) {
-		if (mb.getType() == MATERIAL_TYPES.METAL) {
-			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
-				withExistingParent("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase(),
-						mcLoc("cube_all"))
-						.texture("all", modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase()))
-						.renderType("cutout");
-
-				withExistingParent("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase() + "_inventory",
-						mcLoc("cube_all"))
-						.texture("all", modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase()))
-						.renderType("cutout");
-			});
-		}
-	}
-
-	public void doGlass(_MaterialBase mb) {
-		if (mb.getType() == MATERIAL_TYPES.GLASS) {
-			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
-				if (mb.name.equalsIgnoreCase("clear")) {
-					if (mb.namespace.compareTo("minecraft") == 0) {
-						withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
-								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-								.renderType("cutout");
-
-						withExistingParent(
-								"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
-								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
-								.renderType("cutout");
-					}
-				} else if (mb.name.equalsIgnoreCase("tinted")) {
-
-				} else {
-					withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
-							Compendium.modLoc("block/slightlysmallerblock"))
-							.texture("0", mcLoc("block/" + mb.name + "_glass")).renderType("translucent");
-
-					withExistingParent(
-							"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
-							Compendium.modLoc("block/slightlysmallerblock"))
-							.texture("0", mcLoc("block/" + mb.name + "_glass")).renderType("translucent");
-				}
-			});
-		}
-	}
-
-	public void doTextile(_MaterialBase mb) {
-		if (mb instanceof MaterialTextile mt) {
-
-			String blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name).toString();
-			if (mt.specialLocations != null) {
-				if (mt.specialLocations.textures != null)
-					if (mt.specialLocations.textures.blockLocation != null)
-						blockTexture = ResourceLocation
-								.fromNamespaceAndPath(mb.namespace, mt.specialLocations.textures.blockLocation)
-								.toString();
-			}
+//	private void doMetal(_MaterialBase mb) {
+//		if (mb.getType() == MATERIAL_TYPES.METAL) {
+//			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
+//				withExistingParent("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase(),
+//						mcLoc("cube_all"))
+//						.texture("all", modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase()))
+//						.renderType("cutout");
+//
+//				withExistingParent("block/material/metal/" + mb.name + "/window/trim/" + b.toLowerCase() + "_inventory",
+//						mcLoc("cube_all"))
+//						.texture("all", modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase()))
+//						.renderType("cutout");
+//			});
+//		}
+//	}
+//
+//	public void doGlass(_MaterialBase mb) {
+//		if (mb.getType() == MATERIAL_TYPES.GLASS) {
+//			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
+//				if (mb.name.equalsIgnoreCase("clear")) {
+//					if (mb.namespace.compareTo("minecraft") == 0) {
+//						withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
+//								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
+//								.renderType("cutout");
+//
+//						withExistingParent(
+//								"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
+//								Compendium.modLoc("block/slightlysmallerblock")).texture("0", mcLoc("block/glass"))
+//								.renderType("cutout");
+//					}
+//				} else if (mb.name.equalsIgnoreCase("tinted")) {
+//
+//				} else {
+//					withExistingParent("block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase(),
+//							Compendium.modLoc("block/slightlysmallerblock"))
+//							.texture("0", mcLoc("block/" + mb.name + "_glass")).renderType("translucent");
+//
+//					withExistingParent(
+//							"block/material/glass/" + mb.name + "/window/glass/" + b.toLowerCase() + "_inventory",
+//							Compendium.modLoc("block/slightlysmallerblock"))
+//							.texture("0", mcLoc("block/" + mb.name + "_glass")).renderType("translucent");
+//				}
+//			});
+//		}
+//	}
+//
+//	public void doTextile(_MaterialBase mb) {
+//		if (mb instanceof MaterialTextile mt) {
+//
+//			String blockTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name).toString();
+//			if (mt.specialLocations != null) {
+//				if (mt.specialLocations.textures != null)
+//					if (mt.specialLocations.textures.blockLocation != null)
+//						blockTexture = ResourceLocation
+//								.fromNamespaceAndPath(mb.namespace, mt.specialLocations.textures.blockLocation)
+//								.toString();
+//			}
 
 //			if (mb.namespace.compareTo("minecraft") == 0) {
 //				for (String b : StyleData.TABLE_CLOTH.getTypes()) {
@@ -192,47 +192,47 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 //						modLoc("block/furniture/bed/inventory/pillow/" + b.toLowerCase())).texture("0", blockTexture);
 //			}
 
-			for (String b : StyleData.BED_BLANKET.getTypes()) {
-				if (b.equals("llama"))
-					withExistingParent(
-							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
-							.texture("2", modLoc(mb.blockFolder() + "llama"))
-							.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
-
-				else if (b.equals("glazed"))
-					withExistingParent(
-							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-							modLoc("block/furniture/bed/inventory/blanket/basic"))
-							.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-
-				else
-					withExistingParent(
-							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
-							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
-							.texture("0", blockTexture);
-
-				for (BedSideType sideType : BedSideType.values()) {
-					for (BedPart part : BedPart.values()) {
-						if (b.equals("glazed")) {
-							withExistingParent(
-									"extra/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-									modLoc("extra/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/basic"))
-									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-
-							withExistingParent(
-									"extra/bed/occupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
-									modLoc("extrabed/occupied/" + sideType.toString().toLowerCase() + "/"
-											+ part.toString().toLowerCase() + "/blanket/basic"))
-									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
-
-						}
-					}
-				}
-			}
+//			for (String b : StyleData.BED_BLANKET.getTypes()) {
+//				if (b.equals("llama"))
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
+//							.texture("2", modLoc(mb.blockFolder() + "llama"))
+//							.texture("3", modLoc(mb.blockFolder() + "llama_trim"));
+//
+//				else if (b.equals("glazed"))
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/basic"))
+//							.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//				else
+//					withExistingParent(
+//							"block/material/textile/" + mb.name + "/bed/inventory/blanket/" + b.toLowerCase(),
+//							modLoc("block/furniture/bed/inventory/blanket/" + b.toLowerCase()))
+//							.texture("0", blockTexture);
+//
+//				for (BedSideType sideType : BedSideType.values()) {
+//					for (BedPart part : BedPart.values()) {
+//						if (b.equals("glazed")) {
+//							withExistingParent(
+//									"extra/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
+//									modLoc("extra/bed/unoccupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/basic"))
+//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//							withExistingParent(
+//									"extra/bed/occupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/" + b.toLowerCase(),
+//									modLoc("extrabed/occupied/" + sideType.toString().toLowerCase() + "/"
+//											+ part.toString().toLowerCase() + "/blanket/basic"))
+//									.texture("0", modLoc(mb.blockFolder() + "woolly_glazed"));
+//
+//						}
+//					}
+//				}
+//			}
 
 //			withExistingParent("block/material/textile/" + mb.name + "/table/cloth/angled",
 //					modLoc("block/furniture/table/cloth/angled")).texture("0", mcLoc("block/" + mb.name))
@@ -266,26 +266,26 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 //					.texture("0", blockTexture).texture("1", ResourceLocation.fromNamespaceAndPath("compendium",
 //							"block/material/textile/" + mb.name + "/diagonal_half"))
 //					.renderType("cutout");
-		}
+//		}
+//
+//	}
 
-	}
-
-	public void doWood(_MaterialBase mb) {
-		if (mb instanceof MaterialWood mw) {
-			String logstem;
-			if (mb.name.equals("warped") || mb.name.equals("crimson")) {
-				logstem = "stem";
-			} else {
-				logstem = "log";
-			}
-
-			ResourceLocation planksTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
-					"block/" + mb.name + "_planks");
-			if (mw.specialLocations != null) {
-				if (mw.specialLocations.textures != null)
-					if (mw.specialLocations.textures.plankLocation != null)
-						planksTexture = mw.specialLocations.textures.plankLocation;
-			}
+//	public void doWood(_MaterialBase mb) {
+//		if (mb instanceof MaterialWood mw) {
+//			String logstem;
+//			if (mb.name.equals("warped") || mb.name.equals("crimson")) {
+//				logstem = "stem";
+//			} else {
+//				logstem = "log";
+//			}
+//
+//			ResourceLocation planksTexture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+//					"block/" + mb.name + "_planks");
+//			if (mw.specialLocations != null) {
+//				if (mw.specialLocations.textures != null)
+//					if (mw.specialLocations.textures.plankLocation != null)
+//						planksTexture = mw.specialLocations.textures.plankLocation;
+//			}
 
 //			for (String b : StyleData.WINDOW_TRIM.getTypes()) {
 //				withExistingParent("block/material/wood/" + mb.name + "/window/trim/" + b.toLowerCase(),
@@ -644,150 +644,150 @@ public class IndexBlockModelProvider extends BlockModelProvider {
 //				}
 //			}
 
-			for (String b : StyleData.SHINGLES_SHINGLES.getTypes()) {
-				String[] top = new String[] { "no_top/", "top/" };
-
-				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
-
-				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase()
-						+ "_inventory", modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
-						.texture("0", planksTexture);
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/shingles/outer_corner/" + b.toLowerCase()))
-						.texture("0", planksTexture);
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/shingles/inner_corner/" + b.toLowerCase()))
-						.texture("0", planksTexture);
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/inventory/" + b.toLowerCase()
-								+ "_inventory",
-						modLoc("block/bases/shingles_cap_slanted/shingles/no_top/straight/" + b.toLowerCase()))
-						.texture("0", planksTexture);
-
-				for (String s : top) {
-					// caps
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "all/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "all/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "straight/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "straight/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "tri/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "tri/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "none/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "none/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "end/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "end/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "corner/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "corner/" + b.toLowerCase()))
-							.texture("0", planksTexture);
-				}
-			}
-
-			for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
-				String[] top = new String[] { "no_top/", "top/" };
-
-				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase()
-						+ "_inventory", modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/" + b.toLowerCase(),
-						modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-				withExistingParent(
-						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/inventory/" + b.toLowerCase()
-								+ "_inventory",
-						modLoc("block/bases/shingles_cap_slanted/support/no_top/straight/" + b.toLowerCase()))
-						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-				for (String s : top) {
-					// caps
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "all/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "all/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "straight/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "straight/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "tri/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "tri/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "none/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "none/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "end/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "end/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-
-					withExistingParent(
-							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "corner/"
-									+ b.toLowerCase(),
-							modLoc("block/bases/shingles_cap_slanted/support/" + s + "corner/" + b.toLowerCase()))
-							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-				}
-			}
-		}
-	}
+//			for (String b : StyleData.SHINGLES_SHINGLES.getTypes()) {
+//				String[] top = new String[] { "no_top/", "top/" };
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase()
+//						+ "_inventory", modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/outer_corner/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/shingles/inner_corner/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/inventory/" + b.toLowerCase()
+//								+ "_inventory",
+//						modLoc("block/bases/shingles_cap_slanted/shingles/no_top/straight/" + b.toLowerCase()))
+//						.texture("0", planksTexture);
+//
+//				for (String s : top) {
+//					// caps
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "all/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "all/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "straight/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "straight/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "tri/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "tri/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "none/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "none/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "end/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "end/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "corner/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "corner/" + b.toLowerCase()))
+//							.texture("0", planksTexture);
+//				}
+//			}
+//
+//			for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
+//				String[] top = new String[] { "no_top/", "top/" };
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase()
+//						+ "_inventory", modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/" + b.toLowerCase(),
+//						modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				withExistingParent(
+//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/inventory/" + b.toLowerCase()
+//								+ "_inventory",
+//						modLoc("block/bases/shingles_cap_slanted/support/no_top/straight/" + b.toLowerCase()))
+//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//				for (String s : top) {
+//					// caps
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "all/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "all/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "straight/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "straight/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "tri/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "tri/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "none/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "none/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "end/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "end/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//
+//					withExistingParent(
+//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "corner/"
+//									+ b.toLowerCase(),
+//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "corner/" + b.toLowerCase()))
+//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
+//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
+//				}
+//			}
+//		}
+//	}
 
 }

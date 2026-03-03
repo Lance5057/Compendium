@@ -1,6 +1,5 @@
 package com.lance5057.compendium.blocks;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;

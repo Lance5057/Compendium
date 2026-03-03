@@ -1,8 +1,5 @@
 package com.lance5057.compendium.client;
 
-import java.util.Map;
-import java.util.Map.Entry;
-
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
@@ -64,7 +61,7 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 					md.with(MultiMaterialModelData.STATE, mmt.getTypes());
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
-				
+
 //				Map<Property<?>, Comparable<?>> p = bi.getBlock().defaultBlockState().getValues();
 //				String variant = "";
 //
@@ -86,8 +83,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				}
 
 				if (ir != null) {
-					ir.render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
-							overlay, 0, md.build());
+					ir.render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight, overlay, 0,
+							md.build());
 
 				}
 
@@ -97,7 +94,7 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 		ps.popPose();
 
 	}
-	
+
 	private static <T extends Comparable<T>> String getName(Property<T> property, Comparable<?> value) {
 		return property.getName((T) value);
 	}

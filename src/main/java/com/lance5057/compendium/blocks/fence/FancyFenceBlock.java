@@ -36,7 +36,7 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/fancy_fence");
+		return Compendium.modLoc("fancy_fence_inventory");
 	}
 
 	@Override

@@ -75,8 +75,8 @@ public class BlockStateModels extends BlockStateProvider {
 		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
 		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
 		this.simpleBlock(CompendiumBlocks.FANCY_BED.get(), models().getExistingFile(mcLoc("block/air")));
-//		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
-//		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
+		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
 
 //		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 //			Builder<?> b = ConfiguredModel.builder();

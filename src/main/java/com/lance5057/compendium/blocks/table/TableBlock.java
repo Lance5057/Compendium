@@ -25,7 +25,7 @@ public class TableBlock extends TableBase implements EntityBlock, IStyleBlock {
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/table");
+		return Compendium.modLoc("table_inventory");
 	}
 
 	@Override

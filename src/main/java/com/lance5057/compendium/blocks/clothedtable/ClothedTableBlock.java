@@ -33,7 +33,7 @@ public class ClothedTableBlock extends TableBase implements EntityBlock, IStyleB
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/clothed_table");
+		return Compendium.modLoc("clothed_table_inventory");
 	}
 
 	@Override

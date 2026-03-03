@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/top/tri/taper_right",
-  "textures": {
-    "0": "minecraft:block/mangrove_planks"
-  }
-}
