@@ -176,6 +176,7 @@ public class CompendiumClient {
 		buildStateModelRotated(event, models, "chair", "facing=west", BlockModelRotation.X0_Y90);
 
 		buildStateModelVariant(event, models, "table_inventory", "");
+		buildStateModelVariant(event, models, "clothed_table_inventory", "");
 
 		for (BlockState state : CompendiumBlocks.TABLE.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
@@ -191,6 +192,8 @@ public class CompendiumClient {
 			buildStateModelVariant(event, models, "clothed_table", v);
 		}
 
+		buildStateModelVariant(event, models, "fancy_fence_inventory", "");
+		
 		for (BlockState state : CompendiumBlocks.FANCY_FENCE.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
@@ -367,14 +370,28 @@ public class CompendiumClient {
 						mb.name, b.toLowerCase());
 				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 
+				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("clothed_table", "cloth",
+						mb.name, b.toLowerCase(), "_inventory");
+				ResourceLocation loc_inv = Compendium.modLoc("extra/clothed_table/cloth/" + b + "_inventory");
+
 				if (b.contains("angled")) {
 
 					event.getModels().put(m, basicModelManyTexture(event, mb, loc, m, BlockModelRotation.X0_Y0,
 							Pair.of("0", texture),
 							Pair.of("1", Compendium.modLoc("block/material/textile/" + mb.name + "/diagonal_half"))));
-				} else
+
+					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""), basicModelManyTexture(event, mb,
+							loc_inv, new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0,
+							Pair.of("0", texture),
+							Pair.of("1", Compendium.modLoc("block/material/textile/" + mb.name + "/diagonal_half"))));
+				} else {
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+
+					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+							basicModelAllTexture(event, mb, texture, loc_inv,
+									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
+				}
 
 			}
 
@@ -550,10 +567,6 @@ public class CompendiumClient {
 				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
 						b.toLowerCase(), "_inventory");
 				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
-
-				Compendium.LOGGER.debug(modelLoc_inv.toString());
-				Compendium.LOGGER.debug(loc_inv.toString());
-
 				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
 								BlockModelRotation.X0_Y0, "all"));
@@ -632,28 +645,30 @@ public class CompendiumClient {
 									Compendium.modLoc("block/material/wood/" + mb.name + "/planks/sheet"), loc_clothed,
 									m_clothed, BlockModelRotation.X0_Y0, "0"));
 
-					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs",
-							mb.name, b.toLowerCase(), "_inventory");
-					ResourceLocation loc_inv = Compendium.modLoc("extra/table/top/" + b + "_inventory");
+					ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"),
+							"");
+					ModelResourceLocation m_clothed_inventory = new ModelResourceLocation(
+							modelLoc_clothed.withSuffix("_inventory"), "");
 
-					ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
-
-					event.getModels().put(w_inv,
-							basicModelAllTexture(event, mb, texture, loc_inv, w_inv, BlockModelRotation.X0_Y0, "0"));
+					event.getModels().put(m_inventory, basicModelAllTexture(event, mb, texture,
+							loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y0, "0"));
+					event.getModels().put(m_clothed_inventory, basicModelAllTexture(event, mb, texture,
+							loc_clothed.withSuffix("_inventory"), m_clothed_inventory, BlockModelRotation.X0_Y0, "0"));
 				} else {
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
 					event.getModels().put(m_clothed, basicModelAllTexture(event, mb, texture, loc_clothed, m_clothed,
 							BlockModelRotation.X0_Y0, "0"));
 
-					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs",
-							mb.name, b.toLowerCase(), "_inventory");
-					ResourceLocation loc_inv = Compendium.modLoc("extra/table/top/" + b + "_inventory");
+					ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"),
+							"");
+					ModelResourceLocation m_clothed_inventory = new ModelResourceLocation(
+							modelLoc_clothed.withSuffix("_inventory"), "");
 
-					ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
-
-					event.getModels().put(w_inv,
-							basicModelAllTexture(event, mb, texture, loc_inv, w_inv, BlockModelRotation.X0_Y0, "0"));
+					event.getModels().put(m_inventory, basicModelAllTexture(event, mb, texture,
+							loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y0, "0"));
+					event.getModels().put(m_clothed_inventory, basicModelAllTexture(event, mb, texture,
+							loc_clothed.withSuffix("_inventory"), m_clothed_inventory, BlockModelRotation.X0_Y0, "0"));
 				}
 
 			}
@@ -756,13 +771,23 @@ public class CompendiumClient {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "post", mb.name,
 						b.toLowerCase());
 				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+				ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 
 				if (b.contains("none")) {
 					event.getModels().put(m, basicModelManyTexture(event, mb, loc,
 							new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0));
-				} else
+
+					event.getModels().put(m_inventory,
+							basicModelManyTexture(event, mb, loc.withSuffix("_inventory"),
+									new ModelResourceLocation(modelLoc.withSuffix("_inventory"), ""),
+									BlockModelRotation.X0_Y0));
+				} else {
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+
+					event.getModels().put(m_inventory, basicModelAllTexture(event, mb, texture,
+							loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y0, "0"));
+				}
 
 			}
 
@@ -771,6 +796,7 @@ public class CompendiumClient {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("fence", "side", mb.name,
 						b.toLowerCase());
 				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+				ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 
 				if (b.contains("sheet")) {
 
@@ -792,6 +818,8 @@ public class CompendiumClient {
 
 					event.getModels().put(m, mmb.build());
 
+					event.getModels().put(m_inventory, basicModelManyTexture(event, mb, loc.withSuffix("_inventory"),
+							m_inventory, BlockModelRotation.X0_Y90, Pair.of("0", texture)));
 				} else {
 					MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
@@ -810,6 +838,9 @@ public class CompendiumClient {
 									BlockModelRotation.X0_Y270, Pair.of("0", texture)));
 
 					event.getModels().put(m, mmb.build());
+
+					event.getModels().put(m_inventory, basicModelManyTexture(event, mb, loc.withSuffix("_inventory"),
+							m_inventory, BlockModelRotation.X0_Y270, Pair.of("0", texture)));
 				}
 
 			}
@@ -1137,12 +1168,9 @@ public class CompendiumClient {
 
 		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
 
-		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("table", "legs", mb.name,
+		ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation(table, "legs", mb.name,
 				b.toLowerCase(), "_inventory");
 		ResourceLocation loc_inv = Compendium.modLoc("extra/table/legs/" + b + "_inventory");
-
-		Compendium.LOGGER.debug(modelLoc_inv.toString());
-		Compendium.LOGGER.debug(loc_inv.toString());
 
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
 
