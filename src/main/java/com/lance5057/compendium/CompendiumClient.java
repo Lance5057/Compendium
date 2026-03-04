@@ -202,6 +202,8 @@ public class CompendiumClient {
 			buildStateModelVariant(event, models, "fancy_fence", v);
 		}
 
+		buildStateModelVariant(event, models, "fancy_bed_inventory", "");
+
 		for (BlockState state : CompendiumBlocks.FANCY_BED.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
@@ -210,12 +212,16 @@ public class CompendiumClient {
 			buildStateModelVariant(event, models, "fancy_bed", v);
 		}
 
+		buildStateModelVariant(event, models, "shingles_slanted_inventory", "");
+
 		for (BlockState state : CompendiumBlocks.SHINGLES_SLANTED.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
 			String v = stateToString(propertyValues);
 			buildStateModelVariant(event, models, "shingles_slanted", v);
 		}
+
+		buildStateModelVariant(event, models, "shingles_cap_slanted_inventory", "");
 
 		for (BlockState state : CompendiumBlocks.SHINGLES_CAP_SLANTED.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
@@ -395,7 +401,7 @@ public class CompendiumClient {
 
 					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 							basicModelAllTexture(event, mb, texture, loc_inv,
-									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
+									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "0"));
 				}
 
 			}
@@ -431,6 +437,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/mattress/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 
 			for (String b : StyleData.BED_SHEET.getTypes()) {
@@ -464,6 +475,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/sheet/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 
 			for (String b : StyleData.BED_PILLOW.getTypes()) {
@@ -497,6 +513,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/pillow/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 
 			for (String b : StyleData.BED_BLANKET.getTypes()) {
@@ -543,6 +564,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/blanket/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 		}
 
@@ -734,6 +760,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/frame/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 
 			for (String b : StyleData.BED_BASE.getTypes()) {
@@ -771,6 +802,11 @@ public class CompendiumClient {
 					mmAll.add(s -> s.getValue(FancyBedBlock.SIDE) == sideType, mmSide.build());
 				}
 				event.getModels().put(m, mmAll.build());
+
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/base/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 			}
 
 			for (String b : StyleData.FENCE_POST.getTypes()) {
@@ -787,13 +823,13 @@ public class CompendiumClient {
 					event.getModels().put(m_inventory,
 							basicModelManyTexture(event, mb, loc.withSuffix("_inventory"),
 									new ModelResourceLocation(modelLoc.withSuffix("_inventory"), ""),
-									BlockModelRotation.X0_Y0));
+									BlockModelRotation.X0_Y90));
 				} else {
 					event.getModels().put(m,
 							basicModelAllTexture(event, mb, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
 
 					event.getModels().put(m_inventory, basicModelAllTexture(event, mb, texture,
-							loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y0, "0"));
+							loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y90, "0"));
 				}
 
 			}
@@ -847,7 +883,7 @@ public class CompendiumClient {
 					event.getModels().put(m, mmb.build());
 
 					event.getModels().put(m_inventory, basicModelManyTexture(event, mb, loc.withSuffix("_inventory"),
-							m_inventory, BlockModelRotation.X0_Y270, Pair.of("0", texture)));
+							m_inventory, BlockModelRotation.X0_Y90, Pair.of("0", texture)));
 				}
 
 			}
@@ -891,79 +927,21 @@ public class CompendiumClient {
 				}
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
 
-//				for (BlockState state : CompendiumBlocks.SHINGLES_CAP_SLANTED.get().getStateDefinition()
-//						.getPossibleStates()) {
-//
-//				}
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/shingles/straight/" + b);
+				event.getModels().put(m_inv,
+						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
 
 				doShingleCap(event, mb, "shingles", b, Pair.of("0", texture));
-
-//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase())).texture("0", planksTexture);
-//
-//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/shingles/" + b.toLowerCase()
-//						+ "_inventory", modLoc("block/bases/shingles_slanted/shingles/" + b.toLowerCase()))
-//						.texture("0", planksTexture);
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/outer_corner/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/shingles/outer_corner/" + b.toLowerCase()))
-//						.texture("0", planksTexture);
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_slanted/shingles/inner_corner/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/shingles/inner_corner/" + b.toLowerCase()))
-//						.texture("0", planksTexture);
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/inventory/" + b.toLowerCase()
-//								+ "_inventory",
-//						modLoc("block/bases/shingles_cap_slanted/shingles/no_top/straight/" + b.toLowerCase()))
-//						.texture("0", planksTexture);
-//
-//				for (String s : top) {
-//					// caps
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "all/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "all/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "straight/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "straight/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "tri/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "tri/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "none/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "none/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "end/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "end/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/shingles/" + s + "corner/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/shingles/" + s + "corner/" + b.toLowerCase()))
-//							.texture("0", planksTexture);
-//				}
 			}
 
 			for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_slanted", "support",
 						mb.name, b.toLowerCase());
+
+				ResourceLocation log = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+				ResourceLocation log_cap = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/extra_caps");
+
 				MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
 				for (Direction dir : Direction.Plane.HORIZONTAL) {
 					MultiPartBakedModel.Builder mmDir = new MultiPartBakedModel.Builder();
@@ -984,11 +962,6 @@ public class CompendiumClient {
 							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
 								hy += 90;
 
-							ResourceLocation log = Compendium
-									.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
-							ResourceLocation log_cap = Compendium
-									.modLoc("block/material/wood/" + mb.name + "/logs/extra_caps");
-
 							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
 									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
 											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
@@ -1007,87 +980,14 @@ public class CompendiumClient {
 				}
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
 
+				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+				ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
+				event.getModels().put(m_inv, basicModelManyTexture(event, mb, loc, m_inv, BlockModelRotation.X0_Y0,
+						Pair.of("0", log), Pair.of("1", log_cap)));
+
 				doShingleCap(event, mb, "support", b, Pair.of("0", texture));
 			}
-
-//				String[] top = new String[] { "no_top/", "top/" };
-//
-//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
-//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//				withExistingParent("block/material/wood/" + mb.name + "/shingles_slanted/support/" + b.toLowerCase()
-//						+ "_inventory", modLoc("block/bases/shingles_slanted/support/" + b.toLowerCase()))
-//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_slanted/support/outer_corner/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/support/outer_corner/" + b.toLowerCase()))
-//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_slanted/support/inner_corner/" + b.toLowerCase(),
-//						modLoc("block/bases/shingles_slanted/support/inner_corner/" + b.toLowerCase()))
-//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//				withExistingParent(
-//						"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/inventory/" + b.toLowerCase()
-//								+ "_inventory",
-//						modLoc("block/bases/shingles_cap_slanted/support/no_top/straight/" + b.toLowerCase()))
-//						.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//						.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//				for (String s : top) {
-//					// caps
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "all/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "all/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "straight/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "straight/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "tri/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "tri/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "none/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "none/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "end/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "end/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//
-//					withExistingParent(
-//							"block/material/wood/" + mb.name + "/shingles_cap_slanted/support/" + s + "corner/"
-//									+ b.toLowerCase(),
-//							modLoc("block/bases/shingles_cap_slanted/support/" + s + "corner/" + b.toLowerCase()))
-//							.texture("0", modLoc("block/material/wood/" + mb.name + "/logs/small_logs"))
-//							.texture("1", modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top"));
-//				}
-//			}
 		}
-
 	}
 
 	private static void doStyleWood(ModifyBakingResult event, _MaterialBase mb) {
@@ -1444,6 +1344,10 @@ public class CompendiumClient {
 						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, textures));
 
 		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmb.build());
+
+		ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+		ResourceLocation loc = Compendium.modLoc("extra/shingles_cap_slanted/" + type + "/no_top/straight/" + b);
+		event.getModels().put(m_inv, basicModelManyTexture(event, mb, loc, m_inv, BlockModelRotation.X0_Y0, textures));
 
 	}
 

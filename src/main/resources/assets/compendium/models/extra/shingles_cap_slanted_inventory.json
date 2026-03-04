@@ -1,0 +1,41 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "modelBase": "shingles_cap_slanted",
+    "modelPart": "shingles",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "angled",
+      "angled_left",
+      "angled_right"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "shingles_cap_slanted",
+    "modelPart": "support",
+    "styleLayer": 1,
+    "styles": [
+      "basic",
+      "braced",
+      "none"
+    ],
+    "suffix": "_inventory",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 2,
+  "loader": "compendium:multi_style_material"
+}
