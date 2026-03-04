@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_side_outer",
-  "textures": {
-    "0": "compendium:block/material/wood/dark_oak/logs/stripped_small_logs",
-    "1": "compendium:block/material/wood/dark_oak/logs/stripped_small_logs",
-    "2": "compendium:small_logs_rotated_side",
-    "particle": "compendium:block/material/wood/dark_oak/logs/stripped_small_logs"
-  }
-}

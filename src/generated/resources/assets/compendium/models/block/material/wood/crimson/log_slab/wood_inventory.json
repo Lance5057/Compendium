@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/crimson_stem",
-    "1": "minecraft:block/crimson_stem",
-    "2": "compendium:block/material/wood/crimson/logs/small_logs",
-    "particle": "minecraft:block/crimson_stem"
-  }
-}

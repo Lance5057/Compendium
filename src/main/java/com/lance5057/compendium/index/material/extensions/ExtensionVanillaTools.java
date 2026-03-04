@@ -8,7 +8,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -46,8 +45,7 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	public CompendiumItemHandler HOE = new CompendiumItemHandler("hoe");
 	public CompendiumItemHandler PICKAXE = new CompendiumItemHandler("pickaxe");
 
-	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel,
-			Generate hoe, Generate pickaxe) {
+	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel, Generate hoe, Generate pickaxe) {
 		SWORD.setGenerate(sword);
 		AXE.setGenerate(axe);
 		SHOVEL.setGenerate(shovel);
@@ -176,12 +174,6 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 			return new ExtensionVanillaTools(Generate.valueOf(sword), Generate.valueOf(axe), Generate.valueOf(shovel),
 					Generate.valueOf(hoe), Generate.valueOf(pickaxe));
 		}
-
-	}
-
-	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		// TODO Auto-generated method stub
 
 	}
 

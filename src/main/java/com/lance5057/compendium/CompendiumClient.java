@@ -193,7 +193,7 @@ public class CompendiumClient {
 		}
 
 		buildStateModelVariant(event, models, "fancy_fence_inventory", "");
-		
+
 		for (BlockState state : CompendiumBlocks.FANCY_FENCE.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
@@ -255,7 +255,12 @@ public class CompendiumClient {
 
 	private static void buildStateModelVariant(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
 			String w, String variant) {
-		ResourceLocation rc = Compendium.modLoc("extra/" + w);
+		buildStateModelVariant(event, models, "extra", w, variant);
+	}
+
+	private static void buildStateModelVariant(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
+			String folder, String w, String variant) {
+		ResourceLocation rc = Compendium.modLoc(folder + "/" + w);
 
 		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(w), variant);
 		BlockModel um = (BlockModel) event.getModelBakery().getModel(rc);
@@ -545,6 +550,8 @@ public class CompendiumClient {
 
 	public static void doWood(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb instanceof MaterialWood mw) {
+
+			doStyleWood(event, mb);
 
 			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
 					"block/" + mb.name + "_planks");
@@ -1081,6 +1088,20 @@ public class CompendiumClient {
 //			}
 		}
 
+	}
+
+	private static void doStyleWood(ModifyBakingResult event, _MaterialBase mb) {
+		buildStateModelVariant(event, event.getModels(), "block/material/wood/" + mb.name, "planks", "");
+
+		for (String style : StyleData.PLANKS.getTypes()) {
+			ResourceLocation loc = Compendium.modLoc("block/" + mb.name + "_planks");
+			ResourceLocation modelLoc = ClientUtil.createStyleLocation(mb.name + "_planks", style.toLowerCase());
+			ResourceLocation t = Compendium.modLoc("block/material/wood/" + mb.name + "/planks/" + style.toLowerCase());
+			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+			BakedModel bm = basicModelAllTexture(event, mb, t, loc, m, BlockModelRotation.X0_Y0, "all");
+			event.getModels().put(m, bm);
+		}
 	}
 
 	@SafeVarargs

@@ -1,21 +1,24 @@
 package com.lance5057.compendium.client.models.style;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.client.ClientUtil;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,13 +30,14 @@ import net.neoforged.neoforge.client.model.data.ModelProperty;
 public class StyleBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<StyleModelData> DATA = new ModelProperty<>();
 	private BakedModel base;
-	String current = "";
-	Map<String, BakedModel> models = new HashMap<String, BakedModel>();
+	public final String baseName;
+//	String current = "";
+//	Map<String, BakedModel> models = new HashMap<String, BakedModel>();
 
 	@SuppressWarnings("deprecation")
-	public StyleBakedModel(BakedModel base, Map<String, BakedModel> quads) {
+	public StyleBakedModel(BakedModel base, String baseName) {
 		this.base = base;
-		this.models = quads;
+		this.baseName = baseName;
 
 	}
 
@@ -87,7 +91,10 @@ public class StyleBakedModel implements IDynamicBakedModel {
 		List<String> styles = extraData.get(StyleModelData.STYLES);
 
 		if (styles != null && styles.size() > 0) {
-			BakedModel q = models.get(styles.get(0));
+			ResourceLocation rc = ClientUtil.createStyleLocation(baseName, styles.get(0));
+
+			BakedModel q = Minecraft.getInstance().getModelManager().getModel(new ModelResourceLocation(rc, ""));
+
 			if (q != null) {
 				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
 				if (r != null) {

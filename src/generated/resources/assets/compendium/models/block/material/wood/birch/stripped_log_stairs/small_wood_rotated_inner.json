@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_stairs/small_logs_rotated_front_inner",
-  "textures": {
-    "0": "compendium:block/material/wood/birch/logs/stripped_small_logs",
-    "1": "compendium:block/material/wood/birch/logs/stripped_small_logs",
-    "2": "compendium:small_logs_rotated_front",
-    "particle": "compendium:block/material/wood/birch/logs/stripped_small_logs"
-  }
-}

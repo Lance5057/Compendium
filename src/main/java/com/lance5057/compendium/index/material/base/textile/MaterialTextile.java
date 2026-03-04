@@ -14,7 +14,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
 import com.lance5057.compendium.CompendiumTags;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
@@ -49,7 +48,6 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -243,11 +241,6 @@ public class MaterialTextile extends _MaterialBase {
 	@Override
 	public MATERIAL_TYPES getType() {
 		return MATERIAL_TYPES.TEXTILE;
-	}
-
-	@Override
-	public void blockModel(IndexBlockModelProvider ibmp) {
-		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialTextile> {

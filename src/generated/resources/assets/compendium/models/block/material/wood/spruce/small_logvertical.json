@@ -5,15 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "count": 3,
-  "loader": "compendium:style",
-  "small_log": {
-    "model": "compendium:block/material/wood/spruce/small_log/small_log_vertical"
-  },
-  "smaller_log": {
-    "model": "compendium:block/material/wood/spruce/small_log/smaller_log_vertical"
-  },
-  "smallest_log": {
-    "model": "compendium:block/material/wood/spruce/small_log/smallest_log_vertical"
-  }
+  "baseName": "spruce",
+  "loader": "compendium:style"
 }

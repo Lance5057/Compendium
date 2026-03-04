@@ -5,12 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "basic": {
-    "model": "compendium:block/material/wood/mangrove/plank/basic_cap"
-  },
-  "count": 2,
-  "loader": "compendium:style",
-  "pipe": {
-    "model": "compendium:block/material/wood/mangrove/plank/pipe_cap"
-  }
+  "baseName": "mangrove",
+  "loader": "compendium:style"
 }

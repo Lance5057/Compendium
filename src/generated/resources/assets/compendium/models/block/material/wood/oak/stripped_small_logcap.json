@@ -5,15 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "count": 3,
-  "loader": "compendium:style",
-  "small_log": {
-    "model": "compendium:block/material/wood/oak/stripped_small_log/small_log_cap"
-  },
-  "smaller_log": {
-    "model": "compendium:block/material/wood/oak/stripped_small_log/smaller_log_cap"
-  },
-  "smallest_log": {
-    "model": "compendium:block/material/wood/oak/stripped_small_log/smallest_log_cap"
-  }
+  "baseName": "oak",
+  "loader": "compendium:style"
 }

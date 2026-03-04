@@ -5,57 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "campfire": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/campfire_bottom"
-  },
-  "count": 17,
-  "crosscut": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/crosscut_bottom"
-  },
-  "crosscut_small": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/crosscut_small_bottom"
-  },
-  "firewood": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/firewood_bottom"
-  },
-  "loader": "compendium:style",
-  "small_logs": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/small_logs_bottom"
-  },
-  "small_logs_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/small_logs_rotated_bottom"
-  },
-  "small_wood": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/small_wood_bottom"
-  },
-  "small_wood_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/small_wood_rotated_bottom"
-  },
-  "smaller_logs": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/smaller_logs_bottom"
-  },
-  "smaller_logs_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/smaller_logs_rotated_bottom"
-  },
-  "smallest_logs": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/smallest_logs_bottom"
-  },
-  "smallest_logs_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/smallest_logs_rotated_bottom"
-  },
-  "split": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/split_bottom"
-  },
-  "split_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/split_rotated_bottom"
-  },
-  "trellis": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/trellis_bottom"
-  },
-  "wood": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/wood_bottom"
-  },
-  "wood_rotated": {
-    "model": "compendium:block/material/wood/jungle/stripped_log_slab/wood_rotated_bottom"
-  }
+  "baseName": "jungle",
+  "loader": "compendium:style"
 }

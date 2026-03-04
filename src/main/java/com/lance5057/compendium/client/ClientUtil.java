@@ -13,9 +13,13 @@ public class ClientUtil {
 			String style) {
 		return Compendium.modLoc("block/" + material + "/" + block + "/" + layer + "/" + style);
 	}
-	
+
 	public static ResourceLocation createMaterialStyleLayerLocation(String block, String layer, String material,
 			String style, String extra) {
 		return Compendium.modLoc("block/" + material + "/" + block + "/" + layer + "/" + style + extra);
+	}
+
+	public static ResourceLocation createStyleLocation(String block, String style) {
+		return Compendium.modLoc("block/" + block + "/" + style);
 	}
 }

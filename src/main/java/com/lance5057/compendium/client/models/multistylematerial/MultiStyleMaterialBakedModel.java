@@ -116,11 +116,9 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 
 					ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st,
 							suffix);
-
-					String variant = "";
-
+					
 					BakedModel t = Minecraft.getInstance().getModelManager()
-							.getModel(new ModelResourceLocation(rc, variant));
+							.getModel(new ModelResourceLocation(rc, ""));
 
 					if (t != null) {
 						List<BakedQuad> r = t.getQuads(state, side, rand, extraData, renderType);

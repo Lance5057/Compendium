@@ -33,7 +33,6 @@ public class _DataGen {
 
 		generator.addProvider(true, new BlockStateModels(output, helperEmpty));
 		generator.addProvider(true, new ItemModels(output, helperEmpty));
-		generator.addProvider(true, new IndexBlockModelProvider(output, helperEmpty));
 
 		BlockTagGen btg = new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper);
 		generator.addProvider(true, btg);

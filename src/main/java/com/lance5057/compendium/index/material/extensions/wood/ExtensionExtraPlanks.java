@@ -18,16 +18,12 @@ import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
-import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
-import com.lance5057.compendium.client.models.style.model.StyleModelBuilder;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
-import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -37,9 +33,6 @@ import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
-import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -192,11 +185,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
 						.getBuilder(PLANK_BLOCK.location(base) + "planks").customLoader(StyleBlockModelBuilder::begin);
 				msmb.base(bsp.models().cubeAll(base.name + "_plank_base",
-						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")));
+						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")), base.name + "_plank");
 
-				for (String s : StyleData.PLANKS.getTypes())
-					msmb.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s.toLowerCase())));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					msmb.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s.toLowerCase())));
 
 				BlockModelBuilder bmb = msmb.end();
 				b.modelFile(bmb);
@@ -204,11 +197,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.extraFolder() + "planks")
 						.customLoader(StyleBlockModelBuilder::begin);
-				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")));
+				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")), base.name + "_planks");
 
-				for (String s : StyleData.PLANKS.getTypes())
-					msmb2.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s.toLowerCase() + "_inventory")));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					msmb2.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(msmb2.end()).build();
 			}
@@ -216,87 +209,87 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				StyleBlockModelBuilder<BlockModelBuilder> plank_slab_bottom = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_slab_bottom")
 						.customLoader(StyleBlockModelBuilder::begin);
-				plank_slab_bottom.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_slab_bottom.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes())
-					plank_slab_bottom.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_bottom")));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					plank_slab_bottom.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_bottom")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_slab_top = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_slab_top")
 						.customLoader(StyleBlockModelBuilder::begin);
-				plank_slab_top.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_slab_top.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes())
-					plank_slab_top.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_top")));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					plank_slab_top.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_top")));
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_slab_full = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_slab_full")
 						.customLoader(StyleBlockModelBuilder::begin);
-				plank_slab_full.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_slab_full.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes())
-					plank_slab_full.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_full")));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					plank_slab_full.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "slab/" + s.toLowerCase() + "_full")));
 
 				bsp.slabBlock((SlabBlock) PLANK_SLAB.BLOCK.get(), plank_slab_bottom.end(), plank_slab_top.end(),
 						plank_slab_full.end());
 
 				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models()
 						.getBuilder(base.extraFolder() + "plank_slab").customLoader(StyleBlockModelBuilder::begin);
-				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")));
+				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes())
-					msmb2.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK_BLOCK.location(base) + "slab/" + s.toLowerCase() + "_inventory")));
+//				for (String s : StyleData.PLANKS.getTypes())
+//					msmb2.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK_BLOCK.location(base) + "slab/" + s.toLowerCase() + "_inventory")));
 
 				ConfiguredModel.builder().modelFile(msmb2.end()).build();
 			}
 			if (PLANK_STAIRS.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_standard = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_stairs").customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes()) {
-					plank_stairs_standard.add(
-							new StyleModelBuilder(s, bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
-				}
+//				for (String s : StyleData.PLANKS.getTypes()) {
+//					plank_stairs_standard.add(
+//							new StyleModelBuilder(s, bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase())));
+//				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inner = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_stairs_inner")
 						.customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_inner.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_stairs_inner.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes()) {
-					plank_stairs_inner.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
-				}
+//				for (String s : StyleData.PLANKS.getTypes()) {
+//					plank_stairs_inner.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inner")));
+//				}
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_outer = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_stairs_outer")
 						.customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_outer.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_stairs_outer.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes()) {
-					plank_stairs_outer.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
-				}
+//				for (String s : StyleData.PLANKS.getTypes()) {
+//					plank_stairs_outer.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_outer")));
+//				}
 
 				stairsBlock((StairBlock) PLANK_STAIRS.BLOCK.get(), plank_stairs_standard.end(),
 						plank_stairs_inner.end(), plank_stairs_outer.end(), bsp);
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inventory = bsp.models()
 						.getBuilder(base.extraFolder() + "plank_stairs").customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_inventory.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+				plank_stairs_inventory.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-				for (String s : StyleData.PLANKS.getTypes()) {
-					plank_stairs_inventory.add(new StyleModelBuilder(s,
-							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
-
-					ConfiguredModel.builder().modelFile(plank_stairs_inventory.end()).build();
-				}
-
+//				for (String s : StyleData.PLANKS.getTypes()) {
+//					plank_stairs_inventory.add(new StyleModelBuilder(s,
+//							bsp.modLoc(PLANK.location(base) + "stairs/" + s.toLowerCase() + "_inventory")));
+//
+//					
+//				}
+				ConfiguredModel.builder().modelFile(plank_stairs_inventory.end()).build();
 			}
 		}
 	}
@@ -307,36 +300,36 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
 					.getBuilder(block.location(base) + extra + "/horizontal")
 					.customLoader(StyleBlockModelBuilder::begin);
-			base_model_horizontal.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+			base_model_horizontal.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-			for (String s : StyleData.PLANK.getTypes())
-				base_model_horizontal.add(new StyleModelBuilder(s,
-						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
+//			for (String s : StyleData.PLANK.getTypes())
+//				base_model_horizontal.add(new StyleModelBuilder(s,
+//						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
 
 			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal2 = bsp.models()
 					.getBuilder(block.location(base) + extra + "/horizontal_rot")
 					.customLoader(StyleBlockModelBuilder::begin);
-			base_model_horizontal2.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+			base_model_horizontal2.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-			for (String s : StyleData.PLANK.getTypes())
-				base_model_horizontal2.add(new StyleModelBuilder(s,
-						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
+//			for (String s : StyleData.PLANK.getTypes())
+//				base_model_horizontal2.add(new StyleModelBuilder(s,
+//						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
 
 			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
 					.getBuilder(block.location(base) + extra + "/vertical").customLoader(StyleBlockModelBuilder::begin);
-			base_model_vertical.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+			base_model_vertical.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-			for (String s : StyleData.PLANK.getTypes())
-				base_model_vertical.add(new StyleModelBuilder(s,
-						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
+//			for (String s : StyleData.PLANK.getTypes())
+//				base_model_vertical.add(new StyleModelBuilder(s,
+//						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
 
 			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
 					.getBuilder(block.location(base) + extra + "/cap").customLoader(StyleBlockModelBuilder::begin);
-			model_cap.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")));
+			model_cap.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
 
-			for (String s : StyleData.PLANK.getTypes())
-				model_cap.add(new StyleModelBuilder(s,
-						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
+//			for (String s : StyleData.PLANK.getTypes())
+//				model_cap.add(new StyleModelBuilder(s,
+//						bsp.modLoc(PLANK.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
 
 			BlockModelBuilder cap = model_cap.end();
 
@@ -405,79 +398,79 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		}, StairBlock.WATERLOGGED);
 	}
 
-	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-
-		for (String s : StyleData.PLANK.getTypes()) {
-			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s, ibmp.modLoc("block/bases/plank/" + s))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
-
-			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal",
-					ibmp.modLoc("block/bases/plank/" + s + "_horizontal"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
-
-			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal_rot",
-					ibmp.modLoc("block/bases/plank/" + s + "_horizontal2"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
-
-			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_vertical",
-					ibmp.modLoc("block/bases/plank/" + s + "_vertical"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
-
-			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_cap",
-					ibmp.modLoc("block/bases/plank/" + s + "_cap"))
-					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
-
-//			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
-//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"))
-//					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"));
-
-		}
-
-		for (String s : StyleData.PLANKS.getTypes()) {
-			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s + "_inventory",
-					ibmp.mcLoc("block/cube_all"))
-					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
-
-			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
-					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
-
-			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_inventory",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-
-			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s, ibmp.mcLoc("block/cube_all"))
-					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
-
-			ibmp.stairs(PLANK.location(base) + "/stairs/" + s + "_inventory",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-			ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer",
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
-					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
-//			}
-		}
-	}
+//	@Override
+//	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
+//
+//		for (String s : StyleData.PLANK.getTypes()) {
+//			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s, ibmp.modLoc("block/bases/plank/" + s))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
+//
+//			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal",
+//					ibmp.modLoc("block/bases/plank/" + s + "_horizontal"))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
+//
+//			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_horizontal_rot",
+//					ibmp.modLoc("block/bases/plank/" + s + "_horizontal2"))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
+//
+//			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_vertical",
+//					ibmp.modLoc("block/bases/plank/" + s + "_vertical"))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
+//
+//			ibmp.withExistingParent(PLANK.location(base) + "plank/" + s + "_cap",
+//					ibmp.modLoc("block/bases/plank/" + s + "_cap"))
+//					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/" + "plank"));
+//
+////			ibmp.withExistingParent(base.itemFolder() + s + "_inventory", ibmp.modLoc("item/" + s + "_inventory"))
+////					.texture("0", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"))
+////					.texture("1", ibmp.modLoc(PLANK.location(base) + "planks/planks_seamless"));
+//
+//		}
+//
+//		for (String s : StyleData.PLANKS.getTypes()) {
+//			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s + "_inventory",
+//					ibmp.mcLoc("block/cube_all"))
+//					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+//
+//			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/planks/" + s, ibmp.mcLoc("block/cube_all"))
+//					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+//
+//			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_inventory",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.slab(PLANK.location(base) + "/slab/" + s + "_bottom",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.slabTop(PLANK.location(base) + "/slab/" + s + "_top",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.cubeAll(PLANK.location(base) + "/slab/" + s + "_full",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//
+//			ibmp.withExistingParent(PLANK_BLOCK.location(base) + "/slab/" + s, ibmp.mcLoc("block/cube_all"))
+//					.texture("all", ibmp.modLoc(PLANK_BLOCK.location(base) + "planks/" + s));
+//
+//			ibmp.stairs(PLANK.location(base) + "/stairs/" + s + "_inventory",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.stairs(PLANK.location(base) + "/stairs/" + s, ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.stairsInner(PLANK.location(base) + "/stairs/" + s + "_inner",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+//			ibmp.stairsOuter(PLANK.location(base) + "/stairs/" + s + "_outer",
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s),
+//					ibmp.modLoc(PLANK.location(base) + "planks/" + s));
+////			}
+//		}
+//	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {

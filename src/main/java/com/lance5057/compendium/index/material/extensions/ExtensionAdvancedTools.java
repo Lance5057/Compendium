@@ -11,12 +11,11 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -49,7 +48,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class ExtensionAdvancedTools extends _MaterialExtension {
+public class ExtensionAdvancedTools extends _MaterialExtension { 
 	/**
 	 * 
 	 */
@@ -312,11 +311,6 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	}
 
-	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {

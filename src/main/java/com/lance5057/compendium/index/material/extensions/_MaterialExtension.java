@@ -9,7 +9,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -18,8 +17,8 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab.Output;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -44,8 +43,6 @@ public abstract class _MaterialExtension implements Serializable {
 	}
 
 	public abstract void blockStateModel(_MaterialBase base, BlockStateProvider bsp);
-	
-	public abstract void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp);
 
 	protected boolean autoGenItemModel = true;
 
@@ -61,7 +58,7 @@ public abstract class _MaterialExtension implements Serializable {
 	public abstract void recipes(_MaterialBase base, RecipeOutput consumer);
 
 	public abstract void blockLoot(_MaterialBase base, BlockLootSubProvider blp);
-	
+
 	public abstract void otherLoot(_MaterialBase base, LootTableSubProvider lsp);
 
 	public abstract void setupItemTags(_MaterialBase base, ItemTagsProvider itp);
@@ -69,9 +66,9 @@ public abstract class _MaterialExtension implements Serializable {
 	public abstract void setupBlockTags(_MaterialBase base, BlockTagsProvider itp);
 
 	public abstract void setupClient(_MaterialBase base, FMLClientSetupEvent event);
-	
+
 	public abstract boolean isIndexItem(_MaterialBase base, ItemStack stack);
-	
+
 	public abstract Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack);
 
 	public static class Serializer extends MaterialExtensionSerializer<_MaterialExtension> {

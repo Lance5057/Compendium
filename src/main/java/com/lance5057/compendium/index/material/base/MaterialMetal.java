@@ -1,4 +1,4 @@
- package com.lance5057.compendium.index.material.base;
+package com.lance5057.compendium.index.material.base;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -11,7 +11,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
@@ -84,16 +83,16 @@ public class MaterialMetal extends _MaterialBase {
 
 		INGOT.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
 		INGOT.setupItemTag(Tags.Items.INGOTS);
-		INGOT.setupItemTag(TagUtil.neoTag("ingots/"+name));
-		
+		INGOT.setupItemTag(TagUtil.neoTag("ingots/" + name));
+
 		NUGGET.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
 		NUGGET.setupItemTag(Tags.Items.NUGGETS);
-		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/"+name));
-		
+		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/" + name));
+
 		BLOCK.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
 				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
 		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
-		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/"+name));
+		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/" + name));
 		BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);
 
 		this.extensions.forEach(i -> i.setup(this));
@@ -258,11 +257,6 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public MATERIAL_TYPES getType() {
 		return MATERIAL_TYPES.METAL;
-	}
-
-	@Override
-	public void blockModel(IndexBlockModelProvider ibmp) {
-		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 	@Override

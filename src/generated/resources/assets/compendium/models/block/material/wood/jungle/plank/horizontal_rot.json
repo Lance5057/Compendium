@@ -5,12 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "basic": {
-    "model": "compendium:block/material/wood/jungle/plank/basic_horizontal_rot"
-  },
-  "count": 2,
-  "loader": "compendium:style",
-  "pipe": {
-    "model": "compendium:block/material/wood/jungle/plank/pipe_horizontal_rot"
-  }
+  "baseName": "jungle",
+  "loader": "compendium:style"
 }

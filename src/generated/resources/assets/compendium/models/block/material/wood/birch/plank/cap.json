@@ -5,12 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "basic": {
-    "model": "compendium:block/material/wood/birch/plank/basic_cap"
-  },
-  "count": 2,
-  "loader": "compendium:style",
-  "pipe": {
-    "model": "compendium:block/material/wood/birch/plank/pipe_cap"
-  }
+  "baseName": "birch",
+  "loader": "compendium:style"
 }

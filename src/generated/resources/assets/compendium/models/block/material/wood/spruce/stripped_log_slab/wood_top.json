@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_top",
-  "textures": {
-    "0": "minecraft:block/stripped_spruce_log",
-    "1": "minecraft:block/stripped_spruce_log",
-    "2": "compendium:block/material/wood/spruce/logs/stripped_small_logs",
-    "particle": "minecraft:block/stripped_spruce_log"
-  }
-}

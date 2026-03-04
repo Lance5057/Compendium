@@ -12,9 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
-import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -442,11 +440,6 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public MATERIAL_TYPES getType() {
 		return MATERIAL_TYPES.WOOD;
-	}
-
-	@Override
-	public void blockModel(IndexBlockModelProvider ibmp) {
-		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 	@Override

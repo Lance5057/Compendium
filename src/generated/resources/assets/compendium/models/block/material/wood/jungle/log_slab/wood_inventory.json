@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/jungle_log",
-    "1": "minecraft:block/jungle_log",
-    "2": "compendium:block/material/wood/jungle/logs/small_logs",
-    "particle": "minecraft:block/jungle_log"
-  }
-}

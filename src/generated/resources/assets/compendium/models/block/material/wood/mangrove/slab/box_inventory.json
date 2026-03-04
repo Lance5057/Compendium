@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "compendium:block/material/wood/mangrove/planks/box",
-    "side": "compendium:block/material/wood/mangrove/planks/box",
-    "top": "compendium:block/material/wood/mangrove/planks/box"
-  }
-}

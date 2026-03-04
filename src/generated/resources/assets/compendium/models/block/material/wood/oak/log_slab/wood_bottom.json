@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_bottom",
-  "textures": {
-    "0": "minecraft:block/oak_log",
-    "1": "minecraft:block/oak_log",
-    "2": "compendium:block/material/wood/oak/logs/small_logs",
-    "particle": "minecraft:block/oak_log"
-  }
-}

@@ -5,12 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "basic": {
-    "model": "compendium:block/material/wood/cherry/plank/basic_horizontal"
-  },
-  "count": 2,
-  "loader": "compendium:style",
-  "pipe": {
-    "model": "compendium:block/material/wood/cherry/plank/pipe_horizontal"
-  }
+  "baseName": "cherry",
+  "loader": "compendium:style"
 }

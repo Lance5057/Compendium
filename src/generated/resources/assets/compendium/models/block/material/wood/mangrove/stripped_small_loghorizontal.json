@@ -5,15 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "count": 3,
-  "loader": "compendium:style",
-  "small_log": {
-    "model": "compendium:block/material/wood/mangrove/stripped_small_log/small_log_horizontal"
-  },
-  "smaller_log": {
-    "model": "compendium:block/material/wood/mangrove/stripped_small_log/smaller_log_horizontal"
-  },
-  "smallest_log": {
-    "model": "compendium:block/material/wood/mangrove/stripped_small_log/smallest_log_horizontal"
-  }
+  "baseName": "mangrove",
+  "loader": "compendium:style"
 }

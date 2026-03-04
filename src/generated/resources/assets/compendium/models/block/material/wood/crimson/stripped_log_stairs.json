@@ -5,39 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "count": 11,
-  "loader": "compendium:style",
-  "small_logs": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_logs"
-  },
-  "small_logs_rotated_front": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_logs_rotated_front"
-  },
-  "small_logs_rotated_side": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_logs_rotated_side"
-  },
-  "small_logs_rotated_top": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_logs_rotated_top"
-  },
-  "small_wood": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_wood"
-  },
-  "small_wood_rotated": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/small_wood_rotated"
-  },
-  "split_log_rotated_front": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/split_log_rotated_front"
-  },
-  "split_log_rotated_side": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/split_log_rotated_side"
-  },
-  "split_log_rotated_top": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/split_log_rotated_top"
-  },
-  "wood": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/wood"
-  },
-  "wood_rotated": {
-    "model": "compendium:block/material/wood/crimson/stripped_log_stairs/wood_rotated"
-  }
+  "baseName": "crimson",
+  "loader": "compendium:style"
 }

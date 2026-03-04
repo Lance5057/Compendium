@@ -9,7 +9,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
@@ -188,11 +187,6 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public String getName() {
 		return name;
-	}
-
-	@Override
-	public void blockModel(IndexBlockModelProvider ibmp) {
-		this.extensions.forEach(i -> i.blockModel(this, ibmp));
 	}
 
 	@Override
