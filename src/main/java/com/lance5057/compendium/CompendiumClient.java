@@ -991,10 +991,10 @@ public class CompendiumClient {
 	}
 
 	private static void doStyleWood(ModifyBakingResult event, _MaterialBase mb) {
-		buildStateModelVariant(event, event.getModels(), "block/material/wood/" + mb.name, "planks", "");
+		buildStateModelVariant(event, event.getModels(), "block/"+mb.name + "_planks", "");
 
 		for (String style : StyleData.PLANKS.getTypes()) {
-			ResourceLocation loc = Compendium.modLoc("block/" + mb.name + "_planks");
+			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = ClientUtil.createStyleLocation(mb.name + "_planks", style.toLowerCase());
 			ResourceLocation t = Compendium.modLoc("block/material/wood/" + mb.name + "/planks/" + style.toLowerCase());
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");

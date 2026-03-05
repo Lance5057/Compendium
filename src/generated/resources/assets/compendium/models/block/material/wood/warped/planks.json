@@ -5,6 +5,6 @@
       "all": "minecraft:block/warped_planks"
     }
   },
-  "baseName": "warped_plank",
+  "baseName": "warped_planks",
   "loader": "compendium:style"
 }

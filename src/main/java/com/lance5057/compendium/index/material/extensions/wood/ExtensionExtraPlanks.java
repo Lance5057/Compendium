@@ -120,9 +120,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setAsValidStyleBlock();
 
 		PLANK_BLOCK.setName(base.name + "_planks");
-		PLANK_BLOCK.setup(base,
-				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "planks"), List.of("plank_block"), StyleData.PLANKS),
+		PLANK_BLOCK.setup(base, () -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+				Compendium.modLoc(base.name + "_planks"), List.of("plank_block"), StyleData.PLANKS),
 				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
 						new Item.Properties().component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
@@ -184,8 +183,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				ConfiguredModel.Builder<?> b = ConfiguredModel.builder();
 				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
 						.getBuilder(PLANK_BLOCK.location(base) + "planks").customLoader(StyleBlockModelBuilder::begin);
-				msmb.base(bsp.models().cubeAll(base.name + "_plank_base",
-						ResourceLocation.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")), base.name + "_plank");
+				msmb.base(
+						bsp.models()
+								.cubeAll(base.name + "_plank_base", ResourceLocation
+										.fromNamespaceAndPath(base.namespace, "block/" + base.name + "_planks")),
+						base.name + "_planks");
 
 //				for (String s : StyleData.PLANKS.getTypes())
 //					msmb.add(new StyleModelBuilder(s,
@@ -195,7 +197,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				b.modelFile(bmb);
 				bsp.simpleBlock(PLANK_BLOCK.BLOCK.get(), b.build());
 
-				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.extraFolder() + "planks")
+				StyleBlockModelBuilder<BlockModelBuilder> msmb2 = bsp.models().getBuilder(base.name + "_planks")
 						.customLoader(StyleBlockModelBuilder::begin);
 				msmb2.base(bsp.models().cubeAll("planks_base", bsp.mcLoc("block/oak_planks")), base.name + "_planks");
 
@@ -249,7 +251,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			if (PLANK_STAIRS.shouldGenerate()) {
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_standard = bsp.models()
 						.getBuilder(PLANK.location(base) + "plank_stairs").customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
+				plank_stairs_standard.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")),
+						base.name);
 
 //				for (String s : StyleData.PLANKS.getTypes()) {
 //					plank_stairs_standard.add(
@@ -281,7 +284,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 				StyleBlockModelBuilder<BlockModelBuilder> plank_stairs_inventory = bsp.models()
 						.getBuilder(base.extraFolder() + "plank_stairs").customLoader(StyleBlockModelBuilder::begin);
-				plank_stairs_inventory.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")), base.name);
+				plank_stairs_inventory.base(bsp.models().cubeAll("plank_base", bsp.mcLoc("block/oak_planks")),
+						base.name);
 
 //				for (String s : StyleData.PLANKS.getTypes()) {
 //					plank_stairs_inventory.add(new StyleModelBuilder(s,
