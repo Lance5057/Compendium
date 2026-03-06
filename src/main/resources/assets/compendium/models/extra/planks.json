@@ -2,9 +2,9 @@
   "base": {
     "parent": "minecraft:block/cube_all",
     "textures": {
-      "all": "minecraft:block/spruce_planks"
+      "all": "minecraft:block/oak_planks"
     }
   },
-  "baseName": "spruce_planks",
+  "baseName": "planks",
   "loader": "compendium:style"
 }

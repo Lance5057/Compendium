@@ -279,6 +279,19 @@ public class CompendiumClient {
 		Compendium.LOGGER.debug(ml.toString());
 	}
 
+	private static void buildStateModelVariantAltLocation(ModifyBakingResult event,
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation fromLocation, String toLocation, String variant) {
+		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(toLocation), variant);
+		BlockModel um = (BlockModel) event.getModelBakery().getModel(fromLocation);
+		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
+		um.resolveParents(i -> baker.getModel(i));
+
+		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+		models.put(ml, bm);
+
+		Compendium.LOGGER.debug(ml.toString());
+	}
+
 	private static void buildStateModelBasic(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
 			String w) {
 		ResourceLocation rc = Compendium.modLoc("extra/" + w);
@@ -991,7 +1004,8 @@ public class CompendiumClient {
 	}
 
 	private static void doStyleWood(ModifyBakingResult event, _MaterialBase mb) {
-		buildStateModelVariant(event, event.getModels(), "block/"+mb.name + "_planks", "");
+		Map<ModelResourceLocation, BakedModel> models = event.getModels();
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"), mb.name + "_planks", "");
 
 		for (String style : StyleData.PLANKS.getTypes()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
@@ -1001,6 +1015,14 @@ public class CompendiumClient {
 
 			BakedModel bm = basicModelAllTexture(event, mb, t, loc, m, BlockModelRotation.X0_Y0, "all");
 			event.getModels().put(m, bm);
+		}
+
+		for (BlockState state : CompendiumBlocks.FANCY_BED.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_slab"), mb.name + "_planks_slab", v);
 		}
 	}
 

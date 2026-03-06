@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.lance5057.compendium.client.ClientUtil;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
@@ -29,6 +30,7 @@ import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class StyleBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<StyleModelData> DATA = new ModelProperty<>();
+	private static final ModelProperty<IndexEntryModellData> INDEX_DATA = new ModelProperty<>();
 	private BakedModel base;
 	public final String baseName;
 //	String current = "";
@@ -111,8 +113,9 @@ public class StyleBakedModel implements IDynamicBakedModel {
 	@Override
 	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
 		StyleModelData data = new StyleModelData();
+		IndexEntryModelData index = new IndexEntryModelData();
 
-		return modelData.derive().with(DATA, data).build();
+		return modelData.derive().with(DATA, data).with(null, index).build();
 	}
 
 }
