@@ -4,8 +4,10 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.styleblock.IStyleBlock;
@@ -54,6 +56,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);
 				@Nullable
 				StyleBlockComponent s = stack.get(CompendiumComponents.STYLE);
+				@Nullable
+				IndexEntryComponent index = stack.get(CompendiumComponents.INDEX);
 
 				Builder md = ModelData.builder();
 
@@ -61,15 +65,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 					md.with(MultiMaterialModelData.STATE, mmt.getTypes());
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
-
-//				Map<Property<?>, Comparable<?>> p = bi.getBlock().defaultBlockState().getValues();
-//				String variant = "";
-//
-//				for (Entry<Property<?>, Comparable<?>> x : p.entrySet()) {
-//					variant += x.getKey().getName() + "=" + getName(x.getKey(), x.getValue()) + ",";
-//				}
-//				if (variant.length() > 0 && variant.charAt(variant.length()-1) == ',')
-//					variant = variant.substring(0, variant.length() - 1);
+				if (index != null)
+					md.with(IndexEntryModelData.TYPE, index.getType()).with(IndexEntryModelData.NAME, index.getName());
 
 				BakedModel bm = Minecraft.getInstance().getModelManager()
 						.getModel(new ModelResourceLocation(st.getItemModelLocation(), ""));

@@ -7,6 +7,8 @@ import java.util.SortedMap;
 import java.util.stream.Collectors;
 
 import com.google.common.collect.Maps;
+import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
+import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
@@ -35,6 +37,9 @@ import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
+import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
+import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
@@ -67,6 +72,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -280,7 +286,8 @@ public class CompendiumClient {
 	}
 
 	private static void buildStateModelVariantAltLocation(ModifyBakingResult event,
-			Map<ModelResourceLocation, BakedModel> models, ResourceLocation fromLocation, String toLocation, String variant) {
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation fromLocation, String toLocation,
+			String variant) {
 		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(toLocation), variant);
 		BlockModel um = (BlockModel) event.getModelBakery().getModel(fromLocation);
 		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
@@ -904,46 +911,12 @@ public class CompendiumClient {
 			for (String b : StyleData.SHINGLES_SHINGLES.getTypes()) {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_slanted", "shingles",
 						mb.name, b.toLowerCase());
-				MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
-				for (Direction dir : Direction.Plane.HORIZONTAL) {
-					MultiPartBakedModel.Builder mmDir = new MultiPartBakedModel.Builder();
-					for (Half half : Half.values()) {
-						MultiPartBakedModel.Builder mmHalf = new MultiPartBakedModel.Builder();
-						for (StairsShape shape : StairsShape.values()) {
-							MultiPartBakedModel.Builder mmShape = new MultiPartBakedModel.Builder();
 
-							ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/shingles/straight/" + b);
-							if (shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT)
-								loc = Compendium.modLoc("extra/shingles_slanted/shingles/inner_corner/" + b);
-							else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
-								loc = Compendium.modLoc("extra/shingles_slanted/shingles/outer_corner/" + b);
-
-							int h = half == Half.BOTTOM ? 0 : 180;
-							int hy = half == Half.BOTTOM ? 0 : 180;
-
-							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
-								hy += 90;
-
-							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
-									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(h, (int) dir.toYRot() + hy), Pair.of("0", texture)));
-
-							mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
-									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(h, (int) dir.toYRot() + hy), Pair.of("0", texture)));
-
-							mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
-						}
-						mmDir.add(s -> s.getValue(StairBlock.HALF) == half, mmHalf.build());
-					}
-					mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
-				}
-				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
-
-				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
-				ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/shingles/straight/" + b);
-				event.getModels().put(m_inv,
-						basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
+				ResourceLocation straight = Compendium.modLoc("extra/shingles_slanted/shingles/straight/" + b);
+				ResourceLocation inner = Compendium.modLoc("extra/shingles_slanted/shingles/inner_corner/" + b);
+				ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/shingles/outer_corner/" + b);
+				doStyleStairs(event, mb, texture, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner,
+						outer, 0, 0, Pair.of("0", texture));
 
 				doShingleCap(event, mb, "shingles", b, Pair.of("0", texture));
 			}
@@ -952,78 +925,244 @@ public class CompendiumClient {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerLocation("shingles_slanted", "support",
 						mb.name, b.toLowerCase());
 
-				ResourceLocation log = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
-				ResourceLocation log_cap = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/extra_caps");
+				ResourceLocation straight = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
+				ResourceLocation inner = Compendium.modLoc("extra/shingles_slanted/support/inner_corner/" + b);
+				ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
 
-				MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
-				for (Direction dir : Direction.Plane.HORIZONTAL) {
-					MultiPartBakedModel.Builder mmDir = new MultiPartBakedModel.Builder();
-					for (Half half : Half.values()) {
-						MultiPartBakedModel.Builder mmHalf = new MultiPartBakedModel.Builder();
-						for (StairsShape shape : StairsShape.values()) {
-							MultiPartBakedModel.Builder mmShape = new MultiPartBakedModel.Builder();
+				doStyleStairs(event, mb, texture, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner,
+						outer, 0, 0, Pair.of("0", texture));
 
-							ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
-							if (shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT)
-								loc = Compendium.modLoc("extra/shingles_slanted/support/inner_corner/" + b);
-							else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
-								loc = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
-
-							int hx = half == Half.BOTTOM ? 0 : 180;
-							int hy = half == Half.BOTTOM ? 0 : 180;
-
-							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
-								hy += 90;
-
-							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
-									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
-											Pair.of("1", log_cap)));
-
-							mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
-									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
-											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
-											Pair.of("1", log_cap)));
-
-							mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
-						}
-						mmDir.add(s -> s.getValue(StairBlock.HALF) == half, mmHalf.build());
-					}
-					mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
-				}
-				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
-
-				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
-				ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
-				event.getModels().put(m_inv, basicModelManyTexture(event, mb, loc, m_inv, BlockModelRotation.X0_Y0,
-						Pair.of("0", log), Pair.of("1", log_cap)));
+//				ResourceLocation log = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+//				ResourceLocation log_cap = Compendium.modLoc("block/material/wood/" + mb.name + "/logs/extra_caps");
+//
+//				MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
+//				for (Direction dir : Direction.Plane.HORIZONTAL) {
+//					MultiPartBakedModel.Builder mmDir = new MultiPartBakedModel.Builder();
+//					for (Half half : Half.values()) {
+//						MultiPartBakedModel.Builder mmHalf = new MultiPartBakedModel.Builder();
+//						for (StairsShape shape : StairsShape.values()) {
+//							MultiPartBakedModel.Builder mmShape = new MultiPartBakedModel.Builder();
+//
+//							ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
+//							if (shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT)
+//								loc = Compendium.modLoc("extra/shingles_slanted/support/inner_corner/" + b);
+//							else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT)
+//								loc = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
+//
+//							int hx = half == Half.BOTTOM ? 0 : 180;
+//							int hy = half == Half.BOTTOM ? 0 : 180;
+//
+//							if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
+//								hy += 90;
+//
+//							mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
+//									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+//											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
+//											Pair.of("1", log_cap)));
+//
+//							mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
+//									basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+//											BlockModelRotation.by(hx, (int) dir.toYRot() + hy), Pair.of("0", log),
+//											Pair.of("1", log_cap)));
+//
+//							mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
+//						}
+//						mmDir.add(s -> s.getValue(StairBlock.HALF) == half, mmHalf.build());
+//					}
+//					mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
+//				}
+//				event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
+//
+//				ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
+//				ResourceLocation loc = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
+//				event.getModels().put(m_inv, basicModelManyTexture(event, mb, loc, m_inv, BlockModelRotation.X0_Y0,
+//						Pair.of("0", log), Pair.of("1", log_cap)));
 
 				doShingleCap(event, mb, "support", b, Pair.of("0", texture));
 			}
 		}
 	}
 
+	@SafeVarargs
+	private static void doStyleStairs(ModifyBakingResult event, _MaterialBase mb, ResourceLocation texture, String b,
+			ResourceLocation modelLoc, ResourceLocation modelLocInventory, ResourceLocation straight,
+			ResourceLocation inner, ResourceLocation outer, int straightRot, int cornerRot,
+			Pair<String, ResourceLocation>... textures) {
+		MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
+
+		for (Direction dir : Direction.Plane.HORIZONTAL) {
+			MultiPartBakedModel.Builder mmDir = new MultiPartBakedModel.Builder();
+			for (Half half : Half.values()) {
+				MultiPartBakedModel.Builder mmHalf = new MultiPartBakedModel.Builder();
+				for (StairsShape shape : StairsShape.values()) {
+					MultiPartBakedModel.Builder mmShape = new MultiPartBakedModel.Builder();
+
+					ResourceLocation loc = straight;
+					if (shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT) {
+						loc = inner;
+					} else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT) {
+
+						loc = outer;
+					}
+
+					int h = half == Half.BOTTOM ? 0 : 180;
+					int hy = half == Half.BOTTOM ? 0 : 180;
+
+					if (shape == StairsShape.INNER_RIGHT || shape == StairsShape.OUTER_RIGHT)
+						hy += 90 + cornerRot;
+					else
+						hy += straightRot;
+
+					mmShape.add(s -> s.getValue(StairBlock.WATERLOGGED),
+							basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+									BlockModelRotation.by(h, (int) dir.toYRot() + hy), textures));
+
+					mmShape.add(s -> !s.getValue(StairBlock.WATERLOGGED),
+							basicModelManyTexture(event, mb, loc, new ModelResourceLocation(modelLoc, ""),
+									BlockModelRotation.by(h, (int) dir.toYRot() + hy), textures));
+
+					mmHalf.add(s -> s.getValue(StairBlock.SHAPE) == shape, mmShape.build());
+				}
+				mmDir.add(s -> s.getValue(StairBlock.HALF) == half, mmHalf.build());
+			}
+			mmAll.add(s -> s.getValue(StairBlock.FACING) == dir, mmDir.build());
+		}
+		event.getModels().put(new ModelResourceLocation(modelLoc, ""), mmAll.build());
+
+		ModelResourceLocation m_inv = new ModelResourceLocation(modelLocInventory, "");
+		ResourceLocation loc = straight;
+		event.getModels().put(m_inv,
+				basicModelAllTexture(event, mb, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
+	}
+
 	private static void doStyleWood(ModifyBakingResult event, _MaterialBase mb) {
 		Map<ModelResourceLocation, BakedModel> models = event.getModels();
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"), mb.name + "_planks", "");
-
-		for (String style : StyleData.PLANKS.getTypes()) {
-			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
-			ResourceLocation modelLoc = ClientUtil.createStyleLocation(mb.name + "_planks", style.toLowerCase());
-			ResourceLocation t = Compendium.modLoc("block/material/wood/" + mb.name + "/planks/" + style.toLowerCase());
-			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
-
-			BakedModel bm = basicModelAllTexture(event, mb, t, loc, m, BlockModelRotation.X0_Y0, "all");
-			event.getModels().put(m, bm);
+		for (_MaterialExtension me : mb.extensions) {
+			if (me instanceof ExtensionExtraPlanks eep) {
+				doExtraPlanks(event, mb, eep, models);
+			} else if (me instanceof ExtensionExtraLogs eel) {
+				doExtraLogs(event, mb, eel, models);
+			}
 		}
+	}
 
-		for (BlockState state : CompendiumBlocks.FANCY_BED.get().getStateDefinition().getPossibleStates()) {
+	private static void doExtraLogs(ModifyBakingResult event, _MaterialBase mb, ExtensionExtraLogs eel,
+			Map<ModelResourceLocation, BakedModel> models) {
+//		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mb.name + "_log", "");
+
+		for (BlockState state : eel.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_slab"), mb.name + "_planks_slab", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mb.name + "_log", v);
 		}
+
+		for (String log_style : StyleData.LOG.getTypes()) {
+			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mb.name + "_log", log_style.toLowerCase());
+
+			ResourceLocation endTexture = TagUtil.mcLoc("block/" + mb.name + "_log_top");
+			ResourceLocation sideTexture = TagUtil.mcLoc("block/" + mb.name + "_log");
+
+			MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+			event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+		}
+	}
+
+	private static void doExtraPlanks(ModifyBakingResult event, _MaterialBase mb, ExtensionExtraPlanks eep,
+			Map<ModelResourceLocation, BakedModel> models) {
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"), mb.name + "_planks", "");
+
+		for (BlockState state : eep.PLANK_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_slab"),
+					mb.name + "_planks_slab", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_slab_inventory"),
+				mb.name + "_planks_slab_inventory", "");
+
+		for (BlockState state : eep.PLANK_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_stairs"),
+					mb.name + "_planks_stairs", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_stairs_inventory"),
+				mb.name + "_planks_stairs_inventory", "");
+
+		for (String planks_style : StyleData.PLANKS.getTypes()) {
+			// planks
+			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+			ResourceLocation modelLoc = ClientUtil.createStyleLocation(mb.name + "_planks", planks_style.toLowerCase());
+			ResourceLocation t = Compendium
+					.modLoc("block/material/wood/" + mb.name + "/planks/" + planks_style.toLowerCase());
+			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+			BakedModel bm = basicModelAllTexture(event, mb, t, loc, m, BlockModelRotation.X0_Y0, "all");
+			event.getModels().put(m, bm);
+
+			// slabs
+			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mb.name + "_planks_slab",
+					planks_style.toLowerCase());
+			MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
+
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab_top"),
+							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE, basicModelAllTexture(event, mb, t,
+					loc, new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+			event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
+
+			ResourceLocation plankSlabModelLocInventory = ClientUtil
+					.createStyleLocation(mb.name + "_planks_slab_inventory", planks_style.toLowerCase());
+
+			event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
+					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
+
+			// stairs
+			ResourceLocation plankStairsModelLoc = ClientUtil.createStyleLocation(mb.name + "_planks_stairs",
+					planks_style.toLowerCase());
+			ResourceLocation plankStairsModelLocInventory = ClientUtil
+					.createStyleLocation(mb.name + "_planks_stairs_inventory", planks_style.toLowerCase());
+
+			ResourceLocation straight = TagUtil.mcLoc("block/acacia_stairs");
+			ResourceLocation inner = TagUtil.mcLoc("block/acacia_stairs_inner");
+			ResourceLocation outer = TagUtil.mcLoc("block/acacia_stairs_outer");
+
+			doStyleStairs(event, mb, t, planks_style, plankStairsModelLoc, plankStairsModelLocInventory, straight,
+					inner, outer, 90, 0, Pair.of("top", t), Pair.of("bottom", t), Pair.of("side", t));
+
+		}
+
 	}
 
 	@SafeVarargs

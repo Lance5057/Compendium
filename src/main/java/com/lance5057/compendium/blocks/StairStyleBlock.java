@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
@@ -19,18 +20,22 @@ public class StairStyleBlock extends StairBlock implements EntityBlock, IStyleBl
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
 	List<String> styleBases;
+	public final MATERIAL_TYPES matType;
+	public final String materialName;
 
 	public StairStyleBlock(BlockState base, Properties properties, ResourceLocation itemRendererLocation,
-			List<String> styleBases, StyleData... styles) {
+			MATERIAL_TYPES matType, String materialName, List<String> styleBases, StyleData... styles) {
 		super(base, properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
 		this.styleBases = styleBases;
+		this.materialName = materialName;
+		this.matType = matType;
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state, styles.length, styles);
+		return new SimpleStyleBlockEntity(pos, state, matType, materialName, styles.length, styles);
 	}
 
 	@Override

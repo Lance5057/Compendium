@@ -2,6 +2,7 @@ package com.lance5057.compendium;
 
 import java.util.function.Supplier;
 
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 
@@ -22,4 +23,8 @@ public class CompendiumComponents {
 	public static Supplier<DataComponentType<StyleBlockComponent>> STYLE = COMPONENTS.register("style_block",
 			() -> DataComponentType.<StyleBlockComponent>builder().persistent(StyleBlockComponent.CODEC)
 					.networkSynchronized(StyleBlockComponent.STREAM_CODEC).cacheEncoding().build());
+
+	public static Supplier<DataComponentType<IndexEntryComponent>> INDEX = COMPONENTS.register("index_block",
+			() -> DataComponentType.<IndexEntryComponent>builder().persistent(IndexEntryComponent.CODEC)
+					.networkSynchronized(IndexEntryComponent.STREAM_CODEC).cacheEncoding().build());
 }

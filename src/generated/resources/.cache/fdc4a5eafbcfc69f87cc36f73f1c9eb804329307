@@ -1,6 +1,6 @@
-// 1.21.1	2026-01-29T15:57:38.1403249	Tags for minecraft:block mod id compendium
-65e7d87fe83615b8134fee6b669e838090dc073b data/compendium/tags/block/table.json
+// 1.21.1	2026-03-06T16:05:15.471260294	Tags for minecraft:block mod id compendium
 b5a289b8b3995051da520bf7ce877ab6e03753d8 data/c/tags/block/pryable.json
+65e7d87fe83615b8134fee6b669e838090dc073b data/compendium/tags/block/table.json
 77829b6fc27f73d63c05e0a50150c9435263b6fb data/farmersdelight/tags/block/mineable/knife.json
 ef051b8c56470e73cd4eb8a6d74de23013f00778 data/minecraft/tags/block/beds.json
 a3bf97939d57b4ad995abaa767a0ad6f4837da7f data/minecraft/tags/block/mineable/axe.json

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
@@ -20,12 +21,18 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 	public final StyleData[] styles;
 	final ResourceLocation itemRendererLocation;
 	List<String> styleBases;
+	public final MATERIAL_TYPES matType;
+	public final String materialName;
 
-	public RotatedPillarStyleBlock(Properties properties, ResourceLocation itemRendererLocation,List<String> styleBases, StyleData... styles) {
+	public RotatedPillarStyleBlock(Properties properties, ResourceLocation itemRendererLocation, MATERIAL_TYPES matType,
+			String materialName,
+			List<String> styleBases, StyleData... styles) {
 		super(properties);
 		this.styles = styles;
 		this.itemRendererLocation = itemRendererLocation;
 		this.styleBases = styleBases;
+		this.materialName = materialName;
+		this.matType = matType;
 	}
 
 	@Override
@@ -35,7 +42,7 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state, styles.length, styles);
+		return new SimpleStyleBlockEntity(pos, state, matType, materialName, styles.length, styles);
 	}
 
 	@Override
@@ -59,14 +66,14 @@ public class RotatedPillarStyleBlock extends RotatedPillarBlock implements Entit
 	@Override
 	public void onStyleChanged(Level level, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public String getBaseStyleName(int current) {
 		return this.styleBases.get(current);
 	}
-	
+
 	@Override
 	public StyleData[] getStyleData() {
 		return this.styles;

@@ -30,7 +30,7 @@ import net.neoforged.neoforge.client.model.data.ModelProperty;
 
 public class StyleBakedModel implements IDynamicBakedModel {
 	private static final ModelProperty<StyleModelData> DATA = new ModelProperty<>();
-	private static final ModelProperty<IndexEntryModellData> INDEX_DATA = new ModelProperty<>();
+	private static final ModelProperty<IndexEntryModelData> INDEX_DATA = new ModelProperty<>();
 	private BakedModel base;
 	public final String baseName;
 //	String current = "";
@@ -91,21 +91,23 @@ public class StyleBakedModel implements IDynamicBakedModel {
 			ModelData extraData, @Nullable RenderType renderType) {
 		List<BakedQuad> l = new ArrayList<BakedQuad>();
 		List<String> styles = extraData.get(StyleModelData.STYLES);
+		String index = extraData.get(IndexEntryModelData.NAME);
 
-		if (styles != null && styles.size() > 0) {
-			ResourceLocation rc = ClientUtil.createStyleLocation(baseName, styles.get(0));
+		if (index != null) {
+			if (styles != null && styles.size() > 0) {
+				ResourceLocation rc = ClientUtil.createStyleLocation(index + "_" + baseName, styles.get(0));
 
-			BakedModel q = Minecraft.getInstance().getModelManager().getModel(new ModelResourceLocation(rc, ""));
+				BakedModel q = Minecraft.getInstance().getModelManager().getModel(new ModelResourceLocation(rc, ""));
 
-			if (q != null) {
-				List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-				if (r != null) {
-					if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
-						l.addAll(r);
+				if (q != null) {
+					List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
+					if (r != null) {
+						if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
+							l.addAll(r);
+					}
 				}
 			}
 		}
-
 		return l;
 
 	}
@@ -115,7 +117,7 @@ public class StyleBakedModel implements IDynamicBakedModel {
 		StyleModelData data = new StyleModelData();
 		IndexEntryModelData index = new IndexEntryModelData();
 
-		return modelData.derive().with(DATA, data).with(null, index).build();
+		return modelData.derive().with(DATA, data).with(INDEX_DATA, index).build();
 	}
 
 }

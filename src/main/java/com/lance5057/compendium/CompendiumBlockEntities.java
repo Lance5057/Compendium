@@ -8,6 +8,7 @@ import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawer
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackBlockEntity;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
 import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
@@ -28,7 +29,7 @@ public class CompendiumBlockEntities {
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleStyleBlockEntity>> STYLE = BLOCK_ENTITIES
 			.register("style", () -> BlockEntityType.Builder.of((p, s) -> {
-				return new SimpleStyleBlockEntity(p, s, 0);
+				return new SimpleStyleBlockEntity(p, s, MATERIAL_TYPES.CERAMIC, "", 0);
 			}, validStyleBlocks.stream().map(i -> {
 				if (i != null)
 					return i.get();

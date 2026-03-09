@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import com.lance5057.compendium.commands.CompendiumCommands;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -58,7 +59,15 @@ public class CompendiumEvents {
 				tooltip.add(i);
 			}, flag);
 		}
-	}
+		
+		IndexEntryComponent tooltipProvider2 = stack.get(CompendiumComponents.INDEX.get());
+
+		if (tooltipProvider2 != null) {
+			tooltipProvider2.addToTooltip(stack, ctx, i -> {
+				tooltip.add(i);
+			}, flag);
+		}
+	} 
 
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent  event) {

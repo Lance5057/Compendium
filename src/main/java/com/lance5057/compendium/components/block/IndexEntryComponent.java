@@ -1,16 +1,18 @@
 package com.lance5057.compendium.components.block;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item.TooltipContext;
 
 public class IndexEntryComponent {
 	protected String name;
@@ -74,5 +76,14 @@ public class IndexEntryComponent {
 						return true;
 			return false;
 		}
+	}
+
+	public void addToTooltip(ItemStack stack, TooltipContext context, Consumer<Component> tooltipAdder,
+			TooltipFlag tooltipFlag) {
+		tooltipAdder.accept(Component.literal(" - ")
+				.append(Component.translatable("compendium.tooltip.material_type." + type.toString().toLowerCase())));
+		tooltipAdder.accept(Component.literal(" - ")
+				.append(Component.translatable("compendium.tooltip.material_name." + name.toLowerCase())));
+
 	}
 }

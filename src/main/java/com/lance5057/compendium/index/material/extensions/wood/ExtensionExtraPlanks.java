@@ -19,6 +19,7 @@ import com.lance5057.compendium.blocks.SimpleStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
@@ -108,10 +109,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setName(base.name + "_plank");
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "plank"), List.of("plank"), StyleData.PLANK),
-				() -> new BlockItem(PLANK.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+						Compendium.modLoc(base.extraFolder() + "plank"), base.getType(), base.name, List
+								.of("plank"),
+						StyleData.PLANK),
+				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
 //		PLANK.setupItemTag(TagUtil.neoTag("plank"));
@@ -120,13 +124,20 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setAsValidStyleBlock();
 
 		PLANK_BLOCK.setName(base.name + "_planks");
-		PLANK_BLOCK.setup(base, () -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-				Compendium.modLoc(base.name + "_planks"), List.of("plank_block"), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
+		PLANK_BLOCK
+				.setup(base,
+						() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+								Compendium.modLoc(base.name
+										+ "_planks"),
+								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
+						() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
 //		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
 		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
 		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -134,15 +145,21 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_BLOCK.setAsValidStyleItem();
 
 		PLANK_SLAB.setName(base.name + "_planks_slab");
-		PLANK_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "plank_slab"), List.of("plank_block"), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
-//		PLANK_SLAB.setupItemTag(ItemTags.WOODEN_SLABS);
+		PLANK_SLAB
+				.setup(base,
+						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+								Compendium.modLoc(base.name
+										+ "_planks_slab_inventory"),
+								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
+						() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
+
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
 		PLANK_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -150,14 +167,21 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setAsValidStyleItem();
 
 		PLANK_STAIRS.setName(base.name + "_planks_stairs");
-		PLANK_STAIRS.setup(base, () -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
-				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-				Compendium.modLoc(base.extraFolder() + "plank_stairs"), List.of("plank_block"), StyleData.PLANKS),
-				() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
+		PLANK_STAIRS
+				.setup(base,
+						() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
+								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+								Compendium.modLoc(base.name
+										+ "_planks_stairs_inventory"),
+								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
+						() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
 		PLANK_STAIRS.setAsValidStyleBlock();
 		PLANK_STAIRS.setAsValidStyleItem();
 

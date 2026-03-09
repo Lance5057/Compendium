@@ -21,6 +21,7 @@ import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
 import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
@@ -128,14 +129,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		SMALL_LOG.setName(base.name + "_small_log");
-		SMALL_LOG.setup(base,
-				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "small_log"), List.of("small_log"), StyleData.SMALL_LOG),
-				() -> new BlockItem(SMALL_LOG.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
+		SMALL_LOG
+				.setup(base,
+						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+								Compendium.modLoc(base.extraFolder()
+										+ "small_log"),
+								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
+						() -> new BlockItem(SMALL_LOG.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
 		SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOGS);
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_logs/" + base.name));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
@@ -146,10 +153,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG.setName(base.name + "_small_logs");
 		LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-						Compendium.modLoc(base.extraFolder() + "log"), List.of("log"), StyleData.LOG),
-				() -> new BlockItem(LOG.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+						Compendium.modLoc(base.name + "_log"), base.getType(), base.name, List
+								.of("log"),
+						StyleData.LOG),
+				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG.setupItemTag(ItemTags.LOGS);
@@ -161,10 +171,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setName(base.name + "_small_logs_slab");
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "log_slab"), List.of("log_slab"), StyleData.LOG_SLAB),
-				() -> new BlockItem(LOG_SLAB.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+						Compendium.modLoc(base.extraFolder() + "log_slab"), base.getType(), base.name, List
+								.of("log_slab"),
+						StyleData.LOG_SLAB),
+				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"));
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab"));
@@ -174,14 +187,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setAsValidStyleItem();
 
 		LOG_STAIRS.setName(base.name + "_small_logs_stairs");
-		LOG_STAIRS.setup(base, () -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-				Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-				Compendium.modLoc(base.extraFolder() + "log_stairs"), List.of("log_stairs"), StyleData.LOG_STAIRS),
-				() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
+		LOG_STAIRS
+				.setup(base,
+						() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
+								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+								Compendium.modLoc(base.extraFolder()
+										+ "log_stairs"),
+								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
+						() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -189,15 +209,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_STAIRS.setAsValidStyleItem();
 
 		STRIPPED_SMALL_LOG.setName("stripped_" + base.name + "_small_log");
-		STRIPPED_SMALL_LOG.setup(base,
-				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "stripped_small_log"), List.of("small_log"),
-						StyleData.SMALL_LOG),
-				() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"));
+		STRIPPED_SMALL_LOG
+				.setup(base,
+						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+								Compendium.modLoc(base.extraFolder()
+										+ "stripped_small_log"),
+								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
+						() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs/" + base.name));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_logs/small"));
@@ -206,14 +231,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG.setAsValidStyleBlock();
 
 		STRIPPED_LOG.setName("stripped_" + base.name + "_small_logs");
-		STRIPPED_LOG.setup(base,
-				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-						Compendium.modLoc(base.extraFolder() + "stripped_log"), List.of("log"), StyleData.LOG),
-				() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"));
+		STRIPPED_LOG
+				.setup(base,
+						() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
+								Compendium.modLoc(base.extraFolder()
+										+ "stripped_log"),
+								base.getType(), base.name, List.of("log"), StyleData.LOG),
+						() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"));
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + base.name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -221,15 +252,20 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG.setAsValidStyleItem();
 
 		STRIPPED_LOG_SLAB.setName("stripped_" + base.name + "_small_logs_slab");
-		STRIPPED_LOG_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "stripped_log_slab"), List.of("log_slab"),
-						StyleData.LOG_SLAB),
-				() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"));
+		STRIPPED_LOG_SLAB
+				.setup(base,
+						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+								Compendium.modLoc(base.extraFolder()
+										+ "stripped_log_slab"),
+								base.getType(), base.name, List.of("log_slab"), StyleData.LOG_SLAB),
+						() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/" + base.name));
 		STRIPPED_LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -237,16 +273,21 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB.setAsValidStyleItem();
 
 		STRIPPED_LOG_STAIRS.setName("stripped_" + base.name + "_small_logs_stairs");
-		STRIPPED_LOG_STAIRS.setup(base,
-				() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
-						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-						Compendium.modLoc(base.extraFolder() + "stripped_log_stairs"), List.of("log_stairs"),
-						StyleData.LOG_STAIRS),
-				() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
+		STRIPPED_LOG_STAIRS
+				.setup(base,
+						() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
+								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+								Compendium.modLoc(base.extraFolder()
+										+ "stripped_log_stairs"),
+								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
+						() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
+								new Item.Properties()
+										.component(CompendiumComponents.STYLE,
+												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+										.component(CompendiumComponents.INDEX,
+												new IndexEntryComponent(base.getType(), base.name))),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
+						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
 		STRIPPED_LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -784,375 +825,375 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
-		if (this.autoGenBlockModel) {
-			smallLogsModel(SMALL_LOG, base, bsp, "");
-			smallLogsModel(STRIPPED_SMALL_LOG, base, bsp, "stripped_");
-
-			if (LOG.shouldGenerate()) {
-				bsp.getVariantBuilder(LOG.BLOCK.get()).forAllStates(state -> {
-					Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
-
-					if (axis == Direction.Axis.X || axis == Direction.Axis.Z) {
-						Builder<?> b = ConfiguredModel.builder();
-						StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-								.getBuilder(LOG.location(base) + "log_horizontal")
-								.customLoader(StyleBlockModelBuilder::begin);
-						msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//						for (String s : StyleData.LOG.getTypes())
-//							msmb.add(new StyleModelBuilder(s,
-//									bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_horizontal")));
-
-						BlockModelBuilder bmb = msmb.end();
-						b.modelFile(bmb);
-						if (axis == Direction.Axis.X)
-							b.rotationY(90);
-						return b.rotationX(90).build();
-					}
-
-					Builder<?> b = ConfiguredModel.builder();
-					StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(LOG.location(base) + "log")
-							.customLoader(StyleBlockModelBuilder::begin);
-					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//					for (String s : StyleData.LOG.getTypes())
-//						msmb.add(new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase())));
-
-					BlockModelBuilder bmb = msmb.end();
-					b.modelFile(bmb);
-					return b.build();
-
-				});
-
-				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(base.extraFolder() + "log")
-						.customLoader(StyleBlockModelBuilder::begin);
-				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG.getTypes())
-//					msmb.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(msmb.end()).build();
-			}
-			if (STRIPPED_LOG.shouldGenerate()) {
-				bsp.getVariantBuilder(STRIPPED_LOG.BLOCK.get()).forAllStates(state -> {
-					Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
-
-					if (axis == Direction.Axis.X || axis == Direction.Axis.Z) {
-						Builder<?> b = ConfiguredModel.builder();
-						StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-								.getBuilder(LOG.location(base) + "stripped_log_horizontal")
-								.customLoader(StyleBlockModelBuilder::begin);
-						msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//						for (String s : StyleData.LOG.getTypes())
-//							msmb.add(new StyleModelBuilder(s, bsp
-//									.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase() + "_horizontal")));
-
-						BlockModelBuilder bmb = msmb.end();
-						b.modelFile(bmb);
-						if (axis == Direction.Axis.X)
-							b.rotationY(90);
-						return b.rotationX(90).build();
-					}
-
-					Builder<?> b = ConfiguredModel.builder();
-					StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-							.getBuilder(LOG.location(base) + "stripped_log")
-							.customLoader(StyleBlockModelBuilder::begin);
-					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//					for (String s : StyleData.LOG.getTypes())
-//						msmb.add(new StyleModelBuilder(s,
-//								bsp.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase())));
-
-					BlockModelBuilder bmb = msmb.end();
-					b.modelFile(bmb);
-					return b.build();
-
-				});
-
-				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
-						.getBuilder(base.extraFolder() + "stripped_log").customLoader(StyleBlockModelBuilder::begin);
-				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG.getTypes())
-//					msmb.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(msmb.end()).build();
-			}
-			if (LOG_SLAB.shouldGenerate()) {
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
-						.getBuilder(LOG.location(base) + "log_slab_bottom").customLoader(StyleBlockModelBuilder::begin);
-				log_slab_bottom.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_bottom.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_bottom")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
-						.getBuilder(LOG.location(base) + "log_slab_top").customLoader(StyleBlockModelBuilder::begin);
-				log_slab_top.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_top.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_top")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
-						.getBuilder(LOG.location(base) + "log_slab_full").customLoader(StyleBlockModelBuilder::begin);
-				log_slab_full.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_full.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_full")));
-
-				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
-						log_slab_full.end());
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
-						.getBuilder(base.extraFolder() + "log_slab").customLoader(StyleBlockModelBuilder::begin);
-				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_inventory.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
-			}
-
-			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_slab_bottom")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_slab_bottom.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_bottom.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_bottom")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_slab_top")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_slab_top.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_top.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_top")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_slab_full")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_slab_full.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_full.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_full")));
-
-				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
-						log_slab_full.end());
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
-						.getBuilder(base.extraFolder() + "stripped_log_slab")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_SLAB.getTypes())
-//					log_slab_inventory.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
-			}
-			if (LOG_STAIRS.shouldGenerate()) {
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
-						.getBuilder(LOG.location(base) + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_standard.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_standard.add(
-//							new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase())));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
-						.getBuilder(LOG.location(base) + "log_stairs_inner")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_inner.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_inner.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inner")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
-						.getBuilder(LOG.location(base) + "log_stairs_outer")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_outer.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_outer.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_outer")));
-
-				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(), log_stairs_inner.end(),
-						log_stairs_outer.end(), bsp);
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
-						.getBuilder(base.extraFolder() + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_inventory.base(bsp.models().stairs("stairs_base", bsp.mcLoc("block/oak_planks"),
-						bsp.mcLoc("block/oak_planks"), bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_inventory.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
-			}
-
-			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_stairs")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_standard.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_standard.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase())));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_stairs_inner")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_inner.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_inner.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inner")));
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
-						.getBuilder(LOG.location(base) + "stripped_log_stairs_outer")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_outer.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_outer.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_outer")));
-
-				stairsBlock((StairBlock) STRIPPED_LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(),
-						log_stairs_inner.end(), log_stairs_outer.end(), bsp);
-
-				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
-						.getBuilder(base.extraFolder() + "stripped_log_stairs")
-						.customLoader(StyleBlockModelBuilder::begin);
-				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//				for (String s : StyleData.LOG_STAIRS.getTypes())
-//					log_stairs_inventory.add(new StyleModelBuilder(s,
-//							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inventory")));
-
-				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
-			}
-		}
+//		if (this.autoGenBlockModel) {
+//			smallLogsModel(SMALL_LOG, base, bsp, "");
+//			smallLogsModel(STRIPPED_SMALL_LOG, base, bsp, "stripped_");
+//
+//			if (LOG.shouldGenerate()) {
+//				bsp.getVariantBuilder(LOG.BLOCK.get()).forAllStates(state -> {
+//					Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+//
+//					if (axis == Direction.Axis.X || axis == Direction.Axis.Z) {
+//						Builder<?> b = ConfiguredModel.builder();
+//						StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+//								.getBuilder(LOG.location(base) + "log_horizontal")
+//								.customLoader(StyleBlockModelBuilder::begin);
+//						msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////						for (String s : StyleData.LOG.getTypes())
+////							msmb.add(new StyleModelBuilder(s,
+////									bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_horizontal")));
+//
+//						BlockModelBuilder bmb = msmb.end();
+//						b.modelFile(bmb);
+//						if (axis == Direction.Axis.X)
+//							b.rotationY(90);
+//						return b.rotationX(90).build();
+//					}
+//
+//					Builder<?> b = ConfiguredModel.builder();
+//					StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(LOG.location(base) + "log")
+//							.customLoader(StyleBlockModelBuilder::begin);
+//					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////					for (String s : StyleData.LOG.getTypes())
+////						msmb.add(new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase())));
+//
+//					BlockModelBuilder bmb = msmb.end();
+//					b.modelFile(bmb);
+//					return b.build();
+//
+//				});
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models().getBuilder(base.extraFolder() + "log")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG.getTypes())
+////					msmb.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(msmb.end()).build();
+//			}
+//			if (STRIPPED_LOG.shouldGenerate()) {
+//				bsp.getVariantBuilder(STRIPPED_LOG.BLOCK.get()).forAllStates(state -> {
+//					Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+//
+//					if (axis == Direction.Axis.X || axis == Direction.Axis.Z) {
+//						Builder<?> b = ConfiguredModel.builder();
+//						StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+//								.getBuilder(LOG.location(base) + "stripped_log_horizontal")
+//								.customLoader(StyleBlockModelBuilder::begin);
+//						msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////						for (String s : StyleData.LOG.getTypes())
+////							msmb.add(new StyleModelBuilder(s, bsp
+////									.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase() + "_horizontal")));
+//
+//						BlockModelBuilder bmb = msmb.end();
+//						b.modelFile(bmb);
+//						if (axis == Direction.Axis.X)
+//							b.rotationY(90);
+//						return b.rotationX(90).build();
+//					}
+//
+//					Builder<?> b = ConfiguredModel.builder();
+//					StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+//							.getBuilder(LOG.location(base) + "stripped_log")
+//							.customLoader(StyleBlockModelBuilder::begin);
+//					msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////					for (String s : StyleData.LOG.getTypes())
+////						msmb.add(new StyleModelBuilder(s,
+////								bsp.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase())));
+//
+//					BlockModelBuilder bmb = msmb.end();
+//					b.modelFile(bmb);
+//					return b.build();
+//
+//				});
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> msmb = bsp.models()
+//						.getBuilder(base.extraFolder() + "stripped_log").customLoader(StyleBlockModelBuilder::begin);
+//				msmb.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG.getTypes())
+////					msmb.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(msmb.end()).build();
+//			}
+//			if (LOG_SLAB.shouldGenerate()) {
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_slab_bottom").customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_bottom.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_bottom.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_bottom")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_slab_top").customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_top.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_top.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_top")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_slab_full").customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_full.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_full.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_full")));
+//
+//				bsp.slabBlock((SlabBlock) LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
+//						log_slab_full.end());
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
+//						.getBuilder(base.extraFolder() + "log_slab").customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_inventory.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_slab/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
+//			}
+//
+//			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_bottom = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_slab_bottom")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_bottom.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_bottom.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_bottom")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_top = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_slab_top")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_top.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_top.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_top")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_full = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_slab_full")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_full.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_full.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_full")));
+//
+//				bsp.slabBlock((SlabBlock) STRIPPED_LOG_SLAB.BLOCK.get(), log_slab_bottom.end(), log_slab_top.end(),
+//						log_slab_full.end());
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_slab_inventory = bsp.models()
+//						.getBuilder(base.extraFolder() + "stripped_log_slab")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_slab_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_SLAB.getTypes())
+////					log_slab_inventory.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_slab/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(log_slab_inventory.end()).build();
+//			}
+//			if (LOG_STAIRS.shouldGenerate()) {
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_standard.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_standard.add(
+////							new StyleModelBuilder(s, bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase())));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_stairs_inner")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_inner.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_inner.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inner")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
+//						.getBuilder(LOG.location(base) + "log_stairs_outer")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_outer.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_outer.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_outer")));
+//
+//				stairsBlock((StairBlock) LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(), log_stairs_inner.end(),
+//						log_stairs_outer.end(), bsp);
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
+//						.getBuilder(base.extraFolder() + "log_stairs").customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_inventory.base(bsp.models().stairs("stairs_base", bsp.mcLoc("block/oak_planks"),
+//						bsp.mcLoc("block/oak_planks"), bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_inventory.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "log_stairs/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
+//			}
+//
+//			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_standard = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_stairs")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_standard.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_standard.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase())));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inner = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_stairs_inner")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_inner.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_inner.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inner")));
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_outer = bsp.models()
+//						.getBuilder(LOG.location(base) + "stripped_log_stairs_outer")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_outer.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_outer.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_outer")));
+//
+//				stairsBlock((StairBlock) STRIPPED_LOG_STAIRS.BLOCK.get(), log_stairs_standard.end(),
+//						log_stairs_inner.end(), log_stairs_outer.end(), bsp);
+//
+//				StyleBlockModelBuilder<BlockModelBuilder> log_stairs_inventory = bsp.models()
+//						.getBuilder(base.extraFolder() + "stripped_log_stairs")
+//						.customLoader(StyleBlockModelBuilder::begin);
+//				log_stairs_inventory.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////				for (String s : StyleData.LOG_STAIRS.getTypes())
+////					log_stairs_inventory.add(new StyleModelBuilder(s,
+////							bsp.modLoc(LOG.location(base) + "stripped_log_stairs/" + s.toLowerCase() + "_inventory")));
+//
+//				ConfiguredModel.builder().modelFile(log_stairs_inventory.end()).build();
+//			}
+//		}
 	}
 
-	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp,
-			String extra) {
-		if (block.shouldGenerate()) {
-			extra = extra + "small_log";
-			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
-					.getBuilder(block.location(base) + extra + "horizontal")
-					.customLoader(StyleBlockModelBuilder::begin);
-			base_model_horizontal.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//			for (String s : StyleData.SMALL_LOG.getTypes())
-//				base_model_horizontal.add(new StyleModelBuilder(s,
-//						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
-
-			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal2 = bsp.models()
-					.getBuilder(block.location(base) + extra + "horizontal2")
-					.customLoader(StyleBlockModelBuilder::begin);
-			base_model_horizontal2.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//			for (String s : StyleData.SMALL_LOG.getTypes())
-//				base_model_horizontal2.add(new StyleModelBuilder(s,
-//						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
-
-			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
-					.getBuilder(block.location(base) + extra + "vertical").customLoader(StyleBlockModelBuilder::begin);
-			base_model_vertical.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//			for (String s : StyleData.SMALL_LOG.getTypes())
-//				base_model_vertical.add(new StyleModelBuilder(s,
-//						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
-
-			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
-					.getBuilder(block.location(base) + extra + "cap").customLoader(StyleBlockModelBuilder::begin);
-			model_cap.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
-
-//			for (String s : StyleData.SMALL_LOG.getTypes())
-//				model_cap.add(new StyleModelBuilder(s,
-//						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
-
-			BlockModelBuilder cap = model_cap.end();
-
-			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2.end()).addModel()
-					.nestedGroup().useOr()
-
-					.nestedGroup().condition(BlockStateProperties.NORTH, false)
-					.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
-					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
-					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
-
-					.nestedGroup().condition(BlockStateProperties.NORTH, true)
-					.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
-					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
-					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
-
-					.nestedGroup().condition(BlockStateProperties.NORTH, true)
-					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
-					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
-					.endNestedGroup()
-
-					.nestedGroup().condition(BlockStateProperties.SOUTH, true)
-					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
-					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
-					.endNestedGroup().end().end().part().modelFile(base_model_horizontal.end()).addModel().nestedGroup()
-					.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
-					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
-					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
-					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
-					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
-					.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
-					.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
-					.modelFile(base_model_vertical.end()).addModel().useOr().condition(BlockStateProperties.UP, true)
-					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).addModel()
-					.condition(BlockStateProperties.UP, true).end().part().modelFile(cap).rotationX(180).addModel()
-					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).rotationX(90).addModel()
-					.condition(BlockStateProperties.NORTH, true).end().part().modelFile(cap).rotationX(90)
-					.rotationY(180).addModel().condition(BlockStateProperties.SOUTH, true).end().part().modelFile(cap)
-					.rotationX(90).rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
-					.modelFile(cap).rotationX(90).rotationY(90).addModel().condition(BlockStateProperties.EAST, true)
-					.end();
-		}
-	}
-
-	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
-			BlockStateProvider bsp) {
-		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
-			Direction facing = state.getValue(StairBlock.FACING);
-			Half half = state.getValue(StairBlock.HALF);
-			StairsShape shape = state.getValue(StairBlock.SHAPE);
-			int yRot = (int) facing.getClockWise().toYRot(); // Stairs model is rotated 90 degrees clockwise for some
-																// reason
-			if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
-				yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
-			}
-			if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
-				yRot += 90; // Top stairs are rotated 90 degrees clockwise
-			}
-			yRot %= 360;
-			return ConfiguredModel.builder()
-					.modelFile(shape == StairsShape.STRAIGHT ? stairs
-							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
-									: stairsOuter)
-					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(false).build();
-		}, StairBlock.WATERLOGGED);
-	}
+//	private void smallLogsModel(CompendiumBlockHandler block, _MaterialBase base, BlockStateProvider bsp,
+//			String extra) {
+//		if (block.shouldGenerate()) {
+//			extra = extra + "small_log";
+//			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal = bsp.models()
+//					.getBuilder(block.location(base) + extra + "horizontal")
+//					.customLoader(StyleBlockModelBuilder::begin);
+//			base_model_horizontal.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////			for (String s : StyleData.SMALL_LOG.getTypes())
+////				base_model_horizontal.add(new StyleModelBuilder(s,
+////						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal")));
+//
+//			StyleBlockModelBuilder<BlockModelBuilder> base_model_horizontal2 = bsp.models()
+//					.getBuilder(block.location(base) + extra + "horizontal2")
+//					.customLoader(StyleBlockModelBuilder::begin);
+//			base_model_horizontal2.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////			for (String s : StyleData.SMALL_LOG.getTypes())
+////				base_model_horizontal2.add(new StyleModelBuilder(s,
+////						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_horizontal_rot")));
+//
+//			StyleBlockModelBuilder<BlockModelBuilder> base_model_vertical = bsp.models()
+//					.getBuilder(block.location(base) + extra + "vertical").customLoader(StyleBlockModelBuilder::begin);
+//			base_model_vertical.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////			for (String s : StyleData.SMALL_LOG.getTypes())
+////				base_model_vertical.add(new StyleModelBuilder(s,
+////						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_vertical")));
+//
+//			StyleBlockModelBuilder<BlockModelBuilder> model_cap = bsp.models()
+//					.getBuilder(block.location(base) + extra + "cap").customLoader(StyleBlockModelBuilder::begin);
+//			model_cap.base(bsp.models().cubeAll("log_base", bsp.mcLoc("block/oak_planks")), base.name);
+//
+////			for (String s : StyleData.SMALL_LOG.getTypes())
+////				model_cap.add(new StyleModelBuilder(s,
+////						bsp.modLoc(LOG.location(base) + extra + "/" + s.toLowerCase() + "_cap")));
+//
+//			BlockModelBuilder cap = model_cap.end();
+//
+//			bsp.getMultipartBuilder(block.BLOCK.get()).part().modelFile(base_model_horizontal2.end()).addModel()
+//					.nestedGroup().useOr()
+//
+//					.nestedGroup().condition(BlockStateProperties.NORTH, false)
+//					.condition(BlockStateProperties.SOUTH, false).condition(BlockStateProperties.EAST, false)
+//					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+//					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+//
+//					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+//					.condition(BlockStateProperties.SOUTH, true).condition(BlockStateProperties.EAST, false)
+//					.condition(BlockStateProperties.WEST, false).condition(BlockStateProperties.UP, false)
+//					.condition(BlockStateProperties.DOWN, false).endNestedGroup()
+//
+//					.nestedGroup().condition(BlockStateProperties.NORTH, true)
+//					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+//					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+//					.endNestedGroup()
+//
+//					.nestedGroup().condition(BlockStateProperties.SOUTH, true)
+//					.condition(BlockStateProperties.EAST, false).condition(BlockStateProperties.WEST, false)
+//					.condition(BlockStateProperties.UP, false).condition(BlockStateProperties.DOWN, false)
+//					.endNestedGroup().end().end().part().modelFile(base_model_horizontal.end()).addModel().nestedGroup()
+//					.useOr().nestedGroup().condition(BlockStateProperties.WEST, true)
+//					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+//					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+//					.condition(BlockStateProperties.EAST, true).condition(BlockStateProperties.UP, false)
+//					.condition(BlockStateProperties.DOWN, false).endNestedGroup().nestedGroup()
+//					.condition(BlockStateProperties.WEST, true).condition(BlockStateProperties.UP, false)
+//					.condition(BlockStateProperties.DOWN, false).endNestedGroup().end().end().part()
+//					.modelFile(base_model_vertical.end()).addModel().useOr().condition(BlockStateProperties.UP, true)
+//					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).addModel()
+//					.condition(BlockStateProperties.UP, true).end().part().modelFile(cap).rotationX(180).addModel()
+//					.condition(BlockStateProperties.DOWN, true).end().part().modelFile(cap).rotationX(90).addModel()
+//					.condition(BlockStateProperties.NORTH, true).end().part().modelFile(cap).rotationX(90)
+//					.rotationY(180).addModel().condition(BlockStateProperties.SOUTH, true).end().part().modelFile(cap)
+//					.rotationX(90).rotationY(-90).addModel().condition(BlockStateProperties.WEST, true).end().part()
+//					.modelFile(cap).rotationX(90).rotationY(90).addModel().condition(BlockStateProperties.EAST, true)
+//					.end();
+//		}
+//	}
+//
+//	private void stairsBlock(StairBlock block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter,
+//			BlockStateProvider bsp) {
+//		bsp.getVariantBuilder(block).forAllStatesExcept(state -> {
+//			Direction facing = state.getValue(StairBlock.FACING);
+//			Half half = state.getValue(StairBlock.HALF);
+//			StairsShape shape = state.getValue(StairBlock.SHAPE);
+//			int yRot = (int) facing.getClockWise().toYRot(); // Stairs model is rotated 90 degrees clockwise for some
+//																// reason
+//			if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
+//				yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
+//			}
+//			if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
+//				yRot += 90; // Top stairs are rotated 90 degrees clockwise
+//			}
+//			yRot %= 360;
+//			return ConfiguredModel.builder()
+//					.modelFile(shape == StairsShape.STRAIGHT ? stairs
+//							: shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner
+//									: stairsOuter)
+//					.rotationX(half == Half.BOTTOM ? 0 : 180).rotationY(yRot).uvLock(false).build();
+//		}, StairBlock.WATERLOGGED);
+//	}
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
