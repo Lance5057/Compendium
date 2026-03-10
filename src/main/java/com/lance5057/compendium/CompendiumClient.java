@@ -1055,34 +1055,96 @@ public class CompendiumClient {
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mb.name + "_log", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mb.name + "_small_logs", v);
 		}
 
 		for (String log_style : StyleData.LOG.getTypes()) {
 			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mb.name + "_log", log_style.toLowerCase());
 
-			ResourceLocation endTexture = TagUtil.mcLoc("block/" + mb.name + "_log_top");
-			ResourceLocation sideTexture = TagUtil.mcLoc("block/" + mb.name + "_log");
+			if (log_style.equals("basic")) {
+				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top");
+				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
 
-			MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
-			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
-							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
-							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y90, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
 
-			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
-							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
-							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
 
-			mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-					basicModelManyTexture(event, mb, TagUtil.mcLoc("block/acacia_slab"),
-							new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0,
-							Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
 
-			event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+			} else if (log_style.equals("small_wood")) {
+				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+
+				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y90, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+			} else if (log_style.equals("corner")) {
+				ResourceLocation model = TagUtil.modLoc("extra/small_logs_corner");
+				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs_top");
+				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/small_logs");
+
+				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y90, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y0, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
+
+				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+			} else {
+				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+				ResourceLocation endTexture = TagUtil.mcLoc("block/" + mb.name + "_log_top");
+				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mb.name + "/logs/" + log_style);
+
+				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y90, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
+						basicModelManyTexture(event, mb, model, new ModelResourceLocation(logModelLoc, ""),
+								BlockModelRotation.X90_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+
+				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+			}
+
 		}
+
 	}
 
 	private static void doExtraPlanks(ModifyBakingResult event, _MaterialBase mb, ExtensionExtraPlanks eep,
