@@ -153,7 +153,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG.setName(base.name + "_small_logs");
 		LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-						Compendium.modLoc(base.name + "_log"), base.getType(), base.name, List
+						Compendium.modLoc(base.name + "_log_inventory"), base.getType(), base.name, List
 								.of("log"),
 						StyleData.LOG),
 				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties()

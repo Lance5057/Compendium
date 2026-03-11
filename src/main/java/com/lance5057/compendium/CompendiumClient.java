@@ -1081,6 +1081,15 @@ public class CompendiumClient {
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_inventory"),
 				mw.name + "_log_inventory", "");
 
+		for (BlockState state : eel.LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"), mw.name + "_log_slab",
+					v);
+		}
+
 		for (String log_style : StyleData.LOG.getTypes()) {
 			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
 			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_inventory",
@@ -1213,7 +1222,38 @@ public class CompendiumClient {
 									Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture)));
 				}
 			}
+		}
 
+		for (String slab_style : StyleData.LOG_SLAB.getTypes()) {
+			// slabs
+			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_log_slab",
+					slab_style.toLowerCase());
+			MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
+
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
+					basicModelManyTexture(event, mw, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", logSideTexture), Pair.of("top", logEndTexture),
+							Pair.of("bottom", logEndTexture)));
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
+					basicModelManyTexture(event, mw, TagUtil.mcLoc("block/acacia_slab_top"),
+							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", logSideTexture), Pair.of("top", logEndTexture),
+							Pair.of("bottom", logEndTexture)));
+			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
+					basicModelAllTexture(event, mw, logSideTexture, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+			event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
+
+			ResourceLocation plankSlabModelLocInventory = ClientUtil
+					.createStyleLocation(mw.name + "_log_slab_inventory", slab_style.toLowerCase());
+
+			event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
+					basicModelManyTexture(event, mw, TagUtil.mcLoc("block/acacia_slab"),
+							new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0,
+							Pair.of("side", logSideTexture), Pair.of("top", logEndTexture),
+							Pair.of("bottom", logEndTexture)));
 		}
 
 	}
