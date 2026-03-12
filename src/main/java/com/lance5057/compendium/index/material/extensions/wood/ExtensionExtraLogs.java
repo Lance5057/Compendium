@@ -171,7 +171,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setName(base.name + "_small_logs_slab");
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.extraFolder() + "log_slab"), base.getType(), base.name, List
+						Compendium.modLoc(base.name + "_log_slab_inventory"), base.getType(), base.name, List
 								.of("log_slab"),
 						StyleData.LOG_SLAB),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties()
@@ -191,8 +191,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.setup(base,
 						() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
 								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-								Compendium.modLoc(base.extraFolder()
-										+ "log_stairs"),
+								Compendium.modLoc(base.name
+										+ "_log_stairs_inventory"),
 								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
 						() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
 								new Item.Properties()

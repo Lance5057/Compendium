@@ -1089,6 +1089,8 @@ public class CompendiumClient {
 			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"), mw.name + "_log_slab",
 					v);
 		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
+				mw.name + "_log_slab_inventory", "");
 
 		for (String log_style : StyleData.LOG.getTypes()) {
 			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
