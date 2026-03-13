@@ -1086,7 +1086,7 @@ public class CompendiumClient {
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"), mw.name + "_log_slab",
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"), mw.name + "_small_logs_slab",
 					v);
 		}
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
@@ -1228,7 +1228,7 @@ public class CompendiumClient {
 
 		for (String slab_style : StyleData.LOG_SLAB.getTypes()) {
 			// slabs
-			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_log_slab",
+			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_logs_slab",
 					slab_style.toLowerCase());
 			MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
 
@@ -1243,7 +1243,7 @@ public class CompendiumClient {
 							Pair.of("side", logSideTexture), Pair.of("top", logEndTexture),
 							Pair.of("bottom", logEndTexture)));
 			plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
-					basicModelAllTexture(event, mw, logSideTexture, TagUtil.mcLoc("block/acacia_slab"),
+					basicModelAllTexture(event, mw, logSideTexture, TagUtil.mcLoc("block/acacia_planks"),
 							new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 
 			event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());

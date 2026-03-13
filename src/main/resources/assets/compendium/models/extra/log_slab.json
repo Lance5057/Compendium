@@ -5,6 +5,6 @@
       "all": "minecraft:block/oak_planks"
     }
   },
-  "baseName": "log_slab",
+  "baseName": "small_logs_slab",
   "loader": "compendium:style"
 }
