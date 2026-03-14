@@ -257,7 +257,7 @@ public class StyleLoc {
 		lp.add("style.small_log.smaller_log", "Smaller Log");
 		lp.add("style.small_log.smallest_log", "Smallest Log");
 
-		lp.add("style.log_stairs.small_logs", "Braced Small Logs");
+		lp.add("style.log_stairs.small_logs", "Stacked Small Logs");
 		lp.add("style.log_stairs.small_logs_rotated_side", "Small Logs (Facing Side)");
 		lp.add("style.log_stairs.small_logs_rotated_front", "Small Logs (Facing Front)");
 		lp.add("style.log_stairs.small_logs_rotated_top", "Small Logs (Facing Top)");
@@ -268,6 +268,7 @@ public class StyleLoc {
 		lp.add("style.log_stairs.small_wood_rotated", "Small Wood (Rotated)");
 		lp.add("style.log_stairs.wood", "Wood");
 		lp.add("style.log_stairs.wood_rotated", "Wood (Rotated)");
+		lp.add("style.log_stairs.braced", "Braced");
 
 		// Plank
 		lp.add("style.plank.basic", "Basic");

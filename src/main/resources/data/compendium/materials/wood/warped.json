@@ -8,6 +8,14 @@
   "loadStrippedLog": "EXISTS",
   "loadWood": "EXISTS",
   "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "textures": {
+      "logLocation": "minecraft:block/warped_stem",
+      "strippedLogLocation": "minecraft:block/stripped_warped_stem",
+      "logTopLocation": "minecraft:block/warped_stem_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_warped_stem_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

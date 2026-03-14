@@ -10,11 +10,8 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -46,11 +43,10 @@ import com.lance5057.compendium.index.material.base.wood.SpecialTextureLocations
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
+import com.lance5057.compendium.util.TagUtil;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -64,16 +60,17 @@ public class IndexInitialResourceLoader {
 
 	public static void init() {
 //		if (Minecraft.getInstance() != null) { // check if we're in data gen first
-			Path resourcePackPath = Path.of("./resourcepacks").resolve("compendium/data/compendium/materials");
-			for (MATERIAL_TYPES t : MATERIAL_TYPES.values())
-				try {
-					Files.createDirectories(resourcePackPath.resolve(t.toString().toLowerCase() + "/"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+		Path resourcePackPath = Path.of("./resourcepacks").resolve("compendium/data/compendium/materials");
+		for (MATERIAL_TYPES t : MATERIAL_TYPES.values())
+			try {
+				Files.createDirectories(resourcePackPath.resolve(t.toString().toLowerCase() + "/"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
-			readOtherMods();
-			readResourcePacks(resourcePackPath);
+//		buildDefaults();
+		readOtherMods();
+		readResourcePacks(resourcePackPath);
 //		} else {
 //			Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
 //			try {
@@ -220,14 +217,22 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+		SpecialLocationsWood crimson = new SpecialLocationsWood(null, null,
+				new SpecialTextureLocationsWood(null, TagUtil.mcLoc("block/crimson_stem"),
+						TagUtil.mcLoc("block/stripped_crimson_stem"), TagUtil.mcLoc("block/crimson_stem_top"),
+						TagUtil.mcLoc("block/stripped_crimson_stem_top")));
 		buildDefault(new MaterialWood("crimson", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
+				Generate.EXISTS, Generate.EXISTS, crimson)
 				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE)));
+		SpecialLocationsWood warped = new SpecialLocationsWood(null, null,
+				new SpecialTextureLocationsWood(null, TagUtil.mcLoc("block/warped_stem"),
+						TagUtil.mcLoc("block/stripped_warped_stem"), TagUtil.mcLoc("block/warped_stem_top"),
+						TagUtil.mcLoc("block/stripped_warped_stem_top")));
 		buildDefault(new MaterialWood("warped", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
-				Generate.EXISTS, Generate.EXISTS)
+				Generate.EXISTS, Generate.EXISTS, warped)
 				.addExtension(new ExtensionExtraLogs(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE))
 				.addExtension(new ExtensionExtraPlanks(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,

@@ -8,6 +8,14 @@
   "loadStrippedLog": "EXISTS",
   "loadWood": "EXISTS",
   "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "textures": {
+      "logLocation": "minecraft:block/crimson_stem",
+      "strippedLogLocation": "minecraft:block/stripped_crimson_stem",
+      "logTopLocation": "minecraft:block/crimson_stem_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_crimson_stem_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",
