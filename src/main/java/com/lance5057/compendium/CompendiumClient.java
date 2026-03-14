@@ -1103,6 +1103,38 @@ public class CompendiumClient {
 		}
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
 				mw.name + "_log_stairs_inventory", "");
+		
+		for (BlockState state : eel.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mw.name + "_small_logs", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_inventory"),
+				mw.name + "_log_inventory", "");
+
+		for (BlockState state : eel.STRIPPED_LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
+					mw.name + "_small_logs_slab", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
+				mw.name + "_log_slab_inventory", "");
+
+		for (BlockState state : eel.STRIPPED_LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs"),
+					mw.name + "_small_logs_stairs", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
+				mw.name + "_log_stairs_inventory", "");
 
 		for (String log_style : StyleData.LOG.getTypes()) {
 			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
