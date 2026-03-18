@@ -212,8 +212,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG
 				.setup(base,
 						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-								Compendium.modLoc(base.extraFolder()
-										+ "stripped_small_log"),
+								Compendium.modLoc(base.name + "_stripped_small_log_inventory"),
 								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
 						() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
 								new Item.Properties()
@@ -234,8 +233,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG
 				.setup(base,
 						() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-								Compendium.modLoc(base.extraFolder()
-										+ "stripped_log"),
+								Compendium.modLoc(base.name + "_stripped_log_inventory"),
 								base.getType(), base.name, List.of("log"), StyleData.LOG),
 						() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
 								new Item.Properties()
@@ -255,8 +253,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-								Compendium.modLoc(base.extraFolder()
-										+ "stripped_log_slab"),
+								Compendium.modLoc(base.name + "_stripped_log_slab_inventory"),
 								base.getType(), base.name, List.of("log_slab"), StyleData.LOG_SLAB),
 						() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 								new Item.Properties()
@@ -277,8 +274,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.setup(base,
 						() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
 								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-								Compendium.modLoc(base.extraFolder()
-										+ "stripped_log_stairs"),
+								Compendium.modLoc(base.name +  "_stripped_log_stairs_inventory"),
 								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
 						() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
 								new Item.Properties()

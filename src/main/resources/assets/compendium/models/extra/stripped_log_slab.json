@@ -1,0 +1,10 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "baseName": "stripped_small_logs_slab",
+  "loader": "compendium:style"
+}

@@ -1103,169 +1103,90 @@ public class CompendiumClient {
 		}
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
 				mw.name + "_log_stairs_inventory", "");
-		
+
 		for (BlockState state : eel.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mw.name + "_small_logs", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log"),
+					mw.name + "_stripped_small_logs", v);
 		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_inventory"),
-				mw.name + "_log_inventory", "");
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_inventory"),
+				mw.name + "_stripped_log_inventory", "");
 
 		for (BlockState state : eel.STRIPPED_LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
-					mw.name + "_small_logs_slab", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
+					mw.name + "_stripped_small_logs_slab", v);
 		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
-				mw.name + "_log_slab_inventory", "");
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
+				mw.name + "_stripped_log_slab_inventory", "");
 
 		for (BlockState state : eel.STRIPPED_LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs"),
-					mw.name + "_small_logs_stairs", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs"),
+					mw.name + "_stripped_small_logs_stairs", v);
 		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
-				mw.name + "_log_stairs_inventory", "");
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs_inventory"),
+				mw.name + "_stripped_log_stairs_inventory", "");
 
 		for (String log_style : StyleData.LOG.getTypes()) {
 			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
 			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_inventory",
 					log_style.toLowerCase());
 
+			ResourceLocation strippedLogModelLoc = ClientUtil.createStyleLocation(mw.name + "_stripped_log",
+					log_style.toLowerCase());
+			ResourceLocation strippedLogModelLocInventory = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_log_inventory", log_style.toLowerCase());
+
 			if (log_style.equals("basic")) {
 				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
-				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top");
-				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
 
-				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y90, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
-
-				event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""),
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLocInventory, ""),
-								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("end",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
 
 			} else if (log_style.equals("small_wood")) {
 				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
-				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
-				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
 
-				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
 
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y90, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
-
-				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
-
-				event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""),
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLocInventory, ""),
-								BlockModelRotation.X0_Y0, Pair.of("side", sideTexture), Pair.of("end", endTexture)));
+				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
 			} else if (log_style.equals("corner")) {
 				ResourceLocation model = TagUtil.modLoc("extra/small_logs_corner");
 				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top");
 				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
 
-				MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y90, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X0_Y0, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
-
-				mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-								BlockModelRotation.X90_Y0, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
-
-				event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
-
-				event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""),
-						basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLocInventory, ""),
-								BlockModelRotation.X0_Y0, Pair.of("1", sideTexture), Pair.of("2", endTexture)));
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("1", sideTexture),
+						Pair.of("2", endTexture));
 			} else {
 				ResourceLocation model = TagUtil.modLoc("extra/cube_column_ends");
 				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/" + log_style);
 				if (log_style.contains("1") || log_style.contains("2")) {
 
-					MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
+							Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture));
 
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X90_Y90, Pair.of("side", sideTexture),
-									Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture)));
-
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X0_Y0, Pair.of("side", sideTexture),
-									Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture)));
-
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X90_Y0, Pair.of("side", sideTexture),
-									Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture)));
-
-					event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
-
-					event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""),
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLocInventory, ""),
-									BlockModelRotation.X0_Y0, Pair.of("side", sideTexture),
-									Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture)));
 				} else {
-					MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
-
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X90_Y90, Pair.of("side", sideTexture),
-									Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture)));
-
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X0_Y0, Pair.of("side", sideTexture),
-									Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture)));
-
-					mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z,
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLoc, ""),
-									BlockModelRotation.X90_Y0, Pair.of("side", sideTexture),
-									Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture)));
-
-					event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
-
-					event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""),
-							basicModelManyTexture(event, mw, model, new ModelResourceLocation(logModelLocInventory, ""),
-									BlockModelRotation.X0_Y0, Pair.of("side", sideTexture),
-									Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture)));
+					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
+							Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture));
 				}
 			}
 		}
@@ -1610,6 +1531,26 @@ public class CompendiumClient {
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0, Pair.of("0", logSideTexture));
 		}
+	}
+
+	@SafeVarargs
+	private static void doStyleLog(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
+			ResourceLocation logModelLocInventory, ResourceLocation model, Pair<String, ResourceLocation>... textures) {
+		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
+
+		mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.X, basicModelManyTexture(event, mw,
+				model, new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X90_Y90, textures));
+
+		mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Y, basicModelManyTexture(event, mw,
+				model, new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		mmb.add(s -> s.getValue(RotatedPillarStyleBlock.AXIS) == Direction.Axis.Z, basicModelManyTexture(event, mw,
+				model, new ModelResourceLocation(logModelLoc, ""), BlockModelRotation.X90_Y0, textures));
+
+		event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
+
+		event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""), basicModelManyTexture(event, mw,
+				model, new ModelResourceLocation(logModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
 	}
 
 	private static void doExtraPlanks(ModifyBakingResult event, MaterialWood mw, ExtensionExtraPlanks eep,
