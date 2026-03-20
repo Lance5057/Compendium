@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "compendium:block/material/wood/acacia/planks/walkway",
-		"particle": "compendium:block/material/wood/acacia/planks/walkway"
+		"particle": "#0"
 	},
 	"elements": [
 		{

@@ -6,7 +6,7 @@
 		"0": "block/oak_log",
 		"1": "block/oak_log_top",
 		"2": "compendium:block/material/wood/oak/log_split_side",
-		"particle": "block/oak_log"
+		"particle": "#0"
 	},
 	"elements": [
 		{

@@ -282,7 +282,7 @@ public class CompendiumClient {
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
 
-		Compendium.LOGGER.debug(ml.toString());
+//		Compendium.LOGGER.debug(ml.toString());
 	}
 
 	private static void buildStateModelVariantAltLocation(ModifyBakingResult event,
@@ -296,7 +296,7 @@ public class CompendiumClient {
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
 
-		Compendium.LOGGER.debug(ml.toString());
+//		Compendium.LOGGER.debug(ml.toString());
 	}
 
 	private static void buildStateModelBasic(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -330,8 +330,8 @@ public class CompendiumClient {
 						b.toLowerCase(), "_inventory");
 				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
 
-				Compendium.LOGGER.debug(modelLoc_inv.toString());
-				Compendium.LOGGER.debug(loc_inv.toString());
+//				Compendium.LOGGER.debug(modelLoc_inv.toString());
+//				Compendium.LOGGER.debug(loc_inv.toString());
 
 				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
@@ -357,8 +357,8 @@ public class CompendiumClient {
 							mb.name, b.toLowerCase(), "_inventory");
 					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
 
-					Compendium.LOGGER.debug(modelLoc_inv.toString());
-					Compendium.LOGGER.debug(loc_inv.toString());
+//					Compendium.LOGGER.debug(modelLoc_inv.toString());
+//					Compendium.LOGGER.debug(loc_inv.toString());
 
 					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 							basicModelAllTexture(event, mb, texture, loc_inv,
@@ -373,8 +373,8 @@ public class CompendiumClient {
 							mb.name, b.toLowerCase(), "_inventory");
 					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
 
-					Compendium.LOGGER.debug(modelLoc_inv.toString());
-					Compendium.LOGGER.debug(loc_inv.toString());
+//					Compendium.LOGGER.debug(modelLoc_inv.toString());
+//					Compendium.LOGGER.debug(loc_inv.toString());
 
 					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 							basicModelAllTexture(event, mb, texture, loc_inv,
@@ -1090,8 +1090,19 @@ public class CompendiumClient {
 			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
 					mw.name + "_small_logs_slab", v);
 		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
-				mw.name + "_log_slab_inventory", "");
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
+				"stripped_" + mw.name + "_log_slab_inventory", "");
+
+		for (BlockState state : eel.LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
+					"stripped_" + mw.name + "_small_logs_slab", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
+				"stripped_" + mw.name + "_log_slab_inventory", "");
 
 		for (BlockState state : eel.LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
@@ -1211,12 +1222,20 @@ public class CompendiumClient {
 			ResourceLocation plankSlabIventoryModelLoc = ClientUtil
 					.createStyleLocation(mw.name + "_small_logs_slab_inventory", slab_style.toLowerCase());
 
+			ResourceLocation strippedSlabModelLoc = ClientUtil
+					.createStyleLocation("stripped_" + mw.name + "_small_logs_slab", slab_style.toLowerCase());
+			ResourceLocation strippedSlabIventoryModelLoc = ClientUtil.createStyleLocation(
+					"stripped_" + mw.name + "_small_logs_slab_inventory", slab_style.toLowerCase());
+
 			if (slab_style.equals("small_logs") || slab_style.equals("small_logs_rotated")
 					|| slab_style.equals("crosscut_small")) {
 				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
-				ResourceLocation topTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top");			
+				ResourceLocation topTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top");
 
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", sideTexture), Pair.of("1", topTexture));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
 						BlockModelRotation.X0_Y0, Pair.of("0", sideTexture), Pair.of("1", topTexture));
 
 			} else if (slab_style.equals("split") || slab_style.equals("split_rotated")) {
@@ -1240,7 +1259,7 @@ public class CompendiumClient {
 					rot = BlockModelRotation.X0_Y90;
 
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logTexture), Pair.of("1", logTexture));
+						Pair.of("top", logTexture), Pair.of("bottom", logTexture), Pair.of("side", logTexture));
 
 			} else if (slab_style.equals("wood") || slab_style.equals("wood_rotated")) {
 				BlockModelRotation rot = BlockModelRotation.X0_Y0;
@@ -1248,7 +1267,8 @@ public class CompendiumClient {
 					rot = BlockModelRotation.X0_Y90;
 
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture), Pair.of("1", logSideTexture));
+						Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
+						Pair.of("side", logSideTexture));
 
 			} else if (slab_style.equals("campfire")) {
 				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps");
@@ -1376,7 +1396,7 @@ public class CompendiumClient {
 
 		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
 				basicModelManyTexture(event, mw, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot));
+						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
 		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
 				basicModelManyTexture(event, mw, TagUtil.modLoc("extra/log_slab/" + slab_style + "_top"),
 						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
@@ -1872,8 +1892,8 @@ public class CompendiumClient {
 				b.toLowerCase(), "_inventory");
 		ResourceLocation loc_inv = Compendium.modLoc("extra/chair/" + part + "/" + b + "_inventory");
 
-		Compendium.LOGGER.debug(modelLoc_inv.toString());
-		Compendium.LOGGER.debug(loc_inv.toString());
+//		Compendium.LOGGER.debug(modelLoc_inv.toString());
+//		Compendium.LOGGER.debug(loc_inv.toString());
 
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
 
