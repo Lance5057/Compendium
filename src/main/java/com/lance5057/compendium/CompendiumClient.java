@@ -1072,6 +1072,16 @@ public class CompendiumClient {
 			}
 		}
 
+		for (BlockState state : eel.SMALL_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = stateToString(propertyValues);
+
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mw.name + "_small_log", v);
+		}
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/small_log_inventory"),
+				mw.name + "_log_inventory", "");
+
 		for (BlockState state : eel.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
@@ -1098,11 +1108,11 @@ public class CompendiumClient {
 
 			String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
-					"stripped_" + mw.name + "_small_logs_slab", v);
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
+					mw.name + "_small_logs_slab", v);
 		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
-				"stripped_" + mw.name + "_log_slab_inventory", "");
+		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
+				mw.name + "_log_slab_inventory", "");
 
 		for (BlockState state : eel.LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
 			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
@@ -1132,7 +1142,7 @@ public class CompendiumClient {
 			String v = stateToString(propertyValues);
 
 			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
-					mw.name + "_stripped_small_logs_slab", v);
+					"stripped_" + mw.name + "_small_logs_slab", v);
 		}
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
 				mw.name + "_stripped_log_slab_inventory", "");
@@ -1143,7 +1153,7 @@ public class CompendiumClient {
 			String v = stateToString(propertyValues);
 
 			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs"),
-					mw.name + "_stripped_small_logs_stairs", v);
+					"stripped_" + mw.name + "_small_logs_stairs", v);
 		}
 		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs_inventory"),
 				mw.name + "_stripped_log_stairs_inventory", "");
@@ -1219,40 +1229,50 @@ public class CompendiumClient {
 			// slabs
 			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_logs_slab",
 					slab_style.toLowerCase());
-			ResourceLocation plankSlabIventoryModelLoc = ClientUtil
-					.createStyleLocation(mw.name + "_small_logs_slab_inventory", slab_style.toLowerCase());
+			ResourceLocation plankSlabIventoryModelLoc = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
+					slab_style.toLowerCase());
 
 			ResourceLocation strippedSlabModelLoc = ClientUtil
-					.createStyleLocation("stripped_" + mw.name + "_small_logs_slab", slab_style.toLowerCase());
-			ResourceLocation strippedSlabIventoryModelLoc = ClientUtil.createStyleLocation(
-					"stripped_" + mw.name + "_small_logs_slab_inventory", slab_style.toLowerCase());
+					.createStyleLocation(mw.name + "_stripped_small_logs_slab", slab_style.toLowerCase());
+			ResourceLocation strippedSlabIventoryModelLoc = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_log_slab_inventory", slab_style.toLowerCase());
 
 			if (slab_style.equals("small_logs") || slab_style.equals("small_logs_rotated")
 					|| slab_style.equals("crosscut_small")) {
-				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
-				ResourceLocation topTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top");
-
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", sideTexture), Pair.of("1", topTexture));
+						BlockModelRotation.X0_Y0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 
 				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", sideTexture), Pair.of("1", topTexture));
+						BlockModelRotation.X0_Y0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
 
 			} else if (slab_style.equals("split") || slab_style.equals("split_rotated")) {
-				ResourceLocation splitTexture = TagUtil
-						.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side");
-
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
 						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
-						Pair.of("2", splitTexture));
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", logStrippedEndTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
 
 			} else if (slab_style.equals("crosscut")) {
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
 						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("0", logSideTexture),
 						Pair.of("1", logEndTexture));
 
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture));
+
 			} else if (slab_style.equals("small_wood") || slab_style.equals("small_wood_rotated")) {
 				ResourceLocation logTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
+				ResourceLocation logStrippedTexture = TagUtil
+						.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs");
 
 				BlockModelRotation rot = BlockModelRotation.X0_Y0;
 				if (slab_style.contains("rotated"))
@@ -1260,6 +1280,10 @@ public class CompendiumClient {
 
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
 						Pair.of("top", logTexture), Pair.of("bottom", logTexture), Pair.of("side", logTexture));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("top", logStrippedTexture), Pair.of("bottom", logStrippedTexture),
+						Pair.of("side", logStrippedTexture));
 
 			} else if (slab_style.equals("wood") || slab_style.equals("wood_rotated")) {
 				BlockModelRotation rot = BlockModelRotation.X0_Y0;
@@ -1270,37 +1294,51 @@ public class CompendiumClient {
 						Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
 						Pair.of("side", logSideTexture));
 
-			} else if (slab_style.equals("campfire")) {
-				ResourceLocation endTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps");
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("top", logStrippedSideTexture), Pair.of("bottom", logStrippedSideTexture),
+						Pair.of("side", logStrippedSideTexture));
 
+			} else if (slab_style.equals("campfire")) {
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", endTexture));
+						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
 
 			} else if (slab_style.equals("firewood")) {
-				ResourceLocation splitTexture = TagUtil
-						.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side");
-
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
 						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
-						Pair.of("2", splitTexture));
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture), Pair.of("1", logEndTexture),
+						Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
 
 			} else if (slab_style.equals("smaller_logs") || slab_style.equals("smaller_logs_rotated")
 					|| slab_style.equals("smallest_logs") || slab_style.equals("smallest_logs_rotated")) {
 				BlockModelRotation rot = BlockModelRotation.X0_Y0;
 
-				ResourceLocation splitTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps");
-
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture), Pair.of("1", splitTexture));
+						Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
 
 			} else if (slab_style.equals("trellis")) {
 				BlockModelRotation rot = BlockModelRotation.X0_Y0;
 
-				ResourceLocation splitTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps");
-
 				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture), Pair.of("1", splitTexture));
+						Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
 
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
 			}
 		}
 
@@ -1311,56 +1349,114 @@ public class CompendiumClient {
 			ResourceLocation plankStairsModelLocInventory = ClientUtil
 					.createStyleLocation(mw.name + "_log_stairs_inventory", stair_style.toLowerCase());
 
-			if (stair_style.equals("small_logs"))
+			ResourceLocation plankStrippedStairsModelLoc = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_small_logs_stairs", stair_style.toLowerCase());
+			ResourceLocation plankStrippedStairsModelLocInventory = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_log_stairs_inventory", stair_style.toLowerCase());
+
+			if (stair_style.equals("small_logs")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/small_logs"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_inner"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_outer"), 90, 0,
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")),
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("small_logs_rotated_side"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/small_logs"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_inner"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_outer"), 90, 0,
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("small_logs_rotated_side")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side_inner"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side_outer"), 90, 0,
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")),
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("small_logs_rotated_front"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side_inner"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_side_outer"), 90, 0,
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("small_logs_rotated_front")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front_inner"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front_outer"), 90, 0,
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")),
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("small_logs_rotated_top"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front_inner"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_front_outer"), 90, 0,
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("small_logs_rotated_top")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top_inner"),
 						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top_outer"), 90, 0,
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")),
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("split_log_rotated_side"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top_inner"),
+						TagUtil.modLoc("extra/log_stairs/small_logs_rotated_top_outer"), 90, 0,
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("split_log_rotated_side")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side_inner"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side_outer"), 90, 0,
 						Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
-			else if (stair_style.equals("split_log_rotated_front"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side_inner"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_side_outer"), 90, 0,
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
+			} else if (stair_style.equals("split_log_rotated_front")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front_inner"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front_outer"), 90, 0,
 						Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
-			else if (stair_style.equals("split_log_rotated_top"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front_inner"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_front_outer"), 90, 0,
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
+			} else if (stair_style.equals("split_log_rotated_top")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_outer"), 90, 0,
 						Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
-			else if (stair_style.equals("small_wood"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_outer"), 90, 0,
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
+			} else if (stair_style.equals("small_wood")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
@@ -1368,25 +1464,58 @@ public class CompendiumClient {
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("small_wood_rotated"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_outer"), 90, 0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("small_wood_rotated")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0,
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-			else if (stair_style.equals("wood"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated"),
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (stair_style.equals("wood")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
 						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_outer"), 90, 0,
 						Pair.of("0", logSideTexture), Pair.of("1", logSideTexture), Pair.of("2", logSideTexture));
-			else if (stair_style.equals("wood_rotated"))
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_inner"),
+						TagUtil.modLoc("extra/log_stairs/split_log_rotated_top_outer"), 90, 0,
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedSideTexture),
+						Pair.of("2", logStrippedSideTexture));
+			} else if (stair_style.equals("wood_rotated")) {
 				doStyleStairs(event, mw, stair_style, plankStairsModelLoc, plankStairsModelLocInventory,
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0, Pair.of("0", logSideTexture));
+
+				doStyleStairs(event, mw, stair_style, plankStrippedStairsModelLoc, plankStrippedStairsModelLocInventory,
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated"),
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
+						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0,
+						Pair.of("0", logStrippedSideTexture));
+			}
 		}
 	}
+	
+//	setValue(NORTH, Boolean.valueOf(true))
+//	.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(true))
+//	.setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false))
+//	.setValue(DOWN, Boolean.valueOf(false)).setValue(WATERLOGGED, false));
 
 	@SafeVarargs
 	public static void doStyleSlab(ModifyBakingResult event, MaterialWood mw, String slab_style,
