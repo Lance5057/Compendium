@@ -68,7 +68,7 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-//		buildDefaults();
+		buildDefaults();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -906,7 +906,7 @@ public class IndexInitialResourceLoader {
 	static void buildDefault(_MaterialBase mat) {
 
 		try {
-			Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
+			Path resourcePackPath = Path.of("./../src/main/resources/data/compendium/materials");
 			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/"));
 			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/").resolve(mat.name + ".json");
 			if (Files.exists(p))

@@ -3,7 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"1": "compendium:block/material/wood/acacia/logs/extra_caps",
+		"0": "compendium:block/material/wood/acacia/logs/extra_caps",
+		"1": "compendium:block/material/wood/acacia/logs/small_logs",
 		"particle": "compendium:block/material/wood/acacia/logs/small_logs"
 	},
 	"elements": [
@@ -13,9 +14,9 @@
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [2, 0, 6, 4], "rotation": 270, "texture": "#1"},
-				"east": {"uv": [0, 6, 4, 10], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [0, 6, 4, 10], "rotation": 90, "texture": "#0"},
 				"south": {"uv": [2, 0, 6, 4], "rotation": 270, "texture": "#1"},
-				"west": {"uv": [0, 6, 4, 10], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [0, 6, 4, 10], "rotation": 90, "texture": "#0"},
 				"up": {"uv": [2, 0, 6, 4], "rotation": 90, "texture": "#1"},
 				"down": {"uv": [2, 0, 6, 4], "rotation": 270, "texture": "#1"}
 			}

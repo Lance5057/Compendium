@@ -3,6 +3,7 @@ package com.lance5057.compendium.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
@@ -38,8 +39,8 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 	public final String materialName;
 
 	public PipeStyleBlock(Properties properties, StyleData... styles) {
-		this(0.25f, properties, ResourceLocation.withDefaultNamespace("air"), MATERIAL_TYPES.CERAMIC, "", List.of("error"),
-				styles);
+		this(0.25f, properties, ResourceLocation.withDefaultNamespace("air"), MATERIAL_TYPES.CERAMIC, "",
+				List.of("error"), styles);
 	}
 
 	public PipeStyleBlock(float apothem, Properties properties, ResourceLocation itemRenderer, MATERIAL_TYPES matType,
@@ -96,13 +97,18 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		BlockState west = level.getBlockState(pos.west());
 		FluidState fluidstate = level.getFluidState(pos);
 
-		return this.defaultBlockState().trySetValue(DOWN, down.isSolidRender(level, pos) || down.is(this))
-				.trySetValue(UP, up.isSolidRender(level, pos) || up.is(this))
-				.trySetValue(NORTH, north.isSolidRender(level, pos) || north.is(this))
-				.trySetValue(EAST, east.isSolidRender(level, pos) || east.is(this))
-				.trySetValue(SOUTH, south.isSolidRender(level, pos) || south.is(this))
-				.trySetValue(WEST, west.isSolidRender(level, pos) || west.is(this))
+		return this.defaultBlockState().trySetValue(DOWN, canAttach(level, pos, down, Direction.DOWN))
+				.trySetValue(UP, canAttach(level, pos, up, Direction.UP))
+				.trySetValue(NORTH, canAttach(level, pos, north, Direction.NORTH))
+				.trySetValue(EAST, canAttach(level, pos, east, Direction.EAST))
+				.trySetValue(SOUTH, canAttach(level, pos, south, Direction.SOUTH))
+				.trySetValue(WEST, canAttach(level, pos, west, Direction.WEST))
 				.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+	}
+
+	private boolean canAttach(LevelAccessor level, BlockPos pos, BlockState state, Direction direction) {
+		return state.isFaceSturdy(level, pos, direction) || state.is(this) || state.getBlock() instanceof PipeBlock
+				|| state.is(CompendiumTags.PIPE_CAN_ATTACH);
 	}
 
 	@Override
