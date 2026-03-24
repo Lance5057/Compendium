@@ -3,7 +3,7 @@
   "input": {
     "key": {
       "b": {
-        "tag": "c:ingots/copper"
+        "tag": "c:storage_blocks/copper"
       },
       "i": {
         "tag": "c:ingots/copper"

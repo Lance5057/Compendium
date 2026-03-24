@@ -51,6 +51,7 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
 import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -64,6 +65,7 @@ import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.MultiPartBakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.PipeBlock;
@@ -156,6 +158,25 @@ public class CompendiumClient {
 			}
 		}, Compendium.styleItemRenderers.stream().map(i -> i.get()).collect(Collectors.toList()).toArray(new Item[0]));
 
+	}
+
+	@SubscribeEvent
+	public static void RegisterExtraModels(ModelEvent.RegisterAdditional event) {
+		Map<ResourceLocation, Resource> rrs = Minecraft.getInstance().getResourceManager()
+				.listResources("models/recipes", (p_215600_) -> {
+					return p_215600_.getPath().endsWith(".json");
+				});
+
+		rrs.forEach((rl, r) -> {
+			String s = rl.toString();
+
+			s = s.substring(s.indexOf('/') + 1, s.indexOf('.'));
+
+			ModelResourceLocation rl2 = ModelResourceLocation
+					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
+
+			event.register(rl2);
+		});
 	}
 
 	@SubscribeEvent

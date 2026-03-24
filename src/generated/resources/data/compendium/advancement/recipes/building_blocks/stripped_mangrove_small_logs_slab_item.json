@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_striepped_small_log": {
+    "has_stripped_small_log": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_striepped_small_log"
+      "has_stripped_small_log"
     ]
   ],
   "rewards": {

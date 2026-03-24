@@ -48,7 +48,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class ExtensionAdvancedTools extends _MaterialExtension { 
+public class ExtensionAdvancedTools extends _MaterialExtension {
 	/**
 	 * 
 	 */
@@ -175,17 +175,19 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			if (HAMMER.shouldGenerate())
 				WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack())
 						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
-						.define('b', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
-						.pattern("ibi").pattern(" s ").pattern(" s ")
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (SAW.shouldGenerate())
 				WorkbenchRecipeBuilder.shaped(SAW.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
-						.pattern("iis").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("ibs")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (SHEARS.shouldGenerate())
@@ -198,8 +200,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			if (ZWEIHANDER.shouldGenerate())
 				WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack())
 						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
-						.define('b', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
-						.pattern("  i").pattern(" b ").pattern("s  ")
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("  i").pattern(" b ").pattern("s  ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
@@ -310,7 +312,6 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		}
 
 	}
-
 
 	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {

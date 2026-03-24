@@ -202,7 +202,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG
 				.setup(base,
 						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-								Compendium.modLoc(base.name + "_stripped_small_log_inventory"),
+								Compendium.modLoc(base.name
+										+ "_stripped_small_log_inventory"),
 								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
 						() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
 								new Item.Properties()
@@ -223,7 +224,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG
 				.setup(base,
 						() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-								Compendium.modLoc(base.name + "_stripped_log_inventory"),
+								Compendium.modLoc(base.name
+										+ "_stripped_log_inventory"),
 								base.getType(), base.name, List.of("log"), StyleData.LOG),
 						() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
 								new Item.Properties()
@@ -243,7 +245,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-								Compendium.modLoc(base.name + "_stripped_log_slab_inventory"),
+								Compendium.modLoc(base.name
+										+ "_stripped_log_slab_inventory"),
 								base.getType(), base.name, List.of("log_slab"), StyleData.LOG_SLAB),
 						() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 								new Item.Properties()
@@ -264,7 +267,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				.setup(base,
 						() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
 								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-								Compendium.modLoc(base.name +  "_stripped_log_stairs_inventory"),
+								Compendium.modLoc(base.name
+										+ "_stripped_log_stairs_inventory"),
 								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
 						() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
 								new Item.Properties()
@@ -1268,15 +1272,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage0"),
-									0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage1"),
-									0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0), Recipes.standardSawBuckBlockModel(
-									TagUtil.modLoc(base.extraFolder() + "split_log_stage2"), 0))
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage2"), 0))
 					.save(consumer, base.name + "_small_log");
 		}
 		if (LOG.shouldGenerate()) {
@@ -1305,15 +1307,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage0"),
-									0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc(base.extraFolder() + "split_log_stage1"),
-									0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
-							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0), Recipes.standardSawBuckBlockModel(
-									TagUtil.modLoc(base.extraFolder() + "split_log_stage2"), 0))
+							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage2"), 0))
 					.save(consumer, base.name + "_stripped_small_log");
 		}
 		if (STRIPPED_LOG.shouldGenerate()) {
@@ -1326,7 +1326,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		if (STRIPPED_LOG_SLAB.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_LOG_SLAB.BLOCK_ITEM, 1).pattern("bb")
 					.define('b', STRIPPED_SMALL_LOG.BLOCK_ITEM)
-					.unlockedBy("has_striepped_small_log",
+					.unlockedBy("has_stripped_small_log",
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
@@ -1337,20 +1337,6 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
 		}
-
-//		if (!LOG.isIgnored() && !STRIPPED_LOG.isIgnored())
-//			CuttingBoardRecipeBuilder
-//					.cuttingRecipe(Ingredient.of(LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-//							STRIPPED_LOG.BLOCK_ITEM, 1)
-//					.addResult(ModItems.TREE_BARK.get())
-//					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_logs"));
-//
-//		if (!SMALL_LOG.isIgnored() && !STRIPPED_SMALL_LOG.isIgnored())
-//			CuttingBoardRecipeBuilder
-//					.cuttingRecipe(Ingredient.of(SMALL_LOG.BLOCK_ITEM), Ingredient.of(CommonTags.TOOLS_KNIFE),
-//							STRIPPED_SMALL_LOG.BLOCK_ITEM, 1)
-//					.addResult(ModItems.TREE_BARK.get())
-//					.build(consumer, Compendium.modLoc("cutting/" + base.name + "_scrape_small_logs"));
 	}
 
 	@Override

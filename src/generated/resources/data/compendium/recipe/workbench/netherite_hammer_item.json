@@ -3,7 +3,7 @@
   "input": {
     "key": {
       "b": {
-        "tag": "c:ingots/netherite"
+        "tag": "c:storage_blocks/netherite"
       },
       "i": {
         "tag": "c:ingots/netherite"

@@ -7,11 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "plank_slab": {
+    "plank": {
       "conditions": {
         "items": [
           {
-            "items": "compendium:birch_planks_slab_item"
+            "items": "compendium:birch_plank_item"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "plank_slab"
+      "plank"
     ]
   ],
   "rewards": {

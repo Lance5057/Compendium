@@ -2,6 +2,9 @@
   "type": "compendium:workbench_material",
   "input": {
     "key": {
+      "b": {
+        "tag": "c:storage_blocks/copper"
+      },
       "i": {
         "tag": "c:ingots/copper"
       },
@@ -10,7 +13,7 @@
       }
     },
     "pattern": [
-      "iis"
+      "ibs"
     ]
   },
   "mats": [],
