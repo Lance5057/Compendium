@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.lance5057.compendium.Compendium;
-import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;

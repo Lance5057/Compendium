@@ -39,8 +39,7 @@ public class BlockTagGen extends BlockTagsProvider {
 				CompendiumBlocks.TABLE.get(), CompendiumBlocks.WORKBENCH.get());
 
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CompendiumBlocks.COSMETIC_TOOLBOX.get(),
-				CompendiumBlocks.HAMMERING_STATION.get(), CompendiumBlocks.SCRAPPING_TABLE.get(),
-				CompendiumBlocks.WINDOW.get());
+				CompendiumBlocks.HAMMERING_STATION.get(), CompendiumBlocks.WINDOW.get());
 
 		CompendiumIndex.index.forEach(i -> {
 			i.setupBlockTags(this);

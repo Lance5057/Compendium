@@ -14,7 +14,6 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
-import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlock;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.world.level.block.Block;
@@ -30,8 +29,8 @@ public class CompendiumBlocks {
 			HammeringStationBlock::new);
 
 	public static final DeferredBlock<Block> SAW_BUCK = BLOCKS.register("saw_buck", SawBuckBlock::new);
-	public static final DeferredBlock<Block> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
-			ScrappingTableBlock::new);
+//	public static final DeferredBlock<Block> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
+//			ScrappingTableBlock::new);
 
 	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 

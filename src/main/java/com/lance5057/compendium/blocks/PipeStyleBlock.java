@@ -3,7 +3,6 @@ package com.lance5057.compendium.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
@@ -12,14 +11,21 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Direction.Axis;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CrossCollisionBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.HopperBlock;
 import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -107,8 +113,57 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 	}
 
 	private boolean canAttach(LevelAccessor level, BlockPos pos, BlockState state, Direction direction) {
-		return state.isFaceSturdy(level, pos, direction) || state.is(this) || state.getBlock() instanceof PipeBlock
-				|| state.is(CompendiumTags.PIPE_CAN_ATTACH);
+		return state.isFaceSturdy(level, pos, direction.getOpposite()) || state.getBlock() instanceof PipeBlock
+				|| specialCases(state, direction);
+	}
+
+	private boolean specialCases(BlockState state, Direction direction) {
+		if (state.getBlock() instanceof CrossCollisionBlock || state.getBlock() instanceof WallBlock)
+			if (direction == Direction.DOWN || direction == Direction.UP)
+				return true;
+
+		if (state.is(Blocks.HOPPER))
+			if (state.getValue(HopperBlock.FACING) == Direction.DOWN)
+				if (direction == Direction.UP)
+					return true;
+
+		if (state.getBlock() instanceof DirectionalBlock) {
+			Axis axis = state.getValue(DirectionalBlock.FACING).getAxis();
+			switch (axis) {
+			case X:
+				if (direction == Direction.EAST || direction == Direction.WEST)
+					return true;
+				break;
+			case Y:
+				if (direction == Direction.DOWN || direction == Direction.UP)
+					return true;
+				break;
+			case Z:
+				if (direction == Direction.NORTH || direction == Direction.SOUTH)
+					return true;
+				break;
+			}
+		}
+
+		if (state.getBlock() instanceof RotatedPillarBlock) {
+			Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+			switch (axis) {
+			case X:
+				if (direction == Direction.EAST || direction == Direction.WEST)
+					return true;
+				break;
+			case Y:
+				if (direction == Direction.DOWN || direction == Direction.UP)
+					return true;
+				break;
+			case Z:
+				if (direction == Direction.NORTH || direction == Direction.SOUTH)
+					return true;
+				break;
+			}
+		}
+
+		return false;
 	}
 
 	@Override

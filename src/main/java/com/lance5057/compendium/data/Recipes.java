@@ -172,11 +172,11 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack()).define('p', CompendiumTags.PLANK)
-				.define('h', Items.HOPPER).define('c', Items.COPPER_GRATE).pattern("php").pattern("pcp")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+//		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack()).define('p', CompendiumTags.PLANK)
+//				.define('h', Items.HOPPER).define('c', Items.COPPER_GRATE).pattern("php").pattern("pcp")
+//				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+//						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
+//				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.TOOLRACK.toStack()).define('p', CompendiumTags.PLANK)
 				.define('n', Items.IRON_NUGGET).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep")

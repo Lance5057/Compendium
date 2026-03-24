@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -58,16 +59,18 @@ public class CompendiumIndex {
 	}
 
 	private static String findDefault(MATERIAL_TYPES type) {
-		Optional<IIndexEntry> metal = index.stream().filter(i -> {
+		List<IIndexEntry> metal = index.stream().filter(i -> {
 			if (i instanceof _MaterialBase mb)
 				return mb.getType() == type;
 			return false;
-		}).findAny();
+		}).toList();
 
-		if (metal.isPresent())
-			return metal.get().getName();
+		if (metal != null && metal.size() > 0) {
+			Random r = new Random();
+			return metal.get(r.nextInt(metal.size())).getName();
+		}
 
-		Compendium.LOGGER.error("No valid" + type.toString() + " types in index!");
+		Compendium.LOGGER.error("No valid " + type.toString() + " types in index!");
 		return "";
 	}
 

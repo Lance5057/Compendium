@@ -51,8 +51,8 @@ public class CompendiumItems {
 	public static final DeferredItem<BlockItem> SAW_BUCK = ITEMS.register("saw_buck",
 			() -> new BlockItem(CompendiumBlocks.SAW_BUCK.get(), new Item.Properties()));
 
-	public static final DeferredItem<BlockItem> SCRAPPING_TABLE = ITEMS.register("scrapping_table",
-			() -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(), new Item.Properties()));
+//	public static final DeferredItem<BlockItem> SCRAPPING_TABLE = ITEMS.register("scrapping_table",
+//			() -> new BlockItem(CompendiumBlocks.SCRAPPING_TABLE.get(), new Item.Properties()));
 
 	public static final DeferredItem<BlockItem> WORKBENCH = ITEMS.register("workbench",
 			() -> new BlockItem(CompendiumBlocks.WORKBENCH.get(), new Item.Properties()));

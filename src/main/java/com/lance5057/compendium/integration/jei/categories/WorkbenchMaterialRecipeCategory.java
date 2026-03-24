@@ -1,7 +1,6 @@
 package com.lance5057.compendium.integration.jei.categories;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;

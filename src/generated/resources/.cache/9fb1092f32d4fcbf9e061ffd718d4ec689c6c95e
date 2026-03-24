@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-06T16:05:15.472722227	Recipes
+// 1.21.1	2026-03-23T18:26:33.901642763	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -161,7 +161,6 @@ cef1a7f1dccc83a54f4802eb25315eb08382b7ef data/compendium/advancement/recipes/wor
 fdaf1af62fc3b1969fde05092fd2a8b95b60caef data/compendium/advancement/recipes/workbench/netherite_saw_item.json
 cef7c40a65638a43ff41820b0de9b4f532b71c48 data/compendium/advancement/recipes/workbench/netherite_shears_item.json
 5985782da9045f88f13c0ecdf1a735c480c7a5ee data/compendium/advancement/recipes/workbench/netherite_zweihander_item.json
-061503ed483656ba730a303cd7c57640d0e26338 data/compendium/advancement/recipes/workbench/scrapping_table.json
 6b31125cacd911b1ae0e20a73f253e5f2d684daf data/compendium/advancement/recipes/workbench/shingles_cap_slanted.json
 863d2d953fecaa69edfc72aac1cf26f1100813a6 data/compendium/advancement/recipes/workbench/shingles_slanted.json
 0b428fd9f06e8a4d5565048caf90ff6946379abf data/compendium/advancement/recipes/workbench/table.json
@@ -329,7 +328,6 @@ f9b3405a6cac60d2303316c107852b3082bfc8c7 data/compendium/recipe/workbench/nether
 a43d7d42b95a9c98015f3e9387968b63a7be59d7 data/compendium/recipe/workbench/netherite_saw_item.json
 f27c78670b12ba0d1effc4db7fb522b7fa96aabe data/compendium/recipe/workbench/netherite_shears_item.json
 141a8834ddad4fbc51afc8b2e2107e11a2c9c31e data/compendium/recipe/workbench/netherite_zweihander_item.json
-50beb4e2b50bb3e81536fb46e95e64b6f2df291b data/compendium/recipe/workbench/scrapping_table.json
 3301fe5573868cb6ca607713463a180a4a63f9f6 data/compendium/recipe/workbench/shingles_cap_slanted.json
 840a1f91a8315ab4077172157ee92e374b7ce134 data/compendium/recipe/workbench/shingles_slanted.json
 c35923c0cacdd66ce27c4f21c25a37e052289565 data/compendium/recipe/workbench/table.json

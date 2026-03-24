@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-06T16:05:15.471408666	Item Models: compendium
+// 1.21.1	2026-03-23T18:26:33.899361793	Item Models: compendium
 4c8308440ea263ec56d8f493bebaf06e03afe64b assets/compendium/models/item/acacia_plank_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/acacia_planks_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/acacia_planks_slab_item.json
@@ -91,7 +91,6 @@ e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/oak_small
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/oak_small_logs_stairs_item.json
 4379b4c99bef71cb0c56f388b78aa1d81a3a82cd assets/compendium/models/item/saw_buck.json
 fa207b96d8c17882c9c978ca990c1758abfb2c24 assets/compendium/models/item/sawdust.json
-0a21c283b19246ee38e7f03b0ed9cf5ca1a6392e assets/compendium/models/item/scrapping_table.json
 028730e13613460a30c2096ae0a4839e62263d3d assets/compendium/models/item/spruce_plank_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/spruce_planks_item.json
 e40b5d90db83da6f9334f3bb856087752e7fbe84 assets/compendium/models/item/spruce_planks_slab_item.json

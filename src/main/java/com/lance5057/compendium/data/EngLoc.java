@@ -29,7 +29,7 @@ public class EngLoc extends LanguageProvider {
 		this.add(CompendiumItems.MEGALITH_STONE.get(), "Megalith Stone");
 		this.add(CompendiumItems.HAMMERING_STATION.get(), "Hammering Station");
 		this.add(CompendiumItems.SAW_BUCK.get(), "Sawbuck");
-		this.add(CompendiumItems.SCRAPPING_TABLE.get(), "Scrapping Table");
+//		this.add(CompendiumItems.SCRAPPING_TABLE.get(), "Scrapping Table");
 		this.add(CompendiumItems.WORKBENCH.get(), "Workbench");
 		this.add(CompendiumItems.TOOLRACK.get(), "Tool Rack");
 		this.add(CompendiumItems.COMPONENT_DRAWER.get(), "Component Drawer");

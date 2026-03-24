@@ -11,7 +11,6 @@ import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlockEntity;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlockEntity;
-import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlockEntity;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlockEntity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -44,9 +43,9 @@ public class CompendiumBlockEntities {
 			.register("saw_buck", () -> BlockEntityType.Builder
 					.of(SawBuckBlockEntity::new, CompendiumBlocks.SAW_BUCK.get()).build(null));
 
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ScrappingTableBlockEntity>> SCRAPPING_TABLE = BLOCK_ENTITIES
-			.register("scrapping_table", () -> BlockEntityType.Builder
-					.of(ScrappingTableBlockEntity::new, CompendiumBlocks.SCRAPPING_TABLE.get()).build(null));
+//	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ScrappingTableBlockEntity>> SCRAPPING_TABLE = BLOCK_ENTITIES
+//			.register("scrapping_table", () -> BlockEntityType.Builder
+//					.of(ScrappingTableBlockEntity::new, CompendiumBlocks.SCRAPPING_TABLE.get()).build(null));
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WorkbenchBlockEntity>> WORKBENCH = BLOCK_ENTITIES
 			.register("workbench", () -> BlockEntityType.Builder

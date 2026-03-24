@@ -45,7 +45,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 				createSinglePropConditionTable(CompendiumBlocks.WORKBENCH.get(), WorkbenchBlock.HALF, Half.TOP));
 		this.dropSelf(CompendiumBlocks.HAMMERING_STATION.get());
 		this.dropSelf(CompendiumBlocks.SAW_BUCK.get());
-		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
+//		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
 		this.dropSelf(CompendiumBlocks.COSMETIC_TOOLBOX.get());
 		this.add(CompendiumBlocks.CHAIR.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());

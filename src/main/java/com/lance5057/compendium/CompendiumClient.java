@@ -46,7 +46,6 @@ import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScre
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationRenderer;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRenderer;
-import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableRenderer;
 import com.lance5057.compendium.workstations.workbench.WorkbenchRenderer;
 import com.lance5057.compendium.workstations.workbench.WorkbenchScreen;
 import com.mojang.datafixers.util.Either;
@@ -107,7 +106,7 @@ public class CompendiumClient {
 	public static void setBERenderers() {
 		BlockEntityRenderers.register(CompendiumBlockEntities.HAMMERING_STATION.get(), HammeringStationRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.SAW_BUCK.get(), SawBuckRenderer::new);
-		BlockEntityRenderers.register(CompendiumBlockEntities.SCRAPPING_TABLE.get(), ScrappingTableRenderer::new);
+//		BlockEntityRenderers.register(CompendiumBlockEntities.SCRAPPING_TABLE.get(), ScrappingTableRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.WORKBENCH.get(), WorkbenchRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.TOOLRACK.get(), ToolRackRenderer::new);
 		BlockEntityRenderers.register(CompendiumBlockEntities.COMPONENT_DRAWER.get(), ComponentDrawerRenderer::new);
