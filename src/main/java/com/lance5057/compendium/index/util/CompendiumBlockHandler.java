@@ -64,6 +64,10 @@ public class CompendiumBlockHandler implements Serializable {
 	public boolean isIgnored() {
 		return generate == Generate.IGNORE;
 	}
+	
+	public boolean isNotIgnored() {
+		return generate != Generate.IGNORE;
+	}
 
 	public void setup(_MaterialBase base, ResourceLocation existsItem, ResourceLocation existsBlock) {
 		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),

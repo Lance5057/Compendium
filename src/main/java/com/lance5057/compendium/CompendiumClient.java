@@ -1093,348 +1093,44 @@ public class CompendiumClient {
 			}
 		}
 
-		for (BlockState state : eel.SMALL_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+		doSmallLog(event, mw, eel, models);
+		doLog(event, mw, eel, models, logEndTexture, logStrippedEndTexture);
+		doLogSlab(event, mw, eel, models, logSideTexture, logEndTexture, logStrippedSideTexture, logStrippedEndTexture);
+		doLogStairs(event, mw, eel, models, logSideTexture, logEndTexture, logStrippedSideTexture,
+				logStrippedEndTexture);
 
-			String v = stateToString(propertyValues);
+	}
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/small_log"), mw.name + "_small_log",
-					v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/small_log_inventory"),
-				mw.name + "_small_log_inventory", "");
+	public static void doLogStairs(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation logSideTexture,
+			ResourceLocation logEndTexture, ResourceLocation logStrippedSideTexture,
+			ResourceLocation logStrippedEndTexture) {
 
-		for (BlockState state : eel.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+		if (eel.STRIPPED_LOG_STAIRS.isNotIgnored()) {
+			for (BlockState state : eel.STRIPPED_LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
-			String v = stateToString(propertyValues);
+				String v = stateToString(propertyValues);
 
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mw.name + "_small_logs", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_inventory"),
-				mw.name + "_log_inventory", "");
-
-		for (BlockState state : eel.LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
-					mw.name + "_small_logs_slab", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
-				"stripped_" + mw.name + "_log_slab_inventory", "");
-
-		for (BlockState state : eel.LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
-					mw.name + "_small_logs_slab", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
-				mw.name + "_log_slab_inventory", "");
-
-		for (BlockState state : eel.LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs"),
-					mw.name + "_small_logs_stairs", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
-				mw.name + "_log_stairs_inventory", "");
-
-		for (BlockState state : eel.SMALL_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_small_log"),
-					"stripped_" + mw.name + "_small_log", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_small_log_inventory"),
-				mw.name + "_stripped_small_log_inventory", "");
-
-		for (BlockState state : eel.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log"),
-					"stripped_" + mw.name + "_small_logs", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_inventory"),
-				mw.name + "_stripped_log_inventory", "");
-
-		for (BlockState state : eel.STRIPPED_LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
-					"stripped_" + mw.name + "_small_logs_slab", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
-				mw.name + "_stripped_log_slab_inventory", "");
-
-		for (BlockState state : eel.STRIPPED_LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
-			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-			String v = stateToString(propertyValues);
-
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs"),
-					"stripped_" + mw.name + "_small_logs_stairs", v);
-		}
-		buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs_inventory"),
-				mw.name + "_stripped_log_stairs_inventory", "");
-
-		for (String small_log_style : StyleData.SMALL_LOG.getTypes()) {
-			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_log",
-					small_log_style.toLowerCase());
-			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_small_log_inventory",
-					small_log_style.toLowerCase());
-
-			ResourceLocation logStrippedModelLoc = ClientUtil.createStyleLocation(mw.name + "_stripped_small_log",
-					small_log_style.toLowerCase());
-			ResourceLocation logStrippedModelLocInventory = ClientUtil
-					.createStyleLocation(mw.name + "_stripped_small_log_inventory", small_log_style.toLowerCase());
-
-			if (small_log_style.equals("small_log")) {
-				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
-						TagUtil.modLoc("extra/small_log/small_log_cap"), TagUtil.modLoc("extra/small_log/small_log"),
-						TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/small_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
-						TagUtil.modLoc("extra/small_log/small_log_cap"), TagUtil.modLoc("extra/small_log/small_log"),
-						TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/small_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
-			} else if (small_log_style.equals("smaller_log")) {
-				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
-						TagUtil.modLoc("extra/small_log/smaller_log_cap"),
-						TagUtil.modLoc("extra/small_log/smaller_log"),
-						TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
-						TagUtil.modLoc("extra/small_log/smaller_log_cap"),
-						TagUtil.modLoc("extra/small_log/smaller_log"),
-						TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
-			} else if (small_log_style.equals("smallest_log")) {
-				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
-						TagUtil.modLoc("extra/small_log/smallest_log_cap"),
-						TagUtil.modLoc("extra/small_log/smallest_log"),
-						TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
-						TagUtil.modLoc("extra/small_log/smallest_log_cap"),
-						TagUtil.modLoc("extra/small_log/smallest_log"),
-						TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
-						TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs"),
+						"stripped_" + mw.name + "_small_logs_stairs", v);
 			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_stairs_inventory"),
+					mw.name + "_stripped_log_stairs_inventory", "");
 		}
 
-		for (String log_style : StyleData.LOG.getTypes()) {
-			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
-			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_inventory",
-					log_style.toLowerCase());
+		if (eel.LOG_STAIRS.isNotIgnored()) {
+			for (BlockState state : eel.LOG_STAIRS.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
 
-			ResourceLocation strippedLogModelLoc = ClientUtil.createStyleLocation(mw.name + "_stripped_log",
-					log_style.toLowerCase());
-			ResourceLocation strippedLogModelLocInventory = ClientUtil
-					.createStyleLocation(mw.name + "_stripped_log_inventory", log_style.toLowerCase());
+				String v = stateToString(propertyValues);
 
-			if (log_style.equals("basic")) {
-				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
-
-				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
-						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
-
-				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
-						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("end",
-								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
-
-			} else if (log_style.equals("small_wood")) {
-				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
-
-				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
-						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
-
-				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
-						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
-			} else if (log_style.equals("corner")) {
-				ResourceLocation model = TagUtil.modLoc("extra/small_logs_corner");
-
-				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
-
-				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("2",
-								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
-			} else {
-				ResourceLocation model = TagUtil.modLoc("extra/cube_column_ends");
-				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/" + log_style);
-				ResourceLocation sideStrippedTexture = TagUtil
-						.modLoc("block/material/wood/" + mw.name + "/logs/stripped_" + log_style);
-				if (log_style.contains("1") || log_style.contains("2")) {
-
-					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
-							Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture));
-					doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
-							Pair.of("side", sideStrippedTexture), Pair.of("bottom", logEndTexture),
-							Pair.of("top", logStrippedEndTexture));
-
-				} else {
-					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
-							Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture));
-					doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
-							Pair.of("side", sideStrippedTexture), Pair.of("top", logEndTexture),
-							Pair.of("bottom", logStrippedEndTexture));
-
-				}
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs"),
+						mw.name + "_small_logs_stairs", v);
 			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_stairs_inventory"),
+					mw.name + "_log_stairs_inventory", "");
 		}
-
-		for (String slab_style : StyleData.LOG_SLAB.getTypes()) {
-			// slabs
-			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_logs_slab",
-					slab_style.toLowerCase());
-			ResourceLocation plankSlabIventoryModelLoc = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
-					slab_style.toLowerCase());
-
-			ResourceLocation strippedSlabModelLoc = ClientUtil
-					.createStyleLocation(mw.name + "_stripped_small_logs_slab", slab_style.toLowerCase());
-			ResourceLocation strippedSlabIventoryModelLoc = ClientUtil
-					.createStyleLocation(mw.name + "_stripped_log_slab_inventory", slab_style.toLowerCase());
-
-			if (slab_style.equals("small_logs") || slab_style.equals("small_logs_rotated")
-					|| slab_style.equals("crosscut_small")) {
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0,
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0,
-						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
-						Pair.of("1",
-								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
-
-			} else if (slab_style.equals("split") || slab_style.equals("split_rotated")) {
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
-						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", logStrippedEndTexture), Pair.of("2",
-								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
-
-			} else if (slab_style.equals("crosscut")) {
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("0", logSideTexture),
-						Pair.of("1", logEndTexture));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
-						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture));
-
-			} else if (slab_style.equals("small_wood") || slab_style.equals("small_wood_rotated")) {
-				ResourceLocation logTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
-				ResourceLocation logStrippedTexture = TagUtil
-						.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs");
-
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-				if (slab_style.contains("rotated"))
-					rot = BlockModelRotation.X0_Y90;
-
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("top", logTexture), Pair.of("bottom", logTexture), Pair.of("side", logTexture));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
-						Pair.of("top", logStrippedTexture), Pair.of("bottom", logStrippedTexture),
-						Pair.of("side", logStrippedTexture));
-
-			} else if (slab_style.equals("wood") || slab_style.equals("wood_rotated")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-				if (slab_style.contains("rotated"))
-					rot = BlockModelRotation.X0_Y90;
-
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
-						Pair.of("side", logSideTexture));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
-						Pair.of("top", logStrippedSideTexture), Pair.of("bottom", logStrippedSideTexture),
-						Pair.of("side", logStrippedSideTexture));
-
-			} else if (slab_style.equals("campfire")) {
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
-
-			} else if (slab_style.equals("firewood")) {
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
-						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture), Pair.of("1", logEndTexture),
-						Pair.of("2",
-								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
-
-			} else if (slab_style.equals("smaller_logs") || slab_style.equals("smaller_logs_rotated")
-					|| slab_style.equals("smallest_logs") || slab_style.equals("smallest_logs_rotated")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
-						Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
-
-			} else if (slab_style.equals("trellis")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-
-				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
-
-				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
-						Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
-			}
-		}
-
 		for (String stair_style : StyleData.LOG_STAIRS.getTypes()) {
 			// stairs
 			ResourceLocation plankStairsModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_logs_stairs",
@@ -1601,6 +1297,341 @@ public class CompendiumClient {
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_inner"),
 						TagUtil.modLoc("extra/log_stairs/stairs_rotated_outer"), 90, 0,
 						Pair.of("0", logStrippedSideTexture));
+			}
+		}
+	}
+
+	public static void doLogSlab(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation logSideTexture,
+			ResourceLocation logEndTexture, ResourceLocation logStrippedSideTexture,
+			ResourceLocation logStrippedEndTexture) {
+		if (eel.STRIPPED_LOG_SLAB.isNotIgnored()) {
+			for (BlockState state : eel.STRIPPED_LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab"),
+						"stripped_" + mw.name + "_small_logs_slab", v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_slab_inventory"),
+					mw.name + "_stripped_log_slab_inventory", "");
+		}
+
+		if (eel.LOG_SLAB.isNotIgnored()) {
+			for (BlockState state : eel.LOG_SLAB.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab"),
+						mw.name + "_small_logs_slab", v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_slab_inventory"),
+					mw.name + "_log_slab_inventory", "");
+		}
+
+		for (String slab_style : StyleData.LOG_SLAB.getTypes()) {
+			// slabs
+			ResourceLocation plankSlabModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_logs_slab",
+					slab_style.toLowerCase());
+			ResourceLocation plankSlabIventoryModelLoc = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
+					slab_style.toLowerCase());
+
+			ResourceLocation strippedSlabModelLoc = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_small_logs_slab", slab_style.toLowerCase());
+			ResourceLocation strippedSlabIventoryModelLoc = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_log_slab_inventory", slab_style.toLowerCase());
+
+			if (slab_style.equals("small_logs") || slab_style.equals("small_logs_rotated")
+					|| slab_style.equals("crosscut_small")) {
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("1",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
+
+			} else if (slab_style.equals("split") || slab_style.equals("split_rotated")) {
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", logStrippedEndTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
+
+			} else if (slab_style.equals("crosscut")) {
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("0", logSideTexture),
+						Pair.of("1", logEndTexture));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture));
+
+			} else if (slab_style.equals("small_wood") || slab_style.equals("small_wood_rotated")) {
+				ResourceLocation logTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs");
+				ResourceLocation logStrippedTexture = TagUtil
+						.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs");
+
+				BlockModelRotation rot = BlockModelRotation.X0_Y0;
+				if (slab_style.contains("rotated"))
+					rot = BlockModelRotation.X0_Y90;
+
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
+						Pair.of("top", logTexture), Pair.of("bottom", logTexture), Pair.of("side", logTexture));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("top", logStrippedTexture), Pair.of("bottom", logStrippedTexture),
+						Pair.of("side", logStrippedTexture));
+
+			} else if (slab_style.equals("wood") || slab_style.equals("wood_rotated")) {
+				BlockModelRotation rot = BlockModelRotation.X0_Y0;
+				if (slab_style.contains("rotated"))
+					rot = BlockModelRotation.X0_Y90;
+
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
+						Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
+						Pair.of("side", logSideTexture));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("top", logStrippedSideTexture), Pair.of("bottom", logStrippedSideTexture),
+						Pair.of("side", logStrippedSideTexture));
+
+			} else if (slab_style.equals("campfire")) {
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+
+			} else if (slab_style.equals("firewood")) {
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
+						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture), Pair.of("1", logEndTexture),
+						Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
+
+			} else if (slab_style.equals("smaller_logs") || slab_style.equals("smaller_logs_rotated")
+					|| slab_style.equals("smallest_logs") || slab_style.equals("smallest_logs_rotated")) {
+				BlockModelRotation rot = BlockModelRotation.X0_Y0;
+
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
+						Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+
+			} else if (slab_style.equals("trellis")) {
+				BlockModelRotation rot = BlockModelRotation.X0_Y0;
+
+				doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
+						Pair.of("0", logSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc, rot,
+						Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+			}
+		}
+	}
+
+	public static void doLog(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation logEndTexture,
+			ResourceLocation logStrippedEndTexture) {
+
+		if (eel.STRIPPED_LOG.isNotIgnored()) {
+			for (BlockState state : eel.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log"),
+						"stripped_" + mw.name + "_small_logs", v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_log_inventory"),
+					mw.name + "_stripped_log_inventory", "");
+		}
+
+		if (eel.LOG.isNotIgnored()) {
+			for (BlockState state : eel.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log"), mw.name + "_small_logs",
+						v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/log_inventory"),
+					mw.name + "_log_inventory", "");
+		}
+
+		for (String log_style : StyleData.LOG.getTypes()) {
+			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_log", log_style.toLowerCase());
+			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_inventory",
+					log_style.toLowerCase());
+
+			ResourceLocation strippedLogModelLoc = ClientUtil.createStyleLocation(mw.name + "_stripped_log",
+					log_style.toLowerCase());
+			ResourceLocation strippedLogModelLocInventory = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_log_inventory", log_style.toLowerCase());
+
+			if (log_style.equals("basic")) {
+				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+
+				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("end",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
+
+			} else if (log_style.equals("small_wood")) {
+				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")));
+
+				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+						Pair.of("side", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("end", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")));
+			} else if (log_style.equals("corner")) {
+				ResourceLocation model = TagUtil.modLoc("extra/small_logs_corner");
+
+				doStyleLog(event, mw, logModelLoc, logModelLocInventory, model,
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+
+				doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
+			} else {
+				ResourceLocation model = TagUtil.modLoc("extra/cube_column_ends");
+				ResourceLocation sideTexture = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/" + log_style);
+				ResourceLocation sideStrippedTexture = TagUtil
+						.modLoc("block/material/wood/" + mw.name + "/logs/stripped_" + log_style);
+				if (log_style.contains("1") || log_style.contains("2")) {
+
+					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
+							Pair.of("top", logEndTexture), Pair.of("bottom", logStrippedEndTexture));
+					doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+							Pair.of("side", sideStrippedTexture), Pair.of("bottom", logEndTexture),
+							Pair.of("top", logStrippedEndTexture));
+
+				} else {
+					doStyleLog(event, mw, logModelLoc, logModelLocInventory, model, Pair.of("side", sideTexture),
+							Pair.of("bottom", logEndTexture), Pair.of("top", logStrippedEndTexture));
+					doStyleLog(event, mw, strippedLogModelLoc, strippedLogModelLocInventory, model,
+							Pair.of("side", sideStrippedTexture), Pair.of("top", logEndTexture),
+							Pair.of("bottom", logStrippedEndTexture));
+
+				}
+			}
+		}
+	}
+
+	public static void doSmallLog(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
+			Map<ModelResourceLocation, BakedModel> models) {
+
+		if (eel.STRIPPED_SMALL_LOG.isNotIgnored()) {
+			for (BlockState state : eel.STRIPPED_SMALL_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_small_log"),
+						"stripped_" + mw.name + "_small_log", v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/stripped_small_log_inventory"),
+					mw.name + "_stripped_small_log_inventory", "");
+		}
+
+		if (eel.SMALL_LOG.isNotIgnored()) {
+			for (BlockState state : eel.SMALL_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = stateToString(propertyValues);
+
+				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/small_log"),
+						mw.name + "_small_log", v);
+			}
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/small_log_inventory"),
+					mw.name + "_small_log_inventory", "");
+		}
+		for (String small_log_style : StyleData.SMALL_LOG.getTypes()) {
+			ResourceLocation logModelLoc = ClientUtil.createStyleLocation(mw.name + "_small_log",
+					small_log_style.toLowerCase());
+			ResourceLocation logModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_small_log_inventory",
+					small_log_style.toLowerCase());
+
+			ResourceLocation logStrippedModelLoc = ClientUtil.createStyleLocation(mw.name + "_stripped_small_log",
+					small_log_style.toLowerCase());
+			ResourceLocation logStrippedModelLocInventory = ClientUtil
+					.createStyleLocation(mw.name + "_stripped_small_log_inventory", small_log_style.toLowerCase());
+
+			if (small_log_style.equals("small_log")) {
+				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
+						TagUtil.modLoc("extra/small_log/small_log_cap"), TagUtil.modLoc("extra/small_log/small_log"),
+						TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/small_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
+						TagUtil.modLoc("extra/small_log/small_log_cap"), TagUtil.modLoc("extra/small_log/small_log"),
+						TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/small_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+			} else if (small_log_style.equals("smaller_log")) {
+				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
+						TagUtil.modLoc("extra/small_log/smaller_log_cap"),
+						TagUtil.modLoc("extra/small_log/smaller_log"),
+						TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
+						TagUtil.modLoc("extra/small_log/smaller_log_cap"),
+						TagUtil.modLoc("extra/small_log/smaller_log"),
+						TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
+			} else if (small_log_style.equals("smallest_log")) {
+				doStylePipe(event, mw, logModelLoc, logModelLocInventory,
+						TagUtil.modLoc("extra/small_log/smallest_log_cap"),
+						TagUtil.modLoc("extra/small_log/smallest_log"),
+						TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
+
+				doStylePipe(event, mw, logStrippedModelLoc, logStrippedModelLocInventory,
+						TagUtil.modLoc("extra/small_log/smallest_log_cap"),
+						TagUtil.modLoc("extra/small_log/smallest_log"),
+						TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
+						TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")));
 			}
 		}
 	}
@@ -2226,6 +2257,7 @@ public class CompendiumClient {
 			if (model.textureMap.containsKey(p.getFirst())) {
 				Either<Material, String> e = model.textureMap.get(p.getFirst());
 				if (e.left().isPresent()) {
+
 					ResourceLocation rl = e.left().get().atlasLocation();
 
 					model.textureMap.put(p.getFirst(), Either.left(new Material(rl, p.getSecond())));

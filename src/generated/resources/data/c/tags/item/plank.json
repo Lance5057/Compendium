@@ -1,10 +1,5 @@
 {
   "values": [
-    "compendium:acacia_plank_item",
-    "compendium:alder_plank_item",
-    "compendium:archwood_plank_item",
-    "compendium:aspen_plank_item",
-    "compendium:baobab_plank_item",
     "compendium:barn_wood_plank_item"
   ]
 }

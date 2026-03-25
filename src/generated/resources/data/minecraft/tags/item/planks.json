@@ -1,10 +1,5 @@
 {
   "values": [
-    "minecraft:acacia_planks",
-    "enchanted:alder_planks",
-    "ars_nouveau:archwood_planks",
-    "bloomingnature:aspen_planks",
-    "bloomingnature:baobab_planks",
     "butchercraft:barn_wood_block_item"
   ]
 }
