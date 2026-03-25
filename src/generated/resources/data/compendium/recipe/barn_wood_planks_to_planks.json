@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "tag": "c:planks/barn_wood"
+    }
+  },
+  "pattern": [
+    "p ",
+    " p"
+  ],
+  "result": {
+    "count": 4,
+    "id": "compendium:barn_wood_plank_item"
+  }
+}

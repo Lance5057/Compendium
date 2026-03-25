@@ -68,7 +68,7 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-		buildDefaults();
+//		buildDefaults();
 //		moddedDefaults();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);

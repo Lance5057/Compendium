@@ -1,14 +1,10 @@
 {
   "values": [
     "minecraft:acacia_planks",
-    "minecraft:birch_planks",
-    "minecraft:cherry_planks",
-    "minecraft:crimson_planks",
-    "minecraft:dark_oak_planks",
-    "minecraft:jungle_planks",
-    "minecraft:mangrove_planks",
-    "minecraft:oak_planks",
-    "minecraft:spruce_planks",
-    "minecraft:warped_planks"
+    "enchanted:alder_planks",
+    "ars_nouveau:archwood_planks",
+    "bloomingnature:aspen_planks",
+    "bloomingnature:baobab_planks",
+    "butchercraft:barn_wood_block_item"
   ]
 }

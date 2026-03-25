@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:stairs/wooden/aspen"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:aspen_plank_item"
+  }
+}

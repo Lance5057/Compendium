@@ -1,0 +1,54 @@
+{
+  "name": "cinnamon_ad",
+  "namespace": "abyssal_decor",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "abyssal_decor:cinnamon_planks",
+      "logLocation": "abyssal_decor:cinnamon_log",
+      "strippedLogLocation": "abyssal_decor:stripped_cinnamon_log",
+      "woodLocation": "abyssal_decor:cinnamon_wood",
+      "strippedWoodLocation": "abyssal_decor:stripped_cinnamon_wood"
+    },
+    "existsBlock": {
+      "plankLocation": "abyssal_decor:cinnamon_planks",
+      "logLocation": "abyssal_decor:cinnamon_log",
+      "strippedLogLocation": "abyssal_decor:stripped_cinnamon_log",
+      "woodLocation": "abyssal_decor:cinnamon_wood",
+      "strippedWoodLocation": "abyssal_decor:stripped_cinnamon_wood"
+    },
+    "textures": {
+      "plankLocation": "abyssal_decor:block/cinnamonplanks",
+      "logLocation": "abyssal_decor:block/cinnamonlogside",
+      "strippedLogLocation": "abyssal_decor:block/strippedcinnamonlogside",
+      "logTopLocation": "abyssal_decor:block/cinnamonlogtop",
+      "strippedLogTopLocation": "abyssal_decor:block/strippedcinnamonlogtop"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

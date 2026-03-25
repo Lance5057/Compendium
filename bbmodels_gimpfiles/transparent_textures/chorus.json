@@ -1,0 +1,44 @@
+{
+  "name": "chorus",
+  "namespace": "cataclysm",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "IGNORE",
+  "loadStrippedLog": "IGNORE",
+  "loadWood": "IGNORE",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "strippedWoodLocation": "cataclysm:chorus_stem"
+    },
+    "existsBlock": {
+      "strippedWoodLocation": "cataclysm:chorus_stem"
+    },
+    "textures": {
+      "strippedLogLocation": "cataclysm:block/chorus_stem",
+      "logTopLocation": "compendium:block/material/wood/chorus/logs/log_top",
+      "strippedLogTopLocation": "compendium:block/material/wood/chorus/logs/log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "IGNORE",
+      "loadSmallLogs": "IGNORE",
+      "loadSmallLogsSlab": "IGNORE",
+      "loadSmallLogsStairs": "IGNORE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

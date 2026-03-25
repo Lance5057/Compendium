@@ -1,0 +1,31 @@
+{
+  "name": "hawthorn",
+  "namespace": "enchanted",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "GENERATE",
+  "loadStrippedWood": "GENERATE",
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

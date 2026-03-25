@@ -1,0 +1,47 @@
+{
+  "name": "wisewood",
+  "namespace": "hazennstuff",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "hazennstuff:wisewood_planks",
+      "logLocation": "hazennstuff:wisewood_log",
+      "strippedLogLocation": "hazennstuff:stripped_wisewood_log",
+      "woodLocation": "hazennstuff:wisewood_wood",
+      "strippedWoodLocation": "hazennstuff:stripped_wisewood_wood"
+    },
+    "textures": {
+      "plankLocation": "irons_spellbooks:block/wisewood_planks",
+      "logLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogLocation": "hazennstuff:block/stripped_wisewood_log_side",
+      "logTopLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogTopLocation": "hazennstuff:block/stripped_wisewood_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

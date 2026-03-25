@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "compendium:gingham_bubblegum_block_item"
+    }
+  },
+  "pattern": [
+    "pp"
+  ],
+  "result": {
+    "count": 3,
+    "id": "compendium:gingham_bubblegum_carpet_item"
+  }
+}

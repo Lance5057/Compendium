@@ -1,0 +1,40 @@
+{
+  "name": "flowering_poplar",
+  "namespace": "cluttered",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "cluttered:flowering_poplar_planks",
+      "logLocation": "cluttered:flowering_poplar_log",
+      "strippedLogLocation": "cluttered:stripped_flowering_poplar_log",
+      "woodLocation": "cluttered:flowering_poplar_wood",
+      "strippedWoodLocation": "cluttered:stripped_flowering_poplar_log"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "IGNORE",
+      "loadPlankBlock": "IGNORE",
+      "loadPlankSlab": "IGNORE",
+      "loadPlankStairs": "IGNORE"
+    }
+  ]
+}

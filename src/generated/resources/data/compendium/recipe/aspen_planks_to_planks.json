@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "tag": "c:planks/aspen"
+    }
+  },
+  "pattern": [
+    "p ",
+    " p"
+  ],
+  "result": {
+    "count": 4,
+    "id": "compendium:aspen_plank_item"
+  }
+}

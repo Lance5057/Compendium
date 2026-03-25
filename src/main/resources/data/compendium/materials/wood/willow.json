@@ -1,0 +1,40 @@
+{
+  "name": "willow",
+  "namespace": "cluttered",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "cluttered:willow_planks",
+      "logLocation": "cluttered:willow_log",
+      "strippedLogLocation": "cluttered:stripped_willow_log",
+      "woodLocation": "cluttered:willow_wood",
+      "strippedWoodLocation": "cluttered:stripped_willow_wood"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

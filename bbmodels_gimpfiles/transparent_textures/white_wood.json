@@ -1,0 +1,44 @@
+{
+  "name": "white_wood",
+  "namespace": "abyssal_decor",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "IGNORE",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "IGNORE",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "abyssal_decor:white_wood_planks",
+      "strippedLogLocation": "abyssal_decor:white_wood_log",
+      "strippedWoodLocation": "abyssal_decor:white_wood_wood"
+    },
+    "textures": {
+      "plankLocation": "abyssal_decor:block/whitewoodplanks",
+      "strippedLogLocation": "abyssal_decor:block/whitewoodstrippedlog",
+      "logTopLocation": "abyssal_decor:block/whitewoodstrippedlogtop",
+      "strippedLogTopLocation": "abyssal_decor:block/whitewoodstrippedlogtop"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "IGNORE",
+      "loadSmallLogs": "IGNORE",
+      "loadSmallLogsSlab": "IGNORE",
+      "loadSmallLogsStairs": "IGNORE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}

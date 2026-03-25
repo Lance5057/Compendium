@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "compendium:barn_wood_slab_to_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "plank_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "compendium:barn_wood_planks_slab_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "plank_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "compendium:barn_wood_slab_to_planks"
+    ]
+  }
+}

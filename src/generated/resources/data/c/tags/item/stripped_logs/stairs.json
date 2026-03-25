@@ -1,14 +1,9 @@
 {
   "values": [
     "compendium:stripped_acacia_small_logs_stairs_item",
-    "compendium:stripped_birch_small_logs_stairs_item",
-    "compendium:stripped_cherry_small_logs_stairs_item",
-    "compendium:stripped_crimson_small_logs_stairs_item",
-    "compendium:stripped_dark_oak_small_logs_stairs_item",
-    "compendium:stripped_jungle_small_logs_stairs_item",
-    "compendium:stripped_mangrove_small_logs_stairs_item",
-    "compendium:stripped_oak_small_logs_stairs_item",
-    "compendium:stripped_spruce_small_logs_stairs_item",
-    "compendium:stripped_warped_small_logs_stairs_item"
+    "compendium:stripped_alder_small_logs_stairs_item",
+    "compendium:stripped_archwood_small_logs_stairs_item",
+    "compendium:stripped_aspen_small_logs_stairs_item",
+    "compendium:stripped_baobab_small_logs_stairs_item"
   ]
 }

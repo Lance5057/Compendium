@@ -1,14 +1,10 @@
 {
   "values": [
     "compendium:acacia_plank_item",
-    "compendium:birch_plank_item",
-    "compendium:cherry_plank_item",
-    "compendium:crimson_plank_item",
-    "compendium:dark_oak_plank_item",
-    "compendium:jungle_plank_item",
-    "compendium:mangrove_plank_item",
-    "compendium:oak_plank_item",
-    "compendium:spruce_plank_item",
-    "compendium:warped_plank_item"
+    "compendium:alder_plank_item",
+    "compendium:archwood_plank_item",
+    "compendium:aspen_plank_item",
+    "compendium:baobab_plank_item",
+    "compendium:barn_wood_plank_item"
   ]
 }

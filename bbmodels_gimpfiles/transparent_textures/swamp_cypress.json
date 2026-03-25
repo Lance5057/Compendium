@@ -1,0 +1,46 @@
+{
+  "name": "swamp_cypress",
+  "namespace": "bloomingnature",
+  "type": "WOOD",
+  "version": 1.1,
+  "loadPlanks": "EXISTS",
+  "loadLog": "EXISTS",
+  "loadStrippedLog": "EXISTS",
+  "loadWood": "EXISTS",
+  "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "existsItem": {
+      "plankLocation": "bloomingnature:swamp_cypress_planks",
+      "logLocation": "bloomingnature:swamp_cypress_log",
+      "strippedLogLocation": "bloomingnature:stripped_swamp_cypress_log",
+      "woodLocation": "bloomingnature:swamp_cypress_wood",
+      "strippedWoodLocation": "bloomingnature:stripped_swamp_cypress_wood"
+    },
+    "textures": {
+      "logLocation": "bloomingnature:block/swamp_cypress_log_side",
+      "strippedLogLocation": "bloomingnature:block/swamp_cypress_log_stripped_side",
+      "logTopLocation": "bloomingnature:block/swamp_cypress_log_top",
+      "strippedLogTopLocation": "bloomingnature:block/swamp_cypress_log_stripped_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "loadSmallLog": "GENERATE",
+      "loadSmallLogs": "GENERATE",
+      "loadSmallLogsSlab": "GENERATE",
+      "loadSmallLogsStairs": "GENERATE",
+      "loadStrippedSmallLog": "GENERATE",
+      "loadStrippedSmallLogs": "GENERATE",
+      "loadStrippedSmallLogsSlab": "GENERATE",
+      "loadStrippedSmallLogsStairs": "GENERATE"
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "loadPlank": "GENERATE",
+      "loadPlankBlock": "GENERATE",
+      "loadPlankSlab": "GENERATE",
+      "loadPlankStairs": "GENERATE"
+    }
+  ]
+}
