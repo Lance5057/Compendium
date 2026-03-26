@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:slabs/wooden/baobab"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:baobab_plank_item"
+  }
+}
