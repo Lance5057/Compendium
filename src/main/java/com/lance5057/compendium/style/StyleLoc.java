@@ -217,6 +217,9 @@ public class StyleLoc {
 		lp.add("style.shingles", "Shingles");
 		lp.add("style.shingles.basic", "Basic");
 		lp.add("style.shingles.angled", "Angled");
+		lp.add("style.shingles.small_stairs", "Small Stairs");
+		lp.add("style.shingles.taper_left", "Tapered Left");
+		lp.add("style.shingles.taper_right", "Tapered Right");
 
 		lp.add("style.support", "Support");
 		lp.add("style.support.basic", "Basic");
