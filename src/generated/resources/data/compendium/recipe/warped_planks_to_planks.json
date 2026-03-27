@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "tag": "c:planks/warped"
+    }
+  },
+  "pattern": [
+    "p ",
+    " p"
+  ],
+  "result": {
+    "count": 4,
+    "id": "compendium:warped_plank_item"
+  }
+}

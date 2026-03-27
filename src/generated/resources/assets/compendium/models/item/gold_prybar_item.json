@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "compendium:item/material/metal/gold/prybar",
-    "layer1": "compendium:item/prybar_base"
-  }
-}

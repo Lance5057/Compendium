@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:stairs/wooden/jungle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:jungle_plank_item"
+  }
+}

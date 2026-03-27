@@ -49,13 +49,14 @@ public class StyleData {
 	public static StyleData BED_SHEET = new StyleData("bed_sheet", List.of("basic", "long", "frilled"));
 	public static StyleData BED_MATTRESS = new StyleData("bed_mattress", List.of("basic"));
 	public static StyleData BED_FRAME = new StyleData("bed_frame",
-			List.of("basic", "contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full",
-							 "lath", "lath_extra", "live_edge","ornate", "ornate_poster","panelled", "slats", "solid", "weave"));
+			List.of("basic", "contemporary_slats", "cross", "fancy", "flat", "flat_extra", "full", "lath", "lath_extra",
+					"live_edge", "ornate", "ornate_poster", "panelled", "slats", "solid", "weave"));
 	public static StyleData BED_BASE = new StyleData("bed_base",
 			List.of("basic", "panelled", "slats", "solid", "weave"));
 
-	public static StyleData SHINGLES_SHINGLES = new StyleData("shingles", List.of("basic", "angled", "small_stairs", "taper_left", "taper_right"));
-	public static StyleData SUPPORT_SHINGLES = new StyleData("support", List.of("basic" , "braced", "none" ));
+	public static StyleData SHINGLES_SHINGLES = new StyleData("shingles",
+			List.of("basic", "angled", "small_stairs", "taper_left", "taper_right"));
+	public static StyleData SUPPORT_SHINGLES = new StyleData("support", List.of("basic", "braced", "none"));
 	public static StyleData GABLE_SHINGLES = new StyleData("gable", List.of("basic"));
 
 	public static StyleData LOG = new StyleData("log",
@@ -80,14 +81,15 @@ public class StyleData {
 					"planks_seamless", "planks_seamless_rotated", "sheet", "small_blocks", "small_blocks_offset",
 					"thin", "thin_rotated", "vertical", "wainscotting_single", "wainscotting_double",
 					"wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated", "wicker", "two_panel",
-					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal"));
+					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal", "greek", "greek_trimmed",
+					"greek_trimmed_rotated", "greek_caged"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
 					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
 					"diagonal_trimmed", "caged", "framed", "trimmed", "caged_grate", "framed_grate", "trimmed_grate",
 					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped",
-					"woven"));
+					"woven", "half_lattice_bottom", "half_lattice_top", "lattice_fancy", "lozenge", "rupees"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

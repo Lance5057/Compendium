@@ -3,6 +3,7 @@ package com.lance5057.compendium;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.Optional;
 import java.util.SortedMap;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.Material;

@@ -54,7 +54,12 @@
       "grill",
       "porthole",
       "warped",
-      "woven"
+      "woven", 
+	  "half_lattice_bottom", 
+	  "half_lattice_top", 
+	  "lattice_fancy", 
+	  "lozenge", 
+	  "rupees"
     ],
     "suffix": "",
     "valid": [
