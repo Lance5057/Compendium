@@ -82,7 +82,7 @@ public class StyleData {
 					"thin", "thin_rotated", "vertical", "wainscotting_single", "wainscotting_double",
 					"wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated", "wicker", "two_panel",
 					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal", "greek", "greek_trimmed",
-					"greek_trimmed_rotated", "greek_caged"));
+					"greek_trimmed_rotated", "greek_caged", "braid", "braid_rotated"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
