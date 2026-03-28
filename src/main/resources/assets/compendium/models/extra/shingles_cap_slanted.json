@@ -12,9 +12,7 @@
     "styleLayer": 0,
     "styles": [
       "basic",
-      "angled",
-      "angled_left",
-      "angled_right"
+      "angled", "small_stairs", "taper_left", "taper_right"
     ],
     "suffix": "",
     "valid": [

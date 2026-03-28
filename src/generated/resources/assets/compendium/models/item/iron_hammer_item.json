@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "compendium:item/material/metal/iron/hammer",
+    "layer1": "compendium:item/hammer_base"
+  }
+}

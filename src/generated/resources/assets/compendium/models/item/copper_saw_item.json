@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:item/handheld",
+  "display": {
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -40
+      ],
+      "translation": [
+        0,
+        -0.75,
+        -4.25
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        40
+      ],
+      "translation": [
+        0,
+        -0.75,
+        -4.25
+      ]
+    }
+  },
+  "textures": {
+    "layer0": "compendium:item/material/metal/copper/saw",
+    "layer1": "compendium:item/saw_base"
+  }
+}

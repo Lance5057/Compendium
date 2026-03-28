@@ -41,6 +41,14 @@ public class BlockTagGen extends BlockTagsProvider {
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CompendiumBlocks.COSMETIC_TOOLBOX.get(),
 				CompendiumBlocks.HAMMERING_STATION.get(), CompendiumBlocks.WINDOW.get());
 
+		tag(CompendiumTags.CREATE_SAFE_NBT).add(CompendiumBlocks.CHAIR.get(), CompendiumBlocks.CLOTHED_TABLE.get(),
+				CompendiumBlocks.FANCY_BED.get(), CompendiumBlocks.COSMETIC_TOOLBOX.get(),
+				CompendiumBlocks.FANCY_FENCE.get(), CompendiumBlocks.HAMMERING_STATION.get(),
+				CompendiumBlocks.SAW_BUCK.get(), CompendiumBlocks.SHINGLES_CAP_SLANTED.get(),
+				CompendiumBlocks.SHINGLES_SLANTED.get(), CompendiumBlocks.TABLE.get(), CompendiumBlocks.TOOLRACK.get(),
+				CompendiumBlocks.WINDOW.get(), CompendiumBlocks.WORKBENCH.get(),
+				CompendiumBlocks.COMPONENT_DRAWER.get());
+
 		CompendiumIndex.index.forEach(i -> {
 			i.setupBlockTags(this);
 		});

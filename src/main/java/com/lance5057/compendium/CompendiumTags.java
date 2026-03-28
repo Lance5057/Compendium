@@ -28,5 +28,7 @@ public class CompendiumTags {
 	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
 	
 	public static TagKey<Block> PIPE_CAN_ATTACH = BlockTags.create(TagUtil.modLoc("pipe_can_attach"));
+	
+	public static TagKey<Block> CREATE_SAFE_NBT = BlockTags.create(ResourceLocation.fromNamespaceAndPath("create", "safe_nbt"));
 }
 

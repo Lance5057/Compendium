@@ -18,7 +18,10 @@ import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -56,7 +59,15 @@ public class CompendiumBlocks {
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
 	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new WindowBlock(Properties.ofFullCopy(Blocks.GLASS), 2, 2, Compendium.modLoc("window"),
+			() -> new WindowBlock(BlockBehaviour.Properties.of()
+	                .instrument(NoteBlockInstrument.HAT)
+	                .strength(0.3F)
+	                .sound(SoundType.GLASS)
+	                .noOcclusion()
+	                .isValidSpawn((a,b,c,d) -> false)
+	                .isRedstoneConductor((a,b,c) -> false)
+	                .isSuffocating((a,b,c) -> false)
+	                .isViewBlocking((a,b,c) -> false), 2, 2, Compendium.modLoc("window"),
 					StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",

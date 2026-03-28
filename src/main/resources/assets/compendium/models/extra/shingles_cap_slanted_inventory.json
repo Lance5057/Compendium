@@ -13,8 +13,7 @@
     "styles": [
       "basic",
       "angled",
-      "angled_left",
-      "angled_right"
+      "small_stairs", "taper_left", "taper_right"
     ],
     "suffix": "_inventory",
     "valid": [
