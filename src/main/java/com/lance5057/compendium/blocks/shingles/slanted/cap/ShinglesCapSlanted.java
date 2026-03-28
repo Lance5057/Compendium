@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBlock {
@@ -29,8 +30,9 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
 	public static final BooleanProperty WEST = PipeBlock.WEST;
 	public static final BooleanProperty TOP = BooleanProperty.create("top");
-	
-	protected static final VoxelShape BASE = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+
+	protected static final VoxelShape SHAPE_BASE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+	protected static final VoxelShape SHAPE_TOP = Block.box(5.0D, 11.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 
 	public ShinglesCapSlanted(Properties properties) {
 		super(properties);
@@ -38,15 +40,17 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 				.setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false))
 				.setValue(WEST, Boolean.valueOf(false)).setValue(TOP, Boolean.valueOf(false)));
 	}
-	
+
 	@Override
 	public RenderShape getRenderShape(BlockState pState) {
 		return RenderShape.MODEL;
 	}
-	
+
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-		return BASE;
+		if (state.getValue(TOP))
+			return Shapes.or(SHAPE_TOP, SHAPE_BASE);
+		return SHAPE_BASE;
 	}
 
 	@Override

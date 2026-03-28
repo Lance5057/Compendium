@@ -953,9 +953,12 @@ public class CompendiumClient {
 				ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
 
 				doStyleStairs(event, mb, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner, outer, 0, 0,
-						Pair.of("0", texture));
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 
-				doShingleCap(event, mb, "support", b, Pair.of("0", texture));
+				doShingleCap(event, mb, "support", b,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 			}
 		}
 	}
