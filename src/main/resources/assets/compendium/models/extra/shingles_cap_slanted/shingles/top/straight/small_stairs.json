@@ -10,31 +10,59 @@
 		{
 			"name": "shingle",
 			"from": [0, 0, 0],
-			"to": [16, 4, 16],
+			"to": [16, 4, 8],
 			"faces": {
 				"north": {"uv": [16, 16, 0, 12], "rotation": 180, "texture": "#0"},
-				"east": {"uv": [0, 12, 16, 16], "texture": "#0", "cullface": "east"},
+				"east": {"uv": [8, 12, 16, 16], "texture": "#0", "cullface": "east"},
 				"south": {"uv": [0, 12, 16, 16], "texture": "#0"},
-				"west": {"uv": [0, 12, 16, 16], "texture": "#0", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#0"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+				"west": {"uv": [0, 12, 8, 16], "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 8, 16, 16], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 8, 16, 16], "texture": "#0"}
 			}
 		},
 		{
 			"name": "shingle",
-			"from": [0, 4, 3.989],
-			"to": [16, 8.02, 12.011],
+			"from": [0, 4, 3.97],
+			"to": [16, 8.02, 8],
 			"faces": {
 				"north": {"uv": [16, 12, 0, 7.98], "rotation": 180, "texture": "#0"},
-				"east": {"uv": [3.978, 7.98, 12, 12], "texture": "#0", "cullface": "east"},
+				"east": {"uv": [7.978, 7.98, 12, 12], "texture": "#0", "cullface": "east"},
 				"south": {"uv": [0, 7.98, 16, 12], "texture": "#0"},
-				"west": {"uv": [4, 7.98, 12.022, 12], "texture": "#0", "cullface": "west"},
-				"up": {"uv": [0, 3.978, 16, 12], "rotation": 180, "texture": "#0"},
-				"down": {"uv": [0, 3.978, 16, 12], "texture": "#0"}
+				"west": {"uv": [4, 7.98, 8.022, 12], "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 7.978, 16, 12], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 7.978, 16, 12], "texture": "#0"}
 			}
 		},
 		{
-			"from": [5, 8, 5],
+			"name": "shingle",
+			"from": [0, 0, 8],
+			"to": [16, 4, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 16]},
+			"faces": {
+				"north": {"uv": [0, 12, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 12, 8, 16], "texture": "#0", "cullface": "west"},
+				"south": {"uv": [16, 16, 0, 12], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [8, 12, 16, 16], "texture": "#0", "cullface": "east"},
+				"up": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 16, 16], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "shingle",
+			"from": [0, 4, 8],
+			"to": [16, 8.02, 12.03],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 16]},
+			"faces": {
+				"north": {"uv": [0, 7.98, 16, 12], "texture": "#0"},
+				"east": {"uv": [4, 7.98, 8.022, 12], "texture": "#0", "cullface": "west"},
+				"south": {"uv": [16, 12, 0, 7.98], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [7.978, 7.98, 12, 12], "texture": "#0", "cullface": "east"},
+				"up": {"uv": [0, 7.978, 16, 12], "texture": "#0"},
+				"down": {"uv": [0, 7.978, 16, 12], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 7.98, 5],
 			"to": [11, 16, 11],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
 			"faces": {
@@ -51,9 +79,12 @@
 		{
 			"name": "group",
 			"origin": [8, 3, 0.5],
+			"scope": 0,
 			"color": 0,
 			"children": [0, 1]
 		},
-		2
+		2,
+		3,
+		4
 	]
 }

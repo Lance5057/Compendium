@@ -322,7 +322,14 @@ public class StyleLoc {
 		lp.add("style.plank_block.nine_panels", "Nine Panels");
 		lp.add("style.plank_block.petal", "Petal");
 		lp.add("style.plank_block.two_panel", "Two Panels");
+		lp.add("style.plank_block.four_panels", "Four Panels");
 		lp.add("style.plank_block.paper", "Paper");
+		lp.add("style.plank_block.greek", "Greek");
+		lp.add("style.plank_block.greek_trimmed", "Trimmed Greek");
+		lp.add("style.plank_block.greek_trimmed_rotated", "Trimmed Greek (Rotated)");
+		lp.add("style.plank_block.greek_caged", "Caged Greek");
+		lp.add("style.plank_block.braid", "Braid");
+		lp.add("style.plank_block.braid_rotated", "Braid (Rotated)");
 
 		// Window Trim
 		lp.add("style.window_trim", "Trim");
@@ -337,6 +344,10 @@ public class StyleLoc {
 		lp.add("style.window_trim.full", "Full");
 		lp.add("style.window_trim.lattice", "Lattice");
 		lp.add("style.window_trim.lattice_trimmed", "Lattice (Trimmed)");
+		lp.add("style.window_trim.half_lattice_bottom", "Half Lattice (Bottom)");
+		lp.add("style.window_trim.half_lattice_top", "Half Lattice (Top)");
+		lp.add("style.window_trim.lattice_fancy", "Fancy Lattice");
+		lp.add("style.window_trim.rupees", "Rupees");
 		lp.add("style.window_trim.round", "Round");
 		lp.add("style.window_trim.weave", "Weave");
 		lp.add("style.window_trim.diagonal", "Diagonal");
@@ -351,11 +362,12 @@ public class StyleLoc {
 		lp.add("style.window_trim.grate", "Grate");
 		lp.add("style.window_trim.grate_edgeless", "Edgeless Grate");
 		lp.add("style.window_trim.fancy_frame", "Fancy Frame");
-		lp.add("style.window_trim.caged_lattice", "Caged Lattice");
+		lp.add("style.window_trim.caged_lattice", "Caged Grid");
 		lp.add("style.window_trim.grill", "Grill");
 		lp.add("style.window_trim.porthole", "Porthole");
 		lp.add("style.window_trim.warped", "Warped");
 		lp.add("style.window_trim.woven", "Woven");
+		lp.add("style.window_trim.lozenge", "Lozenge");
 
 		// Window Glass
 		lp.add("style.window_glass", "Glass");
