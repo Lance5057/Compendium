@@ -63,13 +63,13 @@ public class BlockStateModels extends BlockStateProvider {
 					.rotationY(((int) state.getValue(WorkbenchBlock.FACING).toYRot() - 90) % 360).build();
 		});
 
-		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.TABLE.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.FANCY_BED.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
-		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.CHAIR.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.CLOTHED_TABLE.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.FANCY_FENCE.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.FANCY_BED.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
+//		this.simpleBlock(CompendiumBlocks.SHINGLES_SLANTED.get(), models().getExistingFile(mcLoc("block/air")));
 
 //		getVariantBuilder(CompendiumBlocks.WINDOW.get()).forAllStates(state -> {
 //			Builder<?> b = ConfiguredModel.builder();

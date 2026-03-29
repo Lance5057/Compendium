@@ -89,7 +89,7 @@ public class StyleData {
 					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
 					"diagonal_trimmed", "caged", "framed", "trimmed", "caged_grate", "framed_grate", "trimmed_grate",
 					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped",
-					"woven", "half_lattice_bottom", "half_lattice_top", "lattice_fancy", "lozenge", "rupees"));
+					"woven", "half_lattice_bottom", "half_lattice_top", "lattice_fancy", "lozenge", "rupees", "hourglasses"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
 
 	String name;

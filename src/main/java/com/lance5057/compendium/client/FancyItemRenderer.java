@@ -80,8 +80,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				}
 
 				if (ir != null) {
-					ir.render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight, overlay, 0,
-							md.build());
+					ir.render(ps, mbs, texture -> RenderType.itemEntityTranslucentCull(texture), packedLight, overlay,
+							0, md.build());
 
 				}
 

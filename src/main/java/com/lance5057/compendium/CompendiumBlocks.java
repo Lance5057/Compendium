@@ -58,17 +58,11 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> CLOTHED_TABLE = BLOCKS.register("clothed_table",
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
-	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new WindowBlock(BlockBehaviour.Properties.of()
-	                .instrument(NoteBlockInstrument.HAT)
-	                .strength(0.3F)
-	                .sound(SoundType.GLASS)
-	                .noOcclusion()
-	                .isValidSpawn((a,b,c,d) -> false)
-	                .isRedstoneConductor((a,b,c) -> false)
-	                .isSuffocating((a,b,c) -> false)
-	                .isViewBlocking((a,b,c) -> false), 2, 2, Compendium.modLoc("window"),
-					StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
+	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window", () -> new WindowBlock(
+			BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).strength(0.3F).sound(SoundType.GLASS)
+					.noOcclusion().isValidSpawn((a, b, c, d) -> false).isRedstoneConductor((a, b, c) -> false)
+					.isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false),
+			2, 2, Compendium.modLoc("window"), StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),
