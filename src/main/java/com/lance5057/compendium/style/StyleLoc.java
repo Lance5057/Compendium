@@ -201,6 +201,8 @@ public class StyleLoc {
 		lp.add("style.bed_frame.lath", "Lath");
 		lp.add("style.bed_frame.lath_extra", "Fancy Lath");
 		lp.add("style.bed_frame.live_edge", "Live Edge");
+		lp.add("style.bed_frame.ornate", "Ornate");
+		lp.add("style.bed_frame.ornate_poster", "Ornate with Posts");
 		lp.add("style.bed_frame.panelled", "Panelled");
 		lp.add("style.bed_frame.slats", "Slats");
 		lp.add("style.bed_frame.solid", "Solid");
@@ -368,6 +370,7 @@ public class StyleLoc {
 		lp.add("style.window_trim.warped", "Warped");
 		lp.add("style.window_trim.woven", "Woven");
 		lp.add("style.window_trim.lozenge", "Lozenge");
+		lp.add("style.window_trim.hourglasses", "Hourglasses");
 
 		// Window Glass
 		lp.add("style.window_glass", "Glass");
