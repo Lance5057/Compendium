@@ -85,12 +85,14 @@ public class StyleData {
 					"greek_trimmed_rotated", "greek_caged", "braid", "braid_rotated"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
-			List.of("quarter", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed", "diamond",
-					"diamond_trimmed", "double", "full", "lattice", "lattice_trimmed", "round", "weave", "diagonal",
-					"diagonal_trimmed", "caged", "framed", "trimmed", "caged_grate", "framed_grate", "trimmed_grate",
-					"grate", "grate_edgeless", "braced", "fancy_frame", "caged_lattice", "grill", "porthole", "warped",
-					"woven", "half_lattice_bottom", "half_lattice_top", "lattice_fancy", "lozenge", "rupees", "hourglasses"));
-	public static StyleData WINDOW_GLASS = new StyleData("window_glass", List.of("basic"));
+			List.of("quarter", "quarter_trimmed", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed",
+					"diamond", "diamond_trimmed", "double", "double_offset", "double_trimmed", "full", "lattice",
+					"lattice_trimmed", "round", "weave", "diagonal", "diagonal_trimmed", "caged", "framed", "trimmed",
+					"caged_grate", "framed_grate", "trimmed_grate", "grate", "grate_edgeless", "braced", "fancy_frame",
+					"caged_lattice", "grill", "porthole", "warped", "woven", "half_lattice_bottom", "half_lattice_top",
+					"lattice_fancy", "lozenge", "rupees", "rupees_small", "hourglasses", "none"));
+	public static StyleData WINDOW_GLASS = new StyleData("window_glass",
+			List.of("basic", "no_edge", "no_glint", "no_edge_no_glint"));
 
 	String name;
 	List<String> types;

@@ -372,6 +372,9 @@ public class CompendiumClient {
 
 				if (mb.name.equalsIgnoreCase("clear")) {
 					ResourceLocation texture = TagUtil.mcLoc("block/glass");
+					if (!b.equals("basic")) {
+						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
+					}
 
 					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
 							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
@@ -388,6 +391,9 @@ public class CompendiumClient {
 									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
 				} else {
 					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
+					if (!b.equals("basic")) {
+						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
+					}
 
 					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
 							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
