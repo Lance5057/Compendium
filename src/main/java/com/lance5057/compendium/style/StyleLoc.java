@@ -336,6 +336,7 @@ public class StyleLoc {
 		// Window Trim
 		lp.add("style.window_trim", "Trim");
 		lp.add("style.window_trim.quarter", "Quarter");
+		lp.add("style.window_trim.quarter_trimmed", "Quarter (Trimmed)");
 		lp.add("style.window_trim.bars", "Vertical Bars");
 		lp.add("style.window_trim.bars_trimmed", "Vertical Bars (Trimmed)");
 		lp.add("style.window_trim.bars_horizontal", "Horizontal Bars");
@@ -343,13 +344,14 @@ public class StyleLoc {
 		lp.add("style.window_trim.diamond", "Diamond");
 		lp.add("style.window_trim.diamond_trimmed", "Diamond (Trimmed)");
 		lp.add("style.window_trim.double", "Double");
+		lp.add("style.window_trim.double_offset", "Double (Offset)");
+		lp.add("style.window_trim.double_trimmed", "Double (Trimmed)");
 		lp.add("style.window_trim.full", "Full");
 		lp.add("style.window_trim.lattice", "Lattice");
 		lp.add("style.window_trim.lattice_trimmed", "Lattice (Trimmed)");
 		lp.add("style.window_trim.half_lattice_bottom", "Half Lattice (Bottom)");
 		lp.add("style.window_trim.half_lattice_top", "Half Lattice (Top)");
 		lp.add("style.window_trim.lattice_fancy", "Fancy Lattice");
-		lp.add("style.window_trim.rupees", "Rupees");
 		lp.add("style.window_trim.round", "Round");
 		lp.add("style.window_trim.weave", "Weave");
 		lp.add("style.window_trim.diagonal", "Diagonal");
@@ -370,10 +372,16 @@ public class StyleLoc {
 		lp.add("style.window_trim.warped", "Warped");
 		lp.add("style.window_trim.woven", "Woven");
 		lp.add("style.window_trim.lozenge", "Lozenge");
+		lp.add("style.window_trim.rupees", "Rupees");
+		lp.add("style.window_trim.rupees_small", "Small Rupees");
 		lp.add("style.window_trim.hourglasses", "Hourglasses");
+		lp.add("style.window_trim.none", "No Trim");
 
 		// Window Glass
 		lp.add("style.window_glass", "Glass");
 		lp.add("style.window_glass.basic", "Basic");
+		lp.add("style.window_glass.no_edge", "No Edge");
+		lp.add("style.window_glass.no_glint", "No Glint");
+		lp.add("style.window_glass.no_edge_no_glint", "No Edge, No Glint");
 	}
 }
