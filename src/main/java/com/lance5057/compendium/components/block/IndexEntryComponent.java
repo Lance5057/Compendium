@@ -80,10 +80,15 @@ public class IndexEntryComponent {
 
 	public void addToTooltip(ItemStack stack, TooltipContext context, Consumer<Component> tooltipAdder,
 			TooltipFlag tooltipFlag) {
-		tooltipAdder.accept(Component.literal(" - ")
-				.append(Component.translatable("compendium.tooltip.material_type." + type.toString().toLowerCase())));
-		tooltipAdder.accept(Component.literal(" - ")
-				.append(Component.translatable("compendium.tooltip.material_name." + name.toLowerCase())));
+		if (!tooltipFlag.hasAltDown()) {
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.index.see_more").withColor(0xFFAAAAAA));
+		} else {
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.index"));
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.material_type").append(Component.literal(" - ").append(
+					Component.translatable("compendium.tooltip.material_type." + type.toString().toLowerCase()))));
+			tooltipAdder.accept(Component.translatable("compendium.tooltip.material_name").append(Component.literal(" - ")
+					.append(Component.translatable("compendium.tooltip.material." + name.toLowerCase()))));
+		}
 
 	}
 }
