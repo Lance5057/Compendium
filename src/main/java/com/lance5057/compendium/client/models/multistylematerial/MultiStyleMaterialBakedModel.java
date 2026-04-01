@@ -112,7 +112,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					String st = s.get(styleLayer);
 
 					if (m != "") {
-						ResourceLocation rc = ClientUtil.createMaterialStyleLayerLocation(baseName, layerName, m, st,
+						ResourceLocation rc = ClientUtil.createMaterialStyleLayerBlockLocation(baseName, layerName, m, st,
 								suffix);
 
 						BakedModel t = Minecraft.getInstance().getModelManager()

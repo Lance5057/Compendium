@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:warped_stem",
-    "minecraft:warped_hyphae",
-    "compendium:warped_small_logs_item"
+    "minecraft:warped_hyphae"
   ]
 }

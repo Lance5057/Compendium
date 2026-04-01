@@ -55,13 +55,14 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_SHINGLES,
-				StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES);
+		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_CAP_SHINGLES,
+				StyleData.SUPPORT_CAP_SHINGLES, StyleData.GABLE_CAP_SHINGLES);
 	}
 
 	@Override
 	public StyleData[] getStyleData() {
-		return new StyleData[] { StyleData.SHINGLES_SHINGLES, StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES };
+		return new StyleData[] { StyleData.SHINGLES_CAP_SHINGLES, StyleData.SUPPORT_CAP_SHINGLES,
+				StyleData.GABLE_CAP_SHINGLES };
 	}
 
 	@Override

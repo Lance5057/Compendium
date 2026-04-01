@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:birch_log",
-    "minecraft:birch_wood",
-    "compendium:birch_small_logs_item"
+    "minecraft:birch_wood"
   ]
 }

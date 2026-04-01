@@ -95,7 +95,7 @@ public class StyleBakedModel implements IDynamicBakedModel {
 
 		if (index != null) {
 			if (styles != null && styles.size() > 0) {
-				ResourceLocation rc = ClientUtil.createStyleLocation(index + "_" + baseName, styles.get(0));
+				ResourceLocation rc = ClientUtil.createStyleBlockLocation(index + "_" + baseName, styles.get(0));
 
 				BakedModel q = Minecraft.getInstance().getModelManager().getModel(new ModelResourceLocation(rc, ""));
 

@@ -138,6 +138,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small/" + base.name));
 		SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		SMALL_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		SMALL_LOG.setAsValidStyleBlock();
 
 		LOG.setName(base.name + "_small_logs");
@@ -155,6 +156,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + base.name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		LOG.setAsValidStyleBlock();
 		LOG.setAsValidStyleItem();
 
@@ -173,6 +175,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab"));
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab/" + base.name));
 		LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		LOG_SLAB.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		LOG_SLAB.setAsValidStyleBlock();
 		LOG_SLAB.setAsValidStyleItem();
 
@@ -195,6 +198,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		LOG_STAIRS.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		LOG_STAIRS.setAsValidStyleBlock();
 		LOG_STAIRS.setAsValidStyleItem();
 
@@ -218,6 +222,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_logs/small"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_logs/small/" + base.name));
 		STRIPPED_SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_SMALL_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		STRIPPED_SMALL_LOG.setAsValidStyleBlock();
 
 		STRIPPED_LOG.setName("stripped_" + base.name + "_small_logs");
@@ -238,6 +243,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + base.name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		STRIPPED_LOG.setAsValidStyleBlock();
 		STRIPPED_LOG.setAsValidStyleItem();
 
@@ -259,6 +265,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/" + base.name));
 		STRIPPED_LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG_SLAB.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		STRIPPED_LOG_SLAB.setAsValidStyleBlock();
 		STRIPPED_LOG_SLAB.setAsValidStyleItem();
 
@@ -281,6 +288,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
 		STRIPPED_LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+		STRIPPED_LOG_STAIRS.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		STRIPPED_LOG_STAIRS.setAsValidStyleBlock();
 		STRIPPED_LOG_STAIRS.setAsValidStyleItem();
 	}
@@ -1187,39 +1195,39 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	@Override
 	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-		if (this.autoGenItemModel) {
-			if (SMALL_LOG.shouldGenerate()) {
-				tmp.getBuilder(SMALL_LOG.BLOCK_ITEM.get().toString())
-						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/small_log_inventory")))
-						.texture("0", tmp.modLoc(base.blockFolder() + "logs/extra_caps"))
-						.texture("1", tmp.modLoc(base.blockFolder() + "logs/small_logs"));
-			}
-			if (LOG.shouldGenerate()) {
-				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-			if (LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-			if (LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-
-			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
-				tmp.getBuilder(STRIPPED_SMALL_LOG.BLOCK_ITEM.get().toString())
-						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/small_log_inventory")))
-						.texture("0", tmp.modLoc(base.blockFolder() + "logs/stripped_extra_caps"))
-						.texture("1", tmp.modLoc(base.blockFolder() + "logs/stripped_small_logs"));
-			}
-			if (STRIPPED_LOG.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
-				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-			}
-		}
+//		if (this.autoGenItemModel) {
+//			if (SMALL_LOG.shouldGenerate()) {
+//				tmp.getBuilder(SMALL_LOG.BLOCK_ITEM.get().toString())
+//						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/small_log_inventory")))
+//						.texture("0", tmp.modLoc(base.blockFolder() + "logs/extra_caps"))
+//						.texture("1", tmp.modLoc(base.blockFolder() + "logs/small_logs"));
+//			}
+//			if (LOG.shouldGenerate()) {
+//				tmp.withExistingParent(LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//			if (LOG_SLAB.shouldGenerate()) {
+//				tmp.withExistingParent(LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//			if (LOG_STAIRS.shouldGenerate()) {
+//				tmp.withExistingParent(LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//
+//			if (STRIPPED_SMALL_LOG.shouldGenerate()) {
+//				tmp.getBuilder(STRIPPED_SMALL_LOG.BLOCK_ITEM.get().toString())
+//						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/small_log_inventory")))
+//						.texture("0", tmp.modLoc(base.blockFolder() + "logs/stripped_extra_caps"))
+//						.texture("1", tmp.modLoc(base.blockFolder() + "logs/stripped_small_logs"));
+//			}
+//			if (STRIPPED_LOG.shouldGenerate()) {
+//				tmp.withExistingParent(STRIPPED_LOG.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//			if (STRIPPED_LOG_SLAB.shouldGenerate()) {
+//				tmp.withExistingParent(STRIPPED_LOG_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//			if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
+//				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+//			}
+//		}
 	}
 
 	@Override
