@@ -36,6 +36,7 @@ import com.lance5057.compendium.index.material.base.MaterialGlass;
 import com.lance5057.compendium.index.material.base.MaterialMetal;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
+import com.lance5057.compendium.index.material.base.wood.ClientWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
@@ -85,6 +86,7 @@ import net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import net.neoforged.neoforge.client.model.RegistryAwareItemModelShaper;
 
 @EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT)
 public class CompendiumClient {
@@ -176,7 +178,24 @@ public class CompendiumClient {
 					.standalone(ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), s));
 
 			event.register(rl2);
+			Compendium.LOGGER.debug(rl2);
 		});
+
+		event.register(ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+	}
+
+	@SubscribeEvent
+	public static void RegisterItemModels(ModelEvent.BakingCompleted event) {
+		RegistryAwareItemModelShaper shaper = (RegistryAwareItemModelShaper) Minecraft.getInstance().getItemRenderer()
+				.getItemModelShaper();
+
+		CompendiumIndex.index.forEach(i -> {
+			if (i instanceof _MaterialBase mb) {
+				if (mb instanceof MaterialWood mw)
+					ClientWood.doItems(shaper, mb, mw);
+			}
+		});
+
 	}
 
 	@SubscribeEvent
@@ -1827,17 +1846,8 @@ public class CompendiumClient {
 		}
 
 		if (eep.PLANK_BLOCK.isNotIgnored()) {
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/plank"), mw.name + "_plank", "");
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"), mw.name + "_planks", "");
 
-			Minecraft.getInstance().getItemRenderer().getItemModelShaper().register(eep.PLANK_BLOCK.BLOCK_ITEM.asItem(),
-					new ModelResourceLocation(TagUtil.modLoc("item/item"), ""));
-//			event.getModels()
-//					.put(ModelResourceLocation
-//							.inventory(TagUtil.modLoc("item/" + eep.PLANK_BLOCK.BLOCK_ITEM.getId().getPath())),
-//							buildModel(event, (BlockModel) event.getModelBakery().getModel(TagUtil.modLoc("item/item")),
-//									new ModelResourceLocation(
-//											TagUtil.modLoc("item/" + eep.PLANK_BLOCK.BLOCK_ITEM.getId().getPath()), ""),
-//									BlockModelRotation.X0_Y0));
 		}
 
 		if (eep.PLANK.isNotIgnored()) {

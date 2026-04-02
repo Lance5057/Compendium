@@ -39,6 +39,8 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -123,6 +125,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		PLANK.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		PLANK.setAsValidStyleBlock();
+		PLANK.setAsValidStyleItem();
 
 		PLANK_BLOCK.setName(base.name + "_planks");
 		PLANK_BLOCK
@@ -415,8 +418,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraPlanks> {

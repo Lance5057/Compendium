@@ -73,9 +73,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 5373374706645885937L;
 	public static final VoxelShape smallLogHori1 = Block.box(4.0D, 4.0D, 0.0D, 12.0D, 12.0D, 16.0D);
 	public static final VoxelShape smallLogHori2 = Block.box(0.0D, 4.0D, 4.0D, 16.0D, 12.0D, 12.0D);
@@ -140,6 +138,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		SMALL_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		SMALL_LOG.setAsValidStyleBlock();
+		SMALL_LOG.setAsValidStyleItem();
 
 		LOG.setName(base.name + "_small_logs");
 		LOG.setup(base,
@@ -224,6 +223,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		STRIPPED_SMALL_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		STRIPPED_SMALL_LOG.setAsValidStyleBlock();
+		STRIPPED_SMALL_LOG.setAsValidStyleItem();
 
 		STRIPPED_LOG.setName("stripped_" + base.name + "_small_logs");
 		STRIPPED_LOG
