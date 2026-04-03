@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base;
+package com.lance5057.compendium.index.material.base.metal;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -14,6 +14,8 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -44,9 +46,6 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MaterialMetal extends _MaterialBase {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7314131020121747496L;
 	public CompendiumItemHandler INGOT = new CompendiumItemHandler("ingot");
 	public CompendiumItemHandler NUGGET = new CompendiumItemHandler("nugget");

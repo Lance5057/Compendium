@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base.wood;
+package com.lance5057.compendium.index.material.base.wood.locations;
 
 import java.lang.reflect.Type;
 
@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ExistsLocationsWood {
 	ResourceLocation plankLocation;
+
 	ResourceLocation logLocation;
 	ResourceLocation strippedLogLocation;
 	ResourceLocation woodLocation;
@@ -26,6 +27,26 @@ public class ExistsLocationsWood {
 		this.strippedLogLocation = strippedLogLoc;
 		this.woodLocation = woodLoc;
 		this.strippedWoodLocation = strippedWoodLoc;
+	}
+
+	public ResourceLocation getPlankLocation() {
+		return plankLocation;
+	}
+
+	public ResourceLocation getLogLocation() {
+		return logLocation;
+	}
+
+	public ResourceLocation getStrippedLogLocation() {
+		return strippedLogLocation;
+	}
+
+	public ResourceLocation getWoodLocation() {
+		return woodLocation;
+	}
+
+	public ResourceLocation getStrippedWoodLocation() {
+		return strippedWoodLocation;
 	}
 
 	public static class Serializer

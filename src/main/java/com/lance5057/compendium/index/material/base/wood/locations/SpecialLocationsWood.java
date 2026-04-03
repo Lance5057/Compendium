@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base.wood;
+package com.lance5057.compendium.index.material.base.wood.locations;
 
 import java.lang.reflect.Type;
 

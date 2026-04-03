@@ -21,6 +21,8 @@ import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.wood.locations.ExistsLocationsWood;
+import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.util.TagUtil;
@@ -134,8 +136,8 @@ public class MaterialWood extends _MaterialBase {
 				"stripped_" + this.name + (!isNether ? "_wood" : "_hyphae"));
 
 		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				existsItem != null ? fileLoc(standardLoc, existsItem.strippedWoodLocation) : standardLoc,
-				existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedWoodLocation) : standardLoc);
+				existsItem != null ? fileLoc(standardLoc, existsItem.getStrippedWoodLocation()) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.getStrippedWoodLocation()) : standardLoc);
 
 		STRIPPED_WOOD.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -150,8 +152,8 @@ public class MaterialWood extends _MaterialBase {
 				this.name + (!isNether ? "_wood" : "_hyphae"));
 
 		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				existsItem != null ? fileLoc(standardLoc, existsItem.woodLocation) : standardLoc,
-				existsBlock != null ? fileLoc(standardLoc, existsBlock.woodLocation) : standardLoc);
+				existsItem != null ? fileLoc(standardLoc, existsItem.getWoodLocation()) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.getWoodLocation()) : standardLoc);
 
 		WOOD.setupItemTag(ItemTags.LOGS);
 		WOOD.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -166,8 +168,8 @@ public class MaterialWood extends _MaterialBase {
 				"stripped_" + this.name + (!isNether ? "_log" : "_stem"));
 
 		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
-				existsItem != null ? fileLoc(standardLoc, existsItem.strippedLogLocation) : standardLoc,
-				existsBlock != null ? fileLoc(standardLoc, existsBlock.strippedLogLocation) : standardLoc);
+				existsItem != null ? fileLoc(standardLoc, existsItem.getStrippedLogLocation()) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.getStrippedLogLocation()) : standardLoc);
 
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -180,8 +182,8 @@ public class MaterialWood extends _MaterialBase {
 				this.name + (!isNether ? "_log" : "_stem"));
 
 		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
-				existsItem != null ? fileLoc(standardLoc, existsItem.logLocation) : standardLoc,
-				existsBlock != null ? fileLoc(standardLoc, existsBlock.logLocation) : standardLoc);
+				existsItem != null ? fileLoc(standardLoc, existsItem.getLogLocation()) : standardLoc,
+				existsBlock != null ? fileLoc(standardLoc, existsBlock.getLogLocation()) : standardLoc);
 
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -192,9 +194,9 @@ public class MaterialWood extends _MaterialBase {
 	public void setupPlanks(ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
 		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_planks");
 
-		ResourceLocation specialItem = existsItem != null ? fileLoc(standardLoc, existsItem.plankLocation)
+		ResourceLocation specialItem = existsItem != null ? fileLoc(standardLoc, existsItem.getPlankLocation())
 				: standardLoc;
-		ResourceLocation specialBlock = existsBlock != null ? fileLoc(standardLoc, existsBlock.plankLocation)
+		ResourceLocation specialBlock = existsBlock != null ? fileLoc(standardLoc, existsBlock.getPlankLocation())
 				: standardLoc;
 
 		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)), specialItem,
