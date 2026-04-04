@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/acacia"
+      "item": "compendium:acacia_plank_item"
     }
   },
   "pattern": [

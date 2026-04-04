@@ -21,11 +21,11 @@ public class EngLoc extends LanguageProvider {
 		this.add("compendium.jei.sawbuck", "Sawing");
 		this.add("compendium.jei.workbench", "Advanced Crafting");
 		this.add("compendium.tooltip.material.see_more", "Hold Shift for Materials");
-		this.add("compendium.tooltip.material", "Materials -");
+		this.add("compendium.tooltip.material", "Materials:");
 		this.add("compendium.tooltip.style.see_more", "Hold Ctrl for Styles");
-		this.add("compendium.tooltip.style", "Styles -");
+		this.add("compendium.tooltip.style", "Styles:");
 		this.add("compendium.tooltip.index.see_more", "Hold Alt for Index Information");
-		this.add("compendium.tooltip.index", "Index Information -");
+		this.add("compendium.tooltip.index", "Index Information:");
 		
 		this.add("compendium.tooltip.material_type", "Type");
 		this.add("compendium.tooltip.material_name", "Name");
@@ -52,6 +52,16 @@ public class EngLoc extends LanguageProvider {
 		
 		this.add(CompendiumItems.CRUDE_HAMMER.get(), "Crude Hammer");
 		this.add(CompendiumItems.CRUDE_SAW.get(), "Crude Saw");
+
+		// For the material_type tooltips
+		for (CompendiumIndex.MATERIAL_TYPES mat : CompendiumIndex.MATERIAL_TYPES.values()) {
+			StringBuilder locName = new StringBuilder();
+			for (String word : mat.toString().toLowerCase().split("_")) {
+				word = word.substring(0, 1).toUpperCase() + word.substring(1);
+				locName.append(word).append(" ");
+			}
+			this.add("compendium.tooltip.material_type." + mat.toString().toLowerCase(), locName.toString());
+		}
 
 		CompendiumIndex.index.forEach(i -> {
 			i.engLoc(this);

@@ -144,7 +144,6 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods"));
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods/" + name));
 		STRIPPED_WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-		STRIPPED_WOOD.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 	}
 
 	public void setupWood(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -160,7 +159,6 @@ public class MaterialWood extends _MaterialBase {
 		WOOD.setupItemTag(TagUtil.neoTag("woods"));
 		WOOD.setupItemTag(TagUtil.neoTag("woods/" + name));
 		WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-		WOOD.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 	}
 
 	public void setupStrippedLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -174,7 +172,6 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-		STRIPPED_LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 	}
 
 	public void setupLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -188,7 +185,6 @@ public class MaterialWood extends _MaterialBase {
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-		LOG.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 	}
 
 	public void setupPlanks(ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -205,7 +201,6 @@ public class MaterialWood extends _MaterialBase {
 		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
 		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
-		PLANKS.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 	}
 
 	@Override
@@ -347,20 +342,12 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public void setupBlockTags(BlockTagsProvider btp) {
 		LOG.blockTag(btp);
-		btp.tag(CompendiumTags.CREATE_SAFE_NBT).add(LOG.BLOCK.get());
 		
 		PLANKS.blockTag(btp);
-		btp.tag(CompendiumTags.CREATE_SAFE_NBT).add(PLANKS.BLOCK.get());
 		
 		STRIPPED_LOG.blockTag(btp);
 		STRIPPED_WOOD.blockTag(btp);
 		WOOD.blockTag(btp);
-		
-		
-		
-		btp.tag(CompendiumTags.CREATE_SAFE_NBT).add(STRIPPED_LOG.BLOCK.get());
-		btp.tag(CompendiumTags.CREATE_SAFE_NBT).add(STRIPPED_WOOD.BLOCK.get());
-		btp.tag(CompendiumTags.CREATE_SAFE_NBT).add(WOOD.BLOCK.get());
 
 		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
 	}

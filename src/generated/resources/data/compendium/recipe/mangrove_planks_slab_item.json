@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/mangrove"
+      "item": "compendium:mangrove_plank_item"
     }
   },
   "pattern": [

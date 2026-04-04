@@ -283,7 +283,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			if (!this.PLANK_BLOCK.isIgnored()) {
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
-						.define('p', ItemTags.create(TagUtil.neoTag("plank/" + base.name))).pattern("p p")
+						.define('p', PLANK.BLOCK_ITEM).pattern("p p")
 						.pattern("   ").pattern("p p")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
@@ -307,7 +307,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			if (!this.PLANK_SLAB.isIgnored()) {
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_SLAB.BLOCK_ITEM, 6)
-						.define('p', ItemTags.create(TagUtil.neoTag("plank/" + base.name))).pattern("ppp")
+						.define('p', PLANK.BLOCK_ITEM).pattern("ppp")
 						.pattern("ppp")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),

@@ -85,7 +85,13 @@ public class MaterialGlass extends _MaterialBase {
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
-		String locName = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
+		StringBuilder locName = new StringBuilder();
+		for (String word : this.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			locName.append(word).append(" ");
+		}
+		locName.append("Glass");
+		lp.add("compendium.tooltip.material." + this.name, locName.toString());
 
 		if (BLOCK.shouldGenerate()) {
 			lp.add(this.BLOCK.BLOCK.get(), locName + " Block");

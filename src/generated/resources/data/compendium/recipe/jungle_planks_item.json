@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/jungle"
+      "item": "compendium:jungle_plank_item"
     }
   },
   "pattern": [

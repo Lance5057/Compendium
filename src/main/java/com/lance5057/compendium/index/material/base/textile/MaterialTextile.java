@@ -185,6 +185,12 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
+		StringBuilder locName = new StringBuilder();
+		for (String word : this.name.split("_")) {
+			word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			locName.append(word).append(" ");
+		}
+		lp.add("compendium.tooltip.material." + this.name, locName.toString());
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/birch"
+      "item": "compendium:birch_plank_item"
     }
   },
   "pattern": [

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/oak"
+      "item": "compendium:oak_plank_item"
     }
   },
   "pattern": [

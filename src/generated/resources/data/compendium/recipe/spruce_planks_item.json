@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "p": {
-      "tag": "c:plank/spruce"
+      "item": "compendium:spruce_plank_item"
     }
   },
   "pattern": [
