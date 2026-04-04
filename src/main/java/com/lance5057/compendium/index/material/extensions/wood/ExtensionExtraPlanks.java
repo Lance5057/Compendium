@@ -111,7 +111,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setName(base.name + "_plank");
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.extraFolder() + "plank"), base.getType(), base.name, List
+						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List
 								.of("plank"),
 						StyleData.PLANK),
 				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties()
@@ -418,7 +418,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-		
+
 	}
 
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraPlanks> {

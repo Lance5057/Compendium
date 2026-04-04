@@ -6,5 +6,40 @@
     }
   },
   "baseName": "small_log_inventory",
-  "loader": "compendium:style"
+  "loader": "compendium:style",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 0, -1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 0, -1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 0, -1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 0, -1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [60, -36, 32],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"head": {
+			"rotation": [0, 90, 90],
+			"translation": [0, 7, 0]
+		},
+		"fixed": {
+			"rotation": [90, 45, 0],
+			"translation": [0, 0, -0.25],
+			"scale": [1.2, 1.2, 1.2]
+		}
+	}
 }

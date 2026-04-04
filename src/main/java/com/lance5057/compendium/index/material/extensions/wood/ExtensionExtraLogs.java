@@ -120,8 +120,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		SMALL_LOG
 				.setup(base,
 						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-								Compendium.modLoc(base.extraFolder()
-										+ "small_log"),
+								Compendium.modLoc(base.name
+										+ "_small_log_inventory"),
 								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
 						() -> new BlockItem(SMALL_LOG.BLOCK.get(),
 								new Item.Properties()

@@ -1587,11 +1587,6 @@ public class CompendiumClient {
 			ResourceLocation logModelLocInventory = ClientUtil.createStyleBlockLocation(mw.name + "_log_inventory",
 					log_style.toLowerCase());
 
-			ResourceLocation strippedLogModelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_stripped_log",
-					log_style.toLowerCase());
-			ResourceLocation strippedLogModelLocInventory = ClientUtil
-					.createStyleBlockLocation(mw.name + "_stripped_log_inventory", log_style.toLowerCase());
-
 			if (log_style.equals("basic")) {
 				ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
 
@@ -1647,11 +1642,6 @@ public class CompendiumClient {
 					mw.name + "_stripped_small_log_inventory", "");
 
 			for (String small_log_style : StyleData.SMALL_LOG.getTypes()) {
-				ResourceLocation logModelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_small_log",
-						small_log_style.toLowerCase());
-				ResourceLocation logModelLocInventory = ClientUtil
-						.createStyleBlockLocation(mw.name + "_small_log_inventory", small_log_style.toLowerCase());
-
 				ResourceLocation logStrippedModelLoc = ClientUtil
 						.createStyleBlockLocation(mw.name + "_stripped_small_log", small_log_style.toLowerCase());
 				ResourceLocation logStrippedModelLocInventory = ClientUtil.createStyleBlockLocation(
@@ -1663,6 +1653,7 @@ public class CompendiumClient {
 							TagUtil.modLoc("extra/small_log/small_log"),
 							TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/small_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/small_log_inventory"),
 							Pair.of("1",
 									TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
 							Pair.of("0",
@@ -1673,6 +1664,7 @@ public class CompendiumClient {
 							TagUtil.modLoc("extra/small_log/smaller_log"),
 							TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/smaller_log_inventory"),
 							Pair.of("1",
 									TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
 							Pair.of("0",
@@ -1683,6 +1675,7 @@ public class CompendiumClient {
 							TagUtil.modLoc("extra/small_log/smallest_log"),
 							TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/smallest_log_inventory"),
 							Pair.of("1",
 									TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
 							Pair.of("0",
@@ -1710,17 +1703,13 @@ public class CompendiumClient {
 				ResourceLocation logModelLocInventory = ClientUtil
 						.createStyleBlockLocation(mw.name + "_small_log_inventory", small_log_style.toLowerCase());
 
-				ResourceLocation logStrippedModelLoc = ClientUtil
-						.createStyleBlockLocation(mw.name + "_stripped_small_log", small_log_style.toLowerCase());
-				ResourceLocation logStrippedModelLocInventory = ClientUtil.createStyleBlockLocation(
-						mw.name + "_stripped_small_log_inventory", small_log_style.toLowerCase());
-
 				if (small_log_style.equals("small_log")) {
 					doStylePipe(event, mw, logModelLoc, logModelLocInventory,
 							TagUtil.modLoc("extra/small_log/small_log_cap"),
 							TagUtil.modLoc("extra/small_log/small_log"),
 							TagUtil.modLoc("extra/small_log/small_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/small_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/small_log_inventory"),
 							Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 							Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
 				} else if (small_log_style.equals("smaller_log")) {
@@ -1729,6 +1718,7 @@ public class CompendiumClient {
 							TagUtil.modLoc("extra/small_log/smaller_log"),
 							TagUtil.modLoc("extra/small_log/smaller_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/smaller_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/smaller_log_inventory"),
 							Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 							Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
 				} else if (small_log_style.equals("smallest_log")) {
@@ -1737,6 +1727,7 @@ public class CompendiumClient {
 							TagUtil.modLoc("extra/small_log/smallest_log"),
 							TagUtil.modLoc("extra/small_log/smallest_log_horizontal2"),
 							TagUtil.modLoc("extra/small_log/smallest_log_horizontal"),
+							TagUtil.modLoc("extra/small_log/smallest_log_inventory"),
 							Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 							Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")));
 				}
@@ -1749,7 +1740,7 @@ public class CompendiumClient {
 	@SafeVarargs
 	private static void doStylePipe(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
 			ResourceLocation logModelLocInventory, ResourceLocation model, ResourceLocation centerModel,
-			ResourceLocation NSCenterModel, ResourceLocation EWCenterModel,
+			ResourceLocation NSCenterModel, ResourceLocation EWCenterModel, ResourceLocation invModel,
 			Pair<String, ResourceLocation>... textures) {
 
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
@@ -1786,7 +1777,7 @@ public class CompendiumClient {
 		event.getModels().put(new ModelResourceLocation(logModelLoc, ""), mmb.build());
 
 		event.getModels().put(new ModelResourceLocation(logModelLocInventory, ""), basicModelManyTexture(event, mw,
-				model, new ModelResourceLocation(logModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
+				invModel, new ModelResourceLocation(logModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
 	}
 
 	@SafeVarargs
@@ -1858,7 +1849,8 @@ public class CompendiumClient {
 
 				buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/plank"), mw.name + "_plank", v);
 			}
-			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"), mw.name + "_planks", "");
+			buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/plank_inventory"),
+					mw.name + "_plank_inventory", "");
 
 			for (String plank_style : StyleData.PLANK.getTypes()) {
 				ResourceLocation logModelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_plank",
@@ -1870,6 +1862,7 @@ public class CompendiumClient {
 						TagUtil.modLoc("extra/plank/" + plank_style),
 						TagUtil.modLoc("extra/plank/" + plank_style + "_horizontal2"),
 						TagUtil.modLoc("extra/plank/" + plank_style + "_horizontal"),
+						TagUtil.modLoc("extra/plank/" + plank_style + "_inventory"),
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/planks/plank")));
 			}
 		}

@@ -172,16 +172,16 @@ public class PipeStyleBlock extends PipeBlock implements EntityBlock, IStyleBloc
 		return checkNeighbors(level, currentPos);
 	}
 
-	@Override
-	public List<String> getStyles(List<Integer> current) {
-		List<String> r = new ArrayList<String>();
-		for (int i = 0; i < current.size(); i++) {
-			if (styles.length > i)
-				if (styles[i].getTypes().size() > current.get(i))
-					r.add(this.styles[i].getTypes().get(i));
-		}
-		return r;
-	}
+//	@Override
+//	public List<String> getStyles(List<Integer> current) {
+//		List<String> r = new ArrayList<String>();
+//		for (int i = 0; i < current.size(); i++) {
+//			if (styles.length > i)
+//				if (styles[i].getTypes().size() > current.get(i))
+//					r.add(this.styles[i].getTypes().get(i));
+//		}
+//		return r;
+//	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {

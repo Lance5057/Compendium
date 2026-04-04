@@ -71,6 +71,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				BakedModel bm = Minecraft.getInstance().getModelManager()
 						.getModel(new ModelResourceLocation(st.getItemModelLocation(), ""));
 
+//				bm.applyTransform(displayContext, ps, false);
+
 				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				IRenderable<ModelData> ir = bmr.withModelDataContext();
 
