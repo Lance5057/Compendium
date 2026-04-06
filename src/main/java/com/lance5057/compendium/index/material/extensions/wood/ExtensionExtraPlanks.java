@@ -18,7 +18,6 @@ import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
-import com.lance5057.compendium.client.models.style.StyleBlockModelBuilder;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.Recipes;
@@ -39,9 +38,6 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -62,11 +58,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -76,13 +68,11 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
 	/**
@@ -111,16 +101,14 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setName(base.name + "_plank");
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List
-								.of("plank"),
+						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List.of("plank"),
 						StyleData.PLANK),
-				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties()
-						.component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
+				() -> new BlockItem(PLANK.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
-//		PLANK.setupItemTag(TagUtil.neoTag("plank"));
+		PLANK.setupItemTag(TagUtil.neoTag("plank"));
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		PLANK.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
@@ -283,8 +271,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			if (!this.PLANK_BLOCK.isIgnored()) {
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
-						.define('p', PLANK.BLOCK_ITEM).pattern("p p")
-						.pattern("   ").pattern("p p")
+						.define('p', PLANK.BLOCK_ITEM).pattern("p p").pattern("   ").pattern("p p")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
@@ -307,8 +294,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			if (!this.PLANK_SLAB.isIgnored()) {
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_SLAB.BLOCK_ITEM, 6)
-						.define('p', PLANK.BLOCK_ITEM).pattern("ppp")
-						.pattern("ppp")
+						.define('p', PLANK.BLOCK_ITEM).pattern("ppp").pattern("ppp")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
 								.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
 										InventoryChangeTrigger.TriggerInstance.Slots.ANY,
@@ -490,4 +476,22 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		return Optional.empty();
 	}
 
+	@Override
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+		if (PLANK.isNotIgnored())
+			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (PLANK_BLOCK.isNotIgnored())
+			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (PLANK_SLAB.isNotIgnored())
+			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (PLANK_STAIRS.isNotIgnored())
+			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+	}
 }

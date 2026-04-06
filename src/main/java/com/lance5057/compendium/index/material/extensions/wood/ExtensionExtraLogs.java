@@ -71,6 +71,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
 
@@ -117,21 +118,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		SMALL_LOG.setName(base.name + "_small_log");
-		SMALL_LOG
-				.setup(base,
-						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-								Compendium.modLoc(base.name
-										+ "_small_log_inventory"),
-								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
-						() -> new BlockItem(SMALL_LOG.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
-		SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOGS);
+		SMALL_LOG.setup(base,
+				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+						Compendium.modLoc(base.name + "_small_log_inventory"), base.getType(), base.name,
+						List.of("small_log"), StyleData.SMALL_LOG),
+				() -> new BlockItem(SMALL_LOG.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_small_log"));
+		SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOG);
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_logs/" + base.name));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small/" + base.name));
@@ -143,13 +139,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG.setName(base.name + "_small_logs");
 		LOG.setup(base,
 				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-						Compendium.modLoc(base.name + "_log_inventory"), base.getType(), base.name, List
-								.of("log"),
+						Compendium.modLoc(base.name + "_log_inventory"), base.getType(), base.name, List.of("log"),
 						StyleData.LOG),
-				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties()
-						.component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
+				() -> new BlockItem(LOG.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_log"));
 		LOG.setupItemTag(ItemTags.LOGS);
@@ -162,13 +156,11 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setName(base.name + "_small_logs_slab");
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.name + "_log_slab_inventory"), base.getType(), base.name, List
-								.of("log_slab"),
-						StyleData.LOG_SLAB),
-				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties()
-						.component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))),
+						Compendium.modLoc(base.name + "_log_slab_inventory"), base.getType(), base.name,
+						List.of("log_slab"), StyleData.LOG_SLAB),
+				() -> new BlockItem(LOG_SLAB.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"),
 				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_slab"));
 		LOG_SLAB.setupItemTag(TagUtil.neoTag("logs/slab"));
@@ -179,21 +171,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setAsValidStyleItem();
 
 		LOG_STAIRS.setName(base.name + "_small_logs_stairs");
-		LOG_STAIRS
-				.setup(base,
-						() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
-								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-								Compendium.modLoc(base.name
-										+ "_log_stairs_inventory"),
-								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
-						() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
+		LOG_STAIRS.setup(base,
+				() -> new StairStyleBlock(LOG.BLOCK.get().defaultBlockState(),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+						Compendium.modLoc(base.name + "_log_stairs_inventory"), base.getType(), base.name,
+						List.of("log_stairs"), StyleData.LOG_STAIRS),
+				() -> new BlockItem(LOG_STAIRS.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_log_stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs"));
 		LOG_STAIRS.setupItemTag(TagUtil.neoTag("logs/stairs/" + base.name));
 		LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -202,20 +189,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_STAIRS.setAsValidStyleItem();
 
 		STRIPPED_SMALL_LOG.setName("stripped_" + base.name + "_small_log");
-		STRIPPED_SMALL_LOG
-				.setup(base,
-						() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-								Compendium.modLoc(base.name
-										+ "_stripped_small_log_inventory"),
-								base.getType(), base.name, List.of("small_log"), StyleData.SMALL_LOG),
-						() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"));
+		STRIPPED_SMALL_LOG.setup(base,
+				() -> new PipeStyleBlock(0.25f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+						Compendium.modLoc(base.name + "_stripped_small_log_inventory"), base.getType(), base.name,
+						List.of("small_log"), StyleData.SMALL_LOG),
+				() -> new BlockItem(STRIPPED_SMALL_LOG.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_small_log"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs/" + base.name));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_logs/small"));
@@ -226,20 +208,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_SMALL_LOG.setAsValidStyleItem();
 
 		STRIPPED_LOG.setName("stripped_" + base.name + "_small_logs");
-		STRIPPED_LOG
-				.setup(base,
-						() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
-								Compendium.modLoc(base.name
-										+ "_stripped_log_inventory"),
-								base.getType(), base.name, List.of("log"), StyleData.LOG),
-						() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"));
+		STRIPPED_LOG.setup(base,
+				() -> new RotatedPillarStyleBlock(Block.Properties.ofFullCopy(Blocks.DARK_OAK_LOG),
+						Compendium.modLoc(base.name + "_stripped_log_inventory"), base.getType(), base.name,
+						List.of("log"), StyleData.LOG),
+				() -> new BlockItem(STRIPPED_LOG.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log"));
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + base.name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -248,20 +225,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG.setAsValidStyleItem();
 
 		STRIPPED_LOG_SLAB.setName("stripped_" + base.name + "_small_logs_slab");
-		STRIPPED_LOG_SLAB
-				.setup(base,
-						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-								Compendium.modLoc(base.name
-										+ "_stripped_log_slab_inventory"),
-								base.getType(), base.name, List.of("log_slab"), StyleData.LOG_SLAB),
-						() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"));
+		STRIPPED_LOG_SLAB.setup(base,
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						Compendium.modLoc(base.name + "_stripped_log_slab_inventory"), base.getType(), base.name,
+						List.of("log_slab"), StyleData.LOG_SLAB),
+				() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab"));
 		STRIPPED_LOG_SLAB.setupItemTag(TagUtil.neoTag("stripped_logs/slab/" + base.name));
 		STRIPPED_LOG_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -270,21 +242,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB.setAsValidStyleItem();
 
 		STRIPPED_LOG_STAIRS.setName("stripped_" + base.name + "_small_logs_stairs");
-		STRIPPED_LOG_STAIRS
-				.setup(base,
-						() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
-								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
-								Compendium.modLoc(base.name
-										+ "_stripped_log_stairs_inventory"),
-								base.getType(), base.name, List.of("log_stairs"), StyleData.LOG_STAIRS),
-						() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
-								new Item.Properties()
-										.component(CompendiumComponents.STYLE,
-												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
-										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
+		STRIPPED_LOG_STAIRS.setup(base,
+				() -> new StairStyleBlock(STRIPPED_LOG.BLOCK.get().defaultBlockState(),
+						Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
+						Compendium.modLoc(base.name + "_stripped_log_stairs_inventory"), base.getType(), base.name,
+						List.of("log_stairs"), StyleData.LOG_STAIRS),
+				() -> new BlockItem(STRIPPED_LOG_STAIRS.BLOCK.get(),
+						new Item.Properties().component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"),
+				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_stripped_log_stairs"));
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs"));
 		STRIPPED_LOG_STAIRS.setupItemTag(TagUtil.neoTag("stripped_logs/stairs/" + base.name));
 		STRIPPED_LOG_STAIRS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -1520,6 +1487,41 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			return Optional.of(base);
 
 		return Optional.empty();
+	}
+
+	@Override
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+		if (SMALL_LOG.isNotIgnored())
+			event.modify(SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (LOG.isNotIgnored())
+			event.modify(LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (LOG_SLAB.isNotIgnored())
+			event.modify(LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (LOG_STAIRS.isNotIgnored())
+			event.modify(LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (STRIPPED_SMALL_LOG.isNotIgnored())
+			event.modify(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (STRIPPED_LOG.isNotIgnored())
+			event.modify(STRIPPED_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (STRIPPED_LOG_SLAB.isNotIgnored())
+			event.modify(STRIPPED_LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
+
+		if (STRIPPED_LOG_STAIRS.isNotIgnored())
+			event.modify(STRIPPED_LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+					new IndexEntryComponent(base.getType(), base.name)));
 	}
 
 }

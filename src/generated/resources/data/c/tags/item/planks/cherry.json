@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:cherry_planks"
+    "minecraft:cherry_planks",
+    "compendium:cherry_planks_item"
   ]
 }

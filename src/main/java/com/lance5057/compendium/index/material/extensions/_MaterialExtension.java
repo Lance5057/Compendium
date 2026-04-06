@@ -24,6 +24,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public abstract class _MaterialExtension implements Serializable {
 	/**
@@ -70,6 +71,8 @@ public abstract class _MaterialExtension implements Serializable {
 	public abstract boolean isIndexItem(_MaterialBase base, ItemStack stack);
 
 	public abstract Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack);
+
+	public abstract void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event);
 
 	public static class Serializer extends MaterialExtensionSerializer<_MaterialExtension> {
 

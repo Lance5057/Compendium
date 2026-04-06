@@ -64,7 +64,7 @@ public class CompendiumBlockHandler implements Serializable {
 	public boolean isIgnored() {
 		return generate == Generate.IGNORE;
 	}
-	
+
 	public boolean isNotIgnored() {
 		return generate != Generate.IGNORE;
 	}
@@ -124,15 +124,15 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		if (!this.isIgnored())
-			for (TagKey<Item> tag : itemTag)
-				itp.tag(tag).add(BLOCK_ITEM.asItem());
+//		if (!this.isIgnored())
+		for (TagKey<Item> tag : itemTag)
+			itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-		if (!this.isIgnored())
-			for (TagKey<Block> tag : blockTag)
-				btp.tag(tag).add(BLOCK.get());
+//		if (!this.isIgnored())
+		for (TagKey<Block> tag : blockTag)
+			btp.tag(tag).add(BLOCK.get());
 	}
 
 	public boolean is(ItemStack item) {

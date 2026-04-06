@@ -43,7 +43,7 @@ public interface IIndexEntry {
 
 	public boolean isIndexItem(ItemStack stack);
 
-	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack);
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack);
 
 	public ItemStack breakDownItem(Ingredient ingredient); // ie ingot to nuggets
 

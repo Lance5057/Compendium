@@ -13,13 +13,17 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.textile.locations.ExistsLocationsTextile;
+import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -50,6 +54,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialTextile extends _MaterialBase {
 
@@ -343,21 +348,21 @@ public class MaterialTextile extends _MaterialBase {
 		return false;
 	}
 
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (BLOCK.is(stack))
-			return Optional.of(this);
-		if (STRING.is(stack))
-			return Optional.of(this);
-
-		for (_MaterialExtension m : extensions) {
-			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
-
-			if (o.isPresent())
-				return o;
-		}
-		return Optional.empty();
-	}
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+//		if (BLOCK.is(stack))
+//			return Optional.of(this);
+//		if (STRING.is(stack))
+//			return Optional.of(this);
+//
+//		for (_MaterialExtension m : extensions) {
+//			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+//
+//			if (o.isPresent())
+//				return o;
+//		}
+//		return Optional.empty();
+//	}
 
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
@@ -369,6 +374,23 @@ public class MaterialTextile extends _MaterialBase {
 	public ItemStack buildUpItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
 		return ItemStack.EMPTY;
+	}
+
+	@Override
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+		if (BLOCK.isNotIgnored())
+			event.modify(BLOCK.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (STRING.isNotIgnored())
+			event.modify(STRING.ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (CARPET.isNotIgnored())
+			event.modify(CARPET.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		this.extensions.forEach(i -> i.attachComponents(this, event));
 	}
 
 }

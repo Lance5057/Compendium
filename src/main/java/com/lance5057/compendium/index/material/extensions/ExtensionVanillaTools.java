@@ -32,6 +32,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionVanillaTools extends _MaterialExtension {
 	/**
@@ -213,5 +214,11 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 			return Optional.of(base);
 
 		return Optional.empty();
+	}
+
+	@Override
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+		// TODO Auto-generated method stub
+
 	}
 }

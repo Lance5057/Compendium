@@ -12,8 +12,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.annotations.Since;
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.data.ItemModels;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
@@ -49,6 +51,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialWood extends _MaterialBase {
 
@@ -337,14 +340,16 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_LOG.itemTag(itp);
 		STRIPPED_WOOD.itemTag(itp);
 		WOOD.itemTag(itp);
+
+		this.extensions.forEach(i -> i.setupItemTags(this, itp));
 	}
 
 	@Override
 	public void setupBlockTags(BlockTagsProvider btp) {
 		LOG.blockTag(btp);
-		
+
 		PLANKS.blockTag(btp);
-		
+
 		STRIPPED_LOG.blockTag(btp);
 		STRIPPED_WOOD.blockTag(btp);
 		WOOD.blockTag(btp);
@@ -473,27 +478,27 @@ public class MaterialWood extends _MaterialBase {
 		return false;
 	}
 
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (PLANKS.is(stack))
-			return Optional.of(this);
-		if (LOG.is(stack))
-			return Optional.of(this);
-		if (STRIPPED_LOG.is(stack))
-			return Optional.of(this);
-		if (WOOD.is(stack))
-			return Optional.of(this);
-		if (STRIPPED_WOOD.is(stack))
-			return Optional.of(this);
-
-		for (_MaterialExtension m : extensions) {
-			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
-
-			if (o.isPresent())
-				return o;
-		}
-		return Optional.empty();
-	}
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+//		if (PLANKS.is(stack))
+//			return Optional.of(this);
+//		if (LOG.is(stack))
+//			return Optional.of(this);
+//		if (STRIPPED_LOG.is(stack))
+//			return Optional.of(this);
+//		if (WOOD.is(stack))
+//			return Optional.of(this);
+//		if (STRIPPED_WOOD.is(stack))
+//			return Optional.of(this);
+//
+//		for (_MaterialExtension m : extensions) {
+//			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+//
+//			if (o.isPresent())
+//				return o;
+//		}
+//		return Optional.empty();
+//	}
 
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
@@ -517,5 +522,30 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public ItemStack buildUpItem(Ingredient ingredient) {
 		return ItemStack.EMPTY;
+	}
+
+	@Override
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+		if (LOG.isNotIgnored())
+			event.modify(LOG.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (PLANKS.isNotIgnored())
+			event.modify(PLANKS.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (STRIPPED_LOG.isNotIgnored())
+			event.modify(STRIPPED_LOG.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (WOOD.isNotIgnored())
+			event.modify(WOOD.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (STRIPPED_WOOD.isNotIgnored())
+			event.modify(STRIPPED_WOOD.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		this.extensions.forEach(i -> i.attachComponents(this, event));
 	}
 }

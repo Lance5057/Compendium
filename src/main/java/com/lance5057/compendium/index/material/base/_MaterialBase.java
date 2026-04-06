@@ -20,6 +20,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
@@ -106,6 +107,8 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 	}
 
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
+
+	public abstract void attachComponents(ModifyDefaultComponentsEvent event);
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {
 

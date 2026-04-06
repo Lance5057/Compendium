@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base.textile;
+package com.lance5057.compendium.index.material.base.textile.locations;
 
 import java.lang.reflect.Type;
 

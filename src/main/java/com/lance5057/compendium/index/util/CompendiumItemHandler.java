@@ -45,6 +45,10 @@ public class CompendiumItemHandler implements Serializable {
 		generate = b;
 	}
 
+	public boolean isNotIgnored() {
+		return generate != Generate.IGNORE;
+	}
+
 	public void setup(_MaterialBase base, ResourceLocation existsItem) {
 		setup(base, () -> new Item(new Item.Properties()), existsItem);
 	}

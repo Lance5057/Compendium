@@ -1,9 +1,6 @@
 package com.lance5057.compendium.index.material.base;
 
-import java.util.Optional;
-
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.IIndexEntry;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -17,6 +14,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialDust extends _MaterialBase {
 
@@ -115,11 +113,11 @@ public class MaterialDust extends _MaterialBase {
 		return false;
 	}
 
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+//		// TODO Auto-generated method stub
+//		return Optional.empty();
+//	}
 
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
@@ -131,6 +129,12 @@ public class MaterialDust extends _MaterialBase {
 	public ItemStack buildUpItem(Ingredient ingredient) {
 		// TODO Auto-generated method stub
 		return ItemStack.EMPTY;
+	}
+
+	@Override
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

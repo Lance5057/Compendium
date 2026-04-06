@@ -13,6 +13,8 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -43,6 +45,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialMetal extends _MaterialBase {
 
@@ -288,23 +291,23 @@ public class MaterialMetal extends _MaterialBase {
 		return false;
 	}
 
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		if (BLOCK.is(stack))
-			return Optional.of(this);
-		if (INGOT.is(stack))
-			return Optional.of(this);
-		if (NUGGET.is(stack))
-			return Optional.of(this);
-
-		for (_MaterialExtension m : extensions) {
-			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
-
-			if (o.isPresent())
-				return o;
-		}
-		return Optional.empty();
-	}
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
+//		if (BLOCK.is(stack))
+//			return Optional.of(this);
+//		if (INGOT.is(stack))
+//			return Optional.of(this);
+//		if (NUGGET.is(stack))
+//			return Optional.of(this);
+//
+//		for (_MaterialExtension m : extensions) {
+//			Optional<IIndexEntry> o = m.getEntryItemBelongsTo(this, stack);
+//
+//			if (o.isPresent())
+//				return o;
+//		}
+//		return Optional.empty();
+//	}
 
 	@Override
 	public ItemStack breakDownItem(Ingredient ingredient) {
@@ -336,5 +339,22 @@ public class MaterialMetal extends _MaterialBase {
 				i = ScrappingUtils.convertBasedOnTag(ingredient, NUGGET.itemTag, INGOT.itemTag, 1);
 		}
 		return i;
+	}
+
+	@Override
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+		if (INGOT.isNotIgnored())
+			event.modify(INGOT.ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (BLOCK.isNotIgnored())
+			event.modify(BLOCK.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (NUGGET.isNotIgnored())
+			event.modify(NUGGET.ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		this.extensions.forEach(i -> i.attachComponents(this, event));
 	}
 }
