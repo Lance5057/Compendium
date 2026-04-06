@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ExistsLocationsWood {
 	ResourceLocation plankLocation;
-
 	ResourceLocation logLocation;
 	ResourceLocation strippedLogLocation;
 	ResourceLocation woodLocation;

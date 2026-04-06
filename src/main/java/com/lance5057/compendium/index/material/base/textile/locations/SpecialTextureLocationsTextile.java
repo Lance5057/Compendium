@@ -9,13 +9,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import net.minecraft.resources.ResourceLocation;
 
 public class SpecialTextureLocationsTextile {
-	public final String blockLocation;
-	public final String stringLocation;
-	public final String carpetLocation;
+	public final ResourceLocation blockLocation;
+	public final ResourceLocation stringLocation;
+	public final ResourceLocation carpetLocation;
 
-	public SpecialTextureLocationsTextile(String blockLoc, String stringLoc, String carpetLoc) {
+	public SpecialTextureLocationsTextile(ResourceLocation blockLoc, ResourceLocation stringLoc, ResourceLocation carpetLoc) {
 		this.blockLocation = blockLoc;
 		this.stringLocation = stringLoc;
 		this.carpetLocation = carpetLoc;
@@ -28,17 +29,17 @@ public class SpecialTextureLocationsTextile {
 		public SpecialTextureLocationsTextile deserialize(JsonElement json, Type typeOfT,
 				JsonDeserializationContext context) throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
-			String plank = null;
-			String log = null;
-			String strippedLog = null;
+			ResourceLocation block = null;
+			ResourceLocation string = null;
+			ResourceLocation carpet = null;
 			if (j.get("blockLocation") != null)
-				plank = j.get("blockLocation").getAsString();
+				block = ResourceLocation.parse(j.get("blockLocation").getAsString());
 			if (j.get("stringLocation") != null)
-				log = j.get("stringLocation").getAsString();
+				string = ResourceLocation.parse(j.get("stringLocation").getAsString());
 			if (j.get("carpetLocation") != null)
-				strippedLog = j.get("carpetLocation").getAsString();
+				carpet = ResourceLocation.parse(j.get("carpetLocation").getAsString());
 
-			return new SpecialTextureLocationsTextile(plank, log, strippedLog);
+			return new SpecialTextureLocationsTextile(block, string, carpet);
 		}
 
 		@Override
@@ -47,11 +48,11 @@ public class SpecialTextureLocationsTextile {
 			JsonObject j = new JsonObject();
 
 			if (src.blockLocation != null)
-				j.addProperty("blockLocation", src.blockLocation);
+				j.addProperty("blockLocation", src.blockLocation.toString());
 			if (src.stringLocation != null)
-				j.addProperty("stringLocation", src.stringLocation);
+				j.addProperty("stringLocation", src.stringLocation.toString());
 			if (src.carpetLocation != null)
-				j.addProperty("carpetLocation", src.carpetLocation);
+				j.addProperty("carpetLocation", src.carpetLocation.toString());
 
 			return j;
 		}

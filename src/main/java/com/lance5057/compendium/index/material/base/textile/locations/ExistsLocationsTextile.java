@@ -14,24 +14,24 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ExistsLocationsTextile {
 	ResourceLocation blockLocation;
-	ResourceLocation ResourceLocationLocation;
+	ResourceLocation stringLocation;
 	ResourceLocation carpetLocation;
 	
 	public ResourceLocation getBlockLocation() {
 		return blockLocation;
 	}
 
-	public ResourceLocation getResourceLocationLocation() {
-		return ResourceLocationLocation;
+	public ResourceLocation getStringLocation() {
+		return stringLocation;
 	}
 
 	public ResourceLocation getCarpetLocation() {
 		return carpetLocation;
 	}
 
-	public ExistsLocationsTextile(ResourceLocation block, ResourceLocation ResourceLocation, ResourceLocation carpet) {
+	public ExistsLocationsTextile(ResourceLocation block, ResourceLocation string, ResourceLocation carpet) {
 		this.blockLocation = block;
-		this.ResourceLocationLocation = ResourceLocation;
+		this.stringLocation = string;
 		this.carpetLocation = carpet;
 	}
 
@@ -44,18 +44,18 @@ public class ExistsLocationsTextile {
 			JsonObject j = json.getAsJsonObject();
 
 			ResourceLocation block = null;
-			ResourceLocation ResourceLocation = null;
+			ResourceLocation string = null;
 			ResourceLocation carpet = null;
 
 			if (j.get("blockLocation") != null)
 				block = net.minecraft.resources.ResourceLocation.parse(j.get("blockLocation").toString());
-			if (j.get("ResourceLocationLocation") != null)
-				ResourceLocation = net.minecraft.resources.ResourceLocation
-						.parse(j.get("ResourceLocationLocation").toString());
+			if (j.get("stringLocation") != null)
+				string = net.minecraft.resources.ResourceLocation
+						.parse(j.get("stringLocation").toString());
 			if (j.get("carpetLocation") != null)
-				ResourceLocation = net.minecraft.resources.ResourceLocation.parse(j.get("carpetLocation").toString());
+				carpet = net.minecraft.resources.ResourceLocation.parse(j.get("carpetLocation").toString());
 
-			return new ExistsLocationsTextile(block, ResourceLocation, carpet);
+			return new ExistsLocationsTextile(block, string, carpet);
 		}
 
 		@Override
@@ -64,8 +64,8 @@ public class ExistsLocationsTextile {
 
 			if (src.blockLocation != null)
 				j.addProperty("blockLocation", src.blockLocation.toString());
-			if (src.ResourceLocationLocation != null)
-				j.addProperty("ResourceLocationLocation", src.ResourceLocationLocation.toString());
+			if (src.stringLocation != null)
+				j.addProperty("stringLocation", src.stringLocation.toString());
 			if (src.carpetLocation != null)
 				j.addProperty("carpetLocation", src.carpetLocation.toString());
 

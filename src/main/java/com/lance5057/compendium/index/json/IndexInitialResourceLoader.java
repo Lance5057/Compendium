@@ -361,53 +361,85 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialTextile("gingham_white", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/white", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/white"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_light_gray", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/light_gray", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_gray"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_gray", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/gray", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/gray"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_black", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/black", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/black"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_brown", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/brown", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/brown"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_red", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/red", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/red"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_orange", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/orange", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/orange"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_yellow", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/yellow", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/yellow"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_lime", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/lime", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/lime"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_green", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/green", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/green"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_cyan", "extradelight", Generate.EXISTS, Generate.IGNORE,
 
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/cyan", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/cyan"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_light_blue", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/light_blue", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_blue"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_blue", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/blue", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/blue"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_purple", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/purple", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/purple"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_magenta", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/magenta", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight","block/gingham/magenta"),
+								null, null))));
 		buildDefault(new MaterialTextile("gingham_pink", "extradelight", Generate.EXISTS, Generate.IGNORE,
 				Generate.EXISTS, new SpecialLocationsTextile(null, null,
-						new SpecialTextureLocationsTextile("block/gingham/pink", null, null))));
+						new SpecialTextureLocationsTextile(
+								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/pink"),
+								null, null))));
 
 		buildDefault(new MaterialWood("alder", "enchanted", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,
 				Generate.GENERATE, Generate.GENERATE)

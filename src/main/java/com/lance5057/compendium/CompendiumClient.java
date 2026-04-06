@@ -437,8 +437,7 @@ public class CompendiumClient {
 			if (mt.specialLocations != null) {
 				if (mt.specialLocations.textures != null)
 					if (mt.specialLocations.textures.blockLocation != null)
-						texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
-								mt.specialLocations.textures.blockLocation);
+						texture = mt.specialLocations.textures.blockLocation;
 			}
 
 			for (String b : StyleData.TABLE_CLOTH.getTypes()) {
