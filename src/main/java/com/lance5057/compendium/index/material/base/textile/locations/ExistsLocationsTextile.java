@@ -16,6 +16,18 @@ public class ExistsLocationsTextile {
 	ResourceLocation blockLocation;
 	ResourceLocation ResourceLocationLocation;
 	ResourceLocation carpetLocation;
+	
+	public ResourceLocation getBlockLocation() {
+		return blockLocation;
+	}
+
+	public ResourceLocation getResourceLocationLocation() {
+		return ResourceLocationLocation;
+	}
+
+	public ResourceLocation getCarpetLocation() {
+		return carpetLocation;
+	}
 
 	public ExistsLocationsTextile(ResourceLocation block, ResourceLocation ResourceLocation, ResourceLocation carpet) {
 		this.blockLocation = block;

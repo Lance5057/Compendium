@@ -1,6 +1,7 @@
-package com.lance5057.compendium.index.material.base;
+package com.lance5057.compendium.index.material.base.dust;
 
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;

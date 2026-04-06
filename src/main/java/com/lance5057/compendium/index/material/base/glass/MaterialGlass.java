@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.base;
+package com.lance5057.compendium.index.material.base.glass;
 
 import java.lang.reflect.Type;
 
@@ -12,6 +12,8 @@ import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
+import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.DataUtil;

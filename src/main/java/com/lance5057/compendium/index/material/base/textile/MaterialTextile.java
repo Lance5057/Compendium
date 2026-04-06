@@ -18,7 +18,6 @@ import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -125,9 +124,9 @@ public class MaterialTextile extends _MaterialBase {
 
 		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
 
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc,
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc,
 
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.blockLocation) : standardBlockLoc);
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getBlockLocation()) : standardBlockLoc);
 
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
 		CARPET.setupItemTag(ItemTags.WOOL_CARPETS);
@@ -137,7 +136,8 @@ public class MaterialTextile extends _MaterialBase {
 	private void setupString(ExistsLocationsTextile existsItem) {
 		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_string");
 
-		STRING.setup(this, existsItem != null ? fileLoc(standardItemLoc, existsItem.blockLocation) : standardItemLoc);
+		STRING.setup(this,
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc);
 	}
 
 	private void setupBlock(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
@@ -145,8 +145,8 @@ public class MaterialTextile extends _MaterialBase {
 		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
 
 		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.carpetLocation) : standardItemLoc,
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.carpetLocation) : standardBlockLoc);
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getCarpetLocation()) : standardItemLoc,
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getCarpetLocation()) : standardBlockLoc);
 
 		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
