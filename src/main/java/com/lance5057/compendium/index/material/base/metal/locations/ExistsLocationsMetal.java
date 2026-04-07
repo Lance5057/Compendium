@@ -13,9 +13,19 @@ import com.google.gson.JsonSerializer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ExistsLocationsMetal {
-	public final ResourceLocation blockLocation;
-	public final ResourceLocation ingotLocation;
-	public final ResourceLocation nuggetLocation;
+	ResourceLocation blockLocation;
+	ResourceLocation ingotLocation;
+	ResourceLocation nuggetLocation;
+
+	public ResourceLocation getBlockLocation() {
+		return blockLocation;
+	}
+
+	public ResourceLocation getIngotLocation() { return ingotLocation; }
+
+	public ResourceLocation getNuggetLocation() {
+		return nuggetLocation;
+	}
 
 	public ExistsLocationsMetal(ResourceLocation blockLocation, ResourceLocation ingotLocation,
 			ResourceLocation nuggetLocation) {
