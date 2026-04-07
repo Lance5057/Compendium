@@ -84,10 +84,12 @@ public class IndexEntryComponent {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.index.see_more").withColor(0xFFAAAAAA));
 		} else {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.index"));
-			tooltipAdder.accept(Component.translatable("compendium.tooltip.material_type").append(Component.literal(" - ").append(
-					Component.translatable("compendium.tooltip.material_type." + type.toString().toLowerCase()))));
-			tooltipAdder.accept(Component.translatable("compendium.tooltip.material_name").append(Component.literal(" - ")
-					.append(Component.translatable("compendium.tooltip.material." + name.toLowerCase()))));
+			tooltipAdder.accept(Component.literal("   ").append(Component
+					.translatable("compendium.tooltip.material_type").append(Component.literal(" - ").append(Component
+							.translatable("compendium.tooltip.material_type." + type.toString().toLowerCase())))));
+			tooltipAdder.accept(Component.literal("   ")
+					.append(Component.translatable("compendium.tooltip.material_name").append(Component.literal(" - ")
+							.append(Component.translatable("compendium.tooltip.material." + name.toLowerCase())))));
 		}
 
 	}

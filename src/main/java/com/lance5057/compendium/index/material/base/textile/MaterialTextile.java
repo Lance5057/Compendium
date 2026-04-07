@@ -92,14 +92,6 @@ public class MaterialTextile extends _MaterialBase {
 		return this.name;
 	}
 
-	private ResourceLocation fileLoc(ResourceLocation standard, ResourceLocation exists) {
-		if (exists != null) {
-			return exists;
-		}
-
-		return standard;
-	}
-
 	@Override
 	public void setup() {
 		ExistsLocationsTextile existsItem = null;
@@ -124,9 +116,9 @@ public class MaterialTextile extends _MaterialBase {
 
 		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
 
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc,
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getCarpetLocation()) : standardItemLoc,
 
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getBlockLocation()) : standardBlockLoc);
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getCarpetLocation()) : standardBlockLoc);
 
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
 		CARPET.setupItemTag(ItemTags.WOOL_CARPETS);
@@ -137,7 +129,7 @@ public class MaterialTextile extends _MaterialBase {
 		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_string");
 
 		STRING.setup(this,
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc);
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getStringLocation()) : standardItemLoc);
 	}
 
 	private void setupBlock(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
@@ -145,8 +137,8 @@ public class MaterialTextile extends _MaterialBase {
 		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
 
 		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getCarpetLocation()) : standardItemLoc,
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getCarpetLocation()) : standardBlockLoc);
+				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc,
+				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getBlockLocation()) : standardBlockLoc);
 
 		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));

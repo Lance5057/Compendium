@@ -55,9 +55,6 @@ import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialWood extends _MaterialBase {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9135211794674294863L;
 	public final CompendiumBlockHandler PLANKS;
 	public final CompendiumBlockHandler LOG;
@@ -101,14 +98,6 @@ public class MaterialWood extends _MaterialBase {
 	@Override
 	public String getName() {
 		return this.name;
-	}
-
-	private ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation strippedWoodLocation) {
-		if (strippedWoodLocation != null) {
-			return strippedWoodLocation;
-		}
-
-		return standardLoc;
 	}
 
 	@Override

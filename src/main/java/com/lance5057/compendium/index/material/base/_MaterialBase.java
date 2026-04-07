@@ -16,6 +16,7 @@ import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -109,6 +110,14 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 
 	public abstract void attachComponents(ModifyDefaultComponentsEvent event);
+
+	protected ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation exists) {
+		if (exists != null) {
+			return exists;
+		}
+
+		return standardLoc;
+	}
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {
 

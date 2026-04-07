@@ -16,7 +16,7 @@ public class ExistsLocationsTextile {
 	ResourceLocation blockLocation;
 	ResourceLocation stringLocation;
 	ResourceLocation carpetLocation;
-	
+
 	public ResourceLocation getBlockLocation() {
 		return blockLocation;
 	}
@@ -50,8 +50,7 @@ public class ExistsLocationsTextile {
 			if (j.get("blockLocation") != null)
 				block = net.minecraft.resources.ResourceLocation.parse(j.get("blockLocation").toString());
 			if (j.get("stringLocation") != null)
-				string = net.minecraft.resources.ResourceLocation
-						.parse(j.get("stringLocation").toString());
+				string = net.minecraft.resources.ResourceLocation.parse(j.get("stringLocation").toString());
 			if (j.get("carpetLocation") != null)
 				carpet = net.minecraft.resources.ResourceLocation.parse(j.get("carpetLocation").toString());
 
