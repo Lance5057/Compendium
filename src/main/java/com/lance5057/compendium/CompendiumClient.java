@@ -355,6 +355,14 @@ public class CompendiumClient {
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb instanceof MaterialMetal mm) {
 
+//			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+//					"block/" + mb.name + "_planks");
+//			if (mm.specialLocations != null) {
+//				if (mm.specialLocations.textures != null)
+//					if (mm.specialLocations.textures.plankLocation != null)
+//						texture = mm.specialLocations.textures.plankLocation;
+//			}
+
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
 				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "trim", mb.name,
@@ -382,51 +390,58 @@ public class CompendiumClient {
 
 	public static void doGlass(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb instanceof MaterialGlass mg) {
-			StyleData.WINDOW_GLASS.getTypes().forEach(b -> {
+			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
+			if (mg.specialLocations != null) {
+				if (mg.specialLocations.textures != null)
+					if (mg.specialLocations.textures.blockLocation != null)
+						texture = mg.specialLocations.textures.blockLocation;
+			}
+
+			for (String b : StyleData.WINDOW_GLASS.getTypes()) {
 				ResourceLocation loc = Compendium.modLoc("extra/window/window_glass");
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass", mb.name,
 						b.toLowerCase());
 
-				if (mb.name.equalsIgnoreCase("clear")) {
-					ResourceLocation texture = TagUtil.mcLoc("block/glass");
-					if (!b.equals("basic")) {
-						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
-					}
-
-					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
-							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-
-					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass",
-							mb.name, b.toLowerCase(), "_inventory");
-					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
-
-//					Compendium.LOGGER.debug(modelLoc_inv.toString());
-//					Compendium.LOGGER.debug(loc_inv.toString());
-
-					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-							basicModelAllTexture(event, mb, texture, loc_inv,
-									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
-				} else {
-					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
-					if (!b.equals("basic")) {
-						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
-					}
-
-					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
-							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-
-					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass",
-							mb.name, b.toLowerCase(), "_inventory");
-					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
-
-//					Compendium.LOGGER.debug(modelLoc_inv.toString());
-//					Compendium.LOGGER.debug(loc_inv.toString());
-
-					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-							basicModelAllTexture(event, mb, texture, loc_inv,
-									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
+//				if (mb.name.equalsIgnoreCase("clear")) {
+//					ResourceLocation texture = TagUtil.mcLoc("block/glass");
+//					if (!b.equals("basic")) {
+//						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
+//					}
+//
+//					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
+//							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+//
+//					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass",
+//							mb.name, b.toLowerCase(), "_inventory");
+//					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
+//
+////					Compendium.LOGGER.debug(modelLoc_inv.toString());
+////					Compendium.LOGGER.debug(loc_inv.toString());
+//
+//					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+//							basicModelAllTexture(event, mb, texture, loc_inv,
+//									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
+//				} else {
+//					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
+				if (!b.equals("basic")) {
+					texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
 				}
-			});
+
+				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
+						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+
+				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass",
+						mb.name, b.toLowerCase(), "_inventory");
+				ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
+
+//					Compendium.LOGGER.debug(modelLoc_inv.toString());
+//					Compendium.LOGGER.debug(loc_inv.toString());
+
+				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
+						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
+								BlockModelRotation.X0_Y0, "all"));
+//				}
+			}
 		}
 	}
 

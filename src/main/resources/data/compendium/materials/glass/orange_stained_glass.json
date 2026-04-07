@@ -3,5 +3,13 @@
   "tagNamespace": "minecraft",
   "type": "GLASS",
   "loadBlock": "EXISTS",
+  "specialLocations": {
+    "textures": {
+      "blockLocation": {
+        "namespace": "minecraft",
+        "path": "orange_stained_glass"
+      }
+    }
+  },
   "extensions": []
 }

@@ -152,25 +152,42 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionAdvancedTools(Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
 						Generate.GENERATE, Generate.GENERATE, Generate.IGNORE)));
 
-		SpecialLocationsGlass clear = new SpecialLocationsGlass(null, null,
-				new SpecialTextureLocationsGlass(TagUtil.mcLoc("glass")));
-		buildDefault(new MaterialGlass("glass", "minecraft", Generate.EXISTS, clear));
-		buildDefault(new MaterialGlass("white_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("light_gray_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("gray_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("black_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("brown_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("red_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("orange_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("yellow_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("lime_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("green_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("cyan_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("light_blue_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("blue_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("purple_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("magenta_stained_glass", "minecraft", Generate.EXISTS));
-		buildDefault(new MaterialGlass("pink_stained_glass", "minecraft", Generate.EXISTS));
+		buildDefault(new MaterialGlass("glass", "minecraft", Generate.EXISTS,
+				new SpecialLocationsGlass(null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("glass")))));
+		buildDefault(new MaterialGlass("white_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("white_stained_glass")))));
+		buildDefault(
+				new MaterialGlass("light_gray_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+						null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("light_gray_stained_glass")))));
+		buildDefault(new MaterialGlass("gray_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("gray_stained_glass")))));
+		buildDefault(new MaterialGlass("black_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("black_stained_glass")))));
+		buildDefault(new MaterialGlass("brown_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("brown_stained_glass")))));
+		buildDefault(new MaterialGlass("red_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("red_stained_glass")))));
+		buildDefault(new MaterialGlass("orange_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("orange_stained_glass")))));
+		buildDefault(new MaterialGlass("yellow_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("yellow_stained_glass")))));
+		buildDefault(new MaterialGlass("lime_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("lime_stained_glass")))));
+		buildDefault(new MaterialGlass("green_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("green_stained_glass")))));
+		buildDefault(new MaterialGlass("cyan_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("cyan_stained_glass")))));
+		buildDefault(
+				new MaterialGlass("light_blue_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+						null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("light_blue_stained_glass")))));
+		buildDefault(new MaterialGlass("blue_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("blue_stained_glass")))));
+		buildDefault(new MaterialGlass("purple_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("purple_stained_glass")))));
+		buildDefault(new MaterialGlass("magenta_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("magenta_stained_glass")))));
+		buildDefault(new MaterialGlass("pink_stained_glass", "minecraft", Generate.EXISTS, new SpecialLocationsGlass(
+				null, null, new SpecialTextureLocationsGlass(TagUtil.mcLoc("pink_stained_glass")))));
 //		buildDefault(new MaterialGlass("tinted", "minecraft", Generate.EXISTS));
 
 		buildDefault(new MaterialWood("oak", "minecraft", Generate.EXISTS, Generate.EXISTS, Generate.EXISTS,

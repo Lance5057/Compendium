@@ -92,7 +92,7 @@ public class RenderUtil {
 			int combinedOverlayIn, BlacklistedModel model, float timer) {
 
 		if (model.isBlock()) {
-			IRenderable<ModelData> bm = BakedModelRenderable.of(ModelResourceLocation.standalone(model.rc()))
+			IRenderable<ModelData> bm = BakedModelRenderable.of(new ModelResourceLocation(model.rc(), ""))
 					.withModelDataContext();
 			blockModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bm, model.transform(), timer);
 
