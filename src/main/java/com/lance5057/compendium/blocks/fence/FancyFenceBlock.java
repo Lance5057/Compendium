@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.fence;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -30,14 +28,13 @@ public class FancyFenceBlock extends FenceBlock implements EntityBlock, IStyleBl
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.FENCE_POST.getTypes().get(current.get(0)),
-				StyleData.FENCE_SIDE.getTypes().get(current.get(1)));
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.FENCE_POST, StyleData.FENCE_SIDE };
 	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/fancy_fence");
+		return Compendium.modLoc("fancy_fence_inventory");
 	}
 
 	@Override

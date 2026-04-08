@@ -4,7 +4,7 @@
   "type": "METAL",
   "loadIngot": "EXISTS",
   "loadStorageBlock": "EXISTS",
-  "loadNugget": "EXISTS",
+  "loadNugget": "IGNORE",
   "tier": "DIAMOND",
   "level": 0,
   "uses": 0,

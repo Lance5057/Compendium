@@ -137,9 +137,9 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setY(new AnimatedFloat(-18.000F, -11.600F, 0.000F, 0.000F, false, false))
 								.setZ(new AnimatedFloat(0.000F, 24.000F, 0.000F, 0.000F, false, false)))
 						.setScale(new AnimatedFloatVector3()
-								.setX(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
-								.setY(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))
-								.setZ(new AnimatedFloat(0.500F, 1.000F, 0.000F, 0.000F, false, false))));
+								.setX(new AnimatedFloat(1.000F, 2.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))));
 	}
 
 	public static BlacklistedModel standardWorkbenchRightHandItemModel(ResourceLocation i, float yOffset) {
@@ -172,11 +172,11 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack()).define('p', CompendiumTags.PLANK)
-				.define('h', Items.HOPPER).define('c', Items.COPPER_GRATE).pattern("php").pattern("pcp")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+//		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.SCRAPPING_TABLE.toStack()).define('p', CompendiumTags.PLANK)
+//				.define('h', Items.HOPPER).define('c', Items.COPPER_GRATE).pattern("php").pattern("pcp")
+//				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+//						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
+//				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.TOOLRACK.toStack()).define('p', CompendiumTags.PLANK)
 				.define('n', Items.IRON_NUGGET).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep")
@@ -244,7 +244,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		clothed_table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder bed = WorkbenchRecipeBuilder.shaped(CompendiumItems.FANCY_BED)
-				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
+				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.PLANKS))
 				.define('c', Ingredient.of(ItemTags.WOOL)).slotToMat(new SlotToMaterial(7, 1))
 				.slotToMat(new SlotToMaterial(3, 0)).slotToMat(new SlotToMaterial(4, 2))
 				.slotToMat(new SlotToMaterial(2, 3)).slotToMat(new SlotToMaterial(1, 4))

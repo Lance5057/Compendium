@@ -25,12 +25,13 @@ public class _DataGen {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 		ExistingFileHelper helperEmpty = new ExistingFileHelper(Set.of(Paths.get("", "")), Set.of(""), false, null,
 				null);
+		
+//		IndexInitialResourceLoader.doData();
 
 		generator.addProvider(event.includeClient(), new EngLoc(output));
 
 		generator.addProvider(true, new BlockStateModels(output, helperEmpty));
 		generator.addProvider(true, new ItemModels(output, helperEmpty));
-		generator.addProvider(true, new IndexBlockModelProvider(output, helperEmpty));
 
 		BlockTagGen btg = new BlockTagGen(output, lookupProvider, Compendium.MOD_ID, helper);
 		generator.addProvider(true, btg);

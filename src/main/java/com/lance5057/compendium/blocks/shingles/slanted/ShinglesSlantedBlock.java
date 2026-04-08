@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.shingles.slanted;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -26,7 +24,7 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new StyledMultiMaterialBlockEntity(pos, state, 2, 2, StyleData.SHINGLES_SHINGLES,
-				StyleData.SUPPORT_SHINGLES/* , StyleData.GABLE_SHINGLES */);
+				StyleData.SUPPORT_SHINGLES);
 	}
 
 	@Override
@@ -35,14 +33,13 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.SHINGLES_SHINGLES.getTypes().get(current.get(0)),
-				StyleData.SUPPORT_SHINGLES.getTypes().get(current.get(1)));
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.SHINGLES_SHINGLES, StyleData.SUPPORT_SHINGLES };
 	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/shingles_slanted");
+		return Compendium.modLoc("shingles_slanted_inventory");
 	}
 
 	@Override
@@ -53,10 +50,11 @@ public class ShinglesSlantedBlock extends StairBlock implements EntityBlock, ISt
 
 	@Override
 	public String getBaseStyleName(int current) {
-		switch(current)
-		{
-		case 0: return "shingles";
-		case 1: return "support";
+		switch (current) {
+		case 0:
+			return "shingles";
+		case 1:
+			return "support";
 		}
 		return "error";
 	}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "compendium:block/material/wood/mangrove/planks/banded",
-    "side": "compendium:block/material/wood/mangrove/planks/banded",
-    "top": "compendium:block/material/wood/mangrove/planks/banded"
-  }
-}

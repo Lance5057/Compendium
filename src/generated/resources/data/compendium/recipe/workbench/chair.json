@@ -115,7 +115,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -149,7 +149,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -183,7 +183,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -217,7 +217,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -257,7 +257,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -297,7 +297,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "animation": {
@@ -448,7 +448,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -482,7 +482,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -516,7 +516,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -550,7 +550,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -590,7 +590,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -630,7 +630,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -654,7 +654,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat"
+          "location": "compendium:recipes/furniture/chair/seat"
         },
         {
           "animation": {
@@ -776,7 +776,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -810,7 +810,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -844,7 +844,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -878,7 +878,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -918,7 +918,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -958,7 +958,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -982,7 +982,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat"
+          "location": "compendium:recipes/furniture/chair/seat"
         },
         {
           "animation": {
@@ -1107,7 +1107,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1141,7 +1141,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1175,7 +1175,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1209,7 +1209,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1249,7 +1249,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1289,7 +1289,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1313,7 +1313,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat"
+          "location": "compendium:recipes/furniture/chair/seat"
         },
         {
           "animation": {
@@ -1438,7 +1438,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1472,7 +1472,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1510,7 +1510,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1544,7 +1544,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1584,7 +1584,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1624,7 +1624,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1648,7 +1648,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat"
+          "location": "compendium:recipes/furniture/chair/seat"
         },
         {
           "animation": {
@@ -1770,7 +1770,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1804,7 +1804,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1842,7 +1842,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1876,7 +1876,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1916,7 +1916,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1950,7 +1950,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/leg"
+          "location": "compendium:recipes/furniture/chair/leg"
         },
         {
           "IsBlock": true,
@@ -1974,7 +1974,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat"
+          "location": "compendium:recipes/furniture/chair/seat"
         },
         {
           "IsBlock": true,
@@ -2008,7 +2008,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/back"
+          "location": "compendium:recipes/furniture/chair/back"
         }
       ],
       "tool": {
@@ -2093,7 +2093,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/back_full"
+          "location": "compendium:recipes/furniture/chair/back_full"
         },
         {
           "IsBlock": true,
@@ -2123,7 +2123,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/chair/seat_legs"
+          "location": "compendium:recipes/furniture/chair/seat_legs"
         }
       ],
       "tool": {

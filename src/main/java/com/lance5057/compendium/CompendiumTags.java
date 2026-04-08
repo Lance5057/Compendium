@@ -7,7 +7,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class CompendiumTags {
@@ -26,5 +25,11 @@ public class CompendiumTags {
 	
 	public static TagKey<Item> TEXTILES = ItemTags.create(TagUtil.neoTag("textiles"));
 	
+	public static TagKey<Item> SMALL_LOG = ItemTags.create(TagUtil.neoTag("small_log"));
 	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
+	
+	public static TagKey<Block> PIPE_CAN_ATTACH = BlockTags.create(TagUtil.modLoc("pipe_can_attach"));
+	
+	public static TagKey<Block> CREATE_SAFE_NBT = BlockTags.create(ResourceLocation.fromNamespaceAndPath("create", "safe_nbt"));
 }
+

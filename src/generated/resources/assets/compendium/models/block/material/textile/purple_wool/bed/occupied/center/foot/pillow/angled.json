@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/occupied/center/foot/pillow/angled",
-  "textures": {
-    "0": "minecraft:block/purple_wool"
-  }
-}

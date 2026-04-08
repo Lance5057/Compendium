@@ -144,19 +144,19 @@ public class MultiStyleMaterialUnbakedModel implements IUnbakedGeometry<MultiSty
 
 		public MultiStyleMaterialBakedModel.BakedLayer bake(IGeometryBakingContext context, ModelBaker baker,
 				Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides) {
-
-			Map<String, Map<String, BakedModel>> bakedModels = new HashMap<String, Map<String, BakedModel>>();
-			models.forEach((k, v) -> {
-				Map<String, BakedModel> bm = new HashMap<String, BakedModel>();
-				v.forEach((key, value) -> {
-					BakedModel baked = value.bake(baker, spriteGetter, modelState);
-					bm.put(key, baked);
-				});
-
-				bakedModels.put(k, bm);
-			});
-			return new MultiStyleMaterialBakedModel.BakedLayer(validTypes, bakedModels, this.materialLayer,
-					this.styleLayer);
+//
+//			Map<String, Map<String, BakedModel>> bakedModels = new HashMap<String, Map<String, BakedModel>>();
+//			models.forEach((k, v) -> {
+//				Map<String, BakedModel> bm = new HashMap<String, BakedModel>();
+//				v.forEach((key, value) -> {
+//					BakedModel baked = value.bake(baker, spriteGetter, modelState);
+//					bm.put(key, baked);
+//				});
+//
+//				bakedModels.put(k, bm);
+//			});
+			return new MultiStyleMaterialBakedModel.BakedLayer(modelBase, modelPart, this.materialLayer,
+					this.styleLayer, suffix);
 		}
 
 		public static Layer read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)

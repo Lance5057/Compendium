@@ -74,7 +74,7 @@ public class WorkbenchBlock extends StationGui {
 	public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
 	public WorkbenchBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion().lightLevel(i -> isLit(i)));
+		super(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion().lightLevel(i -> isLit(i)));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
 				.setValue(HALF, Half.BOTTOM).setValue(LIT, false));
 	}

@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.bed;
 
-import java.util.List;
-
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.Compendium;
@@ -50,10 +48,16 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.BED_FRAME, StyleData.BED_BASE, StyleData.BED_MATTRESS, StyleData.BED_PILLOW,
+				StyleData.BED_SHEET, StyleData.BED_BLANKET };
+	}
+
+	@Override
 	protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;
 	}
-	
+
 	@Override
 	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
 			Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -182,15 +186,8 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.BED_BASE.getTypeSafe(current.get(0)), StyleData.BED_FRAME.getTypeSafe(current.get(1)),
-				StyleData.BED_MATTRESS.getTypeSafe(current.get(2)), StyleData.BED_PILLOW.getTypeSafe(current.get(3)),
-				StyleData.BED_SHEET.getTypeSafe(current.get(4)), StyleData.BED_BLANKET.getTypeSafe(current.get(5)));
-	}
-
-	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/fancy_bed");
+		return Compendium.modLoc("fancy_bed_inventory");
 	}
 
 	@Override

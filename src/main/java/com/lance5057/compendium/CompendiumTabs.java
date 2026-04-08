@@ -1,7 +1,6 @@
 package com.lance5057.compendium;
 
 import com.lance5057.compendium.index.CompendiumIndex;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

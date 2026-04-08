@@ -10,6 +10,7 @@ import com.lance5057.compendium.network.StyleSyncPacket;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -20,11 +21,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
-	private final StyleContainer container = new StyleContainer() {		
-		@Override
-		public void setChanged() {
-			PacketDistributor.sendToAllPlayers(new StyleSyncPacket(containerId, BlockPos.ZERO));
-		}
+	private final StyleContainer container = new StyleContainer() {
+//		@Override
+//		public void setChanged() {
+//			PacketDistributor.sendToAllPlayers(new StyleSyncPacket(containerId, BlockPos.ZERO));
+//		}
 	};
 	private final ContainerLevelAccess access;
 	private final Player player;
@@ -49,7 +50,12 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 		int startY = 8;
 		int borderSlotSize = 18;
 
-		this.addSlot(new Slot(container, 0, -47, 67));
+		this.addSlot(new Slot(container, 0, -47, 67) {
+			public void setChanged() {
+				if (player instanceof ServerPlayer sp)
+					PacketDistributor.sendToAllPlayers(new StyleSyncPacket(containerId, BlockPos.ZERO));
+			}
+		});
 
 		// Main Player Inventory
 		int startPlayerInvY = startY * 4 + 89;
@@ -72,7 +78,7 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(index);
 		if (slot != null) {
-			
+
 			if (slot.hasItem()) {
 				ItemStack itemstack1 = slot.getItem();
 				itemstack = itemstack1.copy();

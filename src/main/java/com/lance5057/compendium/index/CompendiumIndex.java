@@ -12,8 +12,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.core.registries.Registries;
@@ -29,8 +32,6 @@ public class CompendiumIndex {
 
 	public static List<IIndexEntry> index = new ArrayList<IIndexEntry>();
 
-//	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
-//	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister
 			.create(Registries.ARMOR_MATERIAL, Compendium.MOD_ID);
 
@@ -41,22 +42,49 @@ public class CompendiumIndex {
 	public static String getDefaultMaterialFromType(MATERIAL_TYPES type) {
 		switch (type) {
 		case METAL:
-			return "iron";
+			return findDefault(MATERIAL_TYPES.METAL);
 		case WOOD:
-			return "oak";
+			return findDefault(MATERIAL_TYPES.WOOD);
 		case GEM:
-			return "diamond";
+			return findDefault(MATERIAL_TYPES.GEM);
 		case GLASS:
-			return "clear";
+			return findDefault(MATERIAL_TYPES.GLASS);
 		case TEXTILE:
-			return "white_wool";
+			return findDefault(MATERIAL_TYPES.TEXTILE);
 		case CERAMIC:
-			return "terracotta";
+			return findDefault(MATERIAL_TYPES.CERAMIC);
 		case STONE:
-			return "stone";
+			return findDefault(MATERIAL_TYPES.STONE);
 		default:
-			return "oak";
+			return "";
 		}
+	}
+
+	private static String findDefault(MATERIAL_TYPES type) {
+		List<IIndexEntry> metal = index.stream().filter(i -> {
+			if (i instanceof _MaterialBase mb)
+				return mb.getType() == type;
+			return false;
+		}).toList();
+
+		if (metal != null && metal.size() > 0) {
+			Random r = new Random();
+			return metal.get(r.nextInt(metal.size())).getName();
+		}
+
+		Compendium.LOGGER.error("No valid " + type.toString() + " types in index!");
+		return "";
+	}
+
+	public static List<String> getAllMaterialsForType(List<MATERIAL_TYPES> types) {
+		List<String> materials = new ArrayList<String>();
+
+		for (IIndexEntry i : index)
+			if (i instanceof _MaterialBase mb)
+				if (types.contains(mb.getType()))
+					materials.add(mb.name);
+
+		return materials;
 	}
 
 	public static void addEntry(IIndexEntry i) {
@@ -128,33 +156,47 @@ public class CompendiumIndex {
 	}
 
 	public static boolean isIndexItem(ItemStack stack, List<MATERIAL_TYPES> types) {
-		for (IIndexEntry i : index)
-			if (i instanceof _MaterialBase mb)
-				if (types.contains(mb.getType()))
-					if (i.isIndexItem(stack))
-						return true;
+		if (stack.has(CompendiumComponents.INDEX)) {
+			IndexEntryComponent i = stack.get(CompendiumComponents.INDEX);
 
-		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
+			if (types.contains(i.getType())) {
+				return true;
+			}
+
+		}
+//		for (IIndexEntry i : index)
+//			if (i instanceof _MaterialBase mb)
+//				if (types.contains(mb.getType()))
+//					if (i.isIndexItem(stack))
+//						return true;
+
+//		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
 
 	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-		for (IIndexEntry i : index) {
-			Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
-			if (o.isPresent())
-				return o;
+		if (stack.has(CompendiumComponents.INDEX)) {
+			IndexEntryComponent i = stack.get(CompendiumComponents.INDEX);
+
+			return index.stream().filter(x -> x.getName().equals(i.getName())).findFirst();
 		}
+
+//		for (IIndexEntry i : index) {
+//			Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
+//			if (o.isPresent())
+//				return o;
+//		}
 		return Optional.empty();
 	}
 
-	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack, List<MATERIAL_TYPES> types) {
-		for (IIndexEntry i : index)
-			if (i instanceof _MaterialBase mb)
-				if (types.contains(mb.getType())) {
-					Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
-					if (o.isPresent())
-						return o;
-				}
-		return Optional.empty();
-	}
+//	public static Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack, List<MATERIAL_TYPES> types) {
+//		for (IIndexEntry i : index)
+//			if (i instanceof _MaterialBase mb)
+//				if (types.contains(mb.getType())) {
+//					Optional<IIndexEntry> o = i.getEntryItemBelongsTo(stack);
+//					if (o.isPresent())
+//						return o;
+//				}
+//		return Optional.empty();
+//	}
 }

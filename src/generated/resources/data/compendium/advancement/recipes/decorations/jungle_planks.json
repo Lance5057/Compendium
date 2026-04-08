@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:jungle_plank_item"
+            "items": "compendium:jungle_plank_item"
           }
         ]
       },

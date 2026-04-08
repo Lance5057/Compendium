@@ -6,6 +6,7 @@ import com.lance5057.compendium.blocks.BasicDecorativeBlock;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,4 +36,9 @@ public class WindowBlock extends BasicDecorativeBlock {
 	protected boolean propagatesSkylightDown(BlockState p_309084_, BlockGetter p_309133_, BlockPos p_309097_) {
 		return true;
 	}
+	
+	@Override
+    protected boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
+        return adjacentBlockState.is(this) ? true : super.skipRendering(state, adjacentBlockState, side);
+    }
 }

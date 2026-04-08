@@ -14,12 +14,14 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxBlock;
 import com.lance5057.compendium.workstations.hammeringstation.HammeringStationBlock;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckBlock;
-import com.lance5057.compendium.workstations.scrappingtable.ScrappingTableBlock;
 import com.lance5057.compendium.workstations.workbench.WorkbenchBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -30,8 +32,8 @@ public class CompendiumBlocks {
 			HammeringStationBlock::new);
 
 	public static final DeferredBlock<Block> SAW_BUCK = BLOCKS.register("saw_buck", SawBuckBlock::new);
-	public static final DeferredBlock<Block> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
-			ScrappingTableBlock::new);
+//	public static final DeferredBlock<Block> SCRAPPING_TABLE = BLOCKS.register("scrapping_table",
+//			ScrappingTableBlock::new);
 
 	public static final DeferredBlock<Block> WORKBENCH = BLOCKS.register("workbench", WorkbenchBlock::new);
 
@@ -56,9 +58,11 @@ public class CompendiumBlocks {
 	public static final DeferredBlock<Block> CLOTHED_TABLE = BLOCKS.register("clothed_table",
 			() -> new ClothedTableBlock(Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
 
-	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window",
-			() -> new WindowBlock(Properties.ofFullCopy(Blocks.GLASS), 2, 2, Compendium.modLoc("extra/window"),
-					StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
+	public static final DeferredBlock<Block> WINDOW = BLOCKS.register("window", () -> new WindowBlock(
+			BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).strength(0.3F).sound(SoundType.GLASS)
+					.noOcclusion().isValidSpawn((a, b, c, d) -> false).isRedstoneConductor((a, b, c) -> false)
+					.isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false),
+			2, 2, Compendium.modLoc("window"), StyleData.WINDOW_GLASS, StyleData.WINDOW_TRIM));
 
 	public static final DeferredBlock<Block> SHINGLES_SLANTED = BLOCKS.register("shingles_slanted",
 			() -> new ShinglesSlantedBlock(Blocks.TERRACOTTA.defaultBlockState(),

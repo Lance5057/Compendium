@@ -32,7 +32,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 22.000F, 0.000F, 0.000F, false, false)))
@@ -43,7 +43,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
@@ -57,7 +57,7 @@ public class TableRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setZ(
 												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
@@ -67,7 +67,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
@@ -112,7 +112,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -125,7 +125,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
@@ -139,7 +139,7 @@ public class TableRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setZ(
 												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
@@ -149,7 +149,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
@@ -162,7 +162,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/top"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/top"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false))
@@ -193,7 +193,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -206,7 +206,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -220,7 +220,7 @@ public class TableRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setZ(
 												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -3.500F, 0.000F, 0.000F, false, false))
@@ -230,7 +230,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
@@ -243,7 +243,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/top"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/top"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false))
@@ -274,7 +274,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -287,7 +287,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -301,7 +301,7 @@ public class TableRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setZ(
 												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -314,7 +314,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false)))
@@ -326,7 +326,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/top"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/top"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false))
@@ -357,7 +357,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -370,7 +370,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -384,7 +384,7 @@ public class TableRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setZ(
 												new AnimatedFloat(0.000F, 2.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -397,7 +397,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/leg"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/leg"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -410,7 +410,7 @@ public class TableRecipeData {
 												.setY(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/furniture/table/top"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/table/top"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false, false))

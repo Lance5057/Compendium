@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/fence/post/thick_inventory",
-  "textures": {
-    "0": "minecraft:block/mangrove_planks"
-  }
-}

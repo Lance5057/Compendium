@@ -201,6 +201,8 @@ public class StyleLoc {
 		lp.add("style.bed_frame.lath", "Lath");
 		lp.add("style.bed_frame.lath_extra", "Fancy Lath");
 		lp.add("style.bed_frame.live_edge", "Live Edge");
+		lp.add("style.bed_frame.ornate", "Ornate");
+		lp.add("style.bed_frame.ornate_poster", "Ornate with Posts");
 		lp.add("style.bed_frame.panelled", "Panelled");
 		lp.add("style.bed_frame.slats", "Slats");
 		lp.add("style.bed_frame.solid", "Solid");
@@ -217,6 +219,9 @@ public class StyleLoc {
 		lp.add("style.shingles", "Shingles");
 		lp.add("style.shingles.basic", "Basic");
 		lp.add("style.shingles.angled", "Angled");
+		lp.add("style.shingles.small_stairs", "Small Stairs");
+		lp.add("style.shingles.taper_left", "Tapered Left");
+		lp.add("style.shingles.taper_right", "Tapered Right");
 
 		lp.add("style.support", "Support");
 		lp.add("style.support.basic", "Basic");
@@ -257,7 +262,7 @@ public class StyleLoc {
 		lp.add("style.small_log.smaller_log", "Smaller Log");
 		lp.add("style.small_log.smallest_log", "Smallest Log");
 
-		lp.add("style.log_stairs.small_logs", "Braced Small Logs");
+		lp.add("style.log_stairs.small_logs", "Stacked Small Logs");
 		lp.add("style.log_stairs.small_logs_rotated_side", "Small Logs (Facing Side)");
 		lp.add("style.log_stairs.small_logs_rotated_front", "Small Logs (Facing Front)");
 		lp.add("style.log_stairs.small_logs_rotated_top", "Small Logs (Facing Top)");
@@ -268,6 +273,7 @@ public class StyleLoc {
 		lp.add("style.log_stairs.small_wood_rotated", "Small Wood (Rotated)");
 		lp.add("style.log_stairs.wood", "Wood");
 		lp.add("style.log_stairs.wood_rotated", "Wood (Rotated)");
+		lp.add("style.log_stairs.braced", "Braced");
 
 		// Plank
 		lp.add("style.plank.basic", "Basic");
@@ -319,11 +325,19 @@ public class StyleLoc {
 		lp.add("style.plank_block.nine_panels", "Nine Panels");
 		lp.add("style.plank_block.petal", "Petal");
 		lp.add("style.plank_block.two_panel", "Two Panels");
+		lp.add("style.plank_block.four_panels", "Four Panels");
 		lp.add("style.plank_block.paper", "Paper");
+		lp.add("style.plank_block.greek", "Greek");
+		lp.add("style.plank_block.greek_trimmed", "Trimmed Greek");
+		lp.add("style.plank_block.greek_trimmed_rotated", "Trimmed Greek (Rotated)");
+		lp.add("style.plank_block.greek_caged", "Caged Greek");
+		lp.add("style.plank_block.braid", "Braid");
+		lp.add("style.plank_block.braid_rotated", "Braid (Rotated)");
 
 		// Window Trim
 		lp.add("style.window_trim", "Trim");
 		lp.add("style.window_trim.quarter", "Quarter");
+		lp.add("style.window_trim.quarter_trimmed", "Quarter (Trimmed)");
 		lp.add("style.window_trim.bars", "Vertical Bars");
 		lp.add("style.window_trim.bars_trimmed", "Vertical Bars (Trimmed)");
 		lp.add("style.window_trim.bars_horizontal", "Horizontal Bars");
@@ -331,9 +345,14 @@ public class StyleLoc {
 		lp.add("style.window_trim.diamond", "Diamond");
 		lp.add("style.window_trim.diamond_trimmed", "Diamond (Trimmed)");
 		lp.add("style.window_trim.double", "Double");
+		lp.add("style.window_trim.double_offset", "Double (Offset)");
+		lp.add("style.window_trim.double_trimmed", "Double (Trimmed)");
 		lp.add("style.window_trim.full", "Full");
 		lp.add("style.window_trim.lattice", "Lattice");
 		lp.add("style.window_trim.lattice_trimmed", "Lattice (Trimmed)");
+		lp.add("style.window_trim.half_lattice_bottom", "Half Lattice (Bottom)");
+		lp.add("style.window_trim.half_lattice_top", "Half Lattice (Top)");
+		lp.add("style.window_trim.lattice_fancy", "Fancy Lattice");
 		lp.add("style.window_trim.round", "Round");
 		lp.add("style.window_trim.weave", "Weave");
 		lp.add("style.window_trim.diagonal", "Diagonal");
@@ -348,14 +367,22 @@ public class StyleLoc {
 		lp.add("style.window_trim.grate", "Grate");
 		lp.add("style.window_trim.grate_edgeless", "Edgeless Grate");
 		lp.add("style.window_trim.fancy_frame", "Fancy Frame");
-		lp.add("style.window_trim.caged_lattice", "Caged Lattice");
+		lp.add("style.window_trim.caged_lattice", "Caged Grid");
 		lp.add("style.window_trim.grill", "Grill");
 		lp.add("style.window_trim.porthole", "Porthole");
 		lp.add("style.window_trim.warped", "Warped");
 		lp.add("style.window_trim.woven", "Woven");
+		lp.add("style.window_trim.lozenge", "Lozenge");
+		lp.add("style.window_trim.rupees", "Rupees");
+		lp.add("style.window_trim.rupees_small", "Small Rupees");
+		lp.add("style.window_trim.hourglasses", "Hourglasses");
+		lp.add("style.window_trim.none", "No Trim");
 
 		// Window Glass
 		lp.add("style.window_glass", "Glass");
 		lp.add("style.window_glass.basic", "Basic");
+		lp.add("style.window_glass.no_edge", "No Edge");
+		lp.add("style.window_glass.no_glint", "No Glint");
+		lp.add("style.window_glass.no_edge_no_glint", "No Edge, No Glint");
 	}
 }

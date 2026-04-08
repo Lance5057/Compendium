@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/crosscut_top",
-  "textures": {
-    "0": "minecraft:block/stripped_spruce_log",
-    "1": "minecraft:block/stripped_spruce_log_top",
-    "particle": "minecraft:block/stripped_spruce_log"
-  }
-}

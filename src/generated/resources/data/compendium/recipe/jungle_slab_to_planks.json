@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:jungle_plank_slab_item"
+      "tag": "c:slabs/wooden/jungle"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:jungle_plank_item"
+    "id": "compendium:jungle_plank_item"
   }
 }

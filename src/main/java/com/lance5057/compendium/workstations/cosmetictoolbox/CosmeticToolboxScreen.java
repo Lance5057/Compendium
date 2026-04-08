@@ -6,6 +6,8 @@ import java.util.List;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.network.StyleSetPacket;
@@ -217,6 +219,10 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 
 		if (entity instanceof MultiMaterialBlockEntity mmb) {
 			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
+		}
+
+		if (entity instanceof SimpleStyleBlockEntity ssb) {
+			md.with(IndexEntryModelData.TYPE, ssb.getMatType()).with(IndexEntryModelData.NAME, ssb.getMaterialName());
 		}
 
 		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,

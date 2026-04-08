@@ -1,0 +1,112 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 1,
+    "modelBase": "bed",
+    "modelPart": "base",
+    "styleLayer": 1,
+    "styles": [
+      "basic",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 0,
+    "modelBase": "bed",
+    "modelPart": "frame",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "contemporary_slats",
+      "cross",
+      "fancy",
+      "flat",
+      "flat_extra",
+      "full",
+      "lath",
+      "lath_extra",
+      "live_edge",
+      "panelled",
+      "slats",
+      "solid",
+      "weave"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer2": {
+    "materialLayer": 2,
+    "modelBase": "bed",
+    "modelPart": "mattress",
+    "styleLayer": 2,
+    "styles": [
+      "basic"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer3": {
+    "materialLayer": 3,
+    "modelBase": "bed",
+    "modelPart": "pillow",
+    "styleLayer": 3,
+    "styles": [
+      "basic",
+      "big",
+      "angled",
+      "frilled"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer4": {
+    "materialLayer": 4,
+    "modelBase": "bed",
+    "modelPart": "sheet",
+    "styleLayer": 4,
+    "styles": [
+      "basic",
+      "long",
+      "frilled"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer5": {
+    "materialLayer": 5,
+    "modelBase": "bed",
+    "modelPart": "blanket",
+    "styleLayer": 5,
+    "styles": [
+      "basic",
+      "llama",
+      "glazed"
+    ],
+    "suffix": "",
+    "valid": [
+      "TEXTILE"
+    ]
+  },
+  "layer_count": 6,
+  "loader": "compendium:multi_style_material"
+}

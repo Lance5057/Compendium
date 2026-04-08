@@ -11,14 +11,13 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumTags;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
-import com.lance5057.compendium.index.material.base.MaterialMetal;
+import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.items.tools.HammerItem;
@@ -48,6 +47,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionAdvancedTools extends _MaterialExtension {
 	/**
@@ -166,42 +166,51 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
 		if (base instanceof MaterialMetal metal) {
 			if (PRYBAR.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(PRYBAR.ITEM.toStack()).define('i', metal.INGOT.itemTag)
-						.define('s', Items.STICK).pattern("i  ").pattern(" s ").pattern("  i")
+				WorkbenchRecipeBuilder.shaped(PRYBAR.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
+						.pattern("i  ").pattern(" s ").pattern("  i")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (HAMMER.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack()).define('i', metal.INGOT.itemTag)
-						.define('b', metal.BLOCK.itemTag).define('s', Items.STICK).pattern("ibi").pattern(" s ")
-						.pattern(" s ").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+				WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (SAW.shouldGenerate())
-				WorkbenchRecipeBuilder
-						.shaped(SAW.ITEM.toStack()).define('i', metal.INGOT.itemTag).define('s', Items.STICK)
-						.pattern("iis").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+				WorkbenchRecipeBuilder.shaped(SAW.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("ibs")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (SHEARS.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack()).define('i', metal.INGOT.itemTag).pattern("i ")
-						.pattern(" i").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).pattern("i ").pattern(" i")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (ZWEIHANDER.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack()).define('i', metal.INGOT.itemTag)
-						.define('b', metal.BLOCK.itemTag).define('s', Items.STICK).pattern("  i").pattern(" b ")
-						.pattern("s  ").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+				WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
+						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+						.define('s', Items.STICK).pattern("  i").pattern(" b ").pattern("s  ")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
 			if (BOW.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack()).define('i', metal.INGOT.itemTag)
-						.define('b', Items.BOW).pattern("i  ").pattern(" b ").pattern("  i")
+				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack())
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('b', Items.BOW)
+						.pattern("i  ").pattern(" b ").pattern("  i")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
@@ -306,12 +315,6 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
@@ -351,6 +354,12 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			return Optional.of(base);
 
 		return Optional.empty();
+	}
+
+	@Override
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

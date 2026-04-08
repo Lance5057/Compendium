@@ -10,15 +10,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
@@ -54,8 +57,8 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 		extensions = new ArrayList<_MaterialExtension>();
 
-		ITEMS = DeferredRegister.createItems(namespace);
-		BLOCKS = DeferredRegister.createBlocks(namespace);
+		ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
+		BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
 	}
 
 	@Override
@@ -105,6 +108,16 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 	}
 
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
+
+	public abstract void attachComponents(ModifyDefaultComponentsEvent event);
+
+	protected ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation exists) {
+		if (exists != null) {
+			return exists;
+		}
+
+		return standardLoc;
+	}
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {
 

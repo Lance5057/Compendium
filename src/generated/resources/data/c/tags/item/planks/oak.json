@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:oak_plank_block_item"
+    "minecraft:oak_planks",
+    "compendium:oak_planks_item"
   ]
 }

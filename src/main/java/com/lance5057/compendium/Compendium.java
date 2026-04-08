@@ -72,6 +72,6 @@ public class Compendium {
 	}
 
 	public static ResourceLocation modLoc(String string) {
-		return ResourceLocation.fromNamespaceAndPath("compendium", string);
+		return ResourceLocation.fromNamespaceAndPath("compendium", string.toLowerCase());
 	}
 }

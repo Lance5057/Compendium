@@ -4,8 +4,10 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
 import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.styleblock.IStyleBlock;
@@ -22,6 +24,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.client.model.data.ModelData.Builder;
 import net.neoforged.neoforge.client.model.renderable.BakedModelRenderable;
@@ -53,16 +56,22 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				MultiMaterialBlockComponent mmt = stack.get(CompendiumComponents.MULTI_MATERIAL);
 				@Nullable
 				StyleBlockComponent s = stack.get(CompendiumComponents.STYLE);
+				@Nullable
+				IndexEntryComponent index = stack.get(CompendiumComponents.INDEX);
 
 				Builder md = ModelData.builder();
 
 				if (mmt != null)
-					md.with(MultiMaterialModelData.STATE, mmt.types());
+					md.with(MultiMaterialModelData.STATE, mmt.getTypes());
 				if (s != null)
 					md.with(StyleModelData.STYLES, st.getStyles(s.styles()));
+				if (index != null)
+					md.with(IndexEntryModelData.TYPE, index.getType()).with(IndexEntryModelData.NAME, index.getName());
 
 				BakedModel bm = Minecraft.getInstance().getModelManager()
-						.getModel(ModelResourceLocation.standalone(st.getItemModelLocation()));
+						.getModel(new ModelResourceLocation(st.getItemModelLocation(), ""));
+
+//				bm.applyTransform(displayContext, ps, false);
 
 				BakedModelRenderable bmr = BakedModelRenderable.of(bm);
 				IRenderable<ModelData> ir = bmr.withModelDataContext();
@@ -73,8 +82,8 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 				}
 
 				if (ir != null) {
-					ir.withContext(md.build()).render(ps, mbs, texture -> RenderType.entityCutout(texture), packedLight,
-							overlay, overlay, null);
+					ir.render(ps, mbs, texture -> RenderType.itemEntityTranslucentCull(texture), packedLight, overlay,
+							0, md.build());
 
 				}
 
@@ -83,5 +92,9 @@ public class FancyItemRenderer extends BlockEntityWithoutLevelRenderer {
 
 		ps.popPose();
 
+	}
+
+	private static <T extends Comparable<T>> String getName(Property<T> property, Comparable<?> value) {
+		return property.getName((T) value);
 	}
 }

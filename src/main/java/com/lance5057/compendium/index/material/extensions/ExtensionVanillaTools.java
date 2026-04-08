@@ -8,7 +8,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.data.IndexBlockModelProvider;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -33,6 +32,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionVanillaTools extends _MaterialExtension {
 	/**
@@ -46,8 +46,7 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	public CompendiumItemHandler HOE = new CompendiumItemHandler("hoe");
 	public CompendiumItemHandler PICKAXE = new CompendiumItemHandler("pickaxe");
 
-	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel,
-			Generate hoe, Generate pickaxe) {
+	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel, Generate hoe, Generate pickaxe) {
 		SWORD.setGenerate(sword);
 		AXE.setGenerate(axe);
 		SHOVEL.setGenerate(shovel);
@@ -180,12 +179,6 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockModel(_MaterialBase base, IndexBlockModelProvider ibmp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void otherLoot(_MaterialBase base, LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
@@ -221,5 +214,11 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 			return Optional.of(base);
 
 		return Optional.empty();
+	}
+
+	@Override
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+		// TODO Auto-generated method stub
+
 	}
 }

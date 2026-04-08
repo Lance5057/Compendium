@@ -104,7 +104,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -142,7 +142,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -169,7 +169,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -203,7 +203,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "animation": {
@@ -325,7 +325,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -363,7 +363,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -390,7 +390,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -424,7 +424,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -455,7 +455,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/top"
+          "location": "compendium:recipes/furniture/table/top"
         }
       ],
       "tool": {
@@ -544,7 +544,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -582,7 +582,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -609,7 +609,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -643,7 +643,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -674,7 +674,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/top"
+          "location": "compendium:recipes/furniture/table/top"
         }
       ],
       "tool": {
@@ -763,7 +763,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -801,7 +801,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -835,7 +835,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -866,7 +866,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -897,7 +897,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/top"
+          "location": "compendium:recipes/furniture/table/top"
         }
       ],
       "tool": {
@@ -986,7 +986,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -1024,7 +1024,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -1058,7 +1058,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -1092,7 +1092,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/leg"
+          "location": "compendium:recipes/furniture/table/leg"
         },
         {
           "IsBlock": true,
@@ -1123,7 +1123,7 @@
               }
             }
           },
-          "location": "compendium:extra/furniture/table/top"
+          "location": "compendium:recipes/furniture/table/top"
         }
       ],
       "tool": {

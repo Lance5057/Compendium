@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:crimson_plank_stairs_item"
+      "tag": "c:stairs/wooden/crimson"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:crimson_plank_item"
+    "id": "compendium:crimson_plank_item"
   }
 }

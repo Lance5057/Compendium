@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/bases/shingles_cap_slanted/shingles/no_top/straight/basic",
-  "textures": {
-    "0": "minecraft:block/spruce_planks"
-  }
-}

@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.chair;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
@@ -100,6 +98,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	}
 
 	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.CHAIR_BACK, StyleData.CHAIR_SEAT, StyleData.CHAIR_LEGS };
+	}
+
+	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		Direction d = state.getValue(HorizontalDirectionalBlock.FACING);
 
@@ -130,16 +133,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-
-		return List.of(StyleData.CHAIR_BACK.getTypes().get(current.get(0)),
-				StyleData.CHAIR_SEAT.getTypes().get(current.get(1)),
-				StyleData.CHAIR_LEGS.getTypes().get(current.get(2)));
-	}
-
-	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/chair");
+		return Compendium.modLoc("chair_inventory");
 	}
 
 	@Override

@@ -1,9 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/firewood_bottom",
-  "textures": {
-    "0": "minecraft:block/warped_stem",
-    "1": "minecraft:block/warped_stem_top",
-    "2": "compendium:block/material/wood/warped/logs/log_split_side",
-    "particle": "minecraft:block/warped_stem"
-  }
-}

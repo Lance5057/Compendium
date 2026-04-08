@@ -45,19 +45,19 @@ public class BlockLootTables extends BlockLootSubProvider {
 				createSinglePropConditionTable(CompendiumBlocks.WORKBENCH.get(), WorkbenchBlock.HALF, Half.TOP));
 		this.dropSelf(CompendiumBlocks.HAMMERING_STATION.get());
 		this.dropSelf(CompendiumBlocks.SAW_BUCK.get());
-		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
+//		this.dropSelf(CompendiumBlocks.SCRAPPING_TABLE.get());
 		this.dropSelf(CompendiumBlocks.COSMETIC_TOOLBOX.get());
-		this.add(CompendiumBlocks.CHAIR.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.CHAIR.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
 		this.dropSelf(CompendiumBlocks.TOOLRACK.get());
 		this.dropSelf(CompendiumBlocks.COMPONENT_DRAWER.get());
-		this.add(CompendiumBlocks.TABLE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
-		this.add(CompendiumBlocks.CLOTHED_TABLE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.TABLE.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.CLOTHED_TABLE.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
 		this.add(CompendiumBlocks.FANCY_BED.get(), b -> this.createBedTable(b, FancyBedBlock.PART, BedPart.HEAD));
-		this.add(CompendiumBlocks.FANCY_FENCE.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
-		this.add(CompendiumBlocks.SHINGLES_SLANTED.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
-		this.add(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.FANCY_FENCE.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.SHINGLES_SLANTED.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
 //		this.dropSelf(CompendiumBlocks.FANCY_DOOR.get());
-		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> this.createMaterialStyleItemDrop(p_248609_));
+		this.add(CompendiumBlocks.WINDOW.get(), p_248609_ -> BlockLootTables.createMaterialStyleItemDrop(p_248609_));
 
 	}
 

@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:warped_plank_slab_item"
+      "tag": "c:slabs/wooden/warped"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:warped_plank_item"
+    "id": "compendium:warped_plank_item"
   }
 }

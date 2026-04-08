@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.shingles.slanted.cap;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -17,10 +15,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBlock {
 	public static final BooleanProperty NORTH = PipeBlock.NORTH;
@@ -28,6 +30,9 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
 	public static final BooleanProperty WEST = PipeBlock.WEST;
 	public static final BooleanProperty TOP = BooleanProperty.create("top");
+
+	protected static final VoxelShape SHAPE_BASE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+	protected static final VoxelShape SHAPE_TOP = Block.box(5.0D, 11.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 
 	public ShinglesCapSlanted(Properties properties) {
 		super(properties);
@@ -37,9 +42,27 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	}
 
 	@Override
+	public RenderShape getRenderShape(BlockState pState) {
+		return RenderShape.MODEL;
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		if (state.getValue(TOP))
+			return Shapes.or(SHAPE_TOP, SHAPE_BASE);
+		return SHAPE_BASE;
+	}
+
+	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_SHINGLES,
-				StyleData.SUPPORT_SHINGLES, StyleData.GABLE_SHINGLES);
+		return new StyledMultiMaterialBlockEntity(pos, state, 3, 3, StyleData.SHINGLES_CAP_SHINGLES,
+				StyleData.SUPPORT_CAP_SHINGLES, StyleData.GABLE_CAP_SHINGLES);
+	}
+
+	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.SHINGLES_CAP_SHINGLES, StyleData.SUPPORT_CAP_SHINGLES,
+				StyleData.GABLE_CAP_SHINGLES };
 	}
 
 	@Override
@@ -109,14 +132,8 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.SHINGLES_SHINGLES.getTypes().get(current.get(0)),
-				StyleData.SUPPORT_SHINGLES.getTypes().get(current.get(1)));
-	}
-
-	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/shingles_cap_slanted");
+		return Compendium.modLoc("shingles_cap_slanted_inventory");
 	}
 
 	@Override
@@ -124,13 +141,14 @@ public class ShinglesCapSlanted extends Block implements EntityBlock, IStyleBloc
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
-		switch(current)
-		{
-		case 0: return "shingles";
-		case 1: return "support";
+		switch (current) {
+		case 0:
+			return "shingles";
+		case 1:
+			return "support";
 		}
 		return "error";
 	}

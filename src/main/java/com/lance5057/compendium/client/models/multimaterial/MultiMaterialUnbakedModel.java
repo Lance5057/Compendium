@@ -157,8 +157,8 @@ public class MultiMaterialUnbakedModel implements IUnbakedGeometry<MultiMaterial
 		}
 
 		@Override
-		public MultiMaterialUnbakedModel read(JsonObject jsonObject,
-				JsonDeserializationContext deserializationContext) throws JsonParseException {
+		public MultiMaterialUnbakedModel read(JsonObject jsonObject, JsonDeserializationContext deserializationContext)
+				throws JsonParseException {
 
 			BlockModel base = deserializationContext.deserialize(GsonHelper.getAsJsonObject(jsonObject, "base"),
 					BlockModel.class);

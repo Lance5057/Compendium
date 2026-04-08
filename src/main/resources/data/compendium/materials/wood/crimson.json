@@ -2,11 +2,20 @@
   "name": "crimson",
   "namespace": "minecraft",
   "type": "WOOD",
+  "version": 1.1,
   "loadPlanks": "EXISTS",
   "loadLog": "EXISTS",
   "loadStrippedLog": "EXISTS",
   "loadWood": "EXISTS",
   "loadStrippedWood": "EXISTS",
+  "specialLocations": {
+    "textures": {
+      "logLocation": "minecraft:block/crimson_stem",
+      "strippedLogLocation": "minecraft:block/stripped_crimson_stem",
+      "logTopLocation": "minecraft:block/crimson_stem_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_crimson_stem_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

@@ -42,7 +42,7 @@ public class ComponentDrawerBlock extends RecipeToolSupplierBlock implements Ent
 	protected VoxelShape SHAPE_WEST = Block.box(0.0D, 0.0D, 8.0D, 16.0D, 16.0D, 16.0D);
 
 	public ComponentDrawerBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.STONE).strength(3, 4).noOcclusion());
+		super(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

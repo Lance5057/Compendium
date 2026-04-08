@@ -1,14 +1,14 @@
 {
   "values": [
-    "minecraft:acacia_stripped_logs_stairs_item",
-    "minecraft:birch_stripped_logs_stairs_item",
-    "minecraft:cherry_stripped_logs_stairs_item",
-    "minecraft:crimson_stripped_logs_stairs_item",
-    "minecraft:dark_oak_stripped_logs_stairs_item",
-    "minecraft:jungle_stripped_logs_stairs_item",
-    "minecraft:mangrove_stripped_logs_stairs_item",
-    "minecraft:oak_stripped_logs_stairs_item",
-    "minecraft:spruce_stripped_logs_stairs_item",
-    "minecraft:warped_stripped_logs_stairs_item"
+    "compendium:stripped_acacia_small_logs_stairs_item",
+    "compendium:stripped_birch_small_logs_stairs_item",
+    "compendium:stripped_cherry_small_logs_stairs_item",
+    "compendium:stripped_crimson_small_logs_stairs_item",
+    "compendium:stripped_dark_oak_small_logs_stairs_item",
+    "compendium:stripped_jungle_small_logs_stairs_item",
+    "compendium:stripped_mangrove_small_logs_stairs_item",
+    "compendium:stripped_oak_small_logs_stairs_item",
+    "compendium:stripped_spruce_small_logs_stairs_item",
+    "compendium:stripped_warped_small_logs_stairs_item"
   ]
 }

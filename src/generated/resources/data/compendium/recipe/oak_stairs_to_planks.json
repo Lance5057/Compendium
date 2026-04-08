@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:oak_plank_stairs_item"
+      "tag": "c:stairs/wooden/oak"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:oak_plank_item"
+    "id": "compendium:oak_plank_item"
   }
 }

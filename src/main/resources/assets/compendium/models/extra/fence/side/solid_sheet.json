@@ -1,0 +1,6 @@
+{
+	"parent": "compendium:extra/fence/side/solid",
+	"textures": {
+		"0": "compendium:block/material/wood/acacia/planks/sheet"
+	}
+}

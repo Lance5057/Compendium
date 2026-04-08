@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/center/head/sheet/frilled",
-  "textures": {
-    "0": "minecraft:block/black_wool"
-  }
-}

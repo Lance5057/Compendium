@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:dark_oak_plank_stairs_item"
+            "items": "compendium:dark_oak_planks_stairs_item"
           }
         ]
       },

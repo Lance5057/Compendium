@@ -35,9 +35,18 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 	public abstract int getMaterialsCount();
 
 	public void setMaterial(int index, String s) {
-		if (materials.size() > index)
-			materials.get(index).setCurrentMaterial(s);
+		List<MultiMaterialType> newMats = new ArrayList<MultiMaterialType>();
+
+		for (MultiMaterialType type : materials) {
+			newMats.add(type.copy());
+		}
+
+		if (newMats.size() > index)
+			newMats.get(index).setCurrentMaterial(s);
+
+		materials = newMats;
 		this.setChanged();
+		getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 	}
 
 	public void setMaterial(MultiMaterialType[] s) {
@@ -60,8 +69,6 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		super(type, pos, blockState);
 		this.materials = list;
 	}
-	
-	
 
 	@Override
 	public ModelData getModelData() {
@@ -107,7 +114,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 
 	CompoundTag writeNBT(CompoundTag tag, HolderLookup.Provider registries) {
 		this.writeMaterialNBT(materials, tag, registries);
-		
+
 		writeNBTExtra(tag, registries);
 
 		return tag;
@@ -137,7 +144,7 @@ public abstract class MultiMaterialBlockEntity extends BlockEntity implements IM
 		MultiMaterialBlockComponent m = input.getOrDefault(CompendiumComponents.MULTI_MATERIAL.get(), null);
 		if (m != null) {
 			this.materials = new ArrayList<MultiMaterialType>();
-			m.types().forEach(i -> materials.add(i.copy()));
+			m.getTypes().forEach(i -> materials.add(i.copy()));
 		}
 	}
 

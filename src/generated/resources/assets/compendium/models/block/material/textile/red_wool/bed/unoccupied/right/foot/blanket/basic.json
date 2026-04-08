@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:block/furniture/bed/unoccupied/right/foot/blanket/basic",
-  "textures": {
-    "0": "minecraft:block/red_wool"
-  }
-}

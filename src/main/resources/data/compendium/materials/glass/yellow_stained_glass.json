@@ -1,0 +1,15 @@
+{
+  "name": "yellow_stained_glass",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "loadBlock": "EXISTS",
+  "specialLocations": {
+    "textures": {
+      "blockLocation": {
+        "namespace": "minecraft",
+        "path": "yellow_stained_glass"
+      }
+    }
+  },
+  "extensions": []
+}

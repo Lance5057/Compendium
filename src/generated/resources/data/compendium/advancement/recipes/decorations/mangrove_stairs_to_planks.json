@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:mangrove_plank_stairs_item"
+            "items": "compendium:mangrove_planks_stairs_item"
           }
         ]
       },

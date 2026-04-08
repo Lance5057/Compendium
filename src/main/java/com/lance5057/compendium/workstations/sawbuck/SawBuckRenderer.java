@@ -28,10 +28,6 @@ public class SawBuckRenderer extends MultiToolBlockEntityRenderer<SawBuckBlockEn
 			return;
 		}
 
-//		transform.setScale(0.5f);
-//		transform.setRotation(45, 0, 90);
-//		transform.setLocation(8f, 18f, 8f);
-
 		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
 			matrixStackIn.pushPose();
 			matrixStackIn.translate(0.5f, 1, 0.5f);

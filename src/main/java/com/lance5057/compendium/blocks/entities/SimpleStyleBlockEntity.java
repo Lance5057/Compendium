@@ -8,8 +8,11 @@ import javax.annotation.Nonnull;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.style.StyleData;
 
 import net.minecraft.core.BlockPos;
@@ -30,24 +33,33 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	int styleCount;
 
 	List<Integer> currentStyles;
+	MATERIAL_TYPES matType;
+	public MATERIAL_TYPES getMatType() {
+		return matType;
+	}
+
+	public String getMaterialName() {
+		return materialName;
+	}
+
+	String materialName;
 
 	@Override
 	public List<StyleData> getStyles() {
 		return styles;
 	}
 
-//	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState) {
-//		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
-////		currentStyles = new ArrayList<Integer>(Arrays.asList(0));
-//		this.styleCount = 1;
-//		this.styles = new ArrayList<StyleData>();
-//	}
+	public void setCurrentStyles(List<Integer> currentStyles) {
+		this.currentStyles = currentStyles;
+	}
 
-	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, int styleCount, StyleData... styles) {
+	public SimpleStyleBlockEntity(BlockPos pos, BlockState blockState, MATERIAL_TYPES type, String materialName,
+			int styleCount, StyleData... styles) {
 		super(CompendiumBlockEntities.STYLE.get(), pos, blockState);
 		this.styleCount = styleCount;
-//		currentStyles = new ArrayList<Integer>(Arrays.asList(new Integer[styleCount]));
 		this.styles = List.of(styles);
+		this.matType = type;
+		this.materialName = materialName;
 	}
 
 	@Override
@@ -107,7 +119,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 	@Override
 	public ModelData getModelData() {
 
-		return ModelData.builder().with(StyleModelData.STYLES, getCurrentAllString()).build();
+		return ModelData.builder().with(StyleModelData.STYLES, getCurrentAllString())
+				.with(IndexEntryModelData.NAME, this.materialName).with(IndexEntryModelData.TYPE, this.matType).build();
 	}
 
 	@Override
@@ -115,6 +128,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		super.collectImplicitComponents(builder);
 
 		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(currentStyles));
+		builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(this.matType, this.materialName));
 	}
 
 	@Override
@@ -123,6 +137,11 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		StyleBlockComponent m = input.getOrDefault(CompendiumComponents.STYLE.get(), null);
 		if (m != null) {
 			this.currentStyles = new ArrayList<Integer>(m.styles());
+		}
+		IndexEntryComponent i = input.getOrDefault(CompendiumComponents.INDEX.get(), null);
+		if (i != null) {
+			this.matType = i.getType();
+			this.materialName = i.getName();
 		}
 	}
 
@@ -186,10 +205,16 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	protected void readNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.currentStyles = new ArrayList<Integer>(this.readStyleNBT(nbt, registries));
+
+		this.matType = MATERIAL_TYPES.valueOf(nbt.get("material_type").getAsString());
+		this.materialName = nbt.get("material_name").getAsString();
 	}
 
 	protected void writeNBTExtra(CompoundTag nbt, HolderLookup.Provider registries) {
 		this.writeStyleNBT(nbt, registries);
+
+		nbt.putString("material_name", materialName);
+		nbt.putString("material_type", matType.toString().toUpperCase());
 	}
 
 }

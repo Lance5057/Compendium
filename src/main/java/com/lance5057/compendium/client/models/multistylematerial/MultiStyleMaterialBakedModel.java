@@ -2,22 +2,24 @@ package com.lance5057.compendium.client.models.multistylematerial;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.ChunkRenderTypeSet;
@@ -81,27 +83,19 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 		return l;
 	}
 
-//	@Override
-//	public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
-//		StyleModelData data = new StyleModelData();
-//		MultiMaterialModelData data2 = new MultiMaterialModelData();
-//
-//		return modelData.derive().with(STYLE_DATA, data).with(MATERIAL_DATA, data2).build();
-//	}
-
 	public static class BakedLayer {
-		public final List<MATERIAL_TYPES> validTypes;
-		public final Map<String, Map<String, BakedModel>> models;
+		public final String layerName;
 		public final int materialLayer;
 		public final int styleLayer;
+		public final String baseName;
+		public final String suffix;
 
-		public BakedLayer(List<MATERIAL_TYPES> validTypes, Map<String, Map<String, BakedModel>> bakedModels,
-				int materialLayer, int styleLayer) {
-			this.validTypes = validTypes;
-			this.models = bakedModels;
+		public BakedLayer(String baseName, String layerName, int materialLayer, int styleLayer, String suffix) {
+			this.baseName = baseName;
+			this.layerName = layerName;
 			this.materialLayer = materialLayer;
 			this.styleLayer = styleLayer;
-
+			this.suffix = suffix;
 		}
 
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand,
@@ -111,22 +105,33 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
 			if (s != null && s.size() > 0)
-				if (mats != null && mats.size() != 0 && mats.size() > materialLayer && mats.get(materialLayer) != null) {
-					Map<String, BakedModel> m = models.get(mats.get(materialLayer).getCurrentMaterial());
-					if (m != null && !m.isEmpty() && s.size() > styleLayer) {
-						BakedModel q = m.getOrDefault(s.get(styleLayer), null);
-						if (q != null) {
-							List<BakedQuad> r = q.getQuads(state, side, rand, extraData, renderType);
-							
+				if (mats != null && mats.size() != 0 && mats.size() > materialLayer
+						&& mats.get(materialLayer) != null) {
+
+					String m = mats.get(materialLayer).getCurrentMaterial();
+					String st = s.get(styleLayer);
+
+					if (m != "") {
+						ResourceLocation rc = ClientUtil.createMaterialStyleLayerBlockLocation(baseName, layerName, m, st,
+								suffix);
+
+						BakedModel t = Minecraft.getInstance().getModelManager()
+								.getModel(new ModelResourceLocation(rc, ""));
+
+						if (t != null) {
+							List<BakedQuad> r = t.getQuads(state, side, rand, extraData, renderType);
+
 							if (r != null && !r.isEmpty()) {
-								if (renderType == null || q.getRenderTypes(state, rand, extraData).contains(renderType))
+								if (renderType == null || t.getRenderTypes(state, rand, extraData).contains(renderType))
 									l.addAll(r);
 							}
+
 						}
 					}
 				}
 
 			return l;
+
 		}
 
 	}

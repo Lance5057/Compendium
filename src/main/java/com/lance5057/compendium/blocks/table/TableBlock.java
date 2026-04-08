@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.table;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.style.StyleData;
@@ -26,14 +24,8 @@ public class TableBlock extends TableBase implements EntityBlock, IStyleBlock {
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-		return List.of(StyleData.TABLE_TOP.getTypes().get(current.get(0)),
-				StyleData.TABLE_LEGS.getTypes().get(current.get(1)));
-	}
-
-	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/table");
+		return Compendium.modLoc("table_inventory");
 	}
 
 	@Override
@@ -41,14 +33,20 @@ public class TableBlock extends TableBase implements EntityBlock, IStyleBlock {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public String getBaseStyleName(int current) {
-		switch(current)
-		{
-		case 0: return "table_top";
-		case 1: return "table_legs";
+		switch (current) {
+		case 0:
+			return "table_top";
+		case 1:
+			return "table_legs";
 		}
 		return "error";
+	}
+
+	@Override
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.TABLE_TOP, StyleData.TABLE_LEGS };
 	}
 }

@@ -37,8 +37,8 @@ public class ItemModels extends ItemModelProvider {
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/hammering_station"));
 		forBlockItem(CompendiumItems.SAW_BUCK,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/sawbuck"));
-		forBlockItem(CompendiumItems.SCRAPPING_TABLE,
-				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
+//		forBlockItem(CompendiumItems.SCRAPPING_TABLE,
+//				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/dismantling_table"));
 
 		forItem(CompendiumItems.SAWDUST, "sawdust");
 

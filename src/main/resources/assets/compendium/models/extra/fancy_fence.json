@@ -1,0 +1,55 @@
+{
+  "base": {
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "minecraft:block/oak_planks"
+    }
+  },
+  "layer0": {
+    "materialLayer": 0,
+    "modelBase": "fence",
+    "modelPart": "post",
+    "styleLayer": 0,
+    "styles": [
+      "basic",
+      "none",
+      "pillar",
+      "pillar_bottom",
+      "pillar_top",
+      "pillar_flat_cap",
+      "pillar_double_cap",
+      "thick",
+      "thin"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer1": {
+    "materialLayer": 1,
+    "modelBase": "fence",
+    "modelPart": "side",
+    "styleLayer": 1,
+    "styles": [
+      "basic",
+      "3_spoke",
+      "4_spoke",
+      "diamond",
+      "picket",
+      "privacy",
+      "short",
+      "slats",
+      "slats_concave",
+      "slats_convex",
+      "solid",
+      "solid_sheet"
+    ],
+    "suffix": "",
+    "valid": [
+      "WOOD"
+    ]
+  },
+  "layer_count": 2,
+  "loader": "compendium:multi_style_material"
+}

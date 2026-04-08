@@ -1,8 +1,0 @@
-{
-  "parent": "compendium:block/bases/log_slab/small_logs_full",
-  "textures": {
-    "0": "minecraft:block/stripped_mangrove_log",
-    "1": "minecraft:block/stripped_mangrove_log",
-    "particle": "minecraft:block/stripped_mangrove_log"
-  }
-}

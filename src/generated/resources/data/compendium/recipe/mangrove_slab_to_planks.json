@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:mangrove_plank_slab_item"
+      "tag": "c:slabs/wooden/mangrove"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:mangrove_plank_item"
+    "id": "compendium:mangrove_plank_item"
   }
 }

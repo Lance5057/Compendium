@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "compendium:block/material/textile/gingham_navy/woolly_glazed",
+		"particle": "block/white_wool"
+	},
+	"elements": [
+		{
+			"from": [-0.2, 1, 2],
+			"to": [16.2, 3, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.5, 7, 0]},
+			"faces": {
+				"east": {"uv": [0, 16, 14, 14.09524], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [14, 16, 0, 14.09524], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [0, 16, 16, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [-0.2, 3, 2],
+			"to": [16.2, 9.4, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.5, 7, 0]},
+			"faces": {
+				"east": {"uv": [9.90476, 2, 16, 16], "rotation": 270, "texture": "#0"},
+				"west": {"uv": [9.90476, 16, 16, 2], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 16, 16, 2], "texture": "#0"}
+			}
+		}
+	]
+}

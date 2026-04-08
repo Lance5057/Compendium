@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.client.BlacklistedModel;
+import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.RecipeMobEffect;
 import com.lance5057.compendium.workstations.sawbuck.SawBuckRecipe;
@@ -77,7 +78,7 @@ public class SawBuckRecipeBuilder implements RecipeBuilder {
 
 	public void build(RecipeOutput consumer) {
 		ResourceLocation location = BuiltInRegistries.ITEM.getKey(result.getItem());
-		build(consumer, Compendium.MOD_ID + ":" + location.getPath());
+		save(consumer, Compendium.MOD_ID + ":" + location.getPath());
 	}
 
 	public void build(RecipeOutput consumerIn, String save) {
@@ -96,6 +97,11 @@ public class SawBuckRecipeBuilder implements RecipeBuilder {
 
 	public ItemStack getResultStack() {
 		return this.result;
+	}
+
+	@Override
+	public void save(RecipeOutput recipeOutput, String id) {
+		this.save(recipeOutput, TagUtil.modLoc(id));
 	}
 
 	@Override

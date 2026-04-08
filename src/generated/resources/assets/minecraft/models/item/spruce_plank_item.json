@@ -1,6 +1,0 @@
-{
-  "parent": "compendium:item/plank",
-  "textures": {
-    "0": "compendium:block/material/wood/spruce/planks/plank"
-  }
-}

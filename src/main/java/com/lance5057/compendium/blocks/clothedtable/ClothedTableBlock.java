@@ -1,7 +1,5 @@
 package com.lance5057.compendium.blocks.clothedtable;
 
-import java.util.List;
-
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.blocks.table.TableBase;
@@ -29,16 +27,13 @@ public class ClothedTableBlock extends TableBase implements EntityBlock, IStyleB
 	}
 
 	@Override
-	public List<String> getStyles(List<Integer> current) {
-
-		return List.of(StyleData.TABLE_TOP.getTypes().get(current.get(0)),
-				StyleData.TABLE_LEGS.getTypes().get(current.get(1)),
-				StyleData.TABLE_CLOTH.getTypes().get(current.get(2)));
+	public StyleData[] getStyleData() {
+		return new StyleData[] { StyleData.TABLE_TOP, StyleData.TABLE_LEGS, StyleData.TABLE_CLOTH };
 	}
 
 	@Override
 	public ResourceLocation getItemModelLocation() {
-		return Compendium.modLoc("extra/clothed_table");
+		return Compendium.modLoc("clothed_table_inventory");
 	}
 
 	@Override

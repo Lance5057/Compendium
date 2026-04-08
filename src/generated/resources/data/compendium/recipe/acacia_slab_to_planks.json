@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:acacia_plank_slab_item"
+      "tag": "c:slabs/wooden/acacia"
     }
   ],
   "result": {
     "count": 1,
-    "id": "minecraft:acacia_plank_item"
+    "id": "compendium:acacia_plank_item"
   }
 }

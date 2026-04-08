@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "compendium:block/material/wood/crimson/planks/paper",
-    "side": "compendium:block/material/wood/crimson/planks/paper",
-    "top": "compendium:block/material/wood/crimson/planks/paper"
-  }
-}
