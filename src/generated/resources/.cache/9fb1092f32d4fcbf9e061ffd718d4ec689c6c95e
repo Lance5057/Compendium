@@ -1,4 +1,4 @@
-// 1.21.1	2026-04-07T12:42:51.1715598	Recipes
+// 1.21.1	2026-04-08T09:47:49.7691908	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -382,8 +382,8 @@ b5c0f624d3611cb4c8f668772ffda66f4a749d6d data/compendium/recipe/warped_slab_to_p
 f5c50fee73fcdc930b97425214457ab227193480 data/compendium/recipe/warped_small_logs_stairs_item.json
 5daf137686fcba14e27fbb11ac1139f2d8c2f2f0 data/compendium/recipe/warped_stairs_to_planks.json
 a8a32799fef28f2dee1c7015129a8c1b5007e945 data/compendium/recipe/workbench.json
-01e967dc9a9a9a9c069ece9eee7264acc7ad8089 data/compendium/recipe/workbench/chair.json
-17b8e9bd974ae48a81d99015c5cb6fb92c24596a data/compendium/recipe/workbench/clothed_table.json
+6dabde5c087c298a922278b60db338bf74e0ca51 data/compendium/recipe/workbench/chair.json
+a96250a6ccee2cb00251f001f163125745b0a104 data/compendium/recipe/workbench/clothed_table.json
 87298c30d3c0e5e4de2fa7c3ef3e83b97dd0d4fa data/compendium/recipe/workbench/component_drawer.json
 28df5147fe669cb884564fdc0929540ad44b3f3e data/compendium/recipe/workbench/copper_hammer_item.json
 ac18b114b4964664fd2ffa98b919e42f78121bb3 data/compendium/recipe/workbench/copper_prybar_item.json
@@ -391,7 +391,7 @@ ac18b114b4964664fd2ffa98b919e42f78121bb3 data/compendium/recipe/workbench/copper
 f275dedca0891fe9f8d147cbef657b66e2543a2f data/compendium/recipe/workbench/copper_shears_item.json
 32098475c0d5e50207a816d07c4d0c6e641cd76e data/compendium/recipe/workbench/copper_zweihander_item.json
 9c3138ecd05dd70feb0942c0ab7eef92a64e405d data/compendium/recipe/workbench/cosmetic_toolbox.json
-57cd2b9310a73ffe5351dbb331c84ac8fce1a653 data/compendium/recipe/workbench/fancy_bed.json
+b09923c8548fb45494a8e396c6b34cba248222ac data/compendium/recipe/workbench/fancy_bed.json
 82c37e847d9ca2f97af9b7a50feeef0f42a38a9f data/compendium/recipe/workbench/fancy_fence.json
 bf887bc35c412f9cc2b3cf6a157f0a5b1c0c9933 data/compendium/recipe/workbench/gold_hammer_item.json
 d64f4e89b2c5fa666e588a7f6473aca86efadae3 data/compendium/recipe/workbench/gold_prybar_item.json
@@ -410,7 +410,7 @@ f27c78670b12ba0d1effc4db7fb522b7fa96aabe data/compendium/recipe/workbench/nether
 3fdf30f59e9c5b0047baedba2b43fc618519172b data/compendium/recipe/workbench/netherite_zweihander_item.json
 3301fe5573868cb6ca607713463a180a4a63f9f6 data/compendium/recipe/workbench/shingles_cap_slanted.json
 840a1f91a8315ab4077172157ee92e374b7ce134 data/compendium/recipe/workbench/shingles_slanted.json
-c35923c0cacdd66ce27c4f21c25a37e052289565 data/compendium/recipe/workbench/table.json
+2c2cb4c05c8f1cef1e187d3938f34dfc21696be3 data/compendium/recipe/workbench/table.json
 ad7c5f7905fb26bd58730891fed00494bba2fbde data/compendium/recipe/workbench/toolrack.json
 b7210acdf076deee31bd6ee6d817f04fee701393 data/compendium/recipe/workbench/window.json
 da53297f6f5b7baeb7b2a92a1008224f08d04a9c data/minecraft/advancement/recipes/hammering/cobblestone.json
