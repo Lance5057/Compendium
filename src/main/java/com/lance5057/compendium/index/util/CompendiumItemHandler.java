@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.google.gson.JsonElement;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -30,6 +31,12 @@ public class CompendiumItemHandler implements Serializable {
 
 	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 
+	protected ResourceLocation existsLocation;
+
+	public ResourceLocation getExistsLocation() {
+		return existsLocation;
+	}
+
 	public CompendiumItemHandler(String n) {
 		name = n;
 	}
@@ -50,16 +57,17 @@ public class CompendiumItemHandler implements Serializable {
 		return generate != Generate.IGNORE;
 	}
 
-	public void setup(_MaterialBase base, ResourceLocation existsItem) {
-		setup(base, () -> new Item(new Item.Properties()), existsItem);
+	public void setup(_MaterialBase base) {
+		setup(base, () -> new Item(new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Item> item, ResourceLocation existsItem) {
+	public void setup(_MaterialBase base, Supplier<? extends Item> item) {
 		if (generate == Generate.GENERATE) {
 			ITEM = setupItem(base, item);
-		} else if (generate == Generate.EXISTS) {
-			ITEM = DeferredItem.createItem(existsItem);
 		}
+//		} else if (generate == Generate.EXISTS) {
+//			ITEM = DeferredItem.createItem(existsItem);
+//		}
 	}
 
 	public DeferredItem<Item> setupItem(_MaterialBase base, Supplier<? extends Item> item) {
@@ -99,6 +107,16 @@ public class CompendiumItemHandler implements Serializable {
 			if (item.is(key))
 				return true;
 		return false;
+	}
+
+	public JsonElement serialize(_MaterialBase src) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deserialize(JsonElement json) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

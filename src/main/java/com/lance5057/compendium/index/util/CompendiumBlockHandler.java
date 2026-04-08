@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
 import com.lance5057.compendium.CompendiumBlocks;
@@ -41,6 +43,17 @@ public class CompendiumBlockHandler implements Serializable {
 	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 	public transient List<TagKey<Block>> blockTag = new ArrayList<TagKey<Block>>();
 
+	protected ResourceLocation existsLocationBlock;
+	protected ResourceLocation existsLocationItem;
+
+	public ResourceLocation getExistsLocationBlock() {
+		return existsLocationBlock;
+	}
+
+	public ResourceLocation getExistsLocationItem() {
+		return existsLocationItem;
+	}
+
 	public CompendiumBlockHandler() {
 	}
 
@@ -73,24 +86,22 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void setup(_MaterialBase base, ResourceLocation existsItem, ResourceLocation existsBlock) {
-		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
-				existsItem, existsBlock);
+		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, ResourceLocation existsItem,
-			ResourceLocation existsBlock) {
-		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), existsItem, existsBlock);
+	public void setup(_MaterialBase base, Supplier<? extends Block> block) {
+		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item,
-			ResourceLocation existsItem, ResourceLocation existsBlock) {
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item) {
 		if (generate == Generate.GENERATE) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
-		} else if (generate == Generate.EXISTS) {
-			BLOCK = DeferredBlock.createBlock(existsBlock);
-			BLOCK_ITEM = DeferredItem.createItem(existsItem);
 		}
+//		} else if (generate == Generate.EXISTS) {
+//			BLOCK = DeferredBlock.createBlock(existsBlock);
+//			BLOCK_ITEM = DeferredItem.createItem(existsItem);
+//		}
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
@@ -127,13 +138,11 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-//		if (!this.isIgnored())
 		for (TagKey<Item> tag : itemTag)
 			itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-//		if (!this.isIgnored())
 		for (TagKey<Block> tag : blockTag)
 			btp.tag(tag).add(BLOCK.get());
 	}
@@ -141,9 +150,6 @@ public class CompendiumBlockHandler implements Serializable {
 	public boolean is(ItemStack item) {
 		if (BLOCK_ITEM != null && BLOCK_ITEM.isBound() && item.is(BLOCK_ITEM))
 			return true;
-//		for (TagKey<Item> key : this.itemTag)
-//			if (item.is(key))
-//				return true;
 		return false;
 	}
 
@@ -160,5 +166,19 @@ public class CompendiumBlockHandler implements Serializable {
 	public void blockLoot(_MaterialBase _MaterialBase, BlockLootSubProvider blp) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public JsonElement serialize(_MaterialBase src) {
+		JsonObject j = new JsonObject();
+		j.addProperty("existsLocationBlock", this.getExistsLocationBlock().toString());
+		j.addProperty("existsLocationItem", this.getExistsLocationBlock().toString());
+		return j;
+	}
+
+	public void deserialize(JsonObject json) {
+		if (json.has("existsLocationBlock"))
+			this.existsLocationBlock = ResourceLocation.parse(json.get("existsLocationBlock").getAsString());
+		if (json.has("existsLocationItem"))
+			this.existsLocationItem = ResourceLocation.parse(json.get("existsLocationItem").getAsString());
 	}
 }
