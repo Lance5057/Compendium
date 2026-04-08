@@ -46,9 +46,9 @@ public class BlockTagGen extends BlockTagsProvider {
 				CompendiumBlocks.SHINGLES_CAP_SLANTED.get(), CompendiumBlocks.SHINGLES_SLANTED.get(),
 				CompendiumBlocks.TABLE.get(), CompendiumBlocks.WINDOW.get());
 
-		CompendiumIndex.index.forEach(i -> {
-			i.setupBlockTags(this);
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			i.setupBlockTags(this);
+//		});
 	}
 
 }

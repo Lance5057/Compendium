@@ -136,6 +136,8 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods"));
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods/" + name));
 		STRIPPED_WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		this.BLOCKS.add(STRIPPED_LOG);
 	}
 
 	public void setupWood(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -151,6 +153,8 @@ public class MaterialWood extends _MaterialBase {
 		WOOD.setupItemTag(TagUtil.neoTag("woods"));
 		WOOD.setupItemTag(TagUtil.neoTag("woods/" + name));
 		WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		this.BLOCKS.add(WOOD);
 	}
 
 	public void setupStrippedLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -164,6 +168,8 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		this.BLOCKS.add(STRIPPED_LOG);
 	}
 
 	public void setupLogs(boolean isNether, ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -177,6 +183,8 @@ public class MaterialWood extends _MaterialBase {
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		this.BLOCKS.add(LOG);
 	}
 
 	public void setupPlanks(ExistsLocationsWood existsItem, ExistsLocationsWood existsBlock) {
@@ -193,86 +201,77 @@ public class MaterialWood extends _MaterialBase {
 		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
 		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
+
+		this.BLOCKS.add(PLANKS);
 	}
 
-	@Override
-	public void tab(Output output) {
-		PLANKS.tab(this, output);
-		LOG.tab(this, output);
-		STRIPPED_LOG.tab(this, output);
-		WOOD.tab(this, output);
-		STRIPPED_WOOD.tab(this, output);
-
-		this.extensions.forEach(i -> i.tab(this, output));
-	}
-
-	@Override
-	public void blockStateModel(BlockStateProvider bsp) {
-		ResourceLocation plankTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_planks");
-		ResourceLocation logTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log");
-		ResourceLocation logTopTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log_top");
-		ResourceLocation strippedLogTexture = ResourceLocation.fromNamespaceAndPath(namespace,
-				"block/stripped_" + name + "_log");
-		ResourceLocation strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(namespace,
-				"block/stripped_" + name + "_log_top");
-
-		if (this.specialLocations != null) {
-			if (specialLocations.textures != null) {
-				if (specialLocations.textures.plankLocation != null)
-					plankTexture = specialLocations.textures.plankLocation;
-				if (specialLocations.textures.logLocation != null)
-					logTexture = specialLocations.textures.logLocation;
-				if (specialLocations.textures.logTopLocation != null)
-					logTopTexture = specialLocations.textures.logTopLocation;
-				if (specialLocations.textures.strippedLogLocation != null)
-					strippedLogTexture = specialLocations.textures.strippedLogLocation;
-				if (specialLocations.textures.strippedLogTopLocation != null)
-					strippedLogTopTexture = specialLocations.textures.strippedLogTopLocation;
-			}
-		}
-		if (PLANKS.shouldGenerate()) {
-			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState().addModels(
-					new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + PLANKS.name, plankTexture)));
-		}
-
-		if (LOG.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) LOG.BLOCK.get(), logTexture, logTopTexture);
-		}
-
-		if (STRIPPED_LOG.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG.BLOCK.get(), strippedLogTexture, strippedLogTopTexture);
-		}
-
-		if (WOOD.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) WOOD.BLOCK.get(), logTexture, logTexture);
-		}
-
-		if (STRIPPED_WOOD.shouldGenerate()) {
-			bsp.axisBlock((RotatedPillarBlock) STRIPPED_WOOD.BLOCK.get(), strippedLogTexture, strippedLogTexture);
-		}
-
-		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
-	}
-
-	@Override
-	public void itemModel(ItemModelProvider tmp) {
-//		if (PLANKS.shouldGenerate())
-//			ItemModels.forBlockItem(tmp, PLANKS.BLOCK_ITEM, name);
+//	@Override
+//	public void blockStateModel(BlockStateProvider bsp) {
+//		ResourceLocation plankTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_planks");
+//		ResourceLocation logTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log");
+//		ResourceLocation logTopTexture = ResourceLocation.fromNamespaceAndPath(namespace, "block/" + name + "_log_top");
+//		ResourceLocation strippedLogTexture = ResourceLocation.fromNamespaceAndPath(namespace,
+//				"block/stripped_" + name + "_log");
+//		ResourceLocation strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(namespace,
+//				"block/stripped_" + name + "_log_top");
 //
-//		if (LOG.shouldGenerate())
-//			ItemModels.forBlockItem(tmp, LOG.BLOCK_ITEM, name);
+//		if (this.specialLocations != null) {
+//			if (specialLocations.textures != null) {
+//				if (specialLocations.textures.plankLocation != null)
+//					plankTexture = specialLocations.textures.plankLocation;
+//				if (specialLocations.textures.logLocation != null)
+//					logTexture = specialLocations.textures.logLocation;
+//				if (specialLocations.textures.logTopLocation != null)
+//					logTopTexture = specialLocations.textures.logTopLocation;
+//				if (specialLocations.textures.strippedLogLocation != null)
+//					strippedLogTexture = specialLocations.textures.strippedLogLocation;
+//				if (specialLocations.textures.strippedLogTopLocation != null)
+//					strippedLogTopTexture = specialLocations.textures.strippedLogTopLocation;
+//			}
+//		}
+//		if (PLANKS.shouldGenerate()) {
+//			bsp.getVariantBuilder(PLANKS.BLOCK.get()).partialState().addModels(
+//					new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + PLANKS.name, plankTexture)));
+//		}
 //
-//		if (STRIPPED_LOG.shouldGenerate())
-//			ItemModels.forBlockItem(tmp, STRIPPED_LOG.BLOCK_ITEM, name);
+//		if (LOG.shouldGenerate()) {
+//			bsp.axisBlock((RotatedPillarBlock) LOG.BLOCK.get(), logTexture, logTopTexture);
+//		}
 //
-//		if (WOOD.shouldGenerate())
-//			ItemModels.forBlockItem(tmp, WOOD.BLOCK_ITEM, name);
+//		if (STRIPPED_LOG.shouldGenerate()) {
+//			bsp.axisBlock((RotatedPillarBlock) STRIPPED_LOG.BLOCK.get(), strippedLogTexture, strippedLogTopTexture);
+//		}
 //
-//		if (STRIPPED_WOOD.shouldGenerate())
-//			ItemModels.forBlockItem(tmp, STRIPPED_WOOD.BLOCK_ITEM, name);
-
-		this.extensions.forEach(i -> i.itemModel(this, tmp));
-	}
+//		if (WOOD.shouldGenerate()) {
+//			bsp.axisBlock((RotatedPillarBlock) WOOD.BLOCK.get(), logTexture, logTexture);
+//		}
+//
+//		if (STRIPPED_WOOD.shouldGenerate()) {
+//			bsp.axisBlock((RotatedPillarBlock) STRIPPED_WOOD.BLOCK.get(), strippedLogTexture, strippedLogTexture);
+//		}
+//
+//		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
+//	}
+//
+//	@Override
+//	public void itemModel(ItemModelProvider tmp) {
+////		if (PLANKS.shouldGenerate())
+////			ItemModels.forBlockItem(tmp, PLANKS.BLOCK_ITEM, name);
+////
+////		if (LOG.shouldGenerate())
+////			ItemModels.forBlockItem(tmp, LOG.BLOCK_ITEM, name);
+////
+////		if (STRIPPED_LOG.shouldGenerate())
+////			ItemModels.forBlockItem(tmp, STRIPPED_LOG.BLOCK_ITEM, name);
+////
+////		if (WOOD.shouldGenerate())
+////			ItemModels.forBlockItem(tmp, WOOD.BLOCK_ITEM, name);
+////
+////		if (STRIPPED_WOOD.shouldGenerate())
+////			ItemModels.forBlockItem(tmp, STRIPPED_WOOD.BLOCK_ITEM, name);
+//
+//		this.extensions.forEach(i -> i.itemModel(this, tmp));
+//	}
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
@@ -307,44 +306,29 @@ public class MaterialWood extends _MaterialBase {
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
-	@Override
-	public void blockLoot(BlockLootSubProvider blp) {
-		if (LOG.shouldGenerate())
-			blp.dropSelf(LOG.BLOCK.get());
-		if (PLANKS.shouldGenerate())
-			blp.dropSelf(PLANKS.BLOCK.get());
-		if (STRIPPED_LOG.shouldGenerate())
-			blp.dropSelf(STRIPPED_LOG.BLOCK.get());
-		if (STRIPPED_WOOD.shouldGenerate())
-			blp.dropSelf(STRIPPED_WOOD.BLOCK.get());
-		if (WOOD.shouldGenerate())
-			blp.dropSelf(WOOD.BLOCK.get());
-		this.extensions.forEach(i -> i.blockLoot(this, blp));
-	}
-
-	@Override
-	public void setupItemTags(ItemTagsProvider itp) {
-		LOG.itemTag(itp);
-		PLANKS.itemTag(itp);
-		STRIPPED_LOG.itemTag(itp);
-		STRIPPED_WOOD.itemTag(itp);
-		WOOD.itemTag(itp);
-
-		this.extensions.forEach(i -> i.setupItemTags(this, itp));
-	}
-
-	@Override
-	public void setupBlockTags(BlockTagsProvider btp) {
-		LOG.blockTag(btp);
-
-		PLANKS.blockTag(btp);
-
-		STRIPPED_LOG.blockTag(btp);
-		STRIPPED_WOOD.blockTag(btp);
-		WOOD.blockTag(btp);
-
-		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
-	}
+//	@Override
+//	public void setupItemTags(ItemTagsProvider itp) {
+//		LOG.itemTag(itp);
+//		PLANKS.itemTag(itp);
+//		STRIPPED_LOG.itemTag(itp);
+//		STRIPPED_WOOD.itemTag(itp);
+//		WOOD.itemTag(itp);
+//
+//		this.extensions.forEach(i -> i.setupItemTags(this, itp));
+//	}
+//
+//	@Override
+//	public void setupBlockTags(BlockTagsProvider btp) {
+//		LOG.blockTag(btp);
+//
+//		PLANKS.blockTag(btp);
+//
+//		STRIPPED_LOG.blockTag(btp);
+//		STRIPPED_WOOD.blockTag(btp);
+//		WOOD.blockTag(btp);
+//
+//		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
+//	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialWood> {
 
@@ -424,10 +408,10 @@ public class MaterialWood extends _MaterialBase {
 
 	}
 
-	@Override
-	public void setupClient(FMLClientSetupEvent event) {
-		this.extensions.forEach(i -> i.setupClient(this, event));
-	}
+//	@Override
+//	public void setupClient(FMLClientSetupEvent event) {
+//		this.extensions.forEach(i -> i.setupClient(this, event));
+//	}
 
 	@Override
 	public Ingredient getBaseItem() {
@@ -445,27 +429,27 @@ public class MaterialWood extends _MaterialBase {
 
 	}
 
-	@Override
-	public boolean isIndexItem(ItemStack stack) {
-		if (PLANKS.is(stack))
-			return true;
-		if (LOG.is(stack))
-			return true;
-		if (STRIPPED_LOG.is(stack))
-			return true;
-		if (WOOD.is(stack))
-			return true;
-		if (STRIPPED_WOOD.is(stack))
-			return true;
-
-		for (_MaterialExtension m : extensions) {
-			boolean o = m.isIndexItem(this, stack);
-
-			if (o)
-				return o;
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isIndexItem(ItemStack stack) {
+//		if (PLANKS.is(stack))
+//			return true;
+//		if (LOG.is(stack))
+//			return true;
+//		if (STRIPPED_LOG.is(stack))
+//			return true;
+//		if (WOOD.is(stack))
+//			return true;
+//		if (STRIPPED_WOOD.is(stack))
+//			return true;
+//
+//		for (_MaterialExtension m : extensions) {
+//			boolean o = m.isIndexItem(this, stack);
+//
+//			if (o)
+//				return o;
+//		}
+//		return false;
+//	}
 
 //	@Override
 //	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
@@ -489,29 +473,29 @@ public class MaterialWood extends _MaterialBase {
 //		return Optional.empty();
 //	}
 
-	@Override
-	public ItemStack breakDownItem(Ingredient ingredient) {
-		ItemStack i = ItemStack.EMPTY;
-		if (LOG.getGeneration() != Generate.IGNORE)
-			i = ScrappingUtils.convertBasedOnStack(ingredient, LOG.BLOCK_ITEM.asItem(), PLANKS.BLOCK_ITEM.asItem(), 4);
-		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, PLANKS.itemTag, 4);
-
-		if (i.isEmpty())
-			if (PLANKS.getGeneration() != Generate.IGNORE)
-				i = ScrappingUtils.convertBasedOnStack(ingredient, PLANKS.BLOCK_ITEM.asItem(), Items.STICK, 2);
-			else
-				i = ScrappingUtils.convertBasedOnTag(ingredient, PLANKS.itemTag, Items.STICK, 2);
-		if (i.isEmpty())
-			i = ScrappingUtils.convertBasedOnStack(ingredient, Items.STICK, CompendiumItems.SAWDUST.asItem(), 2);
-
-		return i;
-	}
-
-	@Override
-	public ItemStack buildUpItem(Ingredient ingredient) {
-		return ItemStack.EMPTY;
-	}
+//	@Override
+//	public ItemStack breakDownItem(Ingredient ingredient) {
+//		ItemStack i = ItemStack.EMPTY;
+//		if (LOG.getGeneration() != Generate.IGNORE)
+//			i = ScrappingUtils.convertBasedOnStack(ingredient, LOG.BLOCK_ITEM.asItem(), PLANKS.BLOCK_ITEM.asItem(), 4);
+//		else
+//			i = ScrappingUtils.convertBasedOnTag(ingredient, LOG.itemTag, PLANKS.itemTag, 4);
+//
+//		if (i.isEmpty())
+//			if (PLANKS.getGeneration() != Generate.IGNORE)
+//				i = ScrappingUtils.convertBasedOnStack(ingredient, PLANKS.BLOCK_ITEM.asItem(), Items.STICK, 2);
+//			else
+//				i = ScrappingUtils.convertBasedOnTag(ingredient, PLANKS.itemTag, Items.STICK, 2);
+//		if (i.isEmpty())
+//			i = ScrappingUtils.convertBasedOnStack(ingredient, Items.STICK, CompendiumItems.SAWDUST.asItem(), 2);
+//
+//		return i;
+//	}
+//
+//	@Override
+//	public ItemStack buildUpItem(Ingredient ingredient) {
+//		return ItemStack.EMPTY;
+//	}
 
 	@Override
 	public void attachComponents(ModifyDefaultComponentsEvent event) {

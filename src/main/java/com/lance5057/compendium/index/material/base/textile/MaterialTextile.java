@@ -36,22 +36,14 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
@@ -151,34 +143,34 @@ public class MaterialTextile extends _MaterialBase {
 		CARPET.tab(this, output);
 	}
 
-	@Override
-	public void blockStateModel(BlockStateProvider bsp) {
-		if (BLOCK.shouldGenerate()) {
-			bsp.getVariantBuilder(BLOCK.BLOCK.get()).partialState()
-					.addModels(new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + BLOCK.name,
-							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
-		}
-
-		if (CARPET.shouldGenerate()) {
-			bsp.getVariantBuilder(CARPET.BLOCK.get()).partialState()
-					.addModels(new ConfiguredModel(bsp.models().carpet(this.blockFolder() + CARPET.name,
-							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
-		}
-		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
-	}
-
-	@Override
-	public void itemModel(ItemModelProvider tmp) {
-		if (BLOCK.shouldGenerate())
-			tmp.getBuilder(BLOCK.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + BLOCK.name)));
-
-		if (CARPET.shouldGenerate())
-			tmp.getBuilder(CARPET.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
-					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + CARPET.name)));
-
-		this.extensions.forEach(i -> i.itemModel(this, tmp));
-	}
+//	@Override
+//	public void blockStateModel(BlockStateProvider bsp) {
+//		if (BLOCK.shouldGenerate()) {
+//			bsp.getVariantBuilder(BLOCK.BLOCK.get()).partialState()
+//					.addModels(new ConfiguredModel(bsp.models().cubeAll(this.blockFolder() + BLOCK.name,
+//							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
+//		}
+//
+//		if (CARPET.shouldGenerate()) {
+//			bsp.getVariantBuilder(CARPET.BLOCK.get()).partialState()
+//					.addModels(new ConfiguredModel(bsp.models().carpet(this.blockFolder() + CARPET.name,
+//							ResourceLocation.fromNamespaceAndPath(namespace, "block/" + this.name))));
+//		}
+//		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
+//	}
+//
+//	@Override
+//	public void itemModel(ItemModelProvider tmp) {
+//		if (BLOCK.shouldGenerate())
+//			tmp.getBuilder(BLOCK.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
+//					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + BLOCK.name)));
+//
+//		if (CARPET.shouldGenerate())
+//			tmp.getBuilder(CARPET.BLOCK_ITEM.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
+//					ResourceLocation.fromNamespaceAndPath(namespace, this.blockFolder() + CARPET.name)));
+//
+//		this.extensions.forEach(i -> i.itemModel(this, tmp));
+//	}
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
@@ -214,27 +206,27 @@ public class MaterialTextile extends _MaterialBase {
 			blp.dropSelf(this.CARPET.BLOCK.get());
 	}
 
-	@Override
-	public void setupItemTags(ItemTagsProvider itp) {
-		BLOCK.itemTag(itp);
-		CARPET.itemTag(itp);
-		STRING.itemTag(itp);
-
-		this.extensions.forEach(i -> i.setupItemTags(this, itp));
-	}
-
-	@Override
-	public void setupBlockTags(BlockTagsProvider btp) {
-		BLOCK.blockTag(btp);
-		CARPET.blockTag(btp);
-		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
-	}
-
-	@Override
-	public void setupClient(FMLClientSetupEvent event) {
-		// TODO Auto-generated method stub
-
-	}
+//	@Override
+//	public void setupItemTags(ItemTagsProvider itp) {
+//		BLOCK.itemTag(itp);
+//		CARPET.itemTag(itp);
+//		STRING.itemTag(itp);
+//
+//		this.extensions.forEach(i -> i.setupItemTags(this, itp));
+//	}
+//
+//	@Override
+//	public void setupBlockTags(BlockTagsProvider btp) {
+//		BLOCK.blockTag(btp);
+//		CARPET.blockTag(btp);
+//		this.extensions.forEach(i -> i.setupBlockTags(this, btp));
+//	}
+//
+//	@Override
+//	public void setupClient(FMLClientSetupEvent event) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 	@Override
 	public Ingredient getBaseItem() {
@@ -324,21 +316,21 @@ public class MaterialTextile extends _MaterialBase {
 
 	}
 
-	@Override
-	public boolean isIndexItem(ItemStack stack) {
-		if (BLOCK.is(stack))
-			return true;
-		if (STRING.is(stack))
-			return true;
-
-		for (_MaterialExtension m : extensions) {
-			boolean o = m.isIndexItem(this, stack);
-
-			if (o)
-				return o;
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isIndexItem(ItemStack stack) {
+//		if (BLOCK.is(stack))
+//			return true;
+//		if (STRING.is(stack))
+//			return true;
+//
+//		for (_MaterialExtension m : extensions) {
+//			boolean o = m.isIndexItem(this, stack);
+//
+//			if (o)
+//				return o;
+//		}
+//		return false;
+//	}
 
 //	@Override
 //	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
@@ -356,17 +348,17 @@ public class MaterialTextile extends _MaterialBase {
 //		return Optional.empty();
 //	}
 
-	@Override
-	public ItemStack breakDownItem(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return ItemStack.EMPTY;
-	}
-
-	@Override
-	public ItemStack buildUpItem(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return ItemStack.EMPTY;
-	}
+//	@Override
+//	public ItemStack breakDownItem(Ingredient ingredient) {
+//		// TODO Auto-generated method stub
+//		return ItemStack.EMPTY;
+//	}
+//
+//	@Override
+//	public ItemStack buildUpItem(Ingredient ingredient) {
+//		// TODO Auto-generated method stub
+//		return ItemStack.EMPTY;
+//	}
 
 	@Override
 	public void attachComponents(ModifyDefaultComponentsEvent event) {

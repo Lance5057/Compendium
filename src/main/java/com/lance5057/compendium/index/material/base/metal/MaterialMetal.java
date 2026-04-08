@@ -3,7 +3,6 @@ package com.lance5057.compendium.index.material.base.metal;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -11,39 +10,30 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
-import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
-import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.CompendiumIndex.Generate;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
-import com.lance5057.compendium.index.util.DataUtil;
 import com.lance5057.compendium.util.TagUtil;
-import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.SimpleTier;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.crafting.CompoundIngredient;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
@@ -101,25 +91,25 @@ public class MaterialMetal extends _MaterialBase {
 
 	}
 
-	@Override
-	public void blockStateModel(BlockStateProvider bsp) {
-		if (BLOCK.shouldGenerate())
-			DataUtil.basicMaterialBlock(bsp, this.BLOCK.BLOCK.get(), name, this.getType());
-
-		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
-	}
-
-	@Override
-	public void itemModel(ItemModelProvider tmp) {
-		if (NUGGET.shouldGenerate())
-			DataUtil.basicMaterialItem(tmp, this.NUGGET.ITEM.get(), this, "nugget", this.getType());
-		if (INGOT.shouldGenerate())
-			DataUtil.basicMaterialItem(tmp, this.INGOT.ITEM.get(), this, "ingot", this.getType());
-		if (BLOCK.shouldGenerate())
-			DataUtil.basicMaterialBlockItem(tmp, BLOCK.BLOCK_ITEM, name, this.getType());
-
-		this.extensions.forEach(i -> i.itemModel(this, tmp));
-	}
+//	@Override
+//	public void blockStateModel(BlockStateProvider bsp) {
+//		if (BLOCK.shouldGenerate())
+//			DataUtil.basicMaterialBlock(bsp, this.BLOCK.BLOCK.get(), name, this.getType());
+//
+//		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
+//	}
+//
+//	@Override
+//	public void itemModel(ItemModelProvider tmp) {
+//		if (NUGGET.shouldGenerate())
+//			DataUtil.basicMaterialItem(tmp, this.NUGGET.ITEM.get(), this, "nugget", this.getType());
+//		if (INGOT.shouldGenerate())
+//			DataUtil.basicMaterialItem(tmp, this.INGOT.ITEM.get(), this, "ingot", this.getType());
+//		if (BLOCK.shouldGenerate())
+//			DataUtil.basicMaterialBlockItem(tmp, BLOCK.BLOCK_ITEM, name, this.getType());
+//
+//		this.extensions.forEach(i -> i.itemModel(this, tmp));
+//	}
 
 	@Override
 	public void engLoc(LanguageProvider lp) {
@@ -164,15 +154,15 @@ public class MaterialMetal extends _MaterialBase {
 		this.extensions.forEach(i -> i.tab(this, output));
 	}
 
-	@Override
-	public void setupItemTags(ItemTagsProvider itp) {
-		this.extensions.forEach(i -> i.setupItemTags(this, itp));
-	}
-
-	@Override
-	public void setupBlockTags(BlockTagsProvider itp) {
-		this.extensions.forEach(i -> i.setupBlockTags(this, itp));
-	}
+//	@Override
+//	public void setupItemTags(ItemTagsProvider itp) {
+//		this.extensions.forEach(i -> i.setupItemTags(this, itp));
+//	}
+//
+//	@Override
+//	public void setupBlockTags(BlockTagsProvider itp) {
+//		this.extensions.forEach(i -> i.setupBlockTags(this, itp));
+//	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialMetal> {
 		public Serializer() {
@@ -252,10 +242,10 @@ public class MaterialMetal extends _MaterialBase {
 
 	}
 
-	@Override
-	public void setupClient(FMLClientSetupEvent event) {
-		this.extensions.forEach(i -> i.setupClient(this, event));
-	}
+//	@Override
+//	public void setupClient(FMLClientSetupEvent event) {
+//		this.extensions.forEach(i -> i.setupClient(this, event));
+//	}
 
 	@Override
 	public Ingredient getBaseItem() {
@@ -273,23 +263,23 @@ public class MaterialMetal extends _MaterialBase {
 
 	}
 
-	@Override
-	public boolean isIndexItem(ItemStack stack) {
-		if (BLOCK.is(stack))
-			return true;
-		if (INGOT.is(stack))
-			return true;
-		if (NUGGET.is(stack))
-			return true;
-
-		for (_MaterialExtension m : extensions) {
-			boolean o = m.isIndexItem(this, stack);
-
-			if (o)
-				return o;
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isIndexItem(ItemStack stack) {
+//		if (BLOCK.is(stack))
+//			return true;
+//		if (INGOT.is(stack))
+//			return true;
+//		if (NUGGET.is(stack))
+//			return true;
+//
+//		for (_MaterialExtension m : extensions) {
+//			boolean o = m.isIndexItem(this, stack);
+//
+//			if (o)
+//				return o;
+//		}
+//		return false;
+//	}
 
 //	@Override
 //	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
@@ -309,37 +299,37 @@ public class MaterialMetal extends _MaterialBase {
 //		return Optional.empty();
 //	}
 
-	@Override
-	public ItemStack breakDownItem(Ingredient ingredient) {
-		ItemStack i = ItemStack.EMPTY;
+//	@Override
+//	public ItemStack breakDownItem(Ingredient ingredient) {
+//		ItemStack i = ItemStack.EMPTY;
+////		if (!BLOCK.isIgnored())
+////			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK.BLOCK_ITEM.get(), INGOT.ITEM.get(), 9);
+////		else
+////			i = ScrappingUtils.convertBasedOnTag(ingredient, BLOCK.itemTag, INGOT.itemTag, 9);
+////		if (i.isEmpty()) {
+////			if (!INGOT.isIgnored())
+////				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), NUGGET.ITEM.get(), 9);
+////			else
+////				i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, NUGGET.itemTag, 9);
+////		}
+//		return i;
+//	}
+//
+//	@Override
+//	public ItemStack buildUpItem(Ingredient ingredient) {
+//		ItemStack i = ItemStack.EMPTY;
 //		if (!BLOCK.isIgnored())
-//			i = ScrappingUtils.convertBasedOnStack(ingredient, BLOCK.BLOCK_ITEM.get(), INGOT.ITEM.get(), 9);
+//			i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), BLOCK.BLOCK_ITEM.get(), 1);
 //		else
-//			i = ScrappingUtils.convertBasedOnTag(ingredient, BLOCK.itemTag, INGOT.itemTag, 9);
+//			i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, BLOCK.itemTag, 1);
 //		if (i.isEmpty()) {
 //			if (!INGOT.isIgnored())
-//				i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), NUGGET.ITEM.get(), 9);
+//				i = ScrappingUtils.convertBasedOnStack(ingredient, NUGGET.ITEM.get(), INGOT.ITEM.get(), 1);
 //			else
-//				i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, NUGGET.itemTag, 9);
+//				i = ScrappingUtils.convertBasedOnTag(ingredient, NUGGET.itemTag, INGOT.itemTag, 1);
 //		}
-		return i;
-	}
-
-	@Override
-	public ItemStack buildUpItem(Ingredient ingredient) {
-		ItemStack i = ItemStack.EMPTY;
-		if (!BLOCK.isIgnored())
-			i = ScrappingUtils.convertBasedOnStack(ingredient, INGOT.ITEM.get(), BLOCK.BLOCK_ITEM.get(), 1);
-		else
-			i = ScrappingUtils.convertBasedOnTag(ingredient, INGOT.itemTag, BLOCK.itemTag, 1);
-		if (i.isEmpty()) {
-			if (!INGOT.isIgnored())
-				i = ScrappingUtils.convertBasedOnStack(ingredient, NUGGET.ITEM.get(), INGOT.ITEM.get(), 1);
-			else
-				i = ScrappingUtils.convertBasedOnTag(ingredient, NUGGET.itemTag, INGOT.itemTag, 1);
-		}
-		return i;
-	}
+//		return i;
+//	}
 
 	@Override
 	public void attachComponents(ModifyDefaultComponentsEvent event) {

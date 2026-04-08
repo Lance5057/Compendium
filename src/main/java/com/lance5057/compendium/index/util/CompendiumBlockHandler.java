@@ -7,9 +7,12 @@ import java.util.function.Supplier;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -91,11 +94,11 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
-		return base.BLOCKS.register(name, block);
+		return CompendiumBlocks.BLOCKS.register(name, block);
 	}
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
-		return base.ITEMS.register(name + "_item", item);
+		return CompendiumItems.ITEMS.register(name + "_item", item);
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
@@ -152,5 +155,10 @@ public class CompendiumBlockHandler implements Serializable {
 	public void setAsValidStyleItem() {
 		if (this.shouldGenerate())
 			Compendium.styleItemRenderers.add(this.BLOCK_ITEM);
+	}
+
+	public void blockLoot(_MaterialBase _MaterialBase, BlockLootSubProvider blp) {
+		// TODO Auto-generated method stub
+
 	}
 }

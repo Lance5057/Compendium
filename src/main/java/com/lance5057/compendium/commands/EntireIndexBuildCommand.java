@@ -9,6 +9,7 @@ import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 import com.mojang.brigadier.Command;
@@ -40,10 +41,10 @@ public class EntireIndexBuildCommand {
 		for (IIndexEntry ie : CompendiumIndex.index) {
 			if (ie instanceof _MaterialBase mb) {
 
-				for (DeferredHolder<Block, ? extends Block> b : mb.BLOCKS.getEntries()) {
-					if (b != null && b.get() != null) {
-						if (b.get() instanceof IStyleBlock sb) {
-							ItemStack stack = b.get().asItem().getDefaultInstance();
+				for (CompendiumBlockHandler b : mb.BLOCKS) {
+					if (b != null && b.BLOCK.get() != null) {
+						if (b.BLOCK.get() instanceof IStyleBlock sb) {
+							ItemStack stack = b.BLOCK.get().asItem().getDefaultInstance();
 							StyleBlockComponent sbc = stack.get(CompendiumComponents.STYLE);
 
 							List<Integer> styles = sbc.styles();
@@ -53,7 +54,7 @@ public class EntireIndexBuildCommand {
 								for (int i = 0; i < data[d].getTypes().size(); i++) {
 									BlockPos nPos = new BlockPos(x, entity.getBlockY(), entity.getBlockZ()+(i * 2));
 
-									level.setBlock(nPos, b.get().defaultBlockState(), Block.UPDATE_ALL);
+									level.setBlock(nPos, b.BLOCK.get().defaultBlockState(), Block.UPDATE_ALL);
 									SimpleStyleBlockEntity bentity = (SimpleStyleBlockEntity) level
 											.getBlockEntity(nPos);
 
@@ -69,7 +70,7 @@ public class EntireIndexBuildCommand {
 							}
 						} else {
 							BlockPos nPos = new BlockPos(x, entity.getBlockY(), entity.getBlockZ());
-							level.setBlock(nPos, b.get().defaultBlockState(), Block.UPDATE_ALL);
+							level.setBlock(nPos, b.BLOCK.get().defaultBlockState(), Block.UPDATE_ALL);
 
 						}
 						x += 2;

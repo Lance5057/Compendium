@@ -22,9 +22,9 @@ public class ItemModels extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		CompendiumIndex.index.forEach(i -> {
-			i.itemModel(this);
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			i.itemModel(this);
+//		});
 
 		getBuilder(CompendiumItems.COSMETIC_TOOLBOX.getId().getPath()).parent(new ModelFile.UncheckedModelFile(
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/cosmetic_toolbox")));

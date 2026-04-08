@@ -36,9 +36,9 @@ public class ItemTagGen extends ItemTagsProvider {
 		tag(CompendiumTags.HAMMER).add(CompendiumItems.CRUDE_HAMMER.asItem());
 		tag(CompendiumTags.SAW).add(CompendiumItems.CRUDE_SAW.asItem());
 
-		CompendiumIndex.index.forEach(i -> {
-			i.setupItemTags(this);
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			i.setupItemTags(this);
+//		});
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/acacia"))).add(Items.ACACIA_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/acacia"))).add(Items.ACACIA_SLAB);

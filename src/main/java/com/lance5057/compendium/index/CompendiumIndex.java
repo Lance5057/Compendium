@@ -147,11 +147,10 @@ public class CompendiumIndex {
 	}
 
 	public static boolean isIndexItem(ItemStack stack) {
-		for (IIndexEntry i : index)
-			if (i.isIndexItem(stack))
-				return true;
+		if (stack.has(CompendiumComponents.INDEX)) {
+			return true;
+		}
 
-		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
 
@@ -162,15 +161,7 @@ public class CompendiumIndex {
 			if (types.contains(i.getType())) {
 				return true;
 			}
-
 		}
-//		for (IIndexEntry i : index)
-//			if (i instanceof _MaterialBase mb)
-//				if (types.contains(mb.getType()))
-//					if (i.isIndexItem(stack))
-//						return true;
-
-//		Compendium.LOGGER.warn(stack.toString() + " not a valid index item!");
 		return false;
 	}
 

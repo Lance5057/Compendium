@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
@@ -62,7 +63,7 @@ public class CompendiumItemHandler implements Serializable {
 	}
 
 	public DeferredItem<Item> setupItem(_MaterialBase base, Supplier<? extends Item> item) {
-		return base.ITEMS.register(base.name + "_" + name + "_item", item);
+		return CompendiumItems.ITEMS.register(base.name + "_" + name + "_item", item);
 	}
 
 	public void tab(_MaterialBase base, Output output) {

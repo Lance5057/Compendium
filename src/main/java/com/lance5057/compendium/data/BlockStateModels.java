@@ -21,9 +21,9 @@ public class BlockStateModels extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		CompendiumIndex.index.forEach(i -> {
-			i.blockStateModel(this);
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			i.blockStateModel(this);
+//		});
 
 		this.simpleBlock(CompendiumBlocks.HAMMERING_STATION.get(),
 				models().getExistingFile(modLoc("block/workstations/hammering_station")));
