@@ -2,14 +2,6 @@
   "name": "cyan_stained_glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "cyan_stained_glass"
-      }
-    }
-  },
+  "loadBlock": "IGNORE",
   "extensions": []
 }

@@ -2,14 +2,6 @@
   "name": "white_stained_glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "white_stained_glass"
-      }
-    }
-  },
+  "loadBlock": "IGNORE",
   "extensions": []
 }

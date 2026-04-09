@@ -9,11 +9,9 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
-import com.lance5057.compendium.index.material.base.textile.locations.ExistsLocationsTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialTextureLocationsTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
-import com.lance5057.compendium.index.material.base.wood.locations.ExistsLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
@@ -47,11 +45,9 @@ public class MaterialTypeRegistry {
 		}
 
 		g.registerTypeAdapter(SpecialLocationsWood.class, new SpecialLocationsWood.Serializer());
-		g.registerTypeAdapter(ExistsLocationsWood.class, new ExistsLocationsWood.Serializer());
 		g.registerTypeAdapter(SpecialTextureLocationsWood.class, new SpecialTextureLocationsWood.Serializer());
 
 		g.registerTypeAdapter(SpecialLocationsTextile.class, new SpecialLocationsTextile.Serializer());
-		g.registerTypeAdapter(ExistsLocationsTextile.class, new ExistsLocationsTextile.Serializer());
 		g.registerTypeAdapter(SpecialTextureLocationsTextile.class, new SpecialTextureLocationsTextile.Serializer());
 		return g;
 	}

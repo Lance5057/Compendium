@@ -2,9 +2,6 @@
   "name": "copper",
   "tagNamespace": "minecraft",
   "type": "METAL",
-  "loadIngot": "EXISTS",
-  "loadStorageBlock": "EXISTS",
-  "loadNugget": "IGNORE",
   "tier": "DIAMOND",
   "level": 0,
   "uses": 0,
@@ -16,11 +13,11 @@
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
-      "loadPrybar": "GENERATE",
-      "loadHammer": "GENERATE",
-      "loadSaw": "GENERATE",
-      "loadShears": "GENERATE",
-      "loadZweihander": "GENERATE",
+      "loadPrybar": "IGNORE",
+      "loadHammer": "IGNORE",
+      "loadSaw": "IGNORE",
+      "loadShears": "IGNORE",
+      "loadZweihander": "IGNORE",
       "loadBow": "IGNORE"
     }
   ]

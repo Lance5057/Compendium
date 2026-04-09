@@ -29,7 +29,7 @@ public class ItemTagGen extends ItemTagsProvider {
 	@Override
 	protected void addTags(HolderLookup.Provider pProvider) {
 		tag(Tags.Items.TOOLS).addTag(CompendiumTags.HAMMER);
-		tag(Tags.Items.TOOLS).addTag(CompendiumTags.PRYBAR);
+//		tag(Tags.Items.TOOLS).addTag(CompendiumTags.PRYBAR);
 		tag(Tags.Items.TOOLS).addTag(CompendiumTags.SAW);
 		tag(Tags.Items.MINING_TOOL_TOOLS).addTag(CompendiumTags.HAMMER);
 

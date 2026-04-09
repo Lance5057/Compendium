@@ -1377,15 +1377,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			j.addProperty("type", type);
 
-			src.SMALL_LOG.serialize(src);
-			src.LOG.serialize(src);
-			src.LOG_SLAB.serialize(src);
-			src.LOG_STAIRS.serialize(src);
+			j.add("small_log",src.SMALL_LOG.serialize());
+			j.add("log",src.LOG.serialize());
+			j.add("log_slab",src.LOG_SLAB.serialize());
+			j.add("log_stairs",src.LOG_STAIRS.serialize());
 
-			src.STRIPPED_SMALL_LOG.serialize(src);
-			src.STRIPPED_LOG.serialize(src);
-			src.STRIPPED_LOG_SLAB.serialize(src);
-			src.STRIPPED_LOG_STAIRS.serialize(src);
+			j.add("stripped_small_log",src.STRIPPED_SMALL_LOG.serialize());
+			j.add("stripped_log",src.STRIPPED_LOG.serialize());
+			j.add("stripped_log_slab",src.STRIPPED_LOG_SLAB.serialize());
+			j.add("stripped_log_stairs",src.STRIPPED_LOG_STAIRS.serialize());
 			
 			return j;
 		}
@@ -1396,15 +1396,15 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			JsonObject j = json.getAsJsonObject();
 
 			ExtensionExtraLogs eel = new ExtensionExtraLogs();
-			eel.SMALL_LOG.deserialize(j);
-			eel.LOG.deserialize(j);
-			eel.LOG_SLAB.deserialize(j);
-			eel.LOG_STAIRS.deserialize(j);
+			eel.SMALL_LOG.deserialize(j.get("small_log").getAsJsonObject());
+			eel.LOG.deserialize(j.get("log").getAsJsonObject());
+			eel.LOG_SLAB.deserialize(j.get("log_slab").getAsJsonObject());
+			eel.LOG_STAIRS.deserialize(j.get("log_stairs").getAsJsonObject());
 
-			eel.STRIPPED_SMALL_LOG.deserialize(j);
-			eel.STRIPPED_LOG.deserialize(j);
-			eel.STRIPPED_LOG_SLAB.deserialize(j);
-			eel.STRIPPED_LOG_STAIRS.deserialize(j);
+			eel.STRIPPED_SMALL_LOG.deserialize(j.get("stripped_small_log").getAsJsonObject());
+			eel.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
+			eel.STRIPPED_LOG_SLAB.deserialize(j.get("stripped_log_slab").getAsJsonObject());
+			eel.STRIPPED_LOG_STAIRS.deserialize(j.get("stripped_log_stairs").getAsJsonObject());
 
 			return eel;
 		}

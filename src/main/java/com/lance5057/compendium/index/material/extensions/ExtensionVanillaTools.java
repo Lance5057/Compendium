@@ -56,16 +56,11 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		AXE.setup(base, () -> new AxeItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_axe"));
-		SWORD.setup(base, () -> new SwordItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_sword"));
-		SHOVEL.setup(base, () -> new ShovelItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_shovel"));
-		PICKAXE.setup(base, () -> new PickaxeItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_pickaxe"));
-		HOE.setup(base, () -> new HoeItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_hoe"));
+		AXE.setup(base, () -> new AxeItem(base.tier, new Item.Properties()));
+		SWORD.setup(base, () -> new SwordItem(base.tier, new Item.Properties()));
+		SHOVEL.setup(base, () -> new ShovelItem(base.tier, new Item.Properties()));
+		PICKAXE.setup(base, () -> new PickaxeItem(base.tier, new Item.Properties()));
+		HOE.setup(base, () -> new HoeItem(base.tier, new Item.Properties()));
 
 	}
 

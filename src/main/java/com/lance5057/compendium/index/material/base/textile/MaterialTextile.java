@@ -21,7 +21,6 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.base.textile.locations.ExistsLocationsTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
@@ -61,20 +60,15 @@ public class MaterialTextile extends _MaterialBase {
 	@Since(1.1)
 	public SpecialLocationsTextile specialLocations;
 
-	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string, Generate carpet) {
-		this(name, tagNamespace, block, string, carpet, null);
+	public MaterialTextile(String name, String tagNamespace) {
+		this(name, tagNamespace, null);
 	}
 
-	public MaterialTextile(String name, String tagNamespace, Generate block, Generate string, Generate carpet,
-			SpecialLocationsTextile loc) {
+	public MaterialTextile(String name, String tagNamespace, SpecialLocationsTextile loc) {
 		super(name, tagNamespace);
 		BLOCK = new CompendiumBlockHandler(name + "_block");
 		STRING = new CompendiumItemHandler(name + "_string");
 		CARPET = new CompendiumBlockHandler(name + "_carpet");
-
-		BLOCK.setGenerate(block);
-		STRING.setGenerate(string);
-		CARPET.setGenerate(carpet);
 
 		this.specialLocations = loc;
 	}
@@ -86,51 +80,26 @@ public class MaterialTextile extends _MaterialBase {
 
 	@Override
 	public void setup() {
-		ExistsLocationsTextile existsItem = null;
-		ExistsLocationsTextile existsBlock = null;
-
-		if (this.specialLocations != null) {
-			if (specialLocations.existsItem != null)
-				existsItem = specialLocations.existsItem;
-			if (specialLocations.existsBlock != null)
-				existsBlock = specialLocations.existsBlock;
-		}
-
-		setupBlock(existsItem, existsBlock);
-		setupString(existsItem);
-		setupCarpet(existsItem, existsBlock);
+		setupBlock();
+		setupString();
+		setupCarpet();
 
 	}
 
-	private void setupCarpet(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
-		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
-		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
-
-		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
-
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getCarpetLocation()) : standardItemLoc,
-
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getCarpetLocation()) : standardBlockLoc);
+	private void setupCarpet() {
+		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)));
 
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
 		CARPET.setupItemTag(ItemTags.WOOL_CARPETS);
 		CARPET.setupBlockTag(ResourceLocation.fromNamespaceAndPath("farmersdelight", "mineable/knife"));
 	}
 
-	private void setupString(ExistsLocationsTextile existsItem) {
-		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name + "_string");
-
-		STRING.setup(this,
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getStringLocation()) : standardItemLoc);
+	private void setupString() {
+		STRING.setup(this);
 	}
 
-	private void setupBlock(ExistsLocationsTextile existsItem, ExistsLocationsTextile existsBlock) {
-		ResourceLocation standardItemLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
-		ResourceLocation standardBlockLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
-
-		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
-				existsItem != null ? fileLoc(standardItemLoc, existsItem.getBlockLocation()) : standardItemLoc,
-				existsBlock != null ? fileLoc(standardBlockLoc, existsBlock.getBlockLocation()) : standardBlockLoc);
+	private void setupBlock() {
+		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
 
 		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
@@ -253,10 +222,6 @@ public class MaterialTextile extends _MaterialBase {
 			String tagNamespace = j.get("tagNamespace").getAsString();
 			String type = j.get("type").getAsString();
 
-			String string = j.get("loadString").getAsString();
-			String block = j.get("loadBlock").getAsString();
-			String carpet = j.get("loadCarpet").getAsString();
-
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
 			if (j.get("version") != null) {
@@ -266,13 +231,11 @@ public class MaterialTextile extends _MaterialBase {
 					if (j.get("specialLocations") != null)
 						sp = context.deserialize(j.get("specialLocations"), SpecialLocationsTextile.class);
 
-					w = new MaterialTextile(name, tagNamespace, Generate.valueOf(block), Generate.valueOf(string),
-							Generate.valueOf(carpet), sp);
+					w = new MaterialTextile(name, tagNamespace);
 				}
 
 			} else
-				w = new MaterialTextile(name, tagNamespace, Generate.valueOf(block), Generate.valueOf(string),
-						Generate.valueOf(carpet));
+				w = new MaterialTextile(name, tagNamespace);
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {

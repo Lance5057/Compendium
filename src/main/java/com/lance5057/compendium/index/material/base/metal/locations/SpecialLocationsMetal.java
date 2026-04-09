@@ -12,14 +12,9 @@ import com.google.gson.JsonSerializer;
 
 public class SpecialLocationsMetal {
 
-	public ExistsLocationsMetal existsItem;
-	public ExistsLocationsMetal existsBlock;
 	public SpecialTextureLocationsMetal textures;
 
-	public SpecialLocationsMetal(ExistsLocationsMetal existsItem, ExistsLocationsMetal existsBlock,
-			SpecialTextureLocationsMetal textures) {
-		this.existsItem = existsItem;
-		this.existsBlock = existsBlock;
+	public SpecialLocationsMetal(SpecialTextureLocationsMetal textures) {
 		this.textures = textures;
 	}
 
@@ -31,28 +26,18 @@ public class SpecialLocationsMetal {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			ExistsLocationsMetal ei = null;
-			ExistsLocationsMetal eb = null;
 			SpecialTextureLocationsMetal t = null;
 
-			if (j.get("existsItem") != null)
-				ei = context.deserialize(j.get("existsItem"), ExistsLocationsMetal.class);
-			if (j.get("existsBlock") != null)
-				eb = context.deserialize(j.get("existsBlock"), ExistsLocationsMetal.class);
 			if (j.get("textures") != null)
 				t = context.deserialize(j.get("textures"), SpecialTextureLocationsMetal.class);
 
-			return new SpecialLocationsMetal(ei, eb, t);
+			return new SpecialLocationsMetal(t);
 		}
 
 		@Override
 		public JsonElement serialize(SpecialLocationsMetal src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
 
-			if (src.existsItem != null)
-				j.add("existsItem", context.serialize(src.existsItem));
-			if (src.existsBlock != null)
-				j.add("existsBlock", context.serialize(src.existsBlock));
 			if (src.textures != null)
 				j.add("textures", context.serialize(src.textures));
 

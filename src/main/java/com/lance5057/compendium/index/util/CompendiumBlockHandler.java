@@ -54,6 +54,21 @@ public class CompendiumBlockHandler implements Serializable {
 		return existsLocationItem;
 	}
 
+	public void setExists(ResourceLocation existsLocationBlock, ResourceLocation existsLocationItem) {
+		this.generate = Generate.EXISTS;
+
+		this.existsLocationBlock = existsLocationBlock;
+		this.existsLocationItem = existsLocationItem;
+	}
+
+	public void setGenerate() {
+		this.generate = Generate.GENERATE;
+	}
+
+	public void setIgnore() {
+		this.generate = Generate.IGNORE;
+	}
+
 	public CompendiumBlockHandler() {
 	}
 
@@ -85,7 +100,7 @@ public class CompendiumBlockHandler implements Serializable {
 		return generate != Generate.IGNORE;
 	}
 
-	public void setup(_MaterialBase base, ResourceLocation existsItem, ResourceLocation existsBlock) {
+	public void setup(_MaterialBase base) {
 		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()));
 	}
 
@@ -97,11 +112,10 @@ public class CompendiumBlockHandler implements Serializable {
 		if (generate == Generate.GENERATE) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
+		} else if (generate == Generate.EXISTS) {
+			BLOCK = DeferredBlock.createBlock(existsLocationBlock);
+			BLOCK_ITEM = DeferredItem.createItem(existsLocationItem);
 		}
-//		} else if (generate == Generate.EXISTS) {
-//			BLOCK = DeferredBlock.createBlock(existsBlock);
-//			BLOCK_ITEM = DeferredItem.createItem(existsItem);
-//		}
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
@@ -168,17 +182,37 @@ public class CompendiumBlockHandler implements Serializable {
 
 	}
 
-	public JsonElement serialize(_MaterialBase src) {
+	public JsonElement serialize() {
 		JsonObject j = new JsonObject();
-		j.addProperty("existsLocationBlock", this.getExistsLocationBlock().toString());
-		j.addProperty("existsLocationItem", this.getExistsLocationBlock().toString());
+		if (this.getExistsLocationBlock() != null)
+			j.addProperty("existsLocationBlock", this.getExistsLocationBlock().toString());
+		else
+			j.addProperty("existsLocationBlock", "");
+
+		if (this.getExistsLocationItem() != null)
+			j.addProperty("existsLocationItem", this.getExistsLocationItem().toString());
+		else
+			j.addProperty("existsLocationItem", "");
+
+		j.addProperty("generate", this.generate.toString());
 		return j;
 	}
 
 	public void deserialize(JsonObject json) {
-		if (json.has("existsLocationBlock"))
-			this.existsLocationBlock = ResourceLocation.parse(json.get("existsLocationBlock").getAsString());
-		if (json.has("existsLocationItem"))
-			this.existsLocationItem = ResourceLocation.parse(json.get("existsLocationItem").getAsString());
+		if (json.has("existsLocationBlock")) {
+			String s = json.get("existsLocationBlock").getAsString();
+
+			if (!s.isEmpty())
+				this.existsLocationBlock = ResourceLocation.parse(s);
+		}
+		if (json.has("existsLocationItem")) {
+			String s = json.get("existsLocationItem").getAsString();
+
+			if (!s.isEmpty())
+				this.existsLocationItem = ResourceLocation.parse(s);
+		}
+
+		String g = json.get("generate").getAsString();
+		this.generate = Generate.valueOf(g.toUpperCase());
 	}
 }

@@ -84,16 +84,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK_SLAB;
 	public final CompendiumBlockHandler PLANK_STAIRS;
 
-	public ExtensionExtraPlanks(Generate plank, Generate plankBlock, Generate plankSlab, Generate plankStairs) {
+	public ExtensionExtraPlanks() {
 		PLANK = new CompendiumBlockHandler();
 		PLANK_BLOCK = new CompendiumBlockHandler();
 		PLANK_SLAB = new CompendiumBlockHandler();
 		PLANK_STAIRS = new CompendiumBlockHandler();
-
-		PLANK.setGenerate(plank);
-		PLANK_BLOCK.setGenerate(plankBlock);
-		PLANK_SLAB.setGenerate(plankSlab);
-		PLANK_STAIRS.setGenerate(plankStairs);
 	}
 
 	@Override
@@ -103,11 +98,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List.of("plank"),
 						StyleData.PLANK),
-				() -> new BlockItem(PLANK.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
+				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 		PLANK.setupItemTag(TagUtil.neoTag("plank"));
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -127,9 +119,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
+												new IndexEntryComponent(base.getType(), base.name))));
 //		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
 		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
 		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -149,9 +139,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
+												new IndexEntryComponent(base.getType(), base.name))));
 
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
@@ -173,9 +161,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
+												new IndexEntryComponent(base.getType(), base.name))));
 		PLANK_STAIRS.setAsValidStyleBlock();
 		PLANK_STAIRS.setAsValidStyleItem();
 
@@ -418,10 +404,6 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
-			j.addProperty("loadPlank", src.PLANK.getGeneration().toString());
-			j.addProperty("loadPlankBlock", src.PLANK_BLOCK.getGeneration().toString());
-			j.addProperty("loadPlankSlab", src.PLANK_SLAB.getGeneration().toString());
-			j.addProperty("loadPlankStairs", src.PLANK_STAIRS.getGeneration().toString());
 
 			return j;
 		}
@@ -431,13 +413,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String loadPlank = j.get("loadPlank").getAsString();
-			String loadPlankBlock = j.get("loadPlankBlock").getAsString();
-			String loadPlankSlab = j.get("loadPlankSlab").getAsString();
-			String loadPlankStairs = j.get("loadPlankStairs").getAsString();
-
-			return new ExtensionExtraPlanks(Generate.valueOf(loadPlank), Generate.valueOf(loadPlankBlock),
-					Generate.valueOf(loadPlankSlab), Generate.valueOf(loadPlankStairs));
+			return new ExtensionExtraPlanks();
 		}
 
 	}

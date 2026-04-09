@@ -14,6 +14,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.util.TagUtil;
@@ -41,9 +42,13 @@ public class MaterialWood extends _MaterialBase {
 
 //	@Nullable
 //	@Since(1.1)
-//	public SpecialLocationsWood specialLocations;
+	public SpecialLocationsWood specialLocations;
 
 	public MaterialWood(String name, String namespace) {
+		this(name, namespace, null);
+	}
+
+	public MaterialWood(String name, String namespace, SpecialLocationsWood loc) {
 		super(name, namespace);
 
 		PLANKS = new CompendiumBlockHandler(name + "_planks");
@@ -52,14 +57,7 @@ public class MaterialWood extends _MaterialBase {
 		WOOD = new CompendiumBlockHandler(name + "_wood");
 		STRIPPED_WOOD = new CompendiumBlockHandler("stripped_" + name + "_wood");
 
-//		PLANKS.setGenerate(planks);
-//		LOG.setGenerate(log);
-//		STRIPPED_LOG.setGenerate(stripped_log);
-//		WOOD.setGenerate(wood);
-//		STRIPPED_WOOD.setGenerate(stripped_wood);
-//		
-//		this(name, namespace, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE, Generate.GENERATE,
-//				Generate.GENERATE);
+		specialLocations = loc;
 	}
 
 //	public MaterialWood(String name, String namespace, Generate planks, Generate log, Generate stripped_log,
@@ -251,11 +249,11 @@ public class MaterialWood extends _MaterialBase {
 					w.addExtension(context.deserialize(extensionElement, _MaterialExtension.class));
 				}
 
-			w.PLANKS.deserialize(j);
-			w.LOG.deserialize(j);
-			w.STRIPPED_LOG.deserialize(j);
-			w.WOOD.deserialize(j);
-			w.STRIPPED_WOOD.deserialize(j);
+			w.PLANKS.deserialize(j.get("planks").getAsJsonObject());
+			w.LOG.deserialize(j.get("log").getAsJsonObject());
+			w.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
+			w.WOOD.deserialize(j.get("wood").getAsJsonObject());
+			w.STRIPPED_WOOD.deserialize(j.get("stripped_wood").getAsJsonObject());
 
 			return w;
 		}
@@ -269,11 +267,11 @@ public class MaterialWood extends _MaterialBase {
 			j.addProperty("type", type);
 			j.addProperty("version", IndexInitialResourceLoader.VERSION);
 
-			j.add("planks", src.PLANKS.serialize(src));
-			j.add("log", src.LOG.serialize(src));
-			j.add("stripped_log", src.STRIPPED_LOG.serialize(src));
-			j.add("wood", src.WOOD.serialize(src));
-			j.add("stripped_wood", src.STRIPPED_WOOD.serialize(src));
+			j.add("planks", src.PLANKS.serialize());
+			j.add("log", src.LOG.serialize());
+			j.add("stripped_log", src.STRIPPED_LOG.serialize());
+			j.add("wood", src.WOOD.serialize());
+			j.add("stripped_wood", src.STRIPPED_WOOD.serialize());
 
 			JsonArray ext = new JsonArray();
 

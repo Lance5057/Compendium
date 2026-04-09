@@ -17,7 +17,6 @@ import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.base.glass.locations.ExistsLocationsGlass;
 import com.lance5057.compendium.index.material.base.glass.locations.SpecialLocationsGlass;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
@@ -25,7 +24,6 @@ import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -44,45 +42,27 @@ public class MaterialGlass extends _MaterialBase {
 	public SpecialLocationsGlass specialLocations;
 
 	public MaterialGlass(String name, String tagNamespace) {
-		this(name, tagNamespace, Generate.GENERATE, null);
+		this(name, tagNamespace, null);
 	}
 
-	public MaterialGlass(String name, String tagNamespace, Generate block) {
-		this(name, tagNamespace, block, null);
-	}
-
-	public MaterialGlass(String name, String tagNamespace, Generate block, SpecialLocationsGlass locations) {
+	public MaterialGlass(String name, String tagNamespace, SpecialLocationsGlass locations) {
 		super(name, tagNamespace);
-
-		BLOCK.setGenerate(block);
 
 		this.specialLocations = locations;
 
+		BLOCK.setup(this);
 	}
 
 	@Override
 	public void setup() {
 
-		ExistsLocationsGlass existsItem = null;
-		ExistsLocationsGlass existsBlock = null;
-
-		if (this.specialLocations != null) {
-			if (specialLocations.existsItem != null)
-				existsItem = specialLocations.existsItem;
-			if (specialLocations.existsBlock != null)
-				existsBlock = specialLocations.existsBlock;
-		}
-
-		setupBlock(existsItem, existsBlock);
+		setupBlock();
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
 
-	private void setupBlock(ExistsLocationsGlass existsItem, ExistsLocationsGlass existsBlock) {
-		ResourceLocation standardLoc = ResourceLocation.fromNamespaceAndPath(this.namespace, this.name);
-
-		BLOCK.setup(this, existsItem != null ? fileLoc(standardLoc, existsItem.getBlockLocation()) : standardLoc,
-				existsBlock != null ? fileLoc(standardLoc, existsBlock.getBlockLocation()) : standardLoc);
+	private void setupBlock() {
+		
 	}
 
 	@Override
@@ -185,11 +165,11 @@ public class MaterialGlass extends _MaterialBase {
 					if (j.get("specialLocations") != null)
 						sp = context.deserialize(j.get("specialLocations"), SpecialLocationsGlass.class);
 
-					g = new MaterialGlass(name, tagNamespace, Generate.valueOf(block), sp);
+					g = new MaterialGlass(name, tagNamespace, sp);
 				}
 
 			} else
-				g = new MaterialGlass(name, tagNamespace, Generate.valueOf(block));
+				g = new MaterialGlass(name, tagNamespace);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 

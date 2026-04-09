@@ -44,12 +44,8 @@ public class MaterialMetal extends _MaterialBase {
 	public CompendiumItemHandler NUGGET = new CompendiumItemHandler("nugget");
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("storage_block");
 
-	public MaterialMetal(String name, String tagNamespace, Generate ingot, Generate block, Generate nugget) {
+	public MaterialMetal(String name, String tagNamespace) {
 		super(name, tagNamespace);
-
-		INGOT.setGenerate(ingot);
-		BLOCK.setGenerate(block);
-		NUGGET.setGenerate(nugget);
 	}
 
 	@Override
@@ -73,16 +69,15 @@ public class MaterialMetal extends _MaterialBase {
 					() -> CompoundIngredient.of(ing.toArray(new Ingredient[0])));
 		}
 
-		INGOT.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_ingot"));
+		INGOT.setup(this);
 		INGOT.setupItemTag(Tags.Items.INGOTS);
 		INGOT.setupItemTag(TagUtil.neoTag("ingots/" + name));
 
-		NUGGET.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_nugget"));
+		NUGGET.setup(this);
 		NUGGET.setupItemTag(Tags.Items.NUGGETS);
 		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/" + name));
 
-		BLOCK.setup(this, ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"),
-				ResourceLocation.fromNamespaceAndPath(namespace, this.name + "_block"));
+		BLOCK.setup(this);
 		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
 		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/" + name));
 		BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);
@@ -177,10 +172,6 @@ public class MaterialMetal extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			String ingot = j.get("loadIngot").getAsString();
-			String block = j.get("loadStorageBlock").getAsString();
-			String nugget = j.get("loadNugget").getAsString();
-
 			String tier = j.get("tier").getAsString();
 
 			int level = j.get("level").getAsInt();
@@ -193,8 +184,7 @@ public class MaterialMetal extends _MaterialBase {
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
-			MaterialMetal m = new MaterialMetal(name, tagNamespace, Generate.valueOf(ingot), Generate.valueOf(block),
-					Generate.valueOf(nugget));
+			MaterialMetal m = new MaterialMetal(name, tagNamespace);
 
 			if (tier != null && !tier.isEmpty())
 				m.setupTier(tier);
@@ -217,9 +207,6 @@ public class MaterialMetal extends _MaterialBase {
 			j.addProperty("tagNamespace", src.namespace);
 
 			j.addProperty("type", type);
-			j.addProperty("loadIngot", src.INGOT.getGeneration().toString());
-			j.addProperty("loadStorageBlock", src.BLOCK.getGeneration().toString());
-			j.addProperty("loadNugget", src.NUGGET.getGeneration().toString());
 
 			j.addProperty("tier", "DIAMOND");
 			j.addProperty("level", 0);

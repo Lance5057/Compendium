@@ -61,30 +61,17 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public CompendiumItemHandler ZWEIHANDER = new CompendiumItemHandler("zweihander");
 	public CompendiumItemHandler BOW = new CompendiumItemHandler("bow");
 
-	public ExtensionAdvancedTools(Generate loadPrybar, Generate loadHammer, Generate loadSaw, Generate loadShears,
-			Generate loadZweihander, Generate loadBow) {
-		PRYBAR.setGenerate(loadPrybar);
-		HAMMER.setGenerate(loadHammer);
-		SAW.setGenerate(loadSaw);
-		SHEARS.setGenerate(loadShears);
-		ZWEIHANDER.setGenerate(loadZweihander);
-		BOW.setGenerate(loadBow);
+	public ExtensionAdvancedTools() {
 	}
 
 	@Override
 	public void setup(_MaterialBase base) {
-		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_prybar"));
-		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_hammer"));
-		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_saw"));
-		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_shears"));
-		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_zweihander"));
-		BOW.setup(base, () -> new BowItem(new Item.Properties()),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_bow"));
+		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()));
+		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()));
+		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()));
+		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()));
+		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()));
+		BOW.setup(base, () -> new BowItem(new Item.Properties()));
 	}
 
 	@Override
@@ -225,26 +212,26 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		if (!BOW.isIgnored()) {
-			itp.tag(Tags.Items.TOOLS_BOW).add(this.BOW.ITEM.get());
-			itp.tag(Tags.Items.RANGED_WEAPON_TOOLS).add(this.BOW.ITEM.get());
-		}
-		if (!HAMMER.isIgnored()) {
-			itp.tag(CompendiumTags.HAMMER).add(this.HAMMER.ITEM.get());
-		}
-		if (!PRYBAR.isIgnored()) {
-			itp.tag(CompendiumTags.PRYBAR).add(this.PRYBAR.ITEM.get());
-		}
-		if (!SAW.isIgnored()) {
-			itp.tag(CompendiumTags.SAW).add(this.SAW.ITEM.get());
-		}
-		if (!SHEARS.isIgnored()) {
-			itp.tag(Tags.Items.TOOLS_SHEAR).add(this.SHEARS.ITEM.get());
-		}
-		if (!ZWEIHANDER.isIgnored()) {
-			itp.tag(Tags.Items.MELEE_WEAPON_TOOLS).add(this.ZWEIHANDER.ITEM.get());
-			itp.tag(ItemTags.SWORDS).add(this.ZWEIHANDER.ITEM.get());
-		}
+//		if (!BOW.isIgnored()) {
+//			itp.tag(Tags.Items.TOOLS_BOW).add(this.BOW.ITEM.get());
+//			itp.tag(Tags.Items.RANGED_WEAPON_TOOLS).add(this.BOW.ITEM.get());
+//		}
+//		if (!HAMMER.isIgnored()) {
+//			itp.tag(CompendiumTags.HAMMER).add(this.HAMMER.ITEM.get());
+//		}
+//		if (!PRYBAR.isIgnored()) {
+//			itp.tag(CompendiumTags.PRYBAR).add(this.PRYBAR.ITEM.get());
+//		}
+//		if (!SAW.isIgnored()) {
+//			itp.tag(CompendiumTags.SAW).add(this.SAW.ITEM.get());
+//		}
+//		if (!SHEARS.isIgnored()) {
+//			itp.tag(Tags.Items.TOOLS_SHEAR).add(this.SHEARS.ITEM.get());
+//		}
+//		if (!ZWEIHANDER.isIgnored()) {
+//			itp.tag(Tags.Items.MELEE_WEAPON_TOOLS).add(this.ZWEIHANDER.ITEM.get());
+//			itp.tag(ItemTags.SWORDS).add(this.ZWEIHANDER.ITEM.get());
+//		}
 	}
 
 	@Override
@@ -301,15 +288,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String prybar = j.get("loadPrybar").getAsString();
-			String hammer = j.get("loadHammer").getAsString();
-			String saw = j.get("loadSaw").getAsString();
-			String shears = j.get("loadShears").getAsString();
-			String zweihander = j.get("loadZweihander").getAsString();
-			String bow = j.get("loadBow").getAsString();
-
-			return new ExtensionAdvancedTools(Generate.valueOf(prybar), Generate.valueOf(hammer), Generate.valueOf(saw),
-					Generate.valueOf(shears), Generate.valueOf(zweihander), Generate.valueOf(bow));
+			return new ExtensionAdvancedTools();
 		}
 
 	}
