@@ -2,16 +2,22 @@ package com.lance5057.compendium.index.material.extensions;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -32,6 +38,14 @@ public abstract class _MaterialExtension implements Serializable {
 	 */
 	private static final long serialVersionUID = -1904148996768649285L;
 
+	public final Set<CompendiumItemHandler> ITEMS;
+	public final Set<CompendiumBlockHandler> BLOCKS;
+
+	public _MaterialExtension() {
+		ITEMS = new HashSet<CompendiumItemHandler>();
+		BLOCKS = new HashSet<CompendiumBlockHandler>();
+	}
+
 	public abstract void setup(_MaterialBase base);
 
 	public abstract void tab(_MaterialBase base, Output output);
@@ -40,6 +54,13 @@ public abstract class _MaterialExtension implements Serializable {
 
 	public _MaterialExtension noAutoGenBlockModel() {
 		this.autoGenBlockModel = false;
+		return this;
+	}
+
+	public _MaterialExtension generateAll() {
+		BLOCKS.forEach(b -> b.setGenerate());
+		ITEMS.forEach(b -> b.setGenerate());
+
 		return this;
 	}
 
@@ -52,8 +73,6 @@ public abstract class _MaterialExtension implements Serializable {
 		return this;
 	}
 
-	public abstract void itemModel(_MaterialBase base, ItemModelProvider tmp);
-
 	public abstract void engLoc(_MaterialBase base, LanguageProvider lp);
 
 	public abstract void recipes(_MaterialBase base, RecipeOutput consumer);
@@ -62,17 +81,19 @@ public abstract class _MaterialExtension implements Serializable {
 
 	public abstract void otherLoot(_MaterialBase base, LootTableSubProvider lsp);
 
-	public abstract void setupItemTags(_MaterialBase base, ItemTagsProvider itp);
+	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
 
-	public abstract void setupBlockTags(_MaterialBase base, BlockTagsProvider itp);
-
-	public abstract void setupClient(_MaterialBase base, FMLClientSetupEvent event);
-
-	public abstract boolean isIndexItem(_MaterialBase base, ItemStack stack);
-
-	public abstract Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack);
-
-	public abstract void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event);
+		this.ITEMS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(base.getType(), base.name)));
+		});
+		this.BLOCKS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(base.getType(), base.name)));
+		});
+	}
 
 	public static class Serializer extends MaterialExtensionSerializer<_MaterialExtension> {
 

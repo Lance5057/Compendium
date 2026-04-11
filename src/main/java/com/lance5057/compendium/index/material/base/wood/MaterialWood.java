@@ -51,11 +51,11 @@ public class MaterialWood extends _MaterialBase {
 	public MaterialWood(String name, String namespace, SpecialLocationsWood loc) {
 		super(name, namespace);
 
-		PLANKS = new CompendiumBlockHandler(name + "_planks");
-		LOG = new CompendiumBlockHandler(name + "_log");
-		STRIPPED_LOG = new CompendiumBlockHandler("stripped_" + name + "_log");
-		WOOD = new CompendiumBlockHandler(name + "_wood");
-		STRIPPED_WOOD = new CompendiumBlockHandler("stripped_" + name + "_wood");
+		this.BLOCKS.add(PLANKS = new CompendiumBlockHandler(name + "_planks"));
+		this.BLOCKS.add(LOG = new CompendiumBlockHandler(name + "_log"));
+		this.BLOCKS.add(STRIPPED_LOG = new CompendiumBlockHandler("stripped_" + name + "_log"));
+		this.BLOCKS.add(WOOD = new CompendiumBlockHandler(name + "_wood"));
+		this.BLOCKS.add(STRIPPED_WOOD = new CompendiumBlockHandler("stripped_" + name + "_wood"));
 
 		specialLocations = loc;
 	}
@@ -122,7 +122,7 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_woods/" + name));
 		STRIPPED_WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		this.BLOCKS.add(STRIPPED_LOG);
+//		this.BLOCKS.add(STRIPPED_LOG);
 	}
 
 	public void setupWood(boolean isNether) {
@@ -134,7 +134,7 @@ public class MaterialWood extends _MaterialBase {
 		WOOD.setupItemTag(TagUtil.neoTag("woods/" + name));
 		WOOD.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		this.BLOCKS.add(WOOD);
+//		this.BLOCKS.add(WOOD);
 	}
 
 	public void setupStrippedLogs(boolean isNether) {
@@ -144,7 +144,7 @@ public class MaterialWood extends _MaterialBase {
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
 		STRIPPED_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		this.BLOCKS.add(STRIPPED_LOG);
+//		this.BLOCKS.add(STRIPPED_LOG);
 	}
 
 	public void setupLogs(boolean isNether) {
@@ -154,7 +154,7 @@ public class MaterialWood extends _MaterialBase {
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
 		LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		this.BLOCKS.add(LOG);
+//		this.BLOCKS.add(LOG);
 	}
 
 	public void setupPlanks() {
@@ -164,7 +164,7 @@ public class MaterialWood extends _MaterialBase {
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));
 		PLANKS.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 
-		this.BLOCKS.add(PLANKS);
+//		this.BLOCKS.add(PLANKS);
 	}
 
 	@Override
@@ -301,19 +301,19 @@ public class MaterialWood extends _MaterialBase {
 
 	}
 
-	@Override
-	public void attachComponents(ModifyDefaultComponentsEvent event) {
-
-		this.ITEMS.forEach(i -> {
-			if (i.isNotIgnored())
-				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-						new IndexEntryComponent(getType(), name)));
-		});
-		this.BLOCKS.forEach(i -> {
-			if (i.isNotIgnored())
-				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-						new IndexEntryComponent(getType(), name)));
-		});
-		this.extensions.forEach(i -> i.attachComponents(this, event));
-	}
+//	@Override
+//	public void attachComponents(ModifyDefaultComponentsEvent event) {
+//
+//		this.ITEMS.forEach(i -> {
+//			if (i.isNotIgnored())
+//				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//						new IndexEntryComponent(getType(), name)));
+//		});
+//		this.BLOCKS.forEach(i -> {
+//			if (i.isNotIgnored())
+//				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//						new IndexEntryComponent(getType(), name)));
+//		});
+//		this.extensions.forEach(i -> i.attachComponents(this, event));
+//	}
 }

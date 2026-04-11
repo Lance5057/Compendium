@@ -24,8 +24,6 @@ import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -45,8 +43,6 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -67,12 +63,8 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
 	/**
@@ -85,10 +77,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK_STAIRS;
 
 	public ExtensionExtraPlanks() {
-		PLANK = new CompendiumBlockHandler();
-		PLANK_BLOCK = new CompendiumBlockHandler();
-		PLANK_SLAB = new CompendiumBlockHandler();
-		PLANK_STAIRS = new CompendiumBlockHandler();
+		super();
+
+		this.BLOCKS.add(PLANK = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_BLOCK = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_SLAB = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_STAIRS = new CompendiumBlockHandler());
 	}
 
 	@Override
@@ -184,27 +178,27 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 	}
 
-	@Override
-	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-//		if (this.autoGenItemModel) {
-////			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
-////					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
-//			if (PLANK.shouldGenerate()) {
-//				tmp.getBuilder(PLANK.BLOCK_ITEM.get().toString())
-//						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/plank")))
-//						.texture("0", tmp.modLoc(base.blockFolder() + "planks/plank"));
-//			}
-//
-//			if (PLANK_BLOCK.shouldGenerate())
-//				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//
-//			if (PLANK_SLAB.shouldGenerate())
-//				tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//
-//			if (PLANK_STAIRS.shouldGenerate())
-//				tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//		}
-	}
+//	@Override
+//	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
+////		if (this.autoGenItemModel) {
+//////			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
+//////					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
+////			if (PLANK.shouldGenerate()) {
+////				tmp.getBuilder(PLANK.BLOCK_ITEM.get().toString())
+////						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/plank")))
+////						.texture("0", tmp.modLoc(base.blockFolder() + "planks/plank"));
+////			}
+////
+////			if (PLANK_BLOCK.shouldGenerate())
+////				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////
+////			if (PLANK_SLAB.shouldGenerate())
+////				tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////
+////			if (PLANK_STAIRS.shouldGenerate())
+////				tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////		}
+//	}
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
@@ -355,43 +349,43 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						));
 	}
 
-	@Override
-	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		if (!PLANK.isIgnored()) {
-			PLANK.itemTag(itp);
-			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
-		}
-		if (!PLANK_BLOCK.isIgnored()) {
-			PLANK_BLOCK.itemTag(itp);
-		}
-		if (!PLANK_SLAB.isIgnored()) {
-			PLANK_SLAB.itemTag(itp);
-		}
-		if (!PLANK_STAIRS.isIgnored()) {
-			PLANK_STAIRS.itemTag(itp);
-		}
-	}
-
-	@Override
-	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
-		if (!PLANK.isIgnored()) {
-			PLANK.blockTag(btp);
-		}
-		if (!PLANK_BLOCK.isIgnored()) {
-			PLANK_BLOCK.blockTag(btp);
-		}
-		if (!PLANK_SLAB.isIgnored()) {
-			PLANK_SLAB.blockTag(btp);
-		}
-		if (!PLANK_STAIRS.isIgnored()) {
-			PLANK_STAIRS.blockTag(btp);
-		}
-	}
-
-	@Override
-	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-
-	}
+//	@Override
+//	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+//		if (!PLANK.isIgnored()) {
+//			PLANK.itemTag(itp);
+//			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
+//		}
+//		if (!PLANK_BLOCK.isIgnored()) {
+//			PLANK_BLOCK.itemTag(itp);
+//		}
+//		if (!PLANK_SLAB.isIgnored()) {
+//			PLANK_SLAB.itemTag(itp);
+//		}
+//		if (!PLANK_STAIRS.isIgnored()) {
+//			PLANK_STAIRS.itemTag(itp);
+//		}
+//	}
+//
+//	@Override
+//	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
+//		if (!PLANK.isIgnored()) {
+//			PLANK.blockTag(btp);
+//		}
+//		if (!PLANK_BLOCK.isIgnored()) {
+//			PLANK_BLOCK.blockTag(btp);
+//		}
+//		if (!PLANK_SLAB.isIgnored()) {
+//			PLANK_SLAB.blockTag(btp);
+//		}
+//		if (!PLANK_STAIRS.isIgnored()) {
+//			PLANK_STAIRS.blockTag(btp);
+//		}
+//	}
+//
+//	@Override
+//	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
+//
+//	}
 
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraPlanks> {
 
@@ -424,50 +418,50 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	}
 
-	@Override
-	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (PLANK.is(stack))
-			return true;
-		if (PLANK_BLOCK.is(stack))
-			return true;
-		if (PLANK_SLAB.is(stack))
-			return true;
-		if (PLANK_STAIRS.is(stack))
-			return true;
+//	@Override
+//	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+//		if (PLANK.is(stack))
+//			return true;
+//		if (PLANK_BLOCK.is(stack))
+//			return true;
+//		if (PLANK_SLAB.is(stack))
+//			return true;
+//		if (PLANK_STAIRS.is(stack))
+//			return true;
+//
+//		return false;
+//	}
+//
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+//		if (PLANK.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_BLOCK.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_SLAB.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_STAIRS.is(stack))
+//			return Optional.of(base);
+//
+//		return Optional.empty();
+//	}
 
-		return false;
-	}
-
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (PLANK.is(stack))
-			return Optional.of(base);
-		if (PLANK_BLOCK.is(stack))
-			return Optional.of(base);
-		if (PLANK_SLAB.is(stack))
-			return Optional.of(base);
-		if (PLANK_STAIRS.is(stack))
-			return Optional.of(base);
-
-		return Optional.empty();
-	}
-
-	@Override
-	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
-		if (PLANK.isNotIgnored())
-			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_BLOCK.isNotIgnored())
-			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_SLAB.isNotIgnored())
-			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_STAIRS.isNotIgnored())
-			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-	}
+//	@Override
+//	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+//		if (PLANK.isNotIgnored())
+//			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_BLOCK.isNotIgnored())
+//			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_SLAB.isNotIgnored())
+//			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_STAIRS.isNotIgnored())
+//			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//	}
 }

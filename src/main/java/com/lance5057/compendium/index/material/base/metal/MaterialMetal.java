@@ -12,7 +12,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -40,9 +39,9 @@ import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 public class MaterialMetal extends _MaterialBase {
 
 	private static final long serialVersionUID = -7314131020121747496L;
-	public CompendiumItemHandler INGOT = new CompendiumItemHandler("ingot");
-	public CompendiumItemHandler NUGGET = new CompendiumItemHandler("nugget");
-	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("storage_block");
+	public CompendiumItemHandler INGOT = new CompendiumItemHandler();
+	public CompendiumItemHandler NUGGET = new CompendiumItemHandler();
+	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler();
 
 	public MaterialMetal(String name, String tagNamespace) {
 		super(name, tagNamespace);
@@ -69,14 +68,17 @@ public class MaterialMetal extends _MaterialBase {
 					() -> CompoundIngredient.of(ing.toArray(new Ingredient[0])));
 		}
 
+		INGOT.setName(name + "_ingot");
 		INGOT.setup(this);
 		INGOT.setupItemTag(Tags.Items.INGOTS);
 		INGOT.setupItemTag(TagUtil.neoTag("ingots/" + name));
 
+		NUGGET.setName(name + "_nugget");
 		NUGGET.setup(this);
 		NUGGET.setupItemTag(Tags.Items.NUGGETS);
 		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/" + name));
 
+		BLOCK.setName(name + "_block");
 		BLOCK.setup(this);
 		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
 		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/" + name));

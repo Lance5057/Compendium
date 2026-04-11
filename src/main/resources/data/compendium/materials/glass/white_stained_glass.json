@@ -1,7 +1,0 @@
-{
-  "name": "white_stained_glass",
-  "tagNamespace": "minecraft",
-  "type": "GLASS",
-  "loadBlock": "IGNORE",
-  "extensions": []
-}

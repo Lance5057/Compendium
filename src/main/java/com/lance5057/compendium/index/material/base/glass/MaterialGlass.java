@@ -70,20 +70,6 @@ public class MaterialGlass extends _MaterialBase {
 		BLOCK.tab(this, output);
 	}
 
-//	@Override
-//	public void blockStateModel(BlockStateProvider bsp) {
-//		if (BLOCK.shouldGenerate())
-//			DataUtil.basicMaterialBlock(bsp, this.BLOCK.BLOCK.get(), name, "", "transparent", this.getType());
-//
-//		this.extensions.forEach(i -> i.blockStateModel(this, bsp));
-//	}
-//
-//	@Override
-//	public void itemModel(ItemModelProvider tmp) {
-//		if (BLOCK.shouldGenerate())
-//			DataUtil.basicMaterialBlockItem(tmp, BLOCK.BLOCK_ITEM, name, this.getType());
-//	}
-
 	@Override
 	public void engLoc(LanguageProvider lp) {
 		StringBuilder locName = new StringBuilder();
@@ -126,11 +112,6 @@ public class MaterialGlass extends _MaterialBase {
 //	public void setupBlockTags(BlockTagsProvider itp) {
 //		// TODO Auto-generated method stub
 //
-//	}
-//
-//	@Override
-//	public void setupClient(FMLClientSetupEvent event) {
-//		this.extensions.forEach(i -> i.setupClient(this, event));
 //	}
 
 	@Override
@@ -256,14 +237,14 @@ public class MaterialGlass extends _MaterialBase {
 //		// TODO Auto-generated method stub
 //		return ItemStack.EMPTY;
 //	}
-
-	@Override
-	public void attachComponents(ModifyDefaultComponentsEvent event) {
-		if (BLOCK.isNotIgnored())
-			event.modify(BLOCK.BLOCK_ITEM.get(),
-					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
-
-		this.extensions.forEach(i -> i.attachComponents(this, event));
-	}
+//
+//	@Override
+//	public void attachComponents(ModifyDefaultComponentsEvent event) {
+//		if (BLOCK.isNotIgnored())
+//			event.modify(BLOCK.BLOCK_ITEM.get(),
+//					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+//
+//		this.extensions.forEach(i -> i.attachComponents(this, event));
+//	}
 
 }

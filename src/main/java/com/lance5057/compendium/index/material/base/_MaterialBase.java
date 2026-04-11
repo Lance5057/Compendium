@@ -12,6 +12,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
@@ -113,7 +115,20 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 
-	public abstract void attachComponents(ModifyDefaultComponentsEvent event);
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+
+		this.ITEMS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(getType(), name)));
+		});
+		this.BLOCKS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(getType(), name)));
+		});
+		this.extensions.forEach(i -> i.attachComponents(this, event));
+	}
 
 	protected ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation exists) {
 		if (exists != null) {

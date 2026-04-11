@@ -30,12 +30,8 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
-import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
-import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
-import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
@@ -132,7 +128,15 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
-//		buildDefault(new MaterialMetal("iron", "minecraft").addExtension(new ExtensionAdvancedTools()));
+		MaterialMetal iron = new MaterialMetal("iron", "minecraft");
+		iron.BLOCK.setExists(TagUtil.mcLoc("iron_block"), TagUtil.mcLoc("iron_block"));
+		iron.INGOT.setExists(TagUtil.mcLoc("iron_ingot"));
+		iron.NUGGET.setExists(TagUtil.mcLoc("iron_nugget"));
+
+		iron.addExtension(new ExtensionAdvancedTools().generateAll());
+
+		buildDefault(iron);
+
 //		buildDefault(new MaterialMetal("gold", "minecraft").addExtension(new ExtensionAdvancedTools()));
 //		buildDefault(new MaterialMetal("copper", "minecraft").addExtension(new ExtensionAdvancedTools()));
 //		buildDefault(new MaterialMetal("netherite", "minecraft").addExtension(new ExtensionAdvancedTools()));
@@ -158,35 +162,119 @@ public class IndexInitialResourceLoader {
 
 		MaterialWood oak = new MaterialWood("oak", "minecraft");
 		oak.LOG.setExists(TagUtil.mcLoc("oak_log"), TagUtil.mcLoc("oak_log"));
-		oak.addExtension(new ExtensionExtraLogs());
-		oak.addExtension(new ExtensionExtraPlanks());
+		oak.PLANKS.setExists(TagUtil.mcLoc("oak_planks"), TagUtil.mcLoc("oak_planks"));
+		oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_oak_log"), TagUtil.mcLoc("stripped_oak_log"));
+		oak.WOOD.setExists(TagUtil.mcLoc("oak_wood"), TagUtil.mcLoc("oak_wood"));
+		oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_oak_wood"), TagUtil.mcLoc("stripped_oak_wood"));
+
+		oak.addExtension(new ExtensionExtraLogs().generateAll());
+		oak.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(oak);
-		
-//		buildDefault(new MaterialWood("birch", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("spruce", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("jungle", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("acacia", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("dark_oak", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("mangrove", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("cherry", "minecraft").addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood birch = new MaterialWood("birch", "minecraft");
+		birch.LOG.setExists(TagUtil.mcLoc("birch_log"), TagUtil.mcLoc("birch_log"));
+		birch.PLANKS.setExists(TagUtil.mcLoc("birch_planks"), TagUtil.mcLoc("birch_planks"));
+		birch.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_birch_log"), TagUtil.mcLoc("stripped_birch_log"));
+		birch.WOOD.setExists(TagUtil.mcLoc("birch_wood"), TagUtil.mcLoc("birch_wood"));
+		birch.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_birch_wood"), TagUtil.mcLoc("stripped_birch_wood"));
+
+		birch.addExtension(new ExtensionExtraLogs().generateAll());
+		birch.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(birch);
+
+		MaterialWood spruce = new MaterialWood("spruce", "minecraft");
+		spruce.LOG.setExists(TagUtil.mcLoc("spruce_log"), TagUtil.mcLoc("spruce_log"));
+		spruce.PLANKS.setExists(TagUtil.mcLoc("spruce_planks"), TagUtil.mcLoc("spruce_planks"));
+		spruce.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_spruce_log"), TagUtil.mcLoc("stripped_spruce_log"));
+		spruce.WOOD.setExists(TagUtil.mcLoc("spruce_wood"), TagUtil.mcLoc("spruce_wood"));
+		spruce.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_spruce_wood"), TagUtil.mcLoc("stripped_spruce_wood"));
+
+		spruce.addExtension(new ExtensionExtraLogs().generateAll());
+		spruce.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(spruce);
+
+		MaterialWood jungle = new MaterialWood("jungle", "minecraft");
+		jungle.LOG.setExists(TagUtil.mcLoc("jungle_log"), TagUtil.mcLoc("jungle_log"));
+		jungle.PLANKS.setExists(TagUtil.mcLoc("jungle_planks"), TagUtil.mcLoc("jungle_planks"));
+		jungle.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_jungle_log"), TagUtil.mcLoc("stripped_jungle_log"));
+		jungle.WOOD.setExists(TagUtil.mcLoc("jungle_wood"), TagUtil.mcLoc("jungle_wood"));
+		jungle.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_jungle_wood"), TagUtil.mcLoc("stripped_jungle_wood"));
+
+		jungle.addExtension(new ExtensionExtraLogs().generateAll());
+		jungle.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(jungle);
+
+		MaterialWood acacia = new MaterialWood("acacia", "minecraft");
+		acacia.LOG.setExists(TagUtil.mcLoc("acacia_log"), TagUtil.mcLoc("acacia_log"));
+		acacia.PLANKS.setExists(TagUtil.mcLoc("acacia_planks"), TagUtil.mcLoc("acacia_planks"));
+		acacia.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_acacia_log"), TagUtil.mcLoc("stripped_acacia_log"));
+		acacia.WOOD.setExists(TagUtil.mcLoc("acacia_wood"), TagUtil.mcLoc("acacia_wood"));
+		acacia.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_acacia_wood"), TagUtil.mcLoc("stripped_acacia_wood"));
+
+		acacia.addExtension(new ExtensionExtraLogs().generateAll());
+		acacia.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(acacia);
+
+		MaterialWood dark_oak = new MaterialWood("dark_oak", "minecraft");
+		dark_oak.LOG.setExists(TagUtil.mcLoc("dark_oak_log"), TagUtil.mcLoc("dark_oak_log"));
+		dark_oak.PLANKS.setExists(TagUtil.mcLoc("dark_oak_planks"), TagUtil.mcLoc("dark_oak_planks"));
+		dark_oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_dark_oak_log"), TagUtil.mcLoc("stripped_dark_oak_log"));
+		dark_oak.WOOD.setExists(TagUtil.mcLoc("dark_oak_wood"), TagUtil.mcLoc("dark_oak_wood"));
+		dark_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_dark_oak_wood"),
+				TagUtil.mcLoc("stripped_dark_oak_wood"));
+
+		dark_oak.addExtension(new ExtensionExtraLogs().generateAll());
+		dark_oak.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(dark_oak);
+
+		MaterialWood mangrove = new MaterialWood("mangrove", "minecraft");
+		mangrove.LOG.setExists(TagUtil.mcLoc("mangrove_log"), TagUtil.mcLoc("mangrove_log"));
+		mangrove.PLANKS.setExists(TagUtil.mcLoc("mangrove_planks"), TagUtil.mcLoc("mangrove_planks"));
+		mangrove.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_mangrove_log"), TagUtil.mcLoc("stripped_mangrove_log"));
+		mangrove.WOOD.setExists(TagUtil.mcLoc("mangrove_wood"), TagUtil.mcLoc("mangrove_wood"));
+		mangrove.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_mangrove_wood"),
+				TagUtil.mcLoc("stripped_mangrove_wood"));
+
+		mangrove.addExtension(new ExtensionExtraLogs().generateAll());
+		mangrove.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(mangrove);
+
+		MaterialWood cherry = new MaterialWood("cherry", "minecraft");
+		cherry.LOG.setExists(TagUtil.mcLoc("cherry_log"), TagUtil.mcLoc("cherry_log"));
+		cherry.PLANKS.setExists(TagUtil.mcLoc("cherry_planks"), TagUtil.mcLoc("cherry_planks"));
+		cherry.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_cherry_log"), TagUtil.mcLoc("stripped_cherry_log"));
+		cherry.WOOD.setExists(TagUtil.mcLoc("cherry_wood"), TagUtil.mcLoc("cherry_wood"));
+		cherry.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_cherry_wood"), TagUtil.mcLoc("stripped_cherry_wood"));
+
+		cherry.addExtension(new ExtensionExtraLogs().generateAll());
+		cherry.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(cherry);
+
+		MaterialWood crimson = new MaterialWood("crimson", "minecraft");
+		crimson.LOG.setExists(TagUtil.mcLoc("crimson_stem"), TagUtil.mcLoc("crimson_stem"));
+		crimson.PLANKS.setExists(TagUtil.mcLoc("crimson_planks"), TagUtil.mcLoc("crimson_planks"));
+		crimson.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_crimson_stem"), TagUtil.mcLoc("stripped_crimson_stem"));
+		crimson.WOOD.setExists(TagUtil.mcLoc("crimson_hyphae"), TagUtil.mcLoc("crimson_hyphae"));
+		crimson.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_crimson_hyphae"),
+				TagUtil.mcLoc("stripped_crimson_hyphae"));
+
+		crimson.addExtension(new ExtensionExtraLogs().generateAll());
+		crimson.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(crimson);
+
+		MaterialWood warped = new MaterialWood("warped", "minecraft");
+		warped.LOG.setExists(TagUtil.mcLoc("warped_stem"), TagUtil.mcLoc("warped_stem"));
+		warped.PLANKS.setExists(TagUtil.mcLoc("warped_planks"), TagUtil.mcLoc("warped_planks"));
+		warped.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_warped_stem"), TagUtil.mcLoc("stripped_warped_stem"));
+		warped.WOOD.setExists(TagUtil.mcLoc("warped_hyphae"), TagUtil.mcLoc("warped_hyphae"));
+		warped.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_warped_hyphae"),
+				TagUtil.mcLoc("stripped_warped_hyphae"));
+
+		warped.addExtension(new ExtensionExtraLogs().generateAll());
+		warped.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(warped);
+
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
-//		SpecialLocationsWood crimson = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
-//				TagUtil.mcLoc("block/crimson_stem"), TagUtil.mcLoc("block/stripped_crimson_stem"),
-//				TagUtil.mcLoc("block/crimson_stem_top"), TagUtil.mcLoc("block/stripped_crimson_stem_top")));
-//		buildDefault(new MaterialWood("crimson", "minecraft", crimson).addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		SpecialLocationsWood warped = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
-//				TagUtil.mcLoc("block/warped_stem"), TagUtil.mcLoc("block/stripped_warped_stem"),
-//				TagUtil.mcLoc("block/warped_stem_top"), TagUtil.mcLoc("block/stripped_warped_stem_top")));
-//		buildDefault(new MaterialWood("warped", "minecraft", warped).addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
 
 //		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(

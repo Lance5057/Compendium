@@ -13,12 +13,30 @@
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
-      "loadPrybar": "IGNORE",
-      "loadHammer": "IGNORE",
-      "loadSaw": "IGNORE",
-      "loadShears": "IGNORE",
-      "loadZweihander": "IGNORE",
-      "loadBow": "IGNORE"
+      "prybar": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      },
+      "bow": {
+        "existsLocation": "",
+        "generate": "GENERATE"
+      }
     }
   ]
 }

@@ -4,9 +4,9 @@
   "type": "WOOD",
   "version": 1.1,
   "planks": {
-    "existsLocationBlock": "",
-    "existsLocationItem": "",
-    "generate": "IGNORE"
+    "existsLocationBlock": "minecraft:oak_planks",
+    "existsLocationItem": "minecraft:oak_planks",
+    "generate": "EXISTS"
   },
   "log": {
     "existsLocationBlock": "minecraft:oak_log",
@@ -14,19 +14,19 @@
     "generate": "EXISTS"
   },
   "stripped_log": {
-    "existsLocationBlock": "",
-    "existsLocationItem": "",
-    "generate": "IGNORE"
+    "existsLocationBlock": "minecraft:stripped_oak_log",
+    "existsLocationItem": "minecraft:stripped_oak_log",
+    "generate": "EXISTS"
   },
   "wood": {
-    "existsLocationBlock": "",
-    "existsLocationItem": "",
-    "generate": "IGNORE"
+    "existsLocationBlock": "minecraft:oak_wood",
+    "existsLocationItem": "minecraft:oak_wood",
+    "generate": "EXISTS"
   },
   "stripped_wood": {
-    "existsLocationBlock": "",
-    "existsLocationItem": "",
-    "generate": "IGNORE"
+    "existsLocationBlock": "minecraft:stripped_oak_wood",
+    "existsLocationItem": "minecraft:stripped_oak_wood",
+    "generate": "EXISTS"
   },
   "extensions": [
     {
@@ -34,43 +34,46 @@
       "small_log": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_slab": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_stairs": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_small_log": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_slab": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_stairs": {
         "existsLocationBlock": "",
         "existsLocationItem": "",
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       }
+    },
+    {
+      "type": "EXTRAPLANKS"
     }
   ]
 }

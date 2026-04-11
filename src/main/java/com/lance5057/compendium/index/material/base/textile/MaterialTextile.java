@@ -66,9 +66,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	public MaterialTextile(String name, String tagNamespace, SpecialLocationsTextile loc) {
 		super(name, tagNamespace);
-		BLOCK = new CompendiumBlockHandler(name + "_block");
-		STRING = new CompendiumItemHandler(name + "_string");
-		CARPET = new CompendiumBlockHandler(name + "_carpet");
+		BLOCK = new CompendiumBlockHandler();
+		STRING = new CompendiumItemHandler();
+		CARPET = new CompendiumBlockHandler();
 
 		this.specialLocations = loc;
 	}
@@ -87,6 +87,7 @@ public class MaterialTextile extends _MaterialBase {
 	}
 
 	private void setupCarpet() {
+		CARPET.setName(name + "_carpet");
 		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)));
 
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
@@ -95,10 +96,12 @@ public class MaterialTextile extends _MaterialBase {
 	}
 
 	private void setupString() {
+		STRING.setName(name + "_string");
 		STRING.setup(this);
 	}
 
 	private void setupBlock() {
+		BLOCK.setName(name + "_block");
 		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
 
 		BLOCK.setupItemTag(CompendiumTags.TEXTILES);

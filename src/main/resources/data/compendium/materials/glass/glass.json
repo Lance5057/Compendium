@@ -1,7 +1,0 @@
-{
-  "name": "glass",
-  "tagNamespace": "minecraft",
-  "type": "GLASS",
-  "loadBlock": "IGNORE",
-  "extensions": []
-}

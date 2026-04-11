@@ -14,10 +14,6 @@ public interface IIndexEntry {
 
 	public void tab(Output output);
 
-//	public void blockStateModel(BlockStateProvider bsp);
-
-//	public void itemModel(ItemModelProvider tmp);
-
 	public void engLoc(LanguageProvider lp);
 
 	public void recipes(RecipeOutput consumer);
@@ -25,19 +21,5 @@ public interface IIndexEntry {
 	public void blockLoot(BlockLootSubProvider blp);
 
 	public abstract void otherLoot(LootTableSubProvider lsp);
-
-//	public abstract void setupItemTags(ItemTagsProvider itp);
-
-//	public abstract void setupBlockTags(BlockTagsProvider itp);
-
-//	public void setupClient(FMLClientSetupEvent event);
-
-//	public boolean isIndexItem(ItemStack stack);
-
-//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack);
-
-//	public ItemStack breakDownItem(Ingredient ingredient); // ie ingot to nuggets
-
-//	public ItemStack buildUpItem(Ingredient ingredient); // ie ingot to storage block
 
 }

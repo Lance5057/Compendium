@@ -6,7 +6,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -20,13 +19,11 @@ import com.lance5057.compendium.blocks.PipeStyleBlock;
 import com.lance5057.compendium.blocks.RotatedPillarStyleBlock;
 import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.StairStyleBlock;
-import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
@@ -41,7 +38,6 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -63,13 +59,9 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionExtraLogs extends _MaterialExtension {
 
@@ -89,26 +81,17 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 	public final CompendiumBlockHandler STRIPPED_LOG_STAIRS;
 
 	public ExtensionExtraLogs() {
+		super();
 
-		SMALL_LOG = new CompendiumBlockHandler();
-		LOG = new CompendiumBlockHandler();
-		LOG_SLAB = new CompendiumBlockHandler();
-		LOG_STAIRS = new CompendiumBlockHandler();
+		this.BLOCKS.add(SMALL_LOG = new CompendiumBlockHandler());
+		this.BLOCKS.add(LOG = new CompendiumBlockHandler());
+		this.BLOCKS.add(LOG_SLAB = new CompendiumBlockHandler());
+		this.BLOCKS.add(LOG_STAIRS = new CompendiumBlockHandler());
 
-		STRIPPED_SMALL_LOG = new CompendiumBlockHandler();
-		STRIPPED_LOG = new CompendiumBlockHandler();
-		STRIPPED_LOG_SLAB = new CompendiumBlockHandler();
-		STRIPPED_LOG_STAIRS = new CompendiumBlockHandler();
-
-//		SMALL_LOG.setGenerate(smallLog);
-//		LOG.setGenerate(smallLogs);
-//		LOG_SLAB.setGenerate(smallLogsSlab);
-//		LOG_STAIRS.setGenerate(smallLogsStairs);
-//
-//		STRIPPED_SMALL_LOG.setGenerate(strippedSmallLog);
-//		STRIPPED_LOG.setGenerate(strippedSmallLogs);
-//		STRIPPED_LOG_SLAB.setGenerate(strippedSmallLogsSlab);
-//		STRIPPED_LOG_STAIRS.setGenerate(strippedSmallLogsStairs);
+		this.BLOCKS.add(STRIPPED_SMALL_LOG = new CompendiumBlockHandler());
+		this.BLOCKS.add(STRIPPED_LOG = new CompendiumBlockHandler());
+		this.BLOCKS.add(STRIPPED_LOG_SLAB = new CompendiumBlockHandler());
+		this.BLOCKS.add(STRIPPED_LOG_STAIRS = new CompendiumBlockHandler());
 	}
 
 	@Override
@@ -1136,8 +1119,8 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 //		}, StairBlock.WATERLOGGED);
 //	}
 
-	@Override
-	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
+//	@Override
+//	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 //		if (this.autoGenItemModel) {
 //			if (SMALL_LOG.shouldGenerate()) {
 //				tmp.getBuilder(SMALL_LOG.BLOCK_ITEM.get().toString())
@@ -1171,7 +1154,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 //				tmp.withExistingParent(STRIPPED_LOG_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
 //			}
 //		}
-	}
+//	}
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
@@ -1336,34 +1319,34 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 						));
 	}
 
-	@Override
-	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		SMALL_LOG.itemTag(itp);
-		LOG.itemTag(itp);
-		LOG_SLAB.itemTag(itp);
-		LOG_STAIRS.itemTag(itp);
-		STRIPPED_SMALL_LOG.itemTag(itp);
-		STRIPPED_LOG.itemTag(itp);
-		STRIPPED_LOG_SLAB.itemTag(itp);
-		STRIPPED_LOG_STAIRS.itemTag(itp);
-	}
-
-	@Override
-	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
-		SMALL_LOG.blockTag(btp);
-		LOG.blockTag(btp);
-		LOG_SLAB.blockTag(btp);
-		LOG_STAIRS.blockTag(btp);
-		STRIPPED_SMALL_LOG.blockTag(btp);
-		STRIPPED_LOG.blockTag(btp);
-		STRIPPED_LOG_SLAB.blockTag(btp);
-		STRIPPED_LOG_STAIRS.blockTag(btp);
-	}
-
-	@Override
-	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-
-	}
+//	@Override
+//	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+//		SMALL_LOG.itemTag(itp);
+//		LOG.itemTag(itp);
+//		LOG_SLAB.itemTag(itp);
+//		LOG_STAIRS.itemTag(itp);
+//		STRIPPED_SMALL_LOG.itemTag(itp);
+//		STRIPPED_LOG.itemTag(itp);
+//		STRIPPED_LOG_SLAB.itemTag(itp);
+//		STRIPPED_LOG_STAIRS.itemTag(itp);
+//	}
+//
+//	@Override
+//	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
+//		SMALL_LOG.blockTag(btp);
+//		LOG.blockTag(btp);
+//		LOG_SLAB.blockTag(btp);
+//		LOG_STAIRS.blockTag(btp);
+//		STRIPPED_SMALL_LOG.blockTag(btp);
+//		STRIPPED_LOG.blockTag(btp);
+//		STRIPPED_LOG_SLAB.blockTag(btp);
+//		STRIPPED_LOG_STAIRS.blockTag(btp);
+//	}
+//
+//	@Override
+//	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
+//
+//	}
 
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraLogs> {
 
@@ -1377,16 +1360,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 			j.addProperty("type", type);
 
-			j.add("small_log",src.SMALL_LOG.serialize());
-			j.add("log",src.LOG.serialize());
-			j.add("log_slab",src.LOG_SLAB.serialize());
-			j.add("log_stairs",src.LOG_STAIRS.serialize());
+			j.add("small_log", src.SMALL_LOG.serialize());
+			j.add("log", src.LOG.serialize());
+			j.add("log_slab", src.LOG_SLAB.serialize());
+			j.add("log_stairs", src.LOG_STAIRS.serialize());
 
-			j.add("stripped_small_log",src.STRIPPED_SMALL_LOG.serialize());
-			j.add("stripped_log",src.STRIPPED_LOG.serialize());
-			j.add("stripped_log_slab",src.STRIPPED_LOG_SLAB.serialize());
-			j.add("stripped_log_stairs",src.STRIPPED_LOG_STAIRS.serialize());
-			
+			j.add("stripped_small_log", src.STRIPPED_SMALL_LOG.serialize());
+			j.add("stripped_log", src.STRIPPED_LOG.serialize());
+			j.add("stripped_log_slab", src.STRIPPED_LOG_SLAB.serialize());
+			j.add("stripped_log_stairs", src.STRIPPED_LOG_STAIRS.serialize());
+
 			return j;
 		}
 
@@ -1417,85 +1400,85 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 	}
 
-	@Override
-	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (SMALL_LOG.is(stack))
-			return true;
-		if (LOG.is(stack))
-			return true;
-		if (LOG_SLAB.is(stack))
-			return true;
-		if (LOG_STAIRS.is(stack))
-			return true;
+//	@Override
+//	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+//		if (SMALL_LOG.is(stack))
+//			return true;
+//		if (LOG.is(stack))
+//			return true;
+//		if (LOG_SLAB.is(stack))
+//			return true;
+//		if (LOG_STAIRS.is(stack))
+//			return true;
+//
+//		if (STRIPPED_SMALL_LOG.is(stack))
+//			return true;
+//		if (STRIPPED_LOG.is(stack))
+//			return true;
+//		if (STRIPPED_LOG_SLAB.is(stack))
+//			return true;
+//		if (STRIPPED_LOG_STAIRS.is(stack))
+//			return true;
+//
+//		return false;
+//	}
+//
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+//		if (SMALL_LOG.is(stack))
+//			return Optional.of(base);
+//		if (LOG.is(stack))
+//			return Optional.of(base);
+//		if (LOG_SLAB.is(stack))
+//			return Optional.of(base);
+//		if (LOG_STAIRS.is(stack))
+//			return Optional.of(base);
+//
+//		if (STRIPPED_SMALL_LOG.is(stack))
+//			return Optional.of(base);
+//		if (STRIPPED_LOG.is(stack))
+//			return Optional.of(base);
+//		if (STRIPPED_LOG_SLAB.is(stack))
+//			return Optional.of(base);
+//		if (STRIPPED_LOG_STAIRS.is(stack))
+//			return Optional.of(base);
+//
+//		return Optional.empty();
+//	}
 
-		if (STRIPPED_SMALL_LOG.is(stack))
-			return true;
-		if (STRIPPED_LOG.is(stack))
-			return true;
-		if (STRIPPED_LOG_SLAB.is(stack))
-			return true;
-		if (STRIPPED_LOG_STAIRS.is(stack))
-			return true;
-
-		return false;
-	}
-
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (SMALL_LOG.is(stack))
-			return Optional.of(base);
-		if (LOG.is(stack))
-			return Optional.of(base);
-		if (LOG_SLAB.is(stack))
-			return Optional.of(base);
-		if (LOG_STAIRS.is(stack))
-			return Optional.of(base);
-
-		if (STRIPPED_SMALL_LOG.is(stack))
-			return Optional.of(base);
-		if (STRIPPED_LOG.is(stack))
-			return Optional.of(base);
-		if (STRIPPED_LOG_SLAB.is(stack))
-			return Optional.of(base);
-		if (STRIPPED_LOG_STAIRS.is(stack))
-			return Optional.of(base);
-
-		return Optional.empty();
-	}
-
-	@Override
-	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
-		if (SMALL_LOG.isNotIgnored())
-			event.modify(SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (LOG.isNotIgnored())
-			event.modify(LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (LOG_SLAB.isNotIgnored())
-			event.modify(LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (LOG_STAIRS.isNotIgnored())
-			event.modify(LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (STRIPPED_SMALL_LOG.isNotIgnored())
-			event.modify(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (STRIPPED_LOG.isNotIgnored())
-			event.modify(STRIPPED_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (STRIPPED_LOG_SLAB.isNotIgnored())
-			event.modify(STRIPPED_LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (STRIPPED_LOG_STAIRS.isNotIgnored())
-			event.modify(STRIPPED_LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-	}
+//	@Override
+//	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+//		if (SMALL_LOG.isNotIgnored())
+//			event.modify(SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (LOG.isNotIgnored())
+//			event.modify(LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (LOG_SLAB.isNotIgnored())
+//			event.modify(LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (LOG_STAIRS.isNotIgnored())
+//			event.modify(LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (STRIPPED_SMALL_LOG.isNotIgnored())
+//			event.modify(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (STRIPPED_LOG.isNotIgnored())
+//			event.modify(STRIPPED_LOG.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (STRIPPED_LOG_SLAB.isNotIgnored())
+//			event.modify(STRIPPED_LOG_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (STRIPPED_LOG_STAIRS.isNotIgnored())
+//			event.modify(STRIPPED_LOG_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//	}
 
 }
