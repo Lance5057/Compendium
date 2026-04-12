@@ -321,8 +321,6 @@ public class CompendiumClient {
 
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
-
-//		Compendium.LOGGER.debug(ml.toString());
 	}
 
 	private static void buildStateModelVariantAltLocation(ModifyBakingResult event,
@@ -335,8 +333,6 @@ public class CompendiumClient {
 
 		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
 		models.put(ml, bm);
-
-//		Compendium.LOGGER.debug(ml.toString());
 	}
 
 	private static void buildStateModelBasic(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
@@ -355,14 +351,6 @@ public class CompendiumClient {
 	private static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb instanceof MaterialMetal mm) {
 
-//			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
-//					"block/" + mb.name + "_planks");
-//			if (mm.specialLocations != null) {
-//				if (mm.specialLocations.textures != null)
-//					if (mm.specialLocations.textures.plankLocation != null)
-//						texture = mm.specialLocations.textures.plankLocation;
-//			}
-
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
 				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "trim", mb.name,
@@ -373,17 +361,6 @@ public class CompendiumClient {
 
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb, texture,
 						loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-
-//				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
-//						b.toLowerCase(), "_inventory");
-//				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
-//
-////				Compendium.LOGGER.debug(modelLoc_inv.toString());
-////				Compendium.LOGGER.debug(loc_inv.toString());
-//
-//				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-//						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
-//								BlockModelRotation.X0_Y0, "all"));
 			});
 		}
 	}
@@ -402,27 +379,6 @@ public class CompendiumClient {
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass", mb.name,
 						b.toLowerCase());
 
-//				if (mb.name.equalsIgnoreCase("clear")) {
-//					ResourceLocation texture = TagUtil.mcLoc("block/glass");
-//					if (!b.equals("basic")) {
-//						texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
-//					}
-//
-//					event.getModels().put(new ModelResourceLocation(modelLoc, ""), basicModelAllTexture(event, mb,
-//							texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-//
-//					ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerBlockLocation("window", "glass",
-//							mb.name, b.toLowerCase(), "_inventory");
-//					ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
-//
-////					Compendium.LOGGER.debug(modelLoc_inv.toString());
-////					Compendium.LOGGER.debug(loc_inv.toString());
-//
-//					event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-//							basicModelAllTexture(event, mb, texture, loc_inv,
-//									new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
-//				} else {
-//					ResourceLocation texture = TagUtil.mcLoc("block/" + mb.name + "_glass");
 				if (!b.equals("basic")) {
 					texture = TagUtil.modLoc("block/material/glass/" + mb.name + "/" + b);
 				}
@@ -434,13 +390,9 @@ public class CompendiumClient {
 						mb.name, b.toLowerCase(), "_inventory");
 				ResourceLocation loc_inv = Compendium.modLoc("extra/window/glass/" + b + "_inventory");
 
-//					Compendium.LOGGER.debug(modelLoc_inv.toString());
-//					Compendium.LOGGER.debug(loc_inv.toString());
-
 				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
 						basicModelAllTexture(event, mb, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
 								BlockModelRotation.X0_Y0, "all"));
-//				}
 			}
 		}
 	}
@@ -2337,9 +2289,6 @@ public class CompendiumClient {
 				b.toLowerCase(), "_inventory");
 		ResourceLocation loc_inv = Compendium.modLoc("extra/chair/" + part + "/" + b + "_inventory");
 
-//		Compendium.LOGGER.debug(modelLoc_inv.toString());
-//		Compendium.LOGGER.debug(loc_inv.toString());
-
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
 
 		event.getModels().put(w_inv,
@@ -2349,11 +2298,6 @@ public class CompendiumClient {
 	private static BakedModel basicModelAllTexture(ModifyBakingResult event, _MaterialBase mb,
 			ResourceLocation blockTexture, ResourceLocation location, ModelResourceLocation modelLocation,
 			ModelState state, String textureName) {
-//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
-
-//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-//				style.toLowerCase());
-
 		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
 
 		return buildModel(event, frame_model, modelLocation, state, Pair.of(textureName, blockTexture));
@@ -2363,11 +2307,6 @@ public class CompendiumClient {
 	private static BakedModel basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb,
 			ResourceLocation location, ModelResourceLocation modelLocation, ModelState state,
 			Pair<String, ResourceLocation>... textures) {
-//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
-
-//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-//				style.toLowerCase());
-
 		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
 
 		return buildModel(event, frame_model, modelLocation, state, textures);
@@ -2376,10 +2315,6 @@ public class CompendiumClient {
 	@SafeVarargs
 	public static BakedModel buildModel(ModifyBakingResult event, BlockModel model, ModelResourceLocation modelResource,
 			ModelState state, Pair<String, ResourceLocation>... textures) {
-//		Map<ModelResourceLocation, BakedModel> models = event.getModels();
-
-//		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
-
 		for (Pair<String, ResourceLocation> p : textures) {
 
 			if (model.textureMap.containsKey(p.getFirst())) {

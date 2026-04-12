@@ -133,7 +133,6 @@ dependencies {
     //implementation('com.blamejared.crafttweaker:CraftTweaker-neoforge-1.21.1:21.0.27')
 	//implementation "curse.maven:enchanted-witchcraft-560363:6948369"
 	//implementation "curse.maven:ars-nouveau-401955:7417840"
-	//implementation "curse.maven:dawn-of-time-312359:7049993"
 	//implementation "curse.maven:lendercataclysm-551586:6906997"
 	//implementation "curse.maven:hazen-n-stuff-1231627:7163343"
 	//implementation "curse.maven:silent-lib-242998:6565251"
