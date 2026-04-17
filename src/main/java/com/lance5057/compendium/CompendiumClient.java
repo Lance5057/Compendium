@@ -34,11 +34,11 @@ import com.lance5057.compendium.gui.AdjustinatorWorkstationScreen;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
+import com.lance5057.compendium.index.material.base.metal.ClientMetal;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.ClientWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
-import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
@@ -191,6 +191,8 @@ public class CompendiumClient {
 			if (i instanceof _MaterialBase mb) {
 				if (mb instanceof MaterialWood mw)
 					ClientWood.doItems(shaper, mb, mw);
+				if (mb instanceof MaterialMetal mm)
+					ClientMetal.doItems(shaper, mb, mm);
 			}
 		});
 
@@ -1045,8 +1047,7 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	public
-	static void doStyleStairs(ModifyBakingResult event, _MaterialBase mb, String b, ResourceLocation modelLoc,
+	public static void doStyleStairs(ModifyBakingResult event, _MaterialBase mb, String b, ResourceLocation modelLoc,
 			ResourceLocation modelLocInventory, ResourceLocation straight, ResourceLocation inner,
 			ResourceLocation outer, int straightRot, int cornerRot, Pair<String, ResourceLocation>... textures) {
 		MultiPartBakedModel.Builder mmAll = new MultiPartBakedModel.Builder();
@@ -1099,8 +1100,7 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	public
-	static void doStylePipe(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
+	public static void doStylePipe(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
 			ResourceLocation logModelLocInventory, ResourceLocation model, ResourceLocation centerModel,
 			ResourceLocation NSCenterModel, ResourceLocation EWCenterModel, ResourceLocation invModel,
 			Pair<String, ResourceLocation>... textures) {
@@ -1169,8 +1169,7 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	public
-	static void doStyleLog(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
+	public static void doStyleLog(ModifyBakingResult event, MaterialWood mw, ResourceLocation logModelLoc,
 			ResourceLocation logModelLocInventory, ResourceLocation model, Pair<String, ResourceLocation>... textures) {
 		MultiPartBakedModel.Builder mmb = new MultiPartBakedModel.Builder();
 
@@ -1582,8 +1581,7 @@ public class CompendiumClient {
 	}
 
 	@SafeVarargs
-	public
-	static BakedModel basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb,
+	public static BakedModel basicModelManyTexture(ModifyBakingResult event, _MaterialBase mb,
 			ResourceLocation location, ModelResourceLocation modelLocation, ModelState state,
 			Pair<String, ResourceLocation>... textures) {
 //		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
