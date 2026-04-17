@@ -32,43 +32,27 @@
     {
       "type": "EXTRALOGS",
       "small_log": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "log": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "log_slab": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "log_stairs": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "stripped_small_log": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "stripped_log": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "stripped_log_slab": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       },
       "stripped_log_stairs": {
-        "existsLocationBlock": "",
-        "existsLocationItem": "",
         "generate": "GENERATE"
       }
     },

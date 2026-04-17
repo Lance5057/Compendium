@@ -28,6 +28,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.SimpleTier;
@@ -174,24 +175,26 @@ public class MaterialMetal extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			String tier = j.get("tier").getAsString();
-
-			int level = j.get("level").getAsInt();
-			int uses = j.get("uses").getAsInt();
-			float speed = j.get("speed").getAsFloat();
-			float damage = j.get("damage").getAsFloat();
-			int enchantmentValue = j.get("enchantmentValue").getAsInt();
-			String useTag = j.get("useTag").getAsString();
-			String repairTag = j.get("repairTag").getAsString();
-
-			JsonArray extensionsArray = j.getAsJsonArray("extensions");
-
 			MaterialMetal m = new MaterialMetal(name, tagNamespace);
 
-			if (tier != null && !tier.isEmpty())
+			m.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			m.INGOT.deserialize(j.get("ingot").getAsJsonObject());
+			m.NUGGET.deserialize(j.get("nugget").getAsJsonObject());
+
+			if (j.has("tier")) {
+				String tier = j.get("tier").getAsString();
 				m.setupTier(tier);
-			else
-				m.setupTier(level, uses, speed, damage, enchantmentValue, useTag, repairTag);
+			} else {
+				int level = j.get("level").getAsInt();
+				int uses = j.get("uses").getAsInt();
+				float speed = j.get("speed").getAsFloat();
+				float damage = j.get("damage").getAsFloat();
+				int enchantmentValue = j.get("enchantmentValue").getAsInt();
+				String useTag = j.get("useTag").getAsString();
+				m.setupTier(level, uses, speed, damage, enchantmentValue, useTag);
+			}
+
+			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -210,14 +213,22 @@ public class MaterialMetal extends _MaterialBase {
 
 			j.addProperty("type", type);
 
-			j.addProperty("tier", "DIAMOND");
-			j.addProperty("level", 0);
-			j.addProperty("uses", 0);
-			j.addProperty("speed", 0);
-			j.addProperty("damage", 0);
-			j.addProperty("enchantmentValue", 0);
-			j.addProperty("useTag", "");
-			j.addProperty("repairTag", "");
+			j.add("block", src.BLOCK.serialize());
+			j.add("ingot", src.INGOT.serialize());
+			j.add("nugget", src.NUGGET.serialize());
+
+			if (src.premadeTier != null && !src.premadeTier.isEmpty())
+				j.addProperty("tier", src.premadeTier);
+			else {
+				Tier tier = src.tier;
+
+				j.addProperty("uses", tier.getUses());
+				j.addProperty("speed", tier.getSpeed());
+				j.addProperty("damage", tier.getAttackDamageBonus());
+				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
+				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
+//				j.addProperty("repairTag", tier.getRepairIngredient().);
+			}
 
 			JsonArray ext = new JsonArray();
 

@@ -122,8 +122,6 @@ public class CompendiumItemHandler implements Serializable {
 
 		if (this.getExistsLocation() != null)
 			j.addProperty("existsLocation", this.getExistsLocation().toString());
-		else
-			j.addProperty("existsLocation", "");
 
 		j.addProperty("generate", this.generate.toString());
 		return j;

@@ -1,0 +1,86 @@
+{
+  "type": "compendium:workbench_material",
+  "input": {
+    "key": {
+      "b": {
+        "tag": "c:storage_blocks/gold"
+      },
+      "i": {
+        "tag": "c:ingots/gold"
+      },
+      "s": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "  i",
+      " b ",
+      "s  "
+    ]
+  },
+  "mats": [],
+  "output": {
+    "count": 1,
+    "id": "compendium:gold_zweihander_item"
+  },
+  "tools": [
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0,
+                "min": -8.0
+              },
+              "y": {
+                "max": 10.0,
+                "min": -10.0
+              },
+              "z": {
+                "max": 8.0,
+                "min": -8.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "loop": true,
+                "max": 45.0,
+                "min": -45.0,
+                "pingpong": true,
+                "speed": 0.5
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:gold_hammer"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 4
+    }
+  ]
+}

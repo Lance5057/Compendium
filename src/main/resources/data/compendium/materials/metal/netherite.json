@@ -1,21 +1,20 @@
 {
-  "name": "iron",
+  "name": "netherite",
   "tagNamespace": "minecraft",
   "type": "METAL",
   "block": {
-    "existsLocationBlock": "minecraft:iron_block",
-    "existsLocationItem": "minecraft:iron_block",
+    "existsLocationBlock": "minecraft:netherite_block",
+    "existsLocationItem": "minecraft:netherite_block",
     "generate": "EXISTS"
   },
   "ingot": {
-    "existsLocation": "minecraft:iron_ingot",
+    "existsLocation": "minecraft:netherite_ingot",
     "generate": "EXISTS"
   },
   "nugget": {
-    "existsLocation": "minecraft:iron_nugget",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
-  "tier": "IRON",
+  "tier": "NETHERITE",
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

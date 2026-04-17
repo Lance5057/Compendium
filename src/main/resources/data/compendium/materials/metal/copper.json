@@ -1,19 +1,18 @@
 {
-  "name": "iron",
+  "name": "copper",
   "tagNamespace": "minecraft",
   "type": "METAL",
   "block": {
-    "existsLocationBlock": "minecraft:iron_block",
-    "existsLocationItem": "minecraft:iron_block",
+    "existsLocationBlock": "minecraft:copper_block",
+    "existsLocationItem": "minecraft:copper_block",
     "generate": "EXISTS"
   },
   "ingot": {
-    "existsLocation": "minecraft:iron_ingot",
+    "existsLocation": "minecraft:copper_ingot",
     "generate": "EXISTS"
   },
   "nugget": {
-    "existsLocation": "minecraft:iron_nugget",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "tier": "IRON",
   "extensions": [

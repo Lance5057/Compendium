@@ -129,6 +129,7 @@ public class IndexInitialResourceLoader {
 
 	static void buildDefaults() {
 		MaterialMetal iron = new MaterialMetal("iron", "minecraft");
+		iron.setupTier("IRON");
 		iron.BLOCK.setExists(TagUtil.mcLoc("iron_block"), TagUtil.mcLoc("iron_block"));
 		iron.INGOT.setExists(TagUtil.mcLoc("iron_ingot"));
 		iron.NUGGET.setExists(TagUtil.mcLoc("iron_nugget"));
@@ -137,9 +138,35 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(iron);
 
-//		buildDefault(new MaterialMetal("gold", "minecraft").addExtension(new ExtensionAdvancedTools()));
-//		buildDefault(new MaterialMetal("copper", "minecraft").addExtension(new ExtensionAdvancedTools()));
-//		buildDefault(new MaterialMetal("netherite", "minecraft").addExtension(new ExtensionAdvancedTools()));
+		MaterialMetal gold = new MaterialMetal("gold", "minecraft");
+		gold.setupTier("GOLD");
+		gold.BLOCK.setExists(TagUtil.mcLoc("gold_block"), TagUtil.mcLoc("gold_block"));
+		gold.INGOT.setExists(TagUtil.mcLoc("gold_ingot"));
+		gold.NUGGET.setExists(TagUtil.mcLoc("gold_nugget"));
+
+		gold.addExtension(new ExtensionAdvancedTools().generateAll());
+
+		buildDefault(gold);
+
+		MaterialMetal copper = new MaterialMetal("copper", "minecraft");
+		copper.setupTier("IRON");
+		copper.BLOCK.setExists(TagUtil.mcLoc("copper_block"), TagUtil.mcLoc("copper_block"));
+		copper.INGOT.setExists(TagUtil.mcLoc("copper_ingot"));
+		copper.NUGGET.setGenerate();
+
+		copper.addExtension(new ExtensionAdvancedTools().generateAll());
+
+		buildDefault(copper);
+
+		MaterialMetal netherite = new MaterialMetal("netherite", "minecraft");
+		netherite.setupTier("NETHERITE");
+		netherite.BLOCK.setExists(TagUtil.mcLoc("netherite_block"), TagUtil.mcLoc("netherite_block"));
+		netherite.INGOT.setExists(TagUtil.mcLoc("netherite_ingot"));
+		netherite.NUGGET.setGenerate();
+
+		netherite.addExtension(new ExtensionAdvancedTools().generateAll());
+
+		buildDefault(netherite);
 //
 //		buildDefault(new MaterialGlass("glass", "minecraft"));
 //		buildDefault(new MaterialGlass("white_stained_glass", "minecraft"));

@@ -1,21 +1,21 @@
 {
-  "name": "iron",
+  "name": "gold",
   "tagNamespace": "minecraft",
   "type": "METAL",
   "block": {
-    "existsLocationBlock": "minecraft:iron_block",
-    "existsLocationItem": "minecraft:iron_block",
+    "existsLocationBlock": "minecraft:gold_block",
+    "existsLocationItem": "minecraft:gold_block",
     "generate": "EXISTS"
   },
   "ingot": {
-    "existsLocation": "minecraft:iron_ingot",
+    "existsLocation": "minecraft:gold_ingot",
     "generate": "EXISTS"
   },
   "nugget": {
-    "existsLocation": "minecraft:iron_nugget",
+    "existsLocation": "minecraft:gold_nugget",
     "generate": "EXISTS"
   },
-  "tier": "IRON",
+  "tier": "GOLD",
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

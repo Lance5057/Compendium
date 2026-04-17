@@ -186,13 +186,9 @@ public class CompendiumBlockHandler implements Serializable {
 		JsonObject j = new JsonObject();
 		if (this.getExistsLocationBlock() != null)
 			j.addProperty("existsLocationBlock", this.getExistsLocationBlock().toString());
-		else
-			j.addProperty("existsLocationBlock", "");
 
 		if (this.getExistsLocationItem() != null)
 			j.addProperty("existsLocationItem", this.getExistsLocationItem().toString());
-		else
-			j.addProperty("existsLocationItem", "");
 
 		j.addProperty("generate", this.generate.toString());
 		return j;

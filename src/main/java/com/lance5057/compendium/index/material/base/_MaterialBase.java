@@ -88,15 +88,13 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 		return this;
 	}
 
-	public _MaterialBase setupTier(int level, int uses, float speed, float damage, int enchantmentValue, String useTag,
-			String repairTag) {
+	public _MaterialBase setupTier(int level, int uses, float speed, float damage, int enchantmentValue, String useTag) {
 		this.level = level;
 		this.uses = uses;
 		this.speed = speed;
 		this.damage = damage;
 		this.enchantmentValue = enchantmentValue;
 		this.useTag = useTag;
-		this.repairTag = repairTag;
 
 		return this;
 	}
