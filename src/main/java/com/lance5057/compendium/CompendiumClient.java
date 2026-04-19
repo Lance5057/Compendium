@@ -62,6 +62,7 @@ import net.minecraft.client.resources.model.ModelBakery.ModelBakerImpl;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.MultiPartBakedModel;
+import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
@@ -392,11 +393,6 @@ public class CompendiumClient {
 	public static void doGlass(ModifyBakingResult event, _MaterialBase mb) {
 		if (mb instanceof MaterialGlass mg) {
 			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
-			if (mg.specialLocations != null) {
-				if (mg.specialLocations.textures != null)
-					if (mg.specialLocations.textures.blockLocation != null)
-						texture = mg.specialLocations.textures.blockLocation;
-			}
 
 			for (String b : StyleData.WINDOW_GLASS.getTypes()) {
 				ResourceLocation loc = Compendium.modLoc("extra/window/window_glass");
@@ -449,11 +445,6 @@ public class CompendiumClient {
 		if (mb instanceof MaterialTextile mt) {
 
 			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
-			if (mt.specialLocations != null) {
-				if (mt.specialLocations.textures != null)
-					if (mt.specialLocations.textures.blockLocation != null)
-						texture = mt.specialLocations.textures.blockLocation;
-			}
 
 			for (String b : StyleData.TABLE_CLOTH.getTypes()) {
 				ResourceLocation loc = Compendium.modLoc("extra/clothed_table/cloth/" + b.toLowerCase());
@@ -1569,12 +1560,9 @@ public class CompendiumClient {
 	@SafeVarargs
 	public static BakedModel basicModelManyTexture(ModifyBakingResult event, ResourceLocation location,
 			ModelResourceLocation modelLocation, ModelState state, Pair<String, ResourceLocation>... textures) {
-//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
 
-//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-//				style.toLowerCase());
-
-		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
+		UnbakedModel um = event.getModelBakery().getModel(location);
+		BlockModel frame_model = (BlockModel) um;
 
 		return buildModel(event, frame_model, modelLocation, state, textures);
 	}
@@ -1606,14 +1594,8 @@ public class CompendiumClient {
 				modelResource);
 
 		model.resolveParents(i -> baker.getModel(i));
+		BakedModel bm = model.bake(baker, event.getTextureGetter(), state);
 
-		return model.bake(baker, event.getTextureGetter(), state);
-	}
-
-	@SafeVarargs
-	public static void createFlatItemModel(ModifyBakingResult event, ResourceLocation loc, ModelResourceLocation mloc,
-			Pair<String, ResourceLocation>... textures) {
-
-		event.getModels().put(mloc, basicModelManyTexture(event, loc, mloc, BlockModelRotation.X0_Y0, textures));
+		return bm;
 	}
 }

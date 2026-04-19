@@ -56,21 +56,11 @@ public class MaterialTextile extends _MaterialBase {
 	public final CompendiumItemHandler STRING;
 	public final CompendiumBlockHandler CARPET;
 
-	@Nullable
-	@Since(1.1)
-	public SpecialLocationsTextile specialLocations;
-
 	public MaterialTextile(String name, String tagNamespace) {
-		this(name, tagNamespace, null);
-	}
-
-	public MaterialTextile(String name, String tagNamespace, SpecialLocationsTextile loc) {
 		super(name, tagNamespace);
-		BLOCK = new CompendiumBlockHandler();
-		STRING = new CompendiumItemHandler();
-		CARPET = new CompendiumBlockHandler();
-
-		this.specialLocations = loc;
+		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
+		this.ITEMS.add(STRING = new CompendiumItemHandler());
+		this.BLOCKS.add(CARPET = new CompendiumBlockHandler());
 	}
 
 	@Override
@@ -108,12 +98,12 @@ public class MaterialTextile extends _MaterialBase {
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));
 	}
 
-	@Override
-	public void tab(Output output) {
-		BLOCK.tab(this, output);
-		STRING.tab(this, output);
-		CARPET.tab(this, output);
-	}
+//	@Override
+//	public void tab(Output output) {
+//		BLOCK.tab(this, output);
+//		STRING.tab(this, output);
+//		CARPET.tab(this, output);
+//	}
 
 //	@Override
 //	public void blockStateModel(BlockStateProvider bsp) {
@@ -225,20 +215,13 @@ public class MaterialTextile extends _MaterialBase {
 			String tagNamespace = j.get("tagNamespace").getAsString();
 			String type = j.get("type").getAsString();
 
+			w = new MaterialTextile(name, tagNamespace);
+
+			w.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			w.STRING.deserialize(j.get("string").getAsJsonObject());
+			w.CARPET.deserialize(j.get("carpet").getAsJsonObject());
+
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
-
-			if (j.get("version") != null) {
-				Double version = j.get("version").getAsDouble();
-				if (version >= 1.1) {
-					SpecialLocationsTextile sp = null;
-					if (j.get("specialLocations") != null)
-						sp = context.deserialize(j.get("specialLocations"), SpecialLocationsTextile.class);
-
-					w = new MaterialTextile(name, tagNamespace);
-				}
-
-			} else
-				w = new MaterialTextile(name, tagNamespace);
 
 			if (extensionsArray != null)
 				for (JsonElement extensionElement : extensionsArray) {
@@ -255,14 +238,10 @@ public class MaterialTextile extends _MaterialBase {
 			j.addProperty("name", src.name);
 			j.addProperty("tagNamespace", src.namespace);
 			j.addProperty("type", type);
-			j.addProperty("version", IndexInitialResourceLoader.VERSION);
-			j.addProperty("loadString", src.STRING.getGeneration().toString());
-			j.addProperty("loadBlock", src.BLOCK.getGeneration().toString());
-			j.addProperty("loadCarpet", src.CARPET.getGeneration().toString());
 
-			if (src.specialLocations != null) {
-				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsTextile.class));
-			}
+			j.add("block", src.BLOCK.serialize());
+			j.add("string", src.STRING.serialize());
+			j.add("carpet", src.CARPET.serialize());
 
 			JsonArray ext = new JsonArray();
 

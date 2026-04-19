@@ -2,67 +2,46 @@ package com.lance5057.compendium.index.material.base.glass;
 
 import java.lang.reflect.Type;
 
-import javax.annotation.Nullable;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.annotations.Since;
-import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.components.block.IndexEntryComponent;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.base.glass.locations.SpecialLocationsGlass;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialGlass extends _MaterialBase {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8859553079700017238L;
-	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler("glass");
-
-	@Nullable
-	@Since(1.1)
-	public SpecialLocationsGlass specialLocations;
+	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler();
 
 	public MaterialGlass(String name, String tagNamespace) {
-		this(name, tagNamespace, null);
-	}
-
-	public MaterialGlass(String name, String tagNamespace, SpecialLocationsGlass locations) {
 		super(name, tagNamespace);
 
-		this.specialLocations = locations;
-
-		BLOCK.setup(this);
+		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
 	}
 
 	@Override
 	public void setup() {
-
-		setupBlock();
+		BLOCK.setName(name + "_block");
+		BLOCK.setup(this);
+		BLOCK.setupItemTag(Tags.Items.GLASS_BLOCKS);
+		BLOCK.setupItemTag(TagUtil.neoTag("glass_blocks/" + name));
 
 		this.extensions.forEach(i -> i.setup(this));
-	}
-
-	private void setupBlock() {
-		
 	}
 
 	@Override
@@ -137,20 +116,9 @@ public class MaterialGlass extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			String block = j.get("loadBlock").getAsString();
+			g = new MaterialGlass(name, tagNamespace);
 
-			if (j.get("version") != null) {
-				Double version = j.get("version").getAsDouble();
-				if (version >= 1.1) {
-					SpecialLocationsGlass sp = null;
-					if (j.get("specialLocations") != null)
-						sp = context.deserialize(j.get("specialLocations"), SpecialLocationsGlass.class);
-
-					g = new MaterialGlass(name, tagNamespace, sp);
-				}
-
-			} else
-				g = new MaterialGlass(name, tagNamespace);
+			g.BLOCK.deserialize(j.get("block").getAsJsonObject());
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -169,11 +137,8 @@ public class MaterialGlass extends _MaterialBase {
 			j.addProperty("name", src.name);
 			j.addProperty("tagNamespace", src.namespace);
 			j.addProperty("type", type);
-			j.addProperty("loadBlock", src.BLOCK.getGeneration().toString());
 
-			if (src.specialLocations != null) {
-				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsGlass.class));
-			}
+			j.add("block", src.BLOCK.serialize());
 
 			JsonArray ext = new JsonArray();
 

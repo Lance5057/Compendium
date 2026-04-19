@@ -46,6 +46,10 @@ public class MaterialMetal extends _MaterialBase {
 
 	public MaterialMetal(String name, String tagNamespace) {
 		super(name, tagNamespace);
+
+		this.ITEMS.add(INGOT = new CompendiumItemHandler());
+		this.ITEMS.add(NUGGET = new CompendiumItemHandler());
+		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
 	}
 
 	@Override

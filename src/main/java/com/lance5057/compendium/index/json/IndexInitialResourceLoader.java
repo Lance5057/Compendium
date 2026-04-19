@@ -30,7 +30,9 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
+import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
@@ -167,25 +169,25 @@ public class IndexInitialResourceLoader {
 		netherite.addExtension(new ExtensionAdvancedTools().generateAll());
 
 		buildDefault(netherite);
-//
-//		buildDefault(new MaterialGlass("glass", "minecraft"));
-//		buildDefault(new MaterialGlass("white_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("light_gray_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("gray_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("black_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("brown_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("red_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("orange_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("yellow_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("lime_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("green_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("cyan_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("light_blue_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("blue_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("purple_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("magenta_stained_glass", "minecraft"));
-//		buildDefault(new MaterialGlass("pink_stained_glass", "minecraft"));
-////		buildDefault(new MaterialGlass("tinted", "minecraft"));
+
+		buildDefault(new MaterialGlass("glass", "minecraft"));
+		buildDefault(new MaterialGlass("white_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("light_gray_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("gray_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("black_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("brown_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("red_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("orange_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("yellow_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("lime_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("green_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("cyan_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("light_blue_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("blue_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("purple_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("magenta_stained_glass", "minecraft"));
+		buildDefault(new MaterialGlass("pink_stained_glass", "minecraft"));
+//		buildDefault(new MaterialGlass("tinted", "minecraft"));
 
 		MaterialWood oak = new MaterialWood("oak", "minecraft");
 		oak.LOG.setExists(TagUtil.mcLoc("oak_log"), TagUtil.mcLoc("oak_log"));
@@ -330,22 +332,22 @@ public class IndexInitialResourceLoader {
 //				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
-//		buildDefault(new MaterialTextile("white_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("light_gray_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("gray_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("black_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("brown_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("red_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("orange_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("yellow_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("lime_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("green_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("cyan_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("light_blue_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("blue_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("purple_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("magenta_wool", "minecraft"));
-//		buildDefault(new MaterialTextile("pink_wool", "minecraft"));
+		buildDefault(new MaterialTextile("white_wool", "minecraft"));
+		buildDefault(new MaterialTextile("light_gray_wool", "minecraft"));
+		buildDefault(new MaterialTextile("gray_wool", "minecraft"));
+		buildDefault(new MaterialTextile("black_wool", "minecraft"));
+		buildDefault(new MaterialTextile("brown_wool", "minecraft"));
+		buildDefault(new MaterialTextile("red_wool", "minecraft"));
+		buildDefault(new MaterialTextile("orange_wool", "minecraft"));
+		buildDefault(new MaterialTextile("yellow_wool", "minecraft"));
+		buildDefault(new MaterialTextile("lime_wool", "minecraft"));
+		buildDefault(new MaterialTextile("green_wool", "minecraft"));
+		buildDefault(new MaterialTextile("cyan_wool", "minecraft"));
+		buildDefault(new MaterialTextile("light_blue_wool", "minecraft"));
+		buildDefault(new MaterialTextile("blue_wool", "minecraft"));
+		buildDefault(new MaterialTextile("purple_wool", "minecraft"));
+		buildDefault(new MaterialTextile("magenta_wool", "minecraft"));
+		buildDefault(new MaterialTextile("pink_wool", "minecraft"));
 
 	}
 
