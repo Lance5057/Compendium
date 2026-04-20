@@ -95,6 +95,10 @@ public class CompendiumItemHandler implements Serializable {
 		return this.generate == Generate.IGNORE;
 	}
 
+	public void setIgnored() {
+		this.generate = Generate.IGNORE;
+	}
+
 	public void itemTag(ItemTagsProvider itp) {
 		for (TagKey<Item> tag : itemTag)
 			itp.tag(tag).add(ITEM.asItem());

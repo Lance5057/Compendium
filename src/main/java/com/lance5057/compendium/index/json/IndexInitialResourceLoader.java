@@ -170,23 +170,80 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(netherite);
 
-		buildDefault(new MaterialGlass("glass", "minecraft"));
-		buildDefault(new MaterialGlass("white_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("light_gray_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("gray_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("black_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("brown_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("red_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("orange_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("yellow_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("lime_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("green_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("cyan_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("light_blue_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("blue_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("purple_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("magenta_stained_glass", "minecraft"));
-		buildDefault(new MaterialGlass("pink_stained_glass", "minecraft"));
+		MaterialGlass glass = new MaterialGlass("glass", "minecraft");
+		glass.BLOCK.setExists(TagUtil.mcLoc("glass"), TagUtil.mcLoc("glass"));
+		buildDefault(glass);
+
+		MaterialGlass white_stained_glass = new MaterialGlass("white_stained_glass", "minecraft");
+		white_stained_glass.BLOCK.setExists(TagUtil.mcLoc("white_stained_glass"), TagUtil.mcLoc("white_stained_glass"));
+		buildDefault(white_stained_glass);
+
+		MaterialGlass light_gray_stained_glass = new MaterialGlass("light_gray_stained_glass", "minecraft");
+		light_gray_stained_glass.BLOCK.setExists(TagUtil.mcLoc("light_gray_stained_glass"),
+				TagUtil.mcLoc("light_gray_stained_glass"));
+		buildDefault(light_gray_stained_glass);
+
+		MaterialGlass gray_stained_glass = new MaterialGlass("gray_stained_glass", "minecraft");
+		gray_stained_glass.BLOCK.setExists(TagUtil.mcLoc("gray_stained_glass"), TagUtil.mcLoc("gray_stained_glass"));
+		buildDefault(gray_stained_glass);
+
+		MaterialGlass black_stained_glass = new MaterialGlass("black_stained_glass", "minecraft");
+		black_stained_glass.BLOCK.setExists(TagUtil.mcLoc("black_stained_glass"), TagUtil.mcLoc("black_stained_glass"));
+		buildDefault(black_stained_glass);
+
+		MaterialGlass brown_stained_glass = new MaterialGlass("brown_stained_glass", "minecraft");
+		brown_stained_glass.BLOCK.setExists(TagUtil.mcLoc("brown_stained_glass"), TagUtil.mcLoc("brown_stained_glass"));
+		buildDefault(brown_stained_glass);
+
+		MaterialGlass red_stained_glass = new MaterialGlass("red_stained_glass", "minecraft");
+		red_stained_glass.BLOCK.setExists(TagUtil.mcLoc("red_stained_glass"), TagUtil.mcLoc("red_stained_glass"));
+		buildDefault(red_stained_glass);
+
+		MaterialGlass orange_stained_glass = new MaterialGlass("orange_stained_glass", "minecraft");
+		orange_stained_glass.BLOCK.setExists(TagUtil.mcLoc("orange_stained_glass"),
+				TagUtil.mcLoc("orange_stained_glass"));
+		buildDefault(orange_stained_glass);
+
+		MaterialGlass yellow_stained_glass = new MaterialGlass("yellow_stained_glass", "minecraft");
+		yellow_stained_glass.BLOCK.setExists(TagUtil.mcLoc("yellow_stained_glass"),
+				TagUtil.mcLoc("yellow_stained_glass"));
+		buildDefault(yellow_stained_glass);
+
+		MaterialGlass lime_stained_glass = new MaterialGlass("lime_stained_glass", "minecraft");
+		lime_stained_glass.BLOCK.setExists(TagUtil.mcLoc("lime_stained_glass"), TagUtil.mcLoc("lime_stained_glass"));
+		buildDefault(lime_stained_glass);
+
+		MaterialGlass green_stained_glass = new MaterialGlass("green_stained_glass", "minecraft");
+		green_stained_glass.BLOCK.setExists(TagUtil.mcLoc("green_stained_glass"), TagUtil.mcLoc("green_stained_glass"));
+		buildDefault(green_stained_glass);
+
+		MaterialGlass cyan_stained_glass = new MaterialGlass("cyan_stained_glass", "minecraft");
+		cyan_stained_glass.BLOCK.setExists(TagUtil.mcLoc("cyan_stained_glass"), TagUtil.mcLoc("cyan_stained_glass"));
+		buildDefault(cyan_stained_glass);
+
+		MaterialGlass light_blue_stained_glass = new MaterialGlass("light_blue_stained_glass", "minecraft");
+		light_blue_stained_glass.BLOCK.setExists(TagUtil.mcLoc("light_blue_stained_glass"),
+				TagUtil.mcLoc("light_blue_stained_glass"));
+		buildDefault(light_blue_stained_glass);
+
+		MaterialGlass blue_stained_glass = new MaterialGlass("blue_stained_glass", "minecraft");
+		blue_stained_glass.BLOCK.setExists(TagUtil.mcLoc("blue_stained_glass"), TagUtil.mcLoc("blue_stained_glass"));
+		buildDefault(blue_stained_glass);
+
+		MaterialGlass purple_stained_glass = new MaterialGlass("purple_stained_glass", "minecraft");
+		purple_stained_glass.BLOCK.setExists(TagUtil.mcLoc("purple_stained_glass"),
+				TagUtil.mcLoc("purple_stained_glass"));
+		buildDefault(purple_stained_glass);
+
+		MaterialGlass magenta_stained_glass = new MaterialGlass("magenta_stained_glass", "minecraft");
+		magenta_stained_glass.BLOCK.setExists(TagUtil.mcLoc("magenta_stained_glass"),
+				TagUtil.mcLoc("magenta_stained_glass"));
+		buildDefault(magenta_stained_glass);
+
+		MaterialGlass pink_stained_glass = new MaterialGlass("pink_stained_glass", "minecraft");
+		pink_stained_glass.BLOCK.setExists(TagUtil.mcLoc("pink_stained_glass"), TagUtil.mcLoc("pink_stained_glass"));
+		buildDefault(pink_stained_glass);
+
 //		buildDefault(new MaterialGlass("tinted", "minecraft"));
 
 		MaterialWood oak = new MaterialWood("oak", "minecraft");
@@ -332,22 +389,101 @@ public class IndexInitialResourceLoader {
 //				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 //		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
 
-		buildDefault(new MaterialTextile("white_wool", "minecraft"));
-		buildDefault(new MaterialTextile("light_gray_wool", "minecraft"));
-		buildDefault(new MaterialTextile("gray_wool", "minecraft"));
-		buildDefault(new MaterialTextile("black_wool", "minecraft"));
-		buildDefault(new MaterialTextile("brown_wool", "minecraft"));
-		buildDefault(new MaterialTextile("red_wool", "minecraft"));
-		buildDefault(new MaterialTextile("orange_wool", "minecraft"));
-		buildDefault(new MaterialTextile("yellow_wool", "minecraft"));
-		buildDefault(new MaterialTextile("lime_wool", "minecraft"));
-		buildDefault(new MaterialTextile("green_wool", "minecraft"));
-		buildDefault(new MaterialTextile("cyan_wool", "minecraft"));
-		buildDefault(new MaterialTextile("light_blue_wool", "minecraft"));
-		buildDefault(new MaterialTextile("blue_wool", "minecraft"));
-		buildDefault(new MaterialTextile("purple_wool", "minecraft"));
-		buildDefault(new MaterialTextile("magenta_wool", "minecraft"));
-		buildDefault(new MaterialTextile("pink_wool", "minecraft"));
+		MaterialTextile white_wool = new MaterialTextile("white_wool", "minecraft");
+		white_wool.BLOCK.setExists(TagUtil.mcLoc("white_wool"), TagUtil.mcLoc("white_wool"));
+		white_wool.CARPET.setExists(TagUtil.mcLoc("white_carpet"), TagUtil.mcLoc("white_carpet"));
+		white_wool.STRING.setIgnored();
+		buildDefault(white_wool);
+
+		MaterialTextile light_gray_wool = new MaterialTextile("light_gray_wool", "minecraft");
+		light_gray_wool.BLOCK.setExists(TagUtil.mcLoc("light_gray_wool"), TagUtil.mcLoc("light_gray_wool"));
+		light_gray_wool.CARPET.setExists(TagUtil.mcLoc("light_gray_carpet"), TagUtil.mcLoc("light_gray_carpet"));
+		light_gray_wool.STRING.setIgnored();
+		buildDefault(light_gray_wool);
+
+		MaterialTextile gray_wool = new MaterialTextile("gray_wool", "minecraft");
+		gray_wool.BLOCK.setExists(TagUtil.mcLoc("gray_wool"), TagUtil.mcLoc("gray_wool"));
+		gray_wool.CARPET.setExists(TagUtil.mcLoc("gray_carpet"), TagUtil.mcLoc("gray_carpet"));
+		gray_wool.STRING.setIgnored();
+		buildDefault(gray_wool);
+
+		MaterialTextile black_wool = new MaterialTextile("black_wool", "minecraft");
+		black_wool.BLOCK.setExists(TagUtil.mcLoc("black_wool"), TagUtil.mcLoc("black_wool"));
+		black_wool.CARPET.setExists(TagUtil.mcLoc("black_carpet"), TagUtil.mcLoc("black_carpet"));
+		black_wool.STRING.setIgnored();
+		buildDefault(black_wool);
+
+		MaterialTextile brown_wool = new MaterialTextile("brown_wool", "minecraft");
+		brown_wool.BLOCK.setExists(TagUtil.mcLoc("brown_wool"), TagUtil.mcLoc("brown_wool"));
+		brown_wool.CARPET.setExists(TagUtil.mcLoc("brown_carpet"), TagUtil.mcLoc("brown_carpet"));
+		brown_wool.STRING.setIgnored();
+		buildDefault(brown_wool);
+
+		MaterialTextile red_wool = new MaterialTextile("red_wool", "minecraft");
+		red_wool.BLOCK.setExists(TagUtil.mcLoc("red_wool"), TagUtil.mcLoc("red_wool"));
+		red_wool.CARPET.setExists(TagUtil.mcLoc("red_carpet"), TagUtil.mcLoc("red_carpet"));
+		red_wool.STRING.setIgnored();
+		buildDefault(red_wool);
+
+		MaterialTextile orange_wool = new MaterialTextile("orange_wool", "minecraft");
+		orange_wool.BLOCK.setExists(TagUtil.mcLoc("orange_wool"), TagUtil.mcLoc("orange_wool"));
+		orange_wool.CARPET.setExists(TagUtil.mcLoc("orange_carpet"), TagUtil.mcLoc("orange_carpet"));
+		orange_wool.STRING.setIgnored();
+		buildDefault(orange_wool);
+
+		MaterialTextile yellow_wool = new MaterialTextile("yellow_wool", "minecraft");
+		yellow_wool.BLOCK.setExists(TagUtil.mcLoc("yellow_wool"), TagUtil.mcLoc("yellow_wool"));
+		yellow_wool.CARPET.setExists(TagUtil.mcLoc("yellow_carpet"), TagUtil.mcLoc("yellow_carpet"));
+		yellow_wool.STRING.setIgnored();
+		buildDefault(yellow_wool);
+
+		MaterialTextile lime_wool = new MaterialTextile("lime_wool", "minecraft");
+		lime_wool.BLOCK.setExists(TagUtil.mcLoc("lime_wool"), TagUtil.mcLoc("lime_wool"));
+		lime_wool.CARPET.setExists(TagUtil.mcLoc("lime_carpet"), TagUtil.mcLoc("lime_carpet"));
+		lime_wool.STRING.setIgnored();
+		buildDefault(lime_wool);
+
+		MaterialTextile green_wool = new MaterialTextile("green_wool", "minecraft");
+		green_wool.BLOCK.setExists(TagUtil.mcLoc("green_wool"), TagUtil.mcLoc("green_wool"));
+		green_wool.CARPET.setExists(TagUtil.mcLoc("green_carpet"), TagUtil.mcLoc("green_carpet"));
+		green_wool.STRING.setIgnored();
+		buildDefault(green_wool);
+
+		MaterialTextile cyan_wool = new MaterialTextile("cyan_wool", "minecraft");
+		cyan_wool.BLOCK.setExists(TagUtil.mcLoc("cyan_wool"), TagUtil.mcLoc("cyan_wool"));
+		cyan_wool.CARPET.setExists(TagUtil.mcLoc("cyan_carpet"), TagUtil.mcLoc("cyan_carpet"));
+		cyan_wool.STRING.setIgnored();
+		buildDefault(cyan_wool);
+
+		MaterialTextile light_blue_wool = new MaterialTextile("light_blue_wool", "minecraft");
+		light_blue_wool.BLOCK.setExists(TagUtil.mcLoc("light_blue_wool"), TagUtil.mcLoc("light_blue_wool"));
+		light_blue_wool.CARPET.setExists(TagUtil.mcLoc("light_blue_carpet"), TagUtil.mcLoc("light_blue_carpet"));
+		light_blue_wool.STRING.setIgnored();
+		buildDefault(light_blue_wool);
+
+		MaterialTextile blue_wool = new MaterialTextile("blue_wool", "minecraft");
+		blue_wool.BLOCK.setExists(TagUtil.mcLoc("blue_wool"), TagUtil.mcLoc("blue_wool"));
+		blue_wool.CARPET.setExists(TagUtil.mcLoc("blue_carpet"), TagUtil.mcLoc("blue_carpet"));
+		blue_wool.STRING.setIgnored();
+		buildDefault(blue_wool);
+
+		MaterialTextile purple_wool = new MaterialTextile("purple_wool", "minecraft");
+		purple_wool.BLOCK.setExists(TagUtil.mcLoc("purple_wool"), TagUtil.mcLoc("purple_wool"));
+		purple_wool.CARPET.setExists(TagUtil.mcLoc("purple_carpet"), TagUtil.mcLoc("purple_carpet"));
+		purple_wool.STRING.setIgnored();
+		buildDefault(purple_wool);
+
+		MaterialTextile magenta_wool = new MaterialTextile("magenta_wool", "minecraft");
+		magenta_wool.BLOCK.setExists(TagUtil.mcLoc("magenta_wool"), TagUtil.mcLoc("magenta_wool"));
+		magenta_wool.CARPET.setExists(TagUtil.mcLoc("magenta_carpet"), TagUtil.mcLoc("magenta_carpet"));
+		magenta_wool.STRING.setIgnored();
+		buildDefault(magenta_wool);
+
+		MaterialTextile pink_wool = new MaterialTextile("pink_wool", "minecraft");
+		pink_wool.BLOCK.setExists(TagUtil.mcLoc("pink_wool"), TagUtil.mcLoc("pink_wool"));
+		pink_wool.CARPET.setExists(TagUtil.mcLoc("pink_carpet"), TagUtil.mcLoc("pink_carpet"));
+		pink_wool.STRING.setIgnored();
+		buildDefault(pink_wool);
 
 	}
 
