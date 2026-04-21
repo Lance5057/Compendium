@@ -34,6 +34,8 @@ import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
+import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
+import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
@@ -344,6 +346,12 @@ public class IndexInitialResourceLoader {
 		crimson.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_crimson_hyphae"),
 				TagUtil.mcLoc("stripped_crimson_hyphae"));
 
+		SpecialLocationsWood crimson_loc = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				TagUtil.mcLoc("block/crimson_stem"), TagUtil.mcLoc("block/stripped_crimson_stem"),
+				TagUtil.mcLoc("block/crimson_stem_top"), TagUtil.mcLoc("block/stripped_crimson_stem_top")));
+
+		crimson.specialLocations = crimson_loc;
+
 		crimson.addExtension(new ExtensionExtraLogs().generateAll());
 		crimson.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(crimson);
@@ -355,6 +363,12 @@ public class IndexInitialResourceLoader {
 		warped.WOOD.setExists(TagUtil.mcLoc("warped_hyphae"), TagUtil.mcLoc("warped_hyphae"));
 		warped.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_warped_hyphae"),
 				TagUtil.mcLoc("stripped_warped_hyphae"));
+
+		SpecialLocationsWood warped_loc = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				TagUtil.mcLoc("block/warped_stem"), TagUtil.mcLoc("block/stripped_warped_stem"),
+				TagUtil.mcLoc("block/warped_stem_top"), TagUtil.mcLoc("block/stripped_warped_stem_top")));
+
+		warped.specialLocations = warped_loc;
 
 		warped.addExtension(new ExtensionExtraLogs().generateAll());
 		warped.addExtension(new ExtensionExtraPlanks().generateAll());

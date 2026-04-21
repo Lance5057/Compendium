@@ -347,6 +347,19 @@ public class CompendiumClient {
 //		Compendium.LOGGER.debug(ml.toString());
 	}
 
+	public static void buildStateModelAltLocation(ModifyBakingResult event,
+			Map<ModelResourceLocation, BakedModel> models, ResourceLocation fromLocation, String toLocation) {
+		ModelResourceLocation ml = new ModelResourceLocation(Compendium.modLoc(toLocation), "");
+		BlockModel um = (BlockModel) event.getModelBakery().getModel(fromLocation);
+		ModelBakerImpl baker = event.getModelBakery().new ModelBakerImpl((modelLoc, material) -> material.sprite(), ml);
+		um.resolveParents(i -> baker.getModel(i));
+
+		BakedModel bm = um.bake(baker, event.getTextureGetter(), BlockModelRotation.X0_Y0);
+		models.put(ml, bm);
+
+//		Compendium.LOGGER.debug(ml.toString());
+	}
+
 	public static void buildStateModelVariantAltLocation(ModifyBakingResult event,
 			Map<ModelResourceLocation, BakedModel> models, ResourceLocation fromLocation, String toLocation,
 			String variant) {

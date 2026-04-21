@@ -42,10 +42,10 @@ public class ClientWood {
 					texture = mw.specialLocations.textures.plankLocation;
 		}
 
-		if (mw.PLANKS.isNotIgnored()) {
-			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),
-					mw.name + "_planks", "");
-		}
+//		if (mw.PLANKS.isNotIgnored()) {
+//			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),
+//					mw.name + "_planks", "");
+//		}
 
 		for (String b : StyleData.WINDOW_TRIM.getTypes()) {
 			ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");

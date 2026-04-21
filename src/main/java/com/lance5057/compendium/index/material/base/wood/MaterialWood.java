@@ -240,7 +240,12 @@ public class MaterialWood extends _MaterialBase {
 			String namespace = j.get("namespace").getAsString();
 			String type = j.get("type").getAsString();
 
-			w = new MaterialWood(name, namespace);
+			SpecialLocationsWood sp = null;
+
+			if (j.get("specialLocations") != null)
+				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsWood.class);
+
+			w = new MaterialWood(name, namespace, sp);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -272,6 +277,10 @@ public class MaterialWood extends _MaterialBase {
 			j.add("stripped_log", src.STRIPPED_LOG.serialize());
 			j.add("wood", src.WOOD.serialize());
 			j.add("stripped_wood", src.STRIPPED_WOOD.serialize());
+
+			if (src.specialLocations != null) {
+				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsWood.class));
+			}
 
 			JsonArray ext = new JsonArray();
 
