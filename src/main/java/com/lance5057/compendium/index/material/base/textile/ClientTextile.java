@@ -35,7 +35,7 @@ public class ClientTextile {
 
 		if (mb.BLOCK.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
-			ResourceLocation modelLoc = ClientUtil.createBlockLocation(mb.name + "_block");
+			ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_block");
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 
 			BakedModel bm = CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0,
@@ -45,11 +45,11 @@ public class ClientTextile {
 
 		if (mb.CARPET.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/carpet");
-			ResourceLocation modelLoc = ClientUtil.createBlockLocation(mb.name + "_carpet");
+			ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_carpet");
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 
 			BakedModel bm = CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0,
-					"all");
+					"wool");
 			models.put(m, bm);
 		}
 
