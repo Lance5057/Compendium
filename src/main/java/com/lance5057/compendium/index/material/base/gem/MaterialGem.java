@@ -12,6 +12,7 @@ import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocationsGem;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -35,12 +36,20 @@ public class MaterialGem extends _MaterialBase {
 	public CompendiumItemHandler SHARD;
 	public CompendiumBlockHandler BLOCK;
 
-	public MaterialGem(String name, String tagNamespace) {
-		super(name, tagNamespace);
+	public SpecialLocationsGem specialLocations;
+
+	public MaterialGem(String name, String namespace) {
+		this(name, namespace, null);
+	}
+
+	public MaterialGem(String name, String namespace, SpecialLocationsGem loc) {
+		super(name, namespace);
 
 		this.ITEMS.add(GEM = new CompendiumItemHandler());
 		this.ITEMS.add(SHARD = new CompendiumItemHandler());
 		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
+
+		specialLocations = loc;
 	}
 
 	@Override
@@ -123,7 +132,11 @@ public class MaterialGem extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			MaterialGem g = new MaterialGem(name, tagNamespace);
+			SpecialLocationsGem sp = null;
+			if (j.get("specialLocations") != null)
+				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsGem.class);
+
+			MaterialGem g = new MaterialGem(name, tagNamespace, sp);
 
 			g.BLOCK.deserialize(j.get("block").getAsJsonObject());
 			g.SHARD.deserialize(j.get("shard").getAsJsonObject());

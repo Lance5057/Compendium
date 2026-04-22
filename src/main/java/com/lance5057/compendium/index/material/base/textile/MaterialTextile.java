@@ -4,23 +4,19 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
 
-import javax.annotation.Nullable;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.google.gson.annotations.Since;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
-import com.lance5057.compendium.index.json.IndexInitialResourceLoader;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocationsGem;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
@@ -37,7 +33,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -56,8 +51,15 @@ public class MaterialTextile extends _MaterialBase {
 	public final CompendiumItemHandler STRING;
 	public final CompendiumBlockHandler CARPET;
 
-	public MaterialTextile(String name, String tagNamespace) {
-		super(name, tagNamespace);
+	public SpecialLocationsGem specialLocations;
+
+	public MaterialTextile(String name, String namespace) {
+		this(name, namespace, null);
+	}
+
+	public MaterialTextile(String name, String namespace, SpecialLocationsGem loc) {
+		super(name, namespace);
+
 		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
 		this.ITEMS.add(STRING = new CompendiumItemHandler());
 		this.BLOCKS.add(CARPET = new CompendiumBlockHandler());
@@ -215,6 +217,11 @@ public class MaterialTextile extends _MaterialBase {
 			String tagNamespace = j.get("tagNamespace").getAsString();
 			String type = j.get("type").getAsString();
 
+			SpecialLocationsTextile sp = null;
+
+			if (j.get("specialLocations") != null)
+				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsTextile.class);
+
 			w = new MaterialTextile(name, tagNamespace);
 
 			w.BLOCK.deserialize(j.get("block").getAsJsonObject());
@@ -242,6 +249,10 @@ public class MaterialTextile extends _MaterialBase {
 			j.add("block", src.BLOCK.serialize());
 			j.add("string", src.STRING.serialize());
 			j.add("carpet", src.CARPET.serialize());
+
+			if (src.specialLocations != null) {
+				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsTextile.class));
+			}
 
 			JsonArray ext = new JsonArray();
 

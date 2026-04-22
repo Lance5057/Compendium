@@ -11,6 +11,7 @@ import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.stone.locations.SpecialLocationsStone;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.util.TagUtil;
@@ -35,12 +36,20 @@ public class MaterialStone extends _MaterialBase {
 	public final CompendiumBlockHandler STONE;
 	public final CompendiumBlockHandler SMOOTH_STONE;
 
-	public MaterialStone(String name, String tagNamespace) {
-		super(name, tagNamespace);
+	public SpecialLocationsStone specialLocations;
+
+	public MaterialStone(String name, String namespace) {
+		this(name, namespace, null);
+	}
+
+	public MaterialStone(String name, String namespace, SpecialLocationsStone loc) {
+		super(name, namespace);
 
 		this.BLOCKS.add(COBBLESTONE = new CompendiumBlockHandler());
 		this.BLOCKS.add(STONE = new CompendiumBlockHandler());
 		this.BLOCKS.add(SMOOTH_STONE = new CompendiumBlockHandler());
+
+		specialLocations = loc;
 	}
 
 	@Override
@@ -156,7 +165,12 @@ public class MaterialStone extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			MaterialStone w = new MaterialStone(name, tagNamespace);
+			SpecialLocationsStone sp = null;
+
+			if (j.get("specialLocations") != null)
+				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsStone.class);
+
+			MaterialStone w = new MaterialStone(name, tagNamespace, sp);
 
 			w.COBBLESTONE.deserialize(j.get("cobblestone").getAsJsonObject());
 			w.STONE.deserialize(j.get("stone").getAsJsonObject());
@@ -183,6 +197,10 @@ public class MaterialStone extends _MaterialBase {
 			j.add("cobblestone", src.COBBLESTONE.serialize());
 			j.add("stone", src.STONE.serialize());
 			j.add("smooth_stone", src.SMOOTH_STONE.serialize());
+
+			if (src.specialLocations != null) {
+				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsStone.class));
+			}
 
 			JsonArray ext = new JsonArray();
 

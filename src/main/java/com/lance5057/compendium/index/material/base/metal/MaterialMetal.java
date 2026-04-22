@@ -15,6 +15,7 @@ import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.metal.locations.SpecialLocationsMetal;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -44,12 +45,20 @@ public class MaterialMetal extends _MaterialBase {
 	public CompendiumItemHandler NUGGET = new CompendiumItemHandler();
 	public CompendiumBlockHandler BLOCK = new CompendiumBlockHandler();
 
-	public MaterialMetal(String name, String tagNamespace) {
-		super(name, tagNamespace);
+	public SpecialLocationsMetal specialLocations;
+
+	public MaterialMetal(String name, String namespace) {
+		this(name, namespace, null);
+	}
+
+	public MaterialMetal(String name, String namespace, SpecialLocationsMetal loc) {
+		super(name, namespace);
 
 		this.ITEMS.add(INGOT = new CompendiumItemHandler());
 		this.ITEMS.add(NUGGET = new CompendiumItemHandler());
 		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
+
+		specialLocations = loc;
 	}
 
 	@Override
@@ -179,7 +188,11 @@ public class MaterialMetal extends _MaterialBase {
 			String name = j.get("name").getAsString();
 			String tagNamespace = j.get("tagNamespace").getAsString();
 
-			MaterialMetal m = new MaterialMetal(name, tagNamespace);
+			SpecialLocationsMetal sp = null;
+			if (j.get("specialLocations") != null)
+				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsMetal.class);
+
+			MaterialMetal m = new MaterialMetal(name, tagNamespace, sp);
 
 			m.BLOCK.deserialize(j.get("block").getAsJsonObject());
 			m.INGOT.deserialize(j.get("ingot").getAsJsonObject());
@@ -232,6 +245,10 @@ public class MaterialMetal extends _MaterialBase {
 				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
 				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
 //				j.addProperty("repairTag", tier.getRepairIngredient().);
+			}
+
+			if (src.specialLocations != null) {
+				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsMetal.class));
 			}
 
 			JsonArray ext = new JsonArray();
