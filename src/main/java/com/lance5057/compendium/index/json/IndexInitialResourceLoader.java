@@ -502,6 +502,16 @@ public class IndexInitialResourceLoader {
 	}
 
 	private static void moddedDefaults() {
+		MaterialMetal silver = new MaterialMetal("silver", "minecraft");
+		silver.setupTier("GOLD");
+		silver.BLOCK.setGenerate();
+		silver.INGOT.setGenerate();
+		silver.NUGGET.setGenerate();
+
+		silver.addExtension(new ExtensionAdvancedTools().generateAll());
+
+		buildDefault(silver);
+
 //		buildDefault(new MaterialTextile("amber_wool", "dyenamics"));
 //		buildDefault(new MaterialTextile("aquamarine_wool", "dyenamics"));
 //		buildDefault(new MaterialTextile("bubblegum_wool", "dyenamics"));

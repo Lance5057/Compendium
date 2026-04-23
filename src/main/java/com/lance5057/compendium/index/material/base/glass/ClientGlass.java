@@ -1,12 +1,18 @@
 package com.lance5057.compendium.index.material.base.glass;
 
+import java.util.Map;
+
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumClient;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
@@ -16,13 +22,26 @@ import net.neoforged.neoforge.client.model.RegistryAwareItemModelShaper;
 public class ClientGlass {
 
 	public static void doItems(RegistryAwareItemModelShaper shaper, MaterialGlass mm) {
-		// TODO Auto-generated method stub
-
+		if (mm.BLOCK.shouldGenerate())
+			shaper.register(mm.BLOCK.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
 	}
 
 	public static void doGlass(ModifyBakingResult event, MaterialGlass mb) {
 //		if (mb instanceof MaterialGlass mg) {
+		Map<ModelResourceLocation, BakedModel> models = event.getModels();
+
 		ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
+
+		if (mb.BLOCK.shouldGenerate()) {
+			ResourceLocation loc = TagUtil.modLoc("block/cube_cutout");
+			ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_block");
+			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+			BakedModel bm = CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0,
+					"all");
+			models.put(m, bm);
+		}
 
 		for (String b : StyleData.WINDOW_GLASS.getTypes()) {
 			ResourceLocation loc = Compendium.modLoc("extra/window/window_glass");

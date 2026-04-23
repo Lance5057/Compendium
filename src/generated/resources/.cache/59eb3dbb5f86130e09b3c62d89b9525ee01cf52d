@@ -1,4 +1,4 @@
-// 1.21.1	2026-04-21T18:01:22.520797002	Loot Tables
+// 1.21.1	2026-04-22T21:48:58.59354877	Loot Tables
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
 523cba53ea78a2da0beae912d27ce35ade75ce5a data/compendium/loot_table/blocks/acacia_small_logs_slab.json
@@ -77,6 +77,7 @@ b1476bbeeb9e4b9f83e4bd0f9d0f389a5657a6ca data/compendium/loot_table/blocks/oak_s
 80b9cda2b573578a2502609b7bbfa17fad24484c data/compendium/loot_table/blocks/saw_buck.json
 830fd16084492b774602fd66d467821996b99a6d data/compendium/loot_table/blocks/shingles_cap_slanted.json
 10dd7916526c55cc703ccaed13f39124e51a84b8 data/compendium/loot_table/blocks/shingles_slanted.json
+faeacddc8262cde00acff514c6bb8d9e23d28831 data/compendium/loot_table/blocks/silver_block.json
 e448a1622ce9ad10cf65502ce9794602efb9249f data/compendium/loot_table/blocks/spruce_small_log.json
 a43e312254b7ecfe2bbc83c2187b1fe8741e0690 data/compendium/loot_table/blocks/spruce_small_logs.json
 38b1782bf6e0872c7cf49aeae7eb7f3a6c223b91 data/compendium/loot_table/blocks/spruce_small_logs_slab.json

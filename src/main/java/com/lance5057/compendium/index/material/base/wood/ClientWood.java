@@ -9,10 +9,11 @@ import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.bed.BedSideType;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.client.ClientUtil;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.datafixers.util.Pair;
@@ -1208,50 +1209,73 @@ public class ClientWood {
 
 	public static void doItems(RegistryAwareItemModelShaper shaper, MaterialWood mw) {
 
-		if (mw.LOG.shouldGenerate())
-			shaper.register(mw.LOG.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+		for (CompendiumItemHandler i : mw.ITEMS) {
+			if (i.shouldGenerate())
+				shaper.register(i.ITEM.asItem(), new ModelResourceLocation(TagUtil.modLoc("item/item"), ""));
+		}
 
-		mw.extensions.forEach(i -> {
-			if (i instanceof ExtensionExtraPlanks eep) {
-				if (eep.PLANK.shouldGenerate())
-					shaper.register(eep.PLANK.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.PLANK_BLOCK.shouldGenerate())
-					shaper.register(eep.PLANK_BLOCK.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.PLANK_SLAB.shouldGenerate())
-					shaper.register(eep.PLANK_SLAB.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.PLANK_STAIRS.shouldGenerate())
-					shaper.register(eep.PLANK_STAIRS.BLOCK_ITEM.get(),
+		for (CompendiumBlockHandler i : mw.BLOCKS) {
+			if (i.shouldGenerate())
+				shaper.register(i.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+		}
+
+		for (_MaterialExtension me : mw.extensions) {
+			for (CompendiumItemHandler i : me.ITEMS) {
+				if (i.shouldGenerate())
+					shaper.register(i.ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+			}
+
+			for (CompendiumBlockHandler i : me.BLOCKS) {
+				if (i.shouldGenerate())
+					shaper.register(i.BLOCK_ITEM.asItem(),
 							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 			}
-			if (i instanceof ExtensionExtraLogs eep) {
-				if (eep.LOG.shouldGenerate())
-					shaper.register(eep.LOG.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.LOG_SLAB.shouldGenerate())
-					shaper.register(eep.LOG_SLAB.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.LOG_STAIRS.shouldGenerate())
-					shaper.register(eep.LOG_STAIRS.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.SMALL_LOG.shouldGenerate())
-					shaper.register(eep.SMALL_LOG.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.STRIPPED_LOG.shouldGenerate())
-					shaper.register(eep.STRIPPED_LOG.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.STRIPPED_LOG_SLAB.shouldGenerate())
-					shaper.register(eep.STRIPPED_LOG_SLAB.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.STRIPPED_LOG_STAIRS.shouldGenerate())
-					shaper.register(eep.STRIPPED_LOG_STAIRS.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-				if (eep.STRIPPED_SMALL_LOG.shouldGenerate())
-					shaper.register(eep.STRIPPED_SMALL_LOG.BLOCK_ITEM.get(),
-							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
-			}
-		});
+		}
+
+//		if (mw.LOG.shouldGenerate())
+//			shaper.register(mw.LOG.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//
+//		mw.extensions.forEach(i -> {
+//			if (i instanceof ExtensionExtraPlanks eep) {
+//				if (eep.PLANK.shouldGenerate())
+//					shaper.register(eep.PLANK.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.PLANK_BLOCK.shouldGenerate())
+//					shaper.register(eep.PLANK_BLOCK.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.PLANK_SLAB.shouldGenerate())
+//					shaper.register(eep.PLANK_SLAB.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.PLANK_STAIRS.shouldGenerate())
+//					shaper.register(eep.PLANK_STAIRS.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//			}
+//			if (i instanceof ExtensionExtraLogs eep) {
+//				if (eep.LOG.shouldGenerate())
+//					shaper.register(eep.LOG.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.LOG_SLAB.shouldGenerate())
+//					shaper.register(eep.LOG_SLAB.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.LOG_STAIRS.shouldGenerate())
+//					shaper.register(eep.LOG_STAIRS.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.SMALL_LOG.shouldGenerate())
+//					shaper.register(eep.SMALL_LOG.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.STRIPPED_LOG.shouldGenerate())
+//					shaper.register(eep.STRIPPED_LOG.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.STRIPPED_LOG_SLAB.shouldGenerate())
+//					shaper.register(eep.STRIPPED_LOG_SLAB.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.STRIPPED_LOG_STAIRS.shouldGenerate())
+//					shaper.register(eep.STRIPPED_LOG_STAIRS.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//				if (eep.STRIPPED_SMALL_LOG.shouldGenerate())
+//					shaper.register(eep.STRIPPED_SMALL_LOG.BLOCK_ITEM.get(),
+//							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//			}
+//		});
 	}
 }

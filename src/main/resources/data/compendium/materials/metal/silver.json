@@ -1,0 +1,38 @@
+{
+  "name": "silver",
+  "tagNamespace": "minecraft",
+  "type": "METAL",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "ingot": {
+    "generate": "GENERATE"
+  },
+  "nugget": {
+    "generate": "GENERATE"
+  },
+  "tier": "GOLD",
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      },
+      "bow": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

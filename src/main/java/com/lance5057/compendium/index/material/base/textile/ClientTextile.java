@@ -23,7 +23,14 @@ import net.neoforged.neoforge.client.model.RegistryAwareItemModelShaper;
 public class ClientTextile {
 
 	public static void doItems(RegistryAwareItemModelShaper shaper, MaterialTextile mm) {
-		// TODO Auto-generated method stub
+
+		if (mm.BLOCK.shouldGenerate())
+			shaper.register(mm.BLOCK.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
+
+		if (mm.CARPET.shouldGenerate())
+			shaper.register(mm.CARPET.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_carpet"), ""));
 
 	}
 
