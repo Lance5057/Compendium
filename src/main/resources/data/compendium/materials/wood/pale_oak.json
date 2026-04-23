@@ -1,32 +1,22 @@
 {
-  "name": "jungle",
-  "namespace": "minecraft",
+  "name": "pale_oak",
+  "namespace": "compendium",
   "type": "WOOD",
   "version": 1.1,
   "planks": {
-    "existsLocationBlock": "minecraft:jungle_planks",
-    "existsLocationItem": "minecraft:jungle_planks",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "log": {
-    "existsLocationBlock": "minecraft:jungle_log",
-    "existsLocationItem": "minecraft:jungle_log",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "stripped_log": {
-    "existsLocationBlock": "minecraft:stripped_jungle_log",
-    "existsLocationItem": "minecraft:stripped_jungle_log",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "wood": {
-    "existsLocationBlock": "minecraft:jungle_wood",
-    "existsLocationItem": "minecraft:jungle_wood",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "stripped_wood": {
-    "existsLocationBlock": "minecraft:stripped_jungle_wood",
-    "existsLocationItem": "minecraft:stripped_jungle_wood",
-    "generate": "EXISTS"
+    "generate": "GENERATE"
   },
   "extensions": [
     {

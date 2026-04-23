@@ -1,6 +1,6 @@
 {
   "name": "silver",
-  "tagNamespace": "minecraft",
+  "tagNamespace": "compendium",
   "type": "METAL",
   "block": {
     "generate": "GENERATE"

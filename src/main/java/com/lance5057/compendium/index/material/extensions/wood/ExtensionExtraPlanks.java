@@ -101,12 +101,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setAsValidStyleBlock();
 		PLANK.setAsValidStyleItem();
 
-		PLANK_BLOCK.setName(base.name + "_planks");
+		PLANK_BLOCK.setName(base.name + "_styled_planks");
 		PLANK_BLOCK
 				.setup(base,
 						() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 								Compendium.modLoc(base.name
-										+ "_planks"),
+										+ "_styled_planks"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
 								new Item.Properties()
@@ -121,12 +121,12 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_BLOCK.setAsValidStyleBlock();
 		PLANK_BLOCK.setAsValidStyleItem();
 
-		PLANK_SLAB.setName(base.name + "_planks_slab");
+		PLANK_SLAB.setName(base.name + "_styled_planks_slab");
 		PLANK_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
 								Compendium.modLoc(base.name
-										+ "_planks_slab_inventory"),
+										+ "_styled_planks_slab_inventory"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 								new Item.Properties()
@@ -142,13 +142,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setAsValidStyleBlock();
 		PLANK_SLAB.setAsValidStyleItem();
 
-		PLANK_STAIRS.setName(base.name + "_planks_stairs");
+		PLANK_STAIRS.setName(base.name + "_styled_planks_stairs");
 		PLANK_STAIRS
 				.setup(base,
 						() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
 								Compendium.modLoc(base.name
-										+ "_planks_stairs_inventory"),
+										+ "_styled_planks_stairs_inventory"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
 								new Item.Properties()
@@ -399,6 +399,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 			j.addProperty("type", type);
 
+			j.add("plank", src.PLANK.serialize());
+			j.add("plank_block", src.PLANK_BLOCK.serialize());
+			j.add("plank_slab", src.PLANK_SLAB.serialize());
+			j.add("plank_stairs", src.PLANK_STAIRS.serialize());
+
 			return j;
 		}
 
@@ -407,7 +412,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			return new ExtensionExtraPlanks();
+			ExtensionExtraPlanks eel = new ExtensionExtraPlanks();
+			eel.PLANK.deserialize(j.get("plank").getAsJsonObject());
+			eel.PLANK_BLOCK.deserialize(j.get("plank_block").getAsJsonObject());
+			eel.PLANK_SLAB.deserialize(j.get("plank_slab").getAsJsonObject());
+			eel.PLANK_STAIRS.deserialize(j.get("plank_stairs").getAsJsonObject());
+
+			return eel;
 		}
 
 	}

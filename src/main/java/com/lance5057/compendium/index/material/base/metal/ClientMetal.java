@@ -25,24 +25,36 @@ public class ClientMetal {
 		if (mb instanceof MaterialMetal mm) {
 
 			ClientMetal.doStyleMetal(event, mm);
-//			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
-//					"block/" + mb.name + "_planks");
-//			if (mm.specialLocations != null) {
-//				if (mm.specialLocations.textures != null)
-//					if (mm.specialLocations.textures.plankLocation != null)
-//						texture = mm.specialLocations.textures.plankLocation;
-//			}
+			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace,
+					"block/material/metal/" + mb.name + "/block");
+			if (mm.specialLocations != null) {
+				if (mm.specialLocations.textures != null)
+					if (mm.specialLocations.textures.blockLocation != null)
+						texture = mm.specialLocations.textures.blockLocation;
+			}
+
+//			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
+
+			if (mm.BLOCK.shouldGenerate()) {
+				ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+				ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_block");
+				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+				BakedModel bm = CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0,
+						"all");
+				event.getModels().put(m, bm);
+			}
 
 			StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
 				ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
 				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "trim", mb.name,
 						b.toLowerCase());
 
-				ResourceLocation texture = Compendium
+				ResourceLocation t = Compendium
 						.modLoc("block/material/metal/" + mb.name + "/windows/" + b.toLowerCase());
 
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), CompendiumClient.basicModelAllTexture(
-						event, texture, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+						event, t, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 
 //				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
 //						b.toLowerCase(), "_inventory");
@@ -64,9 +76,9 @@ public class ClientMetal {
 				shaper.register(i.ITEM.asItem(), new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
 		}
 
-//		if (mm.NUGGET.shouldGenerate())
-//			shaper.register(mm.NUGGET.ITEM.asItem(),
-//					new ModelResourceLocation(ClientUtil.createItemLocation(mb.name + "_nugget_item"), ""));
+		if (mm.BLOCK.shouldGenerate())
+			shaper.register(mm.BLOCK.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
 
 		for (_MaterialExtension me : mm.extensions) {
 			for (CompendiumItemHandler i : me.ITEMS) {
