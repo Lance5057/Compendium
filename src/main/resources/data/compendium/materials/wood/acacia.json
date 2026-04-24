@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_acacia_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/acacia_planks",
+      "logLocation": "minecraft:block/acacia_log",
+      "strippedLogLocation": "minecraft:block/stripped_acacia_log",
+      "logTopLocation": "minecraft:block/acacia_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_acacia_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

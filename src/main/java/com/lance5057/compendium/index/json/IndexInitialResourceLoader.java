@@ -255,6 +255,13 @@ public class IndexInitialResourceLoader {
 		oak.WOOD.setExists(TagUtil.mcLoc("oak_wood"), TagUtil.mcLoc("oak_wood"));
 		oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_oak_wood"), TagUtil.mcLoc("stripped_oak_wood"));
 
+		SpecialLocationsWood oak_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/oak_planks"), TagUtil.mcLoc("block/oak_log"),
+						TagUtil.mcLoc("block/stripped_oak_log"), TagUtil.mcLoc("block/oak_log_top"),
+						TagUtil.mcLoc("block/stripped_oak_log_top")));
+
+		oak.specialLocations = oak_loc;
+
 		oak.addExtension(new ExtensionExtraLogs().generateAll());
 		oak.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(oak);
@@ -277,6 +284,13 @@ public class IndexInitialResourceLoader {
 		spruce.WOOD.setExists(TagUtil.mcLoc("spruce_wood"), TagUtil.mcLoc("spruce_wood"));
 		spruce.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_spruce_wood"), TagUtil.mcLoc("stripped_spruce_wood"));
 
+		SpecialLocationsWood spruce_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/spruce_planks"), TagUtil.mcLoc("block/spruce_log"),
+						TagUtil.mcLoc("block/stripped_spruce_log"), TagUtil.mcLoc("block/spruce_log_top"),
+						TagUtil.mcLoc("block/stripped_spruce_log_top")));
+
+		spruce.specialLocations = spruce_loc;
+
 		spruce.addExtension(new ExtensionExtraLogs().generateAll());
 		spruce.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(spruce);
@@ -288,6 +302,13 @@ public class IndexInitialResourceLoader {
 		jungle.WOOD.setExists(TagUtil.mcLoc("jungle_wood"), TagUtil.mcLoc("jungle_wood"));
 		jungle.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_jungle_wood"), TagUtil.mcLoc("stripped_jungle_wood"));
 
+		SpecialLocationsWood jungle_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/jungle_planks"), TagUtil.mcLoc("block/jungle_log"),
+						TagUtil.mcLoc("block/stripped_jungle_log"), TagUtil.mcLoc("block/jungle_log_top"),
+						TagUtil.mcLoc("block/stripped_jungle_log_top")));
+
+		jungle.specialLocations = jungle_loc;
+
 		jungle.addExtension(new ExtensionExtraLogs().generateAll());
 		jungle.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(jungle);
@@ -298,6 +319,13 @@ public class IndexInitialResourceLoader {
 		acacia.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_acacia_log"), TagUtil.mcLoc("stripped_acacia_log"));
 		acacia.WOOD.setExists(TagUtil.mcLoc("acacia_wood"), TagUtil.mcLoc("acacia_wood"));
 		acacia.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_acacia_wood"), TagUtil.mcLoc("stripped_acacia_wood"));
+
+		SpecialLocationsWood acacia_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/acacia_planks"), TagUtil.mcLoc("block/acacia_log"),
+						TagUtil.mcLoc("block/stripped_acacia_log"), TagUtil.mcLoc("block/acacia_log_top"),
+						TagUtil.mcLoc("block/stripped_acacia_log_top")));
+
+		acacia.specialLocations = acacia_loc;
 
 		acacia.addExtension(new ExtensionExtraLogs().generateAll());
 		acacia.addExtension(new ExtensionExtraPlanks().generateAll());
@@ -311,6 +339,13 @@ public class IndexInitialResourceLoader {
 		dark_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_dark_oak_wood"),
 				TagUtil.mcLoc("stripped_dark_oak_wood"));
 
+		SpecialLocationsWood dark_oak_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/dark_oak_planks"),
+						TagUtil.mcLoc("block/dark_oak_log"), TagUtil.mcLoc("block/stripped_dark_oak_log"),
+						TagUtil.mcLoc("block/dark_oak_log_top"), TagUtil.mcLoc("block/stripped_dark_oak_log_top")));
+
+		dark_oak.specialLocations = dark_oak_loc;
+
 		dark_oak.addExtension(new ExtensionExtraLogs().generateAll());
 		dark_oak.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(dark_oak);
@@ -323,6 +358,13 @@ public class IndexInitialResourceLoader {
 		mangrove.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_mangrove_wood"),
 				TagUtil.mcLoc("stripped_mangrove_wood"));
 
+		SpecialLocationsWood mangrove_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/mangrove_planks"),
+						TagUtil.mcLoc("block/mangrove_log"), TagUtil.mcLoc("block/stripped_mangrove_log"),
+						TagUtil.mcLoc("block/mangrove_log_top"), TagUtil.mcLoc("block/stripped_mangrove_log_top")));
+
+		mangrove.specialLocations = mangrove_loc;
+
 		mangrove.addExtension(new ExtensionExtraLogs().generateAll());
 		mangrove.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(mangrove);
@@ -333,6 +375,13 @@ public class IndexInitialResourceLoader {
 		cherry.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_cherry_log"), TagUtil.mcLoc("stripped_cherry_log"));
 		cherry.WOOD.setExists(TagUtil.mcLoc("cherry_wood"), TagUtil.mcLoc("cherry_wood"));
 		cherry.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_cherry_wood"), TagUtil.mcLoc("stripped_cherry_wood"));
+
+		SpecialLocationsWood cherry_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/cherry_planks"), TagUtil.mcLoc("block/cherry_log"),
+						TagUtil.mcLoc("block/stripped_cherry_log"), TagUtil.mcLoc("block/cherry_log_top"),
+						TagUtil.mcLoc("block/stripped_cherry_log_top")));
+
+		cherry.specialLocations = cherry_loc;
 
 		cherry.addExtension(new ExtensionExtraLogs().generateAll());
 		cherry.addExtension(new ExtensionExtraPlanks().generateAll());
@@ -346,9 +395,10 @@ public class IndexInitialResourceLoader {
 		crimson.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_crimson_hyphae"),
 				TagUtil.mcLoc("stripped_crimson_hyphae"));
 
-		SpecialLocationsWood crimson_loc = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
-				TagUtil.mcLoc("block/crimson_stem"), TagUtil.mcLoc("block/stripped_crimson_stem"),
-				TagUtil.mcLoc("block/crimson_stem_top"), TagUtil.mcLoc("block/stripped_crimson_stem_top")));
+		SpecialLocationsWood crimson_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/crimson_planks"),
+						TagUtil.mcLoc("block/crimson_stem"), TagUtil.mcLoc("block/stripped_crimson_stem"),
+						TagUtil.mcLoc("block/crimson_stem_top"), TagUtil.mcLoc("block/stripped_crimson_stem_top")));
 
 		crimson.specialLocations = crimson_loc;
 
@@ -364,9 +414,10 @@ public class IndexInitialResourceLoader {
 		warped.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_warped_hyphae"),
 				TagUtil.mcLoc("stripped_warped_hyphae"));
 
-		SpecialLocationsWood warped_loc = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
-				TagUtil.mcLoc("block/warped_stem"), TagUtil.mcLoc("block/stripped_warped_stem"),
-				TagUtil.mcLoc("block/warped_stem_top"), TagUtil.mcLoc("block/stripped_warped_stem_top")));
+		SpecialLocationsWood warped_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/warped_planks"),
+						TagUtil.mcLoc("block/warped_stem"), TagUtil.mcLoc("block/stripped_warped_stem"),
+						TagUtil.mcLoc("block/warped_stem_top"), TagUtil.mcLoc("block/stripped_warped_stem_top")));
 
 		warped.specialLocations = warped_loc;
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:slabs/wooden/crimson"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:crimson_plank_item"
+  }
+}

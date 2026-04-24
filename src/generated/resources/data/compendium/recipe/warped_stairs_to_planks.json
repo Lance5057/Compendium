@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:stairs/wooden/warped"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:warped_plank_item"
+  }
+}

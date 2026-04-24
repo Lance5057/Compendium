@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_cherry_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/cherry_planks",
+      "logLocation": "minecraft:block/cherry_log",
+      "strippedLogLocation": "minecraft:block/stripped_cherry_log",
+      "logTopLocation": "minecraft:block/cherry_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_cherry_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

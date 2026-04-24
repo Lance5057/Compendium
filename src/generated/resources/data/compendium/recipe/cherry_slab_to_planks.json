@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:slabs/wooden/cherry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:cherry_plank_item"
+  }
+}

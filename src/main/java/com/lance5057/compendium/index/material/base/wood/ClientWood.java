@@ -12,8 +12,6 @@ import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
-import com.lance5057.compendium.index.util.CompendiumBlockHandler;
-import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.datafixers.util.Pair;
@@ -36,12 +34,30 @@ public class ClientWood {
 		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 		ClientWood.doStyleWood(event, models, mw);
 
-		ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+		ResourceLocation planksTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
 				"block/material/wood/" + mw.name + "/planks");
+		ResourceLocation logTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+				"block/material/wood/" + mw.name + "/log");
+		ResourceLocation strippedLogTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+				"block/material/wood/" + mw.name + "/stripped_log");
+		ResourceLocation logTopTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+				"block/material/wood/" + mw.name + "/log_top");
+		ResourceLocation strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+				"block/material/wood/" + mw.name + "/stripped_log_top");
+
 		if (mw.specialLocations != null) {
-			if (mw.specialLocations.textures != null)
+			if (mw.specialLocations.textures != null) {
 				if (mw.specialLocations.textures.plankLocation != null)
-					texture = mw.specialLocations.textures.plankLocation;
+					planksTexture = mw.specialLocations.textures.plankLocation;
+				if (mw.specialLocations.textures.logLocation != null)
+					logTexture = mw.specialLocations.textures.logLocation;
+				if (mw.specialLocations.textures.strippedLogLocation != null)
+					strippedLogTexture = mw.specialLocations.textures.strippedLogLocation;
+				if (mw.specialLocations.textures.logTopLocation != null)
+					logTopTexture = mw.specialLocations.textures.logTopLocation;
+				if (mw.specialLocations.textures.strippedLogTopLocation != null)
+					strippedLogTopTexture = mw.specialLocations.textures.strippedLogTopLocation;
+			}
 		}
 
 //		if (mw.PLANKS.isNotIgnored()) {
@@ -51,11 +67,31 @@ public class ClientWood {
 
 		if (mw.PLANKS.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
-			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_block");
+			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_planks");
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 
-			BakedModel bm = CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0,
+			BakedModel bm = CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m,
+					BlockModelRotation.X0_Y0, "all");
+			models.put(m, bm);
+		}
+
+		if (mw.WOOD.shouldGenerate()) {
+			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_wood");
+			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+			BakedModel bm = CompendiumClient.basicModelAllTexture(event, logTexture, loc, m, BlockModelRotation.X0_Y0,
 					"all");
+			models.put(m, bm);
+		}
+
+		if (mw.STRIPPED_WOOD.shouldGenerate()) {
+			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_stripped_wood");
+			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+			BakedModel bm = CompendiumClient.basicModelAllTexture(event, strippedLogTexture, loc, m,
+					BlockModelRotation.X0_Y0, "all");
 			models.put(m, bm);
 		}
 
@@ -72,37 +108,37 @@ public class ClientWood {
 					b.toLowerCase(), "_inventory");
 			ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
 			event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-					CompendiumClient.basicModelAllTexture(event, texture, loc_inv,
+					CompendiumClient.basicModelAllTexture(event, planksTexture, loc_inv,
 							new ModelResourceLocation(modelLoc_inv, ""), BlockModelRotation.X0_Y0, "all"));
 		}
 
 		for (String b : StyleData.CHAIR_BACK.getTypes()) {
 			if (b.contains("weave")) {
-				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", texture),
+				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", planksTexture),
 						Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/weave")));
 			} else if (b.contains("sheet")) {
 				CompendiumClient.doChair(event, mw, "back", b,
 						Pair.of("0", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet")));
 			} else if (b.equals("windsor") || b.equals("slats")) {
-				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", texture),
+				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", planksTexture),
 						Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/slats")));
 			} else if (b.equals("lozenge")) {
-				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", texture),
+				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", planksTexture),
 						Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/lozenge")));
 			} else if (b.equals("live_edge")) {
 				CompendiumClient.doChair(event, mw, "back", b,
 						Pair.of("0", Compendium.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
 			} else {
-				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", texture));
+				CompendiumClient.doChair(event, mw, "back", b, Pair.of("0", planksTexture));
 			}
 		}
 
 		for (String b : StyleData.CHAIR_LEGS.getTypes()) {
 			if (b.contains("rails_side_lath")) {
-				CompendiumClient.doChair(event, mw, "legs", b, Pair.of("0", texture),
+				CompendiumClient.doChair(event, mw, "legs", b, Pair.of("0", planksTexture),
 						Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/slats")));
 			} else {
-				CompendiumClient.doChair(event, mw, "legs", b, Pair.of("0", texture));
+				CompendiumClient.doChair(event, mw, "legs", b, Pair.of("0", planksTexture));
 			}
 
 		}
@@ -112,19 +148,19 @@ public class ClientWood {
 				CompendiumClient.doChair(event, mw, "seat", b,
 						Pair.of("0", Compendium.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
 			} else if (b.contains("weave")) {
-				CompendiumClient.doChair(event, mw, "seat", b, Pair.of("0", texture),
+				CompendiumClient.doChair(event, mw, "seat", b, Pair.of("0", planksTexture),
 						Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/weave")));
 			} else if (b.contains("sheet")) {
 				CompendiumClient.doChair(event, mw, "seat", b,
 						Pair.of("0", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet")));
 			} else {
-				CompendiumClient.doChair(event, mw, "seat", b, Pair.of("0", texture));
+				CompendiumClient.doChair(event, mw, "seat", b, Pair.of("0", planksTexture));
 			}
 		}
 
 		for (String b : StyleData.TABLE_LEGS.getTypes()) {
-			CompendiumClient.doTableLeg(event, mw, b, "table", Pair.of("0", texture));
-			CompendiumClient.doTableLeg(event, mw, b, "clothed_table", Pair.of("0", texture));
+			CompendiumClient.doTableLeg(event, mw, b, "table", Pair.of("0", planksTexture));
+			CompendiumClient.doTableLeg(event, mw, b, "clothed_table", Pair.of("0", planksTexture));
 		}
 
 		for (String b : StyleData.TABLE_TOP.getTypes()) {
@@ -143,11 +179,11 @@ public class ClientWood {
 //					CompendiumClient.basicModelManyTexture(event, loc, w, BlockModelRotation.X0_Y90, textures));
 				event.getModels().put(m,
 						CompendiumClient.basicModelManyTexture(event, loc, m, BlockModelRotation.X0_Y0,
-								Pair.of("0", texture),
+								Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 				event.getModels().put(m_clothed,
 						CompendiumClient.basicModelManyTexture(event, loc_clothed, m_clothed, BlockModelRotation.X0_Y0,
-								Pair.of("0", texture),
+								Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 
 				ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
@@ -155,26 +191,26 @@ public class ClientWood {
 						modelLoc_clothed.withSuffix("_inventory"), "");
 
 				event.getModels().put(m_inventory,
-						CompendiumClient.basicModelManyTexture(event, texture, m_inventory, BlockModelRotation.X0_Y0,
-								Pair.of("0", texture),
+						CompendiumClient.basicModelManyTexture(event, planksTexture, m_inventory,
+								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 				event.getModels().put(m_clothed_inventory,
-						CompendiumClient.basicModelManyTexture(event, texture, m_clothed_inventory,
-								BlockModelRotation.X0_Y0, Pair.of("0", texture),
+						CompendiumClient.basicModelManyTexture(event, planksTexture, m_clothed_inventory,
+								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 			} else {
-				event.getModels().put(m,
-						CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
-				event.getModels().put(m_clothed, CompendiumClient.basicModelAllTexture(event, texture, loc_clothed,
-						m_clothed, BlockModelRotation.X0_Y0, "0"));
+				event.getModels().put(m, CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m,
+						BlockModelRotation.X0_Y0, "0"));
+				event.getModels().put(m_clothed, CompendiumClient.basicModelAllTexture(event, planksTexture,
+						loc_clothed, m_clothed, BlockModelRotation.X0_Y0, "0"));
 
 				ModelResourceLocation m_inventory = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 				ModelResourceLocation m_clothed_inventory = new ModelResourceLocation(
 						modelLoc_clothed.withSuffix("_inventory"), "");
 
-				event.getModels().put(m_inventory, CompendiumClient.basicModelAllTexture(event, texture,
+				event.getModels().put(m_inventory, CompendiumClient.basicModelAllTexture(event, planksTexture,
 						loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y0, "0"));
-				event.getModels().put(m_clothed_inventory, CompendiumClient.basicModelAllTexture(event, texture,
+				event.getModels().put(m_clothed_inventory, CompendiumClient.basicModelAllTexture(event, planksTexture,
 						loc_clothed.withSuffix("_inventory"), m_clothed_inventory, BlockModelRotation.X0_Y0, "0"));
 			}
 
@@ -206,31 +242,31 @@ public class ClientWood {
 							ResourceLocation tex = Compendium
 									.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side");
 
-							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture), Pair.of("1", tex)));
+							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo, CompendiumClient.doBed(event, loc,
+									m, Pair.of("0", planksTexture), Pair.of("1", tex)));
 
 						} else if (b.equals("weave")) {
 
 							ResourceLocation tex = Compendium.modLoc("block/material/wood/" + mw.name + "/weave");
 
-							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture), Pair.of("1", tex)));
+							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo, CompendiumClient.doBed(event, loc,
+									m, Pair.of("0", planksTexture), Pair.of("1", tex)));
 
 						} else if (b.equals("slats")) {
 							ResourceLocation tex = Compendium.modLoc("block/material/wood/" + mw.name + "/slats");
 
-							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture), Pair.of("1", tex)));
+							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo, CompendiumClient.doBed(event, loc,
+									m, Pair.of("0", planksTexture), Pair.of("1", tex)));
 						} else if (b.contains("ornate")) {
 							ResourceLocation tex = Compendium
 									.modLoc("block/material/wood/" + mw.name + "/windows/grill");
 
-							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture), Pair.of("1", tex)));
+							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo, CompendiumClient.doBed(event, loc,
+									m, Pair.of("0", planksTexture), Pair.of("1", tex)));
 						} else {
 
 							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture)));
+									CompendiumClient.doBed(event, loc, m, Pair.of("0", planksTexture)));
 
 						}
 
@@ -243,8 +279,8 @@ public class ClientWood {
 
 			ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 			ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/frame/" + b);
-			event.getModels().put(m_inv,
-					CompendiumClient.basicModelAllTexture(event, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
+			event.getModels().put(m_inv, CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m_inv,
+					BlockModelRotation.X0_Y0, "0"));
 		}
 
 		for (String b : StyleData.BED_BASE.getTypes()) {
@@ -270,11 +306,11 @@ public class ClientWood {
 						if (b.equals("weave")) {
 							ResourceLocation tex = Compendium.modLoc("block/material/wood/" + mw.name + "/weave");
 
-							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture), Pair.of("1", tex)));
+							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo, CompendiumClient.doBed(event, loc,
+									m, Pair.of("0", planksTexture), Pair.of("1", tex)));
 						} else {
 							mmPart.add(s -> s.getValue(FancyBedBlock.OCCUPIED) == bo,
-									CompendiumClient.doBed(event, loc, m, Pair.of("0", texture)));
+									CompendiumClient.doBed(event, loc, m, Pair.of("0", planksTexture)));
 						}
 					}
 					mmSide.add(s -> s.getValue(FancyBedBlock.PART) == part, mmPart.build());
@@ -285,8 +321,8 @@ public class ClientWood {
 
 			ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 			ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/base/" + b);
-			event.getModels().put(m_inv,
-					CompendiumClient.basicModelAllTexture(event, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
+			event.getModels().put(m_inv, CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m_inv,
+					BlockModelRotation.X0_Y0, "0"));
 		}
 
 		for (String b : StyleData.FENCE_POST.getTypes()) {
@@ -305,10 +341,10 @@ public class ClientWood {
 								new ModelResourceLocation(modelLoc.withSuffix("_inventory"), ""),
 								BlockModelRotation.X0_Y90));
 			} else {
-				event.getModels().put(m,
-						CompendiumClient.basicModelAllTexture(event, texture, loc, m, BlockModelRotation.X0_Y0, "0"));
+				event.getModels().put(m, CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m,
+						BlockModelRotation.X0_Y0, "0"));
 
-				event.getModels().put(m_inventory, CompendiumClient.basicModelAllTexture(event, texture,
+				event.getModels().put(m_inventory, CompendiumClient.basicModelAllTexture(event, planksTexture,
 						loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y90, "0"));
 			}
 
@@ -325,22 +361,27 @@ public class ClientWood {
 
 				MultiPartBakedModel.Builder mmw = new MultiPartBakedModel.Builder();
 
-				mmw.add(s -> s.getValue(FenceBlock.EAST), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.EAST),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y90, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.NORTH), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.NORTH),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.SOUTH), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.SOUTH),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y180, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.WEST), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.WEST),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y270, Pair.of("0", planksTexture)));
 
 				event.getModels().put(m, mmw.build());
 
-				event.getModels().put(m_inventory, CompendiumClient.basicModelManyTexture(event,
-						loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+				event.getModels().put(m_inventory,
+						CompendiumClient.basicModelManyTexture(event, loc.withSuffix("_inventory"), m_inventory,
+								BlockModelRotation.X0_Y90, Pair.of("0", planksTexture)));
 			} else if (b.equals("solid_sheet")) {
 
 				MultiPartBakedModel.Builder mmw = new MultiPartBakedModel.Builder();
@@ -374,22 +415,27 @@ public class ClientWood {
 			} else {
 				MultiPartBakedModel.Builder mmw = new MultiPartBakedModel.Builder();
 
-				mmw.add(s -> s.getValue(FenceBlock.EAST), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.EAST),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y90, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.NORTH), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.NORTH),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.SOUTH), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y180, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.SOUTH),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y180, Pair.of("0", planksTexture)));
 
-				mmw.add(s -> s.getValue(FenceBlock.WEST), CompendiumClient.basicModelManyTexture(event, loc,
-						new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y270, Pair.of("0", texture)));
+				mmw.add(s -> s.getValue(FenceBlock.WEST),
+						CompendiumClient.basicModelManyTexture(event, loc, new ModelResourceLocation(modelLoc, ""),
+								BlockModelRotation.X0_Y270, Pair.of("0", planksTexture)));
 
 				event.getModels().put(m, mmw.build());
 
-				event.getModels().put(m_inventory, CompendiumClient.basicModelManyTexture(event,
-						loc.withSuffix("_inventory"), m_inventory, BlockModelRotation.X0_Y90, Pair.of("0", texture)));
+				event.getModels().put(m_inventory,
+						CompendiumClient.basicModelManyTexture(event, loc.withSuffix("_inventory"), m_inventory,
+								BlockModelRotation.X0_Y90, Pair.of("0", planksTexture)));
 			}
 
 		}
@@ -402,7 +448,7 @@ public class ClientWood {
 			ResourceLocation inner = Compendium.modLoc("extra/shingles_slanted/shingles/inner_corner/" + b);
 			ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/shingles/outer_corner/" + b);
 			CompendiumClient.doStyleStairs(event, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner,
-					outer, 0, 0, Pair.of("0", texture));
+					outer, 0, 0, Pair.of("0", planksTexture));
 		}
 
 		for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
@@ -423,7 +469,7 @@ public class ClientWood {
 		}
 
 		for (String b : StyleData.SHINGLES_CAP_SHINGLES.getTypes()) {
-			CompendiumClient.doShingleCap(event, mw, "shingles", b, Pair.of("0", texture));
+			CompendiumClient.doShingleCap(event, mw, "shingles", b, Pair.of("0", planksTexture));
 		}
 
 		for (String b : StyleData.SUPPORT_CAP_SHINGLES.getTypes()) {
@@ -496,10 +542,10 @@ public class ClientWood {
 				String v = CompendiumClient.stateToString(propertyValues);
 
 				CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_slab"),
-						mw.name + "_planks_slab", v);
+						mw.name + "_styled_planks_slab", v);
 			}
 			CompendiumClient.buildStateModelVariantAltLocation(event, models,
-					TagUtil.modLoc("extra/planks_slab_inventory"), mw.name + "_planks_slab_inventory", "");
+					TagUtil.modLoc("extra/planks_slab_inventory"), mw.name + "_styled_planks_slab_inventory", "");
 		}
 
 		if (eep.PLANK_STAIRS.isNotIgnored()) {
@@ -509,16 +555,16 @@ public class ClientWood {
 				String v = CompendiumClient.stateToString(propertyValues);
 
 				CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks_stairs"),
-						mw.name + "_planks_stairs", v);
+						mw.name + "_styled_planks_stairs", v);
 			}
 			CompendiumClient.buildStateModelVariantAltLocation(event, models,
-					TagUtil.modLoc("extra/planks_stairs_inventory"), mw.name + "_planks_stairs_inventory", "");
+					TagUtil.modLoc("extra/planks_stairs_inventory"), mw.name + "_styled_planks_stairs_inventory", "");
 		}
 
 		for (String planks_style : StyleData.PLANKS.getTypes()) {
 			// planks
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
-			ResourceLocation modelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_planks",
+			ResourceLocation modelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_styled_planks",
 					planks_style.toLowerCase());
 			ResourceLocation t = Compendium
 					.modLoc("block/material/wood/" + mw.name + "/planks/" + planks_style.toLowerCase());
@@ -532,8 +578,8 @@ public class ClientWood {
 
 			if (eep.PLANK_SLAB.isNotIgnored()) {
 				// slabs
-				ResourceLocation plankSlabModelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_planks_slab",
-						planks_style.toLowerCase());
+				ResourceLocation plankSlabModelLoc = ClientUtil
+						.createStyleBlockLocation(mw.name + "_styled_planks_slab", planks_style.toLowerCase());
 				MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
 
 				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
@@ -550,8 +596,8 @@ public class ClientWood {
 
 				event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
 
-				ResourceLocation plankSlabModelLocInventory = ClientUtil
-						.createStyleBlockLocation(mw.name + "_planks_slab_inventory", planks_style.toLowerCase());
+				ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleBlockLocation(
+						mw.name + "_styled_planks_slab_inventory", planks_style.toLowerCase());
 
 				event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
 						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
@@ -561,10 +607,10 @@ public class ClientWood {
 
 			if (eep.PLANK_STAIRS.isNotIgnored()) {
 				// stairs
-				ResourceLocation plankStairsModelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_planks_stairs",
-						planks_style.toLowerCase());
-				ResourceLocation plankStairsModelLocInventory = ClientUtil
-						.createStyleBlockLocation(mw.name + "_planks_stairs_inventory", planks_style.toLowerCase());
+				ResourceLocation plankStairsModelLoc = ClientUtil
+						.createStyleBlockLocation(mw.name + "_styled_planks_stairs", planks_style.toLowerCase());
+				ResourceLocation plankStairsModelLocInventory = ClientUtil.createStyleBlockLocation(
+						mw.name + "_styled_planks_stairs_inventory", planks_style.toLowerCase());
 
 				ResourceLocation straight = TagUtil.mcLoc("block/acacia_stairs");
 				ResourceLocation inner = TagUtil.mcLoc("block/acacia_stairs_inner");
@@ -581,13 +627,13 @@ public class ClientWood {
 			Map<ModelResourceLocation, BakedModel> models) {
 
 		ResourceLocation logSideTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
-				"block/" + mw.name + "_log");
-		ResourceLocation logEndTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
-				"block/" + mw.name + "_log_top");
+				"block/material/wood/" + mw.name + "/log");
 		ResourceLocation logStrippedSideTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
-				"block/stripped_" + mw.name + "_log");
+				"block/material/wood/" + mw.name + "/stripped_log");
+		ResourceLocation logEndTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
+				"block/material/wood/" + mw.name + "/log_top");
 		ResourceLocation logStrippedEndTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
-				"block/stripped_" + mw.name + "_log_top");
+				"block/material/wood/" + mw.name + "/stripped_log_top");
 
 		if (mw.specialLocations != null) {
 			if (mw.specialLocations.textures != null) {
@@ -1223,6 +1269,22 @@ public class ClientWood {
 			shaper.register(mw.PLANKS.BLOCK_ITEM.asItem(),
 					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""));
 
+		if (mw.LOG.shouldGenerate())
+			shaper.register(mw.LOG.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_log"), ""));
+
+		if (mw.STRIPPED_LOG.shouldGenerate())
+			shaper.register(mw.STRIPPED_LOG.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_log"), ""));
+
+		if (mw.WOOD.shouldGenerate())
+			shaper.register(mw.WOOD.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_wood"), ""));
+
+		if (mw.STRIPPED_WOOD.shouldGenerate())
+			shaper.register(mw.STRIPPED_WOOD.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_wood"), ""));
+
 //		for (CompendiumItemHandler i : mw.ITEMS) {
 //			if (i.shouldGenerate())
 //				shaper.register(i.ITEM.asItem(), new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
@@ -1241,8 +1303,8 @@ public class ClientWood {
 //
 //		}
 
-		if (mw.LOG.shouldGenerate())
-			shaper.register(mw.LOG.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
+//		if (mw.LOG.shouldGenerate())
+//			shaper.register(mw.LOG.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 
 		mw.extensions.forEach(i -> {
 			if (i instanceof ExtensionExtraPlanks eep) {

@@ -178,8 +178,8 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void blockLoot(_MaterialBase _MaterialBase, BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
+		if (this.shouldGenerate())
+			blp.dropSelf(this.BLOCK.get());
 	}
 
 	public JsonElement serialize() {

@@ -30,6 +30,7 @@
   },
   "specialLocations": {
     "textures": {
+      "plankLocation": "minecraft:block/crimson_planks",
       "logLocation": "minecraft:block/crimson_stem",
       "strippedLogLocation": "minecraft:block/stripped_crimson_stem",
       "logTopLocation": "minecraft:block/crimson_stem_top",

@@ -30,6 +30,7 @@
   },
   "specialLocations": {
     "textures": {
+      "plankLocation": "minecraft:block/warped_planks",
       "logLocation": "minecraft:block/warped_stem",
       "strippedLogLocation": "minecraft:block/stripped_warped_stem",
       "logTopLocation": "minecraft:block/warped_stem_top",

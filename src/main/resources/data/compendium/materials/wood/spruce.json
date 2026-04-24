@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_spruce_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/spruce_planks",
+      "logLocation": "minecraft:block/spruce_log",
+      "strippedLogLocation": "minecraft:block/stripped_spruce_log",
+      "logTopLocation": "minecraft:block/spruce_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_spruce_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_jungle_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/jungle_planks",
+      "logLocation": "minecraft:block/jungle_log",
+      "strippedLogLocation": "minecraft:block/stripped_jungle_log",
+      "logTopLocation": "minecraft:block/jungle_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_jungle_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

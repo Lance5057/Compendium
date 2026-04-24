@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_oak_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/oak_planks",
+      "logLocation": "minecraft:block/oak_log",
+      "strippedLogLocation": "minecraft:block/stripped_oak_log",
+      "logTopLocation": "minecraft:block/oak_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_oak_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",

@@ -28,6 +28,15 @@
     "existsLocationItem": "minecraft:stripped_mangrove_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/mangrove_planks",
+      "logLocation": "minecraft:block/mangrove_log",
+      "strippedLogLocation": "minecraft:block/stripped_mangrove_log",
+      "logTopLocation": "minecraft:block/mangrove_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_mangrove_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",
