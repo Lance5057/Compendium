@@ -1,4 +1,4 @@
-// 1.21.1	2026-04-24T09:50:04.7994481	Recipes
+// 1.21.1	2026-04-24T17:15:08.074374622	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -363,6 +363,7 @@ ace08a32f51f0cc2c0aba226b1ed3fa2728ab814 data/compendium/recipe/pale_oak_small_l
 de772ed599470362fe5425d171602ee950eaecc9 data/compendium/recipe/pale_oak_styled_planks_item.json
 a94e4acfb16095eec1bac97b68134bea081ba68e data/compendium/recipe/pale_oak_styled_planks_slab_item.json
 0d42ed7f03c5018595dfeabaf8728a94458fa337 data/compendium/recipe/pale_oak_styled_planks_stairs_item.json
+3b29f2d4b7d74333e61aa8e5d8ec619a4a800444 data/compendium/recipe/saw_buck.json
 73ee4511c7e5c609df1807edb6b8d0af7f927a00 data/compendium/recipe/sawing/acacia_plank_from_small.json
 9898fa7c0f697db72bd0b6199c7572ebf79fd327 data/compendium/recipe/sawing/acacia_plank_from_stripped.json
 d695ea5f7dce5faeda536bc0dc84053f439b9ad1 data/compendium/recipe/sawing/acacia_small_log.json
@@ -407,7 +408,6 @@ d2c67ee5f9ad775166f39ce96ec364deefcfa393 data/compendium/recipe/sawing/warped_pl
 1b44c7362770c3e311716513c0c1cc55414d624f data/compendium/recipe/sawing/warped_plank_from_stripped.json
 9bbd30f7f586e288cd30ac33a56b20dea90b28e9 data/compendium/recipe/sawing/warped_small_log.json
 0df3560bdd4bbbd6d8e8d51681f74356d946f575 data/compendium/recipe/sawing/warped_stripped_small_log.json
-3b29f2d4b7d74333e61aa8e5d8ec619a4a800444 data/compendium/recipe/saw_buck.json
 2069a36803fb400cc419ba629fdcc374badf3773 data/compendium/recipe/spruce_planks.json
 2f1c526ad25f1f9ba5546d3c41f762e59ad99625 data/compendium/recipe/spruce_planks_to_planks.json
 812912116b1d7c9fc26f114c007130b3ce2eb331 data/compendium/recipe/spruce_slab_to_planks.json

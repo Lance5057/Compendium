@@ -924,7 +924,7 @@ public class CompendiumClient {
 //		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
 //		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
-
+		
 		for (Pair<String, ResourceLocation> p : textures) {
 
 			if (model.textureMap.containsKey(p.getFirst())) {

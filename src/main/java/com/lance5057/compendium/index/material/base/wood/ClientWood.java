@@ -76,23 +76,80 @@ public class ClientWood {
 		}
 
 		if (mw.WOOD.shouldGenerate()) {
-			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_wood");
-			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_wood_inventory");
 
-			BakedModel bm = CompendiumClient.basicModelAllTexture(event, logTexture, loc, m, BlockModelRotation.X0_Y0,
-					"all");
-			models.put(m, bm);
+			ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+
+			for (BlockState state : mw.WOOD.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = CompendiumClient.stateToString(propertyValues);
+
+				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, mw.name + "_wood", v);
+			}
+
+			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model, Pair.of("side", logTexture),
+					Pair.of("end", logTexture));
+
+		}
+
+		if (mw.LOG.shouldGenerate()) {
+			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_log");
+			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_log_inventory");
+
+			ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+
+			for (BlockState state : mw.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = CompendiumClient.stateToString(propertyValues);
+
+				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, mw.name + "_log", v);
+			}
+
+			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model, Pair.of("side", logTexture),
+					Pair.of("end", logTopTexture));
+
 		}
 
 		if (mw.STRIPPED_WOOD.shouldGenerate()) {
-			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
-			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_stripped_wood");
-			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+			ResourceLocation modelLoc = TagUtil.modLoc("stripped_" + mw.name + "_wood");
+			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_wood_inventory");
 
-			BakedModel bm = CompendiumClient.basicModelAllTexture(event, strippedLogTexture, loc, m,
-					BlockModelRotation.X0_Y0, "all");
-			models.put(m, bm);
+			ResourceLocation model = TagUtil.modLoc("extra/acacia_log");
+
+			for (BlockState state : mw.STRIPPED_WOOD.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = CompendiumClient.stateToString(propertyValues);
+
+				CompendiumClient.buildStateModelVariantAltLocation(event, models, model,
+						"stripped_" + mw.name + "_wood", v);
+			}
+
+			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model,
+					Pair.of("side", strippedLogTexture), Pair.of("end", strippedLogTexture));
+		}
+
+		if (mw.STRIPPED_LOG.shouldGenerate()) {
+			ResourceLocation modelLoc = TagUtil.modLoc("stripped_" + mw.name + "_log");
+			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_log_inventory");
+
+			ResourceLocation model = TagUtil.modLoc("extra/acacia_log");
+
+			for (BlockState state : mw.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
+				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+				String v = CompendiumClient.stateToString(propertyValues);
+
+				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, "stripped_" + mw.name + "_log",
+						v);
+			}
+
+			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model,
+					Pair.of("side", strippedLogTexture), Pair.of("end", strippedLogTopTexture));
+
 		}
 
 		for (String b : StyleData.WINDOW_TRIM.getTypes()) {
@@ -504,7 +561,7 @@ public class ClientWood {
 
 		if (eep.PLANK_BLOCK.isNotIgnored()) {
 			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),
-					mw.name + "_planks", "");
+					mw.name + "_styled_planks", "");
 
 		}
 
@@ -1271,19 +1328,19 @@ public class ClientWood {
 
 		if (mw.LOG.shouldGenerate())
 			shaper.register(mw.LOG.BLOCK_ITEM.asItem(),
-					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_log"), ""));
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_log_inventory"), ""));
 
 		if (mw.STRIPPED_LOG.shouldGenerate())
 			shaper.register(mw.STRIPPED_LOG.BLOCK_ITEM.asItem(),
-					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_log"), ""));
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_log_inventory"), ""));
 
 		if (mw.WOOD.shouldGenerate())
 			shaper.register(mw.WOOD.BLOCK_ITEM.asItem(),
-					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_wood"), ""));
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_wood_inventory"), ""));
 
 		if (mw.STRIPPED_WOOD.shouldGenerate())
 			shaper.register(mw.STRIPPED_WOOD.BLOCK_ITEM.asItem(),
-					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_wood"), ""));
+					new ModelResourceLocation(TagUtil.modLoc(mw.name + "_stripped_wood_inventory"), ""));
 
 //		for (CompendiumItemHandler i : mw.ITEMS) {
 //			if (i.shouldGenerate())

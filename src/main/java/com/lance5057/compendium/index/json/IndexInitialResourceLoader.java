@@ -273,6 +273,13 @@ public class IndexInitialResourceLoader {
 		birch.WOOD.setExists(TagUtil.mcLoc("birch_wood"), TagUtil.mcLoc("birch_wood"));
 		birch.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_birch_wood"), TagUtil.mcLoc("stripped_birch_wood"));
 
+		SpecialLocationsWood birch_loc = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/birch_planks"), TagUtil.mcLoc("block/birch_log"),
+						TagUtil.mcLoc("block/stripped_birch_log"), TagUtil.mcLoc("block/birch_log_top"),
+						TagUtil.mcLoc("block/stripped_birch_log_top")));
+
+		birch.specialLocations = birch_loc;
+
 		birch.addExtension(new ExtensionExtraLogs().generateAll());
 		birch.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(birch);
