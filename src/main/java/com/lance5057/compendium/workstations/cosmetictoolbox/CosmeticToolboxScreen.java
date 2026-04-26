@@ -279,7 +279,9 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 				Minecraft.getInstance().getSoundManager()
 						.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
 //				this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);
+				
 				PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, this.curStyleType, l));
+
 				return true;
 			}
 		}

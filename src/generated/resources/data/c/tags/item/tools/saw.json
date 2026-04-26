@@ -1,5 +1,10 @@
 {
   "values": [
-    "compendium:crude_saw"
+    "compendium:crude_saw",
+    "compendium:copper_saw_item",
+    "compendium:gold_saw_item",
+    "compendium:iron_saw_item",
+    "compendium:netherite_saw_item",
+    "compendium:silver_saw_item"
   ]
 }

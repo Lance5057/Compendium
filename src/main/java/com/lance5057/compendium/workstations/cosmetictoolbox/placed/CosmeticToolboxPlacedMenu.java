@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumMenus;
+import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.network.StyleSyncPacket;
 
@@ -123,6 +124,7 @@ public class CosmeticToolboxPlacedMenu extends AbstractContainerMenu {
 			List<Integer> l = new ArrayList<Integer>(c.styles());
 			l.set(section, style);
 			s.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(l));
+
 		});
 	}
 

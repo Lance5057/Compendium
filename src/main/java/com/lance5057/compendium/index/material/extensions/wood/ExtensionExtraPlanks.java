@@ -94,7 +94,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						StyleData.PLANK),
 				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
-		PLANK.setupItemTag(TagUtil.neoTag("plank"));
+		PLANK.setupItemTag(CompendiumTags.PLANK);
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		PLANK.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);

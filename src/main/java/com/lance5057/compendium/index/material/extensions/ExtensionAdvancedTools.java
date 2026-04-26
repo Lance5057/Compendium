@@ -32,6 +32,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionAdvancedTools extends _MaterialExtension {
@@ -59,22 +60,27 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public void setup(_MaterialBase base) {
 		PRYBAR.setName(base.name + "_prybar");
 		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()));
+		PRYBAR.setupItemTag(CompendiumTags.PRYBAR);
 
 		HAMMER.setName(base.name + "_hammer");
 		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()));
+		HAMMER.setupItemTag(CompendiumTags.HAMMER);
 
 		SAW.setName(base.name + "_saw");
 		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()));
+		SAW.setupItemTag(CompendiumTags.SAW);
 
 		SHEARS.setName(base.name + "_shears");
 		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()));
+		SHEARS.setupItemTag(Tags.Items.TOOLS_SHEAR);
 
 		ZWEIHANDER.setName(base.name + "_zweihander");
 		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()));
+		ZWEIHANDER.setupItemTag(ItemTags.SWORDS);
 
 		BOW.setName(base.name + "_bow");
 		BOW.setup(base, () -> new BowItem(new Item.Properties()));
-
+		BOW.setupItemTag(Tags.Items.TOOLS_BOW);
 	}
 
 	@Override

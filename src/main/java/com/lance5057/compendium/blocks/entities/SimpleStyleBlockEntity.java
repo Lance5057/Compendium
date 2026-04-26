@@ -34,6 +34,7 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 
 	List<Integer> currentStyles;
 	MATERIAL_TYPES matType;
+
 	public MATERIAL_TYPES getMatType() {
 		return matType;
 	}
@@ -74,7 +75,8 @@ public class SimpleStyleBlockEntity extends BlockEntity implements IStyleable {
 		if (currentStyles != null && currentStyles.size() > index) {
 			currentStyles.set(index, c);
 			this.setChanged();
-			getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+			if (this.getLevel() != null)
+				getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 		}
 	}
 
