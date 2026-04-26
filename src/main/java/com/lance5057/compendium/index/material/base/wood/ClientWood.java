@@ -76,80 +76,47 @@ public class ClientWood {
 		}
 
 		if (mw.WOOD.shouldGenerate()) {
-			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_wood");
+			String n = mw.name + "_wood";
+			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_wood_inventory");
 
-			ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/wood");
 
-			for (BlockState state : mw.WOOD.BLOCK.get().getStateDefinition().getPossibleStates()) {
-				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-				String v = CompendiumClient.stateToString(propertyValues);
-
-				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, mw.name + "_wood", v);
-			}
-
-			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model, Pair.of("side", logTexture),
-					Pair.of("end", logTexture));
+			doLog(event, mw, models, logTexture, logTexture, n, modelLoc, inventoryModelLoc, model);
+//			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model, Pair.of("side", logTexture),
+//					Pair.of("end", logTexture));
 
 		}
 
 		if (mw.LOG.shouldGenerate()) {
-			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_log");
+			String n = mw.name + "_log";
+			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_log_inventory");
 
-			ResourceLocation model = TagUtil.mcLoc("block/acacia_log");
+			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/log");
 
-			for (BlockState state : mw.LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-				String v = CompendiumClient.stateToString(propertyValues);
-
-				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, mw.name + "_log", v);
-			}
-
-			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model, Pair.of("side", logTexture),
-					Pair.of("end", logTopTexture));
+			doLog(event, mw, models, logTexture, logTopTexture, n, modelLoc, inventoryModelLoc, model);
 
 		}
 
 		if (mw.STRIPPED_WOOD.shouldGenerate()) {
-			ResourceLocation modelLoc = TagUtil.modLoc("stripped_" + mw.name + "_wood");
+			String n = "stripped_" + mw.name + "_wood";
+			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_wood_inventory");
 
-			ResourceLocation model = TagUtil.modLoc("extra/acacia_log");
+			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/stripped_wood");
 
-			for (BlockState state : mw.STRIPPED_WOOD.BLOCK.get().getStateDefinition().getPossibleStates()) {
-				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-				String v = CompendiumClient.stateToString(propertyValues);
-
-				CompendiumClient.buildStateModelVariantAltLocation(event, models, model,
-						"stripped_" + mw.name + "_wood", v);
-			}
-
-			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model,
-					Pair.of("side", strippedLogTexture), Pair.of("end", strippedLogTexture));
+			doLog(event, mw, models, strippedLogTexture, strippedLogTexture, n, modelLoc, inventoryModelLoc, model);
 		}
 
 		if (mw.STRIPPED_LOG.shouldGenerate()) {
-			ResourceLocation modelLoc = TagUtil.modLoc("stripped_" + mw.name + "_log");
+			String n = "stripped_" + mw.name + "_log";
+			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_log_inventory");
 
-			ResourceLocation model = TagUtil.modLoc("extra/acacia_log");
+			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/stripped_log");
 
-			for (BlockState state : mw.STRIPPED_LOG.BLOCK.get().getStateDefinition().getPossibleStates()) {
-				Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
-
-				String v = CompendiumClient.stateToString(propertyValues);
-
-				CompendiumClient.buildStateModelVariantAltLocation(event, models, model, "stripped_" + mw.name + "_log",
-						v);
-			}
-
-			CompendiumClient.doStyleLog(event, mw, modelLoc, inventoryModelLoc, model,
-					Pair.of("side", strippedLogTexture), Pair.of("end", strippedLogTopTexture));
-
+			doLog(event, mw, models, strippedLogTexture, strippedLogTopTexture, n, modelLoc, inventoryModelLoc, model);
 		}
 
 		for (String b : StyleData.WINDOW_TRIM.getTypes()) {
@@ -537,6 +504,34 @@ public class ClientWood {
 
 	}
 
+	private static void doLog(ModifyBakingResult event, MaterialWood mw, Map<ModelResourceLocation, BakedModel> models,
+			ResourceLocation sideTex, ResourceLocation endTex, String n, ResourceLocation modelLoc,
+			ResourceLocation inventoryModelLoc, ResourceLocation model) {
+		for (BlockState state : mw.WOOD.BLOCK.get().getStateDefinition().getPossibleStates()) {
+			Map<Property<?>, Comparable<?>> propertyValues = Maps.newLinkedHashMap(state.getValues());
+
+			String v = CompendiumClient.stateToString(propertyValues);
+
+			CompendiumClient.buildStateModelVariantAltLocation(event, models, model, n, v);
+		}
+
+		event.getModels().put(new ModelResourceLocation(modelLoc, "axis=y"),
+				CompendiumClient.basicModelManyTexture(event, model, new ModelResourceLocation(modelLoc, "axis=y"),
+						BlockModelRotation.X0_Y0, Pair.of("side", sideTex), Pair.of("end", endTex)));
+
+		event.getModels().put(new ModelResourceLocation(modelLoc, "axis=x"),
+				CompendiumClient.basicModelManyTexture(event, model, new ModelResourceLocation(modelLoc, "axis=x"),
+						BlockModelRotation.X90_Y90, Pair.of("side", sideTex), Pair.of("end", endTex)));
+
+		event.getModels().put(new ModelResourceLocation(modelLoc, "axis=z"),
+				CompendiumClient.basicModelManyTexture(event, model, new ModelResourceLocation(modelLoc, "axis=z"),
+						BlockModelRotation.X90_Y0, Pair.of("side", sideTex), Pair.of("end", endTex)));
+
+		event.getModels().put(new ModelResourceLocation(inventoryModelLoc, ""),
+				CompendiumClient.basicModelManyTexture(event, model, new ModelResourceLocation(inventoryModelLoc, ""),
+						BlockModelRotation.X0_Y0, Pair.of("side", sideTex), Pair.of("end", endTex)));
+	}
+
 	public static void doStyleWood(ModifyBakingResult event, Map<ModelResourceLocation, BakedModel> models,
 			MaterialWood mw) {
 //		Map<ModelResourceLocation, BakedModel> models = event.getModels();
@@ -706,7 +701,7 @@ public class ClientWood {
 		}
 
 		doSmallLog(event, mw, eel, models);
-		doLog(event, mw, eel, models, logEndTexture, logStrippedEndTexture);
+		doStyleLog(event, mw, eel, models, logEndTexture, logStrippedEndTexture);
 		doLogSlab(event, mw, eel, models, logSideTexture, logEndTexture, logStrippedSideTexture, logStrippedEndTexture);
 		doLogStairs(event, mw, eel, models, logSideTexture, logEndTexture, logStrippedSideTexture,
 				logStrippedEndTexture);
@@ -1082,7 +1077,7 @@ public class ClientWood {
 		}
 	}
 
-	public static void doLog(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
+	public static void doStyleLog(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
 			Map<ModelResourceLocation, BakedModel> models, ResourceLocation logEndTexture,
 			ResourceLocation logStrippedEndTexture) {
 

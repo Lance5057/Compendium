@@ -64,7 +64,7 @@ public class IndexInitialResourceLoader {
 			}
 
 		buildDefaults();
-		moddedDefaults();
+//		moddedDefaults();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -432,16 +432,16 @@ public class IndexInitialResourceLoader {
 		warped.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(warped);
 
-		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
-		pale_oak.LOG.setGenerate();
-		pale_oak.PLANKS.setGenerate();
-		pale_oak.STRIPPED_LOG.setGenerate();
-		pale_oak.WOOD.setGenerate();
-		pale_oak.STRIPPED_WOOD.setGenerate();
-
-		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
-		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
-		buildDefault(pale_oak);
+//		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
+//		pale_oak.LOG.setGenerate();
+//		pale_oak.PLANKS.setGenerate();
+//		pale_oak.STRIPPED_LOG.setGenerate();
+//		pale_oak.WOOD.setGenerate();
+//		pale_oak.STRIPPED_WOOD.setGenerate();
+//
+//		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
+//		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
+//		buildDefault(pale_oak);
 
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 
