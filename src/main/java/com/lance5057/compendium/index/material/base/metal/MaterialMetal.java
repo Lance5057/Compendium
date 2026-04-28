@@ -11,6 +11,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.CompendiumComponents;
@@ -27,7 +28,9 @@ import com.lance5057.compendium.workstations.scrappingtable.ScrappingUtils;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -35,6 +38,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -142,7 +146,24 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		// TODO Auto-generated method stub
+		if ((NUGGET.shouldGenerate() && INGOT.isNotIgnored()) || (INGOT.shouldGenerate() && NUGGET.isNotIgnored())) {
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, new ItemStack(NUGGET.ITEM.get(), 9))
+					.requires(INGOT.ITEM.get())
+					.save(consumer, TagUtil.modLoc(name + "_to_nugget"));
+
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.toStack())
+					.requires(NUGGET.ITEM, 9)
+					.save(consumer, TagUtil.modLoc(name + "_to_ingot"));
+		}
+		if ((INGOT.shouldGenerate() && BLOCK.isNotIgnored()) || (BLOCK.shouldGenerate() && INGOT.isNotIgnored())) {
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, new ItemStack(INGOT.ITEM.get(), 9))
+					.requires(BLOCK.BLOCK_ITEM.get())
+					.save(consumer, TagUtil.modLoc(name + "_to_ingot"));
+
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BLOCK.BLOCK_ITEM.toStack())
+					.requires(INGOT.ITEM, 9)
+					.save(consumer, TagUtil.modLoc(name + "_to_block"));
+		}
 
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
