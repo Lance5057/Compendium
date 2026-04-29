@@ -2,14 +2,10 @@
   "name": "glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "glass"
-      }
-    }
+  "block": {
+    "existsLocationBlock": "minecraft:glass",
+    "existsLocationItem": "minecraft:glass",
+    "generate": "EXISTS"
   },
   "extensions": []
 }

@@ -2,26 +2,40 @@
   "name": "copper",
   "tagNamespace": "minecraft",
   "type": "METAL",
-  "loadIngot": "EXISTS",
-  "loadStorageBlock": "EXISTS",
-  "loadNugget": "IGNORE",
-  "tier": "DIAMOND",
-  "level": 0,
-  "uses": 0,
-  "speed": 0,
-  "damage": 0,
-  "enchantmentValue": 0,
-  "useTag": "",
-  "repairTag": "",
+  "block": {
+    "existsLocationBlock": "minecraft:copper_block",
+    "existsLocationItem": "minecraft:copper_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "minecraft:copper_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "generate": "GENERATE"
+  },
+  "tier": "IRON",
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
-      "loadPrybar": "GENERATE",
-      "loadHammer": "GENERATE",
-      "loadSaw": "GENERATE",
-      "loadShears": "GENERATE",
-      "loadZweihander": "GENERATE",
-      "loadBow": "IGNORE"
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      },
+      "bow": {
+        "generate": "GENERATE"
+      }
     }
   ]
 }

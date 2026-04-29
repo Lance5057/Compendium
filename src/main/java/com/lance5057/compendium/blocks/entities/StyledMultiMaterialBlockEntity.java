@@ -85,7 +85,8 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 		if (currentStyles != null) {
 			currentStyles.set(index, c);
 			this.setChanged();
-			getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+			if (this.getLevel() != null)
+				getLevel().sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
 		}
 	}
 
@@ -113,7 +114,8 @@ public class StyledMultiMaterialBlockEntity extends MultiMaterialBlockEntity imp
 		super.collectImplicitComponents(builder);
 
 		builder.set(CompendiumComponents.STYLE.get(), new StyleBlockComponent(new ArrayList<Integer>(currentStyles)));
-		builder.set(CompendiumComponents.MULTI_MATERIAL.get(), new MultiMaterialBlockComponent(new ArrayList<MultiMaterialType>(materials)));
+		builder.set(CompendiumComponents.MULTI_MATERIAL.get(),
+				new MultiMaterialBlockComponent(new ArrayList<MultiMaterialType>(materials)));
 	}
 
 	@Override

@@ -10,26 +10,27 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class CompendiumTags {
-	
-	
+
 	public static TagKey<Block> PRYABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "pryable"));
 	public static TagKey<Block> SAWABLE = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "sawable"));
-	
+
 	public static TagKey<Item> HAMMER = ItemTags.create(TagUtil.neoTag("tools/hammer"));
 	public static TagKey<Item> PRYBAR = ItemTags.create(TagUtil.neoTag("tools/prybar"));
 	public static TagKey<Item> SAW = ItemTags.create(TagUtil.neoTag("tools/saw"));
-	
+
 	public static TagKey<Block> TABLE = BlockTags.create(Compendium.modLoc("table"));
-	
+
 	public static TagKey<Item> PLANK = ItemTags.create(TagUtil.neoTag("plank"));
-	
+
 	public static TagKey<Item> TEXTILES = ItemTags.create(TagUtil.neoTag("textiles"));
-	
+
 	public static TagKey<Item> SMALL_LOG = ItemTags.create(TagUtil.neoTag("small_log"));
 	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
-	
-	public static TagKey<Block> PIPE_CAN_ATTACH = BlockTags.create(TagUtil.modLoc("pipe_can_attach"));
-	
-	public static TagKey<Block> CREATE_SAFE_NBT = BlockTags.create(ResourceLocation.fromNamespaceAndPath("create", "safe_nbt"));
-}
 
+	public static TagKey<Block> PIPE_CAN_ATTACH = BlockTags.create(TagUtil.modLoc("pipe_can_attach"));
+
+	public static TagKey<Block> CREATE_SAFE_NBT = BlockTags
+			.create(ResourceLocation.fromNamespaceAndPath("create", "safe_nbt"));
+
+	public static TagKey<Item> GEM_SHARD = ItemTags.create(TagUtil.neoTag("gem_shards"));
+}

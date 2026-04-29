@@ -43,18 +43,6 @@ public class MaterialDust extends _MaterialBase {
 	}
 
 	@Override
-	public void blockStateModel(BlockStateProvider bsp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void itemModel(ItemModelProvider tmp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void engLoc(LanguageProvider lp) {
 		// TODO Auto-generated method stub
 
@@ -68,24 +56,6 @@ public class MaterialDust extends _MaterialBase {
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setupItemTags(ItemTagsProvider itp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setupBlockTags(BlockTagsProvider itp) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setupClient(FMLClientSetupEvent event) {
 		// TODO Auto-generated method stub
 
 	}
@@ -106,30 +76,6 @@ public class MaterialDust extends _MaterialBase {
 	public void otherLoot(LootTableSubProvider lsp) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public boolean isIndexItem(ItemStack stack) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-//	@Override
-//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-//		// TODO Auto-generated method stub
-//		return Optional.empty();
-//	}
-
-	@Override
-	public ItemStack breakDownItem(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return ItemStack.EMPTY;
-	}
-
-	@Override
-	public ItemStack buildUpItem(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return ItemStack.EMPTY;
 	}
 
 	@Override

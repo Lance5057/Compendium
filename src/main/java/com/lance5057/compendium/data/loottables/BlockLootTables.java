@@ -103,12 +103,12 @@ public class BlockLootTables extends BlockLootSubProvider {
 		List<Block> a = CompendiumBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get)
 				.collect(Collectors.toList());
 
-		CompendiumIndex.index.forEach(i -> {
-			if (i instanceof _MaterialBase mb) {
-				List<Block> b = mb.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());
-				a.addAll(b);
-			}
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			if (i instanceof _MaterialBase mb) {
+//				List<Block> b = mb.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());
+//				a.addAll(b);
+//			}
+//		});
 
 		return a;
 	}

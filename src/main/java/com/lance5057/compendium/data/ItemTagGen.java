@@ -8,6 +8,7 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.core.HolderLookup;
@@ -37,57 +38,65 @@ public class ItemTagGen extends ItemTagsProvider {
 		tag(CompendiumTags.SAW).add(CompendiumItems.CRUDE_SAW.asItem());
 
 		CompendiumIndex.index.forEach(i -> {
-			i.setupItemTags(this);
+			if (i instanceof _MaterialBase mb) {
+				mb.BLOCKS.forEach(b -> b.itemTag(this));
+				mb.ITEMS.forEach(b -> b.itemTag(this));
+				
+				mb.extensions.forEach(e -> {
+					e.BLOCKS.forEach(b -> b.itemTag(this));
+					e.ITEMS.forEach(b -> b.itemTag(this));
+				});
+			}
 		});
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/acacia"))).add(Items.ACACIA_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/acacia"))).add(Items.ACACIA_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/acacia"))).add(Items.ACACIA_STAIRS);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/birch"))).add(Items.BIRCH_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/birch"))).add(Items.BIRCH_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/birch"))).add(Items.BIRCH_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/cherry"))).add(Items.CHERRY_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/cherry"))).add(Items.CHERRY_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/cherry"))).add(Items.CHERRY_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/crimson"))).add(Items.CRIMSON_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/crimson"))).add(Items.CRIMSON_SLAB);
 
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/crimson"))).add(Items.CRIMSON_STAIRS);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/dark_oak"))).add(Items.DARK_OAK_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/dark_oak"))).add(Items.DARK_OAK_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/dark_oak"))).add(Items.DARK_OAK_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/jungle"))).add(Items.JUNGLE_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/jungle"))).add(Items.JUNGLE_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/jungle"))).add(Items.JUNGLE_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/mangrove"))).add(Items.MANGROVE_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/mangrove"))).add(Items.MANGROVE_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/mangrove"))).add(Items.MANGROVE_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/oak"))).add(Items.OAK_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/oak"))).add(Items.OAK_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/oak"))).add(Items.OAK_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/spruce"))).add(Items.SPRUCE_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/spruce"))).add(Items.SPRUCE_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/spruce"))).add(Items.SPRUCE_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("wooden_slabs/warped"))).add(Items.WARPED_SLAB);
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden/warped"))).add(Items.WARPED_SLAB);
-		
+
 		tag(ItemTags.create(TagUtil.neoTag("stairs/wooden/warped"))).add(Items.WARPED_STAIRS);
 
 		tag(ItemTags.create(TagUtil.neoTag("slabs/wooden"))).add(Items.ACACIA_SLAB, Items.BIRCH_SLAB, Items.CHERRY_SLAB,

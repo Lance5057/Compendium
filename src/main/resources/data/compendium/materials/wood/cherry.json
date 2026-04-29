@@ -3,29 +3,82 @@
   "namespace": "minecraft",
   "type": "WOOD",
   "version": 1.1,
-  "loadPlanks": "EXISTS",
-  "loadLog": "EXISTS",
-  "loadStrippedLog": "EXISTS",
-  "loadWood": "EXISTS",
-  "loadStrippedWood": "EXISTS",
+  "planks": {
+    "existsLocationBlock": "minecraft:cherry_planks",
+    "existsLocationItem": "minecraft:cherry_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "minecraft:cherry_log",
+    "existsLocationItem": "minecraft:cherry_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "minecraft:stripped_cherry_log",
+    "existsLocationItem": "minecraft:stripped_cherry_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "minecraft:cherry_wood",
+    "existsLocationItem": "minecraft:cherry_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "minecraft:stripped_cherry_wood",
+    "existsLocationItem": "minecraft:stripped_cherry_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/cherry_planks",
+      "logLocation": "minecraft:block/cherry_log",
+      "strippedLogLocation": "minecraft:block/stripped_cherry_log",
+      "logTopLocation": "minecraft:block/cherry_log_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_cherry_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",
-      "loadSmallLog": "GENERATE",
-      "loadSmallLogs": "GENERATE",
-      "loadSmallLogsSlab": "GENERATE",
-      "loadSmallLogsStairs": "GENERATE",
-      "loadStrippedSmallLog": "GENERATE",
-      "loadStrippedSmallLogs": "GENERATE",
-      "loadStrippedSmallLogsSlab": "GENERATE",
-      "loadStrippedSmallLogsStairs": "GENERATE"
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
     },
     {
       "type": "EXTRAPLANKS",
-      "loadPlank": "GENERATE",
-      "loadPlankBlock": "GENERATE",
-      "loadPlankSlab": "GENERATE",
-      "loadPlankStairs": "GENERATE"
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
     }
   ]
 }

@@ -22,4 +22,12 @@ public class ClientUtil {
 	public static ResourceLocation createStyleBlockLocation(String block, String style) {
 		return Compendium.modLoc("block/" + block + "/" + style);
 	}
+
+	public static ResourceLocation createBlockLocation(String block) {
+		return Compendium.modLoc("block/" + block);
+	}
+
+	public static ResourceLocation createItemLocation(String item) {
+		return Compendium.modLoc("item/" + item);
+	}
 }

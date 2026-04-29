@@ -2,14 +2,10 @@
   "name": "magenta_stained_glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "magenta_stained_glass"
-      }
-    }
+  "block": {
+    "existsLocationBlock": "minecraft:magenta_stained_glass",
+    "existsLocationItem": "minecraft:magenta_stained_glass",
+    "generate": "EXISTS"
   },
   "extensions": []
 }

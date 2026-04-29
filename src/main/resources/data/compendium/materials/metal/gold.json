@@ -2,26 +2,41 @@
   "name": "gold",
   "tagNamespace": "minecraft",
   "type": "METAL",
-  "loadIngot": "EXISTS",
-  "loadStorageBlock": "EXISTS",
-  "loadNugget": "EXISTS",
-  "tier": "DIAMOND",
-  "level": 0,
-  "uses": 0,
-  "speed": 0,
-  "damage": 0,
-  "enchantmentValue": 0,
-  "useTag": "",
-  "repairTag": "",
+  "block": {
+    "existsLocationBlock": "minecraft:gold_block",
+    "existsLocationItem": "minecraft:gold_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "minecraft:gold_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "existsLocation": "minecraft:gold_nugget",
+    "generate": "EXISTS"
+  },
+  "tier": "GOLD",
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
-      "loadPrybar": "GENERATE",
-      "loadHammer": "GENERATE",
-      "loadSaw": "GENERATE",
-      "loadShears": "GENERATE",
-      "loadZweihander": "GENERATE",
-      "loadBow": "IGNORE"
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      },
+      "bow": {
+        "generate": "GENERATE"
+      }
     }
   ]
 }

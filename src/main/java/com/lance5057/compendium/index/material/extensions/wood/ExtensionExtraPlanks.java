@@ -24,8 +24,6 @@ import com.lance5057.compendium.data.Recipes;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
 import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.SawBuckRecipeBuilder;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
@@ -45,8 +43,6 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -67,12 +63,8 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
 	/**
@@ -84,16 +76,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public final CompendiumBlockHandler PLANK_SLAB;
 	public final CompendiumBlockHandler PLANK_STAIRS;
 
-	public ExtensionExtraPlanks(Generate plank, Generate plankBlock, Generate plankSlab, Generate plankStairs) {
-		PLANK = new CompendiumBlockHandler();
-		PLANK_BLOCK = new CompendiumBlockHandler();
-		PLANK_SLAB = new CompendiumBlockHandler();
-		PLANK_STAIRS = new CompendiumBlockHandler();
+	public ExtensionExtraPlanks() {
+		super();
 
-		PLANK.setGenerate(plank);
-		PLANK_BLOCK.setGenerate(plankBlock);
-		PLANK_SLAB.setGenerate(plankSlab);
-		PLANK_STAIRS.setGenerate(plankStairs);
+		this.BLOCKS.add(PLANK = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_BLOCK = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_SLAB = new CompendiumBlockHandler());
+		this.BLOCKS.add(PLANK_STAIRS = new CompendiumBlockHandler());
 	}
 
 	@Override
@@ -103,33 +92,28 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List.of("plank"),
 						StyleData.PLANK),
-				() -> new BlockItem(PLANK.BLOCK.get(),
-						new Item.Properties().component(CompendiumComponents.STYLE,
-								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"),
-				ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_plank"));
-		PLANK.setupItemTag(TagUtil.neoTag("plank"));
+				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
+						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+		PLANK.setupItemTag(CompendiumTags.PLANK);
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
 		PLANK.setupBlockTag(CompendiumTags.CREATE_SAFE_NBT);
 		PLANK.setAsValidStyleBlock();
 		PLANK.setAsValidStyleItem();
 
-		PLANK_BLOCK.setName(base.name + "_planks");
+		PLANK_BLOCK.setName(base.name + "_styled_planks");
 		PLANK_BLOCK
 				.setup(base,
 						() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 								Compendium.modLoc(base.name
-										+ "_planks"),
+										+ "_styled_planks"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_BLOCK.BLOCK.get(),
 								new Item.Properties()
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_planks"));
+												new IndexEntryComponent(base.getType(), base.name))));
 //		PLANK_BLOCK.setupItemTag(ItemTags.PLANKS);
 		PLANK_BLOCK.setupItemTag(TagUtil.neoTag("planks/" + base.name));
 		PLANK_BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -137,21 +121,19 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_BLOCK.setAsValidStyleBlock();
 		PLANK_BLOCK.setAsValidStyleItem();
 
-		PLANK_SLAB.setName(base.name + "_planks_slab");
+		PLANK_SLAB.setName(base.name + "_styled_planks_slab");
 		PLANK_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
 								Compendium.modLoc(base.name
-										+ "_planks_slab_inventory"),
+										+ "_styled_planks_slab_inventory"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 								new Item.Properties()
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_slab"));
+												new IndexEntryComponent(base.getType(), base.name))));
 
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
@@ -160,22 +142,20 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setAsValidStyleBlock();
 		PLANK_SLAB.setAsValidStyleItem();
 
-		PLANK_STAIRS.setName(base.name + "_planks_stairs");
+		PLANK_STAIRS.setName(base.name + "_styled_planks_stairs");
 		PLANK_STAIRS
 				.setup(base,
 						() -> new StairStyleBlock(PLANK_BLOCK.BLOCK.get().defaultBlockState(),
 								Block.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS),
 								Compendium.modLoc(base.name
-										+ "_planks_stairs_inventory"),
+										+ "_styled_planks_stairs_inventory"),
 								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
 						() -> new BlockItem(PLANK_STAIRS.BLOCK.get(),
 								new Item.Properties()
 										.component(CompendiumComponents.STYLE,
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
-												new IndexEntryComponent(base.getType(), base.name))),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"),
-						ResourceLocation.fromNamespaceAndPath(base.namespace, base.name + "_styled_stairs"));
+												new IndexEntryComponent(base.getType(), base.name))));
 		PLANK_STAIRS.setAsValidStyleBlock();
 		PLANK_STAIRS.setAsValidStyleItem();
 
@@ -198,27 +178,27 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
 	}
 
-	@Override
-	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-//		if (this.autoGenItemModel) {
-////			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
-////					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
-//			if (PLANK.shouldGenerate()) {
-//				tmp.getBuilder(PLANK.BLOCK_ITEM.get().toString())
-//						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/plank")))
-//						.texture("0", tmp.modLoc(base.blockFolder() + "planks/plank"));
-//			}
-//
-//			if (PLANK_BLOCK.shouldGenerate())
-//				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//
-//			if (PLANK_SLAB.shouldGenerate())
-//				tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//
-//			if (PLANK_STAIRS.shouldGenerate())
-//				tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
-//		}
-	}
+//	@Override
+//	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
+////		if (this.autoGenItemModel) {
+//////			DataUtil.basicMaterial3DItem(tmp, PLANK.BLOCK_ITEM.get(), base, Compendium.modLoc("item/plank"),
+//////					base.getType(), tmp.mcLoc("block/" + base.name.toLowerCase() + "_planks"));
+////			if (PLANK.shouldGenerate()) {
+////				tmp.getBuilder(PLANK.BLOCK_ITEM.get().toString())
+////						.parent(new ModelFile.UncheckedModelFile(Compendium.modLoc("item/plank")))
+////						.texture("0", tmp.modLoc(base.blockFolder() + "planks/plank"));
+////			}
+////
+////			if (PLANK_BLOCK.shouldGenerate())
+////				tmp.withExistingParent(PLANK_BLOCK.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////
+////			if (PLANK_SLAB.shouldGenerate())
+////				tmp.withExistingParent(PLANK_SLAB.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////
+////			if (PLANK_STAIRS.shouldGenerate())
+////				tmp.withExistingParent(PLANK_STAIRS.BLOCK_ITEM.getRegisteredName(), tmp.modLoc("item/window"));
+////		}
+//	}
 
 	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
@@ -369,43 +349,43 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						));
 	}
 
-	@Override
-	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-		if (!PLANK.isIgnored()) {
-			PLANK.itemTag(itp);
-			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
-		}
-		if (!PLANK_BLOCK.isIgnored()) {
-			PLANK_BLOCK.itemTag(itp);
-		}
-		if (!PLANK_SLAB.isIgnored()) {
-			PLANK_SLAB.itemTag(itp);
-		}
-		if (!PLANK_STAIRS.isIgnored()) {
-			PLANK_STAIRS.itemTag(itp);
-		}
-	}
-
-	@Override
-	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
-		if (!PLANK.isIgnored()) {
-			PLANK.blockTag(btp);
-		}
-		if (!PLANK_BLOCK.isIgnored()) {
-			PLANK_BLOCK.blockTag(btp);
-		}
-		if (!PLANK_SLAB.isIgnored()) {
-			PLANK_SLAB.blockTag(btp);
-		}
-		if (!PLANK_STAIRS.isIgnored()) {
-			PLANK_STAIRS.blockTag(btp);
-		}
-	}
-
-	@Override
-	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-
-	}
+//	@Override
+//	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
+//		if (!PLANK.isIgnored()) {
+//			PLANK.itemTag(itp);
+//			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
+//		}
+//		if (!PLANK_BLOCK.isIgnored()) {
+//			PLANK_BLOCK.itemTag(itp);
+//		}
+//		if (!PLANK_SLAB.isIgnored()) {
+//			PLANK_SLAB.itemTag(itp);
+//		}
+//		if (!PLANK_STAIRS.isIgnored()) {
+//			PLANK_STAIRS.itemTag(itp);
+//		}
+//	}
+//
+//	@Override
+//	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
+//		if (!PLANK.isIgnored()) {
+//			PLANK.blockTag(btp);
+//		}
+//		if (!PLANK_BLOCK.isIgnored()) {
+//			PLANK_BLOCK.blockTag(btp);
+//		}
+//		if (!PLANK_SLAB.isIgnored()) {
+//			PLANK_SLAB.blockTag(btp);
+//		}
+//		if (!PLANK_STAIRS.isIgnored()) {
+//			PLANK_STAIRS.blockTag(btp);
+//		}
+//	}
+//
+//	@Override
+//	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
+//
+//	}
 
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraPlanks> {
 
@@ -418,10 +398,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
-			j.addProperty("loadPlank", src.PLANK.getGeneration().toString());
-			j.addProperty("loadPlankBlock", src.PLANK_BLOCK.getGeneration().toString());
-			j.addProperty("loadPlankSlab", src.PLANK_SLAB.getGeneration().toString());
-			j.addProperty("loadPlankStairs", src.PLANK_STAIRS.getGeneration().toString());
+
+			j.add("plank", src.PLANK.serialize());
+			j.add("plank_block", src.PLANK_BLOCK.serialize());
+			j.add("plank_slab", src.PLANK_SLAB.serialize());
+			j.add("plank_stairs", src.PLANK_STAIRS.serialize());
 
 			return j;
 		}
@@ -431,13 +412,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String loadPlank = j.get("loadPlank").getAsString();
-			String loadPlankBlock = j.get("loadPlankBlock").getAsString();
-			String loadPlankSlab = j.get("loadPlankSlab").getAsString();
-			String loadPlankStairs = j.get("loadPlankStairs").getAsString();
+			ExtensionExtraPlanks eel = new ExtensionExtraPlanks();
+			eel.PLANK.deserialize(j.get("plank").getAsJsonObject());
+			eel.PLANK_BLOCK.deserialize(j.get("plank_block").getAsJsonObject());
+			eel.PLANK_SLAB.deserialize(j.get("plank_slab").getAsJsonObject());
+			eel.PLANK_STAIRS.deserialize(j.get("plank_stairs").getAsJsonObject());
 
-			return new ExtensionExtraPlanks(Generate.valueOf(loadPlank), Generate.valueOf(loadPlankBlock),
-					Generate.valueOf(loadPlankSlab), Generate.valueOf(loadPlankStairs));
+			return eel;
 		}
 
 	}
@@ -448,50 +429,50 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	}
 
-	@Override
-	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-		if (PLANK.is(stack))
-			return true;
-		if (PLANK_BLOCK.is(stack))
-			return true;
-		if (PLANK_SLAB.is(stack))
-			return true;
-		if (PLANK_STAIRS.is(stack))
-			return true;
+//	@Override
+//	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
+//		if (PLANK.is(stack))
+//			return true;
+//		if (PLANK_BLOCK.is(stack))
+//			return true;
+//		if (PLANK_SLAB.is(stack))
+//			return true;
+//		if (PLANK_STAIRS.is(stack))
+//			return true;
+//
+//		return false;
+//	}
+//
+//	@Override
+//	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
+//		if (PLANK.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_BLOCK.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_SLAB.is(stack))
+//			return Optional.of(base);
+//		if (PLANK_STAIRS.is(stack))
+//			return Optional.of(base);
+//
+//		return Optional.empty();
+//	}
 
-		return false;
-	}
-
-	@Override
-	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-		if (PLANK.is(stack))
-			return Optional.of(base);
-		if (PLANK_BLOCK.is(stack))
-			return Optional.of(base);
-		if (PLANK_SLAB.is(stack))
-			return Optional.of(base);
-		if (PLANK_STAIRS.is(stack))
-			return Optional.of(base);
-
-		return Optional.empty();
-	}
-
-	@Override
-	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
-		if (PLANK.isNotIgnored())
-			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_BLOCK.isNotIgnored())
-			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_SLAB.isNotIgnored())
-			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-
-		if (PLANK_STAIRS.isNotIgnored())
-			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-					new IndexEntryComponent(base.getType(), base.name)));
-	}
+//	@Override
+//	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
+//		if (PLANK.isNotIgnored())
+//			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_BLOCK.isNotIgnored())
+//			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_SLAB.isNotIgnored())
+//			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//
+//		if (PLANK_STAIRS.isNotIgnored())
+//			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+//					new IndexEntryComponent(base.getType(), base.name)));
+//	}
 }

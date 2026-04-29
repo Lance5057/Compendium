@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
@@ -29,8 +32,17 @@ public class CompendiumItemHandler implements Serializable {
 
 	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 
-	public CompendiumItemHandler(String n) {
-		name = n;
+	protected ResourceLocation existsLocation;
+
+	public ResourceLocation getExistsLocation() {
+		return existsLocation;
+	}
+
+	public CompendiumItemHandler() {
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean shouldGenerate() {
@@ -41,6 +53,10 @@ public class CompendiumItemHandler implements Serializable {
 		return generate;
 	}
 
+	public void setGenerate() {
+		generate = Generate.GENERATE;
+	}
+
 	public void setGenerate(Generate b) {
 		generate = b;
 	}
@@ -49,20 +65,21 @@ public class CompendiumItemHandler implements Serializable {
 		return generate != Generate.IGNORE;
 	}
 
-	public void setup(_MaterialBase base, ResourceLocation existsItem) {
-		setup(base, () -> new Item(new Item.Properties()), existsItem);
+	public void setup(_MaterialBase base) {
+		setup(base, () -> new Item(new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Item> item, ResourceLocation existsItem) {
+	public void setup(_MaterialBase base, Supplier<? extends Item> item) {
 		if (generate == Generate.GENERATE) {
 			ITEM = setupItem(base, item);
+
 		} else if (generate == Generate.EXISTS) {
-			ITEM = DeferredItem.createItem(existsItem);
+			ITEM = DeferredItem.createItem(existsLocation);
 		}
 	}
 
 	public DeferredItem<Item> setupItem(_MaterialBase base, Supplier<? extends Item> item) {
-		return base.ITEMS.register(base.name + "_" + name + "_item", item);
+		return CompendiumItems.ITEMS.register(name + "_item", item);
 	}
 
 	public void tab(_MaterialBase base, Output output) {
@@ -76,6 +93,10 @@ public class CompendiumItemHandler implements Serializable {
 
 	public boolean isIgnored() {
 		return this.generate == Generate.IGNORE;
+	}
+
+	public void setIgnored() {
+		this.generate = Generate.IGNORE;
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
@@ -98,6 +119,34 @@ public class CompendiumItemHandler implements Serializable {
 			if (item.is(key))
 				return true;
 		return false;
+	}
+
+	public JsonElement serialize() {
+		JsonObject j = new JsonObject();
+
+		if (this.getExistsLocation() != null)
+			j.addProperty("existsLocation", this.getExistsLocation().toString());
+
+		j.addProperty("generate", this.generate.toString());
+		return j;
+	}
+
+	public void deserialize(JsonObject json) {
+		if (json.has("existsLocation")) {
+			String s = json.get("existsLocation").getAsString();
+
+			if (!s.isEmpty())
+				this.existsLocation = ResourceLocation.parse(s);
+		}
+
+		String g = json.get("generate").getAsString();
+		this.generate = Generate.valueOf(g.toUpperCase());
+	}
+
+	public void setExists(ResourceLocation existsLocationItem) {
+		this.generate = Generate.EXISTS;
+
+		this.existsLocation = existsLocationItem;
 	}
 
 }

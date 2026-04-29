@@ -15,11 +15,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 public class ScrappingUtils {
 	public static ItemStack breakDownItem(Ingredient ingredient) {
 
-		for (IIndexEntry i : CompendiumIndex.index) {
-			ItemStack broken = i.breakDownItem(ingredient);
-			if (!broken.isEmpty())
-				return broken;
-		}
+//		for (IIndexEntry i : CompendiumIndex.index) {
+//			ItemStack broken = i.breakDownItem(ingredient);
+//			if (!broken.isEmpty())
+//				return broken;
+//		}
 
 		return ItemStack.EMPTY;
 	}

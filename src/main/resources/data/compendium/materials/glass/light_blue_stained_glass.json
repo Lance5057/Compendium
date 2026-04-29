@@ -2,14 +2,10 @@
   "name": "light_blue_stained_glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "light_blue_stained_glass"
-      }
-    }
+  "block": {
+    "existsLocationBlock": "minecraft:light_blue_stained_glass",
+    "existsLocationItem": "minecraft:light_blue_stained_glass",
+    "generate": "EXISTS"
   },
   "extensions": []
 }

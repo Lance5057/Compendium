@@ -3,30 +3,36 @@ package com.lance5057.compendium.index.material.base;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.Compendium;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
+import com.lance5057.compendium.index.util.CompendiumItemHandler;
 
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
-	public final DeferredRegister.Items ITEMS;
-	public final DeferredRegister.Blocks BLOCKS;
+	public final Set<CompendiumItemHandler> ITEMS;
+	public final Set<CompendiumBlockHandler> BLOCKS;
 	/**
 	 * 
 	 */
@@ -57,8 +63,8 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 		extensions = new ArrayList<_MaterialExtension>();
 
-		ITEMS = DeferredRegister.createItems(Compendium.MOD_ID);
-		BLOCKS = DeferredRegister.createBlocks(Compendium.MOD_ID);
+		ITEMS = new HashSet<CompendiumItemHandler>();
+		BLOCKS = new HashSet<CompendiumBlockHandler>();
 	}
 
 	@Override
@@ -82,15 +88,13 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 		return this;
 	}
 
-	public _MaterialBase setupTier(int level, int uses, float speed, float damage, int enchantmentValue, String useTag,
-			String repairTag) {
+	public _MaterialBase setupTier(int level, int uses, float speed, float damage, int enchantmentValue, String useTag) {
 		this.level = level;
 		this.uses = uses;
 		this.speed = speed;
 		this.damage = damage;
 		this.enchantmentValue = enchantmentValue;
 		this.useTag = useTag;
-		this.repairTag = repairTag;
 
 		return this;
 	}
@@ -109,7 +113,20 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 	public abstract CompendiumIndex.MATERIAL_TYPES getType();
 
-	public abstract void attachComponents(ModifyDefaultComponentsEvent event);
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+
+		this.ITEMS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(getType(), name)));
+		});
+		this.BLOCKS.forEach(i -> {
+			if (i.isNotIgnored())
+				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
+						new IndexEntryComponent(getType(), name)));
+		});
+		this.extensions.forEach(i -> i.attachComponents(this, event));
+	}
 
 	protected ResourceLocation fileLoc(ResourceLocation standardLoc, ResourceLocation exists) {
 		if (exists != null) {
@@ -117,6 +134,19 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 		}
 
 		return standardLoc;
+	}
+
+	@Override
+	public void tab(Output output) {
+		this.BLOCKS.forEach(i -> i.tab(this, output));
+		this.ITEMS.forEach(i -> i.tab(this, output));
+		this.extensions.forEach(i -> i.tab(this, output));
+	}
+
+	@Override
+	public void blockLoot(BlockLootSubProvider blp) {
+		this.BLOCKS.forEach(i -> i.blockLoot(this, blp));
+		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<_MaterialBase> {

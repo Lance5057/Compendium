@@ -24,7 +24,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 @Mod(Compendium.MOD_ID)
 public class Compendium {
 	public final static String MOD_ID = "compendium";
-	public static final String VERSION = "2.0.2a";
+	public static final String VERSION = "2.0.4";
 
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
@@ -42,12 +42,12 @@ public class Compendium {
 		CompendiumBlocks.BLOCKS.register(bus);
 		CompendiumItems.ITEMS.register(bus);
 
-		CompendiumIndex.index.forEach(i -> {
-			if (i instanceof _MaterialBase mb) {
-				mb.ITEMS.register(bus);
-				mb.BLOCKS.register(bus);
-			}
-		});
+//		CompendiumIndex.index.forEach(i -> {
+//			if (i instanceof _MaterialBase mb) {
+//				mb.ITEMS.register(bus);
+//				mb.BLOCKS.register(bus);
+//			}
+//		});
 
 		CompendiumBlockEntities.BLOCK_ENTITIES.register(bus);
 		CompendiumEntities.ENTITIES.register(bus);
@@ -62,9 +62,9 @@ public class Compendium {
 
 	public void setupClient(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			CompendiumIndex.index.forEach(i -> {
-				i.setupClient(event);
-			});
+//			CompendiumIndex.index.forEach(i -> {
+//				i.setupClient(event);
+//			});
 
 			CompendiumClient.setBERenderers();
 			NeoForgeConfig.CLIENT.experimentalForgeLightPipelineEnabled.set(true);

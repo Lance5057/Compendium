@@ -2,14 +2,10 @@
   "name": "lime_stained_glass",
   "tagNamespace": "minecraft",
   "type": "GLASS",
-  "loadBlock": "EXISTS",
-  "specialLocations": {
-    "textures": {
-      "blockLocation": {
-        "namespace": "minecraft",
-        "path": "lime_stained_glass"
-      }
-    }
+  "block": {
+    "existsLocationBlock": "minecraft:lime_stained_glass",
+    "existsLocationItem": "minecraft:lime_stained_glass",
+    "generate": "EXISTS"
   },
   "extensions": []
 }

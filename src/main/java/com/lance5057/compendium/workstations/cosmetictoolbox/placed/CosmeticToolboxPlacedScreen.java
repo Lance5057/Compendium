@@ -7,6 +7,8 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.blocks.IStyleable;
 import com.lance5057.compendium.blocks.entities.MultiMaterialBlockEntity;
+import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
+import com.lance5057.compendium.client.models.IndexEntryModelData;
 import com.lance5057.compendium.client.models.multimaterial.MultiMaterialModelData;
 import com.lance5057.compendium.client.models.style.StyleModelData;
 import com.lance5057.compendium.network.StyleSetPacket;
@@ -171,35 +173,37 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 
 	private void renderRecipes(GuiGraphics gui, BlockState state, int p_282658_, int p_282563_, int p_283352_) {
 		if (menu.entity != null)
-			if (((IStyleable) menu.entity).getStyles() != null && !((IStyleable) menu.entity).getStyles().isEmpty())
-				if (((IStyleable) menu.entity).getStyles().get(menu.curStyleType) != null
-						&& ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes() != null
-						&& !((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().isEmpty())
-					for (int i = this.startIndex; i < p_283352_ && i < ((IStyleable) menu.entity).getStyles()
-							.get(menu.curStyleType).getTypes().size(); ++i) {
-						int j = i - this.startIndex;
-						int k = this.leftPos + p_282658_;
+			if (menu.entity instanceof IStyleable s)
+				if (s.getStyles() != null && !s.getStyles().isEmpty())
+					if (s.getStyles().get(menu.curStyleType) != null
+							&& s.getStyles().get(menu.curStyleType).getTypes() != null
+							&& !s.getStyles().get(menu.curStyleType).getTypes().isEmpty())
+						for (int i = this.startIndex; i < p_283352_
+								&& i < s.getStyles().get(menu.curStyleType).getTypes().size(); ++i) {
+							int j = i - this.startIndex;
+							int k = this.leftPos + p_282658_;
+//			int l = j / 4;
+							int i1 = this.topPos + p_282563_ + j * 18;
 
-						int i1 = this.topPos + p_282563_ + j * 18;
+							gui.pose().pushPose();
+							{
+								gui.pose().translate(k, i1 + 0.5f, 100);
+								float scale = 8.5f;
+								gui.pose().scale(scale, scale, scale);
 
-						gui.pose().pushPose();
-						{
-							gui.pose().translate(k, i1 + 0.5f, 100);
-							float scale = 8.5f;
-							gui.pose().scale(scale, scale, scale);
+								gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
+								gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
 
-							gui.pose().mulPose(Axis.XP.rotationDegrees(-30F));
-							gui.pose().mulPose(Axis.YP.rotationDegrees(-45F));
+								renderBlock(gui, state, i);
 
-							renderBlock(gui, state, i);
+							}
+							gui.pose().popPose();
 
+							gui.drawString(this.font,
+									Component.translatable("style." + s.getStyles().get(menu.curStyleType).getName()
+											+ "." + s.getStyles().get(menu.curStyleType).getTypes().get(i)),
+									k + 10, i1, 0xFFFFFF, true);
 						}
-						gui.pose().popPose();
-						gui.drawString(this.font, Component.translatable("style."
-								+ ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getName() + "."
-								+ ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().get(i)),
-								k + 10, i1, 0xFFFFFF, true);
-					}
 	}
 
 	private boolean isScrollBarActive() {
@@ -213,42 +217,42 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 	}
 
 	void renderBlock(GuiGraphics guiGraphics, BlockState state, int cur) {
-		guiGraphics.pose().pushPose();
+		if (menu.entity instanceof IStyleable s) {
+			guiGraphics.pose().pushPose();
 
-		RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-		guiGraphics.pose().translate(0, 0, 0);
+			RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+			guiGraphics.pose().translate(0, 0, 0);
 
-		MultiBufferSource.BufferSource buffers = Minecraft.getInstance().renderBuffers().bufferSource();
+			MultiBufferSource.BufferSource buffers = Minecraft.getInstance().renderBuffers().bufferSource();
 
-		guiGraphics.pose().pushPose();
-		guiGraphics.pose().translate(0, 0.5, 0);
-		guiGraphics.pose().scale(1f, -1f, 1f);
+			guiGraphics.pose().pushPose();
+			guiGraphics.pose().translate(0, 0.5, 0);
+			guiGraphics.pose().scale(1f, -1f, 1f);
 
-		Builder md = ModelData.builder();
+			Builder md = ModelData.builder();
 
-		menu.entity.applyComponentsFromItemStack(menu.slots.get(0).getItem());
+			List<String> l = s.getCurrentAllString();
+			if (cur != -1)
+				l.set(menu.curStyleType, s.getStyles().get(menu.curStyleType).getTypes().get(cur));
+			md.with(StyleModelData.STYLES, l);
 
-		List<String> l = ((IStyleable) menu.entity).getCurrentAllString();
-		if (cur != -1)
-			l.set(menu.curStyleType, ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().get(cur));
-		else
-			for (int i = 0; i < ((IStyleable) menu.entity).getStyleCount(); i++) {
-				((IStyleable) menu.entity).getStyles().get(i).getTypes().get(0); // This is wrong!
+			if (menu.entity instanceof MultiMaterialBlockEntity mmb) {
+				md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
 			}
 
-		md.with(StyleModelData.STYLES, l);
+			if (menu.entity instanceof SimpleStyleBlockEntity ssb) {
+				md.with(IndexEntryModelData.TYPE, ssb.getMatType()).with(IndexEntryModelData.NAME,
+						ssb.getMaterialName());
+			}
 
-		if (menu.entity instanceof MultiMaterialBlockEntity mmb) {
-			md.with(MultiMaterialModelData.STATE, mmb.getMaterials());
+			Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
+					OverlayTexture.NO_OVERLAY, md.build(), null);
+
+			buffers.endBatch();
+
+			guiGraphics.pose().popPose();
+			guiGraphics.pose().popPose();
 		}
-
-		Minecraft.getInstance().getBlockRenderer().renderSingleBlock(state, guiGraphics.pose(), buffers, 255,
-				OverlayTexture.NO_OVERLAY, md.build(), null);
-
-		buffers.endBatch();
-
-		guiGraphics.pose().popPose();
-		guiGraphics.pose().popPose();
 	}
 
 	private void renderButtons(GuiGraphics p_282733_, int p_282136_, int p_282147_, int p_281987_, int p_281276_,
@@ -295,6 +299,9 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 				if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
 
 					PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, menu.curStyleType, l));
+					
+					if (menu.entity != null)
+						((IStyleable) menu.entity).setCurrent(menu.curStyleType, l);
 
 					Minecraft.getInstance().getSoundManager()
 							.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));

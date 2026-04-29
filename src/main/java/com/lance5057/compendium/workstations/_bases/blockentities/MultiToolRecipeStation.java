@@ -172,6 +172,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 				searchForNextItem(pLevel, player, hand, curTool);
 			}
 			if (this.curTool.test(tool)) {
+				level.playSound(player, worldPosition, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1, 0);
 				if (tool.getCount() >= this.toolCount) {
 
 					if (this.progress >= this.maxProgress - 1) {
@@ -180,6 +181,7 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 							doFinalStage(player, tool, r);
 
 						} else {
+
 							doNextStage(pLevel, player, hand, r);
 						}
 					} else {

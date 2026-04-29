@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumBlocks;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -37,6 +42,32 @@ public class CompendiumBlockHandler implements Serializable {
 
 	public transient List<TagKey<Item>> itemTag = new ArrayList<TagKey<Item>>();
 	public transient List<TagKey<Block>> blockTag = new ArrayList<TagKey<Block>>();
+
+	protected ResourceLocation existsLocationBlock;
+	protected ResourceLocation existsLocationItem;
+
+	public ResourceLocation getExistsLocationBlock() {
+		return existsLocationBlock;
+	}
+
+	public ResourceLocation getExistsLocationItem() {
+		return existsLocationItem;
+	}
+
+	public void setExists(ResourceLocation existsLocationBlock, ResourceLocation existsLocationItem) {
+		this.generate = Generate.EXISTS;
+
+		this.existsLocationBlock = existsLocationBlock;
+		this.existsLocationItem = existsLocationItem;
+	}
+
+	public void setGenerate() {
+		this.generate = Generate.GENERATE;
+	}
+
+	public void setIgnore() {
+		this.generate = Generate.IGNORE;
+	}
 
 	public CompendiumBlockHandler() {
 	}
@@ -69,33 +100,30 @@ public class CompendiumBlockHandler implements Serializable {
 		return generate != Generate.IGNORE;
 	}
 
-	public void setup(_MaterialBase base, ResourceLocation existsItem, ResourceLocation existsBlock) {
-		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()),
-				existsItem, existsBlock);
+	public void setup(_MaterialBase base) {
+		setup(base, () -> new Block(Block.Properties.of()), () -> new BlockItem(BLOCK.get(), new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, ResourceLocation existsItem,
-			ResourceLocation existsBlock) {
-		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()), existsItem, existsBlock);
+	public void setup(_MaterialBase base, Supplier<? extends Block> block) {
+		setup(base, block, () -> new BlockItem(BLOCK.get(), new Item.Properties()));
 	}
 
-	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item,
-			ResourceLocation existsItem, ResourceLocation existsBlock) {
+	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item) {
 		if (generate == Generate.GENERATE) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
 		} else if (generate == Generate.EXISTS) {
-			BLOCK = DeferredBlock.createBlock(existsBlock);
-			BLOCK_ITEM = DeferredItem.createItem(existsItem);
+			BLOCK = DeferredBlock.createBlock(existsLocationBlock);
+			BLOCK_ITEM = DeferredItem.createItem(existsLocationItem);
 		}
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
-		return base.BLOCKS.register(name, block);
+		return CompendiumBlocks.BLOCKS.register(name, block);
 	}
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
-		return base.ITEMS.register(name + "_item", item);
+		return CompendiumItems.ITEMS.register(name + "_item", item);
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
@@ -124,13 +152,11 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-//		if (!this.isIgnored())
 		for (TagKey<Item> tag : itemTag)
 			itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-//		if (!this.isIgnored())
 		for (TagKey<Block> tag : blockTag)
 			btp.tag(tag).add(BLOCK.get());
 	}
@@ -138,9 +164,6 @@ public class CompendiumBlockHandler implements Serializable {
 	public boolean is(ItemStack item) {
 		if (BLOCK_ITEM != null && BLOCK_ITEM.isBound() && item.is(BLOCK_ITEM))
 			return true;
-//		for (TagKey<Item> key : this.itemTag)
-//			if (item.is(key))
-//				return true;
 		return false;
 	}
 
@@ -152,5 +175,40 @@ public class CompendiumBlockHandler implements Serializable {
 	public void setAsValidStyleItem() {
 		if (this.shouldGenerate())
 			Compendium.styleItemRenderers.add(this.BLOCK_ITEM);
+	}
+
+	public void blockLoot(_MaterialBase _MaterialBase, BlockLootSubProvider blp) {
+		if (this.shouldGenerate())
+			blp.dropSelf(this.BLOCK.get());
+	}
+
+	public JsonElement serialize() {
+		JsonObject j = new JsonObject();
+		if (this.getExistsLocationBlock() != null)
+			j.addProperty("existsLocationBlock", this.getExistsLocationBlock().toString());
+
+		if (this.getExistsLocationItem() != null)
+			j.addProperty("existsLocationItem", this.getExistsLocationItem().toString());
+
+		j.addProperty("generate", this.generate.toString());
+		return j;
+	}
+
+	public void deserialize(JsonObject json) {
+		if (json.has("existsLocationBlock")) {
+			String s = json.get("existsLocationBlock").getAsString();
+
+			if (!s.isEmpty())
+				this.existsLocationBlock = ResourceLocation.parse(s);
+		}
+		if (json.has("existsLocationItem")) {
+			String s = json.get("existsLocationItem").getAsString();
+
+			if (!s.isEmpty())
+				this.existsLocationItem = ResourceLocation.parse(s);
+		}
+
+		String g = json.get("generate").getAsString();
+		this.generate = Generate.valueOf(g.toUpperCase());
 	}
 }
