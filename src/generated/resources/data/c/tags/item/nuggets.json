@@ -3,7 +3,6 @@
     "compendium:copper_nugget_item",
     "minecraft:gold_nugget",
     "minecraft:iron_nugget",
-    "compendium:netherite_nugget_item",
-    "compendium:silver_nugget_item"
+    "compendium:netherite_nugget_item"
   ]
 }

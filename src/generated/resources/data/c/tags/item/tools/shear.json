@@ -3,7 +3,6 @@
     "compendium:copper_shears_item",
     "compendium:gold_shears_item",
     "compendium:iron_shears_item",
-    "compendium:netherite_shears_item",
-    "compendium:silver_shears_item"
+    "compendium:netherite_shears_item"
   ]
 }

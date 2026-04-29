@@ -21,9 +21,12 @@ import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.util.TagUtil;
 
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -143,7 +146,21 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		// TODO Auto-generated method stub
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BLOCK.BLOCK_ITEM.get(), 1).requires(INGOT.ITEM.get(), 9)
+				.unlockedBy("has", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_ingot_to_block"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 9).requires(BLOCK.BLOCK_ITEM.get())
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(BLOCK.BLOCK_ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_ingot_from_block"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 1).requires(NUGGET.ITEM.get(), 9)
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(NUGGET.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_ingot_to_nugget"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NUGGET.ITEM.get(), 9).requires(INGOT.ITEM.get())
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_ingot_from_nugget"));
 
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}

@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    },
+    {
+      "item": "compendium:netherite_nugget_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  }
+}

@@ -3,7 +3,6 @@
     "compendium:copper_prybar_item",
     "compendium:gold_prybar_item",
     "compendium:iron_prybar_item",
-    "compendium:netherite_prybar_item",
-    "compendium:silver_prybar_item"
+    "compendium:netherite_prybar_item"
   ]
 }

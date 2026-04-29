@@ -3,7 +3,6 @@
     "compendium:copper_bow_item",
     "compendium:gold_bow_item",
     "compendium:iron_bow_item",
-    "compendium:netherite_bow_item",
-    "compendium:silver_bow_item"
+    "compendium:netherite_bow_item"
   ]
 }
