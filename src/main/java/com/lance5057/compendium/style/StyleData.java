@@ -15,7 +15,7 @@ public class StyleData {
 					"hex_brick", "slats", "slats_vertical"));
 
 	public static StyleData TABLE_TOP = new StyleData("table_top", List.of("basic", "trimmed", "smooth"));
-	public static StyleData TABLE_LEGS = new StyleData("table_legs", List.of("basic", "bar", "fancy"));
+	public static StyleData TABLE_LEGS = new StyleData("table_legs", List.of("basic", "fancy", "thin"));
 	public static StyleData TABLE_CLOTH = new StyleData("table_cloth",
 			List.of("basic", "long", "short", "angled", "angled_short", "angled_long"));
 

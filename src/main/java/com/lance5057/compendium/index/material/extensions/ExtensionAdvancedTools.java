@@ -45,7 +45,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	public CompendiumItemHandler SAW;
 	public CompendiumItemHandler SHEARS;
 	public CompendiumItemHandler ZWEIHANDER;
-	public CompendiumItemHandler BOW;
+//	public CompendiumItemHandler BOW;
 
 	public ExtensionAdvancedTools() {
 		this.ITEMS.add(PRYBAR = new CompendiumItemHandler());
@@ -53,7 +53,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		this.ITEMS.add(SAW = new CompendiumItemHandler());
 		this.ITEMS.add(SHEARS = new CompendiumItemHandler());
 		this.ITEMS.add(ZWEIHANDER = new CompendiumItemHandler());
-		this.ITEMS.add(BOW = new CompendiumItemHandler());
+//		this.ITEMS.add(BOW = new CompendiumItemHandler());
 	}
 
 	@Override
@@ -78,9 +78,9 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()));
 		ZWEIHANDER.setupItemTag(ItemTags.SWORDS);
 
-		BOW.setName(base.name + "_bow");
-		BOW.setup(base, () -> new BowItem(new Item.Properties()));
-		BOW.setupItemTag(Tags.Items.TOOLS_BOW);
+//		BOW.setName(base.name + "_bow");
+//		BOW.setup(base, () -> new BowItem(new Item.Properties()));
+//		BOW.setupItemTag(Tags.Items.TOOLS_BOW);
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		SAW.tab(base, output);
 		SHEARS.tab(base, output);
 		ZWEIHANDER.tab(base, output);
-		BOW.tab(base, output);
+//		BOW.tab(base, output);
 	}
 
 	@Override
@@ -153,9 +153,9 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		if (ZWEIHANDER.shouldGenerate()) {
 			lp.add(this.ZWEIHANDER.ITEM.asItem(), material_name + "Zweihänder");
 		}
-		if (BOW.shouldGenerate()) {
-			lp.add(this.BOW.ITEM.asItem(), material_name + "Bow");
-		}
+//		if (BOW.shouldGenerate()) {
+//			lp.add(this.BOW.ITEM.asItem(), material_name + "Bow");
+//		}
 	}
 
 	@Override
@@ -189,7 +189,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 			if (SHEARS.shouldGenerate())
 				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).pattern("i ").pattern(" i")
+						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).pattern("i  ").pattern(" i ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
@@ -203,13 +203,13 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 						.save(consumer);
 
-			if (BOW.shouldGenerate())
-				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('b', Items.BOW)
-						.pattern("i  ").pattern(" b ").pattern("  i")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
-						.save(consumer);
+//			if (BOW.shouldGenerate())
+//				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack())
+//						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('b', Items.BOW)
+//						.pattern("i  ").pattern(" b ").pattern("  i")
+//						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+//								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+//						.save(consumer);
 		}
 	}
 
@@ -287,7 +287,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			j.add("saw", src.SAW.serialize());
 			j.add("shears", src.SHEARS.serialize());
 			j.add("zweihander", src.ZWEIHANDER.serialize());
-			j.add("bow", src.BOW.serialize());
+//			j.add("bow", src.BOW.serialize());
 
 			return j;
 		}
@@ -304,7 +304,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 			eat.SAW.deserialize(j.get("saw").getAsJsonObject());
 			eat.SHEARS.deserialize(j.get("shears").getAsJsonObject());
 			eat.ZWEIHANDER.deserialize(j.get("zweihander").getAsJsonObject());
-			eat.BOW.deserialize(j.get("bow").getAsJsonObject());
+//			eat.BOW.deserialize(j.get("bow").getAsJsonObject());
 
 			return eat;
 		}

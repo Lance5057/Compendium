@@ -9,7 +9,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<HammeringStationBlockEntity> {
 	int timer = 0;
@@ -28,14 +30,15 @@ public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<Hamme
 			return;
 		}
 
-//		ItemStackHandler inv = tileEntityIn.getInventory();
-//
-//		transform.setScale(0.5f);
-//		transform.setLocation(8f, 20f, 8f);
-//
-//		ItemStack input = inv.getStackInSlot(0);
+		ItemStackHandler inv = tileEntityIn.getInventory();
 
-//		RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+		if (!inv.getStackInSlot(0).isEmpty()) {
+			ItemStack input = inv.getStackInSlot(0);
+			transform.setScale(0.5f);
+			transform.setLocation(8f, 20f, 8f);
+
+			RenderUtil.itemModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, input, transform, timer);
+		}
 
 		if (tileEntityIn.getCurrentTool() != null && tileEntityIn.getCurrentTool().model() != null) {
 			matrixStackIn.pushPose();
@@ -50,8 +53,6 @@ public class HammeringStationRenderer extends MultiToolBlockEntityRenderer<Hamme
 			tileEntityIn.getCurrentTool().model().forEach(b -> {
 				RenderUtil.loadModel(matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, b, timer);
 			});
-
-			
 
 			matrixStackIn.popPose();
 		}

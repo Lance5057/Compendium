@@ -122,15 +122,15 @@ public class ClientMetal {
 
 	private static void doAdvancedTools(ModifyBakingResult event, MaterialMetal mb, ExtensionAdvancedTools eep,
 			Map<ModelResourceLocation, BakedModel> models) {
-		if (eep.BOW.shouldGenerate()) {
-			ResourceLocation loc = ClientUtil.createItemLocation(eep.BOW.name);
-			ModelResourceLocation mloc = new ModelResourceLocation(loc, "");
-
-			event.getModels().put(mloc,
-					CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("extra/bow"), mloc,
-							BlockModelRotation.X0_Y0,
-							Pair.of("layer1", TagUtil.modLoc("item/material/metal/" + mb.name + "/bow"))));
-		}
+//		if (eep.BOW.shouldGenerate()) {
+//			ResourceLocation loc = ClientUtil.createItemLocation(eep.BOW.name);
+//			ModelResourceLocation mloc = new ModelResourceLocation(loc, "");
+//
+//			event.getModels().put(mloc,
+//					CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("extra/bow"), mloc,
+//							BlockModelRotation.X0_Y0,
+//							Pair.of("layer1", TagUtil.modLoc("item/material/metal/" + mb.name + "/bow"))));
+//		}
 
 		if (eep.ZWEIHANDER.shouldGenerate()) {
 			ResourceLocation loc = ClientUtil.createItemLocation(eep.ZWEIHANDER.name);

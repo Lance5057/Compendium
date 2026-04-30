@@ -27,8 +27,6 @@ public class MultiStyleMaterialOverrides extends ItemOverrides {
 			MultiMaterialBlockComponent mmc = pStack.get(CompendiumComponents.MULTI_MATERIAL);
 			StyleBlockComponent sc = pStack.get(CompendiumComponents.STYLE);
 
-			
-
 			return bm;
 		}
 		return pModel;

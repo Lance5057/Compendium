@@ -27,8 +27,8 @@
     "styleLayer": 1,
     "styles": [
       "basic",
-      "bar",
-      "fancy"
+      "fancy",
+	  "thin"
     ],
     "suffix": "_inventory",
     "valid": [

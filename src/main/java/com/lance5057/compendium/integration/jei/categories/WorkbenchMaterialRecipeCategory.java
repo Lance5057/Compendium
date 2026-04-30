@@ -65,8 +65,8 @@ public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<Workbenc
 
 		int count = 0;
 		for (Ingredient i : recipe.pattern.ingredients()) {
-			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % 3) * 18), 1 + (int) (count / 3) * 18)
-					.addIngredients(i);
+			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % recipe.pattern.height()) * 18),
+					1 + (int) (count / recipe.pattern.width()) * 18).addIngredients(i);
 			count++;
 		}
 

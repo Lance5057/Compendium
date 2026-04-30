@@ -215,11 +215,11 @@ public class ClientWood {
 						modelLoc_clothed.withSuffix("_inventory"), "");
 
 				event.getModels().put(m_inventory,
-						CompendiumClient.basicModelManyTexture(event, planksTexture, m_inventory,
+						CompendiumClient.basicModelManyTexture(event, loc.withSuffix("_inventory"), m_inventory,
 								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 				event.getModels().put(m_clothed_inventory,
-						CompendiumClient.basicModelManyTexture(event, planksTexture, m_clothed_inventory,
+						CompendiumClient.basicModelManyTexture(event, loc_clothed.withSuffix("_inventory"), m_clothed_inventory,
 								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 			} else {
