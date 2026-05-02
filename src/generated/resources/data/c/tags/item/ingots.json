@@ -3,6 +3,7 @@
     "minecraft:copper_ingot",
     "minecraft:gold_ingot",
     "minecraft:iron_ingot",
-    "minecraft:netherite_ingot"
+    "minecraft:netherite_ingot",
+    "compendium:silver_ingot_item"
   ]
 }

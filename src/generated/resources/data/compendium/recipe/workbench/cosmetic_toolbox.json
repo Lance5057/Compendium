@@ -52,26 +52,23 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": -0.7
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -1.0
               },
               "z": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 27.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
-                "loop": true,
                 "max": 45.0,
-                "min": -45.0,
-                "pingpong": true,
-                "speed": 0.5
+                "min": -45.0
               }
             },
             "scale": {
@@ -92,7 +89,7 @@
               }
             }
           },
-          "location": "compendium:gold_hammer_item"
+          "location": "compendium:iron_hammer_item"
         }
       ],
       "tool": {

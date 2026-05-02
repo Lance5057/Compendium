@@ -34,26 +34,23 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": -0.7
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -1.0
               },
               "z": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 27.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
-                "loop": true,
                 "max": 45.0,
-                "min": -45.0,
-                "pingpong": true,
-                "speed": 0.5
+                "min": -45.0
               }
             },
             "scale": {
@@ -74,7 +71,136 @@
               }
             }
           },
-          "location": "compendium:gold_hammer"
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:netherite_ingot"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:netherite_block"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -4.0
+              },
+              "z": {
+                "max": 27.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 135.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:stick"
         }
       ],
       "tool": {

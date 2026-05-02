@@ -196,7 +196,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE).define('r', Items.RED_DYE)
 				.define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb").pattern("lhg").pattern("rcy")
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
+						Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder chair = WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR)
