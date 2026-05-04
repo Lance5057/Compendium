@@ -1206,13 +1206,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage0"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage1"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage2"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_split_log_stage2"), 0))
 					.save(consumer, base.name + "_small_log");
 		}
 		if (LOG.shouldGenerate()) {
@@ -1241,13 +1244,13 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage0"), 0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage1"), 0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage2"), 0))
+							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage2"), 0))
 					.save(consumer, base.name + "_stripped_small_log");
 		}
 		if (STRIPPED_LOG.shouldGenerate()) {

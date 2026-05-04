@@ -8,7 +8,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.data.Recipes;
@@ -31,7 +30,6 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -172,7 +170,64 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
 						.pattern("i  ").pattern(" s ").pattern("  i")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+																false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))))
 						.save(consumer);
 
 			if (HAMMER.shouldGenerate())
@@ -181,7 +236,104 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
 						.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+																false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+																false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 26.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_block"), false,
+										new AnimationFloatTransform()
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 83.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 35.000F, 0.000F, 0.000F, false,
+																false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))))
 						.save(consumer);
 
 			if (SAW.shouldGenerate())
@@ -190,14 +342,106 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
 						.define('s', Items.STICK).pattern("ibs")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
+										new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
+										new AnimationFloatTransform()
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))))
 						.save(consumer);
 
 			if (SHEARS.shouldGenerate())
 				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack())
 						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).pattern("i  ")
-						.pattern(" i ").tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY,
-								List.of(), Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
+						.pattern(" i ")
+						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 16.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))),
+								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+										new AnimationFloatTransform()
+												.setRotation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+																false)))
+												.setLocation(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+																false)))
+												.setScale(new AnimatedFloatVector3()
+														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false))
+														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																false)))))
 						.save(consumer);
 
 			if (ZWEIHANDER.shouldGenerate())
@@ -210,16 +454,16 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3()
-														.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false,
+														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
 																false))
-														.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F,
-																false, false)))
+														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+																false)))
 												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false,
+														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
 																false))
-														.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false,
+														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
 																false))
-														.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false,
+														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
 																false)))
 												.setScale(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
@@ -230,38 +474,30 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 																false)))),
 								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
 										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F,
-																false, false)))
 												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false,
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
 																false))
-														.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false,
+														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
 																false))
-														.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false,
+														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
 																false)))
 												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
 																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
 																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
 																false)))),
-								new BlacklistedModel(TagUtil.mcLoc("stick"), false,
+								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
 										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F,
-																false, false)))
+												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
+														90.000F, 0.000F, 0.000F, false, false)))
 												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false,
+														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
 																false))
-														.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false,
+														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
 																false))
-														.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false,
+														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
 																false)))
 												.setScale(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,

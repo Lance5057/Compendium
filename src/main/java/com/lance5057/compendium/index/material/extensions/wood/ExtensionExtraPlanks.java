@@ -229,7 +229,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 							new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
 					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage3"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage3"), 0))
 					.save(consumer, base.name + "_plank_from_small");
 
 			SawBuckRecipeBuilder
@@ -238,7 +239,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 							new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
 					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/split_log_stage3"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage3"), 0))
 					.save(consumer, base.name + "_plank_from_stripped");
 
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ((MaterialWood) base).PLANKS.BLOCK_ITEM, 2)

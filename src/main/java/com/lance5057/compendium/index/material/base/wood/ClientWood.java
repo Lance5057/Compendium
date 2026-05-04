@@ -45,6 +45,10 @@ public class ClientWood {
 		ResourceLocation strippedLogTopTexture = ResourceLocation.fromNamespaceAndPath(mw.namespace,
 				"block/material/wood/" + mw.name + "/stripped_log_top");
 
+		ResourceLocation logExtraCaps = TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps");
+		ResourceLocation logStrippedExtraCaps = TagUtil
+				.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps");
+
 		if (mw.specialLocations != null) {
 			if (mw.specialLocations.textures != null) {
 				if (mw.specialLocations.textures.plankLocation != null)
@@ -64,6 +68,58 @@ public class ClientWood {
 //			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),
 //					mw.name + "_planks", "");
 //		}
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_split_log_stage0")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage0"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", logTexture), Pair.of("1", logTopTexture)));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_split_log_stage1")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage1"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", logTexture), Pair.of("1", logTopTexture),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side"))));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_split_log_stage2")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage2"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", logTexture), Pair.of("1", logTopTexture),
+						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side"))));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_split_log_stage3")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage3"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", logTexture), Pair.of("1", logExtraCaps)));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_stripped_split_log_stage0")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage0"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", strippedLogTexture), Pair.of("1", strippedLogTopTexture)));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_stripped_split_log_stage1")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage1"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", strippedLogTexture), Pair.of("1", strippedLogTopTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side"))));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_stripped_split_log_stage2")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage2"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", strippedLogTexture), Pair.of("1", strippedLogTopTexture), Pair.of("2",
+								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side"))));
+
+		event.getModels().put(
+				ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_stripped_split_log_stage3")),
+				CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage3"),
+						new ModelResourceLocation(TagUtil.modLoc(mw.name + "_planks"), ""), BlockModelRotation.X0_Y0,
+						Pair.of("0", strippedLogTexture), Pair.of("1", logStrippedExtraCaps)));
 
 		if (mw.PLANKS.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
@@ -219,8 +275,8 @@ public class ClientWood {
 								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 				event.getModels().put(m_clothed_inventory,
-						CompendiumClient.basicModelManyTexture(event, loc_clothed.withSuffix("_inventory"), m_clothed_inventory,
-								BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
+						CompendiumClient.basicModelManyTexture(event, loc_clothed.withSuffix("_inventory"),
+								m_clothed_inventory, BlockModelRotation.X0_Y0, Pair.of("0", planksTexture),
 								Pair.of("1", Compendium.modLoc("block/material/wood/" + mw.name + "/planks/sheet"))));
 			} else {
 				event.getModels().put(m, CompendiumClient.basicModelAllTexture(event, planksTexture, loc, m,

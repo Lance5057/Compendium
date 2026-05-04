@@ -77,23 +77,22 @@
           "animation": {
             "location": {
               "x": {
-                "max": -0.7
+                "max": 6.0
               },
               "y": {
-                "max": -4.0
+                "max": 0.5
               },
               "z": {
-                "max": 27.0
+                "max": 23.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": -90.0
+              "x": {
+                "max": 90.0
               },
               "z": {
-                "max": 135.0,
-                "min": -45.0
+                "max": 45.0
               }
             },
             "scale": {
@@ -120,40 +119,29 @@
           "animation": {
             "location": {
               "x": {
-                "max": -0.7
+                "max": 5.0
               },
               "y": {
-                "max": -4.0
+                "max": 3.0
               },
               "z": {
-                "max": 27.0
+                "max": 14.0
               }
             },
             "pivot": {},
-            "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 135.0,
-                "min": -45.0
-              }
-            },
+            "rotation": {},
             "scale": {
               "x": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 0.35,
+                "min": 0.35
               },
               "y": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 0.35,
+                "min": 0.35
               },
               "z": {
-                "max": 0.5,
-                "min": 0.5,
-                "speed": 1.0
+                "max": 0.35,
+                "min": 0.35
               }
             }
           },
@@ -163,23 +151,19 @@
           "animation": {
             "location": {
               "x": {
-                "max": -0.7
+                "max": 5.0
               },
               "y": {
-                "max": -4.0
+                "max": 0.3
               },
               "z": {
-                "max": 27.0
+                "max": 7.0
               }
             },
             "pivot": {},
             "rotation": {
-              "y": {
-                "max": -90.0
-              },
-              "z": {
-                "max": 135.0,
-                "min": -45.0
+              "x": {
+                "max": 90.0
               }
             },
             "scale": {

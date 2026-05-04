@@ -103,7 +103,7 @@
               }
             }
           },
-          "location": "compendium:recipes/split_log_stage0"
+          "location": "compendium:recipes/jungle_stripped_split_log_stage0"
         }
       ],
       "tool": {
@@ -200,7 +200,7 @@
               }
             }
           },
-          "location": "compendium:recipes/split_log_stage1"
+          "location": "compendium:recipes/jungle_stripped_split_log_stage1"
         }
       ],
       "tool": {
@@ -297,7 +297,7 @@
               }
             }
           },
-          "location": "compendium:recipes/split_log_stage2"
+          "location": "compendium:recipes/jungle_stripped_split_log_stage2"
         }
       ],
       "tool": {
