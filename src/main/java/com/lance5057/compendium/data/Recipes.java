@@ -98,7 +98,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				new AnimationFloatTransform()
 						.setRotation(new AnimatedFloatVector3()
 								.setY(new AnimatedFloat(0.000F, 180.000F, 0.000F, 0.000F, false, false))
-								.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 1.500F, true, true)))
+								.setZ(new AnimatedFloat(0.000F, 64.000F, 0.000F, 0.500F, true, true)))
 						.setLocation(new AnimatedFloatVector3()
 								.setX(new AnimatedFloat(0.000F, -16.000F, 0.000F, 0.000F, false, false))
 								.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
@@ -112,14 +112,14 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	public static BlacklistedModel standardSawBuckSawModel(ResourceLocation i, float yOffset) {
-		return new BlacklistedModel(i, false,
+		return new BlacklistedModel(ResourceLocation.parse("compendium:iron_saw_item"), false,
 				new AnimationFloatTransform()
 						.setRotation(new AnimatedFloatVector3()
 								.setY(new AnimatedFloat(0.000F, 180.000F, 0.000F, 0.000F, false, false))
 								.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
 						.setLocation(new AnimatedFloatVector3()
 								.setX(new AnimatedFloat(-14.000F, -6.000F, 0.000F, 0.100F, true, true))
-								.setY(new AnimatedFloat(0.000F, 0.000F, 0.000F, 0.100F, true, true))
+								.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, true, true))
 								.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
 						.setScale(new AnimatedFloatVector3()
 								.setX(new AnimatedFloat(1.000F, 1.000F, 0.000F, 0.000F, false, false))
@@ -159,9 +159,23 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	private void hammering(RecipeOutput consumer) {
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-						standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE)).tool(
+				Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
+				new BlacklistedModel(ResourceLocation.parse("compendium:gold_hammer_item"), false,
+						new AnimationFloatTransform()
+								.setRotation(new AnimatedFloatVector3()
+										.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.500F, true, true)))
+								.setLocation(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(-8.000F, 0.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(-10.000F, 10.000F, 0.000F, 0.000F, false, false))
+										.setZ(new AnimatedFloat(-8.000F, 8.000F, 0.000F, 0.000F, false, false)))
+								.setScale(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+										.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+										.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false)))
+								.setPivot(new AnimatedFloatVector3()
+										.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+										.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))))
 				.save(consumer);
 	}
 
@@ -299,7 +313,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		fence.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder shingles = WorkbenchRecipeBuilder.shaped(CompendiumItems.SHINGLES_SLANTED, 6)
-				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOGS))
+				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOG))
 				.slotToMat(new SlotToMaterial(2, 0)).slotToMat(new SlotToMaterial(8, 1)).pattern("  b").pattern(" b ")
 				.pattern("b l");
 
@@ -311,7 +325,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		shingles.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder shingles_cap = WorkbenchRecipeBuilder.shaped(CompendiumItems.SHINGLES_CAP_SLANTED, 6)
-				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOGS))
+				.define('b', Ingredient.of(CompendiumTags.PLANK)).define('l', Ingredient.of(CompendiumTags.SMALL_LOG))
 				.slotToMat(new SlotToMaterial(1, 0)).slotToMat(new SlotToMaterial(5, 1)).pattern(" b ").pattern("blb");
 
 		shingles_cap = ShinglesSlantedCapRecipeData.stage0(shingles_cap);

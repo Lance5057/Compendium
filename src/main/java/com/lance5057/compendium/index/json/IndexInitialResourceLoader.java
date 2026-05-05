@@ -42,6 +42,7 @@ import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPla
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.world.item.Items;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -138,7 +139,13 @@ public class IndexInitialResourceLoader {
 		iron.INGOT.setExists(TagUtil.mcLoc("iron_ingot"));
 		iron.NUGGET.setExists(TagUtil.mcLoc("iron_nugget"));
 
-		iron.addExtension(new ExtensionAdvancedTools().generateAll());
+		ExtensionAdvancedTools ia = new ExtensionAdvancedTools();
+		ia.HAMMER.setGenerate();
+		ia.PRYBAR.setGenerate();
+		ia.SAW.setGenerate();
+		ia.ZWEIHANDER.setGenerate();
+		ia.SHEARS.setExists(TagUtil.mcLoc("shears"));
+		iron.addExtension(ia);
 
 		buildDefault(iron);
 

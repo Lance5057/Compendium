@@ -25,7 +25,7 @@ public class CompendiumTags {
 	public static TagKey<Item> TEXTILES = ItemTags.create(TagUtil.neoTag("textiles"));
 
 	public static TagKey<Item> SMALL_LOG = ItemTags.create(TagUtil.neoTag("small_log"));
-	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
+//	public static TagKey<Item> SMALL_LOGS = ItemTags.create(TagUtil.neoTag("small_logs"));
 
 	public static TagKey<Block> PIPE_CAN_ATTACH = BlockTags.create(TagUtil.modLoc("pipe_can_attach"));
 

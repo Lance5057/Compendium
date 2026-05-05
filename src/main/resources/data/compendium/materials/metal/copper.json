@@ -32,9 +32,6 @@
       },
       "zweihander": {
         "generate": "GENERATE"
-      },
-      "bow": {
-        "generate": "GENERATE"
       }
     }
   ]

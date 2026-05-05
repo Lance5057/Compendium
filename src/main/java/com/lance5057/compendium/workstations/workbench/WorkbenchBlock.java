@@ -135,14 +135,13 @@ public class WorkbenchBlock extends StationGui {
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			if (pPlayer.isCrouching()) {
-				openMenu(pPlayer, be, pPos);
+			if (be.getCurrentTool() != null && be.getCurrentTool().tool() != null
+					&& be.getCurrentTool().tool().test(stack)) {
+				be.use(pLevel, pPlayer, pHand, stack);
 				return ItemInteractionResult.SUCCESS;
 			} else {
-				if (!stack.isEmpty()) {
-					be.use(pLevel, pPlayer, pHand, stack);
-					return ItemInteractionResult.SUCCESS;
-				}
+				openMenu(pPlayer, be, pPos);
+				return ItemInteractionResult.SUCCESS;
 			}
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

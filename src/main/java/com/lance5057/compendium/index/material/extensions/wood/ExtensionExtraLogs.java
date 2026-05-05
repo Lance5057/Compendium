@@ -104,7 +104,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 				() -> new BlockItem(SMALL_LOG.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
 						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
 		SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOG);
-		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_logs/" + base.name));
+		SMALL_LOG.setupItemTag(TagUtil.neoTag("small_log/" + base.name));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small"));
 		SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/small/" + base.name));
 		SMALL_LOG.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);

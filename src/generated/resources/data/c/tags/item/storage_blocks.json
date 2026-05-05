@@ -3,7 +3,6 @@
     "minecraft:copper_block",
     "minecraft:gold_block",
     "minecraft:iron_block",
-    "minecraft:netherite_block",
-    "compendium:silver_block_item"
+    "minecraft:netherite_block"
   ]
 }

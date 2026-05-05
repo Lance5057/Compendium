@@ -29,12 +29,10 @@
         "generate": "GENERATE"
       },
       "shears": {
-        "generate": "GENERATE"
+        "existsLocation": "minecraft:shears",
+        "generate": "EXISTS"
       },
       "zweihander": {
-        "generate": "GENERATE"
-      },
-      "bow": {
         "generate": "GENERATE"
       }
     }

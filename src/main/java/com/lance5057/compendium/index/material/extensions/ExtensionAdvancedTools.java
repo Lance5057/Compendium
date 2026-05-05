@@ -25,6 +25,7 @@ import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -63,7 +64,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		PRYBAR.setName(base.name + "_prybar");
-		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties()));
+		PRYBAR.setup(base, () -> new PrybarItem(base.tier, new Item.Properties().durability(base.tier.getUses())
+				.component(DataComponents.TOOL, base.tier.createToolProperties(CompendiumTags.PRYABLE))));
 		PRYBAR.setupItemTag(CompendiumTags.PRYBAR);
 
 		HAMMER.setName(base.name + "_hammer");
@@ -75,7 +77,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		SAW.setupItemTag(CompendiumTags.SAW);
 
 		SHEARS.setName(base.name + "_shears");
-		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties()));
+		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties().durability(base.tier.getUses())
+				.component(DataComponents.TOOL, ShearsItem.createToolProperties())));
 		SHEARS.setupItemTag(Tags.Items.TOOLS_SHEAR);
 
 		ZWEIHANDER.setName(base.name + "_zweihander");
@@ -171,7 +174,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.pattern("i  ").pattern(" s ").pattern("  i")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
@@ -192,24 +195,18 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 																false))
 														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-																false)))),
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false, new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
+														false)))),
 								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
@@ -237,7 +234,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
@@ -258,7 +255,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 																false))
 														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false,
@@ -279,7 +276,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 																false))
 														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_block"), false,
+								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setLocation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
@@ -403,25 +400,19 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.pattern(" i ")
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 16.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:iron_ingot"), false,
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false, new AnimationFloatTransform()
+										.setRotation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+										.setLocation(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 16.000F, 0.000F, 0.000F, false, false)))
+										.setScale(new AnimatedFloatVector3()
+												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+														false)))),
+								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform()
 												.setRotation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
