@@ -63,16 +63,21 @@ public class WorkbenchMaterialRecipeCategory implements IRecipeCategory<Workbenc
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, WorkbenchRecipe recipe, IFocusGroup focuses) {
 
-		int count = 0;
+		int width = recipe.pattern.width();
+		int x = 0;
+		int y = 0;
 		for (Ingredient i : recipe.pattern.ingredients()) {
-			builder.addSlot(RecipeIngredientRole.INPUT, 91 + ((count % recipe.pattern.height()) * 18),
-					1 + (int) (count / recipe.pattern.width()) * 18).addIngredients(i);
-			count++;
+			builder.addSlot(RecipeIngredientRole.INPUT, 91 + (x * 18), 1 + (int) (y * 18)).addIngredients(i);
+			x++;
+			if (x >= width) {
+				x = 0;
+				y++;
+			}
 		}
 
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 73).addItemStack(recipe.getItemOut());
 
-		count = 0;
+		int count = 0;
 		for (AnimatedRecipeItemUse aru : recipe.getTools()) {
 			builder.addSlot(RecipeIngredientRole.CATALYST, 1 + ((count % 4) * 18), 1 + (int) (count / 4) * 18)
 					.addIngredients(aru.tool());
