@@ -32,8 +32,8 @@
               },
               "y": {
                 "loop": true,
-                "pingpong": true,
-                "speed": 0.1
+                "max": 5.0,
+                "pingpong": true
               },
               "z": {
                 "max": 8.0

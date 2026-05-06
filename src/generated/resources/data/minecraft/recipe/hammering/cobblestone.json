@@ -19,7 +19,6 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
                 "min": -8.0
               },
               "y": {
@@ -31,7 +30,14 @@
                 "min": -8.0
               }
             },
-            "pivot": {},
+            "pivot": {
+              "x": {
+                "max": 3.0
+              },
+              "y": {
+                "max": 3.0
+              }
+            },
             "rotation": {
               "z": {
                 "loop": true,

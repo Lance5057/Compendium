@@ -103,7 +103,7 @@
               }
             }
           },
-          "location": "minecraft:iron_ingot"
+          "location": "minecraft:copper_ingot"
         },
         {
           "animation": {
@@ -145,7 +145,7 @@
               }
             }
           },
-          "location": "minecraft:iron_ingot"
+          "location": "minecraft:copper_ingot"
         }
       ],
       "tool": {

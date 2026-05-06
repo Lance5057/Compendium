@@ -110,7 +110,7 @@
               }
             }
           },
-          "location": "minecraft:iron_ingot"
+          "location": "minecraft:netherite_ingot"
         },
         {
           "animation": {
@@ -146,7 +146,7 @@
               }
             }
           },
-          "location": "minecraft:iron_ingot"
+          "location": "minecraft:netherite_ingot"
         },
         {
           "animation": {
