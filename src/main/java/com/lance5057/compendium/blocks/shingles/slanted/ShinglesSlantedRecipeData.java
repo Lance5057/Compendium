@@ -124,7 +124,7 @@ public class ShinglesSlantedRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/shingles/stage1"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/shingles/stage1"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -169,7 +169,7 @@ public class ShinglesSlantedRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/shingles/stage2"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/shingles/stage2"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -190,18 +190,18 @@ public class ShinglesSlantedRecipeData {
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
 														false)))
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/shingles/stage3"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/shingles/stage3"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))

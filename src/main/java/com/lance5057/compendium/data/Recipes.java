@@ -8,6 +8,7 @@ import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
+import com.lance5057.compendium.blocks.clothedtable.ClothedTableRecipeData;
 import com.lance5057.compendium.blocks.fence.FenceRecipeData;
 import com.lance5057.compendium.blocks.shingles.slanted.ShinglesSlantedRecipeData;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesSlantedCapRecipeData;
@@ -159,23 +160,36 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 	}
 
 	private void hammering(RecipeOutput consumer) {
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE)).tool(
-				Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.STONE_TO_COBBLE, List.of(),
-				new BlacklistedModel(ResourceLocation.parse("compendium:gold_hammer_item"), false,
-						new AnimationFloatTransform()
-								.setRotation(new AnimatedFloatVector3()
-										.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.500F, true, true)))
-								.setLocation(new AnimatedFloatVector3()
-										.setX(new AnimatedFloat(-8.000F, 0.000F, 0.000F, 0.000F, false, false))
-										.setY(new AnimatedFloat(-10.000F, 10.000F, 0.000F, 0.000F, false, false))
-										.setZ(new AnimatedFloat(-8.000F, 8.000F, 0.000F, 0.000F, false, false)))
-								.setScale(new AnimatedFloatVector3()
-										.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-										.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-										.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false)))
-								.setPivot(new AnimatedFloatVector3()
-										.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
-										.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))))
+		BlacklistedModel standardHammeringModel = new BlacklistedModel(
+				ResourceLocation.parse("compendium:gold_hammer_item"), false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3()
+								.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.500F, true, true)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(-8.000F, 0.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(-10.000F, 10.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(-8.000F, 8.000F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false)))
+						.setPivot(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLESTONE), new ItemStack(Items.GRAVEL))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GRAVEL), new ItemStack(Items.SAND))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
 				.save(consumer);
 	}
 
@@ -249,11 +263,11 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.slotToMat(new SlotToMaterial(3, 1)).slotToMat(new SlotToMaterial(1, 2)).pattern(" c ").pattern("psp")
 				.pattern("p p");
 
-		clothed_table = TableRecipeData.tableStage1(clothed_table); // saw top
-		clothed_table = TableRecipeData.tableStage2(clothed_table); // leg 1
-		clothed_table = TableRecipeData.tableStage3(clothed_table); // leg 2
-		clothed_table = TableRecipeData.tableStage4(clothed_table); // leg 3
-		clothed_table = TableRecipeData.tableStage5(clothed_table); // leg 4
+		clothed_table = ClothedTableRecipeData.tableStage1(clothed_table); // saw top
+		clothed_table = ClothedTableRecipeData.tableStage2(clothed_table); // leg 1
+		clothed_table = ClothedTableRecipeData.tableStage3(clothed_table); // leg 2
+		clothed_table = ClothedTableRecipeData.tableStage4(clothed_table); // leg 3
+		clothed_table = ClothedTableRecipeData.tableStage5(clothed_table); // leg 4
 
 		clothed_table.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 

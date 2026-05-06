@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-05T18:03:22.943499052	Loot Tables
+// 1.21.1	2026-05-06T10:08:20.7570581	Loot Tables
 113055c13dee35ed5c4c16e0cc72ceada332467c data/compendium/loot_table/blocks/acacia_plank.json
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
@@ -135,4 +135,3 @@ d089fa2b444c5b5adddf2d7bad7ada9f73499e94 data/compendium/loot_table/blocks/warpe
 ee69408d19ad17c7c39b2b38e63a53566ac10e2e data/compendium/loot_table/blocks/workbench.json
 7d1536101ced86585cd5e474b14929f69f27bdc6 data/compendium/loot_table/empty.json
 4d6f9bc4ae9b2aaa0268e1371c98ba1178f5d102 data/compendium/loot_table/sawdust.json
-e57417d8a1e9516296b470e774b506bace9dedde data/compendium/loot_table/stone_to_cobble.json

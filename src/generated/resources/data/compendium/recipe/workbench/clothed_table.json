@@ -245,6 +245,39 @@
             }
           },
           "location": "minecraft:oak_slab"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.05
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:white_wool"
         }
       ],
       "tool": {
@@ -464,6 +497,39 @@
             }
           },
           "location": "compendium:recipes/furniture/table/top"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.05
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:white_wool"
         }
       ],
       "tool": {
@@ -683,6 +749,39 @@
             }
           },
           "location": "compendium:recipes/furniture/table/top"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.05
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:white_wool"
         }
       ],
       "tool": {
@@ -906,6 +1005,39 @@
             }
           },
           "location": "compendium:recipes/furniture/table/top"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.05
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:white_wool"
         }
       ],
       "tool": {
@@ -1132,6 +1264,39 @@
             }
           },
           "location": "compendium:recipes/furniture/table/top"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.05
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:white_wool"
         }
       ],
       "tool": {

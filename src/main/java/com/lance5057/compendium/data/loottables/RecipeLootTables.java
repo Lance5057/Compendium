@@ -13,7 +13,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
@@ -25,12 +24,9 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public class RecipeLootTables implements LootTableSubProvider {
 
-	public static final ResourceKey<LootTable> STONE_TO_COBBLE = ResourceKey.create(Registries.LOOT_TABLE,
-			TagUtil.modLoc("stone_to_cobble"));
-
 	public static final ResourceKey<LootTable> SAW_DUST = ResourceKey.create(Registries.LOOT_TABLE,
 			TagUtil.modLoc("sawdust"));
-	
+
 	public static final ResourceKey<LootTable> EMPTY = ResourceKey.create(Registries.LOOT_TABLE,
 			TagUtil.modLoc("empty"));
 
@@ -46,7 +42,6 @@ public class RecipeLootTables implements LootTableSubProvider {
 			i.otherLoot(this);
 		});
 
-		output.accept(STONE_TO_COBBLE, LootTable.lootTable().withPool(createPoolWithItem(Items.COBBLESTONE, 1)));
 		output.accept(SAW_DUST, LootTable.lootTable().withPool(createPoolWithItem(CompendiumItems.SAWDUST.get(), 1)));
 		output.accept(EMPTY, LootTable.lootTable());
 	}

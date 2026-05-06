@@ -349,7 +349,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/stage1"
+          "location": "compendium:recipes/shingles/stage1"
         }
       ],
       "tool": {
@@ -468,7 +468,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/stage2"
+          "location": "compendium:recipes/shingles/stage2"
         }
       ],
       "tool": {
@@ -554,7 +554,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/stage3"
+          "location": "compendium:recipes/shingles/stage3"
         }
       ],
       "tool": {

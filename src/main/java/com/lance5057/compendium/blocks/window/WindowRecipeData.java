@@ -98,18 +98,18 @@ public class WindowRecipeData {
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
 														false)))
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 91.000F, 0.000F, 0.000F, false, false)))
@@ -121,7 +121,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -133,7 +133,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -146,7 +146,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 92.000F, 0.000F, 0.000F, false, false)))
@@ -158,7 +158,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false)))
@@ -171,7 +171,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
@@ -182,7 +182,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false, false)))
@@ -195,7 +195,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -228,18 +228,18 @@ public class WindowRecipeData {
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
 														false)))
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/half_frame"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/half_frame"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 75.000F, 0.000F, 0.000F, false, false)))
@@ -252,7 +252,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
@@ -263,7 +263,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false, false)))
@@ -276,7 +276,7 @@ public class WindowRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/stick"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/stick"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -309,18 +309,18 @@ public class WindowRecipeData {
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 135.000F, 0.000F, 0.000F, false,
+												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
 														false)))
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -4.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.000F, 0.000F, 0.000F, false, false)))
+												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
 										.setScale(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:extra/window/full_frame"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/window/full_frame"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))

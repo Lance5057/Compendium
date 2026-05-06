@@ -64,6 +64,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
@@ -134,7 +135,8 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
 												new IndexEntryComponent(base.getType(), base.name))));
-
+		PLANK_SLAB.setupItemTag(ItemTags.SLABS);
+		PLANK_SLAB.setupItemTag(ItemTags.WOODEN_SLABS);
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("slabs/planks/" + base.name));
 		PLANK_SLAB.setupItemTag(TagUtil.neoTag("wooden_slabs/" + base.name));
 		PLANK_SLAB.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);
@@ -159,6 +161,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_STAIRS.setAsValidStyleBlock();
 		PLANK_STAIRS.setAsValidStyleItem();
 
+		PLANK_STAIRS.setupItemTag(ItemTags.STAIRS);
 		PLANK_STAIRS.setupItemTag(ItemTags.WOODEN_STAIRS);
 		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("stairs/planks/" + base.name));
 		PLANK_STAIRS.setupItemTag(TagUtil.neoTag("wooden_stairs/" + base.name));
@@ -230,7 +233,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					.tool(Ingredient.of(CompendiumTags.SAW), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckSawModel(TagUtil.modLoc("iron_saw_item"), 0),
 							Recipes.standardSawBuckBlockModel(
-									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage3"), 0))
+									TagUtil.modLoc("recipes/" + base.name + "_split_log_stage3"), 0))
 					.save(consumer, base.name + "_plank_from_small");
 
 			SawBuckRecipeBuilder

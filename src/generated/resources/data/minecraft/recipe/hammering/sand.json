@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:stone"
+    "item": "minecraft:gravel"
   },
-  "loot": "minecraft:hammering/cobblestone",
+  "loot": "minecraft:hammering/sand",
   "ouput": {
     "count": 1,
-    "id": "minecraft:cobblestone"
+    "id": "minecraft:sand"
   },
   "tools": [
     {

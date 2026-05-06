@@ -312,7 +312,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -343,7 +343,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -377,7 +377,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -408,7 +408,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -442,7 +442,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -472,7 +472,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -506,7 +506,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -540,7 +540,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "animation": {
@@ -658,7 +658,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/half_frame"
+          "location": "compendium:recipes/window/half_frame"
         },
         {
           "IsBlock": true,
@@ -688,7 +688,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -722,7 +722,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "IsBlock": true,
@@ -756,7 +756,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/stick"
+          "location": "compendium:recipes/window/stick"
         },
         {
           "animation": {
@@ -867,7 +867,7 @@
               }
             }
           },
-          "location": "compendium:extra/window/full_frame"
+          "location": "compendium:recipes/window/full_frame"
         },
         {
           "animation": {

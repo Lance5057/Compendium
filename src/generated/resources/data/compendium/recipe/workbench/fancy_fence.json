@@ -110,7 +110,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/spoke"
+          "location": "compendium:recipes/fence/spoke"
         },
         {
           "IsBlock": true,
@@ -140,7 +140,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/spoke"
+          "location": "compendium:recipes/fence/spoke"
         },
         {
           "animation": {
@@ -258,7 +258,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/spoke"
+          "location": "compendium:recipes/fence/spoke"
         },
         {
           "IsBlock": true,
@@ -288,7 +288,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/spoke"
+          "location": "compendium:recipes/fence/spoke"
         },
         {
           "IsBlock": true,
@@ -322,7 +322,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/post"
+          "location": "compendium:recipes/fence/post"
         },
         {
           "IsBlock": true,
@@ -353,7 +353,7 @@
               }
             }
           },
-          "location": "compendium:extra/fence/post"
+          "location": "compendium:recipes/fence/post"
         }
       ],
       "tool": {

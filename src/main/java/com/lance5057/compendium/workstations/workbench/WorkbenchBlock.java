@@ -68,6 +68,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.Tags;
 
 public class WorkbenchBlock extends StationGui {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -139,7 +140,7 @@ public class WorkbenchBlock extends StationGui {
 					&& be.getCurrentTool().tool().test(stack)) {
 				be.use(pLevel, pPlayer, pHand, stack);
 				return ItemInteractionResult.SUCCESS;
-			} else {
+			} else if (!stack.is(Tags.Items.TOOLS)) {
 				openMenu(pPlayer, be, pPos);
 				return ItemInteractionResult.SUCCESS;
 			}
