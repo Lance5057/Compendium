@@ -123,13 +123,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 2.0
+                "max": 9.0
               },
               "y": {
-                "max": 6.0
+                "max": 4.0
               },
               "z": {
-                "max": 22.0
+                "max": 24.0
               }
             },
             "pivot": {
@@ -261,13 +261,13 @@
           "animation": {
             "location": {
               "x": {
-                "max": 6.0
+                "max": 5.0
               },
               "y": {
                 "max": -8.0
               },
               "z": {
-                "max": 12.0
+                "max": 13.0
               }
             },
             "pivot": {},
@@ -297,7 +297,7 @@
           "animation": {
             "location": {
               "x": {
-                "max": 11.0
+                "max": 11.5
               },
               "y": {
                 "max": -8.0
@@ -337,10 +337,303 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0
+                "max": 10.0
               },
               "y": {
-                "max": -11.5
+                "max": -9.5
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {
+              "y": {
+                "max": 3.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:brush"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 6
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.5
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "z": {
+                "max": 31.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/cosmetic_toolbox_stage1"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 13.0
+              },
+              "z": {
+                "max": 9.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 180.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/cosmetic_toolbox_lid"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:oak_pressure_plate"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 9.0
+              },
+              "y": {
+                "max": -8.0
+              },
+              "z": {
+                "max": 10.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": -90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:blue_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": -8.0
+              },
+              "z": {
+                "max": 10.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:red_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": -8.0
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:yellow_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 11.5
+              },
+              "y": {
+                "max": -8.0
               },
               "z": {
                 "max": 13.0
@@ -351,16 +644,365 @@
                 "max": 3.0
               }
             },
-            "rotation": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:green_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": -9.5
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {
+              "y": {
+                "max": 3.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:brush"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 4
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.5
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_saw_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 29.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 0.75
               },
               "y": {
-                "max": 0.05
+                "max": 0.75
               },
               "z": {
                 "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/cosmetic_toolbox_stage2"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 4.0
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:oak_pressure_plate"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 9.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 10.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": -90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:blue_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 10.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:red_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:yellow_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 11.5
+              },
+              "y": {
+                "max": 1.0
+              },
+              "z": {
+                "max": 13.0
+              }
+            },
+            "pivot": {
+              "y": {
+                "max": 3.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.25
+              },
+              "y": {
+                "max": 0.25
+              },
+              "z": {
+                "max": 0.25
+              }
+            }
+          },
+          "location": "minecraft:green_dye"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 10.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 3.0
+              }
+            },
+            "pivot": {
+              "y": {
+                "max": 3.0
+              }
+            },
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
               }
             }
           },
@@ -370,7 +1012,7 @@
       "tool": {
         "tag": "c:tools/saw"
       },
-      "uses": 2
+      "uses": 4
     }
   ]
 }
