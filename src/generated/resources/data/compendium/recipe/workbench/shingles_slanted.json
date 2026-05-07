@@ -349,7 +349,7 @@
               }
             }
           },
-          "location": "compendium:recipes/shingles/stage1"
+          "location": "compendium:recipes/furniture/shingles/stage1"
         }
       ],
       "tool": {
@@ -468,7 +468,7 @@
               }
             }
           },
-          "location": "compendium:recipes/shingles/stage2"
+          "location": "compendium:recipes/furniture/shingles/stage2"
         }
       ],
       "tool": {
@@ -489,10 +489,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -4.0
+                "max": -1.0
               },
               "z": {
-                "max": 27.0
+                "max": 27.5
               }
             },
             "pivot": {},
@@ -501,7 +501,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 135.0,
+                "max": 45.0,
                 "min": -45.0
               }
             },
@@ -554,7 +554,7 @@
               }
             }
           },
-          "location": "compendium:recipes/shingles/stage3"
+          "location": "compendium:recipes/furniture/shingles/stage3"
         }
       ],
       "tool": {

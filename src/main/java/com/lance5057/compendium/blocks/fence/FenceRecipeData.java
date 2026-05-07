@@ -32,7 +32,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/spoke"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/spoke"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
@@ -45,7 +45,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/spoke"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/spoke"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
@@ -87,7 +87,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
 												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/spoke"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/spoke"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false)))
@@ -100,7 +100,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/spoke"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/spoke"), true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, -2.000F, 0.000F, 0.000F, false, false))
@@ -111,7 +111,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/post"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/spoke"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
@@ -124,7 +124,7 @@ public class FenceRecipeData {
 												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/fence/post"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/fence/post/basic"), true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setZ(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))

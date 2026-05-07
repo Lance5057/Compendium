@@ -348,7 +348,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/cap/stage1"
+          "location": "compendium:recipes/furniture/shingles/cap/stage1"
         }
       ],
       "tool": {
@@ -467,7 +467,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/cap/stage2"
+          "location": "compendium:recipes/furniture/shingles/cap/stage2"
         }
       ],
       "tool": {
@@ -553,7 +553,7 @@
               }
             }
           },
-          "location": "compendium:extra/shingles/cap/stage3"
+          "location": "compendium:recipes/furniture/shingles/cap/stage3"
         }
       ],
       "tool": {

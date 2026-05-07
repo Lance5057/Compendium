@@ -247,10 +247,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -4.0
+                "max": -1.0
               },
               "z": {
-                "max": 27.0
+                "max": 27.5
               }
             },
             "pivot": {},
@@ -259,7 +259,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 135.0,
+                "max": 45.0,
                 "min": -45.0
               }
             },
@@ -312,7 +312,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -343,7 +343,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -377,7 +377,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -408,7 +408,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -442,7 +442,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -472,7 +472,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -506,7 +506,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -540,7 +540,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "animation": {
@@ -590,10 +590,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -4.0
+                "max": -1.0
               },
               "z": {
-                "max": 27.0
+                "max": 27.5
               }
             },
             "pivot": {},
@@ -602,7 +602,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 135.0,
+                "max": 45.0,
                 "min": -45.0
               }
             },
@@ -658,7 +658,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/half_frame"
+          "location": "compendium:recipes/furniture/window/half_frame"
         },
         {
           "IsBlock": true,
@@ -688,7 +688,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -722,7 +722,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "IsBlock": true,
@@ -756,7 +756,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/stick"
+          "location": "compendium:recipes/furniture/window/stick"
         },
         {
           "animation": {
@@ -806,10 +806,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -4.0
+                "max": -1.0
               },
               "z": {
-                "max": 27.0
+                "max": 27.5
               }
             },
             "pivot": {},
@@ -818,7 +818,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 135.0,
+                "max": 45.0,
                 "min": -45.0
               }
             },
@@ -867,7 +867,7 @@
               }
             }
           },
-          "location": "compendium:recipes/window/full_frame"
+          "location": "compendium:recipes/furniture/window/full_frame"
         },
         {
           "animation": {
