@@ -177,18 +177,708 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
 								.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))));
 
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE_BRICK_STAIRS), new ItemStack(Items.STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("stone_bricks_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE_BRICK_WALL), new ItemStack(Items.STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("stone_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_STONE_BRICKS), new ItemStack(Items.STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("stone_bricks_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE_BRICKS), new ItemStack(Items.CRACKED_STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_STONE_BRICKS), new ItemStack(Items.STONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_STONE), new ItemStack(Items.STONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("stone_from_smooth"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE_STAIRS), new ItemStack(Items.STONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("stone_from_stairs"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.STONE), new ItemStack(Items.COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLESTONE_STAIRS), new ItemStack(Items.COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("cobblestone_from_stairs"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLESTONE), new ItemStack(Items.GRAVEL))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GRAVEL), new ItemStack(Items.SAND))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_STAIRS), new ItemStack(Items.MOSSY_STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mossy_brick_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_WALL), new ItemStack(Items.MOSSY_STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mossy_brick_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_STAIRS), new ItemStack(Items.MOSSY_COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mossy_cobblestone_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_WALL), new ItemStack(Items.MOSSY_COBBLESTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mossy_cobblestone_from_wall"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_ANDESITE_STAIRS), new ItemStack(Items.POLISHED_ANDESITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_ANDESITE), new ItemStack(Items.ANDESITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DIORITE_STAIRS), new ItemStack(Items.POLISHED_DIORITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DIORITE), new ItemStack(Items.DIORITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_GRANITE_STAIRS), new ItemStack(Items.POLISHED_GRANITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_GRANITE), new ItemStack(Items.GRANITE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_BASALT), new ItemStack(Items.BASALT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("basalt_from_smooth"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BASALT), new ItemStack(Items.BASALT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("basalt_from_polished"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_TILE_STAIRS), new ItemStack(Items.DEEPSLATE_TILES))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("deepslate_tile_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_TILE_WALL), new ItemStack(Items.DEEPSLATE_TILES))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("deepslate_tile_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_TILES), new ItemStack(Items.CRACKED_DEEPSLATE_TILES))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_TILES), new ItemStack(Items.DEEPSLATE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_BRICK_STAIRS), new ItemStack(Items.DEEPSLATE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("deepslate_brick_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_BRICK_WALL), new ItemStack(Items.DEEPSLATE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("deepslate_brick_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_BRICKS), new ItemStack(Items.CRACKED_DEEPSLATE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_BRICKS), new ItemStack(Items.POLISHED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_STAIRS), new ItemStack(Items.POLISHED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_deepslate_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_WALL), new ItemStack(Items.POLISHED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_deepslate_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE), new ItemStack(Items.DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE), new ItemStack(Items.COBBLED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_STAIRS), new ItemStack(Items.COBBLED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_WALL), new ItemStack(Items.COBBLED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_DEEPSLATE), new ItemStack(Items.COBBLED_DEEPSLATE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_chiseled"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_STAIRS), new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_blackstone_bricks_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_WALL), new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_blackstone_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICKS), new ItemStack(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS), new ItemStack(Items.POLISHED_BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_STAIRS), new ItemStack(Items.POLISHED_BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_blackstone_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_WALL), new ItemStack(Items.POLISHED_BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_blackstone_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_POLISHED_BLACKSTONE), new ItemStack(Items.POLISHED_BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_blackstone_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE), new ItemStack(Items.BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BLACKSTONE_STAIRS), new ItemStack(Items.BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("blackstone_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BLACKSTONE_WALL), new ItemStack(Items.BLACKSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("blackstone_from_wall"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.TUFF_BRICK_STAIRS), new ItemStack(Items.TUFF_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("tuff_bricks_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.TUFF_BRICK_WALL), new ItemStack(Items.TUFF_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("tuff_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_TUFF_BRICKS), new ItemStack(Items.TUFF_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("tuff_bricks_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.TUFF_BRICKS), new ItemStack(Items.POLISHED_TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_TUFF_STAIRS), new ItemStack(Items.POLISHED_TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_tuff_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_TUFF_WALL), new ItemStack(Items.POLISHED_TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("polished_tuff_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_TUFF), new ItemStack(Items.TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.TUFF_STAIRS), new ItemStack(Items.TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("tuff_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.TUFF_WALL), new ItemStack(Items.TUFF))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("tuff_from_wall"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BRICK_STAIRS), new ItemStack(Items.BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("bricks_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BRICK_WALL), new ItemStack(Items.BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BRICKS), new ItemStack(Items.BRICK, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BRICK_SLAB), new ItemStack(Items.BRICK, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("brick_from_slab"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MUD_BRICK_STAIRS), new ItemStack(Items.MUD_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mud_bricks_from_stairs"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MUD_BRICK_WALL), new ItemStack(Items.MUD_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("mud_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MUD_BRICKS), new ItemStack(Items.PACKED_MUD))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE), new ItemStack(Items.PRISMARINE_SHARD, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_STAIRS), new ItemStack(Items.PRISMARINE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("prismarine_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_WALL), new ItemStack(Items.PRISMARINE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("prismarine_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_BRICK_STAIRS), new ItemStack(Items.PRISMARINE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_BRICKS), new ItemStack(Items.PRISMARINE_SHARD, 9))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("prismarine_shard_from_brick"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DARK_PRISMARINE_STAIRS), new ItemStack(Items.DARK_PRISMARINE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DARK_PRISMARINE), new ItemStack(Items.PRISMARINE_SHARD, 8))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("prismarine_shard_from_dark"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.NETHER_BRICK_STAIRS), new ItemStack(Items.NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_bricks_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.NETHER_BRICK_WALL), new ItemStack(Items.NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_NETHER_BRICKS), new ItemStack(Items.NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_bricks_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.NETHER_BRICK_FENCE), new ItemStack(Items.NETHER_BRICK, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_brick_from_fence"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.NETHER_BRICK_SLAB), new ItemStack(Items.NETHER_BRICK, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_brick_from_slab"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.NETHER_BRICKS), new ItemStack(Items.CRACKED_NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_NETHER_BRICKS), new ItemStack(Items.NETHER_BRICK, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_NETHER_BRICK_STAIRS), new ItemStack(Items.RED_NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_nether_bricks_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_NETHER_BRICK_WALL), new ItemStack(Items.RED_NETHER_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_nether_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_NETHER_BRICKS), new ItemStack(Items.NETHER_BRICK, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("nether_brick_from_red"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.END_STONE_BRICK_STAIRS), new ItemStack(Items.END_STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("end_stone_bricks_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.END_STONE_BRICK_WALL), new ItemStack(Items.END_STONE_BRICKS))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("end_stone_bricks_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.END_STONE_BRICKS), new ItemStack(Items.END_STONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_QUARTZ_STAIRS), new ItemStack(Items.SMOOTH_QUARTZ))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_QUARTZ), new ItemStack(Items.QUARTZ_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.QUARTZ_STAIRS), new ItemStack(Items.QUARTZ_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("quartz_block_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_QUARTZ_BLOCK), new ItemStack(Items.QUARTZ_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("quartz_block_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.QUARTZ_BRICKS), new ItemStack(Items.QUARTZ_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("quartz_block_from_bricks"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.QUARTZ_PILLAR), new ItemStack(Items.QUARTZ_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("quartz_block_from_pillar"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.QUARTZ_BLOCK), new ItemStack(Items.QUARTZ, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.QUARTZ_SLAB), new ItemStack(Items.QUARTZ, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("quartz_from_slab"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PURPUR_STAIRS), new ItemStack(Items.PURPUR_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("purpur_block_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PURPUR_PILLAR), new ItemStack(Items.PURPUR_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("purpur_block_from_pillar"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PURPUR_BLOCK), new ItemStack(Items.POPPED_CHORUS_FRUIT, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PURPUR_SLAB), new ItemStack(Items.POPPED_CHORUS_FRUIT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("popped_purpur_from_slab"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.WHITE_CONCRETE), new ItemStack(Items.WHITE_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_GRAY_CONCRETE), new ItemStack(Items.LIGHT_GRAY_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GRAY_CONCRETE), new ItemStack(Items.GRAY_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BLACK_CONCRETE), new ItemStack(Items.BLACK_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BROWN_CONCRETE), new ItemStack(Items.BROWN_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_CONCRETE), new ItemStack(Items.RED_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ORANGE_CONCRETE), new ItemStack(Items.ORANGE_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.YELLOW_CONCRETE), new ItemStack(Items.YELLOW_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIME_CONCRETE), new ItemStack(Items.LIME_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GREEN_CONCRETE), new ItemStack(Items.GREEN_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CYAN_CONCRETE), new ItemStack(Items.CYAN_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_BLUE_CONCRETE), new ItemStack(Items.LIGHT_BLUE_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BLUE_CONCRETE), new ItemStack(Items.BLUE_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PURPLE_CONCRETE), new ItemStack(Items.PURPLE_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MAGENTA_CONCRETE), new ItemStack(Items.MAGENTA_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PINK_CONCRETE), new ItemStack(Items.PINK_CONCRETE_POWDER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GLOWSTONE), new ItemStack(Items.GLOWSTONE_DUST, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.AMETHYST_BLOCK), new ItemStack(Items.AMETHYST_SHARD, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE), new ItemStack(Items.SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_SANDSTONE), new ItemStack(Items.SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sandstone_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_SANDSTONE), new ItemStack(Items.SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sandstone_from_cut"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SANDSTONE_STAIRS), new ItemStack(Items.SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sandstone_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SANDSTONE_WALL), new ItemStack(Items.SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sandstone_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SANDSTONE), new ItemStack(Items.SAND, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sand_from_sandstone"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE), new ItemStack(Items.RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_RED_SANDSTONE), new ItemStack(Items.RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sandstone_from_chiseled"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_RED_SANDSTONE), new ItemStack(Items.RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sandstone_from_cut"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_SANDSTONE_STAIRS), new ItemStack(Items.RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sandstone_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_SANDSTONE_WALL), new ItemStack(Items.RED_SANDSTONE))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sandstone_from_wall"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_SANDSTONE), new ItemStack(Items.RED_SAND, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COPPER_DOOR), new ItemStack(Items.COPPER_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("copper_ingot_from_door"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHTNING_ROD), new ItemStack(Items.COPPER_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("copper_ingot_from_lightning_rod"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COPPER_TRAPDOOR), new ItemStack(Items.COPPER_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("copper_ingot_from_trapdoor"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_COPPER_STAIRS), new ItemStack(Items.CUT_COPPER))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("cut_copper_from_stair"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_COPPER), new ItemStack(Items.COPPER_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("copper_block_from_cut"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COPPER_GRATE), new ItemStack(Items.COPPER_BLOCK))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("copper_block_from_grate"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POWERED_RAIL), new ItemStack(Items.GOLD_INGOT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_powered_rail"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HOE), new ItemStack(Items.GOLD_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_hoe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.GOLD_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_pressure_plate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_SWORD), new ItemStack(Items.GOLD_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_sword"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_AXE), new ItemStack(Items.GOLD_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_axe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_PICKAXE), new ItemStack(Items.GOLD_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_pickaxe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_BOOTS), new ItemStack(Items.GOLD_INGOT, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_boots"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HELMET), new ItemStack(Items.GOLD_INGOT, 5))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_helmet"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_LEGGINGS), new ItemStack(Items.GOLD_INGOT, 7))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_CHESTPLATE), new ItemStack(Items.GOLD_INGOT, 8))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_ingot_from_chestplate"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAIN), new ItemStack(Items.IRON_NUGGET, 11))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chain"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_BARS), new ItemStack(Items.IRON_NUGGET, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_bars"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RAIL), new ItemStack(Items.IRON_NUGGET, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_rail"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ACTIVATOR_RAIL), new ItemStack(Items.IRON_INGOT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_activator_rail"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DETECTOR_RAIL), new ItemStack(Items.IRON_INGOT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_detector_rail"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHIELD), new ItemStack(Items.IRON_INGOT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_shield"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SHOVEL), new ItemStack(Items.IRON_INGOT))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_shovel"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.HEAVY_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.IRON_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_pressure_plate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_DOOR), new ItemStack(Items.IRON_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_door"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HOE), new ItemStack(Items.IRON_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_hoe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHEARS), new ItemStack(Items.IRON_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_shears"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SWORD), new ItemStack(Items.IRON_INGOT, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_sword"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_AXE), new ItemStack(Items.IRON_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_axe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BUCKET), new ItemStack(Items.IRON_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_bucket"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_PICKAXE), new ItemStack(Items.IRON_INGOT, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_pickaxe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_BOOTS), new ItemStack(Items.IRON_INGOT, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_boots"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_TRAPDOOR), new ItemStack(Items.IRON_INGOT, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_trapdoor"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HELMET), new ItemStack(Items.IRON_INGOT, 5))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_helmet"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.HOPPER), new ItemStack(Items.IRON_INGOT, 5))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_hopper"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MINECART), new ItemStack(Items.IRON_INGOT, 5))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_minecart"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CAULDRON), new ItemStack(Items.IRON_INGOT, 7))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_cauldron"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_LEGGINGS), new ItemStack(Items.IRON_INGOT, 7))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_CHESTPLATE), new ItemStack(Items.IRON_INGOT, 8))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_chestplate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ANVIL), new ItemStack(Items.IRON_INGOT, 31))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_ingot_from_anvil"));
+
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BLUE_ICE), new ItemStack(Items.PACKED_ICE, 9))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 1, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PACKED_ICE), new ItemStack(Items.ICE, 9))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 1, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
 	}
