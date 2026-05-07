@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
@@ -24,6 +25,16 @@ public class BlockTagGen extends BlockTagsProvider {
 
 	@Override
 	protected void addTags(Provider pProvider) {
+		CompendiumIndex.index.forEach(i -> {
+			if (i instanceof _MaterialBase mb) {
+				mb.BLOCKS.forEach(b -> b.blockTag(this));
+
+				mb.extensions.forEach(e -> {
+					e.BLOCKS.forEach(b -> b.blockTag(this));
+				});
+			}
+		});
+
 		tag(CompendiumTags.PRYABLE).add(Blocks.IRON_BLOCK);
 
 		tag(CompendiumTags.TABLE).add(CompendiumBlocks.TABLE.get(), CompendiumBlocks.CLOTHED_TABLE.get());

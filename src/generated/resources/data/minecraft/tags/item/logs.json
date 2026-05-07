@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:acacia_log",
     "minecraft:acacia_wood",
+    "minecraft:acacia_log",
     "compendium:acacia_small_logs_item",
     "minecraft:birch_log",
     "minecraft:birch_wood",
@@ -9,8 +9,8 @@
     "minecraft:cherry_log",
     "minecraft:cherry_wood",
     "compendium:cherry_small_logs_item",
-    "minecraft:crimson_stem",
     "minecraft:crimson_hyphae",
+    "minecraft:crimson_stem",
     "compendium:crimson_small_logs_item",
     "minecraft:dark_oak_log",
     "minecraft:dark_oak_wood",
@@ -24,11 +24,11 @@
     "minecraft:oak_log",
     "minecraft:oak_wood",
     "compendium:oak_small_logs_item",
-    "minecraft:spruce_log",
     "minecraft:spruce_wood",
+    "minecraft:spruce_log",
     "compendium:spruce_small_logs_item",
-    "minecraft:warped_hyphae",
     "minecraft:warped_stem",
+    "minecraft:warped_hyphae",
     "compendium:warped_small_logs_item"
   ]
 }

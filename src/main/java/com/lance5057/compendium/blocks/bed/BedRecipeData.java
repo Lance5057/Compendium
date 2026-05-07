@@ -272,7 +272,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
@@ -289,7 +290,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -438,7 +440,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
@@ -455,7 +458,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -605,7 +609,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
@@ -622,7 +627,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -767,7 +773,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
@@ -784,7 +791,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -928,7 +936,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 65.000F, 0.000F, 0.000F, false, false))
@@ -945,7 +954,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -1089,7 +1099,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1103,7 +1114,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 22.500F, 0.000F, 0.000F, false, false))
@@ -1247,7 +1259,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1261,7 +1274,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
@@ -1397,7 +1411,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1411,7 +1426,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
@@ -1546,7 +1562,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1560,7 +1577,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
@@ -1692,7 +1710,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1706,7 +1725,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
@@ -1835,7 +1855,8 @@ public class BedRecipeData {
 												.setZ(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false)))
 										.setPivot(new AnimatedFloatVector3().setY(
 												new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/head_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setX(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false, false))
@@ -1849,7 +1870,8 @@ public class BedRecipeData {
 												.setX(new AnimatedFloat(0.000F, -7.000F, 0.000F, 0.000F, false, false))
 												.setY(new AnimatedFloat(0.000F, -3.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"), true,
+						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/furniture/bed/foot_board"),
+								true,
 								new AnimationFloatTransform()
 										.setLocation(new AnimatedFloatVector3()
 												.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))

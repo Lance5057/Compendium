@@ -89,6 +89,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	@Override
 	protected void setupRecipe() {
 		Optional<RecipeHolder<WorkbenchRecipe>> recipe = this.matchRecipe();
+
 		if (recipe.isPresent()) {
 			WorkbenchRecipe curRecipe = recipe.get().value();
 			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT,
@@ -97,6 +98,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 							.copy());
 		} else {
 			this.getInventory().setStackInSlot(PRODUCT_DISPLAY_SLOT, ItemStack.EMPTY.copy());
+			this.zeroProgress();
 		}
 	}
 
@@ -119,7 +121,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 					if (slot >= 0 && slot < 25) {
 						if (slot != PRODUCT_DISPLAY_SLOT) {
-							zeroProgress();
+//							zeroProgress();
 							updateInventory();
 						}
 					}

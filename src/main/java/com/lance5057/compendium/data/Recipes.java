@@ -24,6 +24,7 @@ import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
 import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
+import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxRecipeData;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -222,24 +223,29 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer);
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_STAIRS), new ItemStack(Items.MOSSY_STONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_STAIRS), new ItemStack(Items.MOSSY_STONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("mossy_brick_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_WALL), new ItemStack(Items.MOSSY_STONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.MOSSY_STONE_BRICK_WALL), new ItemStack(Items.MOSSY_STONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("mossy_brick_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_STAIRS), new ItemStack(Items.MOSSY_COBBLESTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_STAIRS), new ItemStack(Items.MOSSY_COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("mossy_cobblestone_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_WALL), new ItemStack(Items.MOSSY_COBBLESTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.MOSSY_COBBLESTONE_WALL), new ItemStack(Items.MOSSY_COBBLESTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("mossy_cobblestone_from_wall"));
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_ANDESITE_STAIRS), new ItemStack(Items.POLISHED_ANDESITE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_ANDESITE_STAIRS), new ItemStack(Items.POLISHED_ANDESITE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -248,7 +254,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer);
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DIORITE_STAIRS), new ItemStack(Items.POLISHED_DIORITE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_DIORITE_STAIRS), new ItemStack(Items.POLISHED_DIORITE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -257,7 +264,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer);
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_GRANITE_STAIRS), new ItemStack(Items.POLISHED_GRANITE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_GRANITE_STAIRS), new ItemStack(Items.POLISHED_GRANITE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -283,15 +291,18 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("deepslate_tile_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_TILES), new ItemStack(Items.CRACKED_DEEPSLATE_TILES))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.DEEPSLATE_TILES), new ItemStack(Items.CRACKED_DEEPSLATE_TILES))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_TILES), new ItemStack(Items.DEEPSLATE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_TILES), new ItemStack(Items.DEEPSLATE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_BRICK_STAIRS), new ItemStack(Items.DEEPSLATE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.DEEPSLATE_BRICK_STAIRS), new ItemStack(Items.DEEPSLATE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("deepslate_brick_from_stairs"));
@@ -299,19 +310,23 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("deepslate_brick_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DEEPSLATE_BRICKS), new ItemStack(Items.CRACKED_DEEPSLATE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.DEEPSLATE_BRICKS), new ItemStack(Items.CRACKED_DEEPSLATE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_BRICKS), new ItemStack(Items.POLISHED_DEEPSLATE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.CRACKED_DEEPSLATE_BRICKS), new ItemStack(Items.POLISHED_DEEPSLATE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_STAIRS), new ItemStack(Items.POLISHED_DEEPSLATE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_STAIRS), new ItemStack(Items.POLISHED_DEEPSLATE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_deepslate_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_WALL), new ItemStack(Items.POLISHED_DEEPSLATE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_DEEPSLATE_WALL), new ItemStack(Items.POLISHED_DEEPSLATE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_deepslate_from_wall"));
@@ -323,11 +338,13 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_STAIRS), new ItemStack(Items.COBBLED_DEEPSLATE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_STAIRS), new ItemStack(Items.COBBLED_DEEPSLATE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_WALL), new ItemStack(Items.COBBLED_DEEPSLATE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.COBBLED_DEEPSLATE_WALL), new ItemStack(Items.COBBLED_DEEPSLATE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_wall"));
@@ -336,31 +353,42 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("cobbled_deepslate_from_chiseled"));
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_STAIRS), new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_STAIRS),
+						new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_blackstone_bricks_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_WALL), new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICK_WALL),
+						new ItemStack(Items.POLISHED_BLACKSTONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_blackstone_bricks_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICKS), new ItemStack(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_BRICKS),
+						new ItemStack(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS), new ItemStack(Items.POLISHED_BLACKSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS),
+						new ItemStack(Items.POLISHED_BLACKSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_STAIRS), new ItemStack(Items.POLISHED_BLACKSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_STAIRS), new ItemStack(Items.POLISHED_BLACKSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_blackstone_from_stairs"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_WALL), new ItemStack(Items.POLISHED_BLACKSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.POLISHED_BLACKSTONE_WALL), new ItemStack(Items.POLISHED_BLACKSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_blackstone_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHISELED_POLISHED_BLACKSTONE), new ItemStack(Items.POLISHED_BLACKSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.CHISELED_POLISHED_BLACKSTONE), new ItemStack(Items.POLISHED_BLACKSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("polished_blackstone_from_chiseled"));
@@ -456,7 +484,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("prismarine_from_wall"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_BRICK_STAIRS), new ItemStack(Items.PRISMARINE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.PRISMARINE_BRICK_STAIRS), new ItemStack(Items.PRISMARINE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -501,11 +530,13 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_NETHER_BRICK_STAIRS), new ItemStack(Items.RED_NETHER_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.RED_NETHER_BRICK_STAIRS), new ItemStack(Items.RED_NETHER_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("red_nether_bricks_from_stair"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_NETHER_BRICK_WALL), new ItemStack(Items.RED_NETHER_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.RED_NETHER_BRICK_WALL), new ItemStack(Items.RED_NETHER_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("red_nether_bricks_from_wall"));
@@ -514,7 +545,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("nether_brick_from_red"));
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.END_STONE_BRICK_STAIRS), new ItemStack(Items.END_STONE_BRICKS))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.END_STONE_BRICK_STAIRS), new ItemStack(Items.END_STONE_BRICKS))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("end_stone_bricks_from_stair"));
@@ -581,7 +613,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_GRAY_CONCRETE), new ItemStack(Items.LIGHT_GRAY_CONCRETE_POWDER))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.LIGHT_GRAY_CONCRETE), new ItemStack(Items.LIGHT_GRAY_CONCRETE_POWDER))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -621,7 +654,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_BLUE_CONCRETE), new ItemStack(Items.LIGHT_BLUE_CONCRETE_POWDER))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.LIGHT_BLUE_CONCRETE), new ItemStack(Items.LIGHT_BLUE_CONCRETE_POWDER))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -633,7 +667,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.MAGENTA_CONCRETE), new ItemStack(Items.MAGENTA_CONCRETE_POWDER))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.MAGENTA_CONCRETE), new ItemStack(Items.MAGENTA_CONCRETE_POWDER))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -652,7 +687,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer);
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_SANDSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -681,7 +717,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("sand_from_sandstone"));
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_RED_SANDSTONE))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_RED_SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
@@ -743,7 +780,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("gold_ingot_from_hoe"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.LIGHT_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.GOLD_INGOT, 2))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.LIGHT_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.GOLD_INGOT, 2))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("gold_ingot_from_pressure_plate"));
@@ -804,7 +842,8 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_shovel"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.HEAVY_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.IRON_INGOT, 2))
+		HammeringRecipeBuilder
+				.hammer(Ingredient.of(Items.HEAVY_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.IRON_INGOT, 2))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_pressure_plate"));
@@ -909,13 +948,17 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack()).define('c', Items.COPPER_BLOCK)
-				.define('h', Items.CHEST).define('b', Items.BRUSH).define('p', ItemTags.WOODEN_PRESSURE_PLATES)
-				.define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE).define('r', Items.RED_DYE)
-				.define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb").pattern("lhg").pattern("rcy")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+		WorkbenchRecipeBuilder toolbox = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack())
+				.define('c', Items.COPPER_BLOCK).define('h', Items.CHEST).define('b', Items.BRUSH)
+				.define('p', ItemTags.WOODEN_PRESSURE_PLATES).define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE)
+				.define('r', Items.RED_DYE).define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb")
+				.pattern("lhg").pattern("rcy");
+		
+		toolbox = CosmeticToolboxRecipeData.stage1(toolbox);
+		toolbox = CosmeticToolboxRecipeData.stage2(toolbox);
+		toolbox = CosmeticToolboxRecipeData.stage3(toolbox);
+		
+		toolbox.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder chair = WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR)
 				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('s', Ingredient.of(ItemTags.WOODEN_SLABS))
