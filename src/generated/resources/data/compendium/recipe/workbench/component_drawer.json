@@ -34,26 +34,23 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": -0.7
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -4.0
               },
               "z": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 27.0
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
-                "loop": true,
-                "max": 45.0,
-                "min": -45.0,
-                "pingpong": true,
-                "speed": 0.5
+                "max": 135.0,
+                "min": -45.0
               }
             },
             "scale": {
@@ -74,13 +71,106 @@
               }
             }
           },
-          "location": "compendium:gold_hammer_item"
+          "location": "compendium:iron_saw_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": -4.6
+              },
+              "z": {
+                "max": 5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 15.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/furniture/fence/spoke"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -1.0
+              },
+              "y": {
+                "max": -4.6
+              },
+              "z": {
+                "max": 4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/furniture/fence/spoke"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 24.0
+              }
+            },
+            "pivot": {},
+            "rotation": {},
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "minecraft:oak_planks"
         }
       ],
       "tool": {
-        "tag": "c:tools/hammer"
+        "tag": "c:tools/saw"
       },
-      "uses": 4
+      "uses": 2
     }
   ]
 }

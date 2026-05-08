@@ -6,6 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRecipeData;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableRecipeData;
@@ -942,22 +943,24 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack()).define('p', CompendiumTags.PLANK)
-				.define('n', Items.CHEST).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep").pattern("npn")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+		WorkbenchRecipeBuilder drawer = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack())
+				.define('p', CompendiumTags.PLANK).define('n', Items.CHEST).define('e', Items.ENDER_PEARL)
+				.pattern("npn").pattern("pep").pattern("npn");
+
+		drawer = ComponentDrawerRecipeData.stage0(drawer);
+
+		drawer.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder toolbox = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack())
 				.define('c', Items.COPPER_BLOCK).define('h', Items.CHEST).define('b', Items.BRUSH)
 				.define('p', ItemTags.WOODEN_PRESSURE_PLATES).define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE)
 				.define('r', Items.RED_DYE).define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb")
 				.pattern("lhg").pattern("rcy");
-		
+
 		toolbox = CosmeticToolboxRecipeData.stage1(toolbox);
 		toolbox = CosmeticToolboxRecipeData.stage2(toolbox);
 		toolbox = CosmeticToolboxRecipeData.stage3(toolbox);
-		
+
 		toolbox.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder chair = WorkbenchRecipeBuilder.shaped(CompendiumItems.CHAIR)
