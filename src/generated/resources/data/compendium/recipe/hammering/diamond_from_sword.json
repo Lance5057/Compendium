@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "minecraft:diamond_sword"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/diamond_from_sword",
   "ouput": {
     "count": 1,
-    "id": "minecraft:iron_ingot"
+    "id": "minecraft:diamond"
   },
   "tools": [
     {

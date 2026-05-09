@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "minecraft:iron_leggings"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/iron_nugget_from_leggings",
   "ouput": {
-    "count": 1,
-    "id": "minecraft:iron_ingot"
+    "count": 31,
+    "id": "minecraft:iron_nugget"
   },
   "tools": [
     {

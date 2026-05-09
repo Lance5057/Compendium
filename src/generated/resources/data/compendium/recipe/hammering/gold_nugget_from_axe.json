@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "minecraft:golden_axe"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/gold_nugget_from_axe",
   "ouput": {
-    "count": 1,
-    "id": "minecraft:iron_ingot"
+    "count": 13,
+    "id": "minecraft:gold_nugget"
   },
   "tools": [
     {

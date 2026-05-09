@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "minecraft:shield"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/iron_nugget_from_shield",
   "ouput": {
-    "count": 1,
-    "id": "minecraft:iron_ingot"
+    "count": 4,
+    "id": "minecraft:iron_nugget"
   },
   "tools": [
     {

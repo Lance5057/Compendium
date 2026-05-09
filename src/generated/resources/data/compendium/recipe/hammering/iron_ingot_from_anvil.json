@@ -5,7 +5,7 @@
   },
   "loot": "compendium:hammering/iron_ingot_from_anvil",
   "ouput": {
-    "count": 31,
+    "count": 15,
     "id": "minecraft:iron_ingot"
   },
   "tools": [

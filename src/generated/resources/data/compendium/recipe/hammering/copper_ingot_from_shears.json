@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "compendium:copper_shears_item"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/copper_ingot_from_shears",
   "ouput": {
     "count": 1,
-    "id": "minecraft:iron_ingot"
+    "id": "minecraft:copper_ingot"
   },
   "tools": [
     {

@@ -694,6 +694,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE_SLAB), new ItemStack(Items.SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sand_from_smooth_slab"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_SANDSTONE), new ItemStack(Items.SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -706,6 +710,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("sandstone_from_cut"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_STANDSTONE_SLAB), new ItemStack(Items.SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sand_from_cut_slab"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SANDSTONE_STAIRS), new ItemStack(Items.SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -718,12 +726,20 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("sand_from_sandstone"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SANDSTONE_SLAB), new ItemStack(Items.SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("sand_from_sandstone_slab"));
 
 		HammeringRecipeBuilder
 				.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE_STAIRS), new ItemStack(Items.SMOOTH_RED_SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE_SLAB), new ItemStack(Items.RED_SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sand_from_smooth_slab"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SMOOTH_RED_SANDSTONE), new ItemStack(Items.RED_SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -736,6 +752,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("red_sandstone_from_cut"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CUT_RED_SANDSTONE_SLAB), new ItemStack(Items.RED_SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sand_from_cut_slab"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_SANDSTONE_STAIRS), new ItemStack(Items.RED_SANDSTONE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -748,6 +768,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer);
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.RED_SANDSTONE_SLAB), new ItemStack(Items.RED_SAND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("red_sand_from_sandstone_slab"));
 
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.COPPER_DOOR), new ItemStack(Items.COPPER_INGOT, 2))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
@@ -774,47 +798,80 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("copper_block_from_grate"));
 
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_HOE), new ItemStack(Items.DIAMOND))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_hoe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_SWORD), new ItemStack(Items.DIAMOND))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_sword"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_AXE), new ItemStack(Items.DIAMOND))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_axe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_PICKAXE), new ItemStack(Items.DIAMOND))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_pickaxe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_BOOTS), new ItemStack(Items.DIAMOND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_boots"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_HELMET), new ItemStack(Items.DIAMOND, 2))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_helmet"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_LEGGINGS), new ItemStack(Items.DIAMOND, 3))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_CHESTPLATE), new ItemStack(Items.DIAMOND, 4))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_chestplate"));
+
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POWERED_RAIL), new ItemStack(Items.GOLD_INGOT))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("gold_ingot_from_powered_rail"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HOE), new ItemStack(Items.GOLD_INGOT, 2))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HOE), new ItemStack(Items.GOLD_NUGGET, 9))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_hoe"));
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_hoe"));
 		HammeringRecipeBuilder
 				.hammer(Ingredient.of(Items.LIGHT_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.GOLD_INGOT, 2))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("gold_ingot_from_pressure_plate"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_SWORD), new ItemStack(Items.GOLD_INGOT, 2))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_SWORD), new ItemStack(Items.GOLD_NUGGET, 9))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_sword"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_AXE), new ItemStack(Items.GOLD_INGOT, 3))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_sword"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_AXE), new ItemStack(Items.GOLD_NUGGET, 13))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_axe"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_PICKAXE), new ItemStack(Items.GOLD_INGOT, 3))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_axe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_PICKAXE), new ItemStack(Items.GOLD_NUGGET, 13))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_pickaxe"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_BOOTS), new ItemStack(Items.GOLD_INGOT, 4))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_pickaxe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_BOOTS), new ItemStack(Items.GOLD_NUGGET, 18))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_boots"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HELMET), new ItemStack(Items.GOLD_INGOT, 5))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_boots"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HELMET), new ItemStack(Items.GOLD_NUGGET, 22))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_helmet"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_LEGGINGS), new ItemStack(Items.GOLD_INGOT, 7))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_helmet"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_LEGGINGS), new ItemStack(Items.GOLD_NUGGET, 31))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_leggings"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_CHESTPLATE), new ItemStack(Items.GOLD_INGOT, 8))
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_CHESTPLATE), new ItemStack(Items.GOLD_NUGGET, 36))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("gold_ingot_from_chestplate"));
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_chestplate"));
 
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAIN), new ItemStack(Items.IRON_NUGGET, 11))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
@@ -836,14 +893,14 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_detector_rail"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHIELD), new ItemStack(Items.IRON_INGOT))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHIELD), new ItemStack(Items.IRON_NUGGET, 4))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_shield"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SHOVEL), new ItemStack(Items.IRON_INGOT))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_shield"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SHOVEL), new ItemStack(Items.IRON_NUGGET, 4))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_shovel"));
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_shovel"));
 		HammeringRecipeBuilder
 				.hammer(Ingredient.of(Items.HEAVY_WEIGHTED_PRESSURE_PLATE), new ItemStack(Items.IRON_INGOT, 2))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
@@ -853,42 +910,42 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_door"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HOE), new ItemStack(Items.IRON_INGOT, 2))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HOE), new ItemStack(Items.IRON_NUGGET, 9))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_hoe"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHEARS), new ItemStack(Items.IRON_INGOT, 2))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_hoe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.SHEARS), new ItemStack(Items.IRON_NUGGET, 9))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_shears"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SWORD), new ItemStack(Items.IRON_INGOT, 2))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_shears"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_SWORD), new ItemStack(Items.IRON_NUGGET, 9))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_sword"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_AXE), new ItemStack(Items.IRON_INGOT, 3))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_sword"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_AXE), new ItemStack(Items.IRON_NUGGET, 13))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_axe"));
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_axe"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.BUCKET), new ItemStack(Items.IRON_INGOT, 3))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_bucket"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_PICKAXE), new ItemStack(Items.IRON_INGOT, 3))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_PICKAXE), new ItemStack(Items.IRON_NUGGET, 13))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_pickaxe"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_BOOTS), new ItemStack(Items.IRON_INGOT, 4))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_pickaxe"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_BOOTS), new ItemStack(Items.IRON_NUGGET, 18))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_boots"));
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_boots"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_TRAPDOOR), new ItemStack(Items.IRON_INGOT, 4))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_trapdoor"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HELMET), new ItemStack(Items.IRON_INGOT, 5))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HELMET), new ItemStack(Items.IRON_NUGGET, 22))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_helmet"));
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_helmet"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.HOPPER), new ItemStack(Items.IRON_INGOT, 5))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -901,15 +958,15 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_cauldron"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_LEGGINGS), new ItemStack(Items.IRON_INGOT, 7))
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_LEGGINGS), new ItemStack(Items.IRON_NUGGET, 31))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_leggings"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_CHESTPLATE), new ItemStack(Items.IRON_INGOT, 8))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_CHESTPLATE), new ItemStack(Items.IRON_NUGGET, 36))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
-				.save(consumer, TagUtil.modLoc("iron_ingot_from_chestplate"));
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ANVIL), new ItemStack(Items.IRON_INGOT, 31))
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chestplate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ANVIL), new ItemStack(Items.IRON_INGOT, 15))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_ingot_from_anvil"));

@@ -3,10 +3,10 @@
   "input": {
     "item": "minecraft:shears"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/iron_nugget_from_shears",
   "ouput": {
-    "count": 1,
-    "id": "minecraft:iron_ingot"
+    "count": 9,
+    "id": "minecraft:iron_nugget"
   },
   "tools": [
     {

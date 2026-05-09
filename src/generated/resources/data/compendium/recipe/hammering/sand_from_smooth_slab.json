@@ -1,12 +1,12 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "minecraft:shears"
+    "item": "minecraft:smooth_sandstone_slab"
   },
-  "loot": "compendium:hammering/iron_ingot_from_shears",
+  "loot": "compendium:hammering/sand_from_smooth_slab",
   "ouput": {
-    "count": 1,
-    "id": "minecraft:iron_ingot"
+    "count": 2,
+    "id": "minecraft:sand"
   },
   "tools": [
     {
