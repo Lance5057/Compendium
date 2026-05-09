@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:stripped_oak_log",
     "minecraft:stripped_oak_wood",
+    "minecraft:stripped_oak_log",
     "compendium:stripped_oak_small_logs_item"
   ]
 }

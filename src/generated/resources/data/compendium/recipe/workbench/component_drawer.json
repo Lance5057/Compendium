@@ -37,10 +37,10 @@
                 "max": -0.7
               },
               "y": {
-                "max": -4.0
+                "max": -1.0
               },
               "z": {
-                "max": 27.0
+                "max": 27.5
               }
             },
             "pivot": {},
@@ -49,7 +49,7 @@
                 "max": -90.0
               },
               "z": {
-                "max": 135.0,
+                "max": 45.0,
                 "min": -45.0
               }
             },
@@ -71,20 +71,17 @@
               }
             }
           },
-          "location": "compendium:iron_saw_item"
+          "location": "compendium:iron_hammer_item"
         },
         {
           "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": 5.0
-              },
-              "y": {
-                "max": -4.6
+                "max": -2.0
               },
               "z": {
-                "max": 5.0
+                "max": 15.0
               }
             },
             "pivot": {},
@@ -105,24 +102,28 @@
               }
             }
           },
-          "location": "compendium:recipes/furniture/fence/spoke"
+          "location": "compendium:recipes/component_drawer_stage1"
         },
         {
           "IsBlock": true,
           "animation": {
             "location": {
               "x": {
-                "max": -1.0
+                "max": 2.0
               },
               "y": {
-                "max": -4.6
+                "max": -10.0
               },
               "z": {
-                "max": 4.0
+                "max": 13.0
               }
             },
             "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 0.75
@@ -135,23 +136,284 @@
               }
             }
           },
-          "location": "compendium:recipes/furniture/fence/spoke"
+          "location": "compendium:recipes/component_drawer_drawer"
         },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -10.0
+              },
+              "z": {
+                "max": 19.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -10.0
+              },
+              "z": {
+                "max": 25.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 2.0
+              },
+              "y": {
+                "max": -10.0
+              },
+              "z": {
+                "max": 31.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
         {
           "animation": {
             "location": {
               "x": {
-                "max": 7.0
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -2.0
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -8.0
+              },
+              "y": {
+                "max": 0.7
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -13.3
+              },
+              "y": {
+                "max": 0.7
+              },
+              "z": {
+                "max": 12.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -8.0
               },
               "y": {
                 "max": 6.0
               },
               "z": {
-                "max": 24.0
+                "max": 12.0
               }
             },
-            "pivot": {},
-            "rotation": {},
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
             "scale": {
               "x": {
                 "max": 0.75
@@ -164,13 +426,385 @@
               }
             }
           },
-          "location": "minecraft:oak_planks"
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -13.3
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
         }
       ],
       "tool": {
-        "tag": "c:tools/saw"
+        "tag": "c:tools/hammer"
       },
       "uses": 2
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:ender_pearl"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -2.0
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -8.0
+              },
+              "y": {
+                "max": 0.7
+              },
+              "z": {
+                "max": 11.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -13.3
+              },
+              "y": {
+                "max": 0.7
+              },
+              "z": {
+                "max": 12.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -8.0
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 12.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {},
+            "pivot": {
+              "x": {
+                "max": -13.3
+              },
+              "y": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "max": 35.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/component_drawer_drawer"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage1"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": 10.0
+              },
+              "z": {
+                "max": 21.0
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 8.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "speed": 1.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:ender_pearl"
+        }
+      ],
+      "tool": {
+        "item": "minecraft:ender_pearl"
+      },
+      "uses": 1
     }
   ]
 }

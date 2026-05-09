@@ -34,26 +34,23 @@
           "animation": {
             "location": {
               "x": {
-                "max": 8.0,
-                "min": -8.0
+                "max": -0.7
               },
               "y": {
-                "max": 10.0,
-                "min": -10.0
+                "max": -1.0
               },
               "z": {
-                "max": 8.0,
-                "min": -8.0
+                "max": 27.5
               }
             },
             "pivot": {},
             "rotation": {
+              "y": {
+                "max": -90.0
+              },
               "z": {
-                "loop": true,
                 "max": 45.0,
-                "min": -45.0,
-                "pingpong": true,
-                "speed": 0.5
+                "min": -45.0
               }
             },
             "scale": {
@@ -74,13 +71,965 @@
               }
             }
           },
-          "location": "compendium:gold_hammer_item"
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 2.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 6.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
         }
       ],
       "tool": {
         "tag": "c:tools/hammer"
       },
-      "uses": 4
+      "uses": 1
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.5
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 6.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 2.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 1
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.5
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 4.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 6.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 20.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 1
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage0"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.5
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.8
+              },
+              "z": {
+                "max": 11.4
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 7.0
+              },
+              "y": {
+                "max": -5.0
+              },
+              "z": {
+                "max": 6.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "z": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "z": {
+                "max": 20.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_peg"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 1
+    },
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:ender_pearl"
+        },
+        {
+          "IsBlock": true,
+          "animation": {
+            "location": {
+              "x": {
+                "max": 1.0
+              },
+              "y": {
+                "max": 0.2
+              },
+              "z": {
+                "max": 15.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": 5.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.75
+              },
+              "y": {
+                "max": 0.75
+              },
+              "z": {
+                "max": 0.75
+              }
+            }
+          },
+          "location": "compendium:recipes/toolrack_stage1"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 8.0
+              },
+              "y": {
+                "max": 10.0
+              },
+              "z": {
+                "max": 21.0
+              }
+            },
+            "pivot": {
+              "z": {
+                "max": 8.0
+              }
+            },
+            "rotation": {
+              "y": {
+                "loop": true,
+                "max": 360.0,
+                "speed": 1.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 0.5
+              }
+            }
+          },
+          "location": "minecraft:ender_pearl"
+        }
+      ],
+      "tool": {
+        "item": "minecraft:ender_pearl"
+      },
+      "uses": 1
     }
   ]
 }

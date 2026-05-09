@@ -7,6 +7,7 @@ import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRecipeData;
+import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRecipeData;
 import com.lance5057.compendium.blocks.bed.BedRecipeData;
 import com.lance5057.compendium.blocks.chair.ChairRecipeData;
 import com.lance5057.compendium.blocks.clothedtable.ClothedTableRecipeData;
@@ -936,18 +937,25 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 //						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
 //				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
-		WorkbenchRecipeBuilder.shaped(CompendiumBlocks.TOOLRACK.toStack()).define('p', CompendiumTags.PLANK)
-				.define('n', Items.IRON_NUGGET).define('e', Items.ENDER_PEARL).pattern("npn").pattern("pep")
-				.pattern("npn")
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-						Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer_item"), 0))
-				.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
+		WorkbenchRecipeBuilder toolrack = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.TOOLRACK.toStack())
+				.define('p', CompendiumTags.PLANK).define('n', Items.IRON_NUGGET).define('e', Items.ENDER_PEARL)
+				.pattern("npn").pattern("pep").pattern("npn");
+
+		toolrack = ToolRackRecipeData.stage0(toolrack);
+		toolrack = ToolRackRecipeData.stage1(toolrack);
+		toolrack = ToolRackRecipeData.stage2(toolrack);
+		toolrack = ToolRackRecipeData.stage3(toolrack);
+		toolrack = ToolRackRecipeData.stage4(toolrack);
+
+		toolrack.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder drawer = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack())
 				.define('p', CompendiumTags.PLANK).define('n', Items.CHEST).define('e', Items.ENDER_PEARL)
 				.pattern("npn").pattern("pep").pattern("npn");
 
 		drawer = ComponentDrawerRecipeData.stage0(drawer);
+		drawer = ComponentDrawerRecipeData.stage1(drawer);
+		drawer = ComponentDrawerRecipeData.stage2(drawer);
 
 		drawer.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
