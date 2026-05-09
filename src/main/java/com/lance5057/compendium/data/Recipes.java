@@ -798,6 +798,23 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("copper_block_from_grate"));
 
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAINMAIL_BOOTS), new ItemStack(Items.IRON_NUGGET, 10))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chain_boots"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAINMAIL_HELMET), new ItemStack(Items.IRON_NUGGET, 14))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chain_helmet"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAINMAIL_LEGGINGS), new ItemStack(Items.IRON_NUGGET, 20))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chain_leggings"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAINMAIL_CHESTPLATE), new ItemStack(Items.IRON_NUGGET, 24))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_chain_chest"));
+
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_HOE), new ItemStack(Items.DIAMOND))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
@@ -830,6 +847,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("diamond_from_chestplate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.DIAMOND_HORSE_ARMOR), new ItemStack(Items.DIAMOND, 5))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("diamond_from_horse"));
 
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.POWERED_RAIL), new ItemStack(Items.GOLD_INGOT))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
@@ -872,6 +893,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("gold_nugget_from_chestplate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.GOLDEN_HORSE_ARMOR), new ItemStack(Items.GOLD_NUGGET, 49))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("gold_nugget_from_horse"));
 
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.CHAIN), new ItemStack(Items.IRON_NUGGET, 11))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
@@ -966,6 +991,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
 				.save(consumer, TagUtil.modLoc("iron_nugget_from_chestplate"));
+		HammeringRecipeBuilder.hammer(Ingredient.of(Items.IRON_HORSE_ARMOR), new ItemStack(Items.IRON_NUGGET, 49))
+				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+						standardHammeringModel)
+				.save(consumer, TagUtil.modLoc("iron_nugget_from_horse"));
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.ANVIL), new ItemStack(Items.IRON_INGOT, 15))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)
