@@ -38,7 +38,7 @@ public class StyleLoc {
 
 		lp.add("style.table_legs", "Legs");
 		lp.add("style.table_legs.basic", "Basic");
-		lp.add("style.table_legs.bar", "Bar");
+		lp.add("style.table_legs.thin", "Thin");
 		lp.add("style.table_legs.fancy", "Fancy");
 
 		lp.add("style.table_cloth", "Cloth");

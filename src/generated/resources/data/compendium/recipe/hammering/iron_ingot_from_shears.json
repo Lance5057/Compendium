@@ -1,7 +1,7 @@
 {
   "type": "compendium:hammeringstation",
   "input": {
-    "item": "compendium:iron_shears_item"
+    "item": "minecraft:shears"
   },
   "loot": "compendium:hammering/iron_ingot_from_shears",
   "ouput": {
