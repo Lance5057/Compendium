@@ -1217,6 +1217,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							Recipes.standardSawBuckBlockModel(
 									TagUtil.modLoc("recipes/" + base.name + "_split_log_stage2"), 0))
 					.save(consumer, base.name + "_small_log");
+
 		}
 		if (LOG.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG.BLOCK_ITEM, 1).pattern("bb").pattern("bb")
@@ -1229,12 +1230,32 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
+
+			if (SMALL_LOG.isNotIgnored()) {
+				SawBuckRecipeBuilder
+						.saw(Ingredient.of(this.LOG_SLAB.BLOCK_ITEM.get()),
+								new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+						.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+								Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+								Recipes.standardSawBuckItemModel(this.LOG_SLAB.BLOCK_ITEM.getId(), 0))
+						.save(consumer, base.name + "_small_log_from_log_slab");
+			}
 		}
 		if (LOG_STAIRS.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, LOG_STAIRS.BLOCK_ITEM, 1).pattern("b ")
 					.pattern("bb").define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
+			
+			if (SMALL_LOG.isNotIgnored()) {
+				SawBuckRecipeBuilder
+						.saw(Ingredient.of(this.LOG_STAIRS.BLOCK_ITEM.get()),
+								new ItemStack(SMALL_LOG.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+						.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+								Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+								Recipes.standardSawBuckItemModel(this.LOG_STAIRS.BLOCK_ITEM.getId(), 0))
+						.save(consumer, base.name + "_small_log_from_log_stairs");
+			}
 		}
 
 		if (STRIPPED_SMALL_LOG.shouldGenerate()) {
@@ -1244,13 +1265,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 							new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 4), Vec3.ZERO)
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage0"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage0"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage1"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage1"), 0))
 					.tool(Ingredient.of(ItemTags.AXES), 1, true, RecipeLootTables.SAW_DUST, List.of(),
 							Recipes.standardSawBuckAxeModel(mcLoc("iron_axe"), 0),
-							Recipes.standardSawBuckBlockModel(TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage2"), 0))
+							Recipes.standardSawBuckBlockModel(
+									TagUtil.modLoc("recipes/" + base.name + "_stripped_split_log_stage2"), 0))
 					.save(consumer, base.name + "_stripped_small_log");
 		}
 		if (STRIPPED_LOG.shouldGenerate()) {
@@ -1266,6 +1290,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.unlockedBy("has_stripped_small_log",
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
+			
+			if (STRIPPED_SMALL_LOG.isNotIgnored()) {
+				SawBuckRecipeBuilder
+						.saw(Ingredient.of(this.STRIPPED_LOG_SLAB.BLOCK_ITEM.get()),
+								new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+						.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+								Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+								Recipes.standardSawBuckItemModel(this.STRIPPED_LOG_SLAB.BLOCK_ITEM.getId(), 0))
+						.save(consumer, base.name + "_stripped_small_log_from_log_slab");
+			}
 		}
 		if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
 			ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STRIPPED_LOG_STAIRS.BLOCK_ITEM, 1).pattern("b ")
@@ -1273,6 +1307,16 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.unlockedBy("has_stripped_small_log",
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
+			
+			if (STRIPPED_SMALL_LOG.isNotIgnored()) {
+				SawBuckRecipeBuilder
+						.saw(Ingredient.of(this.STRIPPED_LOG_STAIRS.BLOCK_ITEM.get()),
+								new ItemStack(STRIPPED_SMALL_LOG.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+						.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+								Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+								Recipes.standardSawBuckItemModel(this.STRIPPED_LOG_STAIRS.BLOCK_ITEM.getId(), 0))
+						.save(consumer, base.name + "_stripped_small_log_from_log_stairs");
+			}
 		}
 	}
 

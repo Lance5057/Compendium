@@ -42,7 +42,6 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -225,6 +224,19 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
+		if (base instanceof MaterialWood w) {
+			if (!this.PLANK.isIgnored()) {
+				if (!w.PLANKS.isIgnored())
+					SawBuckRecipeBuilder
+							.saw(Ingredient.of(w.PLANKS.BLOCK_ITEM.get()), new ItemStack(PLANK.BLOCK_ITEM.get(), 2),
+									Vec3.ZERO)
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+									Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+									Recipes.standardSawBuckItemModel(this.PLANK_BLOCK.BLOCK_ITEM.getId(), 0))
+							.save(consumer, base.name + "_plank_from_planks_block");
+			}
+		}
+
 		if (!this.PLANK.isIgnored()) {
 			SawBuckRecipeBuilder
 					.saw(Ingredient.of(TagKey.create(Registries.ITEM, TagUtil.neoTag("logs/small/" + base.name))),
