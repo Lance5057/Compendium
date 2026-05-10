@@ -64,7 +64,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
@@ -255,6 +254,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 					.save(consumer, TagUtil.modLoc(base.name + "_planks"));
 
 			if (!this.PLANK_BLOCK.isIgnored()) {
+
 				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK_BLOCK.BLOCK_ITEM, 2)
 						.define('p', PLANK.BLOCK_ITEM).pattern("p p").pattern("   ").pattern("p p")
 						.unlockedBy("plank", CriteriaTriggers.INVENTORY_CHANGED
@@ -264,16 +264,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-					ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 4)
-							.define('p', ItemTags.create(TagUtil.neoTag("planks/" + base.name))).pattern("p ")
-							.pattern(" p")
-							.unlockedBy("plank",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item().of(PLANK.BLOCK_ITEM.asItem())
-															.build()))))
-							.save(consumer, TagUtil.modLoc(base.name + "_planks_to_planks"));
+					SawBuckRecipeBuilder
+							.saw(Ingredient.of(this.PLANK_BLOCK.BLOCK_ITEM.get()),
+									new ItemStack(PLANK.BLOCK_ITEM.get(), 2), Vec3.ZERO)
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+									Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+									Recipes.standardSawBuckItemModel(this.PLANK_BLOCK.BLOCK_ITEM.getId(), 0))
+							.save(consumer, base.name + "_plank_from_plank_block");
 				}
 			}
 
@@ -287,16 +284,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-
-					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-							.requires(ItemTags.create(TagUtil.neoTag("slabs/wooden/" + base.name)))
-							.unlockedBy("plank_slab",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item()
-															.of(PLANK_SLAB.BLOCK_ITEM.asItem()).build()))))
-							.save(consumer, TagUtil.modLoc(base.name + "_slab_to_planks"));
+					SawBuckRecipeBuilder
+							.saw(Ingredient.of(this.PLANK_SLAB.BLOCK_ITEM.get()),
+									new ItemStack(PLANK.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+									Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+									Recipes.standardSawBuckItemModel(this.PLANK_SLAB.BLOCK_ITEM.getId(), 0))
+							.save(consumer, base.name + "_plank_from_plank_slab");
 				}
 			}
 
@@ -310,15 +304,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						.save(consumer);
 
 				if (!this.PLANK.isIgnored()) {
-					ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PLANK.BLOCK_ITEM, 1)
-							.requires(ItemTags.create(TagUtil.neoTag("stairs/wooden/" + base.name)))
-							.unlockedBy("plank_stairs",
-									CriteriaTriggers.INVENTORY_CHANGED.createCriterion(
-											new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
-													InventoryChangeTrigger.TriggerInstance.Slots.ANY,
-													List.of(ItemPredicate.Builder.item()
-															.of(PLANK_STAIRS.BLOCK_ITEM.asItem()).build()))))
-							.save(consumer, TagUtil.modLoc(base.name + "_stairs_to_planks"));
+					SawBuckRecipeBuilder
+							.saw(Ingredient.of(this.PLANK_STAIRS.BLOCK_ITEM.get()),
+									new ItemStack(PLANK.BLOCK_ITEM.get(), 1), Vec3.ZERO)
+							.tool(Ingredient.of(CompendiumTags.PRYBAR), 2, true, RecipeLootTables.SAW_DUST, List.of(),
+									Recipes.standardSawBuckAxeModel(TagUtil.modLoc("iron_prybar_item"), 0),
+									Recipes.standardSawBuckItemModel(this.PLANK_STAIRS.BLOCK_ITEM.getId(), 0))
+							.save(consumer, base.name + "_plank_from_plank_stairs");
 				}
 			}
 		}

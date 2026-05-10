@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-09T00:47:08.512590485	Tags for minecraft:item mod id compendium
+// 1.21.1	2026-05-09T19:45:48.16530416	Tags for minecraft:item mod id compendium
 892a80ad51adf7107cbaf86ab5f83b95cbd24240 data/c/tags/item/carpet/black_wool.json
 98d24c781bb85846cd802cfe8d6bd1e0643454f6 data/c/tags/item/carpet/blue_wool.json
 7d549590b7814012a569cb190f27b512b3f449ae data/c/tags/item/carpet/brown_wool.json
@@ -38,14 +38,14 @@ c6824a86df67b33ff635707211320cb9b20135cf data/c/tags/item/ingots.json
 f2aa87f54e7951ea0cf81ac252c2abe279b0c936 data/c/tags/item/ingots/gold.json
 736f4ef35696340b932cdb679c5a32e7b28db783 data/c/tags/item/ingots/iron.json
 f7a8c659163fbac23438e07049cc42e0aa39eb9a data/c/tags/item/ingots/netherite.json
-3e3c75ed8d6b1cd7af75ab72fc545b3bc6f05d3d data/c/tags/item/logs/acacia.json
+8d73b98b4e20b51b02f84925b049e5e045113427 data/c/tags/item/logs/acacia.json
 7c7b0d16f53f59944ce891d22dbdad8a21084edd data/c/tags/item/logs/birch.json
 666f9e1ecbaec0fd95a2901bf12ac936fcf07549 data/c/tags/item/logs/cherry.json
-052a60df89d9c034ca0adf7d2c069e16dbfd5052 data/c/tags/item/logs/crimson.json
+bbfd553c27a6eee652b6a9ef96a5e54da13e8e0a data/c/tags/item/logs/crimson.json
 15d47949367318eba0924c114c7436a1d3a0b3f1 data/c/tags/item/logs/dark_oak.json
-906b078a127af9830f6c64c7276ead75e588ed62 data/c/tags/item/logs/jungle.json
+00e17a25c3fc894db10a6dad6bba19aa8ad08b43 data/c/tags/item/logs/jungle.json
 4f033ff1df8fd7342e9cb1809a30ee53c4f74b90 data/c/tags/item/logs/mangrove.json
-b6c5fa6b9310bd27b9f5bf3af14a4e8137afe6c2 data/c/tags/item/logs/oak.json
+710579cea2226bdebc67af9ed796318295f13b4f data/c/tags/item/logs/oak.json
 9f0378b5380d4d75d0efd7b4a810bc6d1b712a96 data/c/tags/item/logs/slab.json
 918128179b92c3828309dd4fa6e95360fa1b1151 data/c/tags/item/logs/slab/acacia.json
 538ea1e175ac0657002419475936da772d94656c data/c/tags/item/logs/slab/birch.json
@@ -68,7 +68,7 @@ d04b72575c72b80cac711e2f3750769871d33ece data/c/tags/item/logs/small/crimson.jso
 a67a131629ea98983f2564f4c18e11be40924af7 data/c/tags/item/logs/small/oak.json
 d8c8b276fe33ed137248aac4fe390509d7f9e722 data/c/tags/item/logs/small/spruce.json
 6d90011cacc4e6f0eea9c28a3f0b1afa02f93b10 data/c/tags/item/logs/small/warped.json
-0da84ba9cc11b467d3704afb2fa9256ecbe2b288 data/c/tags/item/logs/spruce.json
+30ca172c5c7e620063a286b9a7e1de9d22c073ec data/c/tags/item/logs/spruce.json
 df535e72f2ee82719057634ae775b38072815b3c data/c/tags/item/logs/stairs.json
 8545cd774322971c3103255cfcc74c82870aab91 data/c/tags/item/logs/stairs/acacia.json
 02a60e723aa9aa811398815a719283fc4c8341e0 data/c/tags/item/logs/stairs/birch.json
@@ -91,7 +91,7 @@ c3b5c72764272b6bc763ff5695b731f47336bdeb data/c/tags/item/logs/stripped/small_lo
 fed1e6a0166a2b7c7b1722b9436ff247b9f76cde data/c/tags/item/logs/stripped/small_logs/oak.json
 8b25d104d12bc8ef6041833b4ad575e2d73ddab7 data/c/tags/item/logs/stripped/small_logs/spruce.json
 9df8e06727fc8c3478534508505a79e25626723e data/c/tags/item/logs/stripped/small_logs/warped.json
-0bb7750514ba731652c620aac9b9d78805045417 data/c/tags/item/logs/warped.json
+c52e69253d3a70a9b2a02d425c3db61e291a75a0 data/c/tags/item/logs/warped.json
 610fc54f17720217d54e917ce1944526372add28 data/c/tags/item/nuggets.json
 3f79a5139287db389f5b6f394c9f2848823bd0c4 data/c/tags/item/nuggets/copper.json
 6b543a792f7797a87724ed58025370e8f0a85150 data/c/tags/item/nuggets/gold.json
@@ -175,17 +175,17 @@ cb6c8a17deac4295dc890fe70cb7c2f0fb2ec588 data/c/tags/item/stairs/wooden/warped.j
 6f65945173b470070cc3ffbceeb8614d256b81f3 data/c/tags/item/storage_blocks/gold.json
 b5a289b8b3995051da520bf7ce877ab6e03753d8 data/c/tags/item/storage_blocks/iron.json
 a85ed1967bf9aac5abca669f565a19306b1e278d data/c/tags/item/storage_blocks/netherite.json
-3f62d644182a2b80f61aa6a83415f80734b459c6 data/c/tags/item/stripped_log/acacia.json
-a2ef4a39380e88d736227bde721cb6c653f79030 data/c/tags/item/stripped_log/birch.json
-87f44efbd51c120b78528dae1da6884b85b98497 data/c/tags/item/stripped_log/cherry.json
-c6fccc4a150633eb19ccefc8a72dc239a088fe2b data/c/tags/item/stripped_log/crimson.json
+d18b0093f3a004c3f9d60fb9a5a644ef9c2ccd07 data/c/tags/item/stripped_log/acacia.json
+9ccc014d9b429cd60fcccb1de421276b45459c3d data/c/tags/item/stripped_log/birch.json
+ad60c6bb4f7638e983a3c1311a4ba0c72088330c data/c/tags/item/stripped_log/cherry.json
+15d0203f65b87b1452ab8f3c6ba5247aa6de569a data/c/tags/item/stripped_log/crimson.json
 3bdf75b3a6f0921d748425ca93e8c4294d24a31c data/c/tags/item/stripped_log/dark_oak.json
-48c23040abf9baa59092ea05eb1aa8d50bcaedf3 data/c/tags/item/stripped_log/jungle.json
+16f8cc791e167db16e44cb63fd3a239a7dcc8a3c data/c/tags/item/stripped_log/jungle.json
 424e694b2e48e5d0a3c2ff9b758f60c46b2dc9ae data/c/tags/item/stripped_log/mangrove.json
-ba5f082f2bc859630a155c08f590a1d6ae16858b data/c/tags/item/stripped_log/oak.json
-6bf5276b0e9fb23bb37411b360065b17e2cc994e data/c/tags/item/stripped_log/spruce.json
-a435bcf7665ee40864eca0a86ab15e25aa26f819 data/c/tags/item/stripped_log/warped.json
-6ee3bf5d10cfd61bdfa263715c187fd0c8557d45 data/c/tags/item/stripped_logs.json
+f239506d3e0abfbb25529a275aa58c62aeb46b0a data/c/tags/item/stripped_log/oak.json
+1f9c0fbfd7cccb84771f60f943ded7a49d19b90e data/c/tags/item/stripped_log/spruce.json
+4ac4e20287d31741b122b2651cb0b071e1d600ea data/c/tags/item/stripped_log/warped.json
+f2876f02decd0e7f52cb7555ecddf9e4ae2a8396 data/c/tags/item/stripped_logs.json
 ec6ec3bac0df5fdede9852b7f9acb236251b6acd data/c/tags/item/stripped_logs/slab.json
 87d2c807823438e73b9676bb758b7bc312a54ee3 data/c/tags/item/stripped_logs/slab/acacia.json
 3aac6c108fb9c3e0ca465a8dc18c3bff8fea5f01 data/c/tags/item/stripped_logs/slab/birch.json
@@ -284,7 +284,7 @@ b21d757e74bbd567032e1c719ffb2b7213a0c528 data/c/tags/item/woods/dark_oak.json
 7266827e96246f2682aae9865589f0e61c1997cd data/c/tags/item/woods/oak.json
 6ff0ac83f749dc10ed01b764f1aae43cfa4c7b85 data/c/tags/item/woods/spruce.json
 5813c6312f7b99cd7d387c4e2fac78be2cdedf96 data/c/tags/item/woods/warped.json
-ea703de91c36b2370c8ae4b4a9c0ce4b5fa0d455 data/minecraft/tags/item/logs.json
+3d2c328efe470813bc9386322d560456be970648 data/minecraft/tags/item/logs.json
 5f4b4fa4f509a8f8370210c3afdc95046a9edb1c data/minecraft/tags/item/planks.json
 6ec0bbc0c7972849b6dcc0e1a2b235b999c55e6a data/minecraft/tags/item/slabs.json
 9e31cf92fbc74e19008a54cfa640cfaf6bfda6c4 data/minecraft/tags/item/stairs.json

@@ -265,34 +265,7 @@ public class ComponentDrawerRecipeData {
 												.setY(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
 												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
 														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:iron_hammer_item"), false,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, -90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.000F, false,
-														false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, -0.700F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, -1.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 27.500F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-														false)))),
-						new BlacklistedModel(ResourceLocation.parse("compendium:recipes/toolrack_stage1"), true,
-								new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setY(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 1.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.200F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 15.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 0.750F, 0.000F, 0.000F, false,
-														false)))),
+
 						new BlacklistedModel(ResourceLocation.parse("minecraft:ender_pearl"), false,
 								new AnimationFloatTransform()
 										.setRotation(new AnimatedFloatVector3()

@@ -146,6 +146,20 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 								.setZ(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))));
 	}
 
+	public static BlacklistedModel standardSawBuckItemModel(ResourceLocation i, float yOffset) {
+		return new BlacklistedModel(i, false, new AnimationFloatTransform()
+				.setRotation(new AnimatedFloatVector3()
+						.setX(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+				.setLocation(
+						new AnimatedFloatVector3().setX(new AnimatedFloat(8.000F, 8.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(-18.000F, 4.400F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.000F, 8.000F, 0.000F, 0.000F, false, false)))
+				.setScale(
+						new AnimatedFloatVector3().setX(new AnimatedFloat(1.000F, 2.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 2.000F, 0.000F, 0.000F, false, false))));
+	}
+
 	public static BlacklistedModel standardWorkbenchRightHandItemModel(ResourceLocation i, float yOffset) {
 		return new BlacklistedModel(i, false,
 				new AnimationFloatTransform()
