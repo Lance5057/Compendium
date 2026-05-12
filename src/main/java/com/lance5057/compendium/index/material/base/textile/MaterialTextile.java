@@ -16,7 +16,6 @@ import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
-import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocationsGem;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
@@ -51,18 +50,20 @@ public class MaterialTextile extends _MaterialBase {
 	public final CompendiumItemHandler STRING;
 	public final CompendiumBlockHandler CARPET;
 
-	public SpecialLocationsGem specialLocations;
+	public SpecialLocationsTextile specialLocations;
 
 	public MaterialTextile(String name, String namespace) {
 		this(name, namespace, null);
 	}
 
-	public MaterialTextile(String name, String namespace, SpecialLocationsGem loc) {
+	public MaterialTextile(String name, String namespace, SpecialLocationsTextile loc) {
 		super(name, namespace);
 
 		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
 		this.ITEMS.add(STRING = new CompendiumItemHandler());
 		this.BLOCKS.add(CARPET = new CompendiumBlockHandler());
+		
+		specialLocations = loc;
 	}
 
 	@Override

@@ -33,6 +33,8 @@ import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
+import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
+import com.lance5057.compendium.index.material.base.textile.locations.SpecialTextureLocationsTextile;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
@@ -42,7 +44,7 @@ import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPla
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.world.item.Items;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -590,176 +592,13 @@ public class IndexInitialResourceLoader {
 
 		dyenamics();
 		dyenamicsGingham();
+		extraDelight();
+		enchanted();
+		arsNouveau();
+		bloomingNature();
+		abyssalDecor();
+		cluttered();
 
-//
-//		buildDefault(
-//				new MaterialTextile("gingham_white", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/white"),
-//										null, null))));
-//		buildDefault(new MaterialTextile("gingham_light_gray", "extradelight",
-//
-//				new SpecialLocationsTextile(
-//						new SpecialTextureLocationsTextile(
-//								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_gray"), null,
-//								null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_gray", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/gray"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_black", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/black"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_brown", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/brown"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_red", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/red"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_orange", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/orange"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_yellow", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/yellow"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_lime", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/lime"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_green", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/green"),
-//										null, null))));
-//		buildDefault(new MaterialTextile("gingham_cyan", "extradelight",
-//
-//				new SpecialLocationsTextile( new SpecialTextureLocationsTextile(
-//						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/cyan"), null, null))));
-//		buildDefault(new MaterialTextile("gingham_light_blue", "extradelight",
-//
-//				new SpecialLocationsTextile(
-//						new SpecialTextureLocationsTextile(
-//								ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_blue"), null,
-//								null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_blue", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/blue"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_purple", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/purple"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_magenta", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/magenta"),
-//										null, null))));
-//		buildDefault(
-//				new MaterialTextile("gingham_pink", "extradelight",
-//						new SpecialLocationsTextile(
-//								new SpecialTextureLocationsTextile(
-//										ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/pink"),
-//										null, null))));
-//
-//		buildDefault(new MaterialWood("alder", "enchanted")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("archwood", "ars_nouveau")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood aspen = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_side_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top_stripped")));
-//		buildDefault(new MaterialWood("aspen", "bloomingnature", aspen)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood baobab = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_side_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top_stripped")));
-//		buildDefault(new MaterialWood("baobab", "bloomingnature", baobab)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood blackwood = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_planks"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_blackwood_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_wood"), null),
-//				null,
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodplanks"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/moldylogside"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodstrippedlogside"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/moldylogtop"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodstrippedlogtop")));
-//		buildDefault(new MaterialWood("blackwood", "abyssal_decor", blackwood)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("blue_mushroom", "cluttered", )
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood cactus = new SpecialLocationsWood(
-//				new ExistsLocationsWood(null, ResourceLocation.fromNamespaceAndPath("minecraft", "cactus"), null, null,
-//						null),
-//				new ExistsLocationsWood(null, ResourceLocation.fromNamespaceAndPath("minecraft", "cactus"), null, null,
-//						null),
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("compendium", "block/cactus_log"), null,
-//						ResourceLocation.fromNamespaceAndPath("compendium", "block/cactus_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("compendium", "block/stripped_cactus_log_top")));
-//		buildDefault(new MaterialWood("cactus", "bloomingnature", cactus)
-//				.addExtension(new ExtensionExtraLogs(Generate.IGNORE))
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood charred_spruce = new SpecialLocationsWood(new ExistsLocationsWood(
-//				ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "charred_spruce_log_stripped"), null, null),
-//				new ExistsLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "charred_spruce_log_stripped"), null,
-//						null),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "block/charred_spruce_log_stripped"),
-//						null, ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder",
-//								"block/charred_spruce_log_stripped_top")));
-//		buildDefault(new MaterialWood("charred_spruce", "dawnoftimebuilder", charred_spruce)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
 //
 //		SpecialLocationsWood chestnut = new SpecialLocationsWood(
 //				new SpecialTextureLocationsWood(null,
@@ -1066,6 +905,196 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialWood("barn_wood", "butchercraft", barn_wood)
 //				.addExtension(new ExtensionExtraLogs(Generate.IGNORE))
 //				.addExtension(new ExtensionExtraPlanks()));
+	}
+
+	public static void cluttered() {
+		buildDefault(new MaterialWood("blue_mushroom", "cluttered").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+	}
+
+	public static void abyssalDecor() {
+		MaterialWood blackwood = new MaterialWood("blackwood", "abyssal_decor");
+
+		blackwood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_planks"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_planks"));
+		blackwood.LOG.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_log"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_log"));
+		blackwood.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_blackwood_log"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_blackwood_log"));
+		blackwood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_wood"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_wood"));
+
+		blackwood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodplanks"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/moldylogside"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodstrippedlogside"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/moldylogtop"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodstrippedlogtop")));
+
+		buildDefault(blackwood.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+	}
+
+	public static void bloomingNature() {
+		MaterialWood aspen = new MaterialWood("aspen", "bloomingnature");
+		aspen.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_side_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top_stripped")));
+		buildDefault(aspen.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		MaterialWood baobab = new MaterialWood("baobab", "bloomingnature");
+		baobab.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_side_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top_stripped")));
+		buildDefault(baobab.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		MaterialWood cactus = new MaterialWood("cactus", "bloomingnature");
+		cactus.LOG.setExists(ResourceLocation.fromNamespaceAndPath("minecraft", "cactus"),
+				ResourceLocation.fromNamespaceAndPath("minecraft", "cactus"));
+		cactus.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/cactus_log"), null,
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/cactus_log_top"),
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/stripped_cactus_log_top")));
+
+		buildDefault(cactus.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+	}
+
+	public static void arsNouveau() {
+		MaterialWood archwood = new MaterialWood("archwood", "ars_nouveau");
+		archwood.addExtension(new ExtensionExtraLogs().generateAll());
+		archwood.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(archwood);
+	}
+
+	public static void enchanted() {
+		MaterialWood alder = new MaterialWood("alder", "enchanted");
+		alder.addExtension(new ExtensionExtraLogs().generateAll());
+		alder.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(alder);
+	}
+
+	public static void extraDelight() {
+		MaterialTextile gingham_white = new MaterialTextile("gingham_white", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/white"), null, null)));
+		gingham_white.BLOCK.setGenerate();
+		gingham_white.CARPET.setGenerate();
+		buildDefault(gingham_white);
+
+		MaterialTextile gingham_light_gray = new MaterialTextile("gingham_light_gray", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_gray"), null,
+						null)));
+		gingham_light_gray.BLOCK.setGenerate();
+		gingham_light_gray.CARPET.setGenerate();
+		buildDefault(gingham_light_gray);
+
+		MaterialTextile gingham_gray = new MaterialTextile("gingham_gray", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/gray"), null, null)));
+		gingham_gray.BLOCK.setGenerate();
+		gingham_gray.CARPET.setGenerate();
+		buildDefault(gingham_gray);
+
+		MaterialTextile gingham_black = new MaterialTextile("gingham_black", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_black", "block/gingham/gray"), null, null)));
+		gingham_black.BLOCK.setGenerate();
+		gingham_black.CARPET.setGenerate();
+		buildDefault(gingham_black);
+
+		MaterialTextile gingham_brown = new MaterialTextile("gingham_brown", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_brown", "block/gingham/gray"), null, null)));
+		gingham_brown.BLOCK.setGenerate();
+		gingham_brown.CARPET.setGenerate();
+		buildDefault(gingham_brown);
+
+		MaterialTextile gingham_red = new MaterialTextile("gingham_red", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_red", "block/gingham/gray"), null, null)));
+		gingham_red.BLOCK.setGenerate();
+		gingham_red.CARPET.setGenerate();
+		buildDefault(gingham_red);
+
+		MaterialTextile gingham_orange = new MaterialTextile("gingham_orange", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_orange", "block/gingham/gray"), null, null)));
+		gingham_orange.BLOCK.setGenerate();
+		gingham_orange.CARPET.setGenerate();
+		buildDefault(gingham_orange);
+
+		MaterialTextile gingham_yellow = new MaterialTextile("gingham_yellow", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_yellow", "block/gingham/gray"), null, null)));
+		gingham_yellow.BLOCK.setGenerate();
+		gingham_yellow.CARPET.setGenerate();
+		buildDefault(gingham_yellow);
+
+		MaterialTextile gingham_lime = new MaterialTextile("gingham_lime", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_lime", "block/gingham/gray"), null, null)));
+		gingham_lime.BLOCK.setGenerate();
+		gingham_lime.CARPET.setGenerate();
+		buildDefault(gingham_lime);
+
+		MaterialTextile gingham_green = new MaterialTextile("gingham_green", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_green", "block/gingham/gray"), null, null)));
+		gingham_green.BLOCK.setGenerate();
+		gingham_green.CARPET.setGenerate();
+		buildDefault(gingham_green);
+
+		MaterialTextile gingham_cyan = new MaterialTextile("gingham_cyan", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_cyan", "block/gingham/gray"), null, null)));
+		gingham_cyan.BLOCK.setGenerate();
+		gingham_cyan.CARPET.setGenerate();
+		buildDefault(gingham_cyan);
+
+		MaterialTextile gingham_light_blue = new MaterialTextile("gingham_light_blue", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_light_blue", "block/gingham/gray"), null,
+						null)));
+		gingham_light_blue.BLOCK.setGenerate();
+		gingham_light_blue.CARPET.setGenerate();
+		buildDefault(gingham_light_blue);
+
+		MaterialTextile gingham_blue = new MaterialTextile("gingham_blue", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_blue", "block/gingham/gray"), null, null)));
+		gingham_blue.BLOCK.setGenerate();
+		gingham_blue.CARPET.setGenerate();
+		buildDefault(gingham_blue);
+
+		MaterialTextile gingham_purple = new MaterialTextile("gingham_purple", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_purple", "block/gingham/gray"), null, null)));
+		gingham_purple.BLOCK.setGenerate();
+		gingham_purple.CARPET.setGenerate();
+		buildDefault(gingham_purple);
+
+		MaterialTextile gingham_magenta = new MaterialTextile("gingham_magenta", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_magenta", "block/gingham/gray"), null, null)));
+		gingham_magenta.BLOCK.setGenerate();
+		gingham_magenta.CARPET.setGenerate();
+		buildDefault(gingham_magenta);
+
+		MaterialTextile gingham_pink = new MaterialTextile("gingham_pink", "extradelight",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("gingham_pink", "block/gingham/gray"), null, null)));
+		gingham_pink.BLOCK.setGenerate();
+		gingham_pink.CARPET.setGenerate();
+		buildDefault(gingham_pink);
 	}
 
 	private static void dyenamics() {
