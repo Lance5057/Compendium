@@ -138,9 +138,12 @@ public class MaterialGem extends _MaterialBase {
 
 			MaterialGem g = new MaterialGem(name, tagNamespace, sp);
 
-			g.BLOCK.deserialize(j.get("block").getAsJsonObject());
-			g.SHARD.deserialize(j.get("shard").getAsJsonObject());
-			g.GEM.deserialize(j.get("gem").getAsJsonObject());
+			if (j.has("block"))
+				g.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			if (j.has("shard"))
+				g.SHARD.deserialize(j.get("shard").getAsJsonObject());
+			if (j.has("gem"))
+				g.GEM.deserialize(j.get("gem").getAsJsonObject());
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 

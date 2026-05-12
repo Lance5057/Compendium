@@ -211,9 +211,12 @@ public class MaterialMetal extends _MaterialBase {
 
 			MaterialMetal m = new MaterialMetal(name, tagNamespace, sp);
 
-			m.BLOCK.deserialize(j.get("block").getAsJsonObject());
-			m.INGOT.deserialize(j.get("ingot").getAsJsonObject());
-			m.NUGGET.deserialize(j.get("nugget").getAsJsonObject());
+			if (j.has("block"))
+				m.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			if (j.has("ingot"))
+				m.INGOT.deserialize(j.get("ingot").getAsJsonObject());
+			if (j.has("nugget"))
+				m.NUGGET.deserialize(j.get("nugget").getAsJsonObject());
 
 			if (j.has("tier")) {
 				String tier = j.get("tier").getAsString();

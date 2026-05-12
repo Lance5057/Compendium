@@ -373,8 +373,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
 								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
 										new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+												.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
 												.setLocation(new AnimatedFloatVector3()
 														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
 																false))
@@ -543,7 +543,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 						.save(consumer);
 			}
 			if (ZWEIHANDER.isNotIgnored()) {
-				HammeringRecipeBuilder.hammer(Ingredient.of(ZWEIHANDER.ITEM), new ItemStack(metal.INGOT.ITEM.asItem(), 5))
+				HammeringRecipeBuilder
+						.hammer(Ingredient.of(ZWEIHANDER.ITEM), new ItemStack(metal.INGOT.ITEM.asItem(), 5))
 						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 								standardHammeringModel)
 						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_zweihander"));
@@ -644,11 +645,16 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 			ExtensionAdvancedTools eat = new ExtensionAdvancedTools();
 
-			eat.PRYBAR.deserialize(j.get("prybar").getAsJsonObject());
-			eat.HAMMER.deserialize(j.get("hammer").getAsJsonObject());
-			eat.SAW.deserialize(j.get("saw").getAsJsonObject());
-			eat.SHEARS.deserialize(j.get("shears").getAsJsonObject());
-			eat.ZWEIHANDER.deserialize(j.get("zweihander").getAsJsonObject());
+			if (j.has("prybar"))
+				eat.PRYBAR.deserialize(j.get("prybar").getAsJsonObject());
+			if (j.has("hammer"))
+				eat.HAMMER.deserialize(j.get("hammer").getAsJsonObject());
+			if (j.has("saw"))
+				eat.SAW.deserialize(j.get("saw").getAsJsonObject());
+			if (j.has("shears"))
+				eat.SHEARS.deserialize(j.get("shears").getAsJsonObject());
+			if (j.has("zweihander"))
+				eat.ZWEIHANDER.deserialize(j.get("zweihander").getAsJsonObject());
 //			eat.BOW.deserialize(j.get("bow").getAsJsonObject());
 
 			return eat;

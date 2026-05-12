@@ -172,9 +172,12 @@ public class MaterialStone extends _MaterialBase {
 
 			MaterialStone w = new MaterialStone(name, tagNamespace, sp);
 
-			w.COBBLESTONE.deserialize(j.get("cobblestone").getAsJsonObject());
-			w.STONE.deserialize(j.get("stone").getAsJsonObject());
-			w.SMOOTH_STONE.deserialize(j.get("smooth_stone").getAsJsonObject());
+			if (j.has("cobblestone"))
+				w.COBBLESTONE.deserialize(j.get("cobblestone").getAsJsonObject());
+			if (j.has("stone"))
+				w.STONE.deserialize(j.get("stone").getAsJsonObject());
+			if (j.has("smooth_stone"))
+				w.SMOOTH_STONE.deserialize(j.get("smooth_stone").getAsJsonObject());
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 

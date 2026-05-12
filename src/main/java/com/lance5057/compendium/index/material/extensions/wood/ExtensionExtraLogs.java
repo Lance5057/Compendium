@@ -1246,7 +1246,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.pattern("bb").define('b', SMALL_LOG.BLOCK_ITEM)
 					.unlockedBy("has_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
-			
+
 			if (SMALL_LOG.isNotIgnored()) {
 				SawBuckRecipeBuilder
 						.saw(Ingredient.of(this.LOG_STAIRS.BLOCK_ITEM.get()),
@@ -1290,7 +1290,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.unlockedBy("has_stripped_small_log",
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
-			
+
 			if (STRIPPED_SMALL_LOG.isNotIgnored()) {
 				SawBuckRecipeBuilder
 						.saw(Ingredient.of(this.STRIPPED_LOG_SLAB.BLOCK_ITEM.get()),
@@ -1307,7 +1307,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 					.unlockedBy("has_stripped_small_log",
 							InventoryChangeTrigger.TriggerInstance.hasItems(STRIPPED_SMALL_LOG.BLOCK_ITEM))
 					.save(consumer);
-			
+
 			if (STRIPPED_SMALL_LOG.isNotIgnored()) {
 				SawBuckRecipeBuilder
 						.saw(Ingredient.of(this.STRIPPED_LOG_STAIRS.BLOCK_ITEM.get()),
@@ -1426,15 +1426,23 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			JsonObject j = json.getAsJsonObject();
 
 			ExtensionExtraLogs eel = new ExtensionExtraLogs();
-			eel.SMALL_LOG.deserialize(j.get("small_log").getAsJsonObject());
-			eel.LOG.deserialize(j.get("log").getAsJsonObject());
-			eel.LOG_SLAB.deserialize(j.get("log_slab").getAsJsonObject());
-			eel.LOG_STAIRS.deserialize(j.get("log_stairs").getAsJsonObject());
+			if (j.has("small_log"))
+				eel.SMALL_LOG.deserialize(j.get("small_log").getAsJsonObject());
+			if (j.has("log"))
+				eel.LOG.deserialize(j.get("log").getAsJsonObject());
+			if (j.has("log_slab"))
+				eel.LOG_SLAB.deserialize(j.get("log_slab").getAsJsonObject());
+			if (j.has("log_stairs"))
+				eel.LOG_STAIRS.deserialize(j.get("log_stairs").getAsJsonObject());
 
-			eel.STRIPPED_SMALL_LOG.deserialize(j.get("stripped_small_log").getAsJsonObject());
-			eel.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
-			eel.STRIPPED_LOG_SLAB.deserialize(j.get("stripped_log_slab").getAsJsonObject());
-			eel.STRIPPED_LOG_STAIRS.deserialize(j.get("stripped_log_stairs").getAsJsonObject());
+			if (j.has("stripped_small_log"))
+				eel.STRIPPED_SMALL_LOG.deserialize(j.get("stripped_small_log").getAsJsonObject());
+			if (j.has("stripped_log"))
+				eel.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
+			if (j.has("stripped_log_slab"))
+				eel.STRIPPED_LOG_SLAB.deserialize(j.get("stripped_log_slab").getAsJsonObject());
+			if (j.has("stripped_log_stairs"))
+				eel.STRIPPED_LOG_STAIRS.deserialize(j.get("stripped_log_stairs").getAsJsonObject());
 
 			return eel;
 		}

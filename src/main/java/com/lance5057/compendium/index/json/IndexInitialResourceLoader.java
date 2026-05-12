@@ -65,8 +65,8 @@ public class IndexInitialResourceLoader {
 			}
 
 		buildDefaults();
-//		moddedDefaults();
-//		readOtherMods();
+		moddedDefaults();
+		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
 //			Path resourcePackPath = Path.of(".\\..\\src\\main\\resources\\data\\compendium\\materials");
@@ -482,97 +482,97 @@ public class IndexInitialResourceLoader {
 		MaterialTextile white_wool = new MaterialTextile("white_wool", "minecraft");
 		white_wool.BLOCK.setExists(TagUtil.mcLoc("white_wool"), TagUtil.mcLoc("white_wool"));
 		white_wool.CARPET.setExists(TagUtil.mcLoc("white_carpet"), TagUtil.mcLoc("white_carpet"));
-		white_wool.STRING.setIgnored();
+		white_wool.STRING.setIgnore();
 		buildDefault(white_wool);
 
 		MaterialTextile light_gray_wool = new MaterialTextile("light_gray_wool", "minecraft");
 		light_gray_wool.BLOCK.setExists(TagUtil.mcLoc("light_gray_wool"), TagUtil.mcLoc("light_gray_wool"));
 		light_gray_wool.CARPET.setExists(TagUtil.mcLoc("light_gray_carpet"), TagUtil.mcLoc("light_gray_carpet"));
-		light_gray_wool.STRING.setIgnored();
+		light_gray_wool.STRING.setIgnore();
 		buildDefault(light_gray_wool);
 
 		MaterialTextile gray_wool = new MaterialTextile("gray_wool", "minecraft");
 		gray_wool.BLOCK.setExists(TagUtil.mcLoc("gray_wool"), TagUtil.mcLoc("gray_wool"));
 		gray_wool.CARPET.setExists(TagUtil.mcLoc("gray_carpet"), TagUtil.mcLoc("gray_carpet"));
-		gray_wool.STRING.setIgnored();
+		gray_wool.STRING.setIgnore();
 		buildDefault(gray_wool);
 
 		MaterialTextile black_wool = new MaterialTextile("black_wool", "minecraft");
 		black_wool.BLOCK.setExists(TagUtil.mcLoc("black_wool"), TagUtil.mcLoc("black_wool"));
 		black_wool.CARPET.setExists(TagUtil.mcLoc("black_carpet"), TagUtil.mcLoc("black_carpet"));
-		black_wool.STRING.setIgnored();
+		black_wool.STRING.setIgnore();
 		buildDefault(black_wool);
 
 		MaterialTextile brown_wool = new MaterialTextile("brown_wool", "minecraft");
 		brown_wool.BLOCK.setExists(TagUtil.mcLoc("brown_wool"), TagUtil.mcLoc("brown_wool"));
 		brown_wool.CARPET.setExists(TagUtil.mcLoc("brown_carpet"), TagUtil.mcLoc("brown_carpet"));
-		brown_wool.STRING.setIgnored();
+		brown_wool.STRING.setIgnore();
 		buildDefault(brown_wool);
 
 		MaterialTextile red_wool = new MaterialTextile("red_wool", "minecraft");
 		red_wool.BLOCK.setExists(TagUtil.mcLoc("red_wool"), TagUtil.mcLoc("red_wool"));
 		red_wool.CARPET.setExists(TagUtil.mcLoc("red_carpet"), TagUtil.mcLoc("red_carpet"));
-		red_wool.STRING.setIgnored();
+		red_wool.STRING.setIgnore();
 		buildDefault(red_wool);
 
 		MaterialTextile orange_wool = new MaterialTextile("orange_wool", "minecraft");
 		orange_wool.BLOCK.setExists(TagUtil.mcLoc("orange_wool"), TagUtil.mcLoc("orange_wool"));
 		orange_wool.CARPET.setExists(TagUtil.mcLoc("orange_carpet"), TagUtil.mcLoc("orange_carpet"));
-		orange_wool.STRING.setIgnored();
+		orange_wool.STRING.setIgnore();
 		buildDefault(orange_wool);
 
 		MaterialTextile yellow_wool = new MaterialTextile("yellow_wool", "minecraft");
 		yellow_wool.BLOCK.setExists(TagUtil.mcLoc("yellow_wool"), TagUtil.mcLoc("yellow_wool"));
 		yellow_wool.CARPET.setExists(TagUtil.mcLoc("yellow_carpet"), TagUtil.mcLoc("yellow_carpet"));
-		yellow_wool.STRING.setIgnored();
+		yellow_wool.STRING.setIgnore();
 		buildDefault(yellow_wool);
 
 		MaterialTextile lime_wool = new MaterialTextile("lime_wool", "minecraft");
 		lime_wool.BLOCK.setExists(TagUtil.mcLoc("lime_wool"), TagUtil.mcLoc("lime_wool"));
 		lime_wool.CARPET.setExists(TagUtil.mcLoc("lime_carpet"), TagUtil.mcLoc("lime_carpet"));
-		lime_wool.STRING.setIgnored();
+		lime_wool.STRING.setIgnore();
 		buildDefault(lime_wool);
 
 		MaterialTextile green_wool = new MaterialTextile("green_wool", "minecraft");
 		green_wool.BLOCK.setExists(TagUtil.mcLoc("green_wool"), TagUtil.mcLoc("green_wool"));
 		green_wool.CARPET.setExists(TagUtil.mcLoc("green_carpet"), TagUtil.mcLoc("green_carpet"));
-		green_wool.STRING.setIgnored();
+		green_wool.STRING.setIgnore();
 		buildDefault(green_wool);
 
 		MaterialTextile cyan_wool = new MaterialTextile("cyan_wool", "minecraft");
 		cyan_wool.BLOCK.setExists(TagUtil.mcLoc("cyan_wool"), TagUtil.mcLoc("cyan_wool"));
 		cyan_wool.CARPET.setExists(TagUtil.mcLoc("cyan_carpet"), TagUtil.mcLoc("cyan_carpet"));
-		cyan_wool.STRING.setIgnored();
+		cyan_wool.STRING.setIgnore();
 		buildDefault(cyan_wool);
 
 		MaterialTextile light_blue_wool = new MaterialTextile("light_blue_wool", "minecraft");
 		light_blue_wool.BLOCK.setExists(TagUtil.mcLoc("light_blue_wool"), TagUtil.mcLoc("light_blue_wool"));
 		light_blue_wool.CARPET.setExists(TagUtil.mcLoc("light_blue_carpet"), TagUtil.mcLoc("light_blue_carpet"));
-		light_blue_wool.STRING.setIgnored();
+		light_blue_wool.STRING.setIgnore();
 		buildDefault(light_blue_wool);
 
 		MaterialTextile blue_wool = new MaterialTextile("blue_wool", "minecraft");
 		blue_wool.BLOCK.setExists(TagUtil.mcLoc("blue_wool"), TagUtil.mcLoc("blue_wool"));
 		blue_wool.CARPET.setExists(TagUtil.mcLoc("blue_carpet"), TagUtil.mcLoc("blue_carpet"));
-		blue_wool.STRING.setIgnored();
+		blue_wool.STRING.setIgnore();
 		buildDefault(blue_wool);
 
 		MaterialTextile purple_wool = new MaterialTextile("purple_wool", "minecraft");
 		purple_wool.BLOCK.setExists(TagUtil.mcLoc("purple_wool"), TagUtil.mcLoc("purple_wool"));
 		purple_wool.CARPET.setExists(TagUtil.mcLoc("purple_carpet"), TagUtil.mcLoc("purple_carpet"));
-		purple_wool.STRING.setIgnored();
+		purple_wool.STRING.setIgnore();
 		buildDefault(purple_wool);
 
 		MaterialTextile magenta_wool = new MaterialTextile("magenta_wool", "minecraft");
 		magenta_wool.BLOCK.setExists(TagUtil.mcLoc("magenta_wool"), TagUtil.mcLoc("magenta_wool"));
 		magenta_wool.CARPET.setExists(TagUtil.mcLoc("magenta_carpet"), TagUtil.mcLoc("magenta_carpet"));
-		magenta_wool.STRING.setIgnored();
+		magenta_wool.STRING.setIgnore();
 		buildDefault(magenta_wool);
 
 		MaterialTextile pink_wool = new MaterialTextile("pink_wool", "minecraft");
 		pink_wool.BLOCK.setExists(TagUtil.mcLoc("pink_wool"), TagUtil.mcLoc("pink_wool"));
 		pink_wool.CARPET.setExists(TagUtil.mcLoc("pink_carpet"), TagUtil.mcLoc("pink_carpet"));
-		pink_wool.STRING.setIgnored();
+		pink_wool.STRING.setIgnore();
 		buildDefault(pink_wool);
 
 	}
@@ -588,132 +588,8 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(silver);
 
-//		buildDefault(new MaterialTextile("amber_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("aquamarine_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("bubblegum_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("cherenkov_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("conifer_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("fluorescent_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("honey_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("icy_blue_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("lavender_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("maroon_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("mint_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("navy_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("peach_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("persimmon_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("rose_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("spring_green_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("ultramarine_wool", "dyenamics"));
-//		buildDefault(new MaterialTextile("wine_wool", "dyenamics"));
-//
-		MaterialTextile gingham_amber = new MaterialTextile("gingham_amber", "compendium");
-		gingham_amber.BLOCK.setGenerate();
-		gingham_amber.CARPET.setGenerate();
-		gingham_amber.STRING.setIgnored();
-		buildDefault(gingham_amber);
-
-		MaterialTextile gingham_aquamarine = new MaterialTextile("gingham_aquamarine", "compendium");
-		gingham_aquamarine.BLOCK.setGenerate();
-		gingham_aquamarine.CARPET.setGenerate();
-		gingham_aquamarine.STRING.setIgnored();
-		buildDefault(gingham_aquamarine);
-
-		MaterialTextile gingham_bubblegum = new MaterialTextile("gingham_bubblegum", "compendium");
-		gingham_bubblegum.BLOCK.setGenerate();
-		gingham_bubblegum.CARPET.setGenerate();
-		gingham_bubblegum.STRING.setIgnored();
-		buildDefault(gingham_bubblegum);
-
-		MaterialTextile gingham_cherenkov = new MaterialTextile("gingham_cherenkov", "compendium");
-		gingham_cherenkov.BLOCK.setGenerate();
-		gingham_cherenkov.CARPET.setGenerate();
-		gingham_cherenkov.STRING.setIgnored();
-		buildDefault(gingham_cherenkov);
-
-		MaterialTextile gingham_conifer = new MaterialTextile("gingham_conifer", "compendium");
-		gingham_conifer.BLOCK.setGenerate();
-		gingham_conifer.CARPET.setGenerate();
-		gingham_conifer.STRING.setIgnored();
-		buildDefault(gingham_conifer);
-
-		MaterialTextile gingham_fluorescent = new MaterialTextile("gingham_fluorescent", "compendium");
-		gingham_fluorescent.BLOCK.setGenerate();
-		gingham_fluorescent.CARPET.setGenerate();
-		gingham_fluorescent.STRING.setIgnored();
-		buildDefault(gingham_fluorescent);
-
-		MaterialTextile gingham_honey = new MaterialTextile("gingham_honey", "compendium");
-		gingham_honey.BLOCK.setGenerate();
-		gingham_honey.CARPET.setGenerate();
-		gingham_honey.STRING.setIgnored();
-		buildDefault(gingham_honey);
-
-		MaterialTextile gingham_icy_blue = new MaterialTextile("gingham_icy_blue", "compendium");
-		gingham_icy_blue.BLOCK.setGenerate();
-		gingham_icy_blue.CARPET.setGenerate();
-		gingham_icy_blue.STRING.setIgnored();
-		buildDefault(gingham_icy_blue);
-
-		MaterialTextile gingham_lavender = new MaterialTextile("gingham_lavender", "compendium");
-		gingham_lavender.BLOCK.setGenerate();
-		gingham_lavender.CARPET.setGenerate();
-		gingham_lavender.STRING.setIgnored();
-		buildDefault(gingham_lavender);
-
-		MaterialTextile gingham_maroon = new MaterialTextile("gingham_maroon", "compendium");
-		gingham_maroon.BLOCK.setGenerate();
-		gingham_maroon.CARPET.setGenerate();
-		gingham_maroon.STRING.setIgnored();
-		buildDefault(gingham_maroon);
-
-		MaterialTextile gingham_mint = new MaterialTextile("gingham_mint", "compendium");
-		gingham_mint.BLOCK.setGenerate();
-		gingham_mint.CARPET.setGenerate();
-		gingham_mint.STRING.setIgnored();
-		buildDefault(gingham_mint);
-
-		MaterialTextile gingham_navy = new MaterialTextile("gingham_navy", "compendium");
-		gingham_navy.BLOCK.setGenerate();
-		gingham_navy.CARPET.setGenerate();
-		gingham_navy.STRING.setIgnored();
-		buildDefault(gingham_navy);
-
-		MaterialTextile gingham_peach = new MaterialTextile("gingham_peach", "compendium");
-		gingham_peach.BLOCK.setGenerate();
-		gingham_peach.CARPET.setGenerate();
-		gingham_peach.STRING.setIgnored();
-		buildDefault(gingham_peach);
-
-		MaterialTextile gingham_persimmon = new MaterialTextile("gingham_persimmon", "compendium");
-		gingham_persimmon.BLOCK.setGenerate();
-		gingham_persimmon.CARPET.setGenerate();
-		gingham_persimmon.STRING.setIgnored();
-		buildDefault(gingham_persimmon);
-
-		MaterialTextile gingham_rose = new MaterialTextile("gingham_rose", "compendium");
-		gingham_rose.BLOCK.setGenerate();
-		gingham_rose.CARPET.setGenerate();
-		gingham_rose.STRING.setIgnored();
-		buildDefault(gingham_rose);
-
-		MaterialTextile gingham_spring_green = new MaterialTextile("gingham_spring_green", "compendium");
-		gingham_spring_green.BLOCK.setGenerate();
-		gingham_spring_green.CARPET.setGenerate();
-		gingham_spring_green.STRING.setIgnored();
-		buildDefault(gingham_spring_green);
-
-		MaterialTextile gingham_ultramarine = new MaterialTextile("gingham_ultramarine", "compendium");
-		gingham_ultramarine.BLOCK.setGenerate();
-		gingham_ultramarine.CARPET.setGenerate();
-		gingham_ultramarine.STRING.setIgnored();
-		buildDefault(gingham_ultramarine);
-
-		MaterialTextile gingham_wine = new MaterialTextile("gingham_wine", "compendium");
-		gingham_wine.BLOCK.setGenerate();
-		gingham_wine.CARPET.setGenerate();
-		gingham_wine.STRING.setIgnored();
-		buildDefault(gingham_wine);
+		dyenamics();
+		dyenamicsGingham();
 
 //
 //		buildDefault(
@@ -1190,6 +1066,226 @@ public class IndexInitialResourceLoader {
 //		buildDefault(new MaterialWood("barn_wood", "butchercraft", barn_wood)
 //				.addExtension(new ExtensionExtraLogs(Generate.IGNORE))
 //				.addExtension(new ExtensionExtraPlanks()));
+	}
+
+	private static void dyenamics() {
+		MaterialTextile gingham_amber = new MaterialTextile("amber_wool", "dyenamics");
+		gingham_amber.BLOCK.setIgnore();
+		gingham_amber.CARPET.setIgnore();
+		gingham_amber.STRING.setIgnore();
+		buildDefault(gingham_amber);
+
+		MaterialTextile aquamarine_wool = new MaterialTextile("aquamarine_wool", "dyenamics");
+		aquamarine_wool.BLOCK.setIgnore();
+		aquamarine_wool.CARPET.setIgnore();
+		aquamarine_wool.STRING.setIgnore();
+		buildDefault(aquamarine_wool);
+
+		MaterialTextile bubblegum_wool = new MaterialTextile("bubblegum_wool", "dyenamics");
+		bubblegum_wool.BLOCK.setIgnore();
+		bubblegum_wool.CARPET.setIgnore();
+		bubblegum_wool.STRING.setIgnore();
+		buildDefault(bubblegum_wool);
+
+		MaterialTextile cherenkov_wool = new MaterialTextile("cherenkov_wool", "dyenamics");
+		cherenkov_wool.BLOCK.setIgnore();
+		cherenkov_wool.CARPET.setIgnore();
+		cherenkov_wool.STRING.setIgnore();
+		buildDefault(cherenkov_wool);
+
+		MaterialTextile conifer_wool = new MaterialTextile("conifer_wool", "dyenamics");
+		conifer_wool.BLOCK.setIgnore();
+		conifer_wool.CARPET.setIgnore();
+		conifer_wool.STRING.setIgnore();
+		buildDefault(conifer_wool);
+
+		MaterialTextile fluorescent_wool = new MaterialTextile("fluorescent_wool", "dyenamics");
+		fluorescent_wool.BLOCK.setIgnore();
+		fluorescent_wool.CARPET.setIgnore();
+		fluorescent_wool.STRING.setIgnore();
+		buildDefault(fluorescent_wool);
+
+		MaterialTextile honey_wool = new MaterialTextile("honey_wool", "dyenamics");
+		honey_wool.BLOCK.setIgnore();
+		honey_wool.CARPET.setIgnore();
+		honey_wool.STRING.setIgnore();
+		buildDefault(honey_wool);
+
+		MaterialTextile icy_blue_wool = new MaterialTextile("icy_blue_wool", "dyenamics");
+		icy_blue_wool.BLOCK.setIgnore();
+		icy_blue_wool.CARPET.setIgnore();
+		icy_blue_wool.STRING.setIgnore();
+		buildDefault(icy_blue_wool);
+
+		MaterialTextile lavender_wool = new MaterialTextile("lavender_wool", "dyenamics");
+		lavender_wool.BLOCK.setIgnore();
+		lavender_wool.CARPET.setIgnore();
+		lavender_wool.STRING.setIgnore();
+		buildDefault(lavender_wool);
+
+		MaterialTextile maroon_wool = new MaterialTextile("maroon_wool", "dyenamics");
+		maroon_wool.BLOCK.setIgnore();
+		maroon_wool.CARPET.setIgnore();
+		maroon_wool.STRING.setIgnore();
+		buildDefault(maroon_wool);
+
+		MaterialTextile mint_wool = new MaterialTextile("mint_wool", "dyenamics");
+		mint_wool.BLOCK.setIgnore();
+		mint_wool.CARPET.setIgnore();
+		mint_wool.STRING.setIgnore();
+		buildDefault(mint_wool);
+
+		MaterialTextile navy_wool = new MaterialTextile("navy_wool", "dyenamics");
+		navy_wool.BLOCK.setIgnore();
+		navy_wool.CARPET.setIgnore();
+		navy_wool.STRING.setIgnore();
+		buildDefault(navy_wool);
+
+		MaterialTextile peach_wool = new MaterialTextile("peach_wool", "dyenamics");
+		peach_wool.BLOCK.setIgnore();
+		peach_wool.CARPET.setIgnore();
+		peach_wool.STRING.setIgnore();
+		buildDefault(peach_wool);
+
+		MaterialTextile persimmon_wool = new MaterialTextile("persimmon_wool", "dyenamics");
+		persimmon_wool.BLOCK.setIgnore();
+		persimmon_wool.CARPET.setIgnore();
+		persimmon_wool.STRING.setIgnore();
+		buildDefault(persimmon_wool);
+
+		MaterialTextile rose_wool = new MaterialTextile("rose_wool", "dyenamics");
+		rose_wool.BLOCK.setIgnore();
+		rose_wool.CARPET.setIgnore();
+		rose_wool.STRING.setIgnore();
+		buildDefault(rose_wool);
+
+		MaterialTextile spring_green_wool = new MaterialTextile("spring_green_wool", "dyenamics");
+		spring_green_wool.BLOCK.setIgnore();
+		spring_green_wool.CARPET.setIgnore();
+		spring_green_wool.STRING.setIgnore();
+		buildDefault(spring_green_wool);
+
+		MaterialTextile ultramarine_wool = new MaterialTextile("ultramarine_wool", "dyenamics");
+		ultramarine_wool.BLOCK.setIgnore();
+		ultramarine_wool.CARPET.setIgnore();
+		ultramarine_wool.STRING.setIgnore();
+		buildDefault(ultramarine_wool);
+
+		MaterialTextile wine_wool = new MaterialTextile("wine_wool", "dyenamics");
+		wine_wool.BLOCK.setIgnore();
+		wine_wool.CARPET.setIgnore();
+		wine_wool.STRING.setIgnore();
+		buildDefault(wine_wool);
+	}
+
+	private static void dyenamicsGingham() {
+		MaterialTextile gingham_amber = new MaterialTextile("gingham_amber", "compendium");
+		gingham_amber.BLOCK.setGenerate();
+		gingham_amber.CARPET.setGenerate();
+		gingham_amber.STRING.setIgnore();
+		buildDefault(gingham_amber);
+
+		MaterialTextile gingham_aquamarine = new MaterialTextile("gingham_aquamarine", "compendium");
+		gingham_aquamarine.BLOCK.setGenerate();
+		gingham_aquamarine.CARPET.setGenerate();
+		gingham_aquamarine.STRING.setIgnore();
+		buildDefault(gingham_aquamarine);
+
+		MaterialTextile gingham_bubblegum = new MaterialTextile("gingham_bubblegum", "compendium");
+		gingham_bubblegum.BLOCK.setGenerate();
+		gingham_bubblegum.CARPET.setGenerate();
+		gingham_bubblegum.STRING.setIgnore();
+		buildDefault(gingham_bubblegum);
+
+		MaterialTextile gingham_cherenkov = new MaterialTextile("gingham_cherenkov", "compendium");
+		gingham_cherenkov.BLOCK.setGenerate();
+		gingham_cherenkov.CARPET.setGenerate();
+		gingham_cherenkov.STRING.setIgnore();
+		buildDefault(gingham_cherenkov);
+
+		MaterialTextile gingham_conifer = new MaterialTextile("gingham_conifer", "compendium");
+		gingham_conifer.BLOCK.setGenerate();
+		gingham_conifer.CARPET.setGenerate();
+		gingham_conifer.STRING.setIgnore();
+		buildDefault(gingham_conifer);
+
+		MaterialTextile gingham_fluorescent = new MaterialTextile("gingham_fluorescent", "compendium");
+		gingham_fluorescent.BLOCK.setGenerate();
+		gingham_fluorescent.CARPET.setGenerate();
+		gingham_fluorescent.STRING.setIgnore();
+		buildDefault(gingham_fluorescent);
+
+		MaterialTextile gingham_honey = new MaterialTextile("gingham_honey", "compendium");
+		gingham_honey.BLOCK.setGenerate();
+		gingham_honey.CARPET.setGenerate();
+		gingham_honey.STRING.setIgnore();
+		buildDefault(gingham_honey);
+
+		MaterialTextile gingham_icy_blue = new MaterialTextile("gingham_icy_blue", "compendium");
+		gingham_icy_blue.BLOCK.setGenerate();
+		gingham_icy_blue.CARPET.setGenerate();
+		gingham_icy_blue.STRING.setIgnore();
+		buildDefault(gingham_icy_blue);
+
+		MaterialTextile gingham_lavender = new MaterialTextile("gingham_lavender", "compendium");
+		gingham_lavender.BLOCK.setGenerate();
+		gingham_lavender.CARPET.setGenerate();
+		gingham_lavender.STRING.setIgnore();
+		buildDefault(gingham_lavender);
+
+		MaterialTextile gingham_maroon = new MaterialTextile("gingham_maroon", "compendium");
+		gingham_maroon.BLOCK.setGenerate();
+		gingham_maroon.CARPET.setGenerate();
+		gingham_maroon.STRING.setIgnore();
+		buildDefault(gingham_maroon);
+
+		MaterialTextile gingham_mint = new MaterialTextile("gingham_mint", "compendium");
+		gingham_mint.BLOCK.setGenerate();
+		gingham_mint.CARPET.setGenerate();
+		gingham_mint.STRING.setIgnore();
+		buildDefault(gingham_mint);
+
+		MaterialTextile gingham_navy = new MaterialTextile("gingham_navy", "compendium");
+		gingham_navy.BLOCK.setGenerate();
+		gingham_navy.CARPET.setGenerate();
+		gingham_navy.STRING.setIgnore();
+		buildDefault(gingham_navy);
+
+		MaterialTextile gingham_peach = new MaterialTextile("gingham_peach", "compendium");
+		gingham_peach.BLOCK.setGenerate();
+		gingham_peach.CARPET.setGenerate();
+		gingham_peach.STRING.setIgnore();
+		buildDefault(gingham_peach);
+
+		MaterialTextile gingham_persimmon = new MaterialTextile("gingham_persimmon", "compendium");
+		gingham_persimmon.BLOCK.setGenerate();
+		gingham_persimmon.CARPET.setGenerate();
+		gingham_persimmon.STRING.setIgnore();
+		buildDefault(gingham_persimmon);
+
+		MaterialTextile gingham_rose = new MaterialTextile("gingham_rose", "compendium");
+		gingham_rose.BLOCK.setGenerate();
+		gingham_rose.CARPET.setGenerate();
+		gingham_rose.STRING.setIgnore();
+		buildDefault(gingham_rose);
+
+		MaterialTextile gingham_spring_green = new MaterialTextile("gingham_spring_green", "compendium");
+		gingham_spring_green.BLOCK.setGenerate();
+		gingham_spring_green.CARPET.setGenerate();
+		gingham_spring_green.STRING.setIgnore();
+		buildDefault(gingham_spring_green);
+
+		MaterialTextile gingham_ultramarine = new MaterialTextile("gingham_ultramarine", "compendium");
+		gingham_ultramarine.BLOCK.setGenerate();
+		gingham_ultramarine.CARPET.setGenerate();
+		gingham_ultramarine.STRING.setIgnore();
+		buildDefault(gingham_ultramarine);
+
+		MaterialTextile gingham_wine = new MaterialTextile("gingham_wine", "compendium");
+		gingham_wine.BLOCK.setGenerate();
+		gingham_wine.CARPET.setGenerate();
+		gingham_wine.STRING.setIgnore();
+		buildDefault(gingham_wine);
 	}
 
 	static void buildDefault(_MaterialBase mat) {

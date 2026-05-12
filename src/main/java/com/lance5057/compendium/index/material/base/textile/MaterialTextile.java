@@ -224,9 +224,12 @@ public class MaterialTextile extends _MaterialBase {
 
 			w = new MaterialTextile(name, tagNamespace);
 
-			w.BLOCK.deserialize(j.get("block").getAsJsonObject());
-			w.STRING.deserialize(j.get("string").getAsJsonObject());
-			w.CARPET.deserialize(j.get("carpet").getAsJsonObject());
+			if (j.has("block"))
+				w.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			if (j.has("string"))
+				w.STRING.deserialize(j.get("string").getAsJsonObject());
+			if (j.has("carpet"))
+				w.CARPET.deserialize(j.get("carpet").getAsJsonObject());
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 

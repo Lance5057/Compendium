@@ -131,7 +131,8 @@ public class MaterialGlass extends _MaterialBase {
 
 			g = new MaterialGlass(name, tagNamespace, sp);
 
-			g.BLOCK.deserialize(j.get("block").getAsJsonObject());
+			if (j.has("block"))
+				g.BLOCK.deserialize(j.get("block").getAsJsonObject());
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 

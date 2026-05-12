@@ -422,10 +422,14 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			JsonObject j = json.getAsJsonObject();
 
 			ExtensionExtraPlanks eel = new ExtensionExtraPlanks();
-			eel.PLANK.deserialize(j.get("plank").getAsJsonObject());
-			eel.PLANK_BLOCK.deserialize(j.get("plank_block").getAsJsonObject());
-			eel.PLANK_SLAB.deserialize(j.get("plank_slab").getAsJsonObject());
-			eel.PLANK_STAIRS.deserialize(j.get("plank_stairs").getAsJsonObject());
+			if (j.has("plank"))
+				eel.PLANK.deserialize(j.get("plank").getAsJsonObject());
+			if (j.has("plank_block"))
+				eel.PLANK_BLOCK.deserialize(j.get("plank_block").getAsJsonObject());
+			if (j.has("plank_slab"))
+				eel.PLANK_SLAB.deserialize(j.get("plank_slab").getAsJsonObject());
+			if (j.has("plank_stairs"))
+				eel.PLANK_STAIRS.deserialize(j.get("plank_stairs").getAsJsonObject());
 
 			return eel;
 		}

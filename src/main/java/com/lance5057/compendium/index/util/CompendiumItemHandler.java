@@ -95,7 +95,7 @@ public class CompendiumItemHandler implements Serializable {
 		return this.generate == Generate.IGNORE;
 	}
 
-	public void setIgnored() {
+	public void setIgnore() {
 		this.generate = Generate.IGNORE;
 	}
 

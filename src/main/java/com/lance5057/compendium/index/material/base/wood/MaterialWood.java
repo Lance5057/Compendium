@@ -254,11 +254,16 @@ public class MaterialWood extends _MaterialBase {
 					w.addExtension(context.deserialize(extensionElement, _MaterialExtension.class));
 				}
 
-			w.PLANKS.deserialize(j.get("planks").getAsJsonObject());
-			w.LOG.deserialize(j.get("log").getAsJsonObject());
-			w.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
-			w.WOOD.deserialize(j.get("wood").getAsJsonObject());
-			w.STRIPPED_WOOD.deserialize(j.get("stripped_wood").getAsJsonObject());
+			if (j.has("planks"))
+				w.PLANKS.deserialize(j.get("planks").getAsJsonObject());
+			if (j.has("log"))
+				w.LOG.deserialize(j.get("log").getAsJsonObject());
+			if (j.has("stripped_log"))
+				w.STRIPPED_LOG.deserialize(j.get("stripped_log").getAsJsonObject());
+			if (j.has("wood"))
+				w.WOOD.deserialize(j.get("wood").getAsJsonObject());
+			if (j.has("stripped_wood"))
+				w.STRIPPED_WOOD.deserialize(j.get("stripped_wood").getAsJsonObject());
 
 			return w;
 		}
