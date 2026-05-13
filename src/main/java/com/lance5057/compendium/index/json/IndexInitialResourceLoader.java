@@ -599,40 +599,15 @@ public class IndexInitialResourceLoader {
 		abyssalDecor();
 		cluttered();
 
-//
-//		SpecialLocationsWood chestnut = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_side_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_top_stripped")));
-//		buildDefault(new MaterialWood("chestnut", "bloomingnature", chestnut)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood chorus = new SpecialLocationsWood(
-//				new ExistsLocationsWood( null, null,
-//						ResourceLocation.fromNamespaceAndPath("cataclysm", "chorus_stem")),
-//				new ExistsLocationsWood( null, null,
-//						ResourceLocation.fromNamespaceAndPath("cataclysm", "chorus_stem")),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_stem"),
-//						ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
-//						ResourceLocation.fromNamespaceAndPath("compendium",
-//								"block/material/wood/chorus/logs/log_top")));
-//		buildDefault(
-//				new MaterialWood("chorus", "cataclysm", chorus).addExtension(new ExtensionExtraLogs())
-//						.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood cinnamon = new SpecialLocationsWood(
-//				new ExistsLocationsWood( null, null,
-//						ResourceLocation.fromNamespaceAndPath("extradelight", "strippedcinnamon_wood")),
-//				new ExistsLocationsWood( null, null,
-//						ResourceLocation.fromNamespaceAndPath("extradelight", "stripped_cinnamon_wood")),
-//				null);
-//		buildDefault(new MaterialWood("cinnamon", "extradelight", cinnamon)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
+		SpecialLocationsWood chorus = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_stem"), null, null,
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top")));
+		buildDefault(new MaterialWood("chorus", "cataclysm", chorus).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		buildDefault(new MaterialWood("cinnamon", "extradelight").addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
 //
 //		SpecialLocationsWood cinnamon_ad = new SpecialLocationsWood(
 //				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_planks"),
@@ -964,6 +939,15 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("compendium", "block/stripped_cactus_log_top")));
 
 		buildDefault(cactus.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		SpecialLocationsWood chestnut = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_side_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_top_stripped")));
+		buildDefault(new MaterialWood("chestnut", "bloomingnature", chestnut)
+				.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()));
 	}
 
