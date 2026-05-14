@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "block/oak_planks",
-		"particle": "block/oak_planks"
+		"0": "compendium:block/material/wood/flowering_willow/planks/plank",
+		"particle": "compendium:block/material/wood/flowering_willow/planks/plank"
 	},
 	"elements": [
 		{
@@ -15,9 +15,9 @@
 				"north": {"uv": [0, 0, 4, 2], "texture": "#0"},
 				"east": {"uv": [0, 0, 16, 2], "texture": "#0"},
 				"south": {"uv": [0, 0, 4, 2], "texture": "#0"},
-				"west": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"west": {"uv": [16, 2, 0, 0], "texture": "#0"},
 				"up": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#0"},
-				"down": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#0"}
+				"down": {"uv": [16, 4, 0, 0], "rotation": 90, "texture": "#0"}
 			}
 		}
 	],
