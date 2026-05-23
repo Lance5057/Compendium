@@ -62,7 +62,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ExtensionExtraPlanks extends _MaterialExtension {
@@ -175,9 +174,9 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_STAIRS.tab(base, output);
 	}
 
-	@Override
-	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
-	}
+//	@Override
+//	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
+//	}
 
 //	@Override
 //	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
@@ -358,44 +357,6 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 						));
 	}
 
-//	@Override
-//	public void setupItemTags(_MaterialBase base, ItemTagsProvider itp) {
-//		if (!PLANK.isIgnored()) {
-//			PLANK.itemTag(itp);
-//			itp.tag(CompendiumTags.PLANK).add(PLANK.BLOCK_ITEM.asItem());
-//		}
-//		if (!PLANK_BLOCK.isIgnored()) {
-//			PLANK_BLOCK.itemTag(itp);
-//		}
-//		if (!PLANK_SLAB.isIgnored()) {
-//			PLANK_SLAB.itemTag(itp);
-//		}
-//		if (!PLANK_STAIRS.isIgnored()) {
-//			PLANK_STAIRS.itemTag(itp);
-//		}
-//	}
-//
-//	@Override
-//	public void setupBlockTags(_MaterialBase base, BlockTagsProvider btp) {
-//		if (!PLANK.isIgnored()) {
-//			PLANK.blockTag(btp);
-//		}
-//		if (!PLANK_BLOCK.isIgnored()) {
-//			PLANK_BLOCK.blockTag(btp);
-//		}
-//		if (!PLANK_SLAB.isIgnored()) {
-//			PLANK_SLAB.blockTag(btp);
-//		}
-//		if (!PLANK_STAIRS.isIgnored()) {
-//			PLANK_STAIRS.blockTag(btp);
-//		}
-//	}
-//
-//	@Override
-//	public void setupClient(_MaterialBase base, FMLClientSetupEvent event) {
-//
-//	}
-
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionExtraPlanks> {
 
 		public Serializer() {
@@ -441,51 +402,4 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		// TODO Auto-generated method stub
 
 	}
-
-//	@Override
-//	public boolean isIndexItem(_MaterialBase base, ItemStack stack) {
-//		if (PLANK.is(stack))
-//			return true;
-//		if (PLANK_BLOCK.is(stack))
-//			return true;
-//		if (PLANK_SLAB.is(stack))
-//			return true;
-//		if (PLANK_STAIRS.is(stack))
-//			return true;
-//
-//		return false;
-//	}
-//
-//	@Override
-//	public Optional<IIndexEntry> getEntryItemBelongsTo(_MaterialBase base, ItemStack stack) {
-//		if (PLANK.is(stack))
-//			return Optional.of(base);
-//		if (PLANK_BLOCK.is(stack))
-//			return Optional.of(base);
-//		if (PLANK_SLAB.is(stack))
-//			return Optional.of(base);
-//		if (PLANK_STAIRS.is(stack))
-//			return Optional.of(base);
-//
-//		return Optional.empty();
-//	}
-
-//	@Override
-//	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
-//		if (PLANK.isNotIgnored())
-//			event.modify(PLANK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-//					new IndexEntryComponent(base.getType(), base.name)));
-//
-//		if (PLANK_BLOCK.isNotIgnored())
-//			event.modify(PLANK_BLOCK.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-//					new IndexEntryComponent(base.getType(), base.name)));
-//
-//		if (PLANK_SLAB.isNotIgnored())
-//			event.modify(PLANK_SLAB.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-//					new IndexEntryComponent(base.getType(), base.name)));
-//
-//		if (PLANK_STAIRS.isNotIgnored())
-//			event.modify(PLANK_STAIRS.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
-//					new IndexEntryComponent(base.getType(), base.name)));
-//	}
 }

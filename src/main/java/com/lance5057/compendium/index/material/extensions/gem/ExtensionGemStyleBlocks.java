@@ -1,4 +1,4 @@
-package com.lance5057.compendium.index.material.extensions.metal;
+package com.lance5057.compendium.index.material.extensions.gem;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -34,13 +34,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class ExtensionMetalStyleBlocks extends _MaterialExtension {
+public class ExtensionGemStyleBlocks extends _MaterialExtension {
 
 	private static final long serialVersionUID = 9038154957807121881L;
 
 	public CompendiumBlockHandler BLOCK;
 
-	public ExtensionMetalStyleBlocks() {
+	public ExtensionGemStyleBlocks() {
 		this.BLOCKS.add(BLOCK = new CompendiumBlockHandler());
 	}
 
@@ -49,9 +49,9 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		BLOCK.setName(base.name + "_BLOCK");
 		BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.name + "_styled_metal"), base.getType(), base.name, List
-								.of("metal_block"),
-						StyleData.METAL_BLOCK),
+						Compendium.modLoc(base.name + "_styled_gem"), base.getType(), base.name, List
+								.of("gem_block"),
+						StyleData.GEM_BLOCK),
 				() -> new BlockItem(BLOCK.BLOCK.get(), new Item.Properties()
 						.component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
@@ -93,14 +93,14 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		}
 	}
 
-	public static class Serializer extends MaterialExtensionSerializer<ExtensionMetalStyleBlocks> {
+	public static class Serializer extends MaterialExtensionSerializer<ExtensionGemStyleBlocks> {
 
 		public Serializer() {
 			super("EXTRAMETALBLOCKS");
 		}
 
 		@Override
-		public JsonElement serialize(ExtensionMetalStyleBlocks src, Type typeOfSrc, JsonSerializationContext context) {
+		public JsonElement serialize(ExtensionGemStyleBlocks src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
 
 			j.addProperty("type", type);
@@ -111,11 +111,11 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 		}
 
 		@Override
-		public ExtensionMetalStyleBlocks deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+		public ExtensionGemStyleBlocks deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			ExtensionMetalStyleBlocks emsb = new ExtensionMetalStyleBlocks();
+			ExtensionGemStyleBlocks emsb = new ExtensionGemStyleBlocks();
 			if (j.has("block"))
 				emsb.BLOCK.deserialize(j.get("block").getAsJsonObject());
 

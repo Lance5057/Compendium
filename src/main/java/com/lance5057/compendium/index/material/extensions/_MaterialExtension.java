@@ -64,14 +64,14 @@ public abstract class _MaterialExtension implements Serializable {
 		return this;
 	}
 
-	public abstract void blockStateModel(_MaterialBase base, BlockStateProvider bsp);
+//	public abstract void blockStateModel(_MaterialBase base, BlockStateProvider bsp);
 
-	protected boolean autoGenItemModel = true;
-
-	public _MaterialExtension noAutoGenItemModel() {
-		this.autoGenItemModel = false;
-		return this;
-	}
+//	protected boolean autoGenItemModel = true;
+//
+//	public _MaterialExtension noAutoGenItemModel() {
+//		this.autoGenItemModel = false;
+//		return this;
+//	}
 
 	public abstract void engLoc(_MaterialBase base, LanguageProvider lp);
 

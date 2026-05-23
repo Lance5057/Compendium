@@ -99,6 +99,13 @@ public class StyleData {
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass",
 			List.of("basic", "no_edge", "no_glint", "no_edge_no_glint"));
 
+	public static StyleData METAL_BLOCK = new StyleData("metal_block", List.of("full", "half", "vertical_half",
+			"quarter", "offset_half", "offset_quarter", "indented", "indented_segment", "dented", "dented_segment"));
+
+	public static StyleData STONE_BLOCK = new StyleData("stone_block", List.of("full"));
+	
+	public static StyleData GEM_BLOCK = new StyleData("gem_block", List.of("full"));
+
 	String name;
 	List<String> types;
 

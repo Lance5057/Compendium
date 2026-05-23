@@ -6,8 +6,10 @@ import java.util.Map;
 import com.google.gson.GsonBuilder;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.MaterialGem;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
+import com.lance5057.compendium.index.material.base.stone.MaterialStone;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialTextureLocationsTextile;
@@ -18,6 +20,9 @@ import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools
 import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
+import com.lance5057.compendium.index.material.extensions.stone.ExtensionStoneStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 
@@ -66,17 +71,18 @@ public class MaterialTypeRegistry {
 		serializers.put(_MaterialBase.class, new _MaterialBase.Serializer());
 		serializers.put(MaterialMetal.class, new MaterialMetal.Serializer());
 		serializers.put(MaterialWood.class, new MaterialWood.Serializer());
-//		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
+		serializers.put(MaterialGem.class, new MaterialGem.Serializer());
 		serializers.put(MaterialGlass.class, new MaterialGlass.Serializer());
-//		serializers.put(MaterialStone.class, new MaterialStone.Serializer());
+		serializers.put(MaterialStone.class, new MaterialStone.Serializer());
 		serializers.put(MaterialTextile.class, new MaterialTextile.Serializer());
 
 		extensions.put(_MaterialExtension.class, new _MaterialExtension.Serializer());
 		extensions.put(ExtensionVanillaTools.class, new ExtensionVanillaTools.Serializer());
 		extensions.put(ExtensionAdvancedTools.class, new ExtensionAdvancedTools.Serializer());
 //		extensions.put(ExtensionArmor.class, new ExtensionArmor.Serializer());
-//		extensions.put(ExtensionMetalStyleBlocks.class, new ExtensionMetalStyleBlocks.Serializer());
-//		extensions.put(ExtensionStoneStyleBlocks.class, new ExtensionStoneStyleBlocks.Serializer());
+		extensions.put(ExtensionMetalStyleBlocks.class, new ExtensionMetalStyleBlocks.Serializer());
+		extensions.put(ExtensionStoneStyleBlocks.class, new ExtensionStoneStyleBlocks.Serializer());
+		extensions.put(ExtensionGemStyleBlocks.class, new ExtensionGemStyleBlocks.Serializer());
 		extensions.put(ExtensionExtraLogs.class, new ExtensionExtraLogs.Serializer());
 		extensions.put(ExtensionExtraPlanks.class, new ExtensionExtraPlanks.Serializer());
 	}

@@ -74,26 +74,6 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	}
 
 	@Override
-	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
-		// TODO Auto-generated method stub
-
-	}
-
-//	@Override
-//	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
-//		if (AXE.shouldGenerate())
-//			DataUtil.basicMaterialItem(tmp, this.AXE.ITEM.get(), base, "axe", base.getType());
-//		if (HOE.shouldGenerate())
-//			DataUtil.basicMaterialItem(tmp, this.HOE.ITEM.get(), base, "hoe", base.getType());
-//		if (PICKAXE.shouldGenerate())
-//			DataUtil.basicMaterialItem(tmp, this.PICKAXE.ITEM.get(), base, "pickaxe", base.getType());
-//		if (SHOVEL.shouldGenerate())
-//			DataUtil.basicMaterialItem(tmp, this.SHOVEL.ITEM.get(), base, "shovel", base.getType());
-//		if (SWORD.shouldGenerate())
-//			DataUtil.basicMaterialItem(tmp, this.SWORD.ITEM.get(), base, "sword", base.getType());
-//	}
-
-	@Override
 	public void engLoc(_MaterialBase base, LanguageProvider lp) {
 		String locName = base.name.substring(0, 1).toUpperCase() + base.name.substring(1);
 		if (AXE.shouldGenerate())

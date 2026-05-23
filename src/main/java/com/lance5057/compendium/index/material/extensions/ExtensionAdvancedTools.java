@@ -102,11 +102,6 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 //		BOW.tab(base, output);
 	}
 
-	@Override
-	public void blockStateModel(_MaterialBase base, BlockStateProvider bsp) {
-
-	}
-
 //	@Override
 //	public void itemModel(_MaterialBase base, ItemModelProvider tmp) {
 //		if (PRYBAR.shouldGenerate())
