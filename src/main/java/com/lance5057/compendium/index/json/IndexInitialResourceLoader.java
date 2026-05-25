@@ -67,7 +67,7 @@ public class IndexInitialResourceLoader {
 			}
 
 		buildDefaults();
-		moddedDefaults();
+//		moddedDefaults();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
