@@ -85,5 +85,7 @@ public class MaterialTypeRegistry {
 		extensions.put(ExtensionGemStyleBlocks.class, new ExtensionGemStyleBlocks.Serializer());
 		extensions.put(ExtensionExtraLogs.class, new ExtensionExtraLogs.Serializer());
 		extensions.put(ExtensionExtraPlanks.class, new ExtensionExtraPlanks.Serializer());
+		
+		extensions.put(ExtensionMetalStyleBlocks.class, new ExtensionMetalStyleBlocks.Serializer());
 	}
 }

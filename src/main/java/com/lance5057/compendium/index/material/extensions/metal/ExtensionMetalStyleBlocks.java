@@ -46,7 +46,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		BLOCK.setName(base.name + "_BLOCK");
+		BLOCK.setName(base.name + "_block");
 		BLOCK.setup(base,
 				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
 						Compendium.modLoc(base.name + "_styled_metal"), base.getType(), base.name, List

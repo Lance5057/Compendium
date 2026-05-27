@@ -99,11 +99,16 @@ public class StyleData {
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass",
 			List.of("basic", "no_edge", "no_glint", "no_edge_no_glint"));
 
-	public static StyleData METAL_BLOCK = new StyleData("metal_block", List.of("full", "half", "vertical_half",
-			"quarter", "offset_half", "offset_quarter", "indented", "indented_segment", "dented", "dented_segment"));
+	public static StyleData METAL_BLOCK = new StyleData("metal_block",
+			List.of("brick", "coil", "coins", "crate", "cylinder", "dented_tile", "diamond", "diamond_tile",
+					"eighth_tile", "half_tile", "heavy_rivet_dented_tile", "heavy_rivet_indented_tile",
+					"heavy_rivet_tile", "indented_tile", "no_rivet_dented_tile", "no_rivet_diamond_tile",
+					"no_rivet_half_tile", "no_rivet_offset_quarter_tile", "no_rivet_quarter_tile", "no_rivet_tile",
+					"offset_eighth_tile", "offset_quarter_tile", "pipe", "quarter_tile", "random_tile", "shutter",
+					"stack", "thick_stack", "tile", "treaded", "trimmed_tile"));
 
 	public static StyleData STONE_BLOCK = new StyleData("stone_block", List.of("full"));
-	
+
 	public static StyleData GEM_BLOCK = new StyleData("gem_block", List.of("full"));
 
 	String name;

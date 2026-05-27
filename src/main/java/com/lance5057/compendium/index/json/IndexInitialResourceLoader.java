@@ -39,6 +39,7 @@ import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.lance5057.compendium.util.TagUtil;
@@ -148,6 +149,10 @@ public class IndexInitialResourceLoader {
 		ia.ZWEIHANDER.setGenerate();
 		ia.SHEARS.setExists(TagUtil.mcLoc("shears"));
 		iron.addExtension(ia);
+		
+		ExtensionMetalStyleBlocks ims = new ExtensionMetalStyleBlocks();
+		ims.BLOCK.setGenerate();
+		iron.addExtension(ims);
 
 		buildDefault(iron);
 

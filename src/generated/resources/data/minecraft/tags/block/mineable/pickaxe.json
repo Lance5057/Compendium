@@ -3,6 +3,7 @@
     "minecraft:copper_block",
     "minecraft:gold_block",
     "minecraft:iron_block",
+    "compendium:iron_block",
     "minecraft:netherite_block",
     "compendium:cosmetic_toolbox",
     "compendium:hammering_station",
