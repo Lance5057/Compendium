@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-27T00:58:06.5281756	Loot Tables
+// 1.21.1	2026-05-27T12:30:19.7211553	Loot Tables
 113055c13dee35ed5c4c16e0cc72ceada332467c data/compendium/loot_table/blocks/acacia_plank.json
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
@@ -25,6 +25,7 @@ b6d7fa2b77c06074038eb422987690e1bf5b028d data/compendium/loot_table/blocks/cherr
 316b632a106c4832697938f3224d8b1370a8e156 data/compendium/loot_table/blocks/cherry_styled_planks_slab.json
 7f4c90d6ed1a14f6aef120c4e2d67cab6529d0bb data/compendium/loot_table/blocks/cherry_styled_planks_stairs.json
 6b8205de3ab2899e67d8ea2d79450b0510481b38 data/compendium/loot_table/blocks/clothed_table.json
+1e7481b0408b41ea69fb8858983ef73a2f58aee7 data/compendium/loot_table/blocks/copper_styled_metal.json
 cc67163c753754c2bceae4dbb56a3e560f3c604c data/compendium/loot_table/blocks/cosmetic_toolbox.json
 ec7812842c671cf3f69c09410eadb4577032f0ba data/compendium/loot_table/blocks/crimson_plank.json
 9d7b7da756ee4dac4b4cd1b5ad72d58756a7d55e data/compendium/loot_table/blocks/crimson_small_log.json
@@ -45,8 +46,9 @@ dfb5b4a46b4472edded396736209c5c789f7d972 data/compendium/loot_table/blocks/dark_
 057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
 f4987518cffbeb9dc48c890106c20efc4d202bc5 data/compendium/loot_table/blocks/fancy_bed.json
 a069bfaea8049f68ae55b859e93088d09385f2ff data/compendium/loot_table/blocks/fancy_fence.json
+0618882276f51cfe712565f934a5b294baba8343 data/compendium/loot_table/blocks/gold_styled_metal.json
 9673e43f0b1fcad5f36acb6e4b06e4bde0f755ae data/compendium/loot_table/blocks/hammering_station.json
-9fdec389855bed137b66992a45b8af0e7738b4f5 data/compendium/loot_table/blocks/iron_block.json
+83953177033b4927a35dff8ffac72c2f8d3be49f data/compendium/loot_table/blocks/iron_styled_metal.json
 ecc14f83f713fe05c78ecf3430b4fb0594f38bd4 data/compendium/loot_table/blocks/jungle_plank.json
 a57ad7586b804e63e206cdc53e6fd19034b366c3 data/compendium/loot_table/blocks/jungle_small_log.json
 eb47e6e06c9b13a3bc488970671ff850fcc894b3 data/compendium/loot_table/blocks/jungle_small_logs.json
@@ -63,6 +65,7 @@ b687bc0f4219194fc14998b8506be11c2b71dce0 data/compendium/loot_table/blocks/mangr
 e62a2e813632ebe1d70ef59d5d2336a7ba5681f3 data/compendium/loot_table/blocks/mangrove_styled_planks.json
 33bb09d87ada3bb3a8f547c58a52abacf68b8d2c data/compendium/loot_table/blocks/mangrove_styled_planks_slab.json
 7e5cd9ffe8e4300e8d1beede88c3dcfe013777b8 data/compendium/loot_table/blocks/mangrove_styled_planks_stairs.json
+b88869a9a6f6f77ca3e63b322b7784bd3157c518 data/compendium/loot_table/blocks/netherite_styled_metal.json
 2df78df210b664696057b841b0f201702d52e8f1 data/compendium/loot_table/blocks/oak_plank.json
 09bf83e76e57bd4ddd7b3462e8833c5a83f009a6 data/compendium/loot_table/blocks/oak_small_log.json
 391ef678c14fc9d5092b840b51847336be963872 data/compendium/loot_table/blocks/oak_small_logs.json

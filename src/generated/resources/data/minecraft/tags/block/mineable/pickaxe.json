@@ -1,10 +1,13 @@
 {
   "values": [
     "minecraft:copper_block",
+    "compendium:copper_styled_metal",
     "minecraft:gold_block",
+    "compendium:gold_styled_metal",
     "minecraft:iron_block",
-    "compendium:iron_block",
+    "compendium:iron_styled_metal",
     "minecraft:netherite_block",
+    "compendium:netherite_styled_metal",
     "compendium:cosmetic_toolbox",
     "compendium:hammering_station",
     "compendium:window"

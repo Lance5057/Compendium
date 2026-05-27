@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:stripped_jungle_log",
     "minecraft:stripped_jungle_wood",
+    "minecraft:stripped_jungle_log",
     "compendium:stripped_jungle_small_logs_item"
   ]
 }

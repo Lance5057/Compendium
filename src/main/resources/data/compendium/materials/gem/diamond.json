@@ -1,20 +1,20 @@
 {
-  "name": "copper",
+  "name": "diamond",
   "tagNamespace": "minecraft",
-  "type": "METAL",
+  "type": "GEM",
   "block": {
-    "existsLocationBlock": "minecraft:copper_block",
-    "existsLocationItem": "minecraft:copper_block",
+    "existsLocationBlock": "minecraft:diamond_block",
+    "existsLocationItem": "minecraft:diamond_block",
     "generate": "EXISTS"
   },
-  "ingot": {
-    "existsLocation": "minecraft:copper_ingot",
+  "gem": {
+    "existsLocation": "minecraft:diamond",
     "generate": "EXISTS"
   },
-  "nugget": {
+  "shard": {
     "generate": "GENERATE"
   },
-  "tier": "IRON",
+  "tier": "DIAMOND",
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",
@@ -35,7 +35,7 @@
       }
     },
     {
-      "type": "EXTRAMETALBLOCKS",
+      "type": "EXTRAGEMBLOCKS",
       "block": {
         "generate": "GENERATE"
       }

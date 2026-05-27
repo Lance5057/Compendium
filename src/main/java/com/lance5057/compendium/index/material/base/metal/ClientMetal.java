@@ -8,6 +8,7 @@ import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
@@ -81,12 +82,17 @@ public class ClientMetal {
 					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
 
 		for (_MaterialExtension me : mm.extensions) {
-			for (CompendiumItemHandler i : me.ITEMS) {
-				if (i.shouldGenerate())
-					shaper.register(i.ITEM.asItem(),
-							new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
+			if (me instanceof ExtensionAdvancedTools ae)
+				for (CompendiumItemHandler i : ae.ITEMS) {
+					if (i.shouldGenerate())
+						shaper.register(i.ITEM.asItem(),
+								new ModelResourceLocation(ClientUtil.createItemLocation("item"), ""));
+				}
+			else if (me instanceof ExtensionMetalStyleBlocks msb) {
+				if (msb.BLOCK.shouldGenerate())
+					shaper.register(msb.BLOCK.BLOCK_ITEM.get(),
+							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 			}
-
 		}
 	}
 
@@ -116,6 +122,8 @@ public class ClientMetal {
 			Map<ModelResourceLocation, BakedModel> models = event.getModels();
 			if (me instanceof ExtensionAdvancedTools eep) {
 				doAdvancedTools(event, mb, eep, models);
+			} else if (me instanceof ExtensionMetalStyleBlocks eep) {
+				doStyleBlocks(event, mb, eep, models);
 			}
 		}
 	}
@@ -180,6 +188,31 @@ public class ClientMetal {
 					CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("extra/prybar"), mloc,
 							BlockModelRotation.X0_Y0,
 							Pair.of("layer1", TagUtil.modLoc("item/material/metal/" + mb.name + "/prybar"))));
+		}
+	}
+
+	private static void doStyleBlocks(ModifyBakingResult event, MaterialMetal mb, ExtensionMetalStyleBlocks eep,
+			Map<ModelResourceLocation, BakedModel> models) {
+		if (eep.BLOCK.isNotIgnored()) {
+			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/styled_metal"),
+					mb.name + "_styled_metal", "");
+
+			for (String planks_style : StyleData.METAL_BLOCK.getTypes()) {
+				// planks
+				ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+				ResourceLocation modelLoc = ClientUtil.createStyleBlockLocation(mb.name + "_styled_metal",
+						planks_style.toLowerCase());
+				ResourceLocation t = Compendium
+						.modLoc("block/material/metal/" + mb.name + "/tile/" + planks_style.toLowerCase());
+				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
+
+				if (eep.BLOCK.isNotIgnored()) {
+					BakedModel bm = CompendiumClient.basicModelAllTexture(event, t, loc, m, BlockModelRotation.X0_Y0,
+							"all");
+					event.getModels().put(m, bm);
+				}
+			}
+
 		}
 	}
 }

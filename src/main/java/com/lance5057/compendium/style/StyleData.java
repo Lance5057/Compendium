@@ -107,9 +107,17 @@ public class StyleData {
 					"offset_eighth_tile", "offset_quarter_tile", "pipe", "quarter_tile", "random_tile", "shutter",
 					"stack", "thick_stack", "tile", "treaded", "trimmed_tile"));
 
-	public static StyleData STONE_BLOCK = new StyleData("stone_block", List.of("full"));
+	public static StyleData STONE_BLOCK = new StyleData("stone_block",
+			List.of("aligned_brick", "aligned_brick_vertical", "cobblestone", "basketweave_bricks", "big_brick",
+					"brick", "brick_vertical", "dented", "dented_segment", "diamond_tile", "eighth_tiles",
+					"flat_polished", "full_tile", "half_brick", "half_tile", "herringbone_bricks", "hex_brick",
+					"indented", "indented_segmented", "slats", "slats_vertical", "tiled_small_tile",
+					"vertical_half_tile"));
 
-	public static StyleData GEM_BLOCK = new StyleData("gem_block", List.of("full"));
+	public static StyleData GEM_BLOCK = new StyleData("gem_block",
+			List.of("amethyst", "brick", "circle", "circles", "diamond", "diamonds", "eighth", "emeralds", "eye",
+					"faceted", "faceted_octo", "filigree", "flat", "glitter", "half_rotated", "multi_brick",
+					"nostalgia", "octo", "quarter", "quartz", "small_brick", "smooth", "tile"));
 
 	String name;
 	List<String> types;

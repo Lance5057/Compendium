@@ -264,7 +264,6 @@ public class MaterialMetal extends _MaterialBase {
 				j.addProperty("damage", tier.getAttackDamageBonus());
 				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
 				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
-//				j.addProperty("repairTag", tier.getRepairIngredient().);
 			}
 
 			if (src.specialLocations != null) {

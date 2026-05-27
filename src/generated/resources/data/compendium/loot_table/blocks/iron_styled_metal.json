@@ -15,11 +15,11 @@
               "source": "block_entity"
             }
           ],
-          "name": "compendium:iron_block_item"
+          "name": "compendium:iron_styled_metal_item"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "compendium:blocks/iron_block"
+  "random_sequence": "compendium:blocks/iron_styled_metal"
 }

@@ -33,6 +33,12 @@
       "zweihander": {
         "generate": "GENERATE"
       }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
     }
   ]
 }

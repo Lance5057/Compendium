@@ -30,6 +30,7 @@ import com.lance5057.compendium.index.CompendiumIndex;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.MaterialGem;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
@@ -39,6 +40,7 @@ import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
@@ -136,6 +138,27 @@ public class IndexInitialResourceLoader {
 	}
 
 	static void buildDefaults() {
+		metal();
+		glass();
+		wood();
+		wool();
+		gem();
+	}
+
+	private static void gem() {
+		MaterialGem diamond = new MaterialGem("diamond", "minecraft");
+		diamond.setupTier("DIAMOND");
+		diamond.BLOCK.setExists(TagUtil.mcLoc("diamond_block"), TagUtil.mcLoc("diamond_block"));
+		diamond.GEM.setExists(TagUtil.mcLoc("diamond"));
+		diamond.SHARD.setGenerate();
+
+		diamond.addExtension(new ExtensionAdvancedTools().generateAll());
+		diamond.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(diamond);
+	}
+
+	public static void metal() {
 		MaterialMetal iron = new MaterialMetal("iron", "minecraft");
 		iron.setupTier("IRON");
 		iron.BLOCK.setExists(TagUtil.mcLoc("iron_block"), TagUtil.mcLoc("iron_block"));
@@ -149,10 +172,8 @@ public class IndexInitialResourceLoader {
 		ia.ZWEIHANDER.setGenerate();
 		ia.SHEARS.setExists(TagUtil.mcLoc("shears"));
 		iron.addExtension(ia);
-		
-		ExtensionMetalStyleBlocks ims = new ExtensionMetalStyleBlocks();
-		ims.BLOCK.setGenerate();
-		iron.addExtension(ims);
+
+		iron.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(iron);
 
@@ -163,6 +184,7 @@ public class IndexInitialResourceLoader {
 		gold.NUGGET.setExists(TagUtil.mcLoc("gold_nugget"));
 
 		gold.addExtension(new ExtensionAdvancedTools().generateAll());
+		gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(gold);
 
@@ -173,6 +195,7 @@ public class IndexInitialResourceLoader {
 		copper.NUGGET.setGenerate();
 
 		copper.addExtension(new ExtensionAdvancedTools().generateAll());
+		copper.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(copper);
 
@@ -183,9 +206,12 @@ public class IndexInitialResourceLoader {
 		netherite.NUGGET.setGenerate();
 
 		netherite.addExtension(new ExtensionAdvancedTools().generateAll());
+		netherite.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(netherite);
+	}
 
+	public static void glass() {
 		MaterialGlass glass = new MaterialGlass("glass", "minecraft");
 		glass.BLOCK.setExists(TagUtil.mcLoc("glass"), TagUtil.mcLoc("glass"));
 		buildDefault(glass);
@@ -261,7 +287,9 @@ public class IndexInitialResourceLoader {
 		buildDefault(pink_stained_glass);
 
 //		buildDefault(new MaterialGlass("tinted", "minecraft"));
+	}
 
+	public static void wood() {
 		MaterialWood oak = new MaterialWood("oak", "minecraft");
 		oak.LOG.setExists(TagUtil.mcLoc("oak_log"), TagUtil.mcLoc("oak_log"));
 		oak.PLANKS.setExists(TagUtil.mcLoc("oak_planks"), TagUtil.mcLoc("oak_planks"));
@@ -458,34 +486,9 @@ public class IndexInitialResourceLoader {
 //		buildDefault(pale_oak);
 
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
+	}
 
-//		buildDefault(new MaterialStone("stone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("andesite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("granite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("diorite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("basalt", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("blackstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("calcite", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("deepslate", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("dripstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("endstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("purpur", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(new MaterialStone("red_sandstone", false, false, false)
-//				.addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(
-//				new MaterialStone("sandstone", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-//		buildDefault(new MaterialStone("tuff", false, false, false).addExtension(new ExtensionStoneStyleBlocks(true)));
-
+	public static void wool() {
 		MaterialTextile white_wool = new MaterialTextile("white_wool", "minecraft");
 		white_wool.BLOCK.setExists(TagUtil.mcLoc("white_wool"), TagUtil.mcLoc("white_wool"));
 		white_wool.CARPET.setExists(TagUtil.mcLoc("white_carpet"), TagUtil.mcLoc("white_carpet"));
@@ -581,7 +584,6 @@ public class IndexInitialResourceLoader {
 		pink_wool.CARPET.setExists(TagUtil.mcLoc("pink_carpet"), TagUtil.mcLoc("pink_carpet"));
 		pink_wool.STRING.setIgnore();
 		buildDefault(pink_wool);
-
 	}
 
 	private static void moddedDefaults() {

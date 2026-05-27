@@ -21,6 +21,7 @@ import com.lance5057.compendium.util.TagUtil;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -145,6 +146,19 @@ public class MaterialGem extends _MaterialBase {
 			if (j.has("gem"))
 				g.GEM.deserialize(j.get("gem").getAsJsonObject());
 
+			if (j.has("tier")) {
+				String tier = j.get("tier").getAsString();
+				g.setupTier(tier);
+			} else {
+				int level = j.get("level").getAsInt();
+				int uses = j.get("uses").getAsInt();
+				float speed = j.get("speed").getAsFloat();
+				float damage = j.get("damage").getAsFloat();
+				int enchantmentValue = j.get("enchantmentValue").getAsInt();
+				String useTag = j.get("useTag").getAsString();
+				g.setupTier(level, uses, speed, damage, enchantmentValue, useTag);
+			}
+
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
 			if (extensionsArray != null)
@@ -166,6 +180,18 @@ public class MaterialGem extends _MaterialBase {
 			j.add("block", src.BLOCK.serialize());
 			j.add("gem", src.GEM.serialize());
 			j.add("shard", src.SHARD.serialize());
+
+			if (src.premadeTier != null && !src.premadeTier.isEmpty())
+				j.addProperty("tier", src.premadeTier);
+			else {
+				Tier tier = src.tier;
+
+				j.addProperty("uses", tier.getUses());
+				j.addProperty("speed", tier.getSpeed());
+				j.addProperty("damage", tier.getAttackDamageBonus());
+				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
+				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
+			}
 
 			JsonArray ext = new JsonArray();
 

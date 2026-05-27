@@ -96,7 +96,7 @@ public class ExtensionGemStyleBlocks extends _MaterialExtension {
 	public static class Serializer extends MaterialExtensionSerializer<ExtensionGemStyleBlocks> {
 
 		public Serializer() {
-			super("EXTRAMETALBLOCKS");
+			super("EXTRAGEMBLOCKS");
 		}
 
 		@Override
