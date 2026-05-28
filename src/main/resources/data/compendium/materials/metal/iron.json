@@ -15,7 +15,9 @@
     "existsLocation": "minecraft:iron_nugget",
     "generate": "EXISTS"
   },
-  "tier": "IRON",
+  "tier": {
+    "vanillaTier": "IRON"
+  },
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

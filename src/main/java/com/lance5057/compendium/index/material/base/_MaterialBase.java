@@ -20,14 +20,12 @@ import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
+import com.lance5057.compendium.util.CompendiumTier;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public abstract class _MaterialBase implements IIndexEntry, Serializable {
@@ -41,18 +39,7 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 	public String namespace;
 	public String name;
 
-	protected String premadeTier;
-	protected int level;
-	protected int uses;
-	protected float speed;
-	protected float damage;
-	protected int enchantmentValue;
-	protected String useTag;
-	protected String repairTag;
-
-	public TagKey<Block> useBlockTag;
-
-	public Tier tier;
+	public CompendiumTier tier;
 
 	public List<_MaterialExtension> extensions;
 
@@ -80,22 +67,6 @@ public abstract class _MaterialBase implements IIndexEntry, Serializable {
 
 	public _MaterialBase addExtension(_MaterialExtension x) {
 		extensions.add(x);
-		return this;
-	}
-
-	public _MaterialBase setupTier(String tier) {
-		this.premadeTier = tier;
-		return this;
-	}
-
-	public _MaterialBase setupTier(int level, int uses, float speed, float damage, int enchantmentValue, String useTag) {
-		this.level = level;
-		this.uses = uses;
-		this.speed = speed;
-		this.damage = damage;
-		this.enchantmentValue = enchantmentValue;
-		this.useTag = useTag;
-
 		return this;
 	}
 

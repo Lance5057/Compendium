@@ -15,7 +15,9 @@
     "existsLocation": "minecraft:gold_nugget",
     "generate": "EXISTS"
   },
-  "tier": "GOLD",
+  "tier": {
+    "vanillaTier": "GOLD"
+  },
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

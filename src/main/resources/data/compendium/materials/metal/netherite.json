@@ -14,7 +14,9 @@
   "nugget": {
     "generate": "GENERATE"
   },
-  "tier": "NETHERITE",
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

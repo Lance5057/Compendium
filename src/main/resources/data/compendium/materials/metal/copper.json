@@ -14,7 +14,9 @@
   "nugget": {
     "generate": "GENERATE"
   },
-  "tier": "IRON",
+  "tier": {
+    "vanillaTier": "IRON"
+  },
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

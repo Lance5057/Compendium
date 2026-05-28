@@ -44,6 +44,7 @@ import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleB
 import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
+import com.lance5057.compendium.util.CompendiumTier;
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.logging.LogUtils;
 
@@ -147,7 +148,7 @@ public class IndexInitialResourceLoader {
 
 	private static void gem() {
 		MaterialGem diamond = new MaterialGem("diamond", "minecraft");
-		diamond.setupTier("DIAMOND");
+		diamond.tier = new CompendiumTier("DIAMOND");
 		diamond.BLOCK.setExists(TagUtil.mcLoc("diamond_block"), TagUtil.mcLoc("diamond_block"));
 		diamond.GEM.setExists(TagUtil.mcLoc("diamond"));
 		diamond.SHARD.setGenerate();
@@ -160,7 +161,7 @@ public class IndexInitialResourceLoader {
 
 	public static void metal() {
 		MaterialMetal iron = new MaterialMetal("iron", "minecraft");
-		iron.setupTier("IRON");
+		iron.tier = new CompendiumTier("IRON");
 		iron.BLOCK.setExists(TagUtil.mcLoc("iron_block"), TagUtil.mcLoc("iron_block"));
 		iron.INGOT.setExists(TagUtil.mcLoc("iron_ingot"));
 		iron.NUGGET.setExists(TagUtil.mcLoc("iron_nugget"));
@@ -178,7 +179,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(iron);
 
 		MaterialMetal gold = new MaterialMetal("gold", "minecraft");
-		gold.setupTier("GOLD");
+		gold.tier = new CompendiumTier("GOLD");
 		gold.BLOCK.setExists(TagUtil.mcLoc("gold_block"), TagUtil.mcLoc("gold_block"));
 		gold.INGOT.setExists(TagUtil.mcLoc("gold_ingot"));
 		gold.NUGGET.setExists(TagUtil.mcLoc("gold_nugget"));
@@ -189,7 +190,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(gold);
 
 		MaterialMetal copper = new MaterialMetal("copper", "minecraft");
-		copper.setupTier("IRON");
+		copper.tier = new CompendiumTier("IRON");
 		copper.BLOCK.setExists(TagUtil.mcLoc("copper_block"), TagUtil.mcLoc("copper_block"));
 		copper.INGOT.setExists(TagUtil.mcLoc("copper_ingot"));
 		copper.NUGGET.setGenerate();
@@ -200,7 +201,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(copper);
 
 		MaterialMetal netherite = new MaterialMetal("netherite", "minecraft");
-		netherite.setupTier("NETHERITE");
+		netherite.tier = new CompendiumTier("NETHERITE");
 		netherite.BLOCK.setExists(TagUtil.mcLoc("netherite_block"), TagUtil.mcLoc("netherite_block"));
 		netherite.INGOT.setExists(TagUtil.mcLoc("netherite_ingot"));
 		netherite.NUGGET.setGenerate();
@@ -588,7 +589,7 @@ public class IndexInitialResourceLoader {
 
 	private static void moddedDefaults() {
 		MaterialMetal silver = new MaterialMetal("silver", "compendium");
-		silver.setupTier("GOLD");
+		silver.tier = new CompendiumTier("GOLD");
 		silver.BLOCK.setGenerate();
 		silver.INGOT.setGenerate();
 		silver.NUGGET.setGenerate();

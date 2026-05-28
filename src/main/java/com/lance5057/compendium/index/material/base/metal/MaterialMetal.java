@@ -1,8 +1,6 @@
 package com.lance5057.compendium.index.material.base.metal;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -19,6 +17,7 @@ import com.lance5057.compendium.index.material.base.metal.locations.SpecialLocat
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
+import com.lance5057.compendium.util.CompendiumTier;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -27,17 +26,10 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.common.SimpleTier;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
@@ -71,20 +63,6 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void setup() {
-
-		if (premadeTier != null && !premadeTier.isEmpty())
-			tier = Tiers.valueOf(premadeTier);
-		else {
-			useBlockTag = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", useTag));
-
-			List<Ingredient> ing = new ArrayList<Ingredient>();
-			for (TagKey<Item> i : INGOT.itemTag)
-				ing.add(Ingredient.of(i));
-
-			tier = new SimpleTier(useBlockTag, uses, speed, damage, enchantmentValue,
-					() -> CompoundIngredient.of(ing.toArray(new Ingredient[0])));
-		}
-
 		INGOT.setName(name + "_ingot");
 		INGOT.setup(this);
 		INGOT.setupItemTag(Tags.Items.INGOTS);
@@ -218,18 +196,8 @@ public class MaterialMetal extends _MaterialBase {
 			if (j.has("nugget"))
 				m.NUGGET.deserialize(j.get("nugget").getAsJsonObject());
 
-			if (j.has("tier")) {
-				String tier = j.get("tier").getAsString();
-				m.setupTier(tier);
-			} else {
-				int level = j.get("level").getAsInt();
-				int uses = j.get("uses").getAsInt();
-				float speed = j.get("speed").getAsFloat();
-				float damage = j.get("damage").getAsFloat();
-				int enchantmentValue = j.get("enchantmentValue").getAsInt();
-				String useTag = j.get("useTag").getAsString();
-				m.setupTier(level, uses, speed, damage, enchantmentValue, useTag);
-			}
+			if (j.has("tier"))
+				m.tier = CompendiumTier.deserialize(j.get("tier"), typeOfT, context);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -254,20 +222,12 @@ public class MaterialMetal extends _MaterialBase {
 			j.add("ingot", src.INGOT.serialize());
 			j.add("nugget", src.NUGGET.serialize());
 
-			if (src.premadeTier != null && !src.premadeTier.isEmpty())
-				j.addProperty("tier", src.premadeTier);
-			else {
-				Tier tier = src.tier;
-
-				j.addProperty("uses", tier.getUses());
-				j.addProperty("speed", tier.getSpeed());
-				j.addProperty("damage", tier.getAttackDamageBonus());
-				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
-				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
-			}
-
 			if (src.specialLocations != null) {
 				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsMetal.class));
+			}
+
+			if (src.tier != null) {
+				j.add("tier", CompendiumTier.serialize(src.tier, typeOfSrc, context));
 			}
 
 			JsonArray ext = new JsonArray();

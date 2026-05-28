@@ -16,12 +16,12 @@ import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocatio
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
+import com.lance5057.compendium.util.CompendiumTier;
 import com.lance5057.compendium.util.TagUtil;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -70,6 +70,7 @@ public class MaterialGem extends _MaterialBase {
 		SHARD.setupItemTag(CompendiumTags.GEM_SHARD);
 		SHARD.setupItemTag(TagUtil.neoTag("gems/" + name));
 
+		this.extensions.forEach(i -> i.setup(this));
 	}
 
 //	@Override
@@ -110,13 +111,12 @@ public class MaterialGem extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		// TODO Auto-generated method stub
-
+		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
-
+		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 
 	public static class Serializer extends MaterialTypeSerializer<MaterialGem> {
@@ -146,18 +146,8 @@ public class MaterialGem extends _MaterialBase {
 			if (j.has("gem"))
 				g.GEM.deserialize(j.get("gem").getAsJsonObject());
 
-			if (j.has("tier")) {
-				String tier = j.get("tier").getAsString();
-				g.setupTier(tier);
-			} else {
-				int level = j.get("level").getAsInt();
-				int uses = j.get("uses").getAsInt();
-				float speed = j.get("speed").getAsFloat();
-				float damage = j.get("damage").getAsFloat();
-				int enchantmentValue = j.get("enchantmentValue").getAsInt();
-				String useTag = j.get("useTag").getAsString();
-				g.setupTier(level, uses, speed, damage, enchantmentValue, useTag);
-			}
+			if (j.has("tier"))
+				g.tier = CompendiumTier.deserialize(j.get("tier"), typeOfT, context);
 
 			JsonArray extensionsArray = j.getAsJsonArray("extensions");
 
@@ -181,16 +171,8 @@ public class MaterialGem extends _MaterialBase {
 			j.add("gem", src.GEM.serialize());
 			j.add("shard", src.SHARD.serialize());
 
-			if (src.premadeTier != null && !src.premadeTier.isEmpty())
-				j.addProperty("tier", src.premadeTier);
-			else {
-				Tier tier = src.tier;
-
-				j.addProperty("uses", tier.getUses());
-				j.addProperty("speed", tier.getSpeed());
-				j.addProperty("damage", tier.getAttackDamageBonus());
-				j.addProperty("enchantmentValue", tier.getEnchantmentValue());
-				j.addProperty("useTag", tier.getIncorrectBlocksForDrops().location().toString());
+			if (src.tier != null) {
+				j.add("tier", CompendiumTier.serialize(src.tier, typeOfSrc, context));
 			}
 
 			JsonArray ext = new JsonArray();

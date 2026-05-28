@@ -14,7 +14,9 @@
   "shard": {
     "generate": "GENERATE"
   },
-  "tier": "DIAMOND",
+  "tier": {
+    "vanillaTier": "DIAMOND"
+  },
   "extensions": [
     {
       "type": "ADVANCEDTOOLS",

@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-27T12:30:19.7211553	Loot Tables
+// 1.21.1	2026-05-28T12:09:52.5884223	Loot Tables
 113055c13dee35ed5c4c16e0cc72ceada332467c data/compendium/loot_table/blocks/acacia_plank.json
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
@@ -43,6 +43,7 @@ a9c4550516601b29dc873319bae16c3dfc72393c data/compendium/loot_table/blocks/dark_
 cce71e73d78ac4f28804373205276b273814336f data/compendium/loot_table/blocks/dark_oak_styled_planks.json
 1d7ad02e00a5700faeaa7976c8c988aa2e702bca data/compendium/loot_table/blocks/dark_oak_styled_planks_slab.json
 dfb5b4a46b4472edded396736209c5c789f7d972 data/compendium/loot_table/blocks/dark_oak_styled_planks_stairs.json
+e816dbc8add9ad0ff099122e35529e7f75ee68dd data/compendium/loot_table/blocks/diamond_block.json
 057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
 f4987518cffbeb9dc48c890106c20efc4d202bc5 data/compendium/loot_table/blocks/fancy_bed.json
 a069bfaea8049f68ae55b859e93088d09385f2ff data/compendium/loot_table/blocks/fancy_fence.json

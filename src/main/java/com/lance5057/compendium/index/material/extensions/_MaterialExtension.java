@@ -3,7 +3,6 @@ package com.lance5057.compendium.index.material.extensions;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import com.google.gson.JsonDeserializationContext;
@@ -13,7 +12,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
-import com.lance5057.compendium.index.IIndexEntry;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
@@ -22,13 +20,7 @@ import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.CreativeModeTab.Output;
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
@@ -84,12 +76,12 @@ public abstract class _MaterialExtension implements Serializable {
 	public void attachComponents(_MaterialBase base, ModifyDefaultComponentsEvent event) {
 
 		this.ITEMS.forEach(i -> {
-			if (i.isNotIgnored())
+			if (i.isNotIgnored() && i.ITEM != null)
 				event.modify(i.ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
 						new IndexEntryComponent(base.getType(), base.name)));
 		});
 		this.BLOCKS.forEach(i -> {
-			if (i.isNotIgnored())
+			if (i.isNotIgnored() && i.BLOCK_ITEM != null)
 				event.modify(i.BLOCK_ITEM.get(), builder -> builder.set(CompendiumComponents.INDEX.get(),
 						new IndexEntryComponent(base.getType(), base.name)));
 		});
