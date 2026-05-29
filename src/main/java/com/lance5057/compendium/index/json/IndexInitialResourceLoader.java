@@ -157,6 +157,94 @@ public class IndexInitialResourceLoader {
 		diamond.addExtension(new ExtensionGemStyleBlocks().generateAll());
 
 		buildDefault(diamond);
+
+		MaterialGem amethyst = new MaterialGem("amethyst", "minecraft");
+		amethyst.tier = new CompendiumTier("IRON");
+		amethyst.BLOCK.setExists(TagUtil.mcLoc("amethyst_block"), TagUtil.mcLoc("amethyst_block"));
+		amethyst.GEM.setExists(TagUtil.mcLoc("amethyst_shard"));
+		amethyst.SHARD.setGenerate();
+
+		amethyst.addExtension(new ExtensionAdvancedTools().generateAll());
+		amethyst.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(amethyst);
+
+		MaterialGem emerald = new MaterialGem("emerald", "minecraft");
+		emerald.tier = new CompendiumTier("DIAMOND");
+		emerald.BLOCK.setExists(TagUtil.mcLoc("emerald_block"), TagUtil.mcLoc("emerald_block"));
+		emerald.GEM.setExists(TagUtil.mcLoc("emerald"));
+		emerald.SHARD.setGenerate();
+
+		emerald.addExtension(new ExtensionAdvancedTools().generateAll());
+		emerald.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(emerald);
+
+		MaterialGem quartz = new MaterialGem("quartz", "minecraft");
+		quartz.tier = new CompendiumTier("IRON");
+		quartz.BLOCK.setExists(TagUtil.mcLoc("quartz_block"), TagUtil.mcLoc("quartz_block"));
+		quartz.GEM.setExists(TagUtil.mcLoc("quartz"));
+		quartz.SHARD.setGenerate();
+
+		quartz.addExtension(new ExtensionAdvancedTools().generateAll());
+		quartz.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(quartz);
+
+		MaterialGem ender_pearl = new MaterialGem("ender_pearl", "minecraft");
+		ender_pearl.tier = new CompendiumTier("GOLD");
+		ender_pearl.BLOCK.setGenerate();
+		ender_pearl.GEM.setExists(TagUtil.mcLoc("ender_pearl"));
+		ender_pearl.SHARD.setGenerate();
+
+		ender_pearl.addExtension(new ExtensionAdvancedTools().generateAll());
+		ender_pearl.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(ender_pearl);
+
+		MaterialGem obsidian = new MaterialGem("obsidian", "minecraft");
+		obsidian.tier = new CompendiumTier("DIAMOND");
+		obsidian.BLOCK.setExists(TagUtil.mcLoc("obsidian"), TagUtil.mcLoc("obsidian"));
+		obsidian.GEM.setGenerate();
+		obsidian.SHARD.setGenerate();
+
+		obsidian.addExtension(new ExtensionAdvancedTools().generateAll());
+		obsidian.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(obsidian);
+
+		MaterialGem crying_obsidian = new MaterialGem("crying_obsidian", "minecraft");
+		crying_obsidian.tier = new CompendiumTier("DIAMOND");
+		crying_obsidian.BLOCK.setExists(TagUtil.mcLoc("crying_obsidian"), TagUtil.mcLoc("crying_obsidian"));
+		crying_obsidian.GEM.setGenerate();
+		crying_obsidian.SHARD.setGenerate();
+
+		crying_obsidian.addExtension(new ExtensionAdvancedTools().generateAll());
+		crying_obsidian.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(crying_obsidian);
+
+		MaterialGem lapis = new MaterialGem("lapis", "minecraft");
+		lapis.tier = new CompendiumTier("STONE");
+		lapis.BLOCK.setExists(TagUtil.mcLoc("lapis_block"), TagUtil.mcLoc("lapis_block"));
+		lapis.GEM.setExists(TagUtil.mcLoc("lapis_lazuli"));
+		lapis.SHARD.setGenerate();
+
+		lapis.addExtension(new ExtensionAdvancedTools().generateAll());
+		lapis.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(lapis);
+
+		MaterialGem prismarine = new MaterialGem("prismarine", "minecraft");
+		prismarine.tier = new CompendiumTier("GOLD");
+		prismarine.BLOCK.setExists(TagUtil.mcLoc("prismarine"), TagUtil.mcLoc("prismarine"));
+		prismarine.GEM.setExists(TagUtil.mcLoc("prismarine_crystals"));
+		prismarine.SHARD.setGenerate();
+
+		prismarine.addExtension(new ExtensionAdvancedTools().generateAll());
+		prismarine.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(prismarine);
 	}
 
 	public static void metal() {

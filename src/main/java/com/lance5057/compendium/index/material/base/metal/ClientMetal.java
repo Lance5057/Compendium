@@ -86,7 +86,7 @@ public class ClientMetal {
 				for (CompendiumItemHandler i : ae.ITEMS) {
 					if (i.shouldGenerate())
 						shaper.register(i.ITEM.asItem(),
-								new ModelResourceLocation(ClientUtil.createItemLocation("item"), ""));
+								new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
 				}
 			else if (me instanceof ExtensionMetalStyleBlocks msb) {
 				if (msb.BLOCK.shouldGenerate())

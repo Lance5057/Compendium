@@ -1,0 +1,46 @@
+{
+  "name": "emerald",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "existsLocationBlock": "minecraft:emerald_block",
+    "existsLocationItem": "minecraft:emerald_block",
+    "generate": "EXISTS"
+  },
+  "gem": {
+    "existsLocation": "minecraft:emerald",
+    "generate": "EXISTS"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "DIAMOND"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

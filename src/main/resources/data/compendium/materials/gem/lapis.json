@@ -1,0 +1,46 @@
+{
+  "name": "lapis",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "existsLocationBlock": "minecraft:lapis_block",
+    "existsLocationItem": "minecraft:lapis_block",
+    "generate": "EXISTS"
+  },
+  "gem": {
+    "existsLocation": "minecraft:lapis_lazuli",
+    "generate": "EXISTS"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "STONE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

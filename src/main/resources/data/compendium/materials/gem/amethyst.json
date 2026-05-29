@@ -1,0 +1,46 @@
+{
+  "name": "amethyst",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "existsLocationBlock": "minecraft:amethyst_block",
+    "existsLocationItem": "minecraft:amethyst_block",
+    "generate": "EXISTS"
+  },
+  "gem": {
+    "existsLocation": "minecraft:amethyst_shard",
+    "generate": "EXISTS"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "IRON"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

@@ -113,11 +113,11 @@ public class MaterialMetal extends _MaterialBase {
 		lp.add("compendium.tooltip.material." + this.name, locName.toString());
 
 		if (NUGGET.shouldGenerate())
-			lp.add(this.NUGGET.ITEM.get(), locName + " Nugget");
+			lp.add(this.NUGGET.ITEM.get(), locName + "Nugget");
 		if (INGOT.shouldGenerate())
-			lp.add(this.INGOT.ITEM.get(), locName + " Ingot");
+			lp.add(this.INGOT.ITEM.get(), locName + "Ingot");
 		if (BLOCK.shouldGenerate())
-			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + " Block");
+			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + "Block");
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}

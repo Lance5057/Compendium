@@ -1,0 +1,46 @@
+{
+  "name": "prismarine",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "existsLocationBlock": "minecraft:prismarine",
+    "existsLocationItem": "minecraft:prismarine",
+    "generate": "EXISTS"
+  },
+  "gem": {
+    "existsLocation": "minecraft:prismarine_crystals",
+    "generate": "EXISTS"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "GOLD"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

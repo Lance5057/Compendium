@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:diamond",
-    "compendium:diamond_shard_item"
+    "compendium:diamond_shard_item",
+    "minecraft:diamond"
   ]
 }

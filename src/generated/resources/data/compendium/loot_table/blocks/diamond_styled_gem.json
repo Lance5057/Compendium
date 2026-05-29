@@ -15,11 +15,11 @@
               "source": "block_entity"
             }
           ],
-          "name": "compendium:diamond_block_item"
+          "name": "compendium:diamond_styled_gem_item"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "compendium:blocks/diamond_block"
+  "random_sequence": "compendium:blocks/diamond_styled_gem"
 }
