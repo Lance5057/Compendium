@@ -1,5 +1,13 @@
 {
   "values": [
-    "compendium:diamond_shard_item"
+    "compendium:amethyst_shard_item",
+    "compendium:crying_obsidian_shard_item",
+    "compendium:diamond_shard_item",
+    "compendium:emerald_shard_item",
+    "compendium:ender_pearl_shard_item",
+    "compendium:lapis_shard_item",
+    "compendium:obsidian_shard_item",
+    "compendium:prismarine_shard_item",
+    "compendium:quartz_shard_item"
   ]
 }

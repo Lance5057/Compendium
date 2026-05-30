@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:cherry_wood",
     "minecraft:cherry_log",
+    "minecraft:cherry_wood",
     "compendium:cherry_small_logs_item"
   ]
 }

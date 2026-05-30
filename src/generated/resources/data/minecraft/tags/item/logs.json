@@ -3,8 +3,8 @@
     "minecraft:acacia_wood",
     "minecraft:acacia_log",
     "compendium:acacia_small_logs_item",
-    "minecraft:birch_log",
     "minecraft:birch_wood",
+    "minecraft:birch_log",
     "compendium:birch_small_logs_item",
     "minecraft:cherry_wood",
     "minecraft:cherry_log",
@@ -15,11 +15,11 @@
     "minecraft:dark_oak_log",
     "minecraft:dark_oak_wood",
     "compendium:dark_oak_small_logs_item",
-    "minecraft:jungle_wood",
     "minecraft:jungle_log",
+    "minecraft:jungle_wood",
     "compendium:jungle_small_logs_item",
-    "minecraft:mangrove_wood",
     "minecraft:mangrove_log",
+    "minecraft:mangrove_wood",
     "compendium:mangrove_small_logs_item",
     "minecraft:oak_wood",
     "minecraft:oak_log",
@@ -27,8 +27,8 @@
     "minecraft:spruce_wood",
     "minecraft:spruce_log",
     "compendium:spruce_small_logs_item",
-    "minecraft:warped_stem",
     "minecraft:warped_hyphae",
+    "minecraft:warped_stem",
     "compendium:warped_small_logs_item"
   ]
 }

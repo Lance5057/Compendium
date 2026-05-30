@@ -134,17 +134,17 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 		}
 	}
 
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		BlockState state = super.getStateForPlacement(context);
-		BlockPos pos = context.getClickedPos();
-		Level level = context.getLevel();
-		Direction facing = state.getValue(FACING);
-
-		if (!state.isEmpty())
-			return updateBedShape(state, facing, level, pos);
-		return state;
-	}
+//	@Override
+//	public BlockState getStateForPlacement(BlockPlaceContext context) {
+//		BlockState state = super.getStateForPlacement(context);
+//		BlockPos pos = context.getClickedPos();
+//		Level level = context.getLevel();
+//		Direction facing = state.getValue(FACING);
+//
+//		if (!state.isEmpty())
+//			return updateBedShape(state, facing, level, pos);
+//		return state;
+//	}
 
 	@Override
 	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level,

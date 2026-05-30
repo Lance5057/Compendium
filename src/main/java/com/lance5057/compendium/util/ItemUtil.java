@@ -1,8 +1,11 @@
 package com.lance5057.compendium.util;
 
+import java.util.function.Predicate;
+
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
@@ -28,5 +31,25 @@ public class ItemUtil {
 				itementity.setThrower(p);
 			}
 		}
+	}
+
+	public static ItemStack getFromInventory(Inventory i, Predicate<ItemStack> predicate) {
+		for (ItemStack itemstack : i.items) {
+			if (predicate.test(itemstack)) {
+				return itemstack;
+			}
+		}
+
+		return ItemStack.EMPTY;
+	}
+
+	public static int getSlotFromInventory(Inventory inv, Predicate<ItemStack> predicate) {
+		for (int i = 0; i < inv.getContainerSize(); i++) {
+			if (predicate.test(inv.getItem(i))) {
+				return i;
+			}
+		}
+
+		return -1;
 	}
 }

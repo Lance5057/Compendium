@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 
 import com.lance5057.compendium.blocks.RecipeToolSupplier.RecipeToolSupplierBlockEntity;
+import com.lance5057.compendium.util.ItemUtil;
 import com.lance5057.compendium.workstations._bases.components.item.BlockEntityItemHandler;
 import com.lance5057.compendium.workstations._bases.recipes.AnimatedRecipeItemUse;
 import com.lance5057.compendium.workstations._bases.recipes.multitoolrecipe.MultiToolRecipe;
@@ -19,7 +20,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -162,14 +162,18 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		return ItemStack.EMPTY;
 	}
 
-	public ItemInteractionResult use(Level pLevel, Player player, InteractionHand hand, ItemStack tool) {
+	public boolean use(Level pLevel, Player player, InteractionHand hand, ItemStack tool) {
 
 		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
-		currentRecipe.ifPresent(r -> {
+
+		if (currentRecipe.isPresent()) {
+			RecipeHolder<V> r = currentRecipe.get();
 
 			if (this.curTool == null) {
 				setupStage(r.value(), stage);
-				searchForNextItem(pLevel, player, hand, curTool);
+				if (searchForNextItem(pLevel, player, hand, curTool))
+					return true;
+				return false;
 			}
 			if (this.curTool.test(tool)) {
 				level.playSound(player, worldPosition, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1, 0);
@@ -179,10 +183,11 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 						if (isFinalStage(r.value())) {
 							doFinalStage(player, tool, r);
-
+							return true;
 						} else {
 
 							doNextStage(pLevel, player, hand, r);
+							return true;
 						}
 					} else {
 						if (tool.isDamageableItem())
@@ -191,15 +196,18 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 							tool.setCount(tool.getCount() - this.toolCount);
 
 						progress++;
+						return true;
 					}
 				}
 			} else {
-				searchForNextItem(pLevel, player, hand, curTool);
+				if (searchForNextItem(pLevel, player, hand, curTool))
+					return true;
+				return false;
 			}
-		});
+		}
 		this.updateInventory();
 
-		return ItemInteractionResult.SUCCESS;
+		return false;
 	}
 
 	protected void doNextStage(Level pLevel, Player player, InteractionHand hand, RecipeHolder<V> r) {
@@ -246,33 +254,44 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
 	}
 
-	public ItemStack searchForNextItem(Level pLevel, Player player, InteractionHand hand, Ingredient ing) {
+	public boolean searchForNextItem(Level pLevel, Player player, InteractionHand hand, Ingredient ing) {
 
 		if (!ing.test(player.getItemInHand(hand))) {
-			for (BlockPos pos : toolSuppliers) {
-				BlockEntity be = level.getBlockEntity(pos);
-				if (be != null) {
-					if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
-						Inventory inv = player.getInventory();
-						int free = inv.getFreeSlot();
-						if (free != -1) {
+			if (player.getInventory().contains(ing)) {
+				
+				ItemStack h = player.getItemInHand(hand);
+				int slot = ItemUtil.getSlotFromInventory(player.getInventory(), ing);
+				
+				player.setItemInHand(hand, player.getInventory().getItem(slot));
+				player.getInventory().setItem(slot, h);
+				return true;
+			} else {
+				for (BlockPos pos : toolSuppliers) {
+					BlockEntity be = level.getBlockEntity(pos);
+					if (be != null) {
+						if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
+							Inventory inv = player.getInventory();
+							int free = inv.getFreeSlot();
+							if (free != -1) {
 
-							ItemStack tool = rtsb.supply(player, hand, ing, height);
-							if (tool != null && tool != ItemStack.EMPTY) {
-								inv.add(free, player.getItemInHand(hand));
-								player.setItemInHand(hand, tool);
+								ItemStack tool = rtsb.supply(player, hand, ing, 1);
+								if (tool != null && tool != ItemStack.EMPTY) {
+									inv.add(free, player.getItemInHand(hand));
+									player.setItemInHand(hand, tool);
+									return true;
+								}
 							}
+						} else {
+							// How did you get in here?
+							toolSuppliers.remove(pos);
 						}
 					} else {
-						// How did you get in here?
 						toolSuppliers.remove(pos);
 					}
-				} else {
-					toolSuppliers.remove(pos);
 				}
 			}
 		}
-		return ItemStack.EMPTY;
+		return false;
 	}
 
 	public abstract void addParticle();

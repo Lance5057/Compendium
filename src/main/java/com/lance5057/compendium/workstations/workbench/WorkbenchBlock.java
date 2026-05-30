@@ -68,7 +68,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.Tags;
 
 public class WorkbenchBlock extends StationGui {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -136,76 +135,21 @@ public class WorkbenchBlock extends StationGui {
 		BlockEntity blockentity = pLevel.getBlockEntity(pPos);
 
 		if (blockentity instanceof MultiToolRecipeStation be) {
-			if (be.getCurrentTool() != null && be.getCurrentTool().tool() != null
-					&& be.getCurrentTool().tool().test(stack)) {
-				be.use(pLevel, pPlayer, pHand, stack);
-				return ItemInteractionResult.SUCCESS;
-			} else if (!stack.is(Tags.Items.TOOLS)) {
+//			if (be.getCurrentTool() != null && be.getCurrentTool().tool() != null
+//					&& be.getCurrentTool().tool().test(stack)) {
+			if (pPlayer.isCrouching())
 				openMenu(pPlayer, be, pPos);
+			else if (be.use(pLevel, pPlayer, pHand, stack))
 				return ItemInteractionResult.SUCCESS;
-			}
+			else
+//			} else if (!stack.is(Tags.Items.TOOLS)) {
+				openMenu(pPlayer, be, pPos);
+//			return ItemInteractionResult.SUCCESS;
+//			}
 		}
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-//	@Override
-//	public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player,
-//			InteractionHand InteractionHandIn, BlockHitResult hit) {
-//		if (worldIn.isClientSide)
-//			return InteractionResult.SUCCESS; // on client side, don't do anything
-//
-//		if (state.getValue(HALF) != Half.TOP) {
-//			pos = pos.relative(state.getValue(FACING));
-//			state = worldIn.getBlockState(pos);
-//			if (!state.is(this)) {
-//				return InteractionResult.CONSUME;
-//			}
-//		}
-//
-//		BlockEntity entity = worldIn.getBlockEntity(pos);
-//		if (entity instanceof WorkbenchBlockEntity te) {
-//
-//			ItemStack heldmain = player.getItemInHand(InteractionHand.MAIN_HAND);
-//
-////			if (heldmain != ItemStack.EMPTY) {
-////				te.hammer(player, heldmain);
-////			} else {
-//			MenuProvider containerProvider = new MenuProvider() {
-//				@Override
-//				public Component getDisplayName() {
-//					return Component.translatable(te.getDisplayName());
-//				}
-//
-//				@Override
-//				public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-//					return new WorkbenchMenu(windowId, playerInventory, te);
-//				}
-//			};
-//			player.openMenu(containerProvider, pos);
-//
-////			}
-//		}
-//		return InteractionResult.SUCCESS;
-//
-//	}
-//
-////	@Override
-////	public void onRemove(BlockState state, @Nonnull Level worldIn, @Nonnull BlockPos pos, BlockState newState,
-////			boolean isMoving) {
-////		if (state.getBlock() != newState.getBlock()) {
-////			BlockEntity tileentity = worldIn.getBlockEntity(pos);
-////			if (tileentity instanceof WorkstationTE) {
-////				tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(
-////						itemInteractionHandler -> IntStream.range(0, itemInteractionHandler.getSlots()).forEach(
-////								i -> Block.popResource(worldIn, pos, itemInteractionHandler.getStackInSlot(i))));
-////
-////				worldIn.updateNeighbourForOutputSignal(pos, this);
-////			}
-////
-////			super.onRemove(state, worldIn, pos, newState, isMoving);
-////		}
-////	}
-//
 	public void setPlacedBy(Level p_49499_, BlockPos p_49500_, BlockState p_49501_, @Nullable LivingEntity p_49502_,
 			ItemStack p_49503_) {
 		super.setPlacedBy(p_49499_, p_49500_, p_49501_, p_49502_, p_49503_);

@@ -83,10 +83,11 @@ public class WorkbenchMenu extends AbstractContainerMenu {
 			this.addSlot(
 					new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_5x5_SLOT, 181, 10));
 
-			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_LIGHT_SLOT, 181, 28));
-			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_ENERGY, 181, 46));
 			this.addSlot(
-					new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_BATTERY, 181, 64));
+					new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_LIGHT_SLOT, 181, 28));
+			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_ENERGY, 181, 46));
+			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_BATTERY, 181, 64));
+			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.UPGRADE_TIME, 181, 82));
 
 			this.addSlot(new SlotItemHandler(tileEntity.getInventory(), WorkbenchBlockEntity.OUTPUT_SLOT, 143, 51));
 			this.addSlot(

@@ -40,7 +40,7 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 		}
 		return item;
 	}
-	
+
 	@Override
 	public Optional<RecipeHolder<HammeringStationRecipe>> matchRecipe() {
 		if (this.level != null && this.getInventory() != null) {
@@ -84,7 +84,7 @@ public class HammeringStationBlockEntity extends MultiToolRecipeStation<Hammerin
 	@Override
 	protected void setupRecipe() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

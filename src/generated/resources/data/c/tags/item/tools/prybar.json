@@ -4,6 +4,14 @@
     "compendium:gold_prybar_item",
     "compendium:iron_prybar_item",
     "compendium:netherite_prybar_item",
-    "compendium:diamond_prybar_item"
+    "compendium:amethyst_prybar_item",
+    "compendium:crying_obsidian_prybar_item",
+    "compendium:diamond_prybar_item",
+    "compendium:emerald_prybar_item",
+    "compendium:ender_pearl_prybar_item",
+    "compendium:lapis_prybar_item",
+    "compendium:obsidian_prybar_item",
+    "compendium:prismarine_prybar_item",
+    "compendium:quartz_prybar_item"
   ]
 }

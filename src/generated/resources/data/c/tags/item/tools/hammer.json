@@ -5,6 +5,14 @@
     "compendium:gold_hammer_item",
     "compendium:iron_hammer_item",
     "compendium:netherite_hammer_item",
-    "compendium:diamond_hammer_item"
+    "compendium:amethyst_hammer_item",
+    "compendium:crying_obsidian_hammer_item",
+    "compendium:diamond_hammer_item",
+    "compendium:emerald_hammer_item",
+    "compendium:ender_pearl_hammer_item",
+    "compendium:lapis_hammer_item",
+    "compendium:obsidian_hammer_item",
+    "compendium:prismarine_hammer_item",
+    "compendium:quartz_hammer_item"
   ]
 }

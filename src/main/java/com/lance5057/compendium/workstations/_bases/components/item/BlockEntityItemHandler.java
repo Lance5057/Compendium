@@ -41,4 +41,10 @@ public class BlockEntityItemHandler extends ItemStackHandler {
 			this.stacks.get(i).shrink(1);
 		}
 	}
+	
+	public void shrinkRange(int start, int finish, int amount) {
+		for (int i = start; i < finish; i++) {
+			this.stacks.get(i).shrink(amount);
+		}
+	}
 }

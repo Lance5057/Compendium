@@ -1,5 +1,13 @@
 {
   "values": [
-    "minecraft:diamond"
+    "minecraft:amethyst_shard",
+    "compendium:crying_obsidian_gem_item",
+    "minecraft:diamond",
+    "minecraft:emerald",
+    "minecraft:ender_pearl",
+    "minecraft:lapis_lazuli",
+    "compendium:obsidian_gem_item",
+    "minecraft:prismarine_crystals",
+    "minecraft:quartz"
   ]
 }

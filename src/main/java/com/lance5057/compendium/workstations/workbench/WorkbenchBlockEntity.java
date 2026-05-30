@@ -1,5 +1,8 @@
 package com.lance5057.compendium.workstations.workbench;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
@@ -11,12 +14,14 @@ import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeManager.CachedCheck;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -35,8 +40,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	public static final int UPGRADE_LIGHT_SLOT = UPGRADE_5x5_SLOT + 1;
 	public static final int UPGRADE_ENERGY = UPGRADE_LIGHT_SLOT + 1;
 	public static final int UPGRADE_BATTERY = UPGRADE_ENERGY + 1;
+	public static final int UPGRADE_TIME = UPGRADE_BATTERY + 1;
 
-	public static final int INVENTORY_SIZE = UPGRADE_BATTERY + 1;
+	public static final int INVENTORY_SIZE = UPGRADE_TIME + 1;
 
 	int gridLevel = 3; // 3=3x3 4=4x4 5=5x5
 	boolean light = false;
@@ -69,13 +75,43 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	}
 
 	@Override
-	public void finishRecipe(Player Player, WorkbenchRecipe r) {
+	public void finishRecipe(Player player, WorkbenchRecipe r) {
+		if (!this.getInventory().getStackInSlot(WorkbenchBlockEntity.UPGRADE_TIME).isEmpty()) {
 
-		ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
-				r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false);
-		if (!s.isEmpty())
-			ItemUtil.giveOrDrop(s, Player);
-		this.getInventory().shrinkRange(0, 25);
+			List<Integer> l = new ArrayList<Integer>();
+			for (int i = 0; i < WorkbenchBlockEntity.CRAFTING_SLOTS; i++) {
+
+				int nsize = this.inventory.getStackInSlot(i).getCount();
+				if (nsize != 0)
+					l.add(nsize);
+			}
+
+			Collections.sort(l);
+			int minSize = l.get(0);
+
+			ItemStack i = r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null);
+			i.setCount(minSize);
+			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT, i, false);
+			if (!s.isEmpty()) {
+				ItemUtil.giveOrDrop(s, player);
+			}
+			this.getInventory().shrinkRange(0, 25, minSize);
+
+//			if (player.level().isClientSide) {
+			Level level = player.level();
+			for (int x = 0; x < 20; x++) {
+				level.addParticle(ParticleTypes.REVERSE_PORTAL, this.worldPosition.getX() + level.random.nextDouble()*2, this.worldPosition.getY() + level.random.nextDouble()+1,
+						this.worldPosition.getZ() + level.random.nextDouble()*2, 0, 0, 0);
+			}
+//			}
+		} else {
+			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
+					r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false);
+			if (!s.isEmpty()) {
+				ItemUtil.giveOrDrop(s, player);
+			}
+			this.getInventory().shrinkRange(0, 25);
+		}
 	}
 
 	@Override
