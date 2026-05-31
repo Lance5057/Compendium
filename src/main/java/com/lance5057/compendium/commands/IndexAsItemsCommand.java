@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lance5057.compendium.CompendiumComponents;
-import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
-import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -24,21 +22,23 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.arguments.item.ItemArgument;
 import net.minecraft.commands.arguments.item.ItemInput;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 
-public class EachStyleBuildCommand {
+public class IndexAsItemsCommand {
 	public static LiteralArgumentBuilder<CommandSourceStack> register(CommandBuildContext context) {
-		return Commands.literal("buildEachStyle").requires(cs -> cs.hasPermission(2))
+		return Commands.literal("indexAsItems").requires(cs -> cs.hasPermission(2))
 				.then(Commands.argument("entity", EntityArgument.entity())
 						.then(Commands.argument("item", ItemArgument.item(context))
-								.executes(p_137784_ -> EachStyleBuildCommand.run(context,
+								.executes(p_137784_ -> IndexAsItemsCommand.run(context,
 										ItemArgument.getItem(p_137784_, "item"),
 										EntityArgument.getEntity(p_137784_, "entity")))));
 	}
@@ -49,16 +49,17 @@ public class EachStyleBuildCommand {
 		Item it = item.getItem();
 
 		if (it instanceof BlockItem bi) {
-			buildBlock(pos, level, bi);
+			buildFrame(pos, level, bi);
 
 		} else
 			throw new SimpleCommandExceptionType(Component.translatable("commands.compendium.not_block_item")).create();
+
 		return Command.SINGLE_SUCCESS;
 	}
 
-	public static int buildBlock(BlockPos pos, Level level, BlockItem bi) {
-		if (bi.getBlock() instanceof IStyleBlock sb) {
-			ItemStack stack = bi.getDefaultInstance();
+	private static void buildFrame(BlockPos pos, Level level, BlockItem it) {
+		if (it.getBlock() instanceof IStyleBlock sb) {
+			ItemStack stack = it.getDefaultInstance();
 
 			StyleBlockComponent sbc = stack.get(CompendiumComponents.STYLE);
 			MultiMaterialBlockComponent mmc = stack.get(CompendiumComponents.MULTI_MATERIAL);
@@ -67,7 +68,7 @@ public class EachStyleBuildCommand {
 			if (mmc != null) {
 				mm = new ArrayList<MultiMaterialType>(mmc.getTypes());
 				for (MultiMaterialType m : mm) {
-					m.setCurrentMaterial("");
+					m.setCurrentMaterial(CompendiumIndex.getDefaultMaterialFromType(m.getType().getFirst()));
 				}
 			}
 
@@ -78,33 +79,21 @@ public class EachStyleBuildCommand {
 
 			for (int d = 0; d < data.length; d++) {
 				for (int i = 0; i < data[d].getTypes().size(); i++) {
+					BlockPos nPos = new BlockPos(pos.getX() + (d * 2), pos.getY(), pos.getZ() + (i * 2));
 
-					if (mm != null) {
-						List<String> mats = CompendiumIndex.getAllMaterialsForType(mmc.getTypes().get(d).getType());
+					level.setBlock(nPos, Blocks.WHITE_TERRACOTTA.defaultBlockState(), Block.UPDATE_ALL);
+					ItemFrame frame = new ItemFrame(level, nPos.above(), Direction.UP);
+					
+					List<Integer> newStyles = new ArrayList<Integer>(styles);
+					newStyles.set(d, i);
 
-						for (int m = 0; m < mats.size(); m++) {
-							sb.buildCommand(nextPos, level, bi, sb, mm, styles, d, i, mats, m);
-						}
+					stack.set(CompendiumComponents.STYLE, new StyleBlockComponent(newStyles));
+					stack.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(mm));
 
-					} else {
-						BlockPos nPos = new BlockPos(pos.getX() + (d * 2), pos.getY(), pos.getZ() + (i * 2));
-
-						level.setBlock(nPos, bi.getBlock().defaultBlockState(), Block.UPDATE_ALL);
-						SimpleStyleBlockEntity bentity = (SimpleStyleBlockEntity) level.getBlockEntity(nPos);
-
-						List<Integer> newStyles = new ArrayList<Integer>(styles);
-						newStyles.set(d, i);
-						bentity.setCurrentStyles(newStyles);
-
-						BlockState state = level.getBlockState(nPos);
-						sb.onStyleChanged(level, nPos, state);
-						level.sendBlockUpdated(nPos, state, state, Block.UPDATE_ALL);
-					}
+					frame.setItem(stack);
+					level.addFreshEntity(frame);
 				}
-
 			}
-			return data.length * 2;
 		}
-		return 0;
 	}
 }

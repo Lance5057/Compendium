@@ -17,7 +17,8 @@ public class CompendiumCommands {
 			CommandBuildContext commandBuildContext) {
 		LiteralArgumentBuilder<CommandSourceStack> builder = Commands.literal("compendium")
 				.then(EachStyleBuildCommand.register(commandBuildContext))
-				.then(EntireIndexBuildCommand.register(commandBuildContext));
+				.then(EntireIndexBuildCommand.register(commandBuildContext))
+				.then(IndexAsItemsCommand.register(commandBuildContext));
 
 		LiteralCommandNode<CommandSourceStack> node = dispatcher.register(builder);
 		dispatcher.register(Commands.literal("comp").executes(CompendiumCommands::run).redirect(node));

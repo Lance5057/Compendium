@@ -1,11 +1,15 @@
 package com.lance5057.compendium.blocks.bed;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumBlocks;
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.blocks.entities.StyledMultiMaterialBlockEntity;
+import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.styleblock.IStyleBlock;
 
@@ -16,6 +20,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -85,7 +90,7 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 				}
 			}
 
-			level.blockUpdated(pos, Blocks.AIR);
+			level.blockUpdated(pos, CompendiumBlocks.FANCY_BED.get());
 			state.updateNeighbourShapes(level, pos, 3);
 		}
 	}
@@ -207,5 +212,37 @@ public class FancyBedBlock extends BedBlock implements IStyleBlock {
 			return "bed_blanket";
 		}
 		return "error";
+	}
+
+	public BlockPos buildCommand(BlockPos pos, Level level, BlockItem bi, IStyleBlock sb, List<MultiMaterialType> mm,
+			List<Integer> styles, int style_index, int style, List<String> mats, int material_index) {
+		BlockPos headPos = new BlockPos(pos.getX() + (style_index * 2), pos.getY() + (material_index * 2),
+				pos.getZ() + (style * 2));
+		BlockPos footPos = new BlockPos(pos.getX() + (style_index * 2), pos.getY() + (material_index * 2),
+				pos.getZ() + (style * 2) + 1);
+
+		build(pos, level, bi, sb, mm, styles, style_index, style, mats, material_index,
+				bi.getBlock().defaultBlockState().setValue(FancyBedBlock.PART, BedPart.HEAD), headPos);
+		build(pos, level, bi, sb, mm, styles, style_index, style, mats, material_index,
+				bi.getBlock().defaultBlockState().setValue(FancyBedBlock.PART, BedPart.FOOT), footPos);
+		return footPos;
+
+	}
+
+	private void build(BlockPos pos, Level level, BlockItem bi, IStyleBlock sb, List<MultiMaterialType> mm,
+			List<Integer> styles, int style_index, int style, List<String> mats, int material_index,
+			BlockState blockState, BlockPos nPos) {
+		level.setBlock(nPos, blockState, Block.UPDATE_ALL);
+		StyledMultiMaterialBlockEntity bentity = (StyledMultiMaterialBlockEntity) level.getBlockEntity(nPos);
+
+		List<Integer> newStyles = new ArrayList<Integer>(styles);
+		newStyles.set(style_index, style);
+		bentity.setMaterials(mm);
+		bentity.setMaterial(style_index, mats.get(material_index));
+		bentity.setCurrentStyles(newStyles);
+
+		BlockState state = level.getBlockState(nPos);
+		sb.onStyleChanged(level, pos, state);
+		level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
 	}
 }
