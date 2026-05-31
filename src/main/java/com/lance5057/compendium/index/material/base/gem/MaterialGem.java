@@ -19,9 +19,12 @@ import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.util.CompendiumTier;
 import com.lance5057.compendium.util.TagUtil;
 
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -111,11 +114,30 @@ public class MaterialGem extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BLOCK.BLOCK_ITEM.get(), 1).requires(GEM.ITEM.get(), 9)
+				.unlockedBy("has", InventoryChangeTrigger.TriggerInstance.hasItems(GEM.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_gem_to_block"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GEM.ITEM.get(), 9).requires(BLOCK.BLOCK_ITEM.get())
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(BLOCK.BLOCK_ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_gem_from_block"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, GEM.ITEM.get(), 1).requires(SHARD.ITEM.get(), 9)
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(SHARD.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_gem_to_shard"));
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SHARD.ITEM.get(), 9).requires(GEM.ITEM.get())
+				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(GEM.ITEM))
+				.save(consumer, TagUtil.modLoc(name + "_gem_from_shard"));
+
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}
 
 	@Override
 	public void blockLoot(BlockLootSubProvider blp) {
+		if (BLOCK.shouldGenerate())
+			blp.dropSelf(this.BLOCK.BLOCK.get());
+
 		this.extensions.forEach(i -> i.blockLoot(this, blp));
 	}
 

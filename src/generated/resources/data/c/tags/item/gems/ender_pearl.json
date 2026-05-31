@@ -1,6 +1,6 @@
 {
   "values": [
-    "compendium:ender_pearl_shard_item",
-    "minecraft:ender_pearl"
+    "minecraft:ender_pearl",
+    "compendium:ender_pearl_shard_item"
   ]
 }

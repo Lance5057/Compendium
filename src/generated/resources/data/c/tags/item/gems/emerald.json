@@ -1,6 +1,6 @@
 {
   "values": [
-    "compendium:emerald_shard_item",
-    "minecraft:emerald"
+    "minecraft:emerald",
+    "compendium:emerald_shard_item"
   ]
 }

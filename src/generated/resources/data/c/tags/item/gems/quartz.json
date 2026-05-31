@@ -1,6 +1,6 @@
 {
   "values": [
-    "compendium:quartz_shard_item",
-    "minecraft:quartz"
+    "minecraft:quartz",
+    "compendium:quartz_shard_item"
   ]
 }
