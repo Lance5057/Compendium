@@ -33,6 +33,10 @@ public class ClientGem {
 			if (i.shouldGenerate())
 				shaper.register(i.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 		}
+		
+		if (mm.BLOCK.shouldGenerate())
+			shaper.register(mm.BLOCK.BLOCK_ITEM.asItem(),
+					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
 
 		for (_MaterialExtension me : mm.extensions) {
 			for (CompendiumItemHandler i : me.ITEMS) {
