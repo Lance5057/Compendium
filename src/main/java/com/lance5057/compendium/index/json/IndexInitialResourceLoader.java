@@ -31,6 +31,8 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.MaterialTypeRegistry;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.base.gem.MaterialGem;
+import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocationsGem;
+import com.lance5057.compendium.index.material.base.gem.locations.SpecialTextureLocationsGem;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
@@ -192,6 +194,12 @@ public class IndexInitialResourceLoader {
 		buildDefault(quartz);
 
 		MaterialGem ender_pearl = new MaterialGem("ender_pearl", "minecraft");
+
+		SpecialLocationsGem ender_loc = new SpecialLocationsGem(
+				new SpecialTextureLocationsGem(TagUtil.modLoc("block/material/gem/ender_pearl/block"), null, null));
+
+		ender_pearl.specialLocations = ender_loc;
+
 		ender_pearl.tier = new CompendiumTier("GOLD");
 		ender_pearl.BLOCK.setGenerate();
 		ender_pearl.GEM.setExists(TagUtil.mcLoc("ender_pearl"));

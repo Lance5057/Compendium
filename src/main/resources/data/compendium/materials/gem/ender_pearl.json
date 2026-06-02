@@ -12,6 +12,14 @@
   "shard": {
     "generate": "GENERATE"
   },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": {
+        "namespace": "compendium",
+        "path": "block/material/gem/ender_pearl/block"
+      }
+    }
+  },
   "tier": {
     "vanillaTier": "GOLD"
   },

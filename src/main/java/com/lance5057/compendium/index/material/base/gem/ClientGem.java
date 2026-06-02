@@ -33,7 +33,7 @@ public class ClientGem {
 			if (i.shouldGenerate())
 				shaper.register(i.BLOCK_ITEM.asItem(), ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 		}
-		
+
 		if (mm.BLOCK.shouldGenerate())
 			shaper.register(mm.BLOCK.BLOCK_ITEM.asItem(),
 					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
@@ -125,7 +125,7 @@ public class ClientGem {
 				if (mw.specialLocations.textures.blockLocation != null)
 					texture = mw.specialLocations.textures.blockLocation;
 		}
-		
+
 		if (mw.GEM.shouldGenerate()) {
 			ResourceLocation loc = ClientUtil.createItemLocation(mw.GEM.name);
 			ModelResourceLocation mloc = new ModelResourceLocation(loc, "");
@@ -145,7 +145,7 @@ public class ClientGem {
 							BlockModelRotation.X0_Y0,
 							Pair.of("layer0", TagUtil.modLoc("item/material/gem/" + mw.name + "/shard"))));
 		}
-		
+
 		if (mw.BLOCK.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_block");

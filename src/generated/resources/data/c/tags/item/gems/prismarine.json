@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:prismarine_crystals",
-    "compendium:prismarine_shard_item"
+    "compendium:prismarine_shard_item",
+    "minecraft:prismarine_crystals"
   ]
 }

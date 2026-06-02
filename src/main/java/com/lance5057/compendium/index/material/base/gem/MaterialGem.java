@@ -193,6 +193,10 @@ public class MaterialGem extends _MaterialBase {
 			j.add("gem", src.GEM.serialize());
 			j.add("shard", src.SHARD.serialize());
 
+			if (src.specialLocations != null) {
+				j.add("specialLocations", context.serialize(src.specialLocations, SpecialLocationsGem.class));
+			}
+
 			if (src.tier != null) {
 				j.add("tier", CompendiumTier.serialize(src.tier, typeOfSrc, context));
 			}
