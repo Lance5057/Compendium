@@ -6,7 +6,9 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumClient;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.client.ClientVanillaTools;
 import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
@@ -164,6 +166,8 @@ public class ClientGem {
 				doAdvancedTools(event, mb, eep, models);
 			} else if (me instanceof ExtensionGemStyleBlocks eep) {
 				doStyleBlocks(event, mb, eep, models);
+			} else if (me instanceof ExtensionVanillaTools evt) {
+				ClientVanillaTools.doVanillaTools(event, mb, evt, models);
 			}
 		}
 	}

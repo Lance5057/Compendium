@@ -7,13 +7,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
-import com.lance5057.compendium.index.CompendiumIndex.Generate;
 import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.HoeItem;
@@ -21,7 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
@@ -31,36 +31,84 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	 */
 	private static final long serialVersionUID = -6058992077769136068L;
 
-	public CompendiumItemHandler SWORD = new CompendiumItemHandler();
-	public CompendiumItemHandler AXE = new CompendiumItemHandler();
-	public CompendiumItemHandler SHOVEL = new CompendiumItemHandler();
-	public CompendiumItemHandler HOE = new CompendiumItemHandler();
-	public CompendiumItemHandler PICKAXE = new CompendiumItemHandler();
+	public CompendiumItemHandler SWORD;
+	public CompendiumItemHandler AXE;
+	public CompendiumItemHandler SHOVEL;
+	public CompendiumItemHandler HOE;
+	public CompendiumItemHandler PICKAXE;
 
-	public ExtensionVanillaTools(Generate sword, Generate axe, Generate shovel, Generate hoe, Generate pickaxe) {
-		SWORD.setGenerate(sword);
-		AXE.setGenerate(axe);
-		SHOVEL.setGenerate(shovel);
-		PICKAXE.setGenerate(pickaxe);
-		HOE.setGenerate(hoe);
+	public ExtensionVanillaTools() {
+		this.ITEMS.add(SWORD = new CompendiumItemHandler());
+		this.ITEMS.add(AXE = new CompendiumItemHandler());
+		this.ITEMS.add(SHOVEL = new CompendiumItemHandler());
+		this.ITEMS.add(PICKAXE = new CompendiumItemHandler());
+		this.ITEMS.add(HOE = new CompendiumItemHandler());
 	}
 
 	@Override
 	public void setup(_MaterialBase base) {
 		AXE.setName(base.name + "_axe");
 		AXE.setup(base, () -> new AxeItem(base.tier, new Item.Properties()));
+		AXE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		AXE.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
+		AXE.setupItemTag(Tags.Items.ENCHANTABLES);
+		AXE.setupItemTag(ItemTags.AXES);
+		AXE.setupItemTag(ItemTags.WEAPON_ENCHANTABLE);
+		AXE.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		AXE.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		AXE.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		AXE.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		AXE.setupItemTag(ItemTags.SHARP_WEAPON_ENCHANTABLE);
+		AXE.setupItemTag(Tags.Items.TOOLS);
 
 		SWORD.setName(base.name + "_sword");
 		SWORD.setup(base, () -> new SwordItem(base.tier, new Item.Properties()));
+		SWORD.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		SWORD.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
+		SWORD.setupItemTag(Tags.Items.ENCHANTABLES);
+		SWORD.setupItemTag(ItemTags.SWORDS);
+		SWORD.setupItemTag(ItemTags.WEAPON_ENCHANTABLE);
+		SWORD.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		SWORD.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		SWORD.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		SWORD.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		SWORD.setupItemTag(ItemTags.SHARP_WEAPON_ENCHANTABLE);
+		SWORD.setupItemTag(Tags.Items.TOOLS);
 
 		SHOVEL.setName(base.name + "_shovel");
 		SHOVEL.setup(base, () -> new ShovelItem(base.tier, new Item.Properties()));
+		SHOVEL.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		SHOVEL.setupItemTag(Tags.Items.ENCHANTABLES);
+		SHOVEL.setupItemTag(ItemTags.SHOVELS);
+		SHOVEL.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		SHOVEL.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		SHOVEL.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		SHOVEL.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		SHOVEL.setupItemTag(Tags.Items.TOOLS);
 
 		PICKAXE.setName(base.name + "_pickaxe");
 		PICKAXE.setup(base, () -> new PickaxeItem(base.tier, new Item.Properties()));
+		PICKAXE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		PICKAXE.setupItemTag(Tags.Items.ENCHANTABLES);
+		PICKAXE.setupItemTag(ItemTags.PICKAXES);
+		PICKAXE.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		PICKAXE.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		PICKAXE.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		PICKAXE.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		PICKAXE.setupItemTag(Tags.Items.TOOLS);
+		PICKAXE.setupItemTag(Tags.Items.MINING_TOOL_TOOLS);
+		PICKAXE.setupItemTag(ItemTags.CLUSTER_MAX_HARVESTABLES);
 
 		HOE.setName(base.name + "_hoe");
 		HOE.setup(base, () -> new HoeItem(base.tier, new Item.Properties()));
+		HOE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		HOE.setupItemTag(Tags.Items.ENCHANTABLES);
+		HOE.setupItemTag(ItemTags.HOES);
+		HOE.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		HOE.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		HOE.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		HOE.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		HOE.setupItemTag(Tags.Items.TOOLS);
 
 	}
 
@@ -127,11 +175,11 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		public JsonElement serialize(ExtensionVanillaTools src, Type typeOfSrc, JsonSerializationContext context) {
 			JsonObject j = new JsonObject();
 			j.addProperty("type", type);
-			j.addProperty("loadSword", src.SWORD.getGeneration().toString());
-			j.addProperty("loadAxe", src.AXE.getGeneration().toString());
-			j.addProperty("loadShovel", src.SHOVEL.getGeneration().toString());
-			j.addProperty("loadHoe", src.HOE.getGeneration().toString());
-			j.addProperty("loadPickaxe", src.PICKAXE.getGeneration().toString());
+			j.add("sword", src.SWORD.serialize());
+			j.add("axe", src.AXE.serialize());
+			j.add("shovel", src.SHOVEL.serialize());
+			j.add("hoe", src.HOE.serialize());
+			j.add("pickaxe", src.PICKAXE.serialize());
 
 			return j;
 		}
@@ -141,14 +189,20 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 				throws JsonParseException {
 			JsonObject j = json.getAsJsonObject();
 
-			String sword = j.get("loadSword").getAsString();
-			String axe = j.get("loadAxe").getAsString();
-			String shovel = j.get("loadShovel").getAsString();
-			String hoe = j.get("loadHoe").getAsString();
-			String pickaxe = j.get("loadPickaxe").getAsString();
+			ExtensionVanillaTools e = new ExtensionVanillaTools();
 
-			return new ExtensionVanillaTools(Generate.valueOf(sword), Generate.valueOf(axe), Generate.valueOf(shovel),
-					Generate.valueOf(hoe), Generate.valueOf(pickaxe));
+			if (j.has("axe"))
+				e.AXE.deserialize(j.get("axe").getAsJsonObject());
+			if (j.has("sword"))
+				e.SWORD.deserialize(j.get("sword").getAsJsonObject());
+			if (j.has("shovel"))
+				e.SHOVEL.deserialize(j.get("shovel").getAsJsonObject());
+			if (j.has("hoe"))
+				e.HOE.deserialize(j.get("hoe").getAsJsonObject());
+			if (j.has("pickaxe"))
+				e.PICKAXE.deserialize(j.get("pickaxe").getAsJsonObject());
+
+			return e;
 		}
 
 	}

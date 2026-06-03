@@ -42,6 +42,7 @@ import com.lance5057.compendium.index.material.base.wood.MaterialWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialLocationsWood;
 import com.lance5057.compendium.index.material.base.wood.locations.SpecialTextureLocationsWood;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
@@ -168,6 +169,7 @@ public class IndexInitialResourceLoader {
 
 		amethyst.addExtension(new ExtensionAdvancedTools().generateAll());
 		amethyst.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		amethyst.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(amethyst);
 
@@ -179,6 +181,7 @@ public class IndexInitialResourceLoader {
 
 		emerald.addExtension(new ExtensionAdvancedTools().generateAll());
 		emerald.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		emerald.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(emerald);
 
@@ -190,6 +193,7 @@ public class IndexInitialResourceLoader {
 
 		quartz.addExtension(new ExtensionAdvancedTools().generateAll());
 		quartz.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		quartz.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(quartz);
 
@@ -207,6 +211,7 @@ public class IndexInitialResourceLoader {
 
 		ender_pearl.addExtension(new ExtensionAdvancedTools().generateAll());
 		ender_pearl.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		ender_pearl.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(ender_pearl);
 
@@ -218,6 +223,7 @@ public class IndexInitialResourceLoader {
 
 		obsidian.addExtension(new ExtensionAdvancedTools().generateAll());
 		obsidian.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		obsidian.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(obsidian);
 
@@ -229,6 +235,7 @@ public class IndexInitialResourceLoader {
 
 		crying_obsidian.addExtension(new ExtensionAdvancedTools().generateAll());
 		crying_obsidian.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		crying_obsidian.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(crying_obsidian);
 
@@ -240,6 +247,7 @@ public class IndexInitialResourceLoader {
 
 		lapis.addExtension(new ExtensionAdvancedTools().generateAll());
 		lapis.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		lapis.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(lapis);
 
@@ -251,6 +259,7 @@ public class IndexInitialResourceLoader {
 
 		prismarine.addExtension(new ExtensionAdvancedTools().generateAll());
 		prismarine.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		prismarine.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(prismarine);
 	}
@@ -293,6 +302,7 @@ public class IndexInitialResourceLoader {
 
 		copper.addExtension(new ExtensionAdvancedTools().generateAll());
 		copper.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+		copper.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(copper);
 

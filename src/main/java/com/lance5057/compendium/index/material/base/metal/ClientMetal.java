@@ -5,10 +5,12 @@ import java.util.Map;
 import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumClient;
 import com.lance5057.compendium.client.ClientUtil;
-import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools;
+import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
+import com.lance5057.compendium.index.material.extensions.client.ClientVanillaTools;
 import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
+import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
@@ -22,7 +24,7 @@ import net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult;
 import net.neoforged.neoforge.client.model.RegistryAwareItemModelShaper;
 
 public class ClientMetal {
-	public static void doMetal(ModifyBakingResult event, _MaterialBase mb) {
+	public static void doMetal(ModifyBakingResult event, MaterialMetal mb) {
 		if (mb instanceof MaterialMetal mm) {
 
 			ClientMetal.doStyleMetal(event, mm);
@@ -82,15 +84,15 @@ public class ClientMetal {
 					new ModelResourceLocation(TagUtil.modLoc(mm.name + "_block"), ""));
 
 		for (_MaterialExtension me : mm.extensions) {
-			if (me instanceof ExtensionAdvancedTools ae)
-				for (CompendiumItemHandler i : ae.ITEMS) {
-					if (i.shouldGenerate())
-						shaper.register(i.ITEM.asItem(),
-								new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
-				}
-			else if (me instanceof ExtensionMetalStyleBlocks msb) {
-				if (msb.BLOCK.shouldGenerate())
-					shaper.register(msb.BLOCK.BLOCK_ITEM.get(),
+			for (CompendiumItemHandler i : me.ITEMS) {
+				if (i.shouldGenerate())
+					shaper.register(i.ITEM.asItem(),
+							new ModelResourceLocation(ClientUtil.createItemLocation(i.name), ""));
+			}
+
+			for (CompendiumBlockHandler i : me.BLOCKS) {
+				if (i.shouldGenerate())
+					shaper.register(i.BLOCK_ITEM.asItem(),
 							ModelResourceLocation.standalone(TagUtil.modLoc("item/item")));
 			}
 		}
@@ -124,6 +126,8 @@ public class ClientMetal {
 				doAdvancedTools(event, mb, eep, models);
 			} else if (me instanceof ExtensionMetalStyleBlocks eep) {
 				doStyleBlocks(event, mb, eep, models);
+			} else if (me instanceof ExtensionVanillaTools evt) {
+				ClientVanillaTools.doVanillaTools(event, mb, evt, models);
 			}
 		}
 	}

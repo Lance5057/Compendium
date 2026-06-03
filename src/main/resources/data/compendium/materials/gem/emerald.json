@@ -41,6 +41,24 @@
       "block": {
         "generate": "GENERATE"
       }
+    },
+    {
+      "type": "VANILLATOOLS",
+      "sword": {
+        "generate": "GENERATE"
+      },
+      "axe": {
+        "generate": "GENERATE"
+      },
+      "shovel": {
+        "generate": "GENERATE"
+      },
+      "hoe": {
+        "generate": "GENERATE"
+      },
+      "pickaxe": {
+        "generate": "GENERATE"
+      }
     }
   ]
 }

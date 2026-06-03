@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "compendium:item/shovel_base",
+    "layer1": "compendium:item/bow_base"
+  }
+}

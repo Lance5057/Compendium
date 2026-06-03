@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:stripped_acacia_log",
     "minecraft:stripped_acacia_wood",
+    "minecraft:stripped_acacia_log",
     "compendium:stripped_acacia_small_logs_item",
     "minecraft:stripped_birch_log",
     "minecraft:stripped_birch_wood",
@@ -9,8 +9,8 @@
     "minecraft:stripped_cherry_wood",
     "minecraft:stripped_cherry_log",
     "compendium:stripped_cherry_small_logs_item",
-    "minecraft:stripped_crimson_stem",
     "minecraft:stripped_crimson_hyphae",
+    "minecraft:stripped_crimson_stem",
     "compendium:stripped_crimson_small_logs_item",
     "minecraft:stripped_dark_oak_wood",
     "minecraft:stripped_dark_oak_log",
@@ -21,14 +21,14 @@
     "minecraft:stripped_mangrove_log",
     "minecraft:stripped_mangrove_wood",
     "compendium:stripped_mangrove_small_logs_item",
-    "minecraft:stripped_oak_log",
     "minecraft:stripped_oak_wood",
+    "minecraft:stripped_oak_log",
     "compendium:stripped_oak_small_logs_item",
     "minecraft:stripped_spruce_wood",
     "minecraft:stripped_spruce_log",
     "compendium:stripped_spruce_small_logs_item",
-    "minecraft:stripped_warped_hyphae",
     "minecraft:stripped_warped_stem",
+    "minecraft:stripped_warped_hyphae",
     "compendium:stripped_warped_small_logs_item"
   ]
 }
