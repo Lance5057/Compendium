@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:lapis_lazuli",
-    "compendium:lapis_shard_item"
+    "compendium:lapis_shard_item",
+    "minecraft:lapis_lazuli"
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "compendium:crying_obsidian_gem_item"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "pp",
+    "ps",
+    " s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:crying_obsidian_axe_item"
+  }
+}

@@ -15,6 +15,7 @@ import com.lance5057.compendium.data.loottables.RecipeLootTables;
 import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
 import com.lance5057.compendium.data.recipebuilders.WorkbenchRecipeBuilder;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.MaterialGem;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.items.tools.HammerItem;
@@ -164,6 +165,12 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
+		Item gemIngot = null;
+		if (base instanceof MaterialMetal metal)
+			gemIngot = metal.INGOT.ITEM.asItem();
+		else if (base instanceof MaterialGem gem)
+			gemIngot = gem.GEM.ITEM.asItem();
+
 		BlacklistedModel standardHammeringModel = new BlacklistedModel(
 				ResourceLocation.parse("compendium:gold_hammer_item"), false,
 				new AnimationFloatTransform()
@@ -181,369 +188,344 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 								.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
 								.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))));
 
-		if (base instanceof MaterialMetal metal) {
-			if (PRYBAR.shouldGenerate()) {
-				WorkbenchRecipeBuilder.shaped(PRYBAR.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('s', Items.STICK)
-						.pattern("i  ").pattern(" s ").pattern("  i")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false, new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false,
-														false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))))
-						.save(consumer);
-			}
-			if (PRYBAR.isNotIgnored()) {
-				HammeringRecipeBuilder.hammer(Ingredient.of(PRYBAR.ITEM), new ItemStack(metal.INGOT.ITEM.asItem()))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-								standardHammeringModel)
-						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_prybar"));
-			}
-			if (HAMMER.shouldGenerate()) {
-				WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
-						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
-						.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 26.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 83.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 35.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))))
-						.save(consumer);
-			}
-			if (HAMMER.isNotIgnored()) {
-				HammeringRecipeBuilder.hammer(Ingredient.of(HAMMER.ITEM), new ItemStack(metal.INGOT.ITEM.asItem(), 5))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-								standardHammeringModel)
-						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_hammer"));
-			}
-			if (SAW.shouldGenerate()) {
-				WorkbenchRecipeBuilder.shaped(SAW.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
-						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
-						.define('s', Items.STICK).pattern("ibs")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))))
-						.save(consumer);
-			}
-			if (SAW.isNotIgnored()) {
-				HammeringRecipeBuilder.hammer(Ingredient.of(SAW.ITEM), new ItemStack(metal.INGOT.ITEM.asItem(), 5))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-								standardHammeringModel)
-						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_saw"));
-			}
-			if (SHEARS.shouldGenerate()) {
-				WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).pattern("i  ")
-						.pattern(" i ")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false, new AnimationFloatTransform()
-										.setRotation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
-										.setLocation(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
-												.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
-												.setZ(new AnimatedFloat(0.000F, 16.000F, 0.000F, 0.000F, false, false)))
-										.setScale(new AnimatedFloatVector3()
-												.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-												.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
-												.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-														false)))),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))))
-						.save(consumer);
-			}
-			if (SHEARS.isNotIgnored()) {
-				HammeringRecipeBuilder.hammer(Ingredient.of(SHEARS.ITEM), new ItemStack(metal.INGOT.ITEM.asItem()))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-								standardHammeringModel)
-						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_shears"));
-			}
-			if (ZWEIHANDER.shouldGenerate()) {
-				WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack())
-						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name)))
-						.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
-						.define('s', Items.STICK).pattern("  i").pattern(" b ").pattern("s  ")
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
-								Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
-								new BlacklistedModel(metal.INGOT.ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
-																false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))),
-								new BlacklistedModel(metal.BLOCK.BLOCK_ITEM.getId(), false,
-										new AnimationFloatTransform()
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
-																false)))),
-								new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
-										new AnimationFloatTransform()
-												.setRotation(new AnimatedFloatVector3().setX(new AnimatedFloat(0.000F,
-														90.000F, 0.000F, 0.000F, false, false)))
-												.setLocation(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
-																false)))
-												.setScale(new AnimatedFloatVector3()
-														.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false))
-														.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
-																false)))))
-						.save(consumer);
-			}
-			if (ZWEIHANDER.isNotIgnored()) {
-				HammeringRecipeBuilder
-						.hammer(Ingredient.of(ZWEIHANDER.ITEM), new ItemStack(metal.INGOT.ITEM.asItem(), 5))
-						.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-								standardHammeringModel)
-						.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_zweihander"));
-			}
+		if (PRYBAR.shouldGenerate()) {
+			WorkbenchRecipeBuilder.shaped(PRYBAR.ITEM.toStack()).define('i', gemIngot).define('s', Items.STICK)
+					.pattern("i  ").pattern(" s ").pattern("  i")
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(gemIngot, new AnimationFloatTransform()
+									.setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+									.setLocation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
+											.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+									.setScale(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
+											.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 0.000F, false, false)))),
+							new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3().setX(
+													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))))
+					.save(consumer);
+		}
+		if (PRYBAR.isNotIgnored()) {
+			HammeringRecipeBuilder.hammer(Ingredient.of(PRYBAR.ITEM), new ItemStack(gemIngot))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_prybar"));
+		}
+		if (HAMMER.shouldGenerate()) {
+			WorkbenchRecipeBuilder.shaped(HAMMER.ITEM.toStack()).define('i', gemIngot)
+					.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+					.define('s', Items.STICK).pattern("ibi").pattern(" s ").pattern(" s ")
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(
+													new AnimatedFloatVector3()
+															.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F,
+																	false, false))
+															.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F,
+																	false, false))
+															.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F,
+																	false, false)))
+											.setScale(new AnimatedFloatVector3().setX(new AnimatedFloat(0.500F, 0.500F,
+													0.000F, 1.000F, false, false)).setY(
+															new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+																	false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 96.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(
+													new AnimatedFloatVector3()
+															.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F,
+																	false, false))
+															.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F,
+																	false, false))
+															.setZ(new AnimatedFloat(0.000F, 26.000F, 0.000F, 0.000F,
+																	false, false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setLocation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
+											.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3().setX(
+													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 83.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 35.000F, 0.000F, 0.000F, false,
+															false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.800F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))))
+					.save(consumer);
+		}
+		if (HAMMER.isNotIgnored()) {
+			HammeringRecipeBuilder.hammer(Ingredient.of(HAMMER.ITEM), new ItemStack(gemIngot, 5))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_hammer"));
+		}
+		if (SAW.shouldGenerate()) {
+			WorkbenchRecipeBuilder.shaped(SAW.ITEM.toStack()).define('i', gemIngot)
+					.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+					.define('s', Items.STICK).pattern("ibs")
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+															false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform()
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(
+															0.000F, 3.000F, 0.000F, 0.000F, false, false))
+													.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3().setX(
+													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))))
+					.save(consumer);
+		}
+		if (SAW.isNotIgnored()) {
+			HammeringRecipeBuilder.hammer(Ingredient.of(SAW.ITEM), new ItemStack(gemIngot, 5))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_saw"));
+		}
+		if (SHEARS.shouldGenerate()) {
+			WorkbenchRecipeBuilder.shaped(SHEARS.ITEM.toStack()).define('i', gemIngot).pattern("i  ").pattern(" i ")
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+							new BlacklistedModel(gemIngot, new AnimationFloatTransform()
+									.setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+									.setLocation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false, false))
+											.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 16.000F, 0.000F, 0.000F, false, false)))
+									.setScale(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+											.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+											.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false)))),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false,
+															false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))))
+					.save(consumer);
+		}
+		if (SHEARS.isNotIgnored()) {
+			HammeringRecipeBuilder.hammer(Ingredient.of(SHEARS.ITEM), new ItemStack(gemIngot))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_shears"));
+		}
+		if (ZWEIHANDER.shouldGenerate()) {
+			WorkbenchRecipeBuilder.shaped(ZWEIHANDER.ITEM.toStack()).define('i', gemIngot)
+					.define('b', ItemTags.create(TagUtil.neoTag("storage_blocks/" + base.name)))
+					.define('s', Items.STICK).pattern("  i").pattern(" b ").pattern("s  ")
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
+							Recipes.standardWorkbenchRightHandItemModel(TagUtil.modLoc("iron_hammer_item"), 0),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setRotation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 45.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(
+													new AnimatedFloatVector3()
+															.setX(new AnimatedFloat(0.000F, 6.000F, 0.000F, 0.000F,
+																	false, false))
+															.setY(new AnimatedFloat(0.000F, 0.500F, 0.000F, 0.000F,
+																	false, false))
+															.setZ(new AnimatedFloat(0.000F, 23.000F, 0.000F, 0.000F,
+																	false, false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))),
+							new BlacklistedModel(gemIngot,
+									new AnimationFloatTransform().setLocation(new AnimatedFloatVector3()
+											.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false, false))
+											.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+											.setZ(new AnimatedFloat(0.000F, 14.000F, 0.000F, 0.000F, false, false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.350F, 0.350F, 0.000F, 0.000F, false,
+															false)))),
+							new BlacklistedModel(ResourceLocation.parse("minecraft:stick"), false,
+									new AnimationFloatTransform()
+											.setRotation(new AnimatedFloatVector3().setX(
+													new AnimatedFloat(0.000F, 90.000F, 0.000F, 0.000F, false, false)))
+											.setLocation(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.000F, 5.000F, 0.000F, 0.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.000F, 0.300F, 0.000F, 0.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.000F, 7.000F, 0.000F, 0.000F, false,
+															false)))
+											.setScale(new AnimatedFloatVector3()
+													.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false))
+													.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false,
+															false)))))
+					.save(consumer);
+		}
+		if (ZWEIHANDER.isNotIgnored()) {
+			HammeringRecipeBuilder.hammer(Ingredient.of(ZWEIHANDER.ITEM), new ItemStack(gemIngot, 5))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_ingot_from_zweihander"));
+		}
 //			if (BOW.shouldGenerate())
 //				WorkbenchRecipeBuilder.shaped(BOW.ITEM.toStack())
 //						.define('i', ItemTags.create(TagUtil.neoTag("ingots/" + base.name))).define('b', Items.BOW)
@@ -551,7 +533,6 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 //						.tool(Ingredient.of(CompendiumTags.HAMMER), 4, true, RecipeLootTables.EMPTY, List.of(),
 //								Recipes.standardHammeringModel(TagUtil.modLoc("gold_hammer"), 0))
 //						.save(consumer);
-		}
 	}
 
 	@Override

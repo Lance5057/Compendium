@@ -6,7 +6,7 @@
         "tag": "c:storage_blocks/gold"
       },
       "i": {
-        "tag": "c:ingots/gold"
+        "item": "minecraft:gold_ingot"
       },
       "s": {
         "item": "minecraft:stick"
@@ -145,7 +145,7 @@
               }
             }
           },
-          "location": "minecraft:gold_block"
+          "location": "minecraft:gold_ingot"
         },
         {
           "animation": {

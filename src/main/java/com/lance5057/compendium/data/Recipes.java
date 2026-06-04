@@ -82,6 +82,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('r', Items.FLINT).pattern("rs").pattern(" r").unlockedBy(getName(), has(Items.FLINT))
 				.save(consumer);
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumItems.TIME_DISTORTER.toStack())
+				.define('e', Items.ENDER_EYE).define('c', Items.CLOCK).define('a', Items.AMETHYST_SHARD)
+				.define('s', Items.SLIME_BALL).pattern(" e ").pattern("scs").pattern(" a ")
+				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
 	}
 
 	private void sawing(RecipeOutput consumer) {

@@ -6,7 +6,7 @@
         "tag": "c:storage_blocks/netherite"
       },
       "i": {
-        "tag": "c:ingots/netherite"
+        "item": "minecraft:netherite_ingot"
       },
       "s": {
         "item": "minecraft:stick"
@@ -187,7 +187,7 @@
               }
             }
           },
-          "location": "minecraft:netherite_block"
+          "location": "minecraft:netherite_ingot"
         },
         {
           "animation": {

@@ -6,7 +6,7 @@
         "tag": "c:storage_blocks/iron"
       },
       "i": {
-        "tag": "c:ingots/iron"
+        "item": "minecraft:iron_ingot"
       },
       "s": {
         "item": "minecraft:stick"
@@ -145,7 +145,7 @@
               }
             }
           },
-          "location": "minecraft:iron_block"
+          "location": "minecraft:iron_ingot"
         },
         {
           "animation": {

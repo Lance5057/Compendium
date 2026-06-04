@@ -3,7 +3,7 @@
   "input": {
     "key": {
       "i": {
-        "tag": "c:ingots/iron"
+        "item": "minecraft:iron_ingot"
       },
       "s": {
         "item": "minecraft:stick"

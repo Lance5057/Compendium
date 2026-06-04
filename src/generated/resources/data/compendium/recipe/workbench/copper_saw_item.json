@@ -6,7 +6,7 @@
         "tag": "c:storage_blocks/copper"
       },
       "i": {
-        "tag": "c:ingots/copper"
+        "item": "minecraft:copper_ingot"
       },
       "s": {
         "item": "minecraft:stick"
@@ -143,7 +143,7 @@
               }
             }
           },
-          "location": "minecraft:copper_block"
+          "location": "minecraft:copper_ingot"
         },
         {
           "animation": {

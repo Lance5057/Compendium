@@ -66,6 +66,9 @@ public class CompendiumItems {
 	public static final DeferredItem<BlockItem> COSMETIC_TOOLBOX = ITEMS.register("cosmetic_toolbox",
 			() -> new CosmeticToolboxItem(CompendiumBlocks.COSMETIC_TOOLBOX.get(), new Item.Properties()));
 
+	public static final DeferredItem<Item> TIME_DISTORTER = ITEMS.register("time_distorter",
+			() -> new Item(new Item.Properties()));
+
 	public static final DeferredItem<Item> CHAIR = ITEMS.register("chair", () -> new BlockItem(
 			CompendiumBlocks.CHAIR.get(),
 			new Item.Properties().stacksTo(64).component(CompendiumComponents.MULTI_MATERIAL.get(),
@@ -112,7 +115,7 @@ public class CompendiumItems {
 			() -> new BlockItem(CompendiumBlocks.WINDOW.get(),
 					new Item.Properties().stacksTo(64).component(CompendiumComponents.MULTI_MATERIAL.get(),
 							new MultiMaterialBlockComponent(Stream.of(new MultiMaterialType(MATERIAL_TYPES.GLASS),
-									new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD)).toList()))
+									new MultiMaterialType(MATERIAL_TYPES.METAL, MATERIAL_TYPES.WOOD, MATERIAL_TYPES.GEM)).toList()))
 							.component(CompendiumComponents.STYLE,
 									new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0, 0))))));
 

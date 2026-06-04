@@ -3,7 +3,7 @@
   "input": {
     "key": {
       "i": {
-        "tag": "c:ingots/netherite"
+        "item": "minecraft:netherite_ingot"
       },
       "s": {
         "item": "minecraft:stick"

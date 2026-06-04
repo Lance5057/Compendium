@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:clock"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "s": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    " e ",
+    "scs",
+    " a "
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:time_distorter"
+  }
+}

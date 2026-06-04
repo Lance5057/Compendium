@@ -31,6 +31,7 @@ public class EngLoc extends LanguageProvider {
 		this.add("compendium.tooltip.material_name", "Name");
 		
 		this.add(CompendiumItems.SAWDUST.get(), "Sawdust");
+		this.add(CompendiumItems.TIME_DISTORTER.get(), "Time Distorter");
 		this.add(CompendiumItems.ADJUSTINATOR.get(), "Adjustinator");
 		this.add(CompendiumItems.MEGALITH_STONE.get(), "Megalith Stone");
 		this.add(CompendiumItems.HAMMERING_STATION.get(), "Hammering Station");

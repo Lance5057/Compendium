@@ -1,0 +1,197 @@
+{
+  "type": "compendium:workbench_material",
+  "input": {
+    "key": {
+      "i": {
+        "item": "minecraft:emerald"
+      },
+      "s": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "i  ",
+      " s ",
+      "  i"
+    ]
+  },
+  "mats": [],
+  "output": {
+    "count": 1,
+    "id": "compendium:emerald_prybar_item"
+  },
+  "tools": [
+    {
+      "count": 1,
+      "damage": true,
+      "effects": [],
+      "loot_table": "compendium:empty",
+      "models": [
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": -0.7
+              },
+              "y": {
+                "max": -1.0
+              },
+              "z": {
+                "max": 27.5
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "y": {
+                "max": -90.0
+              },
+              "z": {
+                "max": 45.0,
+                "min": -45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "compendium:iron_hammer_item"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 6.0
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 23.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              },
+              "z": {
+                "max": 45.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:emerald"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 0.5
+              },
+              "z": {
+                "max": 14.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5
+              }
+            }
+          },
+          "location": "minecraft:emerald"
+        },
+        {
+          "animation": {
+            "location": {
+              "x": {
+                "max": 5.0
+              },
+              "y": {
+                "max": 0.3
+              },
+              "z": {
+                "max": 7.0
+              }
+            },
+            "pivot": {},
+            "rotation": {
+              "x": {
+                "max": 90.0
+              }
+            },
+            "scale": {
+              "x": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "y": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              },
+              "z": {
+                "max": 0.5,
+                "min": 0.5,
+                "speed": 1.0
+              }
+            }
+          },
+          "location": "minecraft:stick"
+        }
+      ],
+      "tool": {
+        "tag": "c:tools/hammer"
+      },
+      "uses": 4
+    }
+  ]
+}

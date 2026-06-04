@@ -1,6 +1,8 @@
 package com.lance5057.compendium.index.material.extensions;
 
 import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -8,16 +10,25 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.gem.MaterialGem;
+import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
+import com.lance5057.compendium.util.TagUtil;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
@@ -138,7 +149,62 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
-		// TODO Auto-generated method stub
+		Item gemIngot = null;
+		if (base instanceof MaterialMetal metal)
+			gemIngot = metal.INGOT.ITEM.asItem();
+		else if (base instanceof MaterialGem gem)
+			gemIngot = gem.GEM.ITEM.asItem();
+
+		if (AXE.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, AXE.ITEM, 1).define('p', gemIngot).define('s', Items.STICK)
+					.pattern("pp").pattern("ps").pattern(" s")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(AXE.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_axe"));
+		}
+		if (PICKAXE.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, PICKAXE.ITEM, 1).define('p', gemIngot)
+					.define('s', Items.STICK).pattern("ppp").pattern(" s ").pattern(" s ")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(PICKAXE.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_pickaxe"));
+		}
+		if (SWORD.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SWORD.ITEM, 1).define('p', gemIngot)
+					.define('s', Items.STICK).pattern("  p").pattern(" p ").pattern("s  ")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(SWORD.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_sword"));
+		}
+		if (HOE.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, HOE.ITEM, 1).define('p', gemIngot).define('s', Items.STICK)
+					.pattern("pp").pattern(" s").pattern(" s")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(HOE.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_hoe"));
+		}
+		if (SHOVEL.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SHOVEL.ITEM, 1).define('p', gemIngot)
+					.define('s', Items.STICK).pattern("p").pattern("s").pattern("s")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item().of(SHOVEL.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_shovel"));
+		}
 
 	}
 

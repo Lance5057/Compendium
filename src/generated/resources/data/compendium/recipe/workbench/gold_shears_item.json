@@ -3,7 +3,7 @@
   "input": {
     "key": {
       "i": {
-        "tag": "c:ingots/gold"
+        "item": "minecraft:gold_ingot"
       }
     },
     "pattern": [

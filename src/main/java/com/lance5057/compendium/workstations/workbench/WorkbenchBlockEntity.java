@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.lance5057.compendium.CompendiumBlockEntities;
+import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.util.ItemUtil;
 import com.lance5057.compendium.workstations.WorkstationRecipes;
 import com.lance5057.compendium.workstations._bases.blockentities.MultiToolRecipeStation;
@@ -13,9 +14,12 @@ import com.lance5057.compendium.workstations._bases.components.item.BlockEntityI
 import com.lance5057.compendium.workstations.containers.MultiToolRecipeWrapper;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -99,10 +103,26 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 //			if (player.level().isClientSide) {
 			Level level = player.level();
-			for (int x = 0; x < 20; x++) {
-				level.addParticle(ParticleTypes.REVERSE_PORTAL, this.worldPosition.getX() + level.random.nextDouble()*2, this.worldPosition.getY() + level.random.nextDouble()+1,
-						this.worldPosition.getZ() + level.random.nextDouble()*2, 0, 0, 0);
+			Direction dir = this.getBlockState().getValue(WorkbenchBlock.FACING);
+			int offX = 1, offZ = 1, tweakX = 0, tweakZ = 0;
+			if (dir == Direction.EAST || dir == Direction.WEST)
+				offX = 2;
+			if (dir == Direction.NORTH || dir == Direction.SOUTH)
+				offZ = 2;
+			if (dir == Direction.WEST)
+				tweakX = -1;
+			if (dir == Direction.NORTH)
+				tweakZ = -1;
+			// This is dumb, bad lance
+
+			for (int x = 0; x < 200; x++) {
+				level.addParticle(ParticleTypes.REVERSE_PORTAL,
+						this.worldPosition.getX() + tweakX + level.random.nextDouble() * offX,
+						this.worldPosition.getY() + level.random.nextDouble() + 1,
+						this.worldPosition.getZ() + tweakZ + level.random.nextDouble() * offZ, 0,
+						0.01 + level.random.nextDouble() * 0.05, 0);
 			}
+			level.playSound(player, worldPosition, SoundEvents.PORTAL_TRAVEL, SoundSource.BLOCKS, 1, 0);
 //			}
 		} else {
 			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
@@ -145,6 +165,24 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	@Override
 	protected BlockEntityItemHandler createItemHandler() {
 		return new BlockEntityItemHandler(this, INVENTORY_SIZE) {
+			@Override
+			public boolean isItemValid(int slot, ItemStack stack) {
+				switch (slot) {
+				case UPGRADE_4x4_SLOT:
+				case UPGRADE_5x5_SLOT:
+				case UPGRADE_LIGHT_SLOT:
+				case UPGRADE_ENERGY:
+				case UPGRADE_BATTERY:
+					return false;
+				case UPGRADE_TIME:
+					if (stack.is(CompendiumItems.TIME_DISTORTER))
+						return true;
+					else
+						return false;
+				}
+				return true;
+			}
+
 			@Override
 			protected void onContentsChanged(int slot) {
 				if (this.getBe() instanceof WorkbenchBlockEntity wb) {

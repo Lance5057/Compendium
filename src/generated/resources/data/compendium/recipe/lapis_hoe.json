@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "pp",
+    " s",
+    " s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:lapis_hoe_item"
+  }
+}

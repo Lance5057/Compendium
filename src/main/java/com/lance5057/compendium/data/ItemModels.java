@@ -30,6 +30,7 @@ public class ItemModels extends ItemModelProvider {
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/cosmetic_toolbox")));
 
 		forItem(CompendiumItems.ADJUSTINATOR, "adjustinator");
+		forItem(CompendiumItems.TIME_DISTORTER, "time_distorter");
 
 		forBlockItem(CompendiumItems.WORKBENCH,
 				ResourceLocation.fromNamespaceAndPath(Compendium.MOD_ID, "block/workstations/workbench_full"));
