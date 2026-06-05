@@ -253,8 +253,21 @@ public class ClientTextile {
 
 			ModelResourceLocation m_inv = new ModelResourceLocation(modelLoc.withSuffix("_inventory"), "");
 			ResourceLocation loc = Compendium.modLoc("extra/bed/inventory/blanket/" + b);
-			event.getModels().put(m_inv,
-					CompendiumClient.basicModelAllTexture(event, texture, loc, m_inv, BlockModelRotation.X0_Y0, "0"));
+
+			if (b.equals("llama")) {
+				event.getModels().put(m_inv,
+						CompendiumClient.basicModelManyTexture(event, loc, m_inv, BlockModelRotation.X0_Y0,
+								Pair.of("3", Compendium.modLoc(mb.blockFolder() + "llama_trim")),
+								Pair.of("2", Compendium.modLoc(mb.blockFolder() + "llama"))));
+			} else if (b.equals("glazed")) {
+				event.getModels().put(m_inv,
+						CompendiumClient.basicModelAllTexture(event,
+								Compendium.modLoc(mb.blockFolder() + "woolly_glazed"), loc, m_inv,
+								BlockModelRotation.X0_Y0, "0"));
+			} else {
+				event.getModels().put(m_inv, CompendiumClient.basicModelAllTexture(event, texture, loc, m_inv,
+						BlockModelRotation.X0_Y0, "0"));
+			}
 		}
 	}
 

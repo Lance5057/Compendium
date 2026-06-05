@@ -3,16 +3,19 @@
   "category": "equipment",
   "key": {
     "p": {
-      "item": "compendium:amethyst_shard_item"
+      "item": "minecraft:amethyst_shard"
+    },
+    "s": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "p p",
-    "   ",
-    "p p"
+    "pp",
+    "ps",
+    " s"
   ],
   "result": {
-    "count": 2,
-    "id": "compendium:amethyst_styled_gem_item"
+    "count": 1,
+    "id": "compendium:amethyst_axe_item"
   }
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2026-06-04T13:33:05.8927142	Recipes
+// 1.21.1	2026-06-05T13:38:37.2824516	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -615,6 +615,7 @@ ade68e8aae1843ba22c7a69cc1fce6ef0614aa18 data/compendium/advancement/recipes/wor
 d5447ec3a713242bf15afd75fe7819b778ea66c6 data/compendium/advancement/recipes/workbench/toolrack.json
 fde6806e4ee53ca8e77046518fbc184b4b93ad30 data/compendium/advancement/recipes/workbench/window.json
 815ebae91c610c63f95dc126323ab6628d7d176d data/compendium/advancement/recipes/workbench/window_from_nugget.json
+34200ae936bb82084e55ddf4c31e01d30d693599 data/compendium/advancement/recipes/workbench/window_from_shard.json
 e85f028ea894756ccb6715038d55d1cbb581d8d8 data/compendium/recipe/acacia_planks.json
 f8435c8a323c97475eb9d7018ce4c80cfe796574 data/compendium/recipe/acacia_small_logs_item.json
 5870b33cc2f9cbfdfd9a601601122c08e40d35ac data/compendium/recipe/acacia_small_logs_slab_item.json
@@ -1231,6 +1232,7 @@ dffc5e95e46b49e062202a4aa94b03f6a99802e1 data/compendium/recipe/workbench/shingl
 34af4973842812e9338984a673c2a2bba8a37886 data/compendium/recipe/workbench/toolrack.json
 5944f82e8a79503acc93bb8d6008ffb1bf0f1fba data/compendium/recipe/workbench/window.json
 3a1539f45b5ef9d5641caeb6fe404cb964e6c1cc data/compendium/recipe/workbench/window_from_nugget.json
+7b9e20ca1997d39f83e3680452006138d463eeee data/compendium/recipe/workbench/window_from_shard.json
 68fb1bea4cdf3ae67f31fe9d784441f5fd44d367 data/minecraft/advancement/recipes/hammering/amethyst_shard.json
 92f1efcc1f58168b8f63f46b33bcc2df06b7cad4 data/minecraft/advancement/recipes/hammering/andesite.json
 bf12f983f2e913ca1605b71ecb8fdfcdb33e6616 data/minecraft/advancement/recipes/hammering/blackstone.json

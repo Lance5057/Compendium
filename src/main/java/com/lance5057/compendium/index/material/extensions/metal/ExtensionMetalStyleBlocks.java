@@ -77,7 +77,7 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 			material_name.append(word).append(" ");
 		}
 		if (BLOCK.shouldGenerate()) {
-			lp.add(this.BLOCK.BLOCK_ITEM.get(), material_name + "Styled Block");
+			lp.add(this.BLOCK.BLOCK_ITEM.get(), material_name + "Style Block");
 		}
 	}
 

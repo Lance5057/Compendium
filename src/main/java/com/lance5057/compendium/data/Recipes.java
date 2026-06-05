@@ -1165,6 +1165,18 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 		window_metal.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer, TagUtil.modLoc("window_from_nugget"));
 
+		WorkbenchRecipeBuilder window_gem = WorkbenchRecipeBuilder.shaped(CompendiumItems.WINDOW, 4)
+				.define('p', Ingredient.of(CompendiumTags.GEM_SHARD))
+				.define('g', Ingredient.of(Tags.Items.GLASS_BLOCKS)).slotToMat(new SlotToMaterial(4, 0))
+				.slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp").pattern(" p ");
+
+		window_gem = WindowRecipeData.stage0(window_gem);
+		window_gem = WindowRecipeData.stage1(window_gem);
+		window_gem = WindowRecipeData.stage2(window_gem);
+		window_gem = WindowRecipeData.stage3(window_gem);
+
+		window_gem.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer, TagUtil.modLoc("window_from_shard"));
+
 		WorkbenchRecipeBuilder fence = WorkbenchRecipeBuilder.shaped(CompendiumItems.FANCY_FENCE, 3)
 				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('b', Ingredient.of(ItemTags.PLANKS))
 				.slotToMat(new SlotToMaterial(0, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern("bpb").pattern("bpb");

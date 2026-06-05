@@ -71,7 +71,7 @@ public class MaterialGem extends _MaterialBase {
 		SHARD.setName(name + "_shard");
 		SHARD.setup(this);
 		SHARD.setupItemTag(CompendiumTags.GEM_SHARD);
-		SHARD.setupItemTag(TagUtil.neoTag("gems/" + name));
+		SHARD.setupItemTag(TagUtil.neoTag("gem_shards/" + name));
 
 		this.extensions.forEach(i -> i.setup(this));
 	}
