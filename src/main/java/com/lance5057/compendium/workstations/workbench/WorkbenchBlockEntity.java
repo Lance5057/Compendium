@@ -122,7 +122,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 						this.worldPosition.getZ() + tweakZ + level.random.nextDouble() * offZ, 0,
 						0.01 + level.random.nextDouble() * 0.05, 0);
 			}
-			level.playSound(player, worldPosition, SoundEvents.PORTAL_TRAVEL, SoundSource.BLOCKS, 1, 0);
+			level.playSound(player, worldPosition, SoundEvents.ENDERMAN_TELEPORT, SoundSource.BLOCKS, 1, 0);
 //			}
 		} else {
 			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,

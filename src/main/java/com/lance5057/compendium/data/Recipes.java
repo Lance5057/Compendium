@@ -1054,7 +1054,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		toolrack.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder drawer = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COMPONENT_DRAWER.toStack())
-				.define('p', CompendiumTags.PLANK).define('n', Items.CHEST).define('e', Items.ENDER_PEARL)
+				.define('p', CompendiumTags.PLANK).define('n', Tags.Items.CHESTS_WOODEN).define('e', Items.ENDER_PEARL)
 				.pattern("npn").pattern("pep").pattern("npn");
 
 		drawer = ComponentDrawerRecipeData.stage0(drawer);
@@ -1064,7 +1064,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		drawer.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder toolbox = WorkbenchRecipeBuilder.shaped(CompendiumBlocks.COSMETIC_TOOLBOX.toStack())
-				.define('c', Items.COPPER_BLOCK).define('h', Items.CHEST).define('b', Items.BRUSH)
+				.define('c', Items.COPPER_BLOCK).define('h', Tags.Items.CHESTS_WOODEN).define('b', Items.BRUSH)
 				.define('p', ItemTags.WOODEN_PRESSURE_PLATES).define('l', Items.BLUE_DYE).define('g', Items.GREEN_DYE)
 				.define('r', Items.RED_DYE).define('y', Items.YELLOW_DYE).define('s', Items.STICK).pattern("psb")
 				.pattern("lhg").pattern("rcy");

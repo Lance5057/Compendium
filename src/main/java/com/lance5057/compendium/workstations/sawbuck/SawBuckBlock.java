@@ -3,6 +3,7 @@ package com.lance5057.compendium.workstations.sawbuck;
 import com.lance5057.compendium.workstations._bases.blocks.StationGuiless;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -28,6 +29,13 @@ public class SawBuckBlock extends StationGuiless {
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+		BlockEntity be = level.getBlockEntity(pos);
+		
+		if(be != null && be instanceof SawBuckBlockEntity sb)
+		{
+			ItemStack stack = sb.getInventory().getStackInSlot(0);
+		}
+		
 		return BASE;
 	}
 
