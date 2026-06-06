@@ -20,6 +20,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -78,60 +79,74 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 	}
 
+	void useDistortion(Level pLevel, Player player, InteractionHand hand, ItemStack tool) {
+		boolean b = true;
+		while (b) {
+			b = use(pLevel, player, hand, player.getItemInHand(hand));
+		}
+
+		Direction dir = this.getBlockState().getValue(WorkbenchBlock.FACING);
+		int offX = 1, offZ = 1, tweakX = 0, tweakZ = 0;
+		if (dir == Direction.EAST || dir == Direction.WEST)
+			offX = 2;
+		if (dir == Direction.NORTH || dir == Direction.SOUTH)
+			offZ = 2;
+		if (dir == Direction.WEST)
+			tweakX = -1;
+		if (dir == Direction.NORTH)
+			tweakZ = -1;
+		// This is dumb, bad lance
+
+		for (int x = 0; x < 200; x++) {
+			level.addParticle(ParticleTypes.REVERSE_PORTAL,
+					this.worldPosition.getX() + tweakX + level.random.nextDouble() * offX,
+					this.worldPosition.getY() + level.random.nextDouble() + 1,
+					this.worldPosition.getZ() + tweakZ + level.random.nextDouble() * offZ, 0,
+					0.01 + level.random.nextDouble() * 0.05, 0);
+		}
+		level.playSound(player, worldPosition, SoundEvents.ENDERMAN_TELEPORT, SoundSource.BLOCKS, 1, 0);
+	}
+
+	@Override
+	protected void playFinalSound(Player player) {
+//		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
+	}
+	
 	@Override
 	public void finishRecipe(Player player, WorkbenchRecipe r) {
-		if (!this.getInventory().getStackInSlot(WorkbenchBlockEntity.UPGRADE_TIME).isEmpty()) {
-
-			List<Integer> l = new ArrayList<Integer>();
-			for (int i = 0; i < WorkbenchBlockEntity.CRAFTING_SLOTS; i++) {
-
-				int nsize = this.inventory.getStackInSlot(i).getCount();
-				if (nsize != 0)
-					l.add(nsize);
-			}
-
-			Collections.sort(l);
-			int minSize = l.get(0);
-
-			ItemStack i = r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null);
-			i.setCount(minSize);
-			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT, i, false);
-			if (!s.isEmpty()) {
-				ItemUtil.giveOrDrop(s, player);
-			}
-			this.getInventory().shrinkRange(0, 25, minSize);
-
-//			if (player.level().isClientSide) {
-			Level level = player.level();
-			Direction dir = this.getBlockState().getValue(WorkbenchBlock.FACING);
-			int offX = 1, offZ = 1, tweakX = 0, tweakZ = 0;
-			if (dir == Direction.EAST || dir == Direction.WEST)
-				offX = 2;
-			if (dir == Direction.NORTH || dir == Direction.SOUTH)
-				offZ = 2;
-			if (dir == Direction.WEST)
-				tweakX = -1;
-			if (dir == Direction.NORTH)
-				tweakZ = -1;
-			// This is dumb, bad lance
-
-			for (int x = 0; x < 200; x++) {
-				level.addParticle(ParticleTypes.REVERSE_PORTAL,
-						this.worldPosition.getX() + tweakX + level.random.nextDouble() * offX,
-						this.worldPosition.getY() + level.random.nextDouble() + 1,
-						this.worldPosition.getZ() + tweakZ + level.random.nextDouble() * offZ, 0,
-						0.01 + level.random.nextDouble() * 0.05, 0);
-			}
-			level.playSound(player, worldPosition, SoundEvents.ENDERMAN_TELEPORT, SoundSource.BLOCKS, 1, 0);
+//		 {
+//
+//			List<Integer> l = new ArrayList<Integer>();
+//			for (int i = 0; i < WorkbenchBlockEntity.CRAFTING_SLOTS; i++) {
+//
+//				int nsize = this.inventory.getStackInSlot(i).getCount();
+//				if (nsize != 0)
+//					l.add(nsize);
 //			}
-		} else {
-			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
-					r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false);
-			if (!s.isEmpty()) {
-				ItemUtil.giveOrDrop(s, player);
-			}
-			this.getInventory().shrinkRange(0, 25);
+//
+//			Collections.sort(l);
+//			int minSize = l.get(0);
+//
+//			ItemStack i = r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null);
+//			i.setCount(minSize);
+//			ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT, i, false);
+//			if (!s.isEmpty()) {
+//				ItemUtil.giveOrDrop(s, player);
+//			}
+//			this.getInventory().shrinkRange(0, 25, minSize);
+//
+////			if (player.level().isClientSide) {
+//			Level level = player.level();
+//			
+////			}
+//		} else {
+		ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
+				r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false);
+		if (!s.isEmpty()) {
+			ItemUtil.giveOrDrop(s, player);
 		}
+		this.getInventory().shrinkRange(0, 25);
+//		}
 	}
 
 	@Override

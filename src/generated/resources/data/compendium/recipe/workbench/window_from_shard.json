@@ -3,7 +3,13 @@
   "input": {
     "key": {
       "g": {
-        "tag": "c:glass_blocks"
+        "type": "neoforge:difference",
+        "base": {
+          "tag": "c:glass_blocks"
+        },
+        "subtracted": {
+          "item": "minecraft:tinted_glass"
+        }
       },
       "p": {
         "tag": "c:gem_shards"

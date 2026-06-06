@@ -12,7 +12,7 @@
         "item": "minecraft:green_dye"
       },
       "h": {
-        "item": "minecraft:chest"
+        "tag": "c:chests/wooden"
       },
       "l": {
         "item": "minecraft:blue_dye"

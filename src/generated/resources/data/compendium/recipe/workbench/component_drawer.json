@@ -6,7 +6,7 @@
         "item": "minecraft:ender_pearl"
       },
       "n": {
-        "item": "minecraft:chest"
+        "tag": "c:chests/wooden"
       },
       "p": {
         "tag": "c:plank"

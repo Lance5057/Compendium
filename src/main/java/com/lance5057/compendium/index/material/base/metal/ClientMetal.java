@@ -58,17 +58,6 @@ public class ClientMetal {
 
 				event.getModels().put(new ModelResourceLocation(modelLoc, ""), CompendiumClient.basicModelAllTexture(
 						event, t, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-
-//				ResourceLocation modelLoc_inv = ClientUtil.createMaterialStyleLayerLocation("window", "trim", mb.name,
-//						b.toLowerCase(), "_inventory");
-//				ResourceLocation loc_inv = Compendium.modLoc("extra/window/trim/" + b + "_inventory");
-//
-////				Compendium.LOGGER.debug(modelLoc_inv.toString());
-////				Compendium.LOGGER.debug(loc_inv.toString());
-//
-//				event.getModels().put(new ModelResourceLocation(modelLoc_inv, ""),
-//						basicModelAllTexture(event, texture, loc_inv, new ModelResourceLocation(modelLoc_inv, ""),
-//								BlockModelRotation.X0_Y0, "all"));
 			});
 		}
 	}

@@ -157,6 +157,17 @@ public class ClientGem {
 					"all");
 			event.getModels().put(m, bm);
 		}
+
+		StyleData.WINDOW_TRIM.getTypes().forEach(b -> {
+			ResourceLocation loc = Compendium.modLoc("extra/window/window_frame");
+			ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("window", "trim", mw.name,
+					b.toLowerCase());
+
+			ResourceLocation t = Compendium.modLoc("block/material/gem/" + mw.name + "/windows/" + b.toLowerCase());
+
+			event.getModels().put(new ModelResourceLocation(modelLoc, ""), CompendiumClient.basicModelAllTexture(event,
+					t, loc, new ModelResourceLocation(modelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+		});
 	}
 
 	public static void doStyleGem(ModifyBakingResult event, MaterialGem mb) {

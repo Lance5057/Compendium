@@ -42,6 +42,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.crafting.DifferenceIngredient;
 
 public class Recipes extends RecipeProvider implements IConditionBuilder {
 	public Recipes(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -84,7 +85,7 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CompendiumItems.TIME_DISTORTER.toStack())
 				.define('e', Items.ENDER_EYE).define('c', Items.CLOCK).define('a', Items.AMETHYST_SHARD)
-				.define('s', Items.SLIME_BALL).pattern(" e ").pattern("scs").pattern(" a ")
+				.define('s', Items.SLIME_BALL).define('q', Items.QUARTZ).pattern("qeq").pattern("scs").pattern("qaq")
 				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
 	}
 
@@ -1142,7 +1143,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		bed.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder window = WorkbenchRecipeBuilder.shaped(CompendiumItems.WINDOW, 4)
-				.define('p', Ingredient.of(CompendiumTags.PLANK)).define('g', Ingredient.of(Tags.Items.GLASS_BLOCKS))
+				.define('p', Ingredient.of(CompendiumTags.PLANK))
+				.define('g',
+						DifferenceIngredient.of(Ingredient.of(Tags.Items.GLASS_BLOCKS),
+								Ingredient.of(Items.TINTED_GLASS)))
 				.slotToMat(new SlotToMaterial(4, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp")
 				.pattern(" p ");
 
@@ -1154,7 +1158,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 		window.unlockedBy(getName(), has(Tags.Items.STONES)).save(consumer);
 
 		WorkbenchRecipeBuilder window_metal = WorkbenchRecipeBuilder.shaped(CompendiumItems.WINDOW, 4)
-				.define('p', Ingredient.of(Tags.Items.NUGGETS)).define('g', Ingredient.of(Tags.Items.GLASS_BLOCKS))
+				.define('p', Ingredient.of(Tags.Items.NUGGETS))
+				.define('g',
+						DifferenceIngredient.of(Ingredient.of(Tags.Items.GLASS_BLOCKS),
+								Ingredient.of(Items.TINTED_GLASS)))
 				.slotToMat(new SlotToMaterial(4, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp")
 				.pattern(" p ");
 
@@ -1167,8 +1174,11 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 
 		WorkbenchRecipeBuilder window_gem = WorkbenchRecipeBuilder.shaped(CompendiumItems.WINDOW, 4)
 				.define('p', Ingredient.of(CompendiumTags.GEM_SHARD))
-				.define('g', Ingredient.of(Tags.Items.GLASS_BLOCKS)).slotToMat(new SlotToMaterial(4, 0))
-				.slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp").pattern(" p ");
+				.define('g',
+						DifferenceIngredient.of(Ingredient.of(Tags.Items.GLASS_BLOCKS),
+								Ingredient.of(Items.TINTED_GLASS)))
+				.slotToMat(new SlotToMaterial(4, 0)).slotToMat(new SlotToMaterial(1, 1)).pattern(" p ").pattern("pgp")
+				.pattern(" p ");
 
 		window_gem = WindowRecipeData.stage0(window_gem);
 		window_gem = WindowRecipeData.stage1(window_gem);

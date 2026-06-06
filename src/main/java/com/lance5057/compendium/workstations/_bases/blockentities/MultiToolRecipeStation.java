@@ -258,39 +258,43 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 
 		if (!ing.test(player.getItemInHand(hand))) {
 			if (player.getInventory().contains(ing)) {
-				
+
 				ItemStack h = player.getItemInHand(hand);
 				int slot = ItemUtil.getSlotFromInventory(player.getInventory(), ing);
-				
+
 				player.setItemInHand(hand, player.getInventory().getItem(slot));
 				player.getInventory().setItem(slot, h);
 				return true;
 			} else {
-				for (BlockPos pos : toolSuppliers) {
-					BlockEntity be = level.getBlockEntity(pos);
-					if (be != null) {
-						if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
-							Inventory inv = player.getInventory();
-							int free = inv.getFreeSlot();
-							if (free != -1) {
+				if (toolSuppliers != null && toolSuppliers.size() != 0) {
+					for (BlockPos pos : toolSuppliers) {
+						BlockEntity be = level.getBlockEntity(pos);
+						if (be != null) {
+							if (be instanceof RecipeToolSupplierBlockEntity rtsb) {
+								Inventory inv = player.getInventory();
+								int free = inv.getFreeSlot();
+								if (free != -1) {
 
-								ItemStack tool = rtsb.supply(player, hand, ing, 1);
-								if (tool != null && tool != ItemStack.EMPTY) {
-									inv.add(free, player.getItemInHand(hand));
-									player.setItemInHand(hand, tool);
-									return true;
+									ItemStack tool = rtsb.supply(player, hand, ing, 1);
+									if (tool != null && tool != ItemStack.EMPTY) {
+										inv.add(free, player.getItemInHand(hand));
+										player.setItemInHand(hand, tool);
+										return true;
+									}
 								}
+							} else {
+								// How did you get in here?
+								toolSuppliers.remove(pos);
 							}
 						} else {
-							// How did you get in here?
 							toolSuppliers.remove(pos);
 						}
-					} else {
-						toolSuppliers.remove(pos);
 					}
-				}
+				} else
+					return false;
 			}
-		}
+		} else
+			return true;
 		return false;
 	}
 
