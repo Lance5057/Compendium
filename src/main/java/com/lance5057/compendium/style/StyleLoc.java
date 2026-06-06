@@ -30,6 +30,66 @@ public class StyleLoc {
 		lp.add("style.tile.slats", "Slats");
 		lp.add("style.tile.slats_vertical", "Vertical Slats");
 
+		// Metal Block
+		lp.add("style.metal_block.heavy_rivet_tile", "Heavily Riveted Tile");
+		lp.add("style.metal_block.brick", "Bricks");
+		lp.add("style.metal_block.coil", "Coil");
+		lp.add("style.metal_block.crate", "Crate");
+		lp.add("style.metal_block.cylinder", "Cylinder");
+		lp.add("style.metal_block.coil", "Coil");
+		lp.add("style.metal_block.dented_tile", "Riveted Dented Tile");
+		lp.add("style.metal_block.diamond", "Diamonds");
+		lp.add("style.metal_block.diamond_tile", "Riveted Diamond Tiles");
+		lp.add("style.metal_block.eighth_tile", "Eighth Tiles");
+		lp.add("style.metal_block.half_tile", "Riveted, Vertical Half Tiles");
+		lp.add("style.metal_block.heavy_rivet_dented_tile", "Heavily Riveted Dented Tile");
+		lp.add("style.metal_block.no_rivet_dented_tile", "Tile");
+		lp.add("style.metal_block.no_rivet_diamond_tile", "Diamond Tiles");
+		lp.add("style.metal_block.no_rivet_half_tile", "Vertical Half Tiles");
+		lp.add("style.metal_block.no_rivet_offset_quarter_tile", "Offset Quarter Tiles");
+		lp.add("style.metal_block.no_rivet_quarter_tile", "Quarter Tiles");
+		lp.add("style.metal_block.no_rivet_tile", "Tile");
+		lp.add("style.metal_block.offset_eighth_tile", "Offset Eighth Tiles");
+		lp.add("style.metal_block.offset_quarter_tile", "Riveted Quarter Tiles");
+		lp.add("style.metal_block.pipe", "Pipe");
+		lp.add("style.metal_block.planks", "Stacked Planks");
+		lp.add("style.metal_block.seamless_planks", "Seamless Planks");
+		lp.add("style.metal_block.offset_planks", "Planks");
+		lp.add("style.metal_block.quarter_tile", "Riveted Quarter Tiles");
+		lp.add("style.metal_block.random_tile", "Random Tiles");
+		lp.add("style.metal_block.seamless", "Sheet");
+		lp.add("style.metal_block.shutter", "Shutter");
+		lp.add("style.metal_block.stack", "Stack");
+		lp.add("style.metal_block.thick_stack", "Thick Stack");
+		lp.add("style.metal_block.tile", "Riveted Tile");
+		lp.add("style.metal_block.treaded", "Treadplate");
+		lp.add("style.metal_block.trimmed_tile", "Lattice Tiles");
+
+		// Gem Block
+		lp.add("style.gem_block.brick", "Bricks");
+		lp.add("style.gem_block.amethyst", "Shiny");
+		lp.add("style.gem_block.circle", "Circle");
+		lp.add("style.gem_block.circles", "Small Circles");
+		lp.add("style.gem_block.diamond", "Small Diamonds");
+		lp.add("style.gem_block.diamonds", "Diamonds!");
+		lp.add("style.gem_block.eighth", "Eighth Tiles");
+		lp.add("style.gem_block.emeralds", "Emeralds!");
+		lp.add("style.gem_block.eye", "Chiseled Quartz");
+		lp.add("style.gem_block.faceted", "Emerald Block");
+		lp.add("style.gem_block.faceted_octo", "Faceted Octagon");
+		lp.add("style.gem_block.filigree", "Scrolls");
+		lp.add("style.gem_block.flat", "Diamond Block");
+		lp.add("style.gem_block.glitter", "Amethyst");
+		lp.add("style.gem_block.half_rotated", "Vertical Half Tiles");
+		lp.add("style.gem_block.multi_brick", "Multi Bricks");
+		lp.add("style.gem_block.nostalgia", "Old Emerald Block");
+		lp.add("style.gem_block.octo", "Octagon");
+		lp.add("style.gem_block.quarter", "Quarter Tiles");
+		lp.add("style.gem_block.quartz", "Quartz!");
+		lp.add("style.gem_block.small_brick", "Small Bricks");
+		lp.add("style.gem_block.smooth", "Seamless");
+		lp.add("style.gem_block.tile", "Third Tiles");
+
 		// Table
 		lp.add("style.table_top", "Top");
 		lp.add("style.table_top.basic", "Basic");
