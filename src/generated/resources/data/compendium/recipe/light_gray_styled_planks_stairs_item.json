@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "compendium:light_gray_plank_item"
+    }
+  },
+  "pattern": [
+    "p  ",
+    "pp ",
+    "ppp"
+  ],
+  "result": {
+    "count": 6,
+    "id": "compendium:light_gray_styled_planks_stairs_item"
+  }
+}

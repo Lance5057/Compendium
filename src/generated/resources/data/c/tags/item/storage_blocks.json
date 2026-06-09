@@ -1,17 +1,5 @@
 {
   "values": [
-    "minecraft:copper_block",
-    "minecraft:gold_block",
-    "minecraft:iron_block",
-    "minecraft:netherite_block",
-    "minecraft:amethyst_block",
-    "minecraft:crying_obsidian",
-    "minecraft:diamond_block",
-    "minecraft:emerald_block",
-    "compendium:ender_pearl_block_item",
-    "minecraft:lapis_block",
-    "minecraft:obsidian",
-    "minecraft:prismarine",
-    "minecraft:quartz_block"
+    "compendium:ender_pearl_block_item"
   ]
 }

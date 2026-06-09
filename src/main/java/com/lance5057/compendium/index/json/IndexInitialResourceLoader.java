@@ -52,6 +52,7 @@ import com.lance5057.compendium.util.TagUtil;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IModFileInfo;
 import net.neoforged.neoforgespi.locating.IModFile;
@@ -75,6 +76,7 @@ public class IndexInitialResourceLoader {
 
 		buildDefaults();
 //		moddedDefaults();
+		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -95,6 +97,20 @@ public class IndexInitialResourceLoader {
 ////			moddedDefaults();
 //			readResourcePacks(resourcePackPath);
 //		}
+	}
+
+	private static void addons() {
+		for (DyeColor d : DyeColor.values()) {
+			MaterialWood dye = new MaterialWood(d.getName().toLowerCase(), "compendium");
+			dye.LOG.setIgnore();
+			dye.STRIPPED_LOG.setIgnore();
+			dye.WOOD.setIgnore();
+			dye.STRIPPED_WOOD.setIgnore();
+			dye.PLANKS.setGenerate();
+
+			dye.addExtension(new ExtensionExtraPlanks().generateAll());
+			buildDefault(dye, "colored_planks");
+		}
 	}
 
 	static String zipPath = "data/compendium/materials";
@@ -998,7 +1014,7 @@ public class IndexInitialResourceLoader {
 
 	public static void cluttered() {
 		buildDefault(new MaterialWood("blue_mushroom", "cluttered").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "cluttered");
 	}
 
 	public static void abyssalDecor() {
@@ -1022,7 +1038,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/blackwoodstrippedlogtop")));
 
 		buildDefault(blackwood.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "abyssal_decor");
 	}
 
 	public static void bloomingNature() {
@@ -1033,7 +1049,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/aspen_log_top_stripped")));
 		buildDefault(aspen.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "bloomingnature");
 
 		MaterialWood baobab = new MaterialWood("baobab", "bloomingnature");
 		baobab.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
@@ -1042,7 +1058,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/baobab_log_top_stripped")));
 		buildDefault(baobab.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "bloomingnature");
 
 		MaterialWood cactus = new MaterialWood("cactus", "bloomingnature");
 		cactus.LOG.setExists(ResourceLocation.fromNamespaceAndPath("minecraft", "cactus"),
@@ -1053,7 +1069,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("compendium", "block/stripped_cactus_log_top")));
 
 		buildDefault(cactus.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "bloomingnature");
 
 		SpecialLocationsWood chestnut = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_side"),
@@ -1062,21 +1078,21 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/chestnut_log_top_stripped")));
 		buildDefault(new MaterialWood("chestnut", "bloomingnature", chestnut)
 				.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "bloomingnature");
 	}
 
 	public static void arsNouveau() {
 		MaterialWood archwood = new MaterialWood("archwood", "ars_nouveau");
 		archwood.addExtension(new ExtensionExtraLogs().generateAll());
 		archwood.addExtension(new ExtensionExtraPlanks().generateAll());
-		buildDefault(archwood);
+		buildDefault(archwood, "ars_nouveau");
 	}
 
 	public static void enchanted() {
 		MaterialWood alder = new MaterialWood("alder", "enchanted");
 		alder.addExtension(new ExtensionExtraLogs().generateAll());
 		alder.addExtension(new ExtensionExtraPlanks().generateAll());
-		buildDefault(alder);
+		buildDefault(alder, "enchanted");
 	}
 
 	public static void extraDelight() {
@@ -1085,7 +1101,7 @@ public class IndexInitialResourceLoader {
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/white"), null, null)));
 		gingham_white.BLOCK.setGenerate();
 		gingham_white.CARPET.setGenerate();
-		buildDefault(gingham_white);
+		buildDefault(gingham_white, "extradelight");
 
 		MaterialTextile gingham_light_gray = new MaterialTextile("gingham_light_gray", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
@@ -1093,70 +1109,70 @@ public class IndexInitialResourceLoader {
 						null)));
 		gingham_light_gray.BLOCK.setGenerate();
 		gingham_light_gray.CARPET.setGenerate();
-		buildDefault(gingham_light_gray);
+		buildDefault(gingham_light_gray, "extradelight");
 
 		MaterialTextile gingham_gray = new MaterialTextile("gingham_gray", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/gray"), null, null)));
 		gingham_gray.BLOCK.setGenerate();
 		gingham_gray.CARPET.setGenerate();
-		buildDefault(gingham_gray);
+		buildDefault(gingham_gray, "extradelight");
 
 		MaterialTextile gingham_black = new MaterialTextile("gingham_black", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_black", "block/gingham/gray"), null, null)));
 		gingham_black.BLOCK.setGenerate();
 		gingham_black.CARPET.setGenerate();
-		buildDefault(gingham_black);
+		buildDefault(gingham_black, "extradelight");
 
 		MaterialTextile gingham_brown = new MaterialTextile("gingham_brown", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_brown", "block/gingham/gray"), null, null)));
 		gingham_brown.BLOCK.setGenerate();
 		gingham_brown.CARPET.setGenerate();
-		buildDefault(gingham_brown);
+		buildDefault(gingham_brown, "extradelight");
 
 		MaterialTextile gingham_red = new MaterialTextile("gingham_red", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_red", "block/gingham/gray"), null, null)));
 		gingham_red.BLOCK.setGenerate();
 		gingham_red.CARPET.setGenerate();
-		buildDefault(gingham_red);
+		buildDefault(gingham_red, "extradelight");
 
 		MaterialTextile gingham_orange = new MaterialTextile("gingham_orange", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_orange", "block/gingham/gray"), null, null)));
 		gingham_orange.BLOCK.setGenerate();
 		gingham_orange.CARPET.setGenerate();
-		buildDefault(gingham_orange);
+		buildDefault(gingham_orange, "extradelight");
 
 		MaterialTextile gingham_yellow = new MaterialTextile("gingham_yellow", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_yellow", "block/gingham/gray"), null, null)));
 		gingham_yellow.BLOCK.setGenerate();
 		gingham_yellow.CARPET.setGenerate();
-		buildDefault(gingham_yellow);
+		buildDefault(gingham_yellow, "extradelight");
 
 		MaterialTextile gingham_lime = new MaterialTextile("gingham_lime", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_lime", "block/gingham/gray"), null, null)));
 		gingham_lime.BLOCK.setGenerate();
 		gingham_lime.CARPET.setGenerate();
-		buildDefault(gingham_lime);
+		buildDefault(gingham_lime, "extradelight");
 
 		MaterialTextile gingham_green = new MaterialTextile("gingham_green", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_green", "block/gingham/gray"), null, null)));
 		gingham_green.BLOCK.setGenerate();
 		gingham_green.CARPET.setGenerate();
-		buildDefault(gingham_green);
+		buildDefault(gingham_green, "extradelight");
 
 		MaterialTextile gingham_cyan = new MaterialTextile("gingham_cyan", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_cyan", "block/gingham/gray"), null, null)));
 		gingham_cyan.BLOCK.setGenerate();
 		gingham_cyan.CARPET.setGenerate();
-		buildDefault(gingham_cyan);
+		buildDefault(gingham_cyan, "extradelight");
 
 		MaterialTextile gingham_light_blue = new MaterialTextile("gingham_light_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
@@ -1164,35 +1180,35 @@ public class IndexInitialResourceLoader {
 						null)));
 		gingham_light_blue.BLOCK.setGenerate();
 		gingham_light_blue.CARPET.setGenerate();
-		buildDefault(gingham_light_blue);
+		buildDefault(gingham_light_blue, "extradelight");
 
 		MaterialTextile gingham_blue = new MaterialTextile("gingham_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_blue", "block/gingham/gray"), null, null)));
 		gingham_blue.BLOCK.setGenerate();
 		gingham_blue.CARPET.setGenerate();
-		buildDefault(gingham_blue);
+		buildDefault(gingham_blue, "extradelight");
 
 		MaterialTextile gingham_purple = new MaterialTextile("gingham_purple", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_purple", "block/gingham/gray"), null, null)));
 		gingham_purple.BLOCK.setGenerate();
 		gingham_purple.CARPET.setGenerate();
-		buildDefault(gingham_purple);
+		buildDefault(gingham_purple, "extradelight");
 
 		MaterialTextile gingham_magenta = new MaterialTextile("gingham_magenta", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_magenta", "block/gingham/gray"), null, null)));
 		gingham_magenta.BLOCK.setGenerate();
 		gingham_magenta.CARPET.setGenerate();
-		buildDefault(gingham_magenta);
+		buildDefault(gingham_magenta, "extradelight");
 
 		MaterialTextile gingham_pink = new MaterialTextile("gingham_pink", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("gingham_pink", "block/gingham/gray"), null, null)));
 		gingham_pink.BLOCK.setGenerate();
 		gingham_pink.CARPET.setGenerate();
-		buildDefault(gingham_pink);
+		buildDefault(gingham_pink, "extradelight");
 	}
 
 	private static void dyenamics() {
@@ -1200,109 +1216,109 @@ public class IndexInitialResourceLoader {
 		gingham_amber.BLOCK.setIgnore();
 		gingham_amber.CARPET.setIgnore();
 		gingham_amber.STRING.setIgnore();
-		buildDefault(gingham_amber);
+		buildDefault(gingham_amber, "dyenamics");
 
 		MaterialTextile aquamarine_wool = new MaterialTextile("aquamarine_wool", "dyenamics");
 		aquamarine_wool.BLOCK.setIgnore();
 		aquamarine_wool.CARPET.setIgnore();
 		aquamarine_wool.STRING.setIgnore();
-		buildDefault(aquamarine_wool);
+		buildDefault(aquamarine_wool, "dyenamics");
 
 		MaterialTextile bubblegum_wool = new MaterialTextile("bubblegum_wool", "dyenamics");
 		bubblegum_wool.BLOCK.setIgnore();
 		bubblegum_wool.CARPET.setIgnore();
 		bubblegum_wool.STRING.setIgnore();
-		buildDefault(bubblegum_wool);
+		buildDefault(bubblegum_wool, "dyenamics");
 
 		MaterialTextile cherenkov_wool = new MaterialTextile("cherenkov_wool", "dyenamics");
 		cherenkov_wool.BLOCK.setIgnore();
 		cherenkov_wool.CARPET.setIgnore();
 		cherenkov_wool.STRING.setIgnore();
-		buildDefault(cherenkov_wool);
+		buildDefault(cherenkov_wool, "dyenamics");
 
 		MaterialTextile conifer_wool = new MaterialTextile("conifer_wool", "dyenamics");
 		conifer_wool.BLOCK.setIgnore();
 		conifer_wool.CARPET.setIgnore();
 		conifer_wool.STRING.setIgnore();
-		buildDefault(conifer_wool);
+		buildDefault(conifer_wool, "dyenamics");
 
 		MaterialTextile fluorescent_wool = new MaterialTextile("fluorescent_wool", "dyenamics");
 		fluorescent_wool.BLOCK.setIgnore();
 		fluorescent_wool.CARPET.setIgnore();
 		fluorescent_wool.STRING.setIgnore();
-		buildDefault(fluorescent_wool);
+		buildDefault(fluorescent_wool, "dyenamics");
 
 		MaterialTextile honey_wool = new MaterialTextile("honey_wool", "dyenamics");
 		honey_wool.BLOCK.setIgnore();
 		honey_wool.CARPET.setIgnore();
 		honey_wool.STRING.setIgnore();
-		buildDefault(honey_wool);
+		buildDefault(honey_wool, "dyenamics");
 
 		MaterialTextile icy_blue_wool = new MaterialTextile("icy_blue_wool", "dyenamics");
 		icy_blue_wool.BLOCK.setIgnore();
 		icy_blue_wool.CARPET.setIgnore();
 		icy_blue_wool.STRING.setIgnore();
-		buildDefault(icy_blue_wool);
+		buildDefault(icy_blue_wool, "dyenamics");
 
 		MaterialTextile lavender_wool = new MaterialTextile("lavender_wool", "dyenamics");
 		lavender_wool.BLOCK.setIgnore();
 		lavender_wool.CARPET.setIgnore();
 		lavender_wool.STRING.setIgnore();
-		buildDefault(lavender_wool);
+		buildDefault(lavender_wool, "dyenamics");
 
 		MaterialTextile maroon_wool = new MaterialTextile("maroon_wool", "dyenamics");
 		maroon_wool.BLOCK.setIgnore();
 		maroon_wool.CARPET.setIgnore();
 		maroon_wool.STRING.setIgnore();
-		buildDefault(maroon_wool);
+		buildDefault(maroon_wool, "dyenamics");
 
 		MaterialTextile mint_wool = new MaterialTextile("mint_wool", "dyenamics");
 		mint_wool.BLOCK.setIgnore();
 		mint_wool.CARPET.setIgnore();
 		mint_wool.STRING.setIgnore();
-		buildDefault(mint_wool);
+		buildDefault(mint_wool, "dyenamics");
 
 		MaterialTextile navy_wool = new MaterialTextile("navy_wool", "dyenamics");
 		navy_wool.BLOCK.setIgnore();
 		navy_wool.CARPET.setIgnore();
 		navy_wool.STRING.setIgnore();
-		buildDefault(navy_wool);
+		buildDefault(navy_wool, "dyenamics");
 
 		MaterialTextile peach_wool = new MaterialTextile("peach_wool", "dyenamics");
 		peach_wool.BLOCK.setIgnore();
 		peach_wool.CARPET.setIgnore();
 		peach_wool.STRING.setIgnore();
-		buildDefault(peach_wool);
+		buildDefault(peach_wool, "dyenamics");
 
 		MaterialTextile persimmon_wool = new MaterialTextile("persimmon_wool", "dyenamics");
 		persimmon_wool.BLOCK.setIgnore();
 		persimmon_wool.CARPET.setIgnore();
 		persimmon_wool.STRING.setIgnore();
-		buildDefault(persimmon_wool);
+		buildDefault(persimmon_wool, "dyenamics");
 
 		MaterialTextile rose_wool = new MaterialTextile("rose_wool", "dyenamics");
 		rose_wool.BLOCK.setIgnore();
 		rose_wool.CARPET.setIgnore();
 		rose_wool.STRING.setIgnore();
-		buildDefault(rose_wool);
+		buildDefault(rose_wool, "dyenamics");
 
 		MaterialTextile spring_green_wool = new MaterialTextile("spring_green_wool", "dyenamics");
 		spring_green_wool.BLOCK.setIgnore();
 		spring_green_wool.CARPET.setIgnore();
 		spring_green_wool.STRING.setIgnore();
-		buildDefault(spring_green_wool);
+		buildDefault(spring_green_wool, "dyenamics");
 
 		MaterialTextile ultramarine_wool = new MaterialTextile("ultramarine_wool", "dyenamics");
 		ultramarine_wool.BLOCK.setIgnore();
 		ultramarine_wool.CARPET.setIgnore();
 		ultramarine_wool.STRING.setIgnore();
-		buildDefault(ultramarine_wool);
+		buildDefault(ultramarine_wool, "dyenamics");
 
 		MaterialTextile wine_wool = new MaterialTextile("wine_wool", "dyenamics");
 		wine_wool.BLOCK.setIgnore();
 		wine_wool.CARPET.setIgnore();
 		wine_wool.STRING.setIgnore();
-		buildDefault(wine_wool);
+		buildDefault(wine_wool, "dyenamics");
 	}
 
 	private static void dyenamicsGingham() {
@@ -1310,117 +1326,123 @@ public class IndexInitialResourceLoader {
 		gingham_amber.BLOCK.setGenerate();
 		gingham_amber.CARPET.setGenerate();
 		gingham_amber.STRING.setIgnore();
-		buildDefault(gingham_amber);
+		buildDefault(gingham_amber, "compendium");
 
 		MaterialTextile gingham_aquamarine = new MaterialTextile("gingham_aquamarine", "compendium");
 		gingham_aquamarine.BLOCK.setGenerate();
 		gingham_aquamarine.CARPET.setGenerate();
 		gingham_aquamarine.STRING.setIgnore();
-		buildDefault(gingham_aquamarine);
+		buildDefault(gingham_aquamarine, "compendium");
 
 		MaterialTextile gingham_bubblegum = new MaterialTextile("gingham_bubblegum", "compendium");
 		gingham_bubblegum.BLOCK.setGenerate();
 		gingham_bubblegum.CARPET.setGenerate();
 		gingham_bubblegum.STRING.setIgnore();
-		buildDefault(gingham_bubblegum);
+		buildDefault(gingham_bubblegum, "compendium");
 
 		MaterialTextile gingham_cherenkov = new MaterialTextile("gingham_cherenkov", "compendium");
 		gingham_cherenkov.BLOCK.setGenerate();
 		gingham_cherenkov.CARPET.setGenerate();
 		gingham_cherenkov.STRING.setIgnore();
-		buildDefault(gingham_cherenkov);
+		buildDefault(gingham_cherenkov, "compendium");
 
 		MaterialTextile gingham_conifer = new MaterialTextile("gingham_conifer", "compendium");
 		gingham_conifer.BLOCK.setGenerate();
 		gingham_conifer.CARPET.setGenerate();
 		gingham_conifer.STRING.setIgnore();
-		buildDefault(gingham_conifer);
+		buildDefault(gingham_conifer, "compendium");
 
 		MaterialTextile gingham_fluorescent = new MaterialTextile("gingham_fluorescent", "compendium");
 		gingham_fluorescent.BLOCK.setGenerate();
 		gingham_fluorescent.CARPET.setGenerate();
 		gingham_fluorescent.STRING.setIgnore();
-		buildDefault(gingham_fluorescent);
+		buildDefault(gingham_fluorescent, "compendium");
 
 		MaterialTextile gingham_honey = new MaterialTextile("gingham_honey", "compendium");
 		gingham_honey.BLOCK.setGenerate();
 		gingham_honey.CARPET.setGenerate();
 		gingham_honey.STRING.setIgnore();
-		buildDefault(gingham_honey);
+		buildDefault(gingham_honey, "compendium");
 
 		MaterialTextile gingham_icy_blue = new MaterialTextile("gingham_icy_blue", "compendium");
 		gingham_icy_blue.BLOCK.setGenerate();
 		gingham_icy_blue.CARPET.setGenerate();
 		gingham_icy_blue.STRING.setIgnore();
-		buildDefault(gingham_icy_blue);
+		buildDefault(gingham_icy_blue, "compendium");
 
 		MaterialTextile gingham_lavender = new MaterialTextile("gingham_lavender", "compendium");
 		gingham_lavender.BLOCK.setGenerate();
 		gingham_lavender.CARPET.setGenerate();
 		gingham_lavender.STRING.setIgnore();
-		buildDefault(gingham_lavender);
+		buildDefault(gingham_lavender, "compendium");
 
 		MaterialTextile gingham_maroon = new MaterialTextile("gingham_maroon", "compendium");
 		gingham_maroon.BLOCK.setGenerate();
 		gingham_maroon.CARPET.setGenerate();
 		gingham_maroon.STRING.setIgnore();
-		buildDefault(gingham_maroon);
+		buildDefault(gingham_maroon, "compendium");
 
 		MaterialTextile gingham_mint = new MaterialTextile("gingham_mint", "compendium");
 		gingham_mint.BLOCK.setGenerate();
 		gingham_mint.CARPET.setGenerate();
 		gingham_mint.STRING.setIgnore();
-		buildDefault(gingham_mint);
+		buildDefault(gingham_mint, "compendium");
 
 		MaterialTextile gingham_navy = new MaterialTextile("gingham_navy", "compendium");
 		gingham_navy.BLOCK.setGenerate();
 		gingham_navy.CARPET.setGenerate();
 		gingham_navy.STRING.setIgnore();
-		buildDefault(gingham_navy);
+		buildDefault(gingham_navy, "compendium");
 
 		MaterialTextile gingham_peach = new MaterialTextile("gingham_peach", "compendium");
 		gingham_peach.BLOCK.setGenerate();
 		gingham_peach.CARPET.setGenerate();
 		gingham_peach.STRING.setIgnore();
-		buildDefault(gingham_peach);
+		buildDefault(gingham_peach, "compendium");
 
 		MaterialTextile gingham_persimmon = new MaterialTextile("gingham_persimmon", "compendium");
 		gingham_persimmon.BLOCK.setGenerate();
 		gingham_persimmon.CARPET.setGenerate();
 		gingham_persimmon.STRING.setIgnore();
-		buildDefault(gingham_persimmon);
+		buildDefault(gingham_persimmon, "compendium");
 
 		MaterialTextile gingham_rose = new MaterialTextile("gingham_rose", "compendium");
 		gingham_rose.BLOCK.setGenerate();
 		gingham_rose.CARPET.setGenerate();
 		gingham_rose.STRING.setIgnore();
-		buildDefault(gingham_rose);
+		buildDefault(gingham_rose, "compendium");
 
 		MaterialTextile gingham_spring_green = new MaterialTextile("gingham_spring_green", "compendium");
 		gingham_spring_green.BLOCK.setGenerate();
 		gingham_spring_green.CARPET.setGenerate();
 		gingham_spring_green.STRING.setIgnore();
-		buildDefault(gingham_spring_green);
+		buildDefault(gingham_spring_green, "compendium");
 
 		MaterialTextile gingham_ultramarine = new MaterialTextile("gingham_ultramarine", "compendium");
 		gingham_ultramarine.BLOCK.setGenerate();
 		gingham_ultramarine.CARPET.setGenerate();
 		gingham_ultramarine.STRING.setIgnore();
-		buildDefault(gingham_ultramarine);
+		buildDefault(gingham_ultramarine, "compendium");
 
 		MaterialTextile gingham_wine = new MaterialTextile("gingham_wine", "compendium");
 		gingham_wine.BLOCK.setGenerate();
 		gingham_wine.CARPET.setGenerate();
 		gingham_wine.STRING.setIgnore();
-		buildDefault(gingham_wine);
+		buildDefault(gingham_wine, "compendium");
 	}
 
 	static void buildDefault(_MaterialBase mat) {
+		buildDefault(mat, "");
+	}
 
+	static void buildDefault(_MaterialBase mat, String folder) {
+		if (!folder.isEmpty() && folder != "")
+			folder = folder + "/";
 		try {
 			Path resourcePackPath = Path.of("./../src/main/resources/data/compendium/materials");
-			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/"));
-			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/").resolve(mat.name + ".json");
+			Files.createDirectories(resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/" + folder));
+			Path p = resourcePackPath.resolve(mat.getType().toString().toLowerCase() + "/" + folder)
+					.resolve(mat.name + ".json");
 			if (Files.exists(p))
 				return;
 			else {

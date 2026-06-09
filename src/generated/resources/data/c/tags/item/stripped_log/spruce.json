@@ -1,7 +1,5 @@
 {
   "values": [
-    "minecraft:stripped_spruce_wood",
-    "minecraft:stripped_spruce_log",
     "compendium:stripped_spruce_small_logs_item"
   ]
 }
