@@ -1,5 +1,5 @@
-// 1.21.1	2026-06-09T14:50:00.6328805	Tags for minecraft:item mod id compendium
-0453450d0863700b7e4627b5e792f834f37623b0 data/c/tags/item/enchantables.json
+// 1.21.1	2026-06-10T13:18:29.5199962	Tags for minecraft:item mod id compendium
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/c/tags/item/enchantables.json
 ac6fdac92a59421721e77ee8b68bc82bc56f4dff data/c/tags/item/gems.json
 bde6ca31173d1f22d5f6fe355dc90c9faa35b239 data/c/tags/item/gems/amethyst.json
 870c36fff6108831041070f11f0c29b36e005a1f data/c/tags/item/gems/crying_obsidian.json
@@ -283,9 +283,9 @@ fec60767247bdbebf6cd451bb3692c9a8ffef908 data/c/tags/item/textiles/purple_wool.j
 85f94b89b0d20e38f4e9f464fb443064c29f2bf1 data/c/tags/item/textiles/red_wool.json
 8e71446b54f055edb3ba7a025d4335cb78da1b45 data/c/tags/item/textiles/white_wool.json
 0de700cdfc12e281290ea7bc709d3241620ec9fb data/c/tags/item/textiles/yellow_wool.json
-228cd441f7054e2d83dc9071cb6867c0f13029d3 data/c/tags/item/tools.json
+79e97a322ebb3c1c9e286cfbdd2e188e8f4ad5e6 data/c/tags/item/tools.json
 9367bf9e632ecbf81080d140e6cbc4b51bf104a0 data/c/tags/item/tools/hammer.json
-b2abaaa8fef68e8ddadc90c5b66cb6f365c960e0 data/c/tags/item/tools/melee_weapon.json
+d1e1c9330a9a1f848832dbaa10eb7bd39750c500 data/c/tags/item/tools/melee_weapon.json
 7382f462f0be78965627c64425118ae5bc6bdf98 data/c/tags/item/tools/mining_tool.json
 1be52aac467e2d33c41bc2e89a2ae8dc58f14d78 data/c/tags/item/tools/prybar.json
 0e5f78a256cff9391d7bc54d75ed029de2ff9497 data/c/tags/item/tools/saw.json
@@ -343,14 +343,14 @@ fbdaae54dcbd4e2afb02a17357748e9b290fa69f data/c/tags/item/wooden_stairs/spruce.j
 33ad3aca1ff8e6402c71d2af572a1fecb45b0134 data/c/tags/item/wooden_stairs/white.json
 6eafa2ec731ffe40c6994eab6aa09c74ae994425 data/c/tags/item/wooden_stairs/yellow.json
 025fedbafa78a84885df707d49b47b81189ed031 data/minecraft/tags/item/axes.json
-0453450d0863700b7e4627b5e792f834f37623b0 data/minecraft/tags/item/breaks_decorated_pots.json
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/minecraft/tags/item/breaks_decorated_pots.json
 a5097280b1860351544f091a0b5fb87162eaa5d1 data/minecraft/tags/item/cluster_max_harvestables.json
-0453450d0863700b7e4627b5e792f834f37623b0 data/minecraft/tags/item/enchantable/durability.json
-0453450d0863700b7e4627b5e792f834f37623b0 data/minecraft/tags/item/enchantable/mining.json
-0453450d0863700b7e4627b5e792f834f37623b0 data/minecraft/tags/item/enchantable/mining_loot.json
-b2abaaa8fef68e8ddadc90c5b66cb6f365c960e0 data/minecraft/tags/item/enchantable/sharp_weapon.json
-0453450d0863700b7e4627b5e792f834f37623b0 data/minecraft/tags/item/enchantable/vanishing.json
-b2abaaa8fef68e8ddadc90c5b66cb6f365c960e0 data/minecraft/tags/item/enchantable/weapon.json
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/minecraft/tags/item/enchantable/durability.json
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/minecraft/tags/item/enchantable/mining.json
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/minecraft/tags/item/enchantable/mining_loot.json
+d1e1c9330a9a1f848832dbaa10eb7bd39750c500 data/minecraft/tags/item/enchantable/sharp_weapon.json
+182c2929cfd450c805ba6724a835b3d2a50081b5 data/minecraft/tags/item/enchantable/vanishing.json
+d1e1c9330a9a1f848832dbaa10eb7bd39750c500 data/minecraft/tags/item/enchantable/weapon.json
 328297f1a26acc0922104fbf0da80a30188863de data/minecraft/tags/item/hoes.json
 d647e9567b891d497d0d08f6aaa7726095e77e45 data/minecraft/tags/item/logs.json
 a5097280b1860351544f091a0b5fb87162eaa5d1 data/minecraft/tags/item/pickaxes.json
