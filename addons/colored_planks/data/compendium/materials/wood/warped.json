@@ -1,0 +1,84 @@
+{
+  "name": "warped",
+  "namespace": "minecraft",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "minecraft:warped_planks",
+    "existsLocationItem": "minecraft:warped_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "minecraft:warped_stem",
+    "existsLocationItem": "minecraft:warped_stem",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "minecraft:stripped_warped_stem",
+    "existsLocationItem": "minecraft:stripped_warped_stem",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "minecraft:warped_hyphae",
+    "existsLocationItem": "minecraft:warped_hyphae",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "minecraft:stripped_warped_hyphae",
+    "existsLocationItem": "minecraft:stripped_warped_hyphae",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "minecraft:block/warped_planks",
+      "logLocation": "minecraft:block/warped_stem",
+      "strippedLogLocation": "minecraft:block/stripped_warped_stem",
+      "logTopLocation": "minecraft:block/warped_stem_top",
+      "strippedLogTopLocation": "minecraft:block/stripped_warped_stem_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}
