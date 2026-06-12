@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:dyes/pink"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:pink_plank_item"
+  }
+}

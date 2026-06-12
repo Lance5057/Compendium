@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "Recipes": {
+      "conditions": {
+        "items": [
+          {
+            "items": "compendium:megalith_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "compendium:colored_planks/orange_plank_craft"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "Recipes"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "compendium:colored_planks/orange_plank_craft"
+    ]
+  }
+}

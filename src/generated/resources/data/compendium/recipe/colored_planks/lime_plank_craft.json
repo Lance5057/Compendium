@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:plank"
+    },
+    {
+      "tag": "c:dyes/lime"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:lime_plank_item"
+  }
+}
