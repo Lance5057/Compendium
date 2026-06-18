@@ -75,7 +75,7 @@ public class IndexInitialResourceLoader {
 			}
 
 		buildDefaults();
-//		moddedDefaults();
+		moddedDefaults();
 		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
@@ -728,7 +728,75 @@ public class IndexInitialResourceLoader {
 		bloomingNature();
 		abyssalDecor();
 		cluttered();
+		cataclysm();
+		hazennstuff();
+		silentgear();
+		koopascritters();
+		butchercraft();
+	}
 
+	private static void butchercraft() {
+		MaterialWood barn_wood = new MaterialWood("barn_wood", "butchercraft");
+		barn_wood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("butchercraft", "block/barn_wood_block"),
+				ResourceLocation.fromNamespaceAndPath("compendium", "block/barn_wood_log"), null, null, null));
+
+		barn_wood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block"),
+				ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block_item"));
+
+		buildDefault(barn_wood.addExtension(new ExtensionExtraPlanks().generateAll()));
+	}
+
+	private static void koopascritters() {
+		MaterialWood kopje = new MaterialWood("kopje", "koopascritters");
+
+		kopje.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_planks"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_planks"));
+		kopje.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_log"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_log"));
+		kopje.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("koopascritters", "stripped_kopje_log"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "stripped_kopje_log"));
+
+		kopje.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjeplanks"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogside"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedside"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogtop"),
+				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedtop")));
+		buildDefault(kopje.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+	}
+
+	private static void silentgear() {
+		buildDefault(new MaterialWood("netherwood", "silentgear").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+	}
+
+	private static void hazennstuff() {
+		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+		MaterialWood wisewood = new MaterialWood("wisewood", "hazennstuff");
+
+		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"));
+		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"));
+		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"));
+		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"));
+		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood"));
+
+		wisewood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "block/wisewood_planks"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/wisewood_log_side"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_side"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/wisewood_log_side"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_top")));
+		buildDefault(wisewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+	}
+
+	private static void cataclysm() {
 		SpecialLocationsWood chorus = new SpecialLocationsWood(new SpecialTextureLocationsWood(
 				ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_stem"), null, null,
 				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
@@ -738,286 +806,103 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(new MaterialWood("cinnamon", "extradelight").addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()));
-//
-//		SpecialLocationsWood cinnamon_ad = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_planks"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_wood"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_wood")),
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_planks"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_log"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_wood"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_wood")),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonplanks"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonlogside"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/strippedcinnamonlogside"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonlogtop"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/strippedcinnamonlogtop")));
-//		buildDefault(new MaterialWood("cinnamon_ad", "abyssal_decor", cinnamon_ad)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("crabapple", "cluttered")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//		buildDefault(new MaterialWood("flowering_crabapple", "cluttered")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE)));
-//
-//		SpecialLocationsWood cypress = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_stripped_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_stripped_top")));
-//		buildDefault(new MaterialWood("cypress", "bloomingnature", cypress)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood ebony = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_side_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top_stripped")));
-//		buildDefault(new MaterialWood("ebony", "bloomingnature", ebony)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood fan_palm = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top_stripped")));
-//		buildDefault(new MaterialWood("fan_palm", "bloomingnature", fan_palm)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood fir = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_side_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top_stripped")));
-//		buildDefault(
-//				new MaterialWood("fir", "bloomingnature", fir).addExtension(new ExtensionExtraLogs())
-//						.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("fluorescent_maple", "cluttered")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("fruit", "extradelight")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("hawthorn", "enchanted", )
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood larch = new SpecialLocationsWood(
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_stripped_top")));
-//		buildDefault(new MaterialWood("larch", "bloomingnature", larch)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("netherwood", "silentgear")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		buildDefault(new MaterialWood("poplar", "cluttered")
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood flowering_poplar = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_planks"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_wood"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log")),
-//				null, null);
-//		buildDefault(new MaterialWood("flowering_poplar", "cluttered", flowering_poplar)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE)));
-//
-//		SpecialLocationsWood red_mushroom = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_planks"), null,
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_wood"), null),
-//				null, null);
-//		buildDefault(new MaterialWood("red_mushroom", "cluttered", red_mushroom)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood rowan = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_planks"), null,
-//						ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_log"), null,
-//						ResourceLocation.fromNamespaceAndPath("enchanted", "stripped_rowan_wood")),
-//				null, null);
-//		buildDefault(
-//				new MaterialWood("rowan", "enchanted", rowan).addExtension(new ExtensionExtraLogs())
-//						.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood swamp_cypress = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_planks"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_log"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_log"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_wood"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_wood")),
-//				null,
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature",
-//								"block/swamp_cypress_log_stripped_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature",
-//								"block/swamp_cypress_log_stripped_top")));
-//		buildDefault(new MaterialWood("swamp_cypress", "bloomingnature", swamp_cypress)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood swamp_oak = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_planks"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_log"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_log"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_wood"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_wood")),
-//				null,
-//				new SpecialTextureLocationsWood(null,
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_top"),
-//						ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped_top")));
-//		buildDefault(new MaterialWood("swamp_oak", "bloomingnature", swamp_oak)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood sycamore = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_planks"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_wood"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_wood")),
-//				null, null);
-//		buildDefault(new MaterialWood("sycamore", "cluttered", sycamore)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood waxed_oak = new SpecialLocationsWood(new ExistsLocationsWood(
-//				ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "waxed_oak_log_stripped"), null, null),
-//				new ExistsLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "waxed_oak_log_stripped"), null,
-//						null),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "block/waxed_oak_log_stripped"),
-//						null, ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder",
-//								"block/waxed_oak_log_stripped_top")));
-//		buildDefault(new MaterialWood("waxed_oak", "dawnoftimebuilder", waxed_oak)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood willow = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("cluttered", "willow_planks"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "willow_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "willow_wood"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_wood")),
-//				null, null);
-//		buildDefault(
-//				new MaterialWood("willow", "cluttered", willow).addExtension(new ExtensionExtraLogs())
-//						.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood flowering_willow = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_planks"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_log"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_wood"),
-//						ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_wood")),
-//				null, null);
-//		buildDefault(new MaterialWood("flowering_willow", "cluttered", flowering_willow)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks(Generate.IGNORE)));
-//
-//		SpecialLocationsWood wisewood = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood")),
-//				null,
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "block/wisewood_planks"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/wisewood_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/wisewood_log_side"),
-//						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_top")));
-//		buildDefault(new MaterialWood("wisewood", "hazennstuff", wisewood)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		// The problem children
-//		SpecialLocationsWood whitewood = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_planks"),
-//						null, ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_log"), null,
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_wood")),
-//				null,
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodplanks"), null,
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlog"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop"),
-//						ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop")));
-//		buildDefault(new MaterialWood("white_wood", "abyssal_decor", whitewood)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood kopje = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_planks"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_log"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "stripped_kopje_log"), null, null),
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_planks"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "kopje_fig_log"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "stripped_kopje_log"), null, null),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjeplanks"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogside"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedside"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogtop"),
-//						ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedtop")));
-//		buildDefault(new MaterialWood("kopje", "koopascritters", kopje)
-//				.addExtension(new ExtensionExtraLogs())
-//				.addExtension(new ExtensionExtraPlanks()));
-//
-//		SpecialLocationsWood barn_wood = new SpecialLocationsWood(
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block_item"),
-//						null, null, null, null),
-//				new ExistsLocationsWood(ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block"), null,
-//						null, null, null),
-//				new SpecialTextureLocationsWood(
-//						ResourceLocation.fromNamespaceAndPath("butchercraft", "block/barn_wood_block"),
-//						ResourceLocation.fromNamespaceAndPath("compendium", "block/barn_wood_log"), null, null, null));
-//		buildDefault(new MaterialWood("barn_wood", "butchercraft", barn_wood)
-//				.addExtension(new ExtensionExtraLogs(Generate.IGNORE))
-//				.addExtension(new ExtensionExtraPlanks()));
 	}
 
 	public static void cluttered() {
 		buildDefault(new MaterialWood("blue_mushroom", "cluttered").addExtension(new ExtensionExtraLogs())
 				.addExtension(new ExtensionExtraPlanks()), "cluttered");
+
+		buildDefault(new MaterialWood("crabapple", "cluttered").addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		buildDefault(new MaterialWood("flowering_crabapple", "cluttered")
+				.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()));
+
+		buildDefault(new MaterialWood("fluorescent_maple", "cluttered").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		buildDefault(new MaterialWood("poplar", "cluttered").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood flowering_poplar = new MaterialWood("flowering_poplar", "cluttered");
+
+		flowering_poplar.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_planks"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_planks"));
+		flowering_poplar.LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_log"));
+		flowering_poplar.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"));
+		flowering_poplar.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_poplar_wood"));
+		flowering_poplar.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"));
+
+		buildDefault(flowering_poplar.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood red_mushroom = new MaterialWood("red_mushroom", "cluttered");
+
+		red_mushroom.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_planks"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_planks"));
+		red_mushroom.LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_log"));
+		red_mushroom.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_wood"));
+
+		buildDefault(red_mushroom.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood sycamore = new MaterialWood("sycamore", "cluttered");
+
+		sycamore.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_planks"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_planks"));
+		sycamore.LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_log"));
+		sycamore.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_log"));
+		sycamore.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "sycamore_wood"));
+		sycamore.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_wood"));
+
+		buildDefault(sycamore.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood willow = new MaterialWood("willow", "cluttered");
+
+		willow.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "willow_planks"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "willow_planks"));
+		willow.LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "willow_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "willow_log"));
+		willow.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_log"));
+		willow.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "willow_wood"));
+		willow.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_wood"));
+
+		buildDefault(willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood flowering_willow = new MaterialWood("flowering_willow", "cluttered");
+
+		flowering_willow.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_planks"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_planks"));
+		flowering_willow.LOG.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_log"));
+		flowering_willow.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_log"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_log"));
+		flowering_willow.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "flowering_willow_wood"));
+		flowering_willow.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_wood"));
+
+		buildDefault(flowering_willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
 	}
 
 	public static void abyssalDecor() {
+		// blackwood
 		MaterialWood blackwood = new MaterialWood("blackwood", "abyssal_decor");
 
 		blackwood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "blackwood_planks"),
@@ -1039,6 +924,49 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(blackwood.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "abyssal_decor");
+
+		// cinnamon
+		MaterialWood cinnamon_ad = new MaterialWood("cinnamon_ad", "abyssal_decor");
+
+		cinnamon_ad.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_planks"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_planks"));
+		cinnamon_ad.LOG.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_log"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_log"));
+		cinnamon_ad.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_log"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_log"));
+		cinnamon_ad.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_wood"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "cinnamon_wood"));
+		cinnamon_ad.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_wood"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "stripped_cinnamon_wood"));
+
+		cinnamon_ad.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonplanks"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonlogside"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/strippedcinnamonlogside"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/cinnamonlogtop"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/strippedcinnamonlogtop")));
+
+		buildDefault(cinnamon_ad.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks()), "abyssal_decor");
+
+		MaterialWood whitewood = new MaterialWood("white_wood", "abyssal_decor");
+
+		whitewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_planks"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_planks"));
+		whitewood.LOG.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_log"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_log"));
+		whitewood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_wood"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_wood"));
+
+		whitewood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodplanks"), null,
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlog"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop")));
+
+		buildDefault(whitewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
 	}
 
 	public static void bloomingNature() {
@@ -1079,6 +1007,90 @@ public class IndexInitialResourceLoader {
 		buildDefault(new MaterialWood("chestnut", "bloomingnature", chestnut)
 				.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "bloomingnature");
+
+		SpecialLocationsWood cypress = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_stripped_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_stripped_top")));
+		buildDefault(new MaterialWood("cypress", "bloomingnature", cypress).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		SpecialLocationsWood ebony = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_side_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top_stripped")));
+		buildDefault(new MaterialWood("ebony", "bloomingnature", ebony).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		SpecialLocationsWood fan_palm = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top_stripped")));
+		buildDefault(new MaterialWood("fan_palm", "bloomingnature", fan_palm).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		SpecialLocationsWood fir = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_side_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top_stripped")));
+		buildDefault(new MaterialWood("fir", "bloomingnature", fir).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		SpecialLocationsWood larch = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_stripped_top")));
+		buildDefault(new MaterialWood("larch", "bloomingnature", larch).addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood swamp_cypress = new MaterialWood("swamp_cypress", "bloomingnature");
+
+		swamp_cypress.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_planks"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_planks"));
+		swamp_cypress.LOG.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_log"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_log"));
+		swamp_cypress.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_log"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_log"));
+		swamp_cypress.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_wood"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_cypress_wood"));
+		swamp_cypress.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_wood"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_cypress_wood"));
+
+		swamp_cypress.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_stripped_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_stripped_top")));
+		buildDefault(swamp_cypress.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood swamp_oak = new MaterialWood("swamp_oak", "bloomingnature");
+
+		swamp_oak.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_planks"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_planks"));
+		swamp_oak.LOG.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_log"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_log"));
+		swamp_oak.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_log"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_log"));
+		swamp_oak.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_wood"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "swamp_oak_wood"));
+		swamp_oak.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_wood"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "stripped_swamp_oak_wood"));
+
+		swamp_oak.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_side"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_top"),
+				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped_top")));
+		buildDefault(swamp_oak.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
 	}
 
 	public static void arsNouveau() {
@@ -1093,6 +1105,20 @@ public class IndexInitialResourceLoader {
 		alder.addExtension(new ExtensionExtraLogs().generateAll());
 		alder.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(alder, "enchanted");
+
+		buildDefault(new MaterialWood("hawthorn", "enchanted").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
+
+		MaterialWood rowan = new MaterialWood("rowan", "enchanted");
+
+		rowan.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_planks"),
+				ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_planks"));
+		rowan.LOG.setExists(ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_log"),
+				ResourceLocation.fromNamespaceAndPath("enchanted", "rowan_log"));
+		rowan.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("enchanted", "stripped_rowan_wood"),
+				ResourceLocation.fromNamespaceAndPath("enchanted", "stripped_rowan_wood"));
+
+		buildDefault(rowan.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
 	}
 
 	public static void extraDelight() {
@@ -1209,6 +1235,9 @@ public class IndexInitialResourceLoader {
 		gingham_pink.BLOCK.setGenerate();
 		gingham_pink.CARPET.setGenerate();
 		buildDefault(gingham_pink, "extradelight");
+
+		buildDefault(new MaterialWood("fruit", "extradelight").addExtension(new ExtensionExtraLogs())
+				.addExtension(new ExtensionExtraPlanks()));
 	}
 
 	private static void dyenamics() {
