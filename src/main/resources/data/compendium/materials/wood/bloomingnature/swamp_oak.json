@@ -1,0 +1,83 @@
+{
+  "name": "swamp_oak",
+  "namespace": "bloomingnature",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "bloomingnature:swamp_oak_planks",
+    "existsLocationItem": "bloomingnature:swamp_oak_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "bloomingnature:swamp_oak_log",
+    "existsLocationItem": "bloomingnature:swamp_oak_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "bloomingnature:stripped_swamp_oak_log",
+    "existsLocationItem": "bloomingnature:stripped_swamp_oak_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "bloomingnature:swamp_oak_wood",
+    "existsLocationItem": "bloomingnature:swamp_oak_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "bloomingnature:stripped_swamp_oak_wood",
+    "existsLocationItem": "bloomingnature:stripped_swamp_oak_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "logLocation": "bloomingnature:block/swamp_oak_log_side",
+      "strippedLogLocation": "bloomingnature:block/swamp_oak_log_stripped",
+      "logTopLocation": "bloomingnature:block/swamp_oak_log_top",
+      "strippedLogTopLocation": "bloomingnature:block/swamp_oak_log_stripped_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

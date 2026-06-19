@@ -1,0 +1,20 @@
+{
+  "name": "gingham_purple",
+  "tagNamespace": "extradelight",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "GENERATE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "gingham_purple:block/gingham/gray"
+    }
+  },
+  "extensions": []
+}

@@ -1,0 +1,37 @@
+{
+  "name": "silver",
+  "tagNamespace": "compendium",
+  "type": "METAL",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "ingot": {
+    "generate": "GENERATE"
+  },
+  "nugget": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "GOLD"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "wisewood",
+  "namespace": "hazennstuff",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "hazennstuff:stripped_wisewood_wood",
+    "existsLocationItem": "hazennstuff:stripped_wisewood_wood",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "generate": "IGNORE"
+  },
+  "stripped_log": {
+    "generate": "IGNORE"
+  },
+  "wood": {
+    "generate": "IGNORE"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "irons_spellbooks:block/wisewood_planks",
+      "logLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogLocation": "hazennstuff:block/stripped_wisewood_log_side",
+      "logTopLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogTopLocation": "hazennstuff:block/stripped_wisewood_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

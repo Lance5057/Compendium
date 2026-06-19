@@ -1,0 +1,82 @@
+{
+  "name": "blackwood",
+  "namespace": "abyssal_decor",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "abyssal_decor:blackwood_planks",
+    "existsLocationItem": "abyssal_decor:blackwood_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "abyssal_decor:blackwood_log",
+    "existsLocationItem": "abyssal_decor:blackwood_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "abyssal_decor:stripped_blackwood_log",
+    "existsLocationItem": "abyssal_decor:stripped_blackwood_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "abyssal_decor:blackwood_wood",
+    "existsLocationItem": "abyssal_decor:blackwood_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "abyssal_decor:block/blackwoodplanks",
+      "logLocation": "abyssal_decor:block/moldylogside",
+      "strippedLogLocation": "abyssal_decor:block/blackwoodstrippedlogside",
+      "logTopLocation": "abyssal_decor:block/moldylogtop",
+      "strippedLogTopLocation": "abyssal_decor:block/blackwoodstrippedlogtop"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

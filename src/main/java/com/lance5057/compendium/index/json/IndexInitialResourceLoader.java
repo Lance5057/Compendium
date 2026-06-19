@@ -744,7 +744,7 @@ public class IndexInitialResourceLoader {
 		barn_wood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block"),
 				ResourceLocation.fromNamespaceAndPath("butchercraft", "barn_wood_block_item"));
 
-		buildDefault(barn_wood.addExtension(new ExtensionExtraPlanks().generateAll()));
+		buildDefault(barn_wood.addExtension(new ExtensionExtraPlanks().generateAll()), "butchercraft");
 	}
 
 	private static void koopascritters() {
@@ -763,17 +763,19 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedside"),
 				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogtop"),
 				ResourceLocation.fromNamespaceAndPath("koopascritters", "block/kopjelogstrippedtop")));
-		buildDefault(kopje.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(kopje.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"koopascritters");
 	}
 
 	private static void silentgear() {
 		buildDefault(new MaterialWood("netherwood", "silentgear").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "silentgear");
 	}
 
 	private static void hazennstuff() {
 		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "hazennstuff");
+
 		MaterialWood wisewood = new MaterialWood("wisewood", "hazennstuff");
 
 		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"),
@@ -793,7 +795,8 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_side"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/wisewood_log_side"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_top")));
-		buildDefault(wisewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(wisewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"hazennstuff");
 	}
 
 	private static void cataclysm() {
@@ -802,10 +805,10 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
 				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top")));
 		buildDefault(new MaterialWood("chorus", "cataclysm", chorus).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "cataclysm");
 
 		buildDefault(new MaterialWood("cinnamon", "extradelight").addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "cataclysm");
 	}
 
 	public static void cluttered() {
@@ -813,17 +816,17 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		buildDefault(new MaterialWood("crabapple", "cluttered").addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "cluttered");
 
 		buildDefault(new MaterialWood("flowering_crabapple", "cluttered")
 				.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()));
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "cluttered");
 
 		buildDefault(new MaterialWood("fluorescent_maple", "cluttered").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		buildDefault(new MaterialWood("poplar", "cluttered").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		MaterialWood flowering_poplar = new MaterialWood("flowering_poplar", "cluttered");
 
@@ -840,7 +843,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"),
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_poplar_log"));
 
-		buildDefault(flowering_poplar.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(flowering_poplar.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		MaterialWood red_mushroom = new MaterialWood("red_mushroom", "cluttered");
 
@@ -851,7 +854,7 @@ public class IndexInitialResourceLoader {
 		red_mushroom.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_wood"),
 				ResourceLocation.fromNamespaceAndPath("cluttered", "red_mushroom_wood"));
 
-		buildDefault(red_mushroom.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(red_mushroom.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		MaterialWood sycamore = new MaterialWood("sycamore", "cluttered");
 
@@ -866,7 +869,7 @@ public class IndexInitialResourceLoader {
 		sycamore.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_wood"),
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_sycamore_wood"));
 
-		buildDefault(sycamore.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(sycamore.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		MaterialWood willow = new MaterialWood("willow", "cluttered");
 
@@ -881,7 +884,7 @@ public class IndexInitialResourceLoader {
 		willow.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_wood"),
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_willow_wood"));
 
-		buildDefault(willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "cluttered");
 
 		MaterialWood flowering_willow = new MaterialWood("flowering_willow", "cluttered");
 
@@ -898,7 +901,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_wood"),
 				ResourceLocation.fromNamespaceAndPath("cluttered", "stripped_flowering_willow_wood"));
 
-		buildDefault(flowering_willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(flowering_willow.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "cluttered");
 	}
 
 	public static void abyssalDecor() {
@@ -966,7 +969,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop"),
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop")));
 
-		buildDefault(whitewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(whitewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "abyssal_decor");
 	}
 
 	public static void bloomingNature() {
@@ -1014,7 +1017,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/cypress_log_stripped_top")));
 		buildDefault(new MaterialWood("cypress", "bloomingnature", cypress).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		SpecialLocationsWood ebony = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_side"),
@@ -1022,7 +1025,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/ebony_log_top_stripped")));
 		buildDefault(new MaterialWood("ebony", "bloomingnature", ebony).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		SpecialLocationsWood fan_palm = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_side"),
@@ -1030,7 +1033,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fan_palm_log_top_stripped")));
 		buildDefault(new MaterialWood("fan_palm", "bloomingnature", fan_palm).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		SpecialLocationsWood fir = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_side"),
@@ -1038,7 +1041,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/fir_log_top_stripped")));
 		buildDefault(new MaterialWood("fir", "bloomingnature", fir).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		SpecialLocationsWood larch = new SpecialLocationsWood(new SpecialTextureLocationsWood(null,
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_side"),
@@ -1046,7 +1049,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/larch_log_stripped_top")));
 		buildDefault(new MaterialWood("larch", "bloomingnature", larch).addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		MaterialWood swamp_cypress = new MaterialWood("swamp_cypress", "bloomingnature");
 
@@ -1068,7 +1071,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_stripped_side"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_cypress_log_stripped_top")));
-		buildDefault(swamp_cypress.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(swamp_cypress.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 
 		MaterialWood swamp_oak = new MaterialWood("swamp_oak", "bloomingnature");
 
@@ -1090,7 +1093,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_top"),
 				ResourceLocation.fromNamespaceAndPath("bloomingnature", "block/swamp_oak_log_stripped_top")));
-		buildDefault(swamp_oak.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(swamp_oak.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "bloomingnature");
 	}
 
 	public static void arsNouveau() {
@@ -1107,7 +1110,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(alder, "enchanted");
 
 		buildDefault(new MaterialWood("hawthorn", "enchanted").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "enchanted");
 
 		MaterialWood rowan = new MaterialWood("rowan", "enchanted");
 
@@ -1118,7 +1121,7 @@ public class IndexInitialResourceLoader {
 		rowan.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("enchanted", "stripped_rowan_wood"),
 				ResourceLocation.fromNamespaceAndPath("enchanted", "stripped_rowan_wood"));
 
-		buildDefault(rowan.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()));
+		buildDefault(rowan.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "enchanted");
 	}
 
 	public static void extraDelight() {
@@ -1237,7 +1240,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(gingham_pink, "extradelight");
 
 		buildDefault(new MaterialWood("fruit", "extradelight").addExtension(new ExtensionExtraLogs())
-				.addExtension(new ExtensionExtraPlanks()));
+				.addExtension(new ExtensionExtraPlanks()), "extradelight");
 	}
 
 	private static void dyenamics() {

@@ -1,0 +1,73 @@
+{
+  "name": "larch",
+  "namespace": "bloomingnature",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "generate": "IGNORE"
+  },
+  "log": {
+    "generate": "IGNORE"
+  },
+  "stripped_log": {
+    "generate": "IGNORE"
+  },
+  "wood": {
+    "generate": "IGNORE"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "logLocation": "bloomingnature:block/larch_log_side",
+      "strippedLogLocation": "bloomingnature:block/larch_log_stripped",
+      "logTopLocation": "bloomingnature:block/larch_log_top",
+      "strippedLogTopLocation": "bloomingnature:block/larch_log_stripped_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

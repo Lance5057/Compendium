@@ -1,0 +1,75 @@
+{
+  "name": "sycamore",
+  "namespace": "cluttered",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "cluttered:sycamore_planks",
+    "existsLocationItem": "cluttered:sycamore_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "cluttered:sycamore_log",
+    "existsLocationItem": "cluttered:sycamore_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "cluttered:stripped_sycamore_log",
+    "existsLocationItem": "cluttered:stripped_sycamore_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "cluttered:sycamore_wood",
+    "existsLocationItem": "cluttered:sycamore_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "cluttered:stripped_sycamore_wood",
+    "existsLocationItem": "cluttered:stripped_sycamore_wood",
+    "generate": "EXISTS"
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

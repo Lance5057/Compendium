@@ -1,0 +1,15 @@
+{
+  "name": "gingham_amber",
+  "tagNamespace": "compendium",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "GENERATE"
+  },
+  "extensions": []
+}
