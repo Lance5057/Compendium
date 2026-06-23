@@ -32,6 +32,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
@@ -59,7 +60,8 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 	@Override
 	public void setup(_MaterialBase base) {
 		AXE.setName(base.name + "_axe");
-		AXE.setup(base, () -> new AxeItem(base.tier, new Item.Properties()));
+		AXE.setup(base, () -> new AxeItem(base.tier,
+				new Item.Properties().attributes(AxeItem.createAttributes(base.tier, 5.0F, -3.0F))));
 		AXE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
 		AXE.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
 		AXE.setupItemTag(Tags.Items.ENCHANTABLES);
@@ -73,7 +75,8 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		AXE.setupItemTag(Tags.Items.TOOLS);
 
 		SWORD.setName(base.name + "_sword");
-		SWORD.setup(base, () -> new SwordItem(base.tier, new Item.Properties()));
+		SWORD.setup(base, () -> new SwordItem(base.tier,
+				new Item.Properties().attributes(SwordItem.createAttributes(base.tier, 3, -2.4F))));
 		SWORD.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
 		SWORD.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
 		SWORD.setupItemTag(Tags.Items.ENCHANTABLES);
@@ -87,7 +90,8 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		SWORD.setupItemTag(Tags.Items.TOOLS);
 
 		SHOVEL.setName(base.name + "_shovel");
-		SHOVEL.setup(base, () -> new ShovelItem(base.tier, new Item.Properties()));
+		SHOVEL.setup(base, () -> new ShovelItem(base.tier,
+				new Item.Properties().attributes(ShovelItem.createAttributes(base.tier, 1.5F, -3.0F))));
 		SHOVEL.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
 		SHOVEL.setupItemTag(Tags.Items.ENCHANTABLES);
 		SHOVEL.setupItemTag(ItemTags.SHOVELS);
@@ -98,7 +102,8 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		SHOVEL.setupItemTag(Tags.Items.TOOLS);
 
 		PICKAXE.setName(base.name + "_pickaxe");
-		PICKAXE.setup(base, () -> new PickaxeItem(base.tier, new Item.Properties()));
+		PICKAXE.setup(base, () -> new PickaxeItem(base.tier,
+				new Item.Properties().attributes(PickaxeItem.createAttributes(base.tier, 1.0F, -2.8F))));
 		PICKAXE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
 		PICKAXE.setupItemTag(Tags.Items.ENCHANTABLES);
 		PICKAXE.setupItemTag(ItemTags.PICKAXES);
@@ -111,7 +116,8 @@ public class ExtensionVanillaTools extends _MaterialExtension {
 		PICKAXE.setupItemTag(ItemTags.CLUSTER_MAX_HARVESTABLES);
 
 		HOE.setName(base.name + "_hoe");
-		HOE.setup(base, () -> new HoeItem(base.tier, new Item.Properties()));
+		HOE.setup(base, () -> new HoeItem(base.tier,
+				new Item.Properties().attributes(HoeItem.createAttributes(base.tier, -3.0F, 0.0F))));
 		HOE.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
 		HOE.setupItemTag(Tags.Items.ENCHANTABLES);
 		HOE.setupItemTag(ItemTags.HOES);
