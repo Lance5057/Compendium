@@ -90,7 +90,7 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 
 		ZWEIHANDER.setName(base.name + "_zweihander");
 		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier,
-				new Item.Properties().attributes(SwordItem.createAttributes(base.tier, 5, -1.4F))));
+				new Item.Properties().attributes(SwordItem.createAttributes(base.tier, 5, -3.4F))));
 		ZWEIHANDER.setupItemTag(ItemTags.SWORDS);
 
 //		BOW.setName(base.name + "_bow");

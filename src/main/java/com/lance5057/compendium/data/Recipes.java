@@ -90,18 +90,18 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('s', Items.SLIME_BALL).define('q', Items.QUARTZ).pattern("qeq").pattern("scs").pattern("qaq")
 				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
 
-		for (DyeColor d : DyeColor.values()) {
-			ShapelessRecipeBuilder b = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
-					BuiltInRegistries.ITEM.get(TagUtil.modLoc(d.toString().toLowerCase() + "_plank_item")));
-
-			for (int c = 0; c < 8; c++)
-				b.requires(CompendiumTags.PLANK);
-
-			b.requires(ItemTags.create(TagUtil.neoTag("dyes/" + d.toString().toLowerCase())));
-
-			b.unlockedBy(getName(), has(CompendiumItems.MEGALITH_STONE.get())).save(consumer,
-					TagUtil.modLoc("colored_planks/" + d.toString().toLowerCase() + "_plank_craft"));
-		}
+//		for (DyeColor d : DyeColor.values()) {
+//			ShapelessRecipeBuilder b = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+//					BuiltInRegistries.ITEM.get(TagUtil.modLoc(d.toString().toLowerCase() + "_plank_item")));
+//
+//			for (int c = 0; c < 8; c++)
+//				b.requires(CompendiumTags.PLANK);
+//
+//			b.requires(ItemTags.create(TagUtil.neoTag("dyes/" + d.toString().toLowerCase())));
+//
+//			b.unlockedBy(getName(), has(CompendiumItems.MEGALITH_STONE.get())).save(consumer,
+//					TagUtil.modLoc("colored_planks/" + d.toString().toLowerCase() + "_plank_craft"));
+//		}
 	}
 
 	private void sawing(RecipeOutput consumer) {

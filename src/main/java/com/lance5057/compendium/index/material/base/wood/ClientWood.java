@@ -538,32 +538,35 @@ public class ClientWood {
 					outer, 0, 0, Pair.of("0", planksTexture));
 		}
 
-		for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
-			ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("shingles_slanted", "support",
-					mw.name, b.toLowerCase());
+		if (mw.LOG.isNotIgnored())
+			for (String b : StyleData.SUPPORT_SHINGLES.getTypes()) {
+				ResourceLocation modelLoc = ClientUtil.createMaterialStyleLayerBlockLocation("shingles_slanted",
+						"support", mw.name, b.toLowerCase());
 
-			ResourceLocation straight = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
-			ResourceLocation inner = Compendium.modLoc("extra/shingles_slanted/support/inner_corner/" + b);
-			ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
+				ResourceLocation straight = Compendium.modLoc("extra/shingles_slanted/support/straight/" + b);
+				ResourceLocation inner = Compendium.modLoc("extra/shingles_slanted/support/inner_corner/" + b);
+				ResourceLocation outer = Compendium.modLoc("extra/shingles_slanted/support/outer_corner/" + b);
 
-			CompendiumClient.doStyleStairs(event, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner,
-					outer, 0, 0, Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-					Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+				CompendiumClient.doStyleStairs(event, b, modelLoc, modelLoc.withSuffix("_inventory"), straight, inner,
+						outer, 0, 0,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 
-			CompendiumClient.doShingleCap(event, mw, "support", b,
-					Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-					Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
-		}
+				CompendiumClient.doShingleCap(event, mw, "support", b,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+			}
 
 		for (String b : StyleData.SHINGLES_CAP_SHINGLES.getTypes()) {
 			CompendiumClient.doShingleCap(event, mw, "shingles", b, Pair.of("0", planksTexture));
 		}
 
-		for (String b : StyleData.SUPPORT_CAP_SHINGLES.getTypes()) {
-			CompendiumClient.doShingleCap(event, mw, "support", b,
-					Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
-					Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
-		}
+		if (mw.LOG.isNotIgnored())
+			for (String b : StyleData.SUPPORT_CAP_SHINGLES.getTypes()) {
+				CompendiumClient.doShingleCap(event, mw, "support", b,
+						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
+						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
+			}
 
 	}
 
