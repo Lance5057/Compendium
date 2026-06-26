@@ -1,0 +1,17 @@
+{
+  "values": [
+    "compendium:copper_zweihander_item",
+    "compendium:gold_zweihander_item",
+    "compendium:iron_zweihander_item",
+    "compendium:netherite_zweihander_item",
+    "compendium:amethyst_zweihander_item",
+    "compendium:crying_obsidian_zweihander_item",
+    "compendium:diamond_zweihander_item",
+    "compendium:emerald_zweihander_item",
+    "compendium:ender_pearl_zweihander_item",
+    "compendium:lapis_zweihander_item",
+    "compendium:obsidian_zweihander_item",
+    "compendium:prismarine_zweihander_item",
+    "compendium:quartz_zweihander_item"
+  ]
+}
