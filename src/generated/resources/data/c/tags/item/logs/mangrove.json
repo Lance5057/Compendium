@@ -1,7 +1,5 @@
 {
   "values": [
-    "minecraft:mangrove_wood",
-    "minecraft:mangrove_log",
     "compendium:mangrove_small_logs_item"
   ]
 }

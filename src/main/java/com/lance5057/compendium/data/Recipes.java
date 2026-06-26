@@ -29,6 +29,7 @@ import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTr
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxRecipeData;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -37,6 +38,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -87,6 +89,19 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 				.define('e', Items.ENDER_EYE).define('c', Items.CLOCK).define('a', Items.AMETHYST_SHARD)
 				.define('s', Items.SLIME_BALL).define('q', Items.QUARTZ).pattern("qeq").pattern("scs").pattern("qaq")
 				.unlockedBy(getName(), has(Items.STICK)).save(consumer);
+
+//		for (DyeColor d : DyeColor.values()) {
+//			ShapelessRecipeBuilder b = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+//					BuiltInRegistries.ITEM.get(TagUtil.modLoc(d.toString().toLowerCase() + "_plank_item")));
+//
+//			for (int c = 0; c < 8; c++)
+//				b.requires(CompendiumTags.PLANK);
+//
+//			b.requires(ItemTags.create(TagUtil.neoTag("dyes/" + d.toString().toLowerCase())));
+//
+//			b.unlockedBy(getName(), has(CompendiumItems.MEGALITH_STONE.get())).save(consumer,
+//					TagUtil.modLoc("colored_planks/" + d.toString().toLowerCase() + "_plank_craft"));
+//		}
 	}
 
 	private void sawing(RecipeOutput consumer) {

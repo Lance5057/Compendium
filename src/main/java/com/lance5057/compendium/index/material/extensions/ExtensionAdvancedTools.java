@@ -36,13 +36,15 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -76,12 +78,14 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		PRYBAR.setupItemTag(TagUtil.neoTag("prybar/" + base.name));
 
 		HAMMER.setName(base.name + "_hammer");
-		HAMMER.setup(base, () -> new HammerItem(base.tier, new Item.Properties()));
+		HAMMER.setup(base, () -> new HammerItem(base.tier,
+				new Item.Properties().attributes(PickaxeItem.createAttributes(base.tier, 1.0F, -2.8F))));
 		HAMMER.setupItemTag(CompendiumTags.HAMMER);
 		HAMMER.setupItemTag(TagUtil.neoTag("hammer/" + base.name));
 
 		SAW.setName(base.name + "_saw");
-		SAW.setup(base, () -> new SawItem(base.tier, new Item.Properties()));
+		SAW.setup(base, () -> new SawItem(base.tier,
+				new Item.Properties().attributes(AxeItem.createAttributes(base.tier, 5.0F, -3.0F))));
 		SAW.setupItemTag(CompendiumTags.SAW);
 		SAW.setupItemTag(TagUtil.neoTag("saw/" + base.name));
 
@@ -92,7 +96,8 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		SHEARS.setupItemTag(TagUtil.neoTag("shears/" + base.name));
 
 		ZWEIHANDER.setName(base.name + "_zweihander");
-		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier, new Item.Properties()));
+		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier,
+				new Item.Properties().attributes(SwordItem.createAttributes(base.tier, 5, -3.4F))));
 		ZWEIHANDER.setupItemTag(ItemTags.SWORDS);
 		ZWEIHANDER.setupItemTag(TagUtil.neoTag("zweihander"));
 		ZWEIHANDER.setupItemTag(TagUtil.neoTag("zweihander/" + base.name));

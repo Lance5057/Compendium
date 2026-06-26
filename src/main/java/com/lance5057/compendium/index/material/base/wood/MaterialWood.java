@@ -176,7 +176,7 @@ public class MaterialWood extends _MaterialBase {
 		}
 		lp.add("compendium.tooltip.material." + this.name, locName.toString());
 		if (PLANKS.shouldGenerate())
-			lp.add(this.PLANKS.BLOCK_ITEM.get(), locName + " Planks");
+			lp.add(this.PLANKS.BLOCK_ITEM.get(), locName + "Planks");
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 	}

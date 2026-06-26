@@ -1,12 +1,8 @@
 {
   "values": [
-    "minecraft:copper_block",
     "compendium:copper_styled_metal",
-    "minecraft:gold_block",
     "compendium:gold_styled_metal",
-    "minecraft:iron_block",
     "compendium:iron_styled_metal",
-    "minecraft:netherite_block",
     "compendium:netherite_styled_metal",
     "compendium:amethyst_styled_gem",
     "compendium:crying_obsidian_styled_gem",

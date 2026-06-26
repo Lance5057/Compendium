@@ -1,7 +1,5 @@
 {
   "values": [
-    "minecraft:oak_log",
-    "minecraft:oak_wood",
     "compendium:oak_small_logs_item"
   ]
 }
