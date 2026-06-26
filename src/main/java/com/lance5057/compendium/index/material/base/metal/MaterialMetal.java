@@ -124,21 +124,27 @@ public class MaterialMetal extends _MaterialBase {
 
 	@Override
 	public void recipes(RecipeOutput consumer) {
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BLOCK.BLOCK_ITEM.get(), 1).requires(INGOT.ITEM.get(), 9)
-				.unlockedBy("has", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
-				.save(consumer, TagUtil.modLoc(name + "_ingot_to_block"));
+		if (BLOCK.shouldGenerate())
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BLOCK.BLOCK_ITEM.get(), 1)
+					.requires(INGOT.ITEM.get(), 9)
+					.unlockedBy("has", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
+					.save(consumer, TagUtil.modLoc(name + "_ingot_to_block"));
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 9).requires(BLOCK.BLOCK_ITEM.get())
-				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(BLOCK.BLOCK_ITEM))
-				.save(consumer, TagUtil.modLoc(name + "_ingot_from_block"));
+		if (INGOT.shouldGenerate())
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 9).requires(BLOCK.BLOCK_ITEM.get())
+					.unlockedBy("has_stripped_small_log",
+							InventoryChangeTrigger.TriggerInstance.hasItems(BLOCK.BLOCK_ITEM))
+					.save(consumer, TagUtil.modLoc(name + "_ingot_from_block"));
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 1).requires(NUGGET.ITEM.get(), 9)
-				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(NUGGET.ITEM))
-				.save(consumer, TagUtil.modLoc(name + "_ingot_to_nugget"));
+		if (INGOT.shouldGenerate())
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, INGOT.ITEM.get(), 1).requires(NUGGET.ITEM.get(), 9)
+					.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(NUGGET.ITEM))
+					.save(consumer, TagUtil.modLoc(name + "_ingot_to_nugget"));
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NUGGET.ITEM.get(), 9).requires(INGOT.ITEM.get())
-				.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
-				.save(consumer, TagUtil.modLoc(name + "_ingot_from_nugget"));
+		if (NUGGET.shouldGenerate())
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NUGGET.ITEM.get(), 9).requires(INGOT.ITEM.get())
+					.unlockedBy("has_stripped_small_log", InventoryChangeTrigger.TriggerInstance.hasItems(INGOT.ITEM))
+					.save(consumer, TagUtil.modLoc(name + "_ingot_from_nugget"));
 
 		this.extensions.forEach(i -> i.recipes(this, consumer));
 	}

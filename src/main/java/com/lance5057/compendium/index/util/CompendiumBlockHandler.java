@@ -109,7 +109,7 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void setup(_MaterialBase base, Supplier<? extends Block> block, Supplier<? extends BlockItem> item) {
-		if (generate == Generate.GENERATE) {
+		if (this.shouldGenerate()) {
 			BLOCK = setupBlock(base, block);
 			BLOCK_ITEM = setupBlockItem(base, item);
 		} else if (generate == Generate.EXISTS) {
@@ -119,31 +119,39 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public DeferredBlock<Block> setupBlock(_MaterialBase base, Supplier<? extends Block> block) {
-		return CompendiumBlocks.BLOCKS.register(name, block);
+		if (this.shouldGenerate())
+			return CompendiumBlocks.BLOCKS.register(name, block);
+		return null;
 	}
 
 	public DeferredItem<BlockItem> setupBlockItem(_MaterialBase base, Supplier<? extends BlockItem> item) {
-		return CompendiumItems.ITEMS.register(name + "_item", item);
+		if (this.shouldGenerate())
+			return CompendiumItems.ITEMS.register(name + "_item", item);
+		return null;
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
-		this.itemTag.add(ItemTags.create(rc));
+		if (this.shouldGenerate())
+			this.itemTag.add(ItemTags.create(rc));
 	}
 
 	public void setupItemTag(TagKey<Item> tag) {
-		this.itemTag.add(tag);
+		if (this.shouldGenerate())
+			this.itemTag.add(tag);
 	}
 
 	public void setupBlockTag(ResourceLocation rc) {
-		this.blockTag.add(BlockTags.create(rc));
+		if (this.shouldGenerate())
+			this.blockTag.add(BlockTags.create(rc));
 	}
 
 	public void setupBlockTag(TagKey<Block> tag) {
-		this.blockTag.add(tag);
+		if (this.shouldGenerate())
+			this.blockTag.add(tag);
 	}
 
 	public void tab(_MaterialBase base, Output output) {
-		if (generate == Generate.GENERATE)
+		if (this.shouldGenerate())
 			output.accept(BLOCK_ITEM);
 	}
 
@@ -152,13 +160,15 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		for (TagKey<Item> tag : itemTag)
-			itp.tag(tag).add(BLOCK_ITEM.asItem());
+		if (this.shouldGenerate())
+			for (TagKey<Item> tag : itemTag)
+				itp.tag(tag).add(BLOCK_ITEM.asItem());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-		for (TagKey<Block> tag : blockTag)
-			btp.tag(tag).add(BLOCK.get());
+		if (this.shouldGenerate())
+			for (TagKey<Block> tag : blockTag)
+				btp.tag(tag).add(BLOCK.get());
 	}
 
 	public boolean is(ItemStack item) {

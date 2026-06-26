@@ -102,11 +102,11 @@ public class MaterialGem extends _MaterialBase {
 		lp.add("compendium.tooltip.material." + this.name, locName.toString());
 
 		if (SHARD.shouldGenerate())
-			lp.add(this.SHARD.ITEM.get(), locName + " Shard");
+			lp.add(this.SHARD.ITEM.get(), locName + "Shard");
 		if (GEM.shouldGenerate())
 			lp.add(this.GEM.ITEM.get(), locName + "");
 		if (BLOCK.shouldGenerate())
-			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + " Block");
+			lp.add(this.BLOCK.BLOCK_ITEM.get(), locName + "Block");
 
 		this.extensions.forEach(i -> i.engLoc(this, lp));
 

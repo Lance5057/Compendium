@@ -36,7 +36,6 @@ public class StyleLoc {
 		lp.add("style.metal_block.coil", "Coil");
 		lp.add("style.metal_block.crate", "Crate");
 		lp.add("style.metal_block.cylinder", "Cylinder");
-		lp.add("style.metal_block.coil", "Coil");
 		lp.add("style.metal_block.dented_tile", "Riveted Dented Tile");
 		lp.add("style.metal_block.diamond", "Diamonds");
 		lp.add("style.metal_block.diamond_tile", "Riveted Diamond Tiles");
@@ -240,7 +239,7 @@ public class StyleLoc {
 		lp.add("style.bed_pillow.basic", "Basic");
 		lp.add("style.bed_pillow.big", "Big");
 		lp.add("style.bed_pillow.angled", "Angled");
-        lp.add("style.bed_pillow.frilled", "Frilled");
+		lp.add("style.bed_pillow.frilled", "Frilled");
 
 		lp.add("style.bed_sheet", "Sheet");
 		lp.add("style.bed_sheet.basic", "Basic");
