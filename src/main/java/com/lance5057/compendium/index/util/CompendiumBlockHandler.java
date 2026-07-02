@@ -162,13 +162,13 @@ public class CompendiumBlockHandler implements Serializable {
 	public void itemTag(ItemTagsProvider itp) {
 		if (this.shouldGenerate())
 			for (TagKey<Item> tag : itemTag)
-				itp.tag(tag).add(BLOCK_ITEM.asItem());
+				itp.tag(tag).addOptional(BLOCK_ITEM.getId());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
 		if (this.shouldGenerate())
 			for (TagKey<Block> tag : blockTag)
-				btp.tag(tag).add(BLOCK.get());
+				btp.tag(tag).addOptional(BLOCK.getId());
 	}
 
 	public boolean is(ItemStack item) {

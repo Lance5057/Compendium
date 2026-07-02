@@ -1,18 +1,5 @@
 {
   "values": [
-    "compendium:crude_saw",
-    "compendium:copper_saw_item",
-    "compendium:gold_saw_item",
-    "compendium:iron_saw_item",
-    "compendium:netherite_saw_item",
-    "compendium:amethyst_saw_item",
-    "compendium:crying_obsidian_saw_item",
-    "compendium:diamond_saw_item",
-    "compendium:emerald_saw_item",
-    "compendium:ender_pearl_saw_item",
-    "compendium:lapis_saw_item",
-    "compendium:obsidian_saw_item",
-    "compendium:prismarine_saw_item",
-    "compendium:quartz_saw_item"
+    "compendium:crude_saw"
   ]
 }

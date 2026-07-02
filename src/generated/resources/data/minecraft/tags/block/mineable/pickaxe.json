@@ -1,18 +1,5 @@
 {
   "values": [
-    "compendium:copper_styled_metal",
-    "compendium:gold_styled_metal",
-    "compendium:iron_styled_metal",
-    "compendium:netherite_styled_metal",
-    "compendium:amethyst_styled_gem",
-    "compendium:crying_obsidian_styled_gem",
-    "compendium:diamond_styled_gem",
-    "compendium:emerald_styled_gem",
-    "compendium:ender_pearl_styled_gem",
-    "compendium:lapis_styled_gem",
-    "compendium:obsidian_styled_gem",
-    "compendium:prismarine_styled_gem",
-    "compendium:quartz_styled_gem",
     "compendium:cosmetic_toolbox",
     "compendium:hammering_station",
     "compendium:window"
