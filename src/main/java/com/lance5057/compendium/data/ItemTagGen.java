@@ -119,6 +119,12 @@ public class ItemTagGen extends ItemTagsProvider {
 		tag(ItemTags.create(TagUtil.neoTag("textiles/red_wool"))).add(Items.RED_WOOL);
 		tag(ItemTags.create(TagUtil.neoTag("textiles/yellow_wool"))).add(Items.YELLOW_WOOL);
 		tag(ItemTags.create(TagUtil.neoTag("textiles/white_wool"))).add(Items.WHITE_WOOL);
+		
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/crying_obsidian"))).add(Items.CRYING_OBSIDIAN);
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/amethyst"))).add(Items.AMETHYST_BLOCK);
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/obsidian"))).add(Items.OBSIDIAN);
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/prismarine"))).add(Items.PRISMARINE);
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/quartz"))).add(Items.QUARTZ_BLOCK);
 	}
 
 }

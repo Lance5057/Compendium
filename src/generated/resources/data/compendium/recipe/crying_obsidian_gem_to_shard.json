@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    },
+    {
+      "item": "compendium:crying_obsidian_shard_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:crying_obsidian_gem_item"
+  }
+}

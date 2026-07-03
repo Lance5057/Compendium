@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "compendium:copper_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:emerald_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_hoe_item",
+      "required": false
+    }
+  ]
+}

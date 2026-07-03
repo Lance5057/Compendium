@@ -74,9 +74,9 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-//		buildDefaults();
+		buildDefaults();
 //		moddedDefaults();
-		addons();
+//		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -101,7 +101,7 @@ public class IndexInitialResourceLoader {
 
 	private static void addons() {
 		for (DyeColor d : DyeColor.values()) {
-			MaterialWood dye = new MaterialWood(d.getName().toLowerCase(), "compendium");
+			MaterialWood dye = new MaterialWood(d.getName().toLowerCase(), "addendum_colored_planks");
 			dye.LOG.setIgnore();
 			dye.STRIPPED_LOG.setIgnore();
 			dye.WOOD.setIgnore();
@@ -109,7 +109,7 @@ public class IndexInitialResourceLoader {
 			dye.PLANKS.setGenerate();
 
 			dye.addExtension(new ExtensionExtraPlanks().generateAll());
-			buildDefault(dye, "colored_planks");
+			buildDefault(dye, "addendum_colored_planks");
 		}
 	}
 
@@ -278,6 +278,18 @@ public class IndexInitialResourceLoader {
 		prismarine.addExtension(new ExtensionVanillaTools().generateAll());
 
 		buildDefault(prismarine);
+		
+		MaterialGem dark_prismarine = new MaterialGem("dark_prismarine", "minecraft");
+		dark_prismarine.tier = new CompendiumTier("GOLD");
+		dark_prismarine.BLOCK.setExists(TagUtil.mcLoc("dark_prismarine"), TagUtil.mcLoc("dark_prismarine"));
+		dark_prismarine.GEM.setGenerate();
+		dark_prismarine.SHARD.setExists(TagUtil.mcLoc("prismarine_shard"));
+
+		dark_prismarine.addExtension(new ExtensionAdvancedTools().generateAll());
+		dark_prismarine.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		dark_prismarine.addExtension(new ExtensionVanillaTools().generateAll());
+
+		buildDefault(dark_prismarine);
 	}
 
 	public static void metal() {

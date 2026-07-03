@@ -1,0 +1,19 @@
+{
+  "name": "white_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:white_wool",
+    "existsLocationItem": "minecraft:white_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:white_carpet",
+    "existsLocationItem": "minecraft:white_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

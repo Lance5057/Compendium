@@ -1,0 +1,19 @@
+{
+  "name": "red_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:red_wool",
+    "existsLocationItem": "minecraft:red_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:red_carpet",
+    "existsLocationItem": "minecraft:red_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

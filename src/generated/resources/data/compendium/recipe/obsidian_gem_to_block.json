@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    },
+    {
+      "item": "compendium:obsidian_gem_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:obsidian"
+  }
+}
