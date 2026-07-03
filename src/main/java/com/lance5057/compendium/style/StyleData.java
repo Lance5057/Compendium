@@ -97,7 +97,7 @@ public class StyleData {
 					"caged_lattice", "grill", "porthole", "warped", "woven", "half_lattice_bottom", "half_lattice_top",
 					"lattice_fancy", "lozenge", "rupees", "rupees_small", "hourglasses", "none"));
 	public static StyleData WINDOW_GLASS = new StyleData("window_glass",
-			List.of("basic", "no_edge", "no_glint", "no_edge_no_glint"));
+			List.of("basic", "no_edge", "no_glint", "no_edge_no_glint", "frosted"));
 
 	public static StyleData METAL_BLOCK = new StyleData("metal_block",
 			List.of("heavy_rivet_tile", "brick", "coil", "crate", "cylinder", "dented_tile", "diamond", "diamond_tile",

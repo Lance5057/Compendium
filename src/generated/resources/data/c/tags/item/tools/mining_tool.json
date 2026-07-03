@@ -17,6 +17,10 @@
       "required": false
     },
     {
+      "id": "compendium:dark_prismarine_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:emerald_pickaxe_item",
       "required": false
     },

@@ -74,9 +74,9 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-		buildDefaults();
+//		buildDefaults();
 //		moddedDefaults();
-//		addons();
+		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -271,7 +271,7 @@ public class IndexInitialResourceLoader {
 		prismarine.tier = new CompendiumTier("GOLD");
 		prismarine.BLOCK.setExists(TagUtil.mcLoc("prismarine"), TagUtil.mcLoc("prismarine"));
 		prismarine.GEM.setExists(TagUtil.mcLoc("prismarine_crystals"));
-		prismarine.SHARD.setGenerate();
+		prismarine.SHARD.setExists(TagUtil.mcLoc("prismarine_shard"));
 
 		prismarine.addExtension(new ExtensionAdvancedTools().generateAll());
 		prismarine.addExtension(new ExtensionGemStyleBlocks().generateAll());
@@ -283,7 +283,7 @@ public class IndexInitialResourceLoader {
 		dark_prismarine.tier = new CompendiumTier("GOLD");
 		dark_prismarine.BLOCK.setExists(TagUtil.mcLoc("dark_prismarine"), TagUtil.mcLoc("dark_prismarine"));
 		dark_prismarine.GEM.setGenerate();
-		dark_prismarine.SHARD.setExists(TagUtil.mcLoc("prismarine_shard"));
+		dark_prismarine.SHARD.setGenerate();
 
 		dark_prismarine.addExtension(new ExtensionAdvancedTools().generateAll());
 		dark_prismarine.addExtension(new ExtensionGemStyleBlocks().generateAll());

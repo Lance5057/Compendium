@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "compendium:dark_prismarine_shard_item",
+      "required": false
+    },
+    {
       "id": "compendium:diamond_shard_item",
       "required": false
     },
@@ -29,7 +33,7 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_shard_item",
+      "id": "minecraft:prismarine_shard",
       "required": false
     },
     {

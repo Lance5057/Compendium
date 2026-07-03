@@ -442,5 +442,6 @@ public class StyleLoc {
 		lp.add("style.window_glass.no_edge", "No Edge");
 		lp.add("style.window_glass.no_glint", "No Glint");
 		lp.add("style.window_glass.no_edge_no_glint", "No Edge, No Glint");
+		lp.add("style.window_glass.frosted", "Frosted");
 	}
 }

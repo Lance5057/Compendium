@@ -13,6 +13,10 @@
       "required": false
     },
     {
+      "id": "compendium:dark_prismarine_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:emerald_hoe_item",
       "required": false
     },

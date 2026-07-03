@@ -37,6 +37,14 @@
       "required": false
     },
     {
+      "id": "compendium:dark_prismarine_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_sword_item",
+      "required": false
+    },
+    {
       "id": "compendium:diamond_zweihander_item",
       "required": false
     },

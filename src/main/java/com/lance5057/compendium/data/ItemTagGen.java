@@ -125,6 +125,7 @@ public class ItemTagGen extends ItemTagsProvider {
 		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/obsidian"))).add(Items.OBSIDIAN);
 		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/prismarine"))).add(Items.PRISMARINE);
 		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/quartz"))).add(Items.QUARTZ_BLOCK);
+		tag(ItemTags.create(TagUtil.neoTag("storage_blocks/dark_prismarine"))).add(Items.DARK_PRISMARINE);
 	}
 
 }
