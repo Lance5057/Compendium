@@ -74,9 +74,9 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-//		buildDefaults();
-//		moddedDefaults();
-		addons();
+		buildDefaults();
+		moddedDefaults();
+//		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
 //		} else {
@@ -745,6 +745,147 @@ public class IndexInitialResourceLoader {
 		silentgear();
 		koopascritters();
 		butchercraft();
+		moreSnifferFlowers();
+		quark();
+		heriosFloralExpansion();
+	}
+
+	private static void heriosFloralExpansion() {
+		MaterialWood giant_stem = new MaterialWood("giant_stem", "herios_floral_expansion");
+
+		giant_stem.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_planks"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_planks"));
+		giant_stem.LOG.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_log"));
+		giant_stem.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_giant_stem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_giant_stem_log"));
+		giant_stem.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_wood"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "giant_stem_wood"));
+		giant_stem.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_giant_stem_wood"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_giant_stem_wood"));
+
+		giant_stem.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_planks"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_giantstem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giant_stem_log_top"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_giant_stem_log_top")));
+		buildDefault(giant_stem.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"herios_floral_expansion");
+		
+		MaterialWood dried_stem = new MaterialWood("dried_stem", "herios_floral_expansion");
+
+		dried_stem.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_planks"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_planks"));
+		dried_stem.LOG.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_log"));
+		dried_stem.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_dried_stem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_dried_stem_log"));
+		dried_stem.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_wood"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "dried_stem_wood"));
+		dried_stem.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_dried_stem_wood"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "stripped_dried_stem_wood"));
+
+		dried_stem.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_planks"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_driedstem_log"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/dried_stem_log_top"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_dried_stem_log_top")));
+		buildDefault(dried_stem.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"herios_floral_expansion");
+	}
+
+	private static void quark() {
+		MaterialWood trumpet = new MaterialWood("trumpet", "quark");
+
+		trumpet.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("quark", "blossom_planks"),
+				ResourceLocation.fromNamespaceAndPath("quark", "blossom_planks"));
+		trumpet.LOG.setExists(ResourceLocation.fromNamespaceAndPath("quark", "blossom_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "blossom_log"));
+		trumpet.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("quark", "stripped_blossom_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "stripped_blossom_log"));
+		trumpet.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("quark", "blossom_wood"),
+				ResourceLocation.fromNamespaceAndPath("quark", "blossom_wood"));
+		trumpet.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("quark", "stripped_blossom_wood"),
+				ResourceLocation.fromNamespaceAndPath("quark", "stripped_blossom_wood"));
+
+		trumpet.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("quark", "block/blossom_planks"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/blossom_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/stripped_blossom_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/blossom_log_top"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/stripped_blossom_log_top")));
+		buildDefault(trumpet.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"quark");
+		
+		MaterialWood ashen = new MaterialWood("ashen", "quark");
+
+		ashen.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("quark", "ancient_planks"),
+				ResourceLocation.fromNamespaceAndPath("quark", "ancient_planks"));
+		ashen.LOG.setExists(ResourceLocation.fromNamespaceAndPath("quark", "ancient_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "ancient_log"));
+		ashen.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("quark", "stripped_ancient_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "stripped_ancient_log"));
+		ashen.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("quark", "ancient_wood"),
+				ResourceLocation.fromNamespaceAndPath("quark", "ancient_wood"));
+		ashen.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("quark", "stripped_ancient_wood"),
+				ResourceLocation.fromNamespaceAndPath("quark", "stripped_ancient_wood"));
+
+		ashen.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("quark", "block/ancient_planks"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/ancient_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/stripped_ancient_log"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/ancient_log_top"),
+				ResourceLocation.fromNamespaceAndPath("quark", "block/stripped_ancient_log_top")));
+		buildDefault(ashen.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"quark");
+	}
+
+	private static void moreSnifferFlowers() {
+		MaterialWood vivicus = new MaterialWood("vivicus", "moresnifferflowers");
+
+		vivicus.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_planks"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_planks"));
+		vivicus.LOG.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_log"));
+		vivicus.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_vivicus_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_vivicus_log"));
+		vivicus.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_wood"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "vivicus_wood"));
+		vivicus.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_vivicus_wood"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_vivicus_wood"));
+
+		vivicus.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/vivicus_planks"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/vivicus_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/stripped_vivicus_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/vivicus_log_top"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/stripped_vivicus_log_top")));
+		buildDefault(vivicus.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"moresnifferflowers");
+		
+		MaterialWood corrupted = new MaterialWood("corrupted", "moresnifferflowers");
+
+		corrupted.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_planks"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_planks"));
+		corrupted.LOG.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_log"));
+		corrupted.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_corrupted_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_corrupted_log"));
+		corrupted.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_wood"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "corrupted_wood"));
+		corrupted.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_corrupted_wood"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "stripped_corrupted_wood"));
+
+		corrupted.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/corrupted_planks"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/corrupted_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/stripped_corrupted_log"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/corrupted_log_top"),
+				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/stripped_corrupted_log_top")));
+		buildDefault(corrupted.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"moresnifferflowers");
 	}
 
 	private static void butchercraft() {

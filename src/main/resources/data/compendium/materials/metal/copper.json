@@ -1,0 +1,64 @@
+{
+  "name": "copper",
+  "tagNamespace": "minecraft",
+  "type": "METAL",
+  "block": {
+    "existsLocationBlock": "minecraft:copper_block",
+    "existsLocationItem": "minecraft:copper_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "minecraft:copper_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "IRON"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "VANILLATOOLS",
+      "sword": {
+        "generate": "GENERATE"
+      },
+      "axe": {
+        "generate": "GENERATE"
+      },
+      "shovel": {
+        "generate": "GENERATE"
+      },
+      "hoe": {
+        "generate": "GENERATE"
+      },
+      "pickaxe": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

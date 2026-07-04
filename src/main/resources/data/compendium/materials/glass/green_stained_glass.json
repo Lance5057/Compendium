@@ -1,0 +1,11 @@
+{
+  "name": "green_stained_glass",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "block": {
+    "existsLocationBlock": "minecraft:green_stained_glass",
+    "existsLocationItem": "minecraft:green_stained_glass",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "green_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:green_wool",
+    "existsLocationItem": "minecraft:green_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:green_carpet",
+    "existsLocationItem": "minecraft:green_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

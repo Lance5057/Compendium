@@ -1,43 +1,67 @@
 {
   "values": [
     {
-      "id": "compendium:acacia_styled_planks_stairs_item",
+      "id": "compendium:black_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:birch_styled_planks_stairs_item",
+      "id": "compendium:blue_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:cherry_styled_planks_stairs_item",
+      "id": "compendium:brown_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:crimson_styled_planks_stairs_item",
+      "id": "compendium:cyan_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_styled_planks_stairs_item",
+      "id": "compendium:gray_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:jungle_styled_planks_stairs_item",
+      "id": "compendium:green_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:mangrove_styled_planks_stairs_item",
+      "id": "compendium:light_blue_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:oak_styled_planks_stairs_item",
+      "id": "compendium:light_gray_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:spruce_styled_planks_stairs_item",
+      "id": "compendium:lime_styled_planks_stairs_item",
       "required": false
     },
     {
-      "id": "compendium:warped_styled_planks_stairs_item",
+      "id": "compendium:magenta_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pink_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:red_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:white_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_styled_planks_stairs_item",
       "required": false
     }
   ]

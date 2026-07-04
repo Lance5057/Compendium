@@ -1,0 +1,19 @@
+{
+  "name": "lime_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:lime_wool",
+    "existsLocationItem": "minecraft:lime_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:lime_carpet",
+    "existsLocationItem": "minecraft:lime_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

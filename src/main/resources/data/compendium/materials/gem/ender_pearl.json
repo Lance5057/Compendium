@@ -1,0 +1,70 @@
+{
+  "name": "ender_pearl",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "gem": {
+    "existsLocation": "minecraft:ender_pearl",
+    "generate": "EXISTS"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": {
+        "namespace": "compendium",
+        "path": "block/material/gem/ender_pearl/block"
+      }
+    }
+  },
+  "tier": {
+    "vanillaTier": "GOLD"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "VANILLATOOLS",
+      "sword": {
+        "generate": "GENERATE"
+      },
+      "axe": {
+        "generate": "GENERATE"
+      },
+      "shovel": {
+        "generate": "GENERATE"
+      },
+      "hoe": {
+        "generate": "GENERATE"
+      },
+      "pickaxe": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

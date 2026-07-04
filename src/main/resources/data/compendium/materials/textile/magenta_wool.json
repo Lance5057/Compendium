@@ -1,0 +1,19 @@
+{
+  "name": "magenta_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:magenta_wool",
+    "existsLocationItem": "minecraft:magenta_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:magenta_carpet",
+    "existsLocationItem": "minecraft:magenta_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}
