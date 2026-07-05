@@ -732,12 +732,15 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(silver);
 
+		//barnyardBuddies();
+		//delicateDyes();
+		//delicateDyesGingham();
 		dyenamics();
 		dyenamicsGingham();
 		extraDelight();
 		enchanted();
 		arsNouveau();
-		bloomingNature();
+		//bloomingNature();
 		abyssalDecor();
 		cluttered();
 		cataclysm();
@@ -748,6 +751,518 @@ public class IndexInitialResourceLoader {
 		moreSnifferFlowers();
 		quark();
 		heriosFloralExpansion();
+		//mysticsBiomes();
+		//would();
+		//theGreatOutdoors();
+	}
+
+	private static void theGreatOutdoors() {
+		MaterialWood whitebark_pine = new MaterialWood("whitebark_pine", "mysticsbiomes");
+
+		whitebark_pine.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_planks"));
+		whitebark_pine.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_log"));
+		whitebark_pine.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_whitebark_pine_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_whitebark_pine_log"));
+		whitebark_pine.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "whitebark_pine_wood"));
+		whitebark_pine.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_whitebark_pine_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_whitebark_pine_wood"));
+
+		whitebark_pine.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/whitebarkpineplanks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/whitebarkpinelogside"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/whitebarkpinelogstrippedside"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/whitebarkpinelogtop"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/whitebarkpinelogtopstripped")));
+		buildDefault(whitebark_pine.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+	}
+
+	private static void mysticsBiomes() {
+		MaterialWood black_cherry = new MaterialWood("black_cherry", "mysticsbiomes");
+
+		black_cherry.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_planks"));
+		black_cherry.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_log"));
+		black_cherry.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_black_cherry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_black_cherry_log"));
+		black_cherry.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "black_cherry_wood"));
+		black_cherry.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_black_cherry_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_black_cherry_wood"));
+
+		black_cherry.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/black_cherry_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/black_cherry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_black_cherry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/black_cherry_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_black_cherry_log_top")));
+		buildDefault(black_cherry.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood lavender = new MaterialWood("lavender", "mysticsbiomes");
+
+		lavender.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_planks"));
+		lavender.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_log"));
+		lavender.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_lavender_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_lavender_log"));
+		lavender.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "lavender_wood"));
+		lavender.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_lavender_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_lavender_wood"));
+
+		lavender.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/lavender_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/lavender_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_lavender_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/lavender_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_lavender_log_top")));
+		buildDefault(lavender.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood maple = new MaterialWood("maple", "mysticsbiomes");
+
+		maple.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_planks"));
+		maple.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_log"));
+		maple.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_maple_log"));
+		maple.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "maple_wood"));
+		maple.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_maple_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_maple_wood"));
+
+		maple.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log_top")));
+		buildDefault(maple.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood white_maple = new MaterialWood("white_maple", "mysticsbiomes");
+
+		white_maple.PLANKS.setIgnore();
+		white_maple.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"));
+		white_maple.STRIPPED_LOG.setIgnore();
+		white_maple.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"));
+		white_maple.STRIPPED_WOOD.setIgnore();
+
+		white_maple.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log_top")));
+		buildDefault(white_maple.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood peach = new MaterialWood("ebony", "mysticsbiomes");
+
+		peach.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_planks"));
+		peach.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_log"));
+		peach.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_peach_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_peach_log"));
+		peach.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "peach_wood"));
+		peach.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_peach_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_peach_wood"));
+
+		peach.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/peach_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/peach_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_peach_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/peach_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_peach_log_top")));
+		buildDefault(peach.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood sea_foam = new MaterialWood("ebony", "mysticsbiomes");
+
+		sea_foam.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_planks"));
+		sea_foam.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_log"));
+		sea_foam.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_sea_foam_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_sea_foam_log"));
+		sea_foam.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "sea_foam_wood"));
+		sea_foam.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_sea_foam_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_sea_foam_wood"));
+
+		sea_foam.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/sea_foam_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/sea_foam_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_sea_foam_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/sea_foam_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_sea_foam_log_top")));
+		buildDefault(sea_foam.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood strawberry = new MaterialWood("ebony", "mysticsbiomes");
+
+		strawberry.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_planks"));
+		strawberry.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_log"));
+		strawberry.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_strawberry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_strawberry_log"));
+		strawberry.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "strawberry_wood"));
+		strawberry.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_strawberry_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_strawberry_wood"));
+
+		strawberry.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/strawberry_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/strawberry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_strawberry_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/strawberry_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_strawberry_log_top")));
+		buildDefault(strawberry.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood tropical = new MaterialWood("ebony", "mysticsbiomes");
+
+		tropical.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_planks"));
+		tropical.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_log"));
+		tropical.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_tropical_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_tropical_log"));
+		tropical.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "tropical_wood"));
+		tropical.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_tropical_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_tropical_wood"));
+
+		tropical.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/tropical_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/tropical_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_tropical_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/tropical_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_tropical_log_top")));
+		buildDefault(tropical.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+
+		MaterialWood vanilla = new MaterialWood("ebony", "mysticsbiomes");
+
+		vanilla.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_planks"));
+		vanilla.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_log"));
+		vanilla.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_vanilla_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_vanilla_log"));
+		vanilla.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "vanilla_wood"));
+		vanilla.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_vanilla_wood"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "stripped_vanilla_wood"));
+
+		vanilla.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/vanilla_planks"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/vanilla_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_vanilla_log"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/vanilla_log_top"),
+				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_vanilla_log_top")));
+		buildDefault(vanilla.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"mysticsbiomes");
+	}
+
+	private static void would() {
+		MaterialWood aspen = new MaterialWood("aspen", "would");
+
+		aspen.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "aspen_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "aspen_planks"));
+		aspen.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "aspen_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "aspen_log"));
+		aspen.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_aspen_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_aspen_log"));
+		aspen.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "aspen_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "aspen_wood"));
+		aspen.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_azalea_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_aspen_wood"));
+
+		aspen.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/aspen_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/aspen_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_aspen_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/aspen_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_aspen_log_top")));
+		buildDefault(aspen.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood azalea = new MaterialWood("azalea", "would");
+
+		azalea.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "azalea_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "azalea_planks"));
+		azalea.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "azalea_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "azalea_log"));
+		azalea.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_azalea_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_azalea_log"));
+		azalea.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "azalea_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "azalea_wood"));
+		azalea.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_azalea_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_azalea_wood"));
+
+		azalea.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/azalea_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/azalea_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_azalea_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/azalea_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_azalea_log_top")));
+		buildDefault(azalea.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood baobab = new MaterialWood("baobab", "would");
+
+		baobab.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "baobab_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "baobab_planks"));
+		baobab.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "baobab_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "baobab_log"));
+		baobab.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_baobab_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_baobab_log"));
+		baobab.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "baobab_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "baobab_wood"));
+		baobab.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_baobab_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_baobab_wood"));
+
+		baobab.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/baobab_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/baobab_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_baobab_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/baobab_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_baobab_log_top")));
+		buildDefault(baobab.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood blue_spruce = new MaterialWood("blue_spruce", "would");
+
+		blue_spruce.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_planks"));
+		blue_spruce.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_log"));
+		blue_spruce.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_blue_spruce_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_blue_spruce_log"));
+		blue_spruce.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "blue_spruce_wood"));
+		blue_spruce.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_blue_spruce_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_blue_spruce_wood"));
+
+		blue_spruce.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/blue_spruce_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/blue_spruce_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_blue_spruce_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/blue_spruce_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_blue_spruce_log_top")));
+		buildDefault(blue_spruce.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood cedar = new MaterialWood("cedar", "would");
+
+		cedar.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "cedar_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "cedar_planks"));
+		cedar.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "cedar_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "cedar_log"));
+		cedar.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_cedar_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_cedar_log"));
+		cedar.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "cedar_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "cedar_wood"));
+		cedar.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_cedar_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_cedar_wood"));
+
+		cedar.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/cedar_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/cedar_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_cedar_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/cedar_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_cedar_log_top")));
+		buildDefault(cedar.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood ebony = new MaterialWood("ebony", "would");
+
+		ebony.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "ebony_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "ebony_planks"));
+		ebony.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "ebony_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "ebony_log"));
+		ebony.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_ebony_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_ebony_log"));
+		ebony.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "ebony_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "ebony_wood"));
+		ebony.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_ebony_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_ebony_wood"));
+
+		ebony.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/ebony_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/ebony_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_ebony_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/ebony_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_ebony_log_top")));
+		buildDefault(ebony.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood fir = new MaterialWood("fir", "would");
+
+		fir.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "fir_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "fir_planks"));
+		fir.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "fir_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "fir_log"));
+		fir.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_fir_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_fir_log"));
+		fir.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "fir_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "fir_wood"));
+		fir.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_fir_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_fir_wood"));
+
+		fir.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/fir_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/fir_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_fir_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/fir_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_fir_log_top")));
+		buildDefault(fir.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood mahogany = new MaterialWood("mahogany", "would");
+
+		mahogany.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "mahogany_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "mahogany_planks"));
+		mahogany.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "mahogany_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "mahogany_log"));
+		mahogany.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_mahogany_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_mahogany_log"));
+		mahogany.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "mahogany_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "mahogany_wood"));
+		mahogany.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_mahogany_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_mahogany_wood"));
+
+		mahogany.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/mahogany_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/mahogany_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_mahogany_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/mahogany_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_mahogany_log_top")));
+		buildDefault(mahogany.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood maple_w = new MaterialWood("maple_w", "would");
+
+		maple_w.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "maple_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "maple_planks"));
+		maple_w.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "maple_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "maple_log"));
+		maple_w.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_maple_log"));
+		maple_w.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "maple_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "maple_wood"));
+		maple_w.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_maple_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_maple_wood"));
+
+		maple_w.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/maple_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/maple_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_maple_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/maple_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_maple_log_top")));
+		buildDefault(maple_w.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood palm = new MaterialWood("palm", "would");
+
+		palm.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "palm_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "palm_planks"));
+		palm.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "palm_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "palm_log"));
+		palm.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_palm_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_palm_log"));
+		palm.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "palm_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "palm_wood"));
+		palm.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_palm_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_palm_wood"));
+
+		palm.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/palm_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/palm_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_palm_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/palm_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_palm_log_top")));
+		buildDefault(palm.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood pine = new MaterialWood("pine", "would");
+
+		pine.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "pine_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "pine_planks"));
+		pine.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "pine_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "pine_log"));
+		pine.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_pine_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_pine_log"));
+		pine.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "pine_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "pine_wood"));
+		pine.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_pine_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_pine_wood"));
+
+		pine.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/pine_planks_0"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/pine_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_pine_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/pine_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_pine_log_top")));
+		buildDefault(pine.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood walnut = new MaterialWood("walnut", "would");
+
+		walnut.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "walnut_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "walnut_planks"));
+		walnut.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "walnut_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "walnut_log"));
+		walnut.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_walnut_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_walnut_log"));
+		walnut.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "walnut_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "walnut_wood"));
+		walnut.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_walnut_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_walnut_wood"));
+
+		walnut.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/walnut_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/walnut_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_walnut_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/walnut_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_walnut_log_top")));
+		buildDefault(walnut.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
+
+		MaterialWood willow_w = new MaterialWood("willow_w", "would");
+
+		willow_w.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("would", "willow_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "willow_planks"));
+		willow_w.LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "willow_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "willow_log"));
+		willow_w.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_willow_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_willow_log"));
+		willow_w.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "willow_wood"));
+		willow_w.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("would", "stripped_willow_wood"),
+				ResourceLocation.fromNamespaceAndPath("would", "stripped_willow_wood"));
+
+		willow_w.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+				ResourceLocation.fromNamespaceAndPath("would", "block/willow_planks"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/willow_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_willow_log"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/willow_log_top"),
+				ResourceLocation.fromNamespaceAndPath("would", "block/stripped_willow_log_top")));
+		buildDefault(willow_w.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()),
+				"would");
 	}
 
 	private static void heriosFloralExpansion() {
@@ -1302,63 +1817,63 @@ public class IndexInitialResourceLoader {
 
 		MaterialTextile gingham_black = new MaterialTextile("gingham_black", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_black", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/black"), null, null)));
 		gingham_black.BLOCK.setGenerate();
 		gingham_black.CARPET.setGenerate();
 		buildDefault(gingham_black, "extradelight");
 
 		MaterialTextile gingham_brown = new MaterialTextile("gingham_brown", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_brown", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/brown"), null, null)));
 		gingham_brown.BLOCK.setGenerate();
 		gingham_brown.CARPET.setGenerate();
 		buildDefault(gingham_brown, "extradelight");
 
 		MaterialTextile gingham_red = new MaterialTextile("gingham_red", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_red", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/red"), null, null)));
 		gingham_red.BLOCK.setGenerate();
 		gingham_red.CARPET.setGenerate();
 		buildDefault(gingham_red, "extradelight");
 
 		MaterialTextile gingham_orange = new MaterialTextile("gingham_orange", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_orange", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/orange"), null, null)));
 		gingham_orange.BLOCK.setGenerate();
 		gingham_orange.CARPET.setGenerate();
 		buildDefault(gingham_orange, "extradelight");
 
 		MaterialTextile gingham_yellow = new MaterialTextile("gingham_yellow", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_yellow", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/yellow"), null, null)));
 		gingham_yellow.BLOCK.setGenerate();
 		gingham_yellow.CARPET.setGenerate();
 		buildDefault(gingham_yellow, "extradelight");
 
 		MaterialTextile gingham_lime = new MaterialTextile("gingham_lime", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_lime", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/lime"), null, null)));
 		gingham_lime.BLOCK.setGenerate();
 		gingham_lime.CARPET.setGenerate();
 		buildDefault(gingham_lime, "extradelight");
 
 		MaterialTextile gingham_green = new MaterialTextile("gingham_green", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_green", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/green"), null, null)));
 		gingham_green.BLOCK.setGenerate();
 		gingham_green.CARPET.setGenerate();
 		buildDefault(gingham_green, "extradelight");
 
 		MaterialTextile gingham_cyan = new MaterialTextile("gingham_cyan", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_cyan", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/cyan"), null, null)));
 		gingham_cyan.BLOCK.setGenerate();
 		gingham_cyan.CARPET.setGenerate();
 		buildDefault(gingham_cyan, "extradelight");
 
 		MaterialTextile gingham_light_blue = new MaterialTextile("gingham_light_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_light_blue", "block/gingham/gray"), null,
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_blue"), null,
 						null)));
 		gingham_light_blue.BLOCK.setGenerate();
 		gingham_light_blue.CARPET.setGenerate();
@@ -1366,28 +1881,28 @@ public class IndexInitialResourceLoader {
 
 		MaterialTextile gingham_blue = new MaterialTextile("gingham_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_blue", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/blue"), null, null)));
 		gingham_blue.BLOCK.setGenerate();
 		gingham_blue.CARPET.setGenerate();
 		buildDefault(gingham_blue, "extradelight");
 
 		MaterialTextile gingham_purple = new MaterialTextile("gingham_purple", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_purple", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/purple"), null, null)));
 		gingham_purple.BLOCK.setGenerate();
 		gingham_purple.CARPET.setGenerate();
 		buildDefault(gingham_purple, "extradelight");
 
 		MaterialTextile gingham_magenta = new MaterialTextile("gingham_magenta", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_magenta", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/magenta"), null, null)));
 		gingham_magenta.BLOCK.setGenerate();
 		gingham_magenta.CARPET.setGenerate();
 		buildDefault(gingham_magenta, "extradelight");
 
 		MaterialTextile gingham_pink = new MaterialTextile("gingham_pink", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("gingham_pink", "block/gingham/gray"), null, null)));
+						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/pink"), null, null)));
 		gingham_pink.BLOCK.setGenerate();
 		gingham_pink.CARPET.setGenerate();
 		buildDefault(gingham_pink, "extradelight");
@@ -1396,12 +1911,150 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionExtraPlanks()), "extradelight");
 	}
 
+	private static void barnyardBuddies() {
+		MaterialTextile spotted_wool = new MaterialTextile("spotted_wool", "barnyardbuddies",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("barnyardbuddies", "block/spottedwool"), null, null)));
+		spotted_wool.BLOCK.setIgnore();
+		spotted_wool.CARPET.setIgnore();
+		spotted_wool.STRING.setIgnore();
+		buildDefault(spotted_wool, "barnyardbuddies");
+	}
+
+	private static void delicateDyes() {
+		MaterialTextile berry_wool = new MaterialTextile("berry_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/rose_wool"), null, null)));
+		berry_wool.BLOCK.setIgnore();
+		berry_wool.CARPET.setIgnore();
+		berry_wool.STRING.setIgnore();
+		buildDefault(berry_wool, "delicate_dyes");
+
+		MaterialTextile blurple_wool = new MaterialTextile("blurple_wool", "delicate_dyes");
+		blurple_wool.BLOCK.setIgnore();
+		blurple_wool.CARPET.setIgnore();
+		blurple_wool.STRING.setIgnore();
+		buildDefault(blurple_wool, "delicate_dyes");
+
+		MaterialTextile canary_wool = new MaterialTextile("canary_wool", "delicate_dyes");
+		canary_wool.BLOCK.setIgnore();
+		canary_wool.CARPET.setIgnore();
+		canary_wool.STRING.setIgnore();
+		buildDefault(canary_wool, "delicate_dyes");
+
+		MaterialTextile coral_wool = new MaterialTextile("coral_wool", "delicate_dyes");
+		coral_wool.BLOCK.setIgnore();
+		coral_wool.CARPET.setIgnore();
+		coral_wool.STRING.setIgnore();
+		buildDefault(coral_wool, "delicate_dyes");
+
+		MaterialTextile lilac_wool = new MaterialTextile("lilac_wool", "delicate_dyes",
+			new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/lavender_wool"), null, null)));
+		lilac_wool.BLOCK.setIgnore();
+		lilac_wool.CARPET.setIgnore();
+		lilac_wool.STRING.setIgnore();
+		buildDefault(lilac_wool, "delicate_dyes");
+
+		MaterialTextile sacramento_wool = new MaterialTextile("sacramento_wool", "delicate_dyes");
+		sacramento_wool.BLOCK.setIgnore();
+		sacramento_wool.CARPET.setIgnore();
+		sacramento_wool.STRING.setIgnore();
+		buildDefault(sacramento_wool, "delicate_dyes");
+
+		MaterialTextile sangria_wool = new MaterialTextile("sangria_wool", "delicate_dyes");
+		sangria_wool.BLOCK.setIgnore();
+		sangria_wool.CARPET.setIgnore();
+		sangria_wool.STRING.setIgnore();
+		buildDefault(sangria_wool, "delicate_dyes");
+
+		MaterialTextile sky_wool = new MaterialTextile("sky_wool", "delicate_dyes");
+		sky_wool.BLOCK.setIgnore();
+		sky_wool.CARPET.setIgnore();
+		sky_wool.STRING.setIgnore();
+		buildDefault(sky_wool, "delicate_dyes");
+
+		MaterialTextile umber_wool = new MaterialTextile("umber_wool", "delicate_dyes");
+		umber_wool.BLOCK.setIgnore();
+		umber_wool.CARPET.setIgnore();
+		umber_wool.STRING.setIgnore();
+		buildDefault(umber_wool, "delicate_dyes");
+
+		MaterialTextile wasabi_wool = new MaterialTextile("wasabi_wool", "delicate_dyes");
+		wasabi_wool.BLOCK.setIgnore();
+		wasabi_wool.CARPET.setIgnore();
+		wasabi_wool.STRING.setIgnore();
+		buildDefault(wasabi_wool, "delicate_dyes");
+	}
+
+	private static void delicateDyesGingham() {
+		MaterialTextile gingham_berry = new MaterialTextile("gingham_berry", "compendium");
+		gingham_berry.BLOCK.setGenerate();
+		gingham_berry.CARPET.setGenerate();
+		gingham_berry.STRING.setIgnore();
+		buildDefault(gingham_berry, "compendium");
+
+		MaterialTextile gingham_blurple = new MaterialTextile("gingham_blurple", "compendium");
+		gingham_blurple.BLOCK.setGenerate();
+		gingham_blurple.CARPET.setGenerate();
+		gingham_blurple.STRING.setIgnore();
+		buildDefault(gingham_blurple, "compendium");
+
+		MaterialTextile gingham_canary = new MaterialTextile("gingham_canary", "compendium");
+		gingham_canary.BLOCK.setGenerate();
+		gingham_canary.CARPET.setGenerate();
+		gingham_canary.STRING.setIgnore();
+		buildDefault(gingham_canary, "compendium");
+
+		MaterialTextile gingham_coral = new MaterialTextile("gingham_coral", "compendium");
+		gingham_coral.BLOCK.setGenerate();
+		gingham_coral.CARPET.setGenerate();
+		gingham_coral.STRING.setIgnore();
+		buildDefault(gingham_coral, "compendium");
+
+		MaterialTextile gingham_lilac = new MaterialTextile("gingham_lilac", "compendium");
+		gingham_lilac.BLOCK.setGenerate();
+		gingham_lilac.CARPET.setGenerate();
+		gingham_lilac.STRING.setIgnore();
+		buildDefault(gingham_lilac, "compendium");
+
+		MaterialTextile gingham_sacramento = new MaterialTextile("gingham_sacramento", "compendium");
+		gingham_sacramento.BLOCK.setGenerate();
+		gingham_sacramento.CARPET.setGenerate();
+		gingham_sacramento.STRING.setIgnore();
+		buildDefault(gingham_sacramento, "compendium");
+
+		MaterialTextile gingham_sangria = new MaterialTextile("gingham_sangria", "compendium");
+		gingham_sangria.BLOCK.setGenerate();
+		gingham_sangria.CARPET.setGenerate();
+		gingham_sangria.STRING.setIgnore();
+		buildDefault(gingham_sangria, "compendium");
+
+		MaterialTextile gingham_sky = new MaterialTextile("gingham_sky", "compendium");
+		gingham_sky.BLOCK.setGenerate();
+		gingham_sky.CARPET.setGenerate();
+		gingham_sky.STRING.setIgnore();
+		buildDefault(gingham_sky, "compendium");
+
+		MaterialTextile gingham_umber = new MaterialTextile("gingham_umber", "compendium");
+		gingham_umber.BLOCK.setGenerate();
+		gingham_umber.CARPET.setGenerate();
+		gingham_umber.STRING.setIgnore();
+		buildDefault(gingham_umber, "compendium");
+
+		MaterialTextile gingham_wasabi = new MaterialTextile("gingham_wasabi", "compendium");
+		gingham_wasabi.BLOCK.setGenerate();
+		gingham_wasabi.CARPET.setGenerate();
+		gingham_wasabi.STRING.setIgnore();
+		buildDefault(gingham_wasabi, "compendium");
+	}
+
 	private static void dyenamics() {
-		MaterialTextile gingham_amber = new MaterialTextile("amber_wool", "dyenamics");
-		gingham_amber.BLOCK.setIgnore();
-		gingham_amber.CARPET.setIgnore();
-		gingham_amber.STRING.setIgnore();
-		buildDefault(gingham_amber, "dyenamics");
+		MaterialTextile amber_wool = new MaterialTextile("amber_wool", "dyenamics");
+		amber_wool.BLOCK.setIgnore();
+		amber_wool.CARPET.setIgnore();
+		amber_wool.STRING.setIgnore();
+		buildDefault(amber_wool, "dyenamics");
 
 		MaterialTextile aquamarine_wool = new MaterialTextile("aquamarine_wool", "dyenamics");
 		aquamarine_wool.BLOCK.setIgnore();
