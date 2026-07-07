@@ -1,0 +1,84 @@
+{
+  "name": "palm",
+  "namespace": "would",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "would:palm_planks",
+    "existsLocationItem": "would:palm_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "would:palm_log",
+    "existsLocationItem": "would:palm_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "would:stripped_palm_log",
+    "existsLocationItem": "would:stripped_palm_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "would:palm_wood",
+    "existsLocationItem": "would:palm_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "would:stripped_palm_wood",
+    "existsLocationItem": "would:stripped_palm_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "would:block/palm_planks",
+      "logLocation": "would:block/palm_log",
+      "strippedLogLocation": "would:block/stripped_palm_log",
+      "logTopLocation": "would:block/palm_log_top",
+      "strippedLogTopLocation": "would:block/stripped_palm_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

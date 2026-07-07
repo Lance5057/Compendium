@@ -1,0 +1,84 @@
+{
+  "name": "mahogany",
+  "namespace": "would",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "would:mahogany_planks",
+    "existsLocationItem": "would:mahogany_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "would:mahogany_log",
+    "existsLocationItem": "would:mahogany_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "would:stripped_mahogany_log",
+    "existsLocationItem": "would:stripped_mahogany_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "would:mahogany_wood",
+    "existsLocationItem": "would:mahogany_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "would:stripped_mahogany_wood",
+    "existsLocationItem": "would:stripped_mahogany_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "would:block/mahogany_planks",
+      "logLocation": "would:block/mahogany_log",
+      "strippedLogLocation": "would:block/stripped_mahogany_log",
+      "logTopLocation": "would:block/mahogany_log_top",
+      "strippedLogTopLocation": "would:block/stripped_mahogany_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

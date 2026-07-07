@@ -1,0 +1,84 @@
+{
+  "name": "walnut",
+  "namespace": "would",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "would:walnut_planks",
+    "existsLocationItem": "would:walnut_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "would:walnut_log",
+    "existsLocationItem": "would:walnut_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "would:stripped_walnut_log",
+    "existsLocationItem": "would:stripped_walnut_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "would:walnut_wood",
+    "existsLocationItem": "would:walnut_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "would:stripped_walnut_wood",
+    "existsLocationItem": "would:stripped_walnut_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "would:block/walnut_planks",
+      "logLocation": "would:block/walnut_log",
+      "strippedLogLocation": "would:block/stripped_walnut_log",
+      "logTopLocation": "would:block/walnut_log_top",
+      "strippedLogTopLocation": "would:block/stripped_walnut_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

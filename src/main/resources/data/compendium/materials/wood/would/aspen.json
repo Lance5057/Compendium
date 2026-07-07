@@ -1,0 +1,84 @@
+{
+  "name": "aspen",
+  "namespace": "would",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "would:aspen_planks",
+    "existsLocationItem": "would:aspen_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "would:aspen_log",
+    "existsLocationItem": "would:aspen_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "would:stripped_aspen_log",
+    "existsLocationItem": "would:stripped_aspen_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "would:aspen_wood",
+    "existsLocationItem": "would:aspen_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "would:stripped_azalea_wood",
+    "existsLocationItem": "would:stripped_aspen_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "would:block/aspen_planks",
+      "logLocation": "would:block/aspen_log",
+      "strippedLogLocation": "would:block/stripped_aspen_log",
+      "logTopLocation": "would:block/aspen_log_top",
+      "strippedLogTopLocation": "would:block/stripped_aspen_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

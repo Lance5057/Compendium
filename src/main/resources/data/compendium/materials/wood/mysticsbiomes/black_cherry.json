@@ -1,0 +1,84 @@
+{
+  "name": "black_cherry",
+  "namespace": "mysticsbiomes",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "mysticsbiomes:black_cherry_planks",
+    "existsLocationItem": "mysticsbiomes:black_cherry_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "mysticsbiomes:black_cherry_log",
+    "existsLocationItem": "mysticsbiomes:black_cherry_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "mysticsbiomes:stripped_black_cherry_log",
+    "existsLocationItem": "mysticsbiomes:stripped_black_cherry_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "mysticsbiomes:black_cherry_wood",
+    "existsLocationItem": "mysticsbiomes:black_cherry_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "mysticsbiomes:stripped_black_cherry_wood",
+    "existsLocationItem": "mysticsbiomes:stripped_black_cherry_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "mysticsbiomes:block/black_cherry_planks",
+      "logLocation": "mysticsbiomes:block/black_cherry_log",
+      "strippedLogLocation": "mysticsbiomes:block/stripped_black_cherry_log",
+      "logTopLocation": "mysticsbiomes:block/black_cherry_log_top",
+      "strippedLogTopLocation": "mysticsbiomes:block/stripped_black_cherry_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

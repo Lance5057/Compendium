@@ -1,0 +1,78 @@
+{
+  "name": "white_maple",
+  "namespace": "mysticsbiomes",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "generate": "IGNORE"
+  },
+  "log": {
+    "existsLocationBlock": "mysticsbiomes:white_maple_log",
+    "existsLocationItem": "mysticsbiomes:white_maple_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "generate": "IGNORE"
+  },
+  "wood": {
+    "existsLocationBlock": "mysticsbiomes:white_maple_wood",
+    "existsLocationItem": "mysticsbiomes:white_maple_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "mysticsbiomes:block/maple_planks",
+      "logLocation": "mysticsbiomes:block/white_maple_log",
+      "strippedLogLocation": "mysticsbiomes:block/stripped_maple_log",
+      "logTopLocation": "mysticsbiomes:block/white_maple_log_top",
+      "strippedLogTopLocation": "mysticsbiomes:block/stripped_maple_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

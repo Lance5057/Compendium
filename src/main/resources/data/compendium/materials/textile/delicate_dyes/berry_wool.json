@@ -1,0 +1,20 @@
+{
+  "name": "berry_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "IGNORE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/rose_wool"
+    }
+  },
+  "extensions": []
+}

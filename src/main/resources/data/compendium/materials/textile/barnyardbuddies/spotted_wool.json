@@ -1,0 +1,20 @@
+{
+  "name": "spotted_wool",
+  "tagNamespace": "barnyardbuddies",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "IGNORE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "barnyardbuddies:block/spottedwool"
+    }
+  },
+  "extensions": []
+}

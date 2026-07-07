@@ -1,8 +1,8 @@
-// 1.21.1	2026-07-04T02:30:04.3677253	Tags for minecraft:block mod id compendium
+// 1.21.1	2026-07-07T15:00:51.8256085	Tags for minecraft:block mod id compendium
 65e7d87fe83615b8134fee6b669e838090dc073b data/compendium/tags/block/table.json
-3421bf19a4d6e6269bc70d1fb2ecbc2fe8227211 data/create/tags/block/safe_nbt.json
+01aaab10888d0eee0be2208375ef5cf966add2fd data/create/tags/block/safe_nbt.json
 b5a289b8b3995051da520bf7ce877ab6e03753d8 data/c/tags/block/pryable.json
 ef051b8c56470e73cd4eb8a6d74de23013f00778 data/minecraft/tags/block/beds.json
-062d4356549a23e736872570ae234ab52c088cdf data/minecraft/tags/block/mineable/axe.json
-b9f37716d15ebea4c3cd4b14d38d561e4663de6a data/minecraft/tags/block/mineable/pickaxe.json
+d2cb31177d0464b8cdb1139a176781de9afff859 data/minecraft/tags/block/mineable/axe.json
+d8c8a796f2509d32a08ce906f0cfcdac1cc3ea18 data/minecraft/tags/block/mineable/pickaxe.json
 24e1922fb0067778ce928d13f166a68dfa5a9f69 data/minecraft/tags/block/wooden_fences.json

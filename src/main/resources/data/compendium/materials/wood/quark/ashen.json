@@ -1,0 +1,84 @@
+{
+  "name": "ashen",
+  "namespace": "quark",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "quark:ancient_planks",
+    "existsLocationItem": "quark:ancient_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "quark:ancient_log",
+    "existsLocationItem": "quark:ancient_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "quark:stripped_ancient_log",
+    "existsLocationItem": "quark:stripped_ancient_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "quark:ancient_wood",
+    "existsLocationItem": "quark:ancient_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "quark:stripped_ancient_wood",
+    "existsLocationItem": "quark:stripped_ancient_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "quark:block/ancient_planks",
+      "logLocation": "quark:block/ancient_log",
+      "strippedLogLocation": "quark:block/stripped_ancient_log",
+      "logTopLocation": "quark:block/ancient_log_top",
+      "strippedLogTopLocation": "quark:block/stripped_ancient_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

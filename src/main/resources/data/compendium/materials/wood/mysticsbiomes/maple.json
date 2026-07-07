@@ -1,0 +1,84 @@
+{
+  "name": "maple",
+  "namespace": "mysticsbiomes",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "mysticsbiomes:maple_planks",
+    "existsLocationItem": "mysticsbiomes:maple_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "mysticsbiomes:maple_log",
+    "existsLocationItem": "mysticsbiomes:maple_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "mysticsbiomes:stripped_maple_log",
+    "existsLocationItem": "mysticsbiomes:stripped_maple_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "mysticsbiomes:maple_wood",
+    "existsLocationItem": "mysticsbiomes:maple_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "mysticsbiomes:stripped_maple_wood",
+    "existsLocationItem": "mysticsbiomes:stripped_maple_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "mysticsbiomes:block/maple_planks",
+      "logLocation": "mysticsbiomes:block/maple_log",
+      "strippedLogLocation": "mysticsbiomes:block/stripped_maple_log",
+      "logTopLocation": "mysticsbiomes:block/maple_log_top",
+      "strippedLogTopLocation": "mysticsbiomes:block/stripped_maple_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

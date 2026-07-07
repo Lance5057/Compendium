@@ -1,0 +1,84 @@
+{
+  "name": "vivicus",
+  "namespace": "moresnifferflowers",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "moresnifferflowers:vivicus_planks",
+    "existsLocationItem": "moresnifferflowers:vivicus_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "moresnifferflowers:vivicus_log",
+    "existsLocationItem": "moresnifferflowers:vivicus_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "moresnifferflowers:stripped_vivicus_log",
+    "existsLocationItem": "moresnifferflowers:stripped_vivicus_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "moresnifferflowers:vivicus_wood",
+    "existsLocationItem": "moresnifferflowers:vivicus_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "moresnifferflowers:stripped_vivicus_wood",
+    "existsLocationItem": "moresnifferflowers:stripped_vivicus_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "moresnifferflowers:block/vivicus_planks",
+      "logLocation": "moresnifferflowers:block/vivicus_log",
+      "strippedLogLocation": "moresnifferflowers:block/stripped_vivicus_log",
+      "logTopLocation": "moresnifferflowers:block/vivicus_log_top",
+      "strippedLogTopLocation": "moresnifferflowers:block/stripped_vivicus_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

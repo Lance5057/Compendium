@@ -1,0 +1,15 @@
+{
+  "name": "sky_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "IGNORE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "IGNORE"
+  },
+  "extensions": []
+}

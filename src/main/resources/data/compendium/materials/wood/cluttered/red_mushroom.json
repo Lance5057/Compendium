@@ -1,0 +1,71 @@
+{
+  "name": "red_mushroom",
+  "namespace": "cluttered",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "cluttered:red_mushroom_planks",
+    "existsLocationItem": "cluttered:red_mushroom_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "cluttered:red_mushroom_log",
+    "existsLocationItem": "cluttered:red_mushroom_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "generate": "IGNORE"
+  },
+  "wood": {
+    "existsLocationBlock": "cluttered:red_mushroom_wood",
+    "existsLocationItem": "cluttered:red_mushroom_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "IGNORE"
+      },
+      "log": {
+        "generate": "IGNORE"
+      },
+      "log_slab": {
+        "generate": "IGNORE"
+      },
+      "log_stairs": {
+        "generate": "IGNORE"
+      },
+      "stripped_small_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_slab": {
+        "generate": "IGNORE"
+      },
+      "stripped_log_stairs": {
+        "generate": "IGNORE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "IGNORE"
+      },
+      "plank_block": {
+        "generate": "IGNORE"
+      },
+      "plank_slab": {
+        "generate": "IGNORE"
+      },
+      "plank_stairs": {
+        "generate": "IGNORE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "gingham_magenta",
+  "tagNamespace": "extradelight",
+  "type": "TEXTILE",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "generate": "GENERATE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "extradelight:block/gingham/magenta"
+    }
+  },
+  "extensions": []
+}

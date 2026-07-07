@@ -732,9 +732,9 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(silver);
 
-		//barnyardBuddies();
-		//delicateDyes();
-		//delicateDyesGingham();
+		barnyardBuddies();
+		delicateDyes();
+		delicateDyesGingham();
 		dyenamics();
 		dyenamicsGingham();
 		extraDelight();
@@ -751,9 +751,9 @@ public class IndexInitialResourceLoader {
 		moreSnifferFlowers();
 		quark();
 		heriosFloralExpansion();
-		//mysticsBiomes();
-		//would();
-		//theGreatOutdoors();
+		mysticsBiomes();
+		would();
+		theGreatOutdoors();
 	}
 
 	private static void theGreatOutdoors() {
