@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "tag": "c:zweihander/diamond"
+  },
+  "result": {
+    "count": 1,
+    "id": "compendium:netherite_zweihander_item"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

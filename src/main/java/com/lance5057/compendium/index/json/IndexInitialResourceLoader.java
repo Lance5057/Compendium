@@ -1620,7 +1620,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/strippedcinnamonlogtop")));
 
 		buildDefault(cinnamon_ad.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks()), "abyssal_decor");
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "abyssal_decor");
 
 		MaterialWood whitewood = new MaterialWood("white_wood", "abyssal_decor");
 
@@ -1637,7 +1637,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop"),
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodstrippedlogtop")));
 
-		buildDefault(whitewood.addExtension(new ExtensionExtraLogs()).addExtension(new ExtensionExtraPlanks()), "abyssal_decor");
+		buildDefault(whitewood.addExtension(new ExtensionExtraLogs().generateAll()).addExtension(new ExtensionExtraPlanks().generateAll()), "abyssal_decor");
 	}
 
 	public static void bloomingNature() {

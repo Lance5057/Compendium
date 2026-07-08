@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "compendium:mangrove_styled_planks_slab_item",
+      "required": false
+    },
     "minecraft:mangrove_slab"
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "compendium:copper_nugget_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:gold_nugget",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_nugget",
+      "required": false
+    },
+    {
+      "id": "compendium:netherite_nugget_item",
+      "required": false
+    }
+  ]
+}
