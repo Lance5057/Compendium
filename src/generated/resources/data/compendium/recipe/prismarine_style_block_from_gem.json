@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "p": {
-      "item": "minecraft:prismarine_shard"
+      "item": "compendium:prismarine_shard_item"
     }
   },
   "pattern": [

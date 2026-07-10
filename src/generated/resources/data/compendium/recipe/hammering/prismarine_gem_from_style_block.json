@@ -6,7 +6,7 @@
   "loot": "compendium:hammering/prismarine_gem_from_style_block",
   "ouput": {
     "count": 2,
-    "id": "minecraft:prismarine_shard"
+    "id": "compendium:prismarine_shard_item"
   },
   "tools": [
     {

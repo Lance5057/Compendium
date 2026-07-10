@@ -25,10 +25,6 @@
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_prybar_item",
-      "required": false
-    },
-    {
       "id": "compendium:diamond_prybar_item",
       "required": false
     },

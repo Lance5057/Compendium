@@ -1,4 +1,4 @@
-// 1.21.1	2026-07-07T12:31:26.3009584	Loot Tables
+// 1.21.1	2026-07-09T21:32:00.101396552	Loot Tables
 113055c13dee35ed5c4c16e0cc72ceada332467c data/compendium/loot_table/blocks/acacia_plank.json
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
@@ -45,7 +45,6 @@ a9c4550516601b29dc873319bae16c3dfc72393c data/compendium/loot_table/blocks/dark_
 cce71e73d78ac4f28804373205276b273814336f data/compendium/loot_table/blocks/dark_oak_styled_planks.json
 1d7ad02e00a5700faeaa7976c8c988aa2e702bca data/compendium/loot_table/blocks/dark_oak_styled_planks_slab.json
 dfb5b4a46b4472edded396736209c5c789f7d972 data/compendium/loot_table/blocks/dark_oak_styled_planks_stairs.json
-be917e2de729ee6d7e62cf07ea5e57584982ff5c data/compendium/loot_table/blocks/dark_prismarine_styled_gem.json
 f1522df0dc19c23ff5e77b35e44818686d0b7ad6 data/compendium/loot_table/blocks/diamond_styled_gem.json
 057319a1ae8825ca5003c120d3053ef4ab45d2f6 data/compendium/loot_table/blocks/drawer.json
 18371e7f47a49ad0b3e9b94f7e211118a22cf213 data/compendium/loot_table/blocks/emerald_styled_gem.json
