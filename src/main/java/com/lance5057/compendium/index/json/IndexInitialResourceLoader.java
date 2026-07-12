@@ -1465,27 +1465,33 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("silentgear", "netherwood_log"));
 		netherwood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "stripped_netherwood_log"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "stripped_netherwood_log"));
-		netherwood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "corrupted_wood"),
-				ResourceLocation.fromNamespaceAndPath("silentgear", "corrupted_wood"));
+		netherwood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "netherwood_wood"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "netherwood_wood"));
 		netherwood.STRIPPED_WOOD.setExists(
 				ResourceLocation.fromNamespaceAndPath("silentgear", "stripped_netherwood_wood"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "stripped_netherwood_wood"));
 
 		netherwood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
-				ResourceLocation.fromNamespaceAndPath("silentgear", "block/ntherwood_planks"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "block/netherwood_planks"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "block/netherwood_log"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "block/stripped_netherwood_log"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "block/netherwood_log_top"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "block/stripped_netherwood_log_top")));
-		buildDefault(new MaterialWood("netherwood", "silentgear").addExtension(new ExtensionExtraLogs().generateAll())
+		buildDefault(netherwood.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "silentgear");
 	}
 
 	private static void hazennstuff() {
-		buildDefault(
-				new MaterialWood("frostbite_birch", "hazennstuff").addExtension(new ExtensionExtraLogs().generateAll())
-						.addExtension(new ExtensionExtraPlanks().generateAll()),
-				"hazennstuff");
+		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff",
+				new SpecialLocationsWood(new SpecialTextureLocationsWood(
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_planks"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_frostbite_birch_log_side"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log_side"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff",
+								"block/stripped_frostbite_birch_log_top"))))
+				.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "hazennstuff");
 
 		MaterialWood wisewood = new MaterialWood("wisewood", "hazennstuff");
 
@@ -1979,6 +1985,21 @@ public class IndexInitialResourceLoader {
 		archwood.addExtension(new ExtensionExtraLogs().generateAll());
 		archwood.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(archwood, "ars_nouveau");
+
+		MaterialGem source_gem = new MaterialGem("source_gem", "ars_nouveau");
+
+		source_gem.tier = new CompendiumTier("GOLD");
+		source_gem.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "source_gem_block"),
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "source_gem_block"));
+		source_gem.GEM.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "source_gem"));
+		source_gem.SHARD.setGenerate();
+
+		source_gem.addExtension(new ExtensionAdvancedTools().generateAll());
+		source_gem.addExtension(new ExtensionGemStyleBlocks().generateAll());
+		source_gem.addExtension(new ExtensionVanillaTools().generateAll());
+
+		buildDefault(source_gem, "ars_nouveau");
+
 	}
 
 	public static void enchanted() {
@@ -2061,8 +2082,8 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/stripped_cinnamon_log"),
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/cinnamon_log_top"),
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/stripped_cinnamon_log_top")));
-		
-		buildDefault(new MaterialWood("cinnamon", "extradelight").addExtension(new ExtensionExtraLogs().generateAll())
+
+		buildDefault(cinnamon.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "extradelight");
 
 		MaterialTextile gingham_white = new MaterialTextile("gingham_white", "extradelight",
@@ -2198,7 +2219,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/stripped_fruit_log"),
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/fruit_log_top"),
 				ResourceLocation.fromNamespaceAndPath("extradelight", "block/stripped_fruit_log_top")));
-		buildDefault(new MaterialWood("fruit", "extradelight").addExtension(new ExtensionExtraLogs().generateAll())
+		buildDefault(fruit.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "extradelight");
 	}
 
