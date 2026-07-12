@@ -754,6 +754,93 @@ public class IndexInitialResourceLoader {
 		mysticsBiomes();
 		would();
 		theGreatOutdoors();
+		ironJewelry();
+	}
+
+	private static void ironJewelry() {
+		MaterialGem ruby = new MaterialGem("ruby", "irons_jewelry");
+		ruby.tier = new CompendiumTier("DIAMOND");
+		ruby.BLOCK.setGenerate();
+		ruby.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "ruby"));
+		ruby.SHARD.setGenerate();
+
+		ruby.addExtension(new ExtensionVanillaTools().generateAll());
+		ruby.addExtension(new ExtensionAdvancedTools().generateAll());
+		ruby.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(ruby, "irons_jewelry");
+
+		MaterialGem sapphire = new MaterialGem("sapphire", "irons_jewelry");
+		sapphire.tier = new CompendiumTier("DIAMOND");
+		sapphire.BLOCK.setGenerate();
+		sapphire.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "sapphire"));
+		sapphire.SHARD.setGenerate();
+
+		sapphire.addExtension(new ExtensionVanillaTools().generateAll());
+		sapphire.addExtension(new ExtensionAdvancedTools().generateAll());
+		sapphire.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(sapphire, "irons_jewelry");
+
+		MaterialGem topaz = new MaterialGem("topaz", "irons_jewelry");
+		topaz.tier = new CompendiumTier("DIAMOND");
+		topaz.BLOCK.setGenerate();
+		topaz.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "topaz"));
+		topaz.SHARD.setGenerate();
+
+		topaz.addExtension(new ExtensionVanillaTools().generateAll());
+		topaz.addExtension(new ExtensionAdvancedTools().generateAll());
+		topaz.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(topaz, "irons_jewelry");
+
+		MaterialGem moonstone = new MaterialGem("moonstone", "irons_jewelry");
+		moonstone.tier = new CompendiumTier("DIAMOND");
+		moonstone.BLOCK.setGenerate();
+		moonstone.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "moonstone"));
+		moonstone.SHARD.setGenerate();
+
+		moonstone.addExtension(new ExtensionVanillaTools().generateAll());
+		moonstone.addExtension(new ExtensionAdvancedTools().generateAll());
+		moonstone.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(moonstone, "irons_jewelry");
+
+		MaterialGem peridot = new MaterialGem("peridot", "irons_jewelry");
+		peridot.tier = new CompendiumTier("DIAMOND");
+		peridot.BLOCK.setGenerate();
+		peridot.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "peridot"));
+		peridot.SHARD.setGenerate();
+
+		peridot.addExtension(new ExtensionVanillaTools().generateAll());
+		peridot.addExtension(new ExtensionAdvancedTools().generateAll());
+		peridot.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(peridot, "irons_jewelry");
+
+		MaterialGem onyx = new MaterialGem("onyx", "irons_jewelry");
+		onyx.tier = new CompendiumTier("DIAMOND");
+		onyx.BLOCK.setGenerate();
+		onyx.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "onyx"));
+		onyx.SHARD.setGenerate();
+
+		onyx.addExtension(new ExtensionVanillaTools().generateAll());
+		onyx.addExtension(new ExtensionAdvancedTools().generateAll());
+		onyx.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(onyx, "irons_jewelry");
+
+		MaterialGem garnet = new MaterialGem("garnet", "irons_jewelry");
+		garnet.tier = new CompendiumTier("DIAMOND");
+		garnet.BLOCK.setGenerate();
+		garnet.GEM.setExists(ResourceLocation.fromNamespaceAndPath("irons_jewelry", "garnet"));
+		garnet.SHARD.setGenerate();
+
+		garnet.addExtension(new ExtensionVanillaTools().generateAll());
+		garnet.addExtension(new ExtensionAdvancedTools().generateAll());
+		garnet.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(garnet, "irons_jewelry");
 	}
 
 	private static void theGreatOutdoors() {
@@ -1422,6 +1509,18 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "block/stripped_corrupted_log_top")));
 		buildDefault(corrupted.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "moresnifferflowers");
+
+		MaterialGem amber = new MaterialGem("amber", "moresnifferflowers");
+		amber.tier = new CompendiumTier("DIAMOND");
+		amber.BLOCK.setGenerate();
+		amber.GEM.setGenerate();
+		amber.SHARD.setExists(ResourceLocation.fromNamespaceAndPath("moresnifferflowers", "amber_shard"));
+
+		amber.addExtension(new ExtensionVanillaTools().generateAll());
+		amber.addExtension(new ExtensionAdvancedTools().generateAll());
+		amber.addExtension(new ExtensionGemStyleBlocks().generateAll());
+
+		buildDefault(amber);
 	}
 
 	private static void butchercraft() {
@@ -1528,6 +1627,17 @@ public class IndexInitialResourceLoader {
 						.addExtension(new ExtensionExtraPlanks().generateAll()),
 				"cataclysm");
 
+		MaterialMetal ancient_metal = new MaterialMetal("ancient_metal", "cataclysm");
+		ancient_metal.tier = new CompendiumTier("NETHERITE");
+		ancient_metal.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ancient_metal_block"),
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "ancient_metal_block"));
+		ancient_metal.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ancient_metal_ingot"));
+		ancient_metal.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ancient_metal_nugget"));
+
+		ancient_metal.addExtension(new ExtensionAdvancedTools().generateAll());
+		ancient_metal.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(ancient_metal);
 	}
 
 	public static void cluttered() {

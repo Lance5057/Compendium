@@ -35,43 +35,43 @@
     {
       "type": "EXTRALOGS",
       "small_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_small_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       }
     },
     {
       "type": "EXTRAPLANKS",
       "plank": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_block": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       }
     }
   ]

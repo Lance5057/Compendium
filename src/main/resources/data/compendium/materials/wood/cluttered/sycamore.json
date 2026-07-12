@@ -28,47 +28,56 @@
     "existsLocationItem": "cluttered:stripped_sycamore_wood",
     "generate": "EXISTS"
   },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "cluttered:block/sycamore_planks",
+      "logLocation": "cluttered:block/sycamore_log",
+      "strippedLogLocation": "cluttered:block/stripped_sycamore_log",
+      "logTopLocation": "cluttered:block/sycamore_log_top",
+      "strippedLogTopLocation": "cluttered:block/stripped_sycamore_log_top"
+    }
+  },
   "extensions": [
     {
       "type": "EXTRALOGS",
       "small_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "log_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_small_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "stripped_log_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       }
     },
     {
       "type": "EXTRAPLANKS",
       "plank": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_block": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_slab": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       },
       "plank_stairs": {
-        "generate": "IGNORE"
+        "generate": "GENERATE"
       }
     }
   ]
