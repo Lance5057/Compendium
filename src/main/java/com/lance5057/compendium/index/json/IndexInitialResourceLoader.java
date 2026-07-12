@@ -1578,6 +1578,89 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("silentgear", "block/stripped_netherwood_log_top")));
 		buildDefault(netherwood.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "silentgear");
+
+		MaterialMetal azure_electrum = new MaterialMetal("azure_electrum", "silentgear");
+		azure_electrum.tier = new CompendiumTier("NETHERITE");
+		azure_electrum.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_electrum_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "azure_electrum_block"));
+		azure_electrum.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_electrum_ingot"));
+		azure_electrum.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_electrum_nugget"));
+
+		azure_electrum.addExtension(new ExtensionAdvancedTools().generateAll());
+		azure_electrum.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(azure_electrum);
+
+		MaterialMetal azure_silver = new MaterialMetal("azure_silver", "silentgear");
+		azure_silver.tier = new CompendiumTier("NETHERITE");
+		azure_silver.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_silver_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "azure_silver_block"));
+		azure_silver.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_silver_ingot"));
+		azure_silver.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "azure_silver_nugget"));
+
+		azure_silver.addExtension(new ExtensionAdvancedTools().generateAll());
+		azure_silver.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(azure_silver);
+
+		MaterialMetal blaze_gold = new MaterialMetal("blaze_gold", "silentgear");
+		blaze_gold.tier = new CompendiumTier("NETHERITE");
+		blaze_gold.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_block"));
+		blaze_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_ingot"));
+		blaze_gold.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_nugget"));
+
+		blaze_gold.addExtension(new ExtensionAdvancedTools().generateAll());
+		blaze_gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(blaze_gold);
+
+		MaterialMetal bronze = new MaterialMetal("bronze", "silentgear");
+		bronze.tier = new CompendiumTier("NETHERITE");
+		// bronze.BLOCK.setGenerate();
+		bronze.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "bronze_ingot"));
+		// bronze.NUGGET.setGenerate();
+
+		bronze.addExtension(new ExtensionAdvancedTools().generateAll());
+		bronze.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(bronze);
+
+		MaterialMetal crimson_iron = new MaterialMetal("crimson_iron", "silentgear");
+		crimson_iron.tier = new CompendiumTier("NETHERITE");
+		crimson_iron.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_block"));
+		crimson_iron.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_ingot"));
+		crimson_iron.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_nugget"));
+
+		crimson_iron.addExtension(new ExtensionAdvancedTools().generateAll());
+		crimson_iron.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(crimson_iron);
+
+		MaterialMetal crimson_steel = new MaterialMetal("crimson_steel", "silentgear");
+		crimson_steel.tier = new CompendiumTier("NETHERITE");
+		crimson_steel.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_steel_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_steel_block"));
+		crimson_steel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_steel_ingot"));
+		crimson_steel.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_steel_nugget"));
+
+		crimson_steel.addExtension(new ExtensionAdvancedTools().generateAll());
+		crimson_steel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(crimson_steel);
+
+		MaterialMetal tyrian_steel = new MaterialMetal("tyrian_steel", "silentgear");
+		tyrian_steel.tier = new CompendiumTier("NETHERITE");
+		tyrian_steel.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "tyrian_steel_block"),
+				ResourceLocation.fromNamespaceAndPath("silentgear", "tyrian_steel_block"));
+		tyrian_steel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "tyrian_steel_ingot"));
+		tyrian_steel.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "tyrian_steel_nugget"));
+
+		tyrian_steel.addExtension(new ExtensionAdvancedTools().generateAll());
+		tyrian_steel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(tyrian_steel);
 	}
 
 	private static void hazennstuff() {
@@ -1613,6 +1696,72 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_wisewood_log_top")));
 		buildDefault(wisewood.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "hazennstuff");
+
+		MaterialMetal chlorophyte = new MaterialMetal("chlorophyte", "hazennstuff");
+		chlorophyte.tier = new CompendiumTier("NETHERITE");
+		// chlorophyte.BLOCK.setGenerate();
+		chlorophyte.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "chlorophyte_ingot"));
+		// chlorophyte.NUGGET.setGenerate();
+
+		chlorophyte.addExtension(new ExtensionAdvancedTools().generateAll());
+		chlorophyte.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(chlorophyte);
+
+		MaterialMetal cosmic_gold = new MaterialMetal("cosmic_gold", "hazennstuff");
+		cosmic_gold.tier = new CompendiumTier("NETHERITE");
+		// cosmic_gold.BLOCK.setGenerate();
+		cosmic_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "cosmic_gold_ingot"));
+		// cosmic_gold.NUGGET.setGenerate();
+
+		cosmic_gold.addExtension(new ExtensionAdvancedTools().generateAll());
+		cosmic_gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(cosmic_gold);
+
+		MaterialMetal demonite = new MaterialMetal("demonite", "hazennstuff");
+		demonite.tier = new CompendiumTier("NETHERITE");
+		// demonite.BLOCK.setGenerate();
+		demonite.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "demonite_ingot"));
+		// demonite.NUGGET.setGenerate();
+
+		demonite.addExtension(new ExtensionAdvancedTools().generateAll());
+		demonite.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(demonite);
+
+		MaterialMetal dreadsteel = new MaterialMetal("dreadsteel", "hazennstuff");
+		dreadsteel.tier = new CompendiumTier("NETHERITE");
+		// dreadsteel.BLOCK.setGenerate();
+		dreadsteel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "dreadsteel_ingot"));
+		// dreadsteel.NUGGET.setGenerate();
+
+		dreadsteel.addExtension(new ExtensionAdvancedTools().generateAll());
+		dreadsteel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(dreadsteel);
+
+		MaterialMetal rose_gold = new MaterialMetal("rose_gold", "hazennstuff");
+		rose_gold.tier = new CompendiumTier("NETHERITE");
+		// rose_gold.BLOCK.setGenerate();
+		rose_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "rose_gold_ingot"));
+		// rose_gold.NUGGET.setGenerate();
+
+		rose_gold.addExtension(new ExtensionAdvancedTools().generateAll());
+		rose_gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(rose_gold);
+
+		MaterialMetal steel = new MaterialMetal("steel", "hazennstuff");
+		steel.tier = new CompendiumTier("NETHERITE");
+		// steel.BLOCK.setGenerate();
+		steel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "steel_ingot"));
+		// steel.NUGGET.setGenerate();
+
+		steel.addExtension(new ExtensionAdvancedTools().generateAll());
+		steel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(steel);
 	}
 
 	private static void cataclysm() {
@@ -1638,6 +1787,42 @@ public class IndexInitialResourceLoader {
 		ancient_metal.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(ancient_metal);
+
+		MaterialMetal black_steel = new MaterialMetal("black_steel", "cataclysm");
+		black_steel.tier = new CompendiumTier("NETHERITE");
+		black_steel.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "black_steel_block"),
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "black_steel_block"));
+		black_steel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "black_steel_ingot"));
+		black_steel.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "black_steel_nugget"));
+
+		black_steel.addExtension(new ExtensionAdvancedTools().generateAll());
+		black_steel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(black_steel);
+
+		MaterialMetal cursium = new MaterialMetal("cursium", "cataclysm");
+		cursium.tier = new CompendiumTier("NETHERITE");
+		cursium.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_block"),
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_block"));
+		cursium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_ingot"));
+		// cursium.NUGGET.setGenerate();
+
+		cursium.addExtension(new ExtensionAdvancedTools().generateAll());
+		cursium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(cursium);
+
+		MaterialMetal ignitium = new MaterialMetal("ignitium", "cataclysm");
+		ignitium.tier = new CompendiumTier("NETHERITE");
+		ignitium.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_block"),
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_block"));
+		ignitium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_ingot"));
+		// ignitium.NUGGET.setGenerate();
+
+		ignitium.addExtension(new ExtensionAdvancedTools().generateAll());
+		ignitium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(ignitium);
 	}
 
 	public static void cluttered() {
@@ -1947,6 +2132,54 @@ public class IndexInitialResourceLoader {
 
 		buildDefault(whitewood.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "abyssal_decor");
+
+		MaterialMetal bellmetal = new MaterialMetal("bellmetal", "abyssal_decor");
+		bellmetal.tier = new CompendiumTier("NETHERITE");
+		bellmetal.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "bellmetal_block"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "bellmetal_block"));
+		bellmetal.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "bellmetal_ingot"));
+		bellmetal.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "bellmetal_nugget"));
+
+		bellmetal.addExtension(new ExtensionAdvancedTools().generateAll());
+		bellmetal.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(bellmetal);
+
+		MaterialMetal deepbronze = new MaterialMetal("deepbronze", "abyssal_decor");
+		deepbronze.tier = new CompendiumTier("NETHERITE");
+		deepbronze.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "deepbronze_block"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "deepbronze_block"));
+		deepbronze.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "deepbronze_ingot"));
+		deepbronze.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "deepbronze_nugget"));
+
+		deepbronze.addExtension(new ExtensionAdvancedTools().generateAll());
+		deepbronze.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(deepbronze);
+
+		MaterialMetal moonsilver = new MaterialMetal("moonsilver", "abyssal_decor");
+		moonsilver.tier = new CompendiumTier("NETHERITE");
+		moonsilver.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "moonsilver_block"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "moonsilver_block"));
+		moonsilver.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "moonsilver_ingot"));
+		moonsilver.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "moonsilver_nugget"));
+
+		moonsilver.addExtension(new ExtensionAdvancedTools().generateAll());
+		moonsilver.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(moonsilver);
+
+		MaterialMetal seabrass = new MaterialMetal("seabrass", "abyssal_decor");
+		seabrass.tier = new CompendiumTier("NETHERITE");
+		seabrass.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "seabrass_block"),
+				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "seabrass_block"));
+		seabrass.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "seabrass_ingot"));
+		seabrass.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "seabrass_nugget"));
+
+		seabrass.addExtension(new ExtensionAdvancedTools().generateAll());
+		seabrass.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(seabrass);
 	}
 
 	public static void bloomingNature() {
