@@ -2432,115 +2432,150 @@ public class IndexInitialResourceLoader {
 		MaterialTextile gingham_white = new MaterialTextile("gingham_white", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/white"), null, null)));
-		gingham_white.BLOCK.setGenerate();
-		gingham_white.CARPET.setGenerate();
+		gingham_white.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_white"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_white"));
+		gingham_white.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_white"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_white"));
 		buildDefault(gingham_white, "extradelight");
 
 		MaterialTextile gingham_light_gray = new MaterialTextile("gingham_light_gray", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_gray"), null,
 						null)));
-		gingham_light_gray.BLOCK.setGenerate();
-		gingham_light_gray.CARPET.setGenerate();
+		gingham_light_gray.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_light_gray"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_light_gray"));
+		gingham_light_gray.CARPET.setExists(
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_light_gray"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_light_gray"));
 		buildDefault(gingham_light_gray, "extradelight");
 
 		MaterialTextile gingham_gray = new MaterialTextile("gingham_gray", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/gray"), null, null)));
-		gingham_gray.BLOCK.setGenerate();
-		gingham_gray.CARPET.setGenerate();
+		gingham_gray.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_gray"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_gray"));
+		gingham_gray.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_gray"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_gray"));
 		buildDefault(gingham_gray, "extradelight");
 
 		MaterialTextile gingham_black = new MaterialTextile("gingham_black", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/black"), null, null)));
-		gingham_black.BLOCK.setGenerate();
-		gingham_black.CARPET.setGenerate();
+		gingham_black.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_black"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_black"));
+		gingham_black.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_black"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_black"));
 		buildDefault(gingham_black, "extradelight");
 
 		MaterialTextile gingham_brown = new MaterialTextile("gingham_brown", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/brown"), null, null)));
-		gingham_brown.BLOCK.setGenerate();
-		gingham_brown.CARPET.setGenerate();
+		gingham_brown.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_brown"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_brown"));
+		gingham_brown.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_brown"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_brown"));
 		buildDefault(gingham_brown, "extradelight");
 
 		MaterialTextile gingham_red = new MaterialTextile("gingham_red", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/red"), null, null)));
-		gingham_red.BLOCK.setGenerate();
-		gingham_red.CARPET.setGenerate();
+		gingham_red.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_red"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_red"));
+		gingham_red.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_red"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_red"));
 		buildDefault(gingham_red, "extradelight");
 
 		MaterialTextile gingham_orange = new MaterialTextile("gingham_orange", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/orange"), null, null)));
-		gingham_orange.BLOCK.setGenerate();
-		gingham_orange.CARPET.setGenerate();
+		gingham_orange.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_orange"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_orange"));
+		gingham_orange.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_orange"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_orange"));
 		buildDefault(gingham_orange, "extradelight");
 
 		MaterialTextile gingham_yellow = new MaterialTextile("gingham_yellow", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/yellow"), null, null)));
-		gingham_yellow.BLOCK.setGenerate();
-		gingham_yellow.CARPET.setGenerate();
+		gingham_yellow.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_yellow"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_yellow"));
+		gingham_yellow.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_yellow"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_yellow"));
 		buildDefault(gingham_yellow, "extradelight");
 
 		MaterialTextile gingham_lime = new MaterialTextile("gingham_lime", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/lime"), null, null)));
-		gingham_lime.BLOCK.setGenerate();
-		gingham_lime.CARPET.setGenerate();
+		gingham_lime.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_lime"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_lime"));
+		gingham_lime.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_lime"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_lime"));
 		buildDefault(gingham_lime, "extradelight");
 
 		MaterialTextile gingham_green = new MaterialTextile("gingham_green", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/green"), null, null)));
-		gingham_green.BLOCK.setGenerate();
-		gingham_green.CARPET.setGenerate();
+		gingham_green.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_green"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_green"));
+		gingham_green.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_green"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_green"));
 		buildDefault(gingham_green, "extradelight");
 
 		MaterialTextile gingham_cyan = new MaterialTextile("gingham_cyan", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/cyan"), null, null)));
-		gingham_cyan.BLOCK.setGenerate();
-		gingham_cyan.CARPET.setGenerate();
+		gingham_cyan.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_cyan"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_cyan"));
+		gingham_cyan.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_cyan"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_cyan"));
 		buildDefault(gingham_cyan, "extradelight");
 
 		MaterialTextile gingham_light_blue = new MaterialTextile("gingham_light_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/light_blue"), null,
 						null)));
-		gingham_light_blue.BLOCK.setGenerate();
-		gingham_light_blue.CARPET.setGenerate();
+		gingham_light_blue.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_light_blue"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_light_blue"));
+		gingham_light_blue.CARPET.setExists(
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_light_blue"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_light_blue"));
 		buildDefault(gingham_light_blue, "extradelight");
 
 		MaterialTextile gingham_blue = new MaterialTextile("gingham_blue", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/blue"), null, null)));
-		gingham_blue.BLOCK.setGenerate();
-		gingham_blue.CARPET.setGenerate();
+		gingham_blue.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_blue"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_blue"));
+		gingham_blue.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_blue"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_blue"));
 		buildDefault(gingham_blue, "extradelight");
 
 		MaterialTextile gingham_purple = new MaterialTextile("gingham_purple", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/purple"), null, null)));
-		gingham_purple.BLOCK.setGenerate();
-		gingham_purple.CARPET.setGenerate();
+		gingham_purple.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_purple"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_purple"));
+		gingham_purple.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_purple"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_purple"));
 		buildDefault(gingham_purple, "extradelight");
 
 		MaterialTextile gingham_magenta = new MaterialTextile("gingham_magenta", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/magenta"), null, null)));
-		gingham_magenta.BLOCK.setGenerate();
-		gingham_magenta.CARPET.setGenerate();
+		gingham_magenta.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_magenta"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_magenta"));
+		gingham_magenta.CARPET.setExists(
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_magenta"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_magenta"));
 		buildDefault(gingham_magenta, "extradelight");
 
 		MaterialTextile gingham_pink = new MaterialTextile("gingham_pink", "extradelight",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("extradelight", "block/gingham/pink"), null, null)));
-		gingham_pink.BLOCK.setGenerate();
-		gingham_pink.CARPET.setGenerate();
+		gingham_pink.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_pink"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_pink"));
+		gingham_pink.CARPET.setExists(ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_pink"),
+				ResourceLocation.fromNamespaceAndPath("extradelight", "gingham_carpet_pink"));
 		buildDefault(gingham_pink, "extradelight");
 
 		MaterialWood fruit = new MaterialWood("fruit", "extradelight");
