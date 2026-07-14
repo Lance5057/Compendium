@@ -3,13 +3,22 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:wasabi_wool",
+    "existsLocationItem": "delicate_dyes:wasabi_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:wasabi_carpet",
+    "existsLocationItem": "delicate_dyes:wasabi_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/wasabi_wool"
+    }
   },
   "extensions": []
 }

@@ -3,13 +3,17 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:lavender_wool",
+    "existsLocationItem": "delicate_dyes:lavender_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:lavender_carpet",
+    "existsLocationItem": "delicate_dyes:lavender_carpet",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {

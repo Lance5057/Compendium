@@ -3,13 +3,22 @@
   "tagNamespace": "dyenamics",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:wine_wool",
+    "existsLocationItem": "dyenamics:wine_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:wine_carpet",
+    "existsLocationItem": "dyenamics:wine_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/wine_wool"
+    }
   },
   "extensions": []
 }

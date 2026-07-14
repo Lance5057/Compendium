@@ -3,13 +3,22 @@
   "tagNamespace": "dyenamics",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:persimmon_wool",
+    "existsLocationItem": "dyenamics:persimmon_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:persimmon_carpet",
+    "existsLocationItem": "dyenamics:persimmon_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/persimmon_wool"
+    }
   },
   "extensions": []
 }

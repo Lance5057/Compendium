@@ -15,6 +15,10 @@
     {
       "id": "compendium:netherite_nugget_item",
       "required": false
+    },
+    {
+      "id": "compendium:silver_nugget_item",
+      "required": false
     }
   ]
 }

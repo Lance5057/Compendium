@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "compendium:prismarine_shard_item",
+      "id": "minecraft:prismarine_shard",
       "required": false
     }
   ]

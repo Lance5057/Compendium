@@ -3,13 +3,17 @@
   "tagNamespace": "barnyardbuddies",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "barnyardbuddies:spotted_wool",
+    "existsLocationItem": "barnyardbuddies:spotted_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "barnyardbuddies:spotted_carpet",
+    "existsLocationItem": "barnyardbuddies:spotted_carpet",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {

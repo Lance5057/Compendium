@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "compendium:prismarine_shard_item"
+            "items": "minecraft:prismarine_shard"
           }
         ]
       },

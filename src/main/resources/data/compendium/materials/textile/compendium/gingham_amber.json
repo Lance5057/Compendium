@@ -11,5 +11,10 @@
   "carpet": {
     "generate": "GENERATE"
   },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "compendium:blocks/gingham_amber"
+    }
+  },
   "extensions": []
 }

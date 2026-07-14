@@ -3,13 +3,22 @@
   "tagNamespace": "dyenamics",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:ultramarine_wool",
+    "existsLocationItem": "dyenamics:ultramarine_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:ultramarine_carpet",
+    "existsLocationItem": "dyenamics:ultramarine_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/ultramarine_wool"
+    }
   },
   "extensions": []
 }

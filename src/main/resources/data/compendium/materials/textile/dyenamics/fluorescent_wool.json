@@ -3,13 +3,22 @@
   "tagNamespace": "dyenamics",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:fluorescent_wool",
+    "existsLocationItem": "dyenamics:fluorescent_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "dyenamics:fluorescent_carpet",
+    "existsLocationItem": "dyenamics:fluorescent_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/fluorescent_wool"
+    }
   },
   "extensions": []
 }

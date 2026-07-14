@@ -15,6 +15,10 @@
     {
       "id": "minecraft:netherite_ingot",
       "required": false
+    },
+    {
+      "id": "compendium:silver_ingot_item",
+      "required": false
     }
   ]
 }

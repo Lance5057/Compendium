@@ -3,13 +3,22 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:blurple_wool",
+    "existsLocationItem": "delicate_dyes:blurple_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:blurple_carpet",
+    "existsLocationItem": "delicate_dyes:blurple_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/blurple_wool"
+    }
   },
   "extensions": []
 }

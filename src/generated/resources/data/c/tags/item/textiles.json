@@ -1,0 +1,116 @@
+{
+  "values": [
+    {
+      "id": "compendium:gingham_amber_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_aquamarine_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_berry_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_blurple_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_bubblegum_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_canary_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_cherenkov_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_conifer_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_coral_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_fluorescent_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_honey_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_icy_blue_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_lavender_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_lilac_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_maroon_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_mint_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_navy_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_peach_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_persimmon_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_rose_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sacramento_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sangria_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sky_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_spring_green_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_ultramarine_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_umber_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_wasabi_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_wine_block_item",
+      "required": false
+    }
+  ]
+}

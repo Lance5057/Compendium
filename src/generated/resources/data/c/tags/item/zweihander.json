@@ -17,11 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:silver_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_zweihander_item",
       "required": false
     },
     {
       "id": "compendium:crying_obsidian_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_zweihander_item",
       "required": false
     },
     {

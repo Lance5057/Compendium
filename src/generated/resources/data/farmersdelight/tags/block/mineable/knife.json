@@ -1,0 +1,116 @@
+{
+  "values": [
+    {
+      "id": "compendium:gingham_amber_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_aquamarine_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_berry_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_blurple_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_bubblegum_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_canary_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_cherenkov_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_conifer_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_coral_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_fluorescent_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_honey_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_icy_blue_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_lavender_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_lilac_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_maroon_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_mint_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_navy_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_peach_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_persimmon_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_rose_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sacramento_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sangria_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_sky_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_spring_green_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_ultramarine_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_umber_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_wasabi_carpet",
+      "required": false
+    },
+    {
+      "id": "compendium:gingham_wine_carpet",
+      "required": false
+    }
+  ]
+}

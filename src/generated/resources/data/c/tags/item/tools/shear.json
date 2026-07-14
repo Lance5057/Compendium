@@ -17,11 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:silver_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_shears_item",
       "required": false
     },
     {
       "id": "compendium:crying_obsidian_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_shears_item",
       "required": false
     },
     {

@@ -18,11 +18,19 @@
       "required": false
     },
     {
+      "id": "compendium:silver_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_hammer_item",
       "required": false
     },
     {
       "id": "compendium:crying_obsidian_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_hammer_item",
       "required": false
     },
     {
