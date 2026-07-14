@@ -60,6 +60,10 @@
     {
       "id": "compendium:quartz_hammer_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_hammer_item",
+      "required": false
     }
   ]
 }

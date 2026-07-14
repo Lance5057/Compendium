@@ -39,6 +39,10 @@
     {
       "id": "compendium:quartz_hoe_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_hoe_item",
+      "required": false
     }
   ]
 }

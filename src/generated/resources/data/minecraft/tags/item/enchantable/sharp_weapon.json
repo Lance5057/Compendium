@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "compendium:copper_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:copper_axe_item",
       "required": false
     },
     {
-      "id": "compendium:amethyst_axe_item",
+      "id": "compendium:copper_sword_item",
       "required": false
     },
     {
       "id": "compendium:amethyst_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_axe_item",
       "required": false
     },
     {
@@ -25,11 +25,11 @@
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_axe_item",
+      "id": "compendium:dark_prismarine_sword_item",
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_sword_item",
+      "id": "compendium:dark_prismarine_axe_item",
       "required": false
     },
     {
@@ -65,11 +65,15 @@
       "required": false
     },
     {
+      "id": "compendium:prismarine_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:prismarine_sword_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_axe_item",
+      "id": "compendium:quartz_sword_item",
       "required": false
     },
     {
@@ -77,7 +81,11 @@
       "required": false
     },
     {
-      "id": "compendium:quartz_sword_item",
+      "id": "compendium:source_gem_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:source_gem_sword_item",
       "required": false
     }
   ]

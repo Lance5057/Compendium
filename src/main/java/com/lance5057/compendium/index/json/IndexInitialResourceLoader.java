@@ -728,9 +728,16 @@ public class IndexInitialResourceLoader {
 		silver.INGOT.setGenerate();
 		silver.NUGGET.setGenerate();
 
-		silver.addExtension(new ExtensionAdvancedTools().generateAll());
+		silver.addExtension(new ExtensionAdvancedTools().generateAll())
+				.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(silver);
+		
+		MaterialTextile gingham_rainbow = new MaterialTextile("gingham_rainbow", "compendium");
+		gingham_rainbow.BLOCK.setGenerate();
+		gingham_rainbow.CARPET.setGenerate();
+		gingham_rainbow.STRING.setIgnore();
+		buildDefault(gingham_rainbow, "compendium");
 
 		barnyardBuddies();
 		delicateDyes();
@@ -738,8 +745,8 @@ public class IndexInitialResourceLoader {
 		dyenamics();
 		dyenamicsGingham();
 //		extraDelight();
-//		enchanted();
-//		arsNouveau();
+		enchanted();
+		arsNouveau();
 //		// bloomingNature();
 //		abyssalDecor();
 //		cluttered();

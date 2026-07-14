@@ -39,6 +39,10 @@
     {
       "id": "compendium:quartz_shovel_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_shovel_item",
+      "required": false
     }
   ]
 }

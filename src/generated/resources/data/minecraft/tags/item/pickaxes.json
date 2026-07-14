@@ -39,6 +39,10 @@
     {
       "id": "compendium:quartz_pickaxe_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_pickaxe_item",
+      "required": false
     }
   ]
 }

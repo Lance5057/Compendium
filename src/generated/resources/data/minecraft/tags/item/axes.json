@@ -39,6 +39,10 @@
     {
       "id": "compendium:quartz_axe_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_axe_item",
+      "required": false
     }
   ]
 }

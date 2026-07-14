@@ -77,6 +77,10 @@
       "required": false
     },
     {
+      "id": "compendium:gingham_rainbow_carpet_item",
+      "required": false
+    },
+    {
       "id": "compendium:gingham_rose_carpet_item",
       "required": false
     },

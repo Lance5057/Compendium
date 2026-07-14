@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "compendium:source_gem_shard_item",
+      "required": false
+    }
+  ]
+}

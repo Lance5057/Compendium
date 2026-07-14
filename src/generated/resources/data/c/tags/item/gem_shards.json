@@ -39,6 +39,10 @@
     {
       "id": "compendium:quartz_shard_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_shard_item",
+      "required": false
     }
   ]
 }

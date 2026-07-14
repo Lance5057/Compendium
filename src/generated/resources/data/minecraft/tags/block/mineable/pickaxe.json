@@ -21,6 +21,10 @@
       "required": false
     },
     {
+      "id": "compendium:silver_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_styled_gem",
       "required": false
     },
@@ -58,6 +62,10 @@
     },
     {
       "id": "compendium:quartz_styled_gem",
+      "required": false
+    },
+    {
+      "id": "compendium:source_gem_styled_gem",
       "required": false
     },
     "compendium:cosmetic_toolbox",

@@ -39,6 +39,10 @@
     {
       "id": "minecraft:quartz",
       "required": false
+    },
+    {
+      "id": "ars_nouveau:source_gem",
+      "required": false
     }
   ]
 }

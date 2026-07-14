@@ -5,6 +5,14 @@
       "required": false
     },
     {
+      "id": "compendium:alder_small_logs_slab_item",
+      "required": false
+    },
+    {
+      "id": "compendium:archwood_small_logs_slab_item",
+      "required": false
+    },
+    {
       "id": "compendium:birch_small_logs_slab_item",
       "required": false
     },
@@ -21,6 +29,10 @@
       "required": false
     },
     {
+      "id": "compendium:hawthorn_small_logs_slab_item",
+      "required": false
+    },
+    {
       "id": "compendium:jungle_small_logs_slab_item",
       "required": false
     },
@@ -30,6 +42,10 @@
     },
     {
       "id": "compendium:oak_small_logs_slab_item",
+      "required": false
+    },
+    {
+      "id": "compendium:rowan_small_logs_slab_item",
       "required": false
     },
     {

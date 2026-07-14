@@ -99,6 +99,14 @@
     {
       "id": "compendium:quartz_sword_item",
       "required": false
+    },
+    {
+      "id": "compendium:source_gem_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:source_gem_sword_item",
+      "required": false
     }
   ]
 }
