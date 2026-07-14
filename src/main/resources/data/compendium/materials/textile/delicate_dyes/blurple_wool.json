@@ -11,7 +11,9 @@
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:blurple_carpet",
+    "existsLocationItem": "delicate_dyes:blurple_carpet",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {

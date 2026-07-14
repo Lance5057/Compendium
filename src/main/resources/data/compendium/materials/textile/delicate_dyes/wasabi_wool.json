@@ -11,7 +11,9 @@
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:wasabi_carpet",
+    "existsLocationItem": "delicate_dyes:wasabi_carpet",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {

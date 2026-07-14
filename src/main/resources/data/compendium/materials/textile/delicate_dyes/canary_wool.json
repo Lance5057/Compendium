@@ -11,7 +11,9 @@
     "generate": "IGNORE"
   },
   "carpet": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:canary_carpet",
+    "existsLocationItem": "delicate_dyes:canary_carpet",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {
