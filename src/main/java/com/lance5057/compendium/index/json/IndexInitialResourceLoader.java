@@ -737,24 +737,24 @@ public class IndexInitialResourceLoader {
 		delicateDyesGingham();
 		dyenamics();
 		dyenamicsGingham();
-		extraDelight();
-		enchanted();
-		arsNouveau();
-		// bloomingNature();
-		abyssalDecor();
-		cluttered();
-		cataclysm();
-		hazennstuff();
-		silentgear();
-		koopascritters();
-		butchercraft();
-		moreSnifferFlowers();
-		quark();
-		heriosFloralExpansion();
-		mysticsBiomes();
-		would();
-		theGreatOutdoors();
-		ironJewelry();
+//		extraDelight();
+//		enchanted();
+//		arsNouveau();
+//		// bloomingNature();
+//		abyssalDecor();
+//		cluttered();
+//		cataclysm();
+//		hazennstuff();
+//		silentgear();
+//		koopascritters();
+//		butchercraft();
+//		moreSnifferFlowers();
+//		quark();
+//		heriosFloralExpansion();
+//		mysticsBiomes();
+//		would();
+//		theGreatOutdoors();
+//		ironJewelry();
 	}
 
 	private static void ironJewelry() {
@@ -2605,73 +2605,100 @@ public class IndexInitialResourceLoader {
 		MaterialTextile spotted_wool = new MaterialTextile("spotted_wool", "barnyardbuddies",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("barnyardbuddies", "block/spottedwool"), null, null)));
-		spotted_wool.BLOCK.setIgnore();
+		spotted_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("barnyardbuddies", "spotted_wool"),
+				ResourceLocation.fromNamespaceAndPath("barnyardbuddies", "spotted_wool"));
 		spotted_wool.CARPET.setIgnore();
 		spotted_wool.STRING.setIgnore();
 		buildDefault(spotted_wool, "barnyardbuddies");
 	}
 
 	private static void delicateDyes() {
-		MaterialTextile berry_wool = new MaterialTextile("berry_wool", "delicate_dyes",
+		MaterialTextile rose_wool = new MaterialTextile("berry_wool", "delicate_dyes",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/rose_wool"), null, null)));
-		berry_wool.BLOCK.setIgnore();
-		berry_wool.CARPET.setIgnore();
-		berry_wool.STRING.setIgnore();
-		buildDefault(berry_wool, "delicate_dyes");
+		rose_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "rose_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "rose_wool"));
+		rose_wool.CARPET.setIgnore();
+		rose_wool.STRING.setIgnore();
+		buildDefault(rose_wool, "delicate_dyes");
 
-		MaterialTextile blurple_wool = new MaterialTextile("blurple_wool", "delicate_dyes");
-		blurple_wool.BLOCK.setIgnore();
+		MaterialTextile blurple_wool = new MaterialTextile("blurple_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/blurple_wool"), null, null)));
+		blurple_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "blurple_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "blurple_wool"));
 		blurple_wool.CARPET.setIgnore();
 		blurple_wool.STRING.setIgnore();
 		buildDefault(blurple_wool, "delicate_dyes");
 
-		MaterialTextile canary_wool = new MaterialTextile("canary_wool", "delicate_dyes");
-		canary_wool.BLOCK.setIgnore();
+		MaterialTextile canary_wool = new MaterialTextile("canary_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/canary_wool"), null, null)));
+		canary_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "canary_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "canary_wool"));
 		canary_wool.CARPET.setIgnore();
 		canary_wool.STRING.setIgnore();
 		buildDefault(canary_wool, "delicate_dyes");
 
-		MaterialTextile coral_wool = new MaterialTextile("coral_wool", "delicate_dyes");
-		coral_wool.BLOCK.setIgnore();
+		MaterialTextile coral_wool = new MaterialTextile("coral_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/coral_wool"), null, null)));
+		coral_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "coral_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "coral_wool"));
 		coral_wool.CARPET.setIgnore();
 		coral_wool.STRING.setIgnore();
 		buildDefault(coral_wool, "delicate_dyes");
 
-		MaterialTextile lilac_wool = new MaterialTextile("lilac_wool", "delicate_dyes",
+		MaterialTextile lavender_wool = new MaterialTextile("lilac_wool", "delicate_dyes",
 				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
 						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/lavender_wool"), null, null)));
-		lilac_wool.BLOCK.setIgnore();
-		lilac_wool.CARPET.setIgnore();
-		lilac_wool.STRING.setIgnore();
-		buildDefault(lilac_wool, "delicate_dyes");
+		lavender_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "lavender_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "lavender_wool"));
+		lavender_wool.CARPET.setIgnore();
+		lavender_wool.STRING.setIgnore();
+		buildDefault(lavender_wool, "delicate_dyes");
 
-		MaterialTextile sacramento_wool = new MaterialTextile("sacramento_wool", "delicate_dyes");
-		sacramento_wool.BLOCK.setIgnore();
+		MaterialTextile sacramento_wool = new MaterialTextile("sacramento_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/sacramento_wool"), null, null)));
+		sacramento_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sacramento_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sacramento_wool"));
 		sacramento_wool.CARPET.setIgnore();
 		sacramento_wool.STRING.setIgnore();
 		buildDefault(sacramento_wool, "delicate_dyes");
 
-		MaterialTextile sangria_wool = new MaterialTextile("sangria_wool", "delicate_dyes");
-		sangria_wool.BLOCK.setIgnore();
+		MaterialTextile sangria_wool = new MaterialTextile("sangria_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/sangria_wool"), null, null)));
+		sangria_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sangria_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sangria_wool"));
 		sangria_wool.CARPET.setIgnore();
 		sangria_wool.STRING.setIgnore();
 		buildDefault(sangria_wool, "delicate_dyes");
 
-		MaterialTextile sky_wool = new MaterialTextile("sky_wool", "delicate_dyes");
-		sky_wool.BLOCK.setIgnore();
+		MaterialTextile sky_wool = new MaterialTextile("sky_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/sky_wool"), null, null)));
+		sky_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sky_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "sky_wool"));
 		sky_wool.CARPET.setIgnore();
 		sky_wool.STRING.setIgnore();
 		buildDefault(sky_wool, "delicate_dyes");
 
-		MaterialTextile umber_wool = new MaterialTextile("umber_wool", "delicate_dyes");
-		umber_wool.BLOCK.setIgnore();
+		MaterialTextile umber_wool = new MaterialTextile("umber_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/umber_wool"), null, null)));
+		umber_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "umber_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "umber_wool"));
 		umber_wool.CARPET.setIgnore();
 		umber_wool.STRING.setIgnore();
 		buildDefault(umber_wool, "delicate_dyes");
 
-		MaterialTextile wasabi_wool = new MaterialTextile("wasabi_wool", "delicate_dyes");
-		wasabi_wool.BLOCK.setIgnore();
+		MaterialTextile wasabi_wool = new MaterialTextile("wasabi_wool", "delicate_dyes",
+				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
+						ResourceLocation.fromNamespaceAndPath("delicate_dyes", "block/wasabi_wool"), null, null)));
+		wasabi_wool.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("delicate_dyes", "wasabi_wool"),
+				ResourceLocation.fromNamespaceAndPath("delicate_dyes", "wasabi_wool"));
 		wasabi_wool.CARPET.setIgnore();
 		wasabi_wool.STRING.setIgnore();
 		buildDefault(wasabi_wool, "delicate_dyes");

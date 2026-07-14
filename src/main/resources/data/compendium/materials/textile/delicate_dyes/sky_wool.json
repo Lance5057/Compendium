@@ -3,13 +3,20 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:sky_wool",
+    "existsLocationItem": "delicate_dyes:sky_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
     "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/sky_wool"
+    }
   },
   "extensions": []
 }

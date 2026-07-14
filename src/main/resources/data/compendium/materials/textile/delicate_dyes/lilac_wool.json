@@ -3,7 +3,9 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:lavender_wool",
+    "existsLocationItem": "delicate_dyes:lavender_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"

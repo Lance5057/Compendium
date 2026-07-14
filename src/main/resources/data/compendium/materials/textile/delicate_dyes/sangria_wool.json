@@ -3,13 +3,20 @@
   "tagNamespace": "delicate_dyes",
   "type": "TEXTILE",
   "block": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "delicate_dyes:sangria_wool",
+    "existsLocationItem": "delicate_dyes:sangria_wool",
+    "generate": "EXISTS"
   },
   "string": {
     "generate": "IGNORE"
   },
   "carpet": {
     "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/sangria_wool"
+    }
   },
   "extensions": []
 }
