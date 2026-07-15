@@ -1,0 +1,44 @@
+{
+  "name": "arcane",
+  "tagNamespace": "irons_spellbooks",
+  "type": "METAL",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "ingot": {
+    "existsLocation": "irons_spellbooks:arcane_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

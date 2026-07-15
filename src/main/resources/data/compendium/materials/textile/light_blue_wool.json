@@ -1,0 +1,19 @@
+{
+  "name": "light_blue_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:light_blue_wool",
+    "existsLocationItem": "minecraft:light_blue_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:light_blue_carpet",
+    "existsLocationItem": "minecraft:light_blue_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

@@ -1,0 +1,24 @@
+{
+  "name": "persimmon_wool",
+  "tagNamespace": "dyenamics",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "dyenamics:persimmon_wool",
+    "existsLocationItem": "dyenamics:persimmon_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "dyenamics:persimmon_carpet",
+    "existsLocationItem": "dyenamics:persimmon_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/persimmon_wool"
+    }
+  },
+  "extensions": []
+}

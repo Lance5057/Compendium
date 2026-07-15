@@ -17,7 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:black_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:blackwood_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_plank_item",
       "required": false
     },
     {
@@ -37,7 +49,19 @@
       "required": false
     },
     {
+      "id": "compendium:cyan_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:dark_oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:green_plank_item",
       "required": false
     },
     {
@@ -49,11 +73,43 @@
       "required": false
     },
     {
+      "id": "compendium:light_blue_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_plank_item",
       "required": false
     },
     {
       "id": "compendium:oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pink_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:red_plank_item",
       "required": false
     },
     {
@@ -69,7 +125,15 @@
       "required": false
     },
     {
+      "id": "compendium:white_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:white_wood_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_plank_item",
       "required": false
     }
   ]

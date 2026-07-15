@@ -1,0 +1,82 @@
+{
+  "name": "archwood",
+  "namespace": "ars_nouveau",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "ars_nouveau:archwood_planks",
+    "existsLocationItem": "ars_nouveau:archwood_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "ars_nouveau:purple_archwood_log",
+    "existsLocationItem": "ars_nouveau:purple_archwood_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "ars_nouveau:stripped_purple_archwood_log",
+    "existsLocationItem": "ars_nouveau:stripped_purple_archwood_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "generate": "GENERATE"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "ars_nouveau:stripped_archwood_wood",
+    "existsLocationItem": "ars_nouveau:stripped_purple_archwood_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "ars_nouveau:block/archwood_planks",
+      "logLocation": "ars_nouveau:block/archwood_log",
+      "strippedLogLocation": "ars_nouveau:block/stripped_archwood_log",
+      "logTopLocation": "ars_nouveau:block/archwood_log_top",
+      "strippedLogTopLocation": "ars_nouveau:block/stripped_archwood_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

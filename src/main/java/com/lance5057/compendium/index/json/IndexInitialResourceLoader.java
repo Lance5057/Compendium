@@ -751,6 +751,8 @@ public class IndexInitialResourceLoader {
 		abyssalDecor();
 //		cluttered();
 		cataclysm();
+		ironSpells();
+		create();
 //		hazennstuff();
 //		silentgear();
 //		koopascritters();
@@ -762,6 +764,67 @@ public class IndexInitialResourceLoader {
 //		would();
 //		theGreatOutdoors();
 //		ironJewelry();
+	}
+
+	private static void create() {
+		MaterialMetal brass = new MaterialMetal("brass", "create");
+		brass.tier = new CompendiumTier("GOLD");
+		brass.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("create", "brass_block"),
+				ResourceLocation.fromNamespaceAndPath("create", "brass_block"));
+		brass.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("create", "brass_ingot"));
+		brass.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("create", "brass_nugget"));
+
+		brass.addExtension(new ExtensionAdvancedTools().generateAll());
+		brass.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(brass);
+		
+		MaterialMetal zinc = new MaterialMetal("zinc", "create");
+		zinc.tier = new CompendiumTier("STONE");
+		zinc.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("create", "zinc_block"),
+				ResourceLocation.fromNamespaceAndPath("create", "zinc_block"));
+		zinc.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("create", "zinc_ingot"));
+		zinc.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("create", "zinc_nugget"));
+
+		zinc.addExtension(new ExtensionAdvancedTools().generateAll());
+		zinc.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(zinc);
+	}
+
+	private static void ironSpells() {
+		MaterialMetal pyrium = new MaterialMetal("pyrium", "irons_spellbooks");
+		pyrium.tier = new CompendiumTier("NETHERITE");
+		pyrium.BLOCK.setGenerate();
+		pyrium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "pyrium_ingot"));
+		pyrium.NUGGET.setGenerate();;
+
+		pyrium.addExtension(new ExtensionAdvancedTools().generateAll());
+		pyrium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(pyrium);
+		
+		MaterialMetal mithril = new MaterialMetal("mithril", "irons_spellbooks");
+		mithril.tier = new CompendiumTier("NETHERITE");
+		mithril.BLOCK.setGenerate();
+		mithril.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "mithril_ingot"));
+		mithril.NUGGET.setGenerate();
+
+		mithril.addExtension(new ExtensionAdvancedTools().generateAll());
+		mithril.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(mithril);
+		
+		MaterialMetal arcane = new MaterialMetal("arcane", "irons_spellbooks");
+		arcane.tier = new CompendiumTier("NETHERITE");
+		arcane.BLOCK.setGenerate();
+		arcane.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "arcane_ingot"));
+		arcane.NUGGET.setGenerate();
+
+		arcane.addExtension(new ExtensionAdvancedTools().generateAll());
+		arcane.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(arcane);
 	}
 
 	private static void ironJewelry() {

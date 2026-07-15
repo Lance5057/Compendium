@@ -139,6 +139,8 @@ dependencies {
     implementation "curse.maven:modopedia-1132038:8043293"
     implementation "curse.maven:curios-309927:6529130"
     implementation "curse.maven:lionfish-api-1001614:8345326"
+    implementation "curse.maven:irons-lib-1492763:8364894"
+    implementation "curse.maven:playeranimator-658587:7389814"
     
     implementation "curse.maven:barnyard-buddies-1321667:7904099"
     localRuntime "curse.maven:delicate-dyes-1283159:7974242"
@@ -150,6 +152,8 @@ dependencies {
     implementation "curse.maven:abyssal-decor-964853:7859163"
     implementation "curse.maven:cluttered-826308:7385620"
     implementation "curse.maven:lendercataclysm-551586:8364209"
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:8364935"
+    implementation "curse.maven:create-328085:7963363"
     
 }
 

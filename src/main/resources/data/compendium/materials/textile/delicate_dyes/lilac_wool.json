@@ -1,0 +1,24 @@
+{
+  "name": "lilac_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "delicate_dyes:lavender_wool",
+    "existsLocationItem": "delicate_dyes:lavender_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "delicate_dyes:lavender_carpet",
+    "existsLocationItem": "delicate_dyes:lavender_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/lavender_wool"
+    }
+  },
+  "extensions": []
+}

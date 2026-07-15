@@ -1,0 +1,76 @@
+{
+  "name": "chorus",
+  "namespace": "cataclysm",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "cataclysm:chorus_planks",
+    "existsLocationItem": "cataclysm:chorus_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "generate": "GENERATE"
+  },
+  "stripped_log": {
+    "generate": "GENERATE"
+  },
+  "wood": {
+    "generate": "GENERATE"
+  },
+  "stripped_wood": {
+    "generate": "GENERATE"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "cataclysm:block/chorus_planks",
+      "logLocation": "minecraft:block/chorus_plant",
+      "strippedLogLocation": "cataclysm:block/chorus_stem",
+      "logTopLocation": "compendium:block/material/wood/chorus/logs/log_top",
+      "strippedLogTopLocation": "compendium:block/material/wood/chorus/logs/log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "sangria_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "delicate_dyes:sangria_wool",
+    "existsLocationItem": "delicate_dyes:sangria_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "delicate_dyes:sangria_carpet",
+    "existsLocationItem": "delicate_dyes:sangria_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/sangria_wool"
+    }
+  },
+  "extensions": []
+}

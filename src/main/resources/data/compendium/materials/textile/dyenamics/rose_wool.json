@@ -1,0 +1,24 @@
+{
+  "name": "rose_wool",
+  "tagNamespace": "dyenamics",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "dyenamics:rose_wool",
+    "existsLocationItem": "dyenamics:rose_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "dyenamics:rose_carpet",
+    "existsLocationItem": "dyenamics:rose_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/rose_wool"
+    }
+  },
+  "extensions": []
+}

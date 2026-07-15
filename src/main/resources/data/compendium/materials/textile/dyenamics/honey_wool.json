@@ -1,0 +1,24 @@
+{
+  "name": "honey_wool",
+  "tagNamespace": "dyenamics",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "dyenamics:honey_wool",
+    "existsLocationItem": "dyenamics:honey_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "dyenamics:honey_carpet",
+    "existsLocationItem": "dyenamics:honey_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/honey_wool"
+    }
+  },
+  "extensions": []
+}

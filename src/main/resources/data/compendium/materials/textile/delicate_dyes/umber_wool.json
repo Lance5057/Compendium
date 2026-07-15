@@ -1,0 +1,24 @@
+{
+  "name": "umber_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "delicate_dyes:umber_wool",
+    "existsLocationItem": "delicate_dyes:umber_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "delicate_dyes:umber_carpet",
+    "existsLocationItem": "delicate_dyes:umber_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/umber_wool"
+    }
+  },
+  "extensions": []
+}

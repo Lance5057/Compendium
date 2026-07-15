@@ -5,11 +5,19 @@
       "required": false
     },
     {
+      "id": "irons_spellbooks:arcane_ingot",
+      "required": false
+    },
+    {
       "id": "abyssal_decor:bellmetal_ingot",
       "required": false
     },
     {
       "id": "cataclysm:black_steel_ingot",
+      "required": false
+    },
+    {
+      "id": "create:brass_ingot",
       "required": false
     },
     {
@@ -37,6 +45,10 @@
       "required": false
     },
     {
+      "id": "irons_spellbooks:mithril_ingot",
+      "required": false
+    },
+    {
       "id": "abyssal_decor:moonsilver_ingot",
       "required": false
     },
@@ -45,11 +57,19 @@
       "required": false
     },
     {
+      "id": "irons_spellbooks:pyrium_ingot",
+      "required": false
+    },
+    {
       "id": "abyssal_decor:seabrass_ingot",
       "required": false
     },
     {
       "id": "compendium:silver_ingot_item",
+      "required": false
+    },
+    {
+      "id": "create:zinc_ingot",
       "required": false
     }
   ]

@@ -9,15 +9,11 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_axe_item",
-      "required": false
-    },
-    {
       "id": "compendium:amethyst_sword_item",
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_sword_item",
+      "id": "compendium:amethyst_axe_item",
       "required": false
     },
     {
@@ -25,11 +21,15 @@
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_sword_item",
+      "id": "compendium:crying_obsidian_sword_item",
       "required": false
     },
     {
       "id": "compendium:dark_prismarine_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_sword_item",
       "required": false
     },
     {
@@ -65,11 +65,11 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_axe_item",
+      "id": "compendium:prismarine_sword_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_sword_item",
+      "id": "compendium:prismarine_axe_item",
       "required": false
     },
     {

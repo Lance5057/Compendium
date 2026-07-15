@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "compendium:blue_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_styled_planks_item",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "bellmetal",
+  "tagNamespace": "abyssal_decor",
+  "type": "METAL",
+  "block": {
+    "existsLocationBlock": "abyssal_decor:bellmetal_block",
+    "existsLocationItem": "abyssal_decor:bellmetal_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "abyssal_decor:bellmetal_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "existsLocation": "abyssal_decor:bellmetal_nugget",
+    "generate": "EXISTS"
+  },
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "maroon_wool",
+  "tagNamespace": "dyenamics",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "dyenamics:maroon_wool",
+    "existsLocationItem": "dyenamics:maroon_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "dyenamics:maroon_carpet",
+    "existsLocationItem": "dyenamics:maroon_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/maroon_wool"
+    }
+  },
+  "extensions": []
+}

@@ -1,6 +1,18 @@
 {
   "values": [
     {
+      "id": "compendium:arcane_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:mithril_block_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pyrium_block_item",
+      "required": false
+    },
+    {
       "id": "compendium:silver_block_item",
       "required": false
     },

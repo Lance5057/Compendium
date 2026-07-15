@@ -3,6 +3,10 @@
     {
       "id": "compendium:archwood_wood_item",
       "required": false
+    },
+    {
+      "id": "compendium:chorus_wood_item",
+      "required": false
     }
   ]
 }

@@ -1,0 +1,24 @@
+{
+  "name": "icy_blue_wool",
+  "tagNamespace": "dyenamics",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "dyenamics:icy_blue_wool",
+    "existsLocationItem": "dyenamics:icy_blue_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "dyenamics:icy_blue_carpet",
+    "existsLocationItem": "dyenamics:icy_blue_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "dyenamics:block/icy_blue_wool"
+    }
+  },
+  "extensions": []
+}

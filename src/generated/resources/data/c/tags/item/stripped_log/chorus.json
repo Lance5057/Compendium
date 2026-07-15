@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "compendium:stripped_chorus_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_chorus_wood_item",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_chorus_small_logs_item",
       "required": false
     }

@@ -1,0 +1,19 @@
+{
+  "name": "brown_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:brown_wool",
+    "existsLocationItem": "minecraft:brown_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:brown_carpet",
+    "existsLocationItem": "minecraft:brown_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

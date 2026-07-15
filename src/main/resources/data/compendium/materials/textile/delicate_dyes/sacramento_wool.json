@@ -1,0 +1,24 @@
+{
+  "name": "sacramento_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "delicate_dyes:sacramento_wool",
+    "existsLocationItem": "delicate_dyes:sacramento_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "delicate_dyes:sacramento_carpet",
+    "existsLocationItem": "delicate_dyes:sacramento_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/sacramento_wool"
+    }
+  },
+  "extensions": []
+}

@@ -1,0 +1,11 @@
+{
+  "name": "glass",
+  "tagNamespace": "minecraft",
+  "type": "GLASS",
+  "block": {
+    "existsLocationBlock": "minecraft:glass",
+    "existsLocationItem": "minecraft:glass",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

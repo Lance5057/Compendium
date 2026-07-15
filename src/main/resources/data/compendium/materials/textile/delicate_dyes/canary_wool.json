@@ -1,0 +1,24 @@
+{
+  "name": "canary_wool",
+  "tagNamespace": "delicate_dyes",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "delicate_dyes:canary_wool",
+    "existsLocationItem": "delicate_dyes:canary_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "delicate_dyes:canary_carpet",
+    "existsLocationItem": "delicate_dyes:canary_carpet",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "blockLocation": "delicate_dyes:block/canary_wool"
+    }
+  },
+  "extensions": []
+}
