@@ -17,7 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_blackwood_small_logs_slab_item",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_cherry_small_logs_slab_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_chorus_small_logs_slab_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_cinnamon_ad_small_logs_slab_item",
       "required": false
     },
     {
@@ -54,6 +66,10 @@
     },
     {
       "id": "compendium:stripped_warped_small_logs_slab_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_white_wood_small_logs_slab_item",
       "required": false
     }
   ]

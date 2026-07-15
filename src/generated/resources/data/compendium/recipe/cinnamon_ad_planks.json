@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "compendium:cinnamon_ad_plank_item"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "count": 2,
+    "id": "abyssal_decor:cinnamon_planks"
+  }
+}

@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "compendium:archwood_wood_item",
+      "required": false
+    },
+    {
       "id": "compendium:archwood_small_logs_item",
       "required": false
     },
@@ -17,7 +21,19 @@
       "required": false
     },
     {
+      "id": "compendium:blackwood_small_logs_item",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chorus_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cinnamon_ad_small_logs_item",
       "required": false
     },
     {
@@ -54,6 +70,10 @@
     },
     {
       "id": "compendium:warped_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:white_wood_small_logs_item",
       "required": false
     }
   ]

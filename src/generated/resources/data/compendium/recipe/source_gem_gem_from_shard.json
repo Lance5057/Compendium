@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ars_nouveau:source_gem"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "compendium:source_gem_shard_item"
+  }
+}

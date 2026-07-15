@@ -1,7 +1,27 @@
 {
   "values": [
     {
+      "id": "compendium:ancient_metal_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:bellmetal_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:black_steel_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cursium_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:deepbronze_prybar_item",
       "required": false
     },
     {
@@ -9,11 +29,23 @@
       "required": false
     },
     {
+      "id": "compendium:ignitium_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:iron_prybar_item",
       "required": false
     },
     {
+      "id": "compendium:moonsilver_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:netherite_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:seabrass_prybar_item",
       "required": false
     },
     {

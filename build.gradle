@@ -130,22 +130,26 @@ dependencies {
     
     implementation("xyz.brassgoggledcoders:PatchouliProvider:1.21.1-1.0.11-Snapshot.5")
     
-    localRuntime "curse.maven:sodium-394468:6382651"
-    localRuntime "curse.maven:irisshaders-455508:6661598"
+    implementation "curse.maven:sodium-394468:6382651"
+    implementation "curse.maven:irisshaders-455508:6661598"
     
-    localRuntime "curse.maven:geckolib-388172:8350073"
-    localRuntime "curse.maven:runiclib-880879:7788771"
-    localRuntime "curse.maven:stateobserver-701213:7357057"
-    localRuntime "curse.maven:modopedia-1132038:8043293"
-    localRuntime "curse.maven:curios-309927:6529130"
+    implementation "curse.maven:geckolib-388172:8350073"
+   	implementation "curse.maven:runiclib-880879:8188562"
+    implementation "curse.maven:stateobserver-701213:7357057"
+    implementation "curse.maven:modopedia-1132038:8043293"
+    implementation "curse.maven:curios-309927:6529130"
+    implementation "curse.maven:lionfish-api-1001614:8345326"
     
-    localRuntime "curse.maven:barnyard-buddies-1321667:7904099"
+    implementation "curse.maven:barnyard-buddies-1321667:7904099"
     localRuntime "curse.maven:delicate-dyes-1283159:7974242"
-    localRuntime "curse.maven:dyenamics-509276:7138991"
+    implementation "curse.maven:dyenamics-509276:7138991"
     //localRuntime "curse.maven:farmers-delight-398521:8083481"
     //localRuntime "curse.maven:extradelight-842106:8261063" whoever made this is a jerkface
-    localRuntime "curse.maven:enchanted-witchcraft-560363:8055168"
-    localRuntime "curse.maven:ars-nouveau-401955:8346406"
+    implementation "curse.maven:enchanted-witchcraft-560363:8055168"
+    implementation "curse.maven:ars-nouveau-401955:8346406"
+    implementation "curse.maven:abyssal-decor-964853:7859163"
+    implementation "curse.maven:cluttered-826308:7385620"
+    implementation "curse.maven:lendercataclysm-551586:8364209"
     
 }
 

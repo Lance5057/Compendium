@@ -1,7 +1,27 @@
 {
   "values": [
     {
+      "id": "compendium:ancient_metal_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:bellmetal_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:black_steel_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:copper_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:cursium_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:deepbronze_styled_metal",
       "required": false
     },
     {
@@ -9,11 +29,23 @@
       "required": false
     },
     {
+      "id": "compendium:ignitium_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:iron_styled_metal",
       "required": false
     },
     {
+      "id": "compendium:moonsilver_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:netherite_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:seabrass_styled_metal",
       "required": false
     },
     {

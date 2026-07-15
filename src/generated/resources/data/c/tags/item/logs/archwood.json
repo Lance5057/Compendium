@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "compendium:archwood_wood_item",
+      "required": false
+    },
+    {
       "id": "compendium:archwood_small_logs_item",
       "required": false
     }

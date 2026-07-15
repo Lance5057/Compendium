@@ -2,7 +2,27 @@
   "values": [
     "compendium:crude_saw",
     {
+      "id": "compendium:ancient_metal_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:bellmetal_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:black_steel_saw_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cursium_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:deepbronze_saw_item",
       "required": false
     },
     {
@@ -10,11 +30,23 @@
       "required": false
     },
     {
+      "id": "compendium:ignitium_saw_item",
+      "required": false
+    },
+    {
       "id": "compendium:iron_saw_item",
       "required": false
     },
     {
+      "id": "compendium:moonsilver_saw_item",
+      "required": false
+    },
+    {
       "id": "compendium:netherite_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:seabrass_saw_item",
       "required": false
     },
     {

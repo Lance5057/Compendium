@@ -223,7 +223,7 @@ public class MaterialTextile extends _MaterialBase {
 			if (j.get("specialLocations") != null)
 				sp = context.deserialize(j.get("specialLocations"), SpecialLocationsTextile.class);
 
-			w = new MaterialTextile(name, tagNamespace);
+			w = new MaterialTextile(name, tagNamespace, sp);
 
 			if (j.has("block"))
 				w.BLOCK.deserialize(j.get("block").getAsJsonObject());

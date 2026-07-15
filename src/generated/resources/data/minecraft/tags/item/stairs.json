@@ -17,7 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:blackwood_styled_planks_stairs_item",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chorus_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cinnamon_ad_styled_planks_stairs_item",
       "required": false
     },
     {
@@ -54,6 +66,10 @@
     },
     {
       "id": "compendium:warped_styled_planks_stairs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:white_wood_styled_planks_stairs_item",
       "required": false
     }
   ]

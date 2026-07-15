@@ -732,7 +732,7 @@ public class IndexInitialResourceLoader {
 				.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(silver);
-		
+
 		MaterialTextile gingham_rainbow = new MaterialTextile("gingham_rainbow", "compendium");
 		gingham_rainbow.BLOCK.setGenerate();
 		gingham_rainbow.CARPET.setGenerate();
@@ -748,9 +748,9 @@ public class IndexInitialResourceLoader {
 		enchanted();
 		arsNouveau();
 //		// bloomingNature();
-//		abyssalDecor();
+		abyssalDecor();
 //		cluttered();
-//		cataclysm();
+		cataclysm();
 //		hazennstuff();
 //		silentgear();
 //		koopascritters();
@@ -1686,13 +1686,13 @@ public class IndexInitialResourceLoader {
 
 		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_planks"));
-		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"),
+		wisewood.LOG.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_log"));
-		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"),
+		wisewood.STRIPPED_LOG.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_log"));
-		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"),
+		wisewood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "wisewood_wood"));
-		wisewood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood"),
+		wisewood.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood"),
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_wisewood_wood"));
 
 		wisewood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
@@ -1772,16 +1772,24 @@ public class IndexInitialResourceLoader {
 	}
 
 	private static void cataclysm() {
-		SpecialLocationsWood chorus = new SpecialLocationsWood(new SpecialTextureLocationsWood(
-				ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_planks"),
-				ResourceLocation.fromNamespaceAndPath("minecraft", "block/chorus_plant"),
-				ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_stem"),
-				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
-				ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top")));
-		buildDefault(
-				new MaterialWood("chorus", "cataclysm", chorus).addExtension(new ExtensionExtraLogs().generateAll())
-						.addExtension(new ExtensionExtraPlanks().generateAll()),
-				"cataclysm");
+		MaterialWood chorus = new MaterialWood("chorus", "cataclysm",
+				new SpecialLocationsWood(new SpecialTextureLocationsWood(
+						ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_planks"),
+						ResourceLocation.fromNamespaceAndPath("minecraft", "block/chorus_plant"),
+						ResourceLocation.fromNamespaceAndPath("cataclysm", "block/chorus_stem"),
+						ResourceLocation.fromNamespaceAndPath("compendium", "block/material/wood/chorus/logs/log_top"),
+						ResourceLocation.fromNamespaceAndPath("compendium",
+								"block/material/wood/chorus/logs/log_top"))));
+
+		chorus.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "chorus_planks"),
+				ResourceLocation.fromNamespaceAndPath("cataclysm", "chorus_planks"));
+		chorus.LOG.setGenerate();
+		chorus.WOOD.setGenerate();
+		chorus.STRIPPED_LOG.setGenerate();
+		chorus.STRIPPED_WOOD.setGenerate();
+
+		buildDefault(chorus.addExtension(new ExtensionExtraLogs().generateAll())
+				.addExtension(new ExtensionExtraPlanks().generateAll()), "cataclysm");
 
 		MaterialMetal ancient_metal = new MaterialMetal("ancient_metal", "cataclysm");
 		ancient_metal.tier = new CompendiumTier("NETHERITE");
@@ -1812,7 +1820,7 @@ public class IndexInitialResourceLoader {
 		cursium.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_block"),
 				ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_block"));
 		cursium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "cursium_ingot"));
-		// cursium.NUGGET.setGenerate();
+		cursium.NUGGET.setGenerate();
 
 		cursium.addExtension(new ExtensionAdvancedTools().generateAll());
 		cursium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1824,7 +1832,7 @@ public class IndexInitialResourceLoader {
 		ignitium.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_block"),
 				ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_block"));
 		ignitium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("cataclysm", "ignitium_ingot"));
-		// ignitium.NUGGET.setGenerate();
+		ignitium.NUGGET.setGenerate();
 
 		ignitium.addExtension(new ExtensionAdvancedTools().generateAll());
 		ignitium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -2324,6 +2332,17 @@ public class IndexInitialResourceLoader {
 	public static void arsNouveau() {
 
 		MaterialWood archwood = new MaterialWood("archwood", "ars_nouveau");
+
+		archwood.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "archwood_planks"),
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "archwood_planks"));
+		archwood.LOG.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "purple_archwood_log"),
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "purple_archwood_log"));
+		archwood.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"),
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"));
+		archwood.WOOD.setGenerate();
+		archwood.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_archwood_wood"),
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"));
 
 		archwood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "block/archwood_planks"),
@@ -2967,9 +2986,7 @@ public class IndexInitialResourceLoader {
 	}
 
 	private static void dyenamicsGingham() {
-		MaterialTextile gingham_amber = new MaterialTextile("gingham_amber", "compendium",
-				new SpecialLocationsTextile(new SpecialTextureLocationsTextile(
-						ResourceLocation.fromNamespaceAndPath("compendium", "blocks/gingham_amber"), null, null)));
+		MaterialTextile gingham_amber = new MaterialTextile("gingham_amber", "compendium");
 		gingham_amber.BLOCK.setGenerate();
 		gingham_amber.CARPET.setGenerate();
 		gingham_amber.STRING.setIgnore();

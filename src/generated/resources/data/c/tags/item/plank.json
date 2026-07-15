@@ -17,7 +17,19 @@
       "required": false
     },
     {
+      "id": "compendium:blackwood_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chorus_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cinnamon_ad_plank_item",
       "required": false
     },
     {
@@ -54,6 +66,10 @@
     },
     {
       "id": "compendium:warped_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:white_wood_plank_item",
       "required": false
     }
   ]

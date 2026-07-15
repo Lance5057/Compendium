@@ -1,7 +1,27 @@
 {
   "values": [
     {
+      "id": "cataclysm:ancient_metal_ingot",
+      "required": false
+    },
+    {
+      "id": "abyssal_decor:bellmetal_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_ingot",
+      "required": false
+    },
+    {
       "id": "minecraft:copper_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:cursium_ingot",
+      "required": false
+    },
+    {
+      "id": "abyssal_decor:deepbronze_ingot",
       "required": false
     },
     {
@@ -9,11 +29,23 @@
       "required": false
     },
     {
+      "id": "cataclysm:ignitium_ingot",
+      "required": false
+    },
+    {
       "id": "minecraft:iron_ingot",
       "required": false
     },
     {
+      "id": "abyssal_decor:moonsilver_ingot",
+      "required": false
+    },
+    {
       "id": "minecraft:netherite_ingot",
+      "required": false
+    },
+    {
+      "id": "abyssal_decor:seabrass_ingot",
       "required": false
     },
     {

@@ -40,6 +40,13 @@ public class ClientTextile {
 
 		ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
 
+		if (mb.specialLocations != null) {
+			if (mb.specialLocations.textures != null) {
+				if (mb.specialLocations.textures.blockLocation != null)
+					texture = mb.specialLocations.textures.blockLocation;
+			}
+		}
+
 		if (mb.BLOCK.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_block");

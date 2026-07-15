@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "ars_nouveau:source_gem"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  p",
+    " p ",
+    "s  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:source_gem_sword_item"
+  }
+}

@@ -1,7 +1,27 @@
 {
   "values": [
     {
+      "id": "compendium:ancient_metal_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:bellmetal_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:black_steel_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cursium_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:deepbronze_zweihander_item",
       "required": false
     },
     {
@@ -9,11 +29,23 @@
       "required": false
     },
     {
+      "id": "compendium:ignitium_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:iron_zweihander_item",
       "required": false
     },
     {
+      "id": "compendium:moonsilver_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:netherite_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:seabrass_zweihander_item",
       "required": false
     },
     {
