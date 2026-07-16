@@ -37,6 +37,10 @@
       "required": false
     },
     {
+      "id": "compendium:electrum_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:gold_zweihander_item",
       "required": false
     },

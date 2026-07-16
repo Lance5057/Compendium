@@ -33,6 +33,10 @@
       "required": false
     },
     {
+      "id": "createaddition:electrum_ingot",
+      "required": false
+    },
+    {
       "id": "minecraft:gold_ingot",
       "required": false
     },

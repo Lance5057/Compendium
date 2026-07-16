@@ -3,7 +3,9 @@
   "tagNamespace": "irons_spellbooks",
   "type": "METAL",
   "block": {
-    "generate": "GENERATE"
+    "existsLocationBlock": "hazennstuff:arcane_steel_block",
+    "existsLocationItem": "hazennstuff:arcane_steel_block",
+    "generate": "EXISTS"
   },
   "ingot": {
     "existsLocation": "irons_spellbooks:arcane_ingot",
@@ -13,7 +15,7 @@
     "generate": "GENERATE"
   },
   "tier": {
-    "vanillaTier": "NETHERITE"
+    "vanillaTier": "DIAMOND"
   },
   "extensions": [
     {

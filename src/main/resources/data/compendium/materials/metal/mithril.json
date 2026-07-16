@@ -3,7 +3,9 @@
   "tagNamespace": "irons_spellbooks",
   "type": "METAL",
   "block": {
-    "generate": "GENERATE"
+    "existsLocationBlock": "hazennstuff:mithril_block",
+    "existsLocationItem": "hazennstuff:mithril_block",
+    "generate": "EXISTS"
   },
   "ingot": {
     "existsLocation": "irons_spellbooks:mithril_ingot",

@@ -33,6 +33,10 @@
       "required": false
     },
     {
+      "id": "compendium:electrum_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:gold_prybar_item",
       "required": false
     },

@@ -1,19 +1,7 @@
 {
   "values": [
     {
-      "id": "compendium:copper_axe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:copper_shovel_item",
-      "required": false
-    },
-    {
       "id": "compendium:copper_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:copper_sword_item",
       "required": false
     },
     {
@@ -21,15 +9,15 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_shovel_item",
+      "id": "compendium:copper_shovel_item",
       "required": false
     },
     {
-      "id": "compendium:amethyst_hoe_item",
+      "id": "compendium:copper_sword_item",
       "required": false
     },
     {
-      "id": "compendium:amethyst_pickaxe_item",
+      "id": "compendium:copper_axe_item",
       "required": false
     },
     {
@@ -41,7 +29,15 @@
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_pickaxe_item",
+      "id": "compendium:amethyst_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_hoe_item",
       "required": false
     },
     {
@@ -49,15 +45,27 @@
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:crying_obsidian_shovel_item",
       "required": false
     },
     {
+      "id": "compendium:crying_obsidian_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:crying_obsidian_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_sword_item",
       "required": false
     },
     {
@@ -69,19 +77,7 @@
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_axe_item",
-      "required": false
-    },
-    {
       "id": "compendium:dark_prismarine_shovel_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_axe_item",
       "required": false
     },
     {
@@ -89,11 +85,11 @@
       "required": false
     },
     {
-      "id": "compendium:emerald_sword_item",
+      "id": "compendium:emerald_hoe_item",
       "required": false
     },
     {
-      "id": "compendium:emerald_hoe_item",
+      "id": "compendium:emerald_sword_item",
       "required": false
     },
     {
@@ -101,7 +97,19 @@
       "required": false
     },
     {
+      "id": "compendium:emerald_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:ender_pearl_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_axe_item",
       "required": false
     },
     {
@@ -113,15 +121,7 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_axe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lapis_sword_item",
+      "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
@@ -129,11 +129,7 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lapis_axe_item",
+      "id": "compendium:lapis_sword_item",
       "required": false
     },
     {
@@ -141,7 +137,7 @@
       "required": false
     },
     {
-      "id": "compendium:obsidian_pickaxe_item",
+      "id": "compendium:lapis_pickaxe_item",
       "required": false
     },
     {
@@ -149,11 +145,15 @@
       "required": false
     },
     {
+      "id": "compendium:obsidian_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_sword_item",
       "required": false
     },
     {
-      "id": "compendium:obsidian_shovel_item",
+      "id": "compendium:obsidian_pickaxe_item",
       "required": false
     },
     {
@@ -161,11 +161,11 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_sword_item",
+      "id": "compendium:prismarine_axe_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_pickaxe_item",
+      "id": "compendium:prismarine_sword_item",
       "required": false
     },
     {
@@ -173,11 +173,11 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_axe_item",
+      "id": "compendium:prismarine_hoe_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_hoe_item",
+      "id": "compendium:prismarine_pickaxe_item",
       "required": false
     },
     {
@@ -185,11 +185,11 @@
       "required": false
     },
     {
-      "id": "compendium:quartz_pickaxe_item",
+      "id": "compendium:quartz_sword_item",
       "required": false
     },
     {
-      "id": "compendium:quartz_sword_item",
+      "id": "compendium:quartz_pickaxe_item",
       "required": false
     },
     {
@@ -201,11 +201,7 @@
       "required": false
     },
     {
-      "id": "compendium:source_gem_shovel_item",
-      "required": false
-    },
-    {
-      "id": "compendium:source_gem_sword_item",
+      "id": "compendium:source_gem_hoe_item",
       "required": false
     },
     {
@@ -213,11 +209,15 @@
       "required": false
     },
     {
-      "id": "compendium:source_gem_hoe_item",
+      "id": "compendium:source_gem_shovel_item",
       "required": false
     },
     {
       "id": "compendium:source_gem_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:source_gem_sword_item",
       "required": false
     }
   ]

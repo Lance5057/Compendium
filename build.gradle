@@ -141,6 +141,14 @@ dependencies {
     implementation "curse.maven:lionfish-api-1001614:8345326"
     implementation "curse.maven:irons-lib-1492763:8364894"
     implementation "curse.maven:playeranimator-658587:7389814"
+    implementation "curse.maven:soul-fire-d-662413:7364962"
+    implementation "curse.maven:hazentouvelib-1528722:8275040"
+    implementation "curse.maven:aces-spell-utils-1299492:8378364"
+    implementation "curse.maven:azurelib-817423:8367232"
+    implementation "curse.maven:prometheus-1365195:7364871"
+    implementation "curse.maven:cobweb-968456:7186943"
+    implementation "curse.maven:caelus-308989:5694215"
+    implementation "curse.maven:silent-lib-242998:7935618"
     
     implementation "curse.maven:barnyard-buddies-1321667:7904099"
     localRuntime "curse.maven:delicate-dyes-1283159:7974242"
@@ -154,7 +162,10 @@ dependencies {
     implementation "curse.maven:lendercataclysm-551586:8364209"
     implementation "curse.maven:irons-spells-n-spellbooks-855414:8364935"
     implementation "curse.maven:create-328085:7963363"
-    
+    implementation "curse.maven:createaddition-439890:8188476"
+    implementation "curse.maven:hazen-n-stuff-1231627:8277644"
+    implementation "curse.maven:silent-gear-297039:8095210"
+    implementation "curse.maven:koopas-critters-395061:7903871"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

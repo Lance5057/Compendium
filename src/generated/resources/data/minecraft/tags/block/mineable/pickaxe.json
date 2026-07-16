@@ -25,7 +25,15 @@
       "required": false
     },
     {
+      "id": "compendium:chlorophyte_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:copper_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:cosmic_gold_styled_metal",
       "required": false
     },
     {
@@ -34,6 +42,18 @@
     },
     {
       "id": "compendium:deepbronze_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:electrum_styled_metal",
       "required": false
     },
     {
@@ -73,6 +93,10 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:seabrass_styled_metal",
       "required": false
     },
@@ -82,6 +106,10 @@
     },
     {
       "id": "compendium:silver_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:steel_styled_metal",
       "required": false
     },
     {

@@ -1,0 +1,44 @@
+{
+  "name": "rose_gold",
+  "tagNamespace": "hazennstuff",
+  "type": "METAL",
+  "block": {
+    "generate": "IGNORE"
+  },
+  "ingot": {
+    "existsLocation": "hazennstuff:rose_gold_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "generate": "IGNORE"
+  },
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

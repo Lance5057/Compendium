@@ -34,6 +34,10 @@
       "required": false
     },
     {
+      "id": "compendium:electrum_saw_item",
+      "required": false
+    },
+    {
       "id": "compendium:gold_saw_item",
       "required": false
     },

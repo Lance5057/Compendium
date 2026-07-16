@@ -34,6 +34,10 @@
       "required": false
     },
     {
+      "id": "compendium:electrum_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:gold_hammer_item",
       "required": false
     },

@@ -1,0 +1,47 @@
+{
+  "name": "electrum",
+  "tagNamespace": "createaddition",
+  "type": "METAL",
+  "block": {
+    "existsLocationBlock": "createaddition:electrum_block",
+    "existsLocationItem": "createaddition:electrum_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "createaddition:electrum_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "existsLocation": "createaddition:electrum_nugget",
+    "generate": "EXISTS"
+  },
+  "tier": {
+    "vanillaTier": "GOLD"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

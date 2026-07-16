@@ -753,7 +753,8 @@ public class IndexInitialResourceLoader {
 		cataclysm();
 		ironSpells();
 		create();
-//		hazennstuff();
+		createaddition();
+		hazennstuff();
 //		silentgear();
 //		koopascritters();
 //		butchercraft();
@@ -778,7 +779,7 @@ public class IndexInitialResourceLoader {
 		brass.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(brass);
-		
+
 		MaterialMetal zinc = new MaterialMetal("zinc", "create");
 		zinc.tier = new CompendiumTier("STONE");
 		zinc.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("create", "zinc_block"),
@@ -792,21 +793,38 @@ public class IndexInitialResourceLoader {
 		buildDefault(zinc);
 	}
 
+	private static void createaddition() {
+		MaterialMetal electrum = new MaterialMetal("electrum", "createaddition");
+		electrum.tier = new CompendiumTier("GOLD");
+		electrum.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("createaddition", "electrum_block"),
+				ResourceLocation.fromNamespaceAndPath("createaddition", "electrum_block"));
+		electrum.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("createaddition", "electrum_ingot"));
+		electrum.NUGGET.setExists(ResourceLocation.fromNamespaceAndPath("createaddition", "electrum_nugget"));
+
+		electrum.addExtension(new ExtensionAdvancedTools().generateAll());
+		electrum.addExtension(new ExtensionMetalStyleBlocks().generateAll());
+
+		buildDefault(electrum);
+	}
+
 	private static void ironSpells() {
 		MaterialMetal pyrium = new MaterialMetal("pyrium", "irons_spellbooks");
 		pyrium.tier = new CompendiumTier("NETHERITE");
-		pyrium.BLOCK.setGenerate();
+		pyrium.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "pyrium_block"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "pyrium_block"));
 		pyrium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "pyrium_ingot"));
-		pyrium.NUGGET.setGenerate();;
+		pyrium.NUGGET.setGenerate();
+		
 
 		pyrium.addExtension(new ExtensionAdvancedTools().generateAll());
 		pyrium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(pyrium);
-		
+
 		MaterialMetal mithril = new MaterialMetal("mithril", "irons_spellbooks");
 		mithril.tier = new CompendiumTier("NETHERITE");
-		mithril.BLOCK.setGenerate();
+		mithril.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "mithril_block"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "mithril_block"));
 		mithril.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "mithril_ingot"));
 		mithril.NUGGET.setGenerate();
 
@@ -814,10 +832,11 @@ public class IndexInitialResourceLoader {
 		mithril.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(mithril);
-		
+
 		MaterialMetal arcane = new MaterialMetal("arcane", "irons_spellbooks");
-		arcane.tier = new CompendiumTier("NETHERITE");
-		arcane.BLOCK.setGenerate();
+		arcane.tier = new CompendiumTier("DIAMOND");
+		arcane.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "arcane_steel_block"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "arcane_steel_block"));
 		arcane.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "arcane_ingot"));
 		arcane.NUGGET.setGenerate();
 
@@ -1777,17 +1796,6 @@ public class IndexInitialResourceLoader {
 		chlorophyte.addExtension(new ExtensionMetalStyleBlocks().generateAll());
 
 		buildDefault(chlorophyte);
-
-		MaterialMetal cosmic_gold = new MaterialMetal("cosmic_gold", "hazennstuff");
-		cosmic_gold.tier = new CompendiumTier("NETHERITE");
-		// cosmic_gold.BLOCK.setGenerate();
-		cosmic_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "cosmic_gold_ingot"));
-		// cosmic_gold.NUGGET.setGenerate();
-
-		cosmic_gold.addExtension(new ExtensionAdvancedTools().generateAll());
-		cosmic_gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
-
-		buildDefault(cosmic_gold);
 
 		MaterialMetal demonite = new MaterialMetal("demonite", "hazennstuff");
 		demonite.tier = new CompendiumTier("NETHERITE");

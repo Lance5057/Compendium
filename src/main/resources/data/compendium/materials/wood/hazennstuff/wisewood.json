@@ -1,0 +1,84 @@
+{
+  "name": "wisewood",
+  "namespace": "hazennstuff",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "hazennstuff:wisewood_planks",
+    "existsLocationItem": "hazennstuff:wisewood_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "hazennstuff:wisewood_log",
+    "existsLocationItem": "hazennstuff:wisewood_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "hazennstuff:stripped_wisewood_log",
+    "existsLocationItem": "hazennstuff:stripped_wisewood_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "hazennstuff:wisewood_wood",
+    "existsLocationItem": "hazennstuff:wisewood_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "hazennstuff:stripped_wisewood_wood",
+    "existsLocationItem": "hazennstuff:stripped_wisewood_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "irons_spellbooks:block/wisewood_planks",
+      "logLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogLocation": "hazennstuff:block/stripped_wisewood_log_side",
+      "logTopLocation": "hazennstuff:block/wisewood_log_side",
+      "strippedLogTopLocation": "hazennstuff:block/stripped_wisewood_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

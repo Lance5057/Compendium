@@ -33,6 +33,10 @@
       "required": false
     },
     {
+      "id": "compendium:electrum_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:gold_shears_item",
       "required": false
     },
