@@ -1,0 +1,68 @@
+{
+  "values": [
+    {
+      "id": "compendium:black_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cyan_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:green_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:light_blue_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pink_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:red_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:white_planks_item",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_planks_item",
+      "required": false
+    }
+  ]
+}

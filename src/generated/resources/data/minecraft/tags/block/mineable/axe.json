@@ -1,11 +1,27 @@
 {
   "values": [
     {
+      "id": "compendium:acacia_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:acacia_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:acacia_small_logs_slab",
       "required": false
     },
     {
       "id": "compendium:stripped_acacia_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_acacia_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_acacia_small_log",
       "required": false
     },
     {
@@ -17,31 +33,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_acacia_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_acacia_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_styled_planks",
-      "required": false
-    },
-    {
       "id": "compendium:acacia_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_styled_planks_stairs",
       "required": false
     },
     {
@@ -49,11 +41,27 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_alder_small_log",
+      "id": "compendium:acacia_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:acacia_styled_planks",
       "required": false
     },
     {
       "id": "compendium:alder_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_alder_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_alder_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:alder_small_log",
       "required": false
     },
     {
@@ -65,23 +73,19 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_alder_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:alder_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_alder_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_alder_small_logs_stairs",
       "required": false
     },
     {
+      "id": "compendium:stripped_alder_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:alder_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:alder_styled_planks",
       "required": false
     },
     {
@@ -93,19 +97,7 @@
       "required": false
     },
     {
-      "id": "compendium:alder_styled_planks",
-      "required": false
-    },
-    {
       "id": "compendium:archwood_wood",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_archwood_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:archwood_small_logs_slab",
       "required": false
     },
     {
@@ -113,19 +105,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_archwood_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:archwood_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_archwood_small_logs_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_archwood_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_archwood_small_log",
       "required": false
     },
     {
@@ -133,7 +117,19 @@
       "required": false
     },
     {
-      "id": "compendium:archwood_styled_planks",
+      "id": "compendium:archwood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:archwood_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_archwood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_archwood_small_logs_stairs",
       "required": false
     },
     {
@@ -141,31 +137,19 @@
       "required": false
     },
     {
-      "id": "compendium:archwood_styled_planks_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:archwood_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:ashen_small_logs_slab",
+      "id": "compendium:archwood_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_ashen_small_logs",
+      "id": "compendium:archwood_styled_planks",
       "required": false
     },
     {
       "id": "compendium:stripped_ashen_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:ashen_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_ashen_small_log",
       "required": false
     },
     {
@@ -177,19 +161,23 @@
       "required": false
     },
     {
+      "id": "compendium:ashen_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:ashen_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:ashen_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:ashen_styled_planks",
+      "id": "compendium:stripped_ashen_small_logs",
       "required": false
     },
     {
-      "id": "compendium:ashen_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:ashen_plank",
+      "id": "compendium:stripped_ashen_small_log",
       "required": false
     },
     {
@@ -197,23 +185,15 @@
       "required": false
     },
     {
-      "id": "compendium:aspen_small_logs",
+      "id": "compendium:ashen_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_aspen_small_log",
+      "id": "compendium:ashen_plank",
       "required": false
     },
     {
-      "id": "compendium:stripped_aspen_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_aspen_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:aspen_small_logs_slab",
+      "id": "compendium:ashen_styled_planks_slab",
       "required": false
     },
     {
@@ -225,19 +205,27 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_aspen_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:aspen_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:aspen_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_aspen_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_aspen_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:aspen_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:aspen_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:aspen_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:aspen_styled_planks",
       "required": false
     },
     {
@@ -245,19 +233,19 @@
       "required": false
     },
     {
+      "id": "compendium:aspen_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:aspen_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:aspen_styled_planks",
+      "required": false
+    },
+    {
       "id": "compendium:azalea_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:azalea_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_azalea_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_azalea_small_log",
       "required": false
     },
     {
@@ -265,11 +253,7 @@
       "required": false
     },
     {
-      "id": "compendium:azalea_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_azalea_small_logs",
+      "id": "compendium:azalea_small_logs_slab",
       "required": false
     },
     {
@@ -277,15 +261,19 @@
       "required": false
     },
     {
-      "id": "compendium:azalea_styled_planks_slab",
+      "id": "compendium:stripped_azalea_small_logs",
       "required": false
     },
     {
-      "id": "compendium:azalea_styled_planks_stairs",
+      "id": "compendium:stripped_azalea_small_log",
       "required": false
     },
     {
-      "id": "compendium:azalea_plank",
+      "id": "compendium:stripped_azalea_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:azalea_small_log",
       "required": false
     },
     {
@@ -293,15 +281,19 @@
       "required": false
     },
     {
-      "id": "compendium:baobab_small_log",
+      "id": "compendium:azalea_plank",
       "required": false
     },
     {
-      "id": "compendium:stripped_baobab_small_logs_slab",
+      "id": "compendium:azalea_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_baobab_small_logs_stairs",
+      "id": "compendium:azalea_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_baobab_small_log",
       "required": false
     },
     {
@@ -309,7 +301,11 @@
       "required": false
     },
     {
-      "id": "compendium:baobab_small_logs_stairs",
+      "id": "compendium:baobab_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:baobab_small_log",
       "required": false
     },
     {
@@ -317,11 +313,23 @@
       "required": false
     },
     {
-      "id": "compendium:baobab_small_logs_slab",
+      "id": "compendium:stripped_baobab_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:stripped_baobab_small_log",
+      "id": "compendium:baobab_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_baobab_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:baobab_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:baobab_styled_planks",
       "required": false
     },
     {
@@ -333,19 +341,7 @@
       "required": false
     },
     {
-      "id": "compendium:baobab_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:baobab_plank",
-      "required": false
-    },
-    {
       "id": "compendium:barn_wood_plank",
-      "required": false
-    },
-    {
-      "id": "compendium:barn_wood_styled_planks_stairs",
       "required": false
     },
     {
@@ -353,7 +349,15 @@
       "required": false
     },
     {
+      "id": "compendium:barn_wood_styled_planks_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:barn_wood_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:birch_small_logs_stairs",
       "required": false
     },
     {
@@ -369,19 +373,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_birch_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:birch_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:birch_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:birch_small_logs_stairs",
       "required": false
     },
     {
@@ -389,11 +381,19 @@
       "required": false
     },
     {
-      "id": "compendium:birch_styled_planks",
+      "id": "compendium:birch_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_birch_small_log",
       "required": false
     },
     {
       "id": "compendium:birch_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:birch_styled_planks",
       "required": false
     },
     {
@@ -405,7 +405,23 @@
       "required": false
     },
     {
-      "id": "compendium:black_cherry_small_log",
+      "id": "compendium:black_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:black_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:black_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:black_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:black_plank",
       "required": false
     },
     {
@@ -413,15 +429,7 @@
       "required": false
     },
     {
-      "id": "compendium:black_cherry_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_black_cherry_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_black_cherry_small_logs_stairs",
+      "id": "compendium:stripped_black_cherry_small_log",
       "required": false
     },
     {
@@ -433,7 +441,19 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_black_cherry_small_log",
+      "id": "compendium:stripped_black_cherry_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_black_cherry_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:black_cherry_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:black_cherry_small_log",
       "required": false
     },
     {
@@ -445,39 +465,11 @@
       "required": false
     },
     {
-      "id": "compendium:black_cherry_plank",
-      "required": false
-    },
-    {
       "id": "compendium:black_cherry_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_blackwood_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:blackwood_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:blackwood_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blackwood_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:blackwood_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blackwood_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blackwood_small_logs",
+      "id": "compendium:black_cherry_plank",
       "required": false
     },
     {
@@ -485,15 +477,31 @@
       "required": false
     },
     {
-      "id": "compendium:blackwood_plank",
+      "id": "compendium:blackwood_small_log",
       "required": false
     },
     {
-      "id": "compendium:blackwood_styled_planks_stairs",
+      "id": "compendium:stripped_blackwood_small_logs",
       "required": false
     },
     {
-      "id": "compendium:blackwood_styled_planks",
+      "id": "compendium:stripped_blackwood_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_blackwood_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_blackwood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:blackwood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:blackwood_small_logs_stairs",
       "required": false
     },
     {
@@ -501,7 +509,55 @@
       "required": false
     },
     {
+      "id": "compendium:blackwood_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:blackwood_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:blackwood_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_spruce_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:blue_spruce_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_blue_spruce_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_blue_spruce_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_blue_spruce_small_logs_slab",
       "required": false
     },
     {
@@ -510,22 +566,6 @@
     },
     {
       "id": "compendium:blue_spruce_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blue_spruce_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blue_spruce_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_blue_spruce_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:blue_spruce_small_log",
       "required": false
     },
     {
@@ -541,15 +581,31 @@
       "required": false
     },
     {
-      "id": "compendium:blue_spruce_styled_planks_slab",
-      "required": false
-    },
-    {
       "id": "compendium:blue_spruce_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_cedar_small_logs_stairs",
+      "id": "compendium:blue_spruce_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:brown_styled_planks_slab",
       "required": false
     },
     {
@@ -557,7 +613,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_cedar_small_logs",
+      "id": "compendium:stripped_cedar_small_logs_stairs",
       "required": false
     },
     {
@@ -565,15 +621,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_cedar_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:cedar_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:cedar_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_cedar_small_logs_slab",
+      "id": "compendium:stripped_cedar_small_logs",
       "required": false
     },
     {
@@ -581,11 +637,15 @@
       "required": false
     },
     {
+      "id": "compendium:cedar_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:cedar_plank",
       "required": false
     },
     {
-      "id": "compendium:cedar_styled_planks",
+      "id": "compendium:cedar_styled_planks_stairs",
       "required": false
     },
     {
@@ -593,7 +653,11 @@
       "required": false
     },
     {
-      "id": "compendium:cedar_styled_planks_stairs",
+      "id": "compendium:cedar_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_cherry_small_logs",
       "required": false
     },
     {
@@ -609,19 +673,7 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_cherry_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_cherry_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:cherry_small_logs_slab",
       "required": false
     },
     {
@@ -629,15 +681,11 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_plank",
+      "id": "compendium:cherry_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:cherry_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:cherry_styled_planks_slab",
+      "id": "compendium:cherry_small_logs_stairs",
       "required": false
     },
     {
@@ -645,11 +693,15 @@
       "required": false
     },
     {
-      "id": "compendium:chorus_log",
+      "id": "compendium:cherry_plank",
       "required": false
     },
     {
-      "id": "compendium:chorus_wood",
+      "id": "compendium:cherry_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:cherry_styled_planks",
       "required": false
     },
     {
@@ -657,11 +709,23 @@
       "required": false
     },
     {
+      "id": "compendium:chorus_wood",
+      "required": false
+    },
+    {
+      "id": "compendium:chorus_log",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_chorus_log",
       "required": false
     },
     {
-      "id": "compendium:chorus_small_logs",
+      "id": "compendium:stripped_chorus_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:chorus_small_logs_slab",
       "required": false
     },
     {
@@ -669,11 +733,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_chorus_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_chorus_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_chorus_small_logs_slab",
+      "id": "compendium:chorus_small_logs",
       "required": false
     },
     {
@@ -685,11 +753,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_chorus_small_log",
+      "id": "compendium:chorus_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:chorus_small_logs_slab",
+      "id": "compendium:chorus_styled_planks_slab",
       "required": false
     },
     {
@@ -701,19 +769,7 @@
       "required": false
     },
     {
-      "id": "compendium:chorus_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:chorus_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:cinnamon_ad_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:cinnamon_ad_small_log",
+      "id": "compendium:stripped_cinnamon_ad_small_logs_stairs",
       "required": false
     },
     {
@@ -721,15 +777,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_cinnamon_ad_small_log",
-      "required": false
-    },
-    {
       "id": "compendium:cinnamon_ad_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:cinnamon_ad_small_logs_stairs",
       "required": false
     },
     {
@@ -737,15 +785,19 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_cinnamon_ad_small_logs_stairs",
+      "id": "compendium:cinnamon_ad_small_log",
       "required": false
     },
     {
-      "id": "compendium:cinnamon_ad_styled_planks_stairs",
+      "id": "compendium:cinnamon_ad_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:cinnamon_ad_plank",
+      "id": "compendium:cinnamon_ad_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_cinnamon_ad_small_log",
       "required": false
     },
     {
@@ -753,27 +805,15 @@
       "required": false
     },
     {
+      "id": "compendium:cinnamon_ad_styled_planks_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:cinnamon_ad_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:corrupted_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_corrupted_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_corrupted_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:corrupted_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:corrupted_small_logs_stairs",
+      "id": "compendium:cinnamon_ad_plank",
       "required": false
     },
     {
@@ -781,7 +821,19 @@
       "required": false
     },
     {
+      "id": "compendium:corrupted_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_corrupted_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:corrupted_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:corrupted_small_logs",
       "required": false
     },
     {
@@ -789,15 +841,15 @@
       "required": false
     },
     {
+      "id": "compendium:corrupted_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_corrupted_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:corrupted_plank",
-      "required": false
-    },
-    {
-      "id": "compendium:corrupted_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:corrupted_styled_planks",
       "required": false
     },
     {
@@ -805,27 +857,15 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_crimson_small_logs",
+      "id": "compendium:corrupted_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_crimson_small_log",
+      "id": "compendium:corrupted_styled_planks_stairs",
       "required": false
     },
     {
       "id": "compendium:crimson_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_crimson_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:crimson_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_crimson_small_logs_slab",
       "required": false
     },
     {
@@ -837,6 +877,30 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_crimson_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_crimson_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_crimson_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_crimson_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_styled_planks_slab",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_styled_planks_stairs",
       "required": false
     },
@@ -845,31 +909,27 @@
       "required": false
     },
     {
-      "id": "compendium:crimson_styled_planks_slab",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_plank",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_logs_slab",
+      "id": "compendium:cyan_planks",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_logs",
+      "id": "compendium:cyan_plank",
       "required": false
     },
     {
-      "id": "compendium:stripped_dark_oak_small_log",
+      "id": "compendium:cyan_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_dark_oak_small_logs",
+      "id": "compendium:cyan_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_log",
+      "id": "compendium:cyan_styled_planks_slab",
       "required": false
     },
     {
@@ -877,15 +937,31 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_dark_oak_small_logs_slab",
-      "required": false
-    },
-    {
       "id": "compendium:dark_oak_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_styled_planks_slab",
+      "id": "compendium:stripped_dark_oak_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dark_oak_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dark_oak_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_small_log",
       "required": false
     },
     {
@@ -893,7 +969,7 @@
       "required": false
     },
     {
-      "id": "compendium:dark_oak_styled_planks",
+      "id": "compendium:dark_oak_styled_planks_slab",
       "required": false
     },
     {
@@ -901,27 +977,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_dried_stem_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:dried_stem_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:dried_stem_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_dried_stem_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:dried_stem_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_dried_stem_small_logs_stairs",
+      "id": "compendium:dark_oak_styled_planks",
       "required": false
     },
     {
@@ -929,15 +985,31 @@
       "required": false
     },
     {
+      "id": "compendium:dried_stem_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dried_stem_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dried_stem_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:dried_stem_small_logs",
       "required": false
     },
     {
-      "id": "compendium:dried_stem_styled_planks",
+      "id": "compendium:dried_stem_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:dried_stem_styled_planks_slab",
+      "id": "compendium:stripped_dried_stem_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:dried_stem_small_logs_slab",
       "required": false
     },
     {
@@ -949,27 +1021,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_ebony_small_logs_slab",
+      "id": "compendium:dried_stem_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:stripped_ebony_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:ebony_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_ebony_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_ebony_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:ebony_small_logs_slab",
+      "id": "compendium:dried_stem_styled_planks",
       "required": false
     },
     {
@@ -977,11 +1033,31 @@
       "required": false
     },
     {
+      "id": "compendium:ebony_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:ebony_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_ebony_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_ebony_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_ebony_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:ebony_small_logs",
       "required": false
     },
     {
-      "id": "compendium:ebony_styled_planks_stairs",
+      "id": "compendium:stripped_ebony_small_logs_slab",
       "required": false
     },
     {
@@ -989,15 +1065,19 @@
       "required": false
     },
     {
-      "id": "compendium:ebony_plank",
-      "required": false
-    },
-    {
       "id": "compendium:ebony_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_fir_small_logs_stairs",
+      "id": "compendium:ebony_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:ebony_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:fir_small_log",
       "required": false
     },
     {
@@ -1005,11 +1085,19 @@
       "required": false
     },
     {
+      "id": "compendium:fir_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:fir_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:fir_small_log",
+      "id": "compendium:stripped_fir_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_fir_small_logs_slab",
       "required": false
     },
     {
@@ -1021,11 +1109,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_fir_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:fir_small_logs_slab",
+      "id": "compendium:fir_styled_planks_slab",
       "required": false
     },
     {
@@ -1033,7 +1117,7 @@
       "required": false
     },
     {
-      "id": "compendium:fir_styled_planks_slab",
+      "id": "compendium:fir_plank",
       "required": false
     },
     {
@@ -1041,11 +1125,15 @@
       "required": false
     },
     {
-      "id": "compendium:fir_plank",
+      "id": "compendium:stripped_frostbite_birch_small_log",
       "required": false
     },
     {
-      "id": "compendium:stripped_frostbite_birch_small_log",
+      "id": "compendium:stripped_frostbite_birch_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:frostbite_birch_small_logs_slab",
       "required": false
     },
     {
@@ -1061,19 +1149,15 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_frostbite_birch_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:frostbite_birch_small_logs",
       "required": false
     },
     {
-      "id": "compendium:frostbite_birch_small_logs_slab",
+      "id": "compendium:stripped_frostbite_birch_small_logs",
       "required": false
     },
     {
-      "id": "compendium:stripped_frostbite_birch_small_logs_stairs",
+      "id": "compendium:frostbite_birch_plank",
       "required": false
     },
     {
@@ -1085,15 +1169,7 @@
       "required": false
     },
     {
-      "id": "compendium:frostbite_birch_plank",
-      "required": false
-    },
-    {
       "id": "compendium:frostbite_birch_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:giant_stem_small_logs",
       "required": false
     },
     {
@@ -1101,23 +1177,7 @@
       "required": false
     },
     {
-      "id": "compendium:giant_stem_small_logs_slab",
-      "required": false
-    },
-    {
       "id": "compendium:giant_stem_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_giant_stem_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_giant_stem_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:giant_stem_small_log",
       "required": false
     },
     {
@@ -1125,15 +1185,23 @@
       "required": false
     },
     {
-      "id": "compendium:giant_stem_styled_planks_slab",
+      "id": "compendium:stripped_giant_stem_small_logs",
       "required": false
     },
     {
-      "id": "compendium:giant_stem_styled_planks",
+      "id": "compendium:giant_stem_small_log",
       "required": false
     },
     {
-      "id": "compendium:giant_stem_styled_planks_stairs",
+      "id": "compendium:giant_stem_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_giant_stem_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:giant_stem_small_logs",
       "required": false
     },
     {
@@ -1141,15 +1209,59 @@
       "required": false
     },
     {
+      "id": "compendium:giant_stem_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:giant_stem_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:giant_stem_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:gray_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:green_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:green_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:green_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:green_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:green_styled_planks_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:hawthorn_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_hawthorn_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_hawthorn_small_logs_stairs",
       "required": false
     },
     {
@@ -1157,11 +1269,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_hawthorn_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:hawthorn_small_logs",
       "required": false
     },
     {
-      "id": "compendium:stripped_hawthorn_small_logs_slab",
+      "id": "compendium:stripped_hawthorn_small_logs_stairs",
       "required": false
     },
     {
@@ -1169,15 +1285,11 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_hawthorn_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_hawthorn_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:hawthorn_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:hawthorn_styled_planks_slab",
       "required": false
     },
     {
@@ -1189,19 +1301,11 @@
       "required": false
     },
     {
-      "id": "compendium:jungle_small_logs",
+      "id": "compendium:hawthorn_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:jungle_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:jungle_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_jungle_small_logs_stairs",
+      "id": "compendium:hawthorn_styled_planks_slab",
       "required": false
     },
     {
@@ -1209,7 +1313,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_jungle_small_log",
+      "id": "compendium:jungle_small_logs_stairs",
       "required": false
     },
     {
@@ -1217,15 +1321,23 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_jungle_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_jungle_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:jungle_styled_planks_slab",
+      "id": "compendium:stripped_jungle_small_log",
       "required": false
     },
     {
-      "id": "compendium:jungle_plank",
+      "id": "compendium:jungle_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:jungle_small_logs_slab",
       "required": false
     },
     {
@@ -1237,11 +1349,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_kopje_small_logs",
+      "id": "compendium:jungle_plank",
       "required": false
     },
     {
-      "id": "compendium:kopje_small_logs_slab",
+      "id": "compendium:jungle_styled_planks_slab",
       "required": false
     },
     {
@@ -1249,11 +1361,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_kopje_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:kopje_small_logs",
       "required": false
     },
     {
-      "id": "compendium:kopje_small_logs_stairs",
+      "id": "compendium:stripped_kopje_small_logs",
       "required": false
     },
     {
@@ -1261,15 +1377,15 @@
       "required": false
     },
     {
+      "id": "compendium:kopje_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_kopje_small_log",
       "required": false
     },
     {
-      "id": "compendium:stripped_kopje_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:kopje_styled_planks",
+      "id": "compendium:kopje_small_logs_slab",
       "required": false
     },
     {
@@ -1281,11 +1397,11 @@
       "required": false
     },
     {
-      "id": "compendium:kopje_styled_planks_stairs",
+      "id": "compendium:kopje_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:lavender_small_logs_slab",
+      "id": "compendium:kopje_styled_planks_stairs",
       "required": false
     },
     {
@@ -1293,11 +1409,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_lavender_small_logs_slab",
+      "id": "compendium:lavender_small_log",
       "required": false
     },
     {
-      "id": "compendium:lavender_small_log",
+      "id": "compendium:lavender_small_logs_stairs",
       "required": false
     },
     {
@@ -1305,7 +1421,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_lavender_small_logs_stairs",
+      "id": "compendium:lavender_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_lavender_small_logs_slab",
       "required": false
     },
     {
@@ -1313,7 +1433,11 @@
       "required": false
     },
     {
-      "id": "compendium:lavender_small_logs_stairs",
+      "id": "compendium:stripped_lavender_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:lavender_styled_planks_stairs",
       "required": false
     },
     {
@@ -1329,7 +1453,87 @@
       "required": false
     },
     {
-      "id": "compendium:lavender_styled_planks_stairs",
+      "id": "compendium:light_blue_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:light_blue_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:light_blue_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:light_blue_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:light_blue_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:light_gray_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:lime_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:magenta_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:mahogany_small_logs_slab",
       "required": false
     },
     {
@@ -1337,11 +1541,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_mahogany_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:mahogany_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_mahogany_small_logs",
+      "id": "compendium:stripped_mahogany_small_logs_slab",
       "required": false
     },
     {
@@ -1353,23 +1561,7 @@
       "required": false
     },
     {
-      "id": "compendium:mahogany_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_mahogany_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_mahogany_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:mahogany_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:mahogany_styled_planks_slab",
+      "id": "compendium:stripped_mahogany_small_logs",
       "required": false
     },
     {
@@ -1377,23 +1569,23 @@
       "required": false
     },
     {
+      "id": "compendium:mahogany_styled_planks",
+      "required": false
+    },
+    {
       "id": "compendium:mahogany_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_mangrove_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_mangrove_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_mangrove_small_logs",
+      "id": "compendium:mahogany_styled_planks_slab",
       "required": false
     },
     {
       "id": "compendium:mangrove_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_mangrove_small_logs_stairs",
       "required": false
     },
     {
@@ -1405,6 +1597,14 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_mangrove_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_mangrove_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_small_logs",
       "required": false
     },
@@ -1413,11 +1613,11 @@
       "required": false
     },
     {
-      "id": "compendium:mangrove_styled_planks_slab",
+      "id": "compendium:mangrove_plank",
       "required": false
     },
     {
-      "id": "compendium:mangrove_plank",
+      "id": "compendium:mangrove_styled_planks_slab",
       "required": false
     },
     {
@@ -1429,27 +1629,19 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:maple_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:maple_small_logs_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:maple_small_logs",
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_small_logs_stairs",
+      "id": "compendium:stripped_maple_small_log",
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_small_log",
+      "id": "compendium:stripped_maple_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:maple_small_logs_stairs",
       "required": false
     },
     {
@@ -1461,6 +1653,14 @@
       "required": false
     },
     {
+      "id": "compendium:maple_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_maple_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:maple_plank",
       "required": false
     },
@@ -1469,19 +1669,15 @@
       "required": false
     },
     {
-      "id": "compendium:maple_styled_planks",
-      "required": false
-    },
-    {
       "id": "compendium:maple_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_w_small_logs",
+      "id": "compendium:maple_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_w_small_logs_stairs",
+      "id": "compendium:stripped_maple_w_small_logs_slab",
       "required": false
     },
     {
@@ -1493,6 +1689,10 @@
       "required": false
     },
     {
+      "id": "compendium:maple_w_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_maple_w_small_log",
       "required": false
     },
@@ -1501,19 +1701,19 @@
       "required": false
     },
     {
-      "id": "compendium:maple_w_small_logs_stairs",
+      "id": "compendium:stripped_maple_w_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_maple_w_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:maple_w_styled_planks_slab",
+      "id": "compendium:stripped_maple_w_small_logs",
       "required": false
     },
     {
       "id": "compendium:maple_w_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:maple_w_styled_planks_slab",
       "required": false
     },
     {
@@ -1522,10 +1722,6 @@
     },
     {
       "id": "compendium:maple_w_plank",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_netherwood_small_logs_slab",
       "required": false
     },
     {
@@ -1541,7 +1737,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_netherwood_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_netherwood_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_netherwood_small_logs_slab",
       "required": false
     },
     {
@@ -1553,11 +1757,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_netherwood_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:netherwood_plank",
+      "id": "compendium:netherwood_styled_planks",
       "required": false
     },
     {
@@ -1565,11 +1765,15 @@
       "required": false
     },
     {
-      "id": "compendium:netherwood_styled_planks",
+      "id": "compendium:netherwood_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:netherwood_styled_planks_stairs",
+      "id": "compendium:netherwood_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:oak_small_logs_slab",
       "required": false
     },
     {
@@ -1581,11 +1785,7 @@
       "required": false
     },
     {
-      "id": "compendium:oak_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_oak_small_log",
+      "id": "compendium:oak_small_log",
       "required": false
     },
     {
@@ -1593,19 +1793,19 @@
       "required": false
     },
     {
-      "id": "compendium:oak_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:oak_small_logs_slab",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_oak_small_logs",
       "required": false
     },
     {
-      "id": "compendium:oak_styled_planks",
+      "id": "compendium:stripped_oak_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:oak_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:oak_plank",
       "required": false
     },
     {
@@ -1617,15 +1817,31 @@
       "required": false
     },
     {
-      "id": "compendium:oak_plank",
+      "id": "compendium:oak_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_palm_small_logs_slab",
+      "id": "compendium:orange_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_palm_small_logs_stairs",
+      "id": "compendium:orange_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:orange_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:palm_small_logs",
       "required": false
     },
     {
@@ -1637,11 +1853,11 @@
       "required": false
     },
     {
-      "id": "compendium:palm_small_logs",
+      "id": "compendium:stripped_palm_small_log",
       "required": false
     },
     {
-      "id": "compendium:palm_small_logs_stairs",
+      "id": "compendium:stripped_palm_small_logs_stairs",
       "required": false
     },
     {
@@ -1649,7 +1865,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_palm_small_log",
+      "id": "compendium:palm_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_palm_small_logs_slab",
       "required": false
     },
     {
@@ -1657,7 +1877,7 @@
       "required": false
     },
     {
-      "id": "compendium:palm_plank",
+      "id": "compendium:palm_styled_planks_slab",
       "required": false
     },
     {
@@ -1665,19 +1885,19 @@
       "required": false
     },
     {
-      "id": "compendium:palm_styled_planks_slab",
+      "id": "compendium:palm_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:peach_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:peach_small_logs",
       "required": false
     },
     {
       "id": "compendium:peach_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_peach_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_peach_small_logs_stairs",
       "required": false
     },
     {
@@ -1689,19 +1909,23 @@
       "required": false
     },
     {
-      "id": "compendium:peach_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:peach_small_log",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_peach_small_logs",
       "required": false
     },
     {
+      "id": "compendium:stripped_peach_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_peach_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:peach_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:peach_styled_planks_stairs",
       "required": false
     },
     {
@@ -1713,19 +1937,7 @@
       "required": false
     },
     {
-      "id": "compendium:peach_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_pine_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_pine_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:pine_small_logs",
+      "id": "compendium:pine_small_logs_stairs",
       "required": false
     },
     {
@@ -1741,7 +1953,11 @@
       "required": false
     },
     {
-      "id": "compendium:pine_small_logs_stairs",
+      "id": "compendium:stripped_pine_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:pine_small_logs",
       "required": false
     },
     {
@@ -1749,11 +1965,7 @@
       "required": false
     },
     {
-      "id": "compendium:pine_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:pine_styled_planks_stairs",
+      "id": "compendium:stripped_pine_small_logs_stairs",
       "required": false
     },
     {
@@ -1761,35 +1973,75 @@
       "required": false
     },
     {
+      "id": "compendium:pine_styled_planks_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:pine_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_rowan_small_log",
+      "id": "compendium:pine_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:rowan_small_logs_stairs",
+      "id": "compendium:pink_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_rowan_small_logs_slab",
+      "id": "compendium:pink_plank",
       "required": false
     },
     {
-      "id": "compendium:stripped_rowan_small_logs_stairs",
+      "id": "compendium:pink_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:rowan_small_log",
+      "id": "compendium:pink_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:rowan_small_logs_slab",
+      "id": "compendium:pink_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_rowan_small_logs",
+      "id": "compendium:purple_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:purple_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:red_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:red_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:red_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:red_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:red_styled_planks_stairs",
       "required": false
     },
     {
@@ -1797,11 +2049,35 @@
       "required": false
     },
     {
-      "id": "compendium:rowan_plank",
+      "id": "compendium:stripped_rowan_small_logs",
       "required": false
     },
     {
-      "id": "compendium:rowan_styled_planks_slab",
+      "id": "compendium:rowan_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_rowan_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_rowan_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_rowan_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:rowan_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:rowan_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:rowan_plank",
       "required": false
     },
     {
@@ -1813,19 +2089,15 @@
       "required": false
     },
     {
-      "id": "compendium:sea_foam_small_logs_slab",
+      "id": "compendium:rowan_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:stripped_sea_foam_small_log",
+      "id": "compendium:stripped_sea_foam_small_logs_slab",
       "required": false
     },
     {
       "id": "compendium:sea_foam_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_sea_foam_small_logs",
       "required": false
     },
     {
@@ -1837,7 +2109,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_sea_foam_small_logs_slab",
+      "id": "compendium:stripped_sea_foam_small_logs",
       "required": false
     },
     {
@@ -1845,15 +2117,11 @@
       "required": false
     },
     {
-      "id": "compendium:sea_foam_styled_planks",
+      "id": "compendium:sea_foam_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:sea_foam_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:sea_foam_plank",
+      "id": "compendium:stripped_sea_foam_small_log",
       "required": false
     },
     {
@@ -1861,31 +2129,19 @@
       "required": false
     },
     {
+      "id": "compendium:sea_foam_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:sea_foam_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:sea_foam_plank",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_spruce_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_spruce_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_spruce_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_spruce_small_logs_slab",
       "required": false
     },
     {
@@ -1893,11 +2149,35 @@
       "required": false
     },
     {
+      "id": "compendium:spruce_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:spruce_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:spruce_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:spruce_styled_planks_stairs",
+      "id": "compendium:spruce_styled_planks_slab",
       "required": false
     },
     {
@@ -1905,7 +2185,11 @@
       "required": false
     },
     {
-      "id": "compendium:spruce_styled_planks_slab",
+      "id": "compendium:spruce_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_strawberry_small_logs_slab",
       "required": false
     },
     {
@@ -1917,19 +2201,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_strawberry_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_strawberry_small_log",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_strawberry_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_strawberry_small_logs_slab",
       "required": false
     },
     {
@@ -1941,6 +2213,14 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_strawberry_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_strawberry_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:strawberry_plank",
       "required": false
     },
@@ -1949,23 +2229,11 @@
       "required": false
     },
     {
-      "id": "compendium:strawberry_styled_planks_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:strawberry_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_tropical_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:tropical_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_tropical_small_logs_stairs",
+      "id": "compendium:strawberry_styled_planks_stairs",
       "required": false
     },
     {
@@ -1973,7 +2241,7 @@
       "required": false
     },
     {
-      "id": "compendium:tropical_small_logs_slab",
+      "id": "compendium:stripped_tropical_small_logs",
       "required": false
     },
     {
@@ -1981,11 +2249,31 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_tropical_small_logs",
+      "id": "compendium:tropical_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_tropical_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:tropical_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_tropical_small_log",
       "required": false
     },
     {
       "id": "compendium:tropical_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:tropical_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:tropical_plank",
       "required": false
     },
     {
@@ -1997,15 +2285,27 @@
       "required": false
     },
     {
-      "id": "compendium:tropical_plank",
+      "id": "compendium:trumpet_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:tropical_styled_planks_stairs",
+      "id": "compendium:trumpet_small_logs_stairs",
       "required": false
     },
     {
       "id": "compendium:trumpet_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_trumpet_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_trumpet_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_trumpet_small_logs",
       "required": false
     },
     {
@@ -2017,34 +2317,6 @@
       "required": false
     },
     {
-      "id": "compendium:trumpet_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_trumpet_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:trumpet_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_trumpet_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_trumpet_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:trumpet_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:trumpet_plank",
-      "required": false
-    },
-    {
       "id": "compendium:trumpet_styled_planks_slab",
       "required": false
     },
@@ -2053,27 +2325,15 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_vanilla_small_log",
+      "id": "compendium:trumpet_plank",
       "required": false
     },
     {
-      "id": "compendium:vanilla_small_log",
+      "id": "compendium:trumpet_styled_planks",
       "required": false
     },
     {
       "id": "compendium:vanilla_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_vanilla_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:vanilla_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:vanilla_small_logs",
       "required": false
     },
     {
@@ -2085,15 +2345,23 @@
       "required": false
     },
     {
-      "id": "compendium:vanilla_styled_planks_slab",
+      "id": "compendium:vanilla_small_logs",
       "required": false
     },
     {
-      "id": "compendium:vanilla_plank",
+      "id": "compendium:vanilla_small_log",
       "required": false
     },
     {
-      "id": "compendium:vanilla_styled_planks_stairs",
+      "id": "compendium:vanilla_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_vanilla_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_vanilla_small_logs",
       "required": false
     },
     {
@@ -2101,7 +2369,23 @@
       "required": false
     },
     {
+      "id": "compendium:vanilla_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:vanilla_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:vanilla_styled_planks_slab",
+      "required": false
+    },
+    {
       "id": "compendium:vivicus_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:vivicus_small_logs_stairs",
       "required": false
     },
     {
@@ -2109,7 +2393,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_vivicus_small_logs",
+      "id": "compendium:stripped_vivicus_small_log",
       "required": false
     },
     {
@@ -2117,7 +2401,7 @@
       "required": false
     },
     {
-      "id": "compendium:vivicus_small_logs_stairs",
+      "id": "compendium:stripped_vivicus_small_logs",
       "required": false
     },
     {
@@ -2129,15 +2413,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_vivicus_small_log",
+      "id": "compendium:vivicus_plank",
       "required": false
     },
     {
       "id": "compendium:vivicus_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:vivicus_plank",
       "required": false
     },
     {
@@ -2149,27 +2429,11 @@
       "required": false
     },
     {
-      "id": "compendium:walnut_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:walnut_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_walnut_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:walnut_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_walnut_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:walnut_small_logs_stairs",
+      "id": "compendium:walnut_small_log",
       "required": false
     },
     {
@@ -2177,7 +2441,27 @@
       "required": false
     },
     {
+      "id": "compendium:walnut_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:walnut_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_walnut_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_walnut_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:walnut_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:walnut_styled_planks",
       "required": false
     },
     {
@@ -2189,23 +2473,7 @@
       "required": false
     },
     {
-      "id": "compendium:walnut_styled_planks",
-      "required": false
-    },
-    {
       "id": "compendium:walnut_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:warped_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:warped_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_warped_small_logs",
       "required": false
     },
     {
@@ -2213,15 +2481,19 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_warped_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_warped_small_logs_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_warped_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:warped_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_warped_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_warped_small_logs_slab",
       "required": false
     },
     {
@@ -2229,11 +2501,11 @@
       "required": false
     },
     {
-      "id": "compendium:warped_plank",
+      "id": "compendium:warped_small_log",
       "required": false
     },
     {
-      "id": "compendium:warped_styled_planks_slab",
+      "id": "compendium:stripped_warped_small_logs_stairs",
       "required": false
     },
     {
@@ -2241,27 +2513,35 @@
       "required": false
     },
     {
+      "id": "compendium:warped_plank",
+      "required": false
+    },
+    {
       "id": "compendium:warped_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_white_wood_small_logs",
+      "id": "compendium:warped_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:stripped_white_wood_small_log",
+      "id": "compendium:white_planks",
       "required": false
     },
     {
-      "id": "compendium:white_wood_small_log",
+      "id": "compendium:white_styled_planks_slab",
       "required": false
     },
     {
-      "id": "compendium:white_wood_small_logs_stairs",
+      "id": "compendium:white_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:white_wood_small_logs",
+      "id": "compendium:white_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:white_styled_planks_stairs",
       "required": false
     },
     {
@@ -2269,7 +2549,23 @@
       "required": false
     },
     {
+      "id": "compendium:white_wood_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:white_wood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:white_wood_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_white_wood_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_white_wood_small_logs",
       "required": false
     },
     {
@@ -2277,11 +2573,11 @@
       "required": false
     },
     {
-      "id": "compendium:white_wood_plank",
+      "id": "compendium:white_wood_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:white_wood_styled_planks",
+      "id": "compendium:white_wood_plank",
       "required": false
     },
     {
@@ -2289,23 +2585,11 @@
       "required": false
     },
     {
+      "id": "compendium:white_wood_styled_planks",
+      "required": false
+    },
+    {
       "id": "compendium:white_wood_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_whitebark_pine_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:whitebark_pine_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_whitebark_pine_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:whitebark_pine_small_log",
       "required": false
     },
     {
@@ -2317,7 +2601,19 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_whitebark_pine_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_whitebark_pine_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:whitebark_pine_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:whitebark_pine_small_logs_slab",
       "required": false
     },
     {
@@ -2325,11 +2621,15 @@
       "required": false
     },
     {
-      "id": "compendium:whitebark_pine_styled_planks",
+      "id": "compendium:whitebark_pine_small_log",
       "required": false
     },
     {
       "id": "compendium:whitebark_pine_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:whitebark_pine_styled_planks",
       "required": false
     },
     {
@@ -2341,19 +2641,11 @@
       "required": false
     },
     {
+      "id": "compendium:willow_w_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:willow_w_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:willow_w_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_willow_w_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_willow_w_small_logs_stairs",
       "required": false
     },
     {
@@ -2361,11 +2653,11 @@
       "required": false
     },
     {
-      "id": "compendium:willow_w_small_logs",
+      "id": "compendium:stripped_willow_w_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:stripped_willow_w_small_logs_slab",
+      "id": "compendium:stripped_willow_w_small_logs",
       "required": false
     },
     {
@@ -2373,11 +2665,11 @@
       "required": false
     },
     {
-      "id": "compendium:willow_w_styled_planks",
+      "id": "compendium:stripped_willow_w_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:willow_w_styled_planks_stairs",
+      "id": "compendium:willow_w_small_logs_stairs",
       "required": false
     },
     {
@@ -2389,23 +2681,11 @@
       "required": false
     },
     {
-      "id": "compendium:wisewood_small_logs",
+      "id": "compendium:willow_w_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:wisewood_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_wisewood_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:wisewood_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_wisewood_small_logs_slab",
+      "id": "compendium:willow_w_styled_planks_stairs",
       "required": false
     },
     {
@@ -2413,7 +2693,23 @@
       "required": false
     },
     {
+      "id": "compendium:wisewood_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_wisewood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:wisewood_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:wisewood_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_wisewood_small_logs",
       "required": false
     },
     {
@@ -2421,11 +2717,7 @@
       "required": false
     },
     {
-      "id": "compendium:wisewood_styled_planks_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:wisewood_plank",
+      "id": "compendium:wisewood_small_logs_stairs",
       "required": false
     },
     {
@@ -2433,7 +2725,35 @@
       "required": false
     },
     {
+      "id": "compendium:wisewood_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:wisewood_styled_planks_slab",
+      "required": false
+    },
+    {
       "id": "compendium:wisewood_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_styled_planks_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_plank",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:yellow_styled_planks_stairs",
       "required": false
     },
     "compendium:chair",
