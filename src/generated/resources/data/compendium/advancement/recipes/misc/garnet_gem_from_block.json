@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_small_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "compendium:garnet_block_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "compendium:garnet_gem_from_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_small_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "compendium:garnet_gem_from_block"
+    ]
+  }
+}

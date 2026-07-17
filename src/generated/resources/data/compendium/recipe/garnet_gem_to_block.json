@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    },
+    {
+      "item": "irons_jewelry:garnet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:garnet_block_item"
+  }
+}

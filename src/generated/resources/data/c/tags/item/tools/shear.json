@@ -9,6 +9,14 @@
       "required": false
     },
     {
+      "id": "compendium:azure_electrum_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:azure_silver_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:bellmetal_shears_item",
       "required": false
     },
@@ -17,11 +25,31 @@
       "required": false
     },
     {
+      "id": "compendium:blaze_gold_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:brass_shears_item",
       "required": false
     },
     {
+      "id": "compendium:bronze_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chlorophyte_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_iron_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_steel_shears_item",
       "required": false
     },
     {
@@ -30,6 +58,14 @@
     },
     {
       "id": "compendium:deepbronze_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_shears_item",
       "required": false
     },
     {
@@ -65,6 +101,10 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:seabrass_shears_item",
       "required": false
     },
@@ -73,7 +113,19 @@
       "required": false
     },
     {
+      "id": "compendium:steel_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:tyrian_steel_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:zinc_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_shears_item",
       "required": false
     },
     {
@@ -101,11 +153,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_shears_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_shears_item",
       "required": false
     },
     {
@@ -117,7 +185,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_shears_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_shears_item",
       "required": false
     }
   ]

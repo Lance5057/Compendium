@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    },
+    {
+      "item": "hazennstuff:demonite_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:demonite_block_item"
+  }
+}

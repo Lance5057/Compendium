@@ -3,14 +3,14 @@
   "tagNamespace": "hazennstuff",
   "type": "METAL",
   "block": {
-    "generate": "IGNORE"
+    "generate": "GENERATE"
   },
   "ingot": {
     "existsLocation": "hazennstuff:rose_gold_ingot",
     "generate": "EXISTS"
   },
   "nugget": {
-    "generate": "IGNORE"
+    "generate": "GENERATE"
   },
   "tier": {
     "vanillaTier": "NETHERITE"

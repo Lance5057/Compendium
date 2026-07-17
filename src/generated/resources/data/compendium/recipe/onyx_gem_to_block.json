@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    },
+    {
+      "item": "irons_jewelry:onyx"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:onyx_block_item"
+  }
+}

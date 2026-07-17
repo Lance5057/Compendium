@@ -1,0 +1,47 @@
+{
+  "name": "blaze_gold",
+  "tagNamespace": "silentgear",
+  "type": "METAL",
+  "block": {
+    "existsLocationBlock": "silentgear:blaze_gold_block",
+    "existsLocationItem": "silentgear:blaze_gold_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "silentgear:blaze_gold_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "existsLocation": "silentgear:blaze_gold_nugget",
+    "generate": "EXISTS"
+  },
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

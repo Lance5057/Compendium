@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "compendium:amber_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_hoe_item",
       "required": false
     },
@@ -25,11 +29,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_hoe_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_hoe_item",
       "required": false
     },
     {
@@ -41,7 +61,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_hoe_item",
       "required": false
     }
   ]

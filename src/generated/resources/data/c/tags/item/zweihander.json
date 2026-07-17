@@ -9,6 +9,14 @@
       "required": false
     },
     {
+      "id": "compendium:azure_electrum_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:azure_silver_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:bellmetal_zweihander_item",
       "required": false
     },
@@ -17,11 +25,31 @@
       "required": false
     },
     {
+      "id": "compendium:blaze_gold_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:brass_zweihander_item",
       "required": false
     },
     {
+      "id": "compendium:bronze_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chlorophyte_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_iron_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_steel_zweihander_item",
       "required": false
     },
     {
@@ -30,6 +58,14 @@
     },
     {
       "id": "compendium:deepbronze_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_zweihander_item",
       "required": false
     },
     {
@@ -65,6 +101,10 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:seabrass_zweihander_item",
       "required": false
     },
@@ -73,7 +113,19 @@
       "required": false
     },
     {
+      "id": "compendium:steel_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:tyrian_steel_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:zinc_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_zweihander_item",
       "required": false
     },
     {
@@ -101,11 +153,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_zweihander_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_zweihander_item",
       "required": false
     },
     {
@@ -117,7 +185,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_zweihander_item",
       "required": false
     }
   ]

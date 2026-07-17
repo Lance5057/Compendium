@@ -1,0 +1,84 @@
+{
+  "name": "corrupted",
+  "namespace": "moresnifferflowers",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "moresnifferflowers:corrupted_planks",
+    "existsLocationItem": "moresnifferflowers:corrupted_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "moresnifferflowers:corrupted_log",
+    "existsLocationItem": "moresnifferflowers:corrupted_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "moresnifferflowers:stripped_corrupted_log",
+    "existsLocationItem": "moresnifferflowers:stripped_corrupted_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "moresnifferflowers:corrupted_wood",
+    "existsLocationItem": "moresnifferflowers:corrupted_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "moresnifferflowers:stripped_corrupted_wood",
+    "existsLocationItem": "moresnifferflowers:stripped_corrupted_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "moresnifferflowers:block/corrupted_planks",
+      "logLocation": "moresnifferflowers:block/corrupted_log",
+      "strippedLogLocation": "moresnifferflowers:block/stripped_corrupted_log",
+      "logTopLocation": "moresnifferflowers:block/corrupted_log_top",
+      "strippedLogTopLocation": "moresnifferflowers:block/stripped_corrupted_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

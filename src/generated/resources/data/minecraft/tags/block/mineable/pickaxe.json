@@ -5,11 +5,15 @@
       "required": false
     },
     {
-      "id": "compendium:arcane_block",
+      "id": "compendium:arcane_styled_metal",
       "required": false
     },
     {
-      "id": "compendium:arcane_styled_metal",
+      "id": "compendium:azure_electrum_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:azure_silver_styled_metal",
       "required": false
     },
     {
@@ -21,7 +25,19 @@
       "required": false
     },
     {
+      "id": "compendium:blaze_gold_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:brass_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:bronze_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:chlorophyte_block",
       "required": false
     },
     {
@@ -33,7 +49,11 @@
       "required": false
     },
     {
-      "id": "compendium:cosmic_gold_styled_metal",
+      "id": "compendium:crimson_iron_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_steel_styled_metal",
       "required": false
     },
     {
@@ -45,7 +65,15 @@
       "required": false
     },
     {
+      "id": "compendium:demonite_block",
+      "required": false
+    },
+    {
       "id": "compendium:demonite_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_block",
       "required": false
     },
     {
@@ -69,10 +97,6 @@
       "required": false
     },
     {
-      "id": "compendium:mithril_block",
-      "required": false
-    },
-    {
       "id": "compendium:mithril_styled_metal",
       "required": false
     },
@@ -85,11 +109,11 @@
       "required": false
     },
     {
-      "id": "compendium:pyrium_block",
+      "id": "compendium:pyrium_styled_metal",
       "required": false
     },
     {
-      "id": "compendium:pyrium_styled_metal",
+      "id": "compendium:rose_gold_block",
       "required": false
     },
     {
@@ -109,11 +133,23 @@
       "required": false
     },
     {
+      "id": "compendium:steel_block",
+      "required": false
+    },
+    {
       "id": "compendium:steel_styled_metal",
       "required": false
     },
     {
+      "id": "compendium:tyrian_steel_styled_metal",
+      "required": false
+    },
+    {
       "id": "compendium:zinc_styled_metal",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_styled_gem",
       "required": false
     },
     {
@@ -141,11 +177,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_styled_gem",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_styled_gem",
       "required": false
     },
     {
+      "id": "compendium:moonstone_styled_gem",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_styled_gem",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_styled_gem",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_styled_gem",
       "required": false
     },
     {
@@ -157,7 +209,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_styled_gem",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_styled_gem",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_styled_gem",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_styled_gem",
       "required": false
     },
     "compendium:cosmetic_toolbox",

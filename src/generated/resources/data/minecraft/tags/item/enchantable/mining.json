@@ -1,11 +1,15 @@
 {
   "values": [
     {
-      "id": "compendium:copper_pickaxe_item",
+      "id": "compendium:copper_axe_item",
       "required": false
     },
     {
       "id": "compendium:copper_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:copper_pickaxe_item",
       "required": false
     },
     {
@@ -17,11 +21,27 @@
       "required": false
     },
     {
-      "id": "compendium:copper_axe_item",
+      "id": "compendium:amber_hoe_item",
       "required": false
     },
     {
-      "id": "compendium:amethyst_sword_item",
+      "id": "compendium:amber_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_hoe_item",
       "required": false
     },
     {
@@ -33,15 +53,11 @@
       "required": false
     },
     {
+      "id": "compendium:amethyst_sword_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:amethyst_hoe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_axe_item",
       "required": false
     },
     {
@@ -50,6 +66,10 @@
     },
     {
       "id": "compendium:crying_obsidian_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_axe_item",
       "required": false
     },
     {
@@ -69,15 +89,15 @@
       "required": false
     },
     {
+      "id": "compendium:dark_prismarine_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:dark_prismarine_pickaxe_item",
       "required": false
     },
     {
       "id": "compendium:dark_prismarine_hoe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_shovel_item",
       "required": false
     },
     {
@@ -101,6 +121,18 @@
       "required": false
     },
     {
+      "id": "compendium:ender_pearl_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_hoe_item",
+      "required": false
+    },
+    {
       "id": "compendium:ender_pearl_pickaxe_item",
       "required": false
     },
@@ -109,31 +141,23 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_axe_item",
+      "id": "compendium:garnet_axe_item",
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_shovel_item",
+      "id": "compendium:garnet_pickaxe_item",
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_hoe_item",
+      "id": "compendium:garnet_hoe_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_axe_item",
+      "id": "compendium:garnet_sword_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_shovel_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lapis_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lapis_hoe_item",
+      "id": "compendium:garnet_shovel_item",
       "required": false
     },
     {
@@ -141,11 +165,39 @@
       "required": false
     },
     {
-      "id": "compendium:obsidian_axe_item",
+      "id": "compendium:lapis_sword_item",
       "required": false
     },
     {
-      "id": "compendium:obsidian_shovel_item",
+      "id": "compendium:lapis_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_pickaxe_item",
       "required": false
     },
     {
@@ -161,15 +213,51 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_axe_item",
+      "id": "compendium:obsidian_axe_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_sword_item",
+      "id": "compendium:obsidian_shovel_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_shovel_item",
+      "id": "compendium:onyx_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_hoe_item",
       "required": false
     },
     {
@@ -177,19 +265,19 @@
       "required": false
     },
     {
+      "id": "compendium:prismarine_sword_item",
+      "required": false
+    },
+    {
       "id": "compendium:prismarine_pickaxe_item",
       "required": false
     },
     {
-      "id": "compendium:quartz_axe_item",
+      "id": "compendium:prismarine_shovel_item",
       "required": false
     },
     {
-      "id": "compendium:quartz_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_pickaxe_item",
+      "id": "compendium:prismarine_axe_item",
       "required": false
     },
     {
@@ -197,7 +285,59 @@
       "required": false
     },
     {
+      "id": "compendium:quartz_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:quartz_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_hoe_item",
       "required": false
     },
     {
@@ -205,11 +345,15 @@
       "required": false
     },
     {
+      "id": "compendium:source_gem_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_axe_item",
       "required": false
     },
     {
-      "id": "compendium:source_gem_shovel_item",
+      "id": "compendium:source_gem_sword_item",
       "required": false
     },
     {
@@ -217,7 +361,23 @@
       "required": false
     },
     {
-      "id": "compendium:source_gem_sword_item",
+      "id": "compendium:topaz_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_pickaxe_item",
       "required": false
     }
   ]

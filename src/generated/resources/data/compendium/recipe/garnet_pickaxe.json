@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "irons_jewelry:garnet"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "ppp",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:garnet_pickaxe_item"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "irons_jewelry:peridot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "p",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:peridot_shovel_item"
+  }
+}

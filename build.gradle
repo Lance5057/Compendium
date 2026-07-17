@@ -149,6 +149,10 @@ dependencies {
     implementation "curse.maven:cobweb-968456:7186943"
     implementation "curse.maven:caelus-308989:5694215"
     implementation "curse.maven:silent-lib-242998:7935618"
+    implementation "curse.maven:zeta-968868:7980010"
+    implementation "curse.maven:selene-499980:8426304"
+    implementation "curse.maven:terrablender-neoforge-940057:6054947"
+    implementation "curse.maven:atlas-api-1145462:6880789"
     
     implementation "curse.maven:barnyard-buddies-1321667:7904099"
     localRuntime "curse.maven:delicate-dyes-1283159:7974242"
@@ -158,7 +162,7 @@ dependencies {
     implementation "curse.maven:enchanted-witchcraft-560363:8055168"
     implementation "curse.maven:ars-nouveau-401955:8346406"
     implementation "curse.maven:abyssal-decor-964853:7859163"
-    implementation "curse.maven:cluttered-826308:7385620"
+    //implementation "curse.maven:cluttered-826308:7385620"
     implementation "curse.maven:lendercataclysm-551586:8364209"
     implementation "curse.maven:irons-spells-n-spellbooks-855414:8364935"
     implementation "curse.maven:create-328085:7963363"
@@ -166,6 +170,14 @@ dependencies {
     implementation "curse.maven:hazen-n-stuff-1231627:8277644"
     implementation "curse.maven:silent-gear-297039:8095210"
     implementation "curse.maven:koopas-critters-395061:7903871"
+    implementation "curse.maven:butchercraft-265715:7777338"
+    implementation "curse.maven:more-sniffer-flowers-884119:8039774"
+    implementation "curse.maven:quark-243121:8420966"
+    implementation "curse.maven:herios-floral-expansion-1210504:7329482"
+    implementation "curse.maven:mystics-biomes-397962:8022733"
+    implementation "curse.maven:would-1147324:7035799"
+    implementation "curse.maven:the-great-outdoors-1444730:7586218"
+    implementation "curse.maven:irons-jewelry-1101111:8365016"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

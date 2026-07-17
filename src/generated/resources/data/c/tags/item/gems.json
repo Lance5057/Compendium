@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "compendium:amber_gem_item",
+      "required": false
+    },
+    {
       "id": "minecraft:amethyst_shard",
       "required": false
     },
@@ -25,11 +29,27 @@
       "required": false
     },
     {
+      "id": "irons_jewelry:garnet",
+      "required": false
+    },
+    {
       "id": "minecraft:lapis_lazuli",
       "required": false
     },
     {
+      "id": "irons_jewelry:moonstone",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_gem_item",
+      "required": false
+    },
+    {
+      "id": "irons_jewelry:onyx",
+      "required": false
+    },
+    {
+      "id": "irons_jewelry:peridot",
       "required": false
     },
     {
@@ -41,7 +61,19 @@
       "required": false
     },
     {
+      "id": "irons_jewelry:ruby",
+      "required": false
+    },
+    {
+      "id": "irons_jewelry:sapphire",
+      "required": false
+    },
+    {
       "id": "ars_nouveau:source_gem",
+      "required": false
+    },
+    {
+      "id": "irons_jewelry:topaz",
       "required": false
     }
   ]

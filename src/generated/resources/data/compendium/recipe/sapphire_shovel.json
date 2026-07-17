@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "irons_jewelry:sapphire"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "p",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:sapphire_shovel_item"
+  }
+}

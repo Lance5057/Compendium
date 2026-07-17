@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "compendium:amber_gem_item"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "pp",
+    "ps",
+    " s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:amber_axe_item"
+  }
+}

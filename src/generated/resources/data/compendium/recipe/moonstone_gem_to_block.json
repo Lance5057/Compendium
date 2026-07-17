@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    },
+    {
+      "item": "irons_jewelry:moonstone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:moonstone_block_item"
+  }
+}

@@ -755,16 +755,16 @@ public class IndexInitialResourceLoader {
 		create();
 		createaddition();
 		hazennstuff();
-//		silentgear();
-//		koopascritters();
-//		butchercraft();
-//		moreSnifferFlowers();
-//		quark();
-//		heriosFloralExpansion();
-//		mysticsBiomes();
-//		would();
-//		theGreatOutdoors();
-//		ironJewelry();
+		silentgear();
+		koopascritters();
+		butchercraft();
+		moreSnifferFlowers();
+		quark();
+		heriosFloralExpansion();
+		mysticsBiomes();
+		would();
+		theGreatOutdoors();
+		ironJewelry();
 	}
 
 	private static void create() {
@@ -814,7 +814,6 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("hazennstuff", "pyrium_block"));
 		pyrium.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "pyrium_ingot"));
 		pyrium.NUGGET.setGenerate();
-		
 
 		pyrium.addExtension(new ExtensionAdvancedTools().generateAll());
 		pyrium.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1030,24 +1029,24 @@ public class IndexInitialResourceLoader {
 		buildDefault(maple.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "mysticsbiomes");
 
-		MaterialWood white_maple = new MaterialWood("white_maple", "mysticsbiomes");
-
-		white_maple.PLANKS.setIgnore();
-		white_maple.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"));
-		white_maple.STRIPPED_LOG.setIgnore();
-		white_maple.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"));
-		white_maple.STRIPPED_WOOD.setIgnore();
-
-		white_maple.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_planks"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log_top"),
-				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log_top")));
-		buildDefault(white_maple.addExtension(new ExtensionExtraLogs().generateAll())
-				.addExtension(new ExtensionExtraPlanks().generateAll()), "mysticsbiomes");
+//		MaterialWood white_maple = new MaterialWood("white_maple", "mysticsbiomes");
+//
+//		white_maple.PLANKS.setIgnore();
+//		white_maple.LOG.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_log"));
+//		white_maple.STRIPPED_LOG.setIgnore();
+//		white_maple.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "white_maple_wood"));
+//		white_maple.STRIPPED_WOOD.setIgnore();
+//
+//		white_maple.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/maple_planks"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/white_maple_log_top"),
+//				ResourceLocation.fromNamespaceAndPath("mysticsbiomes", "block/stripped_maple_log_top")));
+//		buildDefault(white_maple.addExtension(new ExtensionExtraLogs().generateAll())
+//				.addExtension(new ExtensionExtraPlanks().generateAll()), "mysticsbiomes");
 
 		MaterialWood peach = new MaterialWood("peach", "mysticsbiomes");
 
@@ -1753,15 +1752,29 @@ public class IndexInitialResourceLoader {
 	}
 
 	private static void hazennstuff() {
-		buildDefault(new MaterialWood("frostbite_birch", "hazennstuff",
+		MaterialWood frostbite_birch = new MaterialWood("frostbite_birch", "hazennstuff",
 				new SpecialLocationsWood(new SpecialTextureLocationsWood(
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_planks"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_frostbite_birch_log_side"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log_side"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff",
-								"block/stripped_frostbite_birch_log_top"))))
-				.addExtension(new ExtensionExtraLogs().generateAll())
+								"block/stripped_frostbite_birch_log_top"))));
+
+		frostbite_birch.PLANKS.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_planks"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_planks"));
+		frostbite_birch.LOG.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_log"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_log"));
+		frostbite_birch.STRIPPED_LOG.setExists(
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_frostbite_birch_log"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_frostbite_birch_log"));
+		frostbite_birch.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_wood"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "frostbite_birch_wood"));
+		frostbite_birch.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_frostbite_birch_wood"),
+				ResourceLocation.fromNamespaceAndPath("hazennstuff", "stripped_frostbite_birch_wood"));
+
+		buildDefault(frostbite_birch.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "hazennstuff");
 
 		MaterialWood wisewood = new MaterialWood("wisewood", "hazennstuff");
@@ -1788,9 +1801,9 @@ public class IndexInitialResourceLoader {
 
 		MaterialMetal chlorophyte = new MaterialMetal("chlorophyte", "hazennstuff");
 		chlorophyte.tier = new CompendiumTier("NETHERITE");
-		// chlorophyte.BLOCK.setGenerate();
+		chlorophyte.BLOCK.setGenerate();
 		chlorophyte.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "chlorophyte_ingot"));
-		// chlorophyte.NUGGET.setGenerate();
+		chlorophyte.NUGGET.setGenerate();
 
 		chlorophyte.addExtension(new ExtensionAdvancedTools().generateAll());
 		chlorophyte.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1799,9 +1812,9 @@ public class IndexInitialResourceLoader {
 
 		MaterialMetal demonite = new MaterialMetal("demonite", "hazennstuff");
 		demonite.tier = new CompendiumTier("NETHERITE");
-		// demonite.BLOCK.setGenerate();
+		demonite.BLOCK.setGenerate();
 		demonite.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "demonite_ingot"));
-		// demonite.NUGGET.setGenerate();
+		demonite.NUGGET.setGenerate();
 
 		demonite.addExtension(new ExtensionAdvancedTools().generateAll());
 		demonite.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1810,9 +1823,9 @@ public class IndexInitialResourceLoader {
 
 		MaterialMetal dreadsteel = new MaterialMetal("dreadsteel", "hazennstuff");
 		dreadsteel.tier = new CompendiumTier("NETHERITE");
-		// dreadsteel.BLOCK.setGenerate();
+		dreadsteel.BLOCK.setGenerate();
 		dreadsteel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "dreadsteel_ingot"));
-		// dreadsteel.NUGGET.setGenerate();
+		dreadsteel.NUGGET.setGenerate();
 
 		dreadsteel.addExtension(new ExtensionAdvancedTools().generateAll());
 		dreadsteel.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1821,9 +1834,9 @@ public class IndexInitialResourceLoader {
 
 		MaterialMetal rose_gold = new MaterialMetal("rose_gold", "hazennstuff");
 		rose_gold.tier = new CompendiumTier("NETHERITE");
-		// rose_gold.BLOCK.setGenerate();
+		rose_gold.BLOCK.setGenerate();
 		rose_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "rose_gold_ingot"));
-		// rose_gold.NUGGET.setGenerate();
+		rose_gold.NUGGET.setGenerate();
 
 		rose_gold.addExtension(new ExtensionAdvancedTools().generateAll());
 		rose_gold.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1832,9 +1845,9 @@ public class IndexInitialResourceLoader {
 
 		MaterialMetal steel = new MaterialMetal("steel", "hazennstuff");
 		steel.tier = new CompendiumTier("NETHERITE");
-		// steel.BLOCK.setGenerate();
+		steel.BLOCK.setGenerate();
 		steel.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("hazennstuff", "steel_ingot"));
-		// steel.NUGGET.setGenerate();
+		steel.NUGGET.setGenerate();
 
 		steel.addExtension(new ExtensionAdvancedTools().generateAll());
 		steel.addExtension(new ExtensionMetalStyleBlocks().generateAll());

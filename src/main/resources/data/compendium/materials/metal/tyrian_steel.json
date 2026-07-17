@@ -1,0 +1,47 @@
+{
+  "name": "tyrian_steel",
+  "tagNamespace": "silentgear",
+  "type": "METAL",
+  "block": {
+    "existsLocationBlock": "silentgear:tyrian_steel_block",
+    "existsLocationItem": "silentgear:tyrian_steel_block",
+    "generate": "EXISTS"
+  },
+  "ingot": {
+    "existsLocation": "silentgear:tyrian_steel_ingot",
+    "generate": "EXISTS"
+  },
+  "nugget": {
+    "existsLocation": "silentgear:tyrian_steel_nugget",
+    "generate": "EXISTS"
+  },
+  "tier": {
+    "vanillaTier": "NETHERITE"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAMETALBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

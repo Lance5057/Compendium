@@ -4,19 +4,29 @@
   "type": "WOOD",
   "version": 1.1,
   "planks": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "hazennstuff:frostbite_birch_planks",
+    "existsLocationItem": "hazennstuff:frostbite_birch_planks",
+    "generate": "EXISTS"
   },
   "log": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "hazennstuff:frostbite_birch_log",
+    "existsLocationItem": "hazennstuff:frostbite_birch_log",
+    "generate": "EXISTS"
   },
   "stripped_log": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "hazennstuff:stripped_frostbite_birch_log",
+    "existsLocationItem": "hazennstuff:stripped_frostbite_birch_log",
+    "generate": "EXISTS"
   },
   "wood": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "hazennstuff:frostbite_birch_wood",
+    "existsLocationItem": "hazennstuff:frostbite_birch_wood",
+    "generate": "EXISTS"
   },
   "stripped_wood": {
-    "generate": "IGNORE"
+    "existsLocationBlock": "hazennstuff:stripped_frostbite_birch_wood",
+    "existsLocationItem": "hazennstuff:stripped_frostbite_birch_wood",
+    "generate": "EXISTS"
   },
   "specialLocations": {
     "textures": {

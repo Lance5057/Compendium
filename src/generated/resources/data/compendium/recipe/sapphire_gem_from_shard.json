@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:sapphire"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "compendium:sapphire_shard_item"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "amber",
+  "tagNamespace": "moresnifferflowers",
+  "type": "GEM",
+  "block": {
+    "generate": "GENERATE"
+  },
+  "gem": {
+    "generate": "GENERATE"
+  },
+  "shard": {
+    "existsLocation": "moresnifferflowers:amber_shard",
+    "generate": "EXISTS"
+  },
+  "tier": {
+    "vanillaTier": "DIAMOND"
+  },
+  "extensions": [
+    {
+      "type": "VANILLATOOLS",
+      "sword": {
+        "generate": "GENERATE"
+      },
+      "axe": {
+        "generate": "GENERATE"
+      },
+      "shovel": {
+        "generate": "GENERATE"
+      },
+      "hoe": {
+        "generate": "GENERATE"
+      },
+      "pickaxe": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

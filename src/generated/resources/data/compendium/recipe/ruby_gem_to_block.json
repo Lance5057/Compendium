@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    },
+    {
+      "item": "irons_jewelry:ruby"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:ruby_block_item"
+  }
+}

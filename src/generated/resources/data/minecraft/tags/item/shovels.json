@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "compendium:amber_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_shovel_item",
       "required": false
     },
@@ -25,11 +29,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_shovel_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_shovel_item",
       "required": false
     },
     {
@@ -41,7 +61,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_shovel_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_shovel_item",
       "required": false
     }
   ]

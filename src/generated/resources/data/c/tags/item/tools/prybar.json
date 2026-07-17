@@ -9,6 +9,14 @@
       "required": false
     },
     {
+      "id": "compendium:azure_electrum_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:azure_silver_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:bellmetal_prybar_item",
       "required": false
     },
@@ -17,11 +25,31 @@
       "required": false
     },
     {
+      "id": "compendium:blaze_gold_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:brass_prybar_item",
       "required": false
     },
     {
+      "id": "compendium:bronze_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chlorophyte_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_iron_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_steel_prybar_item",
       "required": false
     },
     {
@@ -30,6 +58,14 @@
     },
     {
       "id": "compendium:deepbronze_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_prybar_item",
       "required": false
     },
     {
@@ -65,6 +101,10 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:seabrass_prybar_item",
       "required": false
     },
@@ -73,7 +113,19 @@
       "required": false
     },
     {
+      "id": "compendium:steel_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:tyrian_steel_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:zinc_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_prybar_item",
       "required": false
     },
     {
@@ -101,11 +153,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_prybar_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_prybar_item",
       "required": false
     },
     {
@@ -117,7 +185,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_prybar_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_prybar_item",
       "required": false
     }
   ]

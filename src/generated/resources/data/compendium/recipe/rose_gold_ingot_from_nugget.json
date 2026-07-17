@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "compendium:rose_gold_nugget_item"
+  }
+}

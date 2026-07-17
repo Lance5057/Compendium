@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:amber_gem_item"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "moresnifferflowers:amber_shard"
+  }
+}

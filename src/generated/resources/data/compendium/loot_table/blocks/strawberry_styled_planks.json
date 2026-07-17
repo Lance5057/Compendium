@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "compendium:style_block"
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "compendium:strawberry_styled_planks_item"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "compendium:blocks/strawberry_styled_planks"
+}

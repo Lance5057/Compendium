@@ -13,11 +13,43 @@
       "required": false
     },
     {
+      "id": "compendium:ashen_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:aspen_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:azalea_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:baobab_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:barn_wood_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:birch_plank_item",
       "required": false
     },
     {
+      "id": "compendium:black_cherry_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:blackwood_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:blue_spruce_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cedar_plank_item",
       "required": false
     },
     {
@@ -33,11 +65,35 @@
       "required": false
     },
     {
+      "id": "compendium:corrupted_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_plank_item",
       "required": false
     },
     {
       "id": "compendium:dark_oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dried_stem_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ebony_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:fir_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:frostbite_birch_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:giant_stem_plank_item",
       "required": false
     },
     {
@@ -49,7 +105,31 @@
       "required": false
     },
     {
+      "id": "compendium:kopje_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lavender_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:mahogany_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:maple_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:maple_w_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:netherwood_plank_item",
       "required": false
     },
     {
@@ -57,11 +137,51 @@
       "required": false
     },
     {
+      "id": "compendium:palm_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peach_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pine_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:rowan_plank_item",
       "required": false
     },
     {
+      "id": "compendium:sea_foam_plank_item",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:strawberry_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:tropical_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:trumpet_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:vanilla_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:vivicus_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:walnut_plank_item",
       "required": false
     },
     {
@@ -70,6 +190,18 @@
     },
     {
       "id": "compendium:white_wood_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:whitebark_pine_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:willow_w_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:wisewood_plank_item",
       "required": false
     }
   ]

@@ -9,6 +9,14 @@
       "required": false
     },
     {
+      "id": "silentgear:azure_electrum_nugget",
+      "required": false
+    },
+    {
+      "id": "silentgear:azure_silver_nugget",
+      "required": false
+    },
+    {
       "id": "abyssal_decor:bellmetal_nugget",
       "required": false
     },
@@ -17,11 +25,27 @@
       "required": false
     },
     {
+      "id": "silentgear:blaze_gold_nugget",
+      "required": false
+    },
+    {
       "id": "create:brass_nugget",
       "required": false
     },
     {
+      "id": "compendium:chlorophyte_nugget_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_nugget_item",
+      "required": false
+    },
+    {
+      "id": "silentgear:crimson_iron_nugget",
+      "required": false
+    },
+    {
+      "id": "silentgear:crimson_steel_nugget",
       "required": false
     },
     {
@@ -30,6 +54,14 @@
     },
     {
       "id": "abyssal_decor:deepbronze_nugget",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_nugget_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_nugget_item",
       "required": false
     },
     {
@@ -65,11 +97,23 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_nugget_item",
+      "required": false
+    },
+    {
       "id": "abyssal_decor:seabrass_nugget",
       "required": false
     },
     {
       "id": "compendium:silver_nugget_item",
+      "required": false
+    },
+    {
+      "id": "compendium:steel_nugget_item",
+      "required": false
+    },
+    {
+      "id": "silentgear:tyrian_steel_nugget",
       "required": false
     },
     {

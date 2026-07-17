@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:moonstone"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "compendium:moonstone_shard_item"
+  }
+}

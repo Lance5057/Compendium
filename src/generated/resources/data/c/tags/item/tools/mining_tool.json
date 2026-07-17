@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "compendium:amber_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_pickaxe_item",
       "required": false
     },
@@ -29,11 +33,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_pickaxe_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_pickaxe_item",
       "required": false
     },
     {
@@ -45,7 +65,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_pickaxe_item",
       "required": false
     }
   ]

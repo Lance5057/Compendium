@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:ruby"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "compendium:ruby_shard_item"
+  }
+}

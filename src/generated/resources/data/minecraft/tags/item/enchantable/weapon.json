@@ -1,19 +1,27 @@
 {
   "values": [
     {
-      "id": "compendium:copper_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:copper_axe_item",
       "required": false
     },
     {
-      "id": "compendium:amethyst_sword_item",
+      "id": "compendium:copper_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_axe_item",
       "required": false
     },
     {
       "id": "compendium:amethyst_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_sword_item",
       "required": false
     },
     {
@@ -41,15 +49,19 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:ender_pearl_axe_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_axe_item",
+      "id": "compendium:ender_pearl_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:garnet_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:garnet_sword_item",
       "required": false
     },
     {
@@ -57,7 +69,15 @@
       "required": false
     },
     {
-      "id": "compendium:obsidian_axe_item",
+      "id": "compendium:lapis_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:moonstone_axe_item",
       "required": false
     },
     {
@@ -65,11 +85,31 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_axe_item",
+      "id": "compendium:obsidian_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_axe_item",
       "required": false
     },
     {
       "id": "compendium:prismarine_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_axe_item",
       "required": false
     },
     {
@@ -81,11 +121,35 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ruby_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_axe_item",
       "required": false
     },
     {
       "id": "compendium:source_gem_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_sword_item",
       "required": false
     }
   ]

@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    },
+    {
+      "item": "irons_jewelry:peridot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:peridot_block_item"
+  }
+}

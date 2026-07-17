@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    },
+    {
+      "item": "hazennstuff:rose_gold_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:rose_gold_block_item"
+  }
+}

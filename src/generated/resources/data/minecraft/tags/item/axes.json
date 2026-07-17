@@ -5,6 +5,10 @@
       "required": false
     },
     {
+      "id": "compendium:amber_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_axe_item",
       "required": false
     },
@@ -25,11 +29,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_axe_item",
       "required": false
     },
     {
@@ -41,7 +61,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_axe_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_axe_item",
       "required": false
     }
   ]

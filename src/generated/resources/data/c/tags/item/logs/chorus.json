@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "compendium:chorus_wood_item",
+      "id": "compendium:chorus_log_item",
       "required": false
     },
     {
-      "id": "compendium:chorus_log_item",
+      "id": "compendium:chorus_wood_item",
       "required": false
     },
     {

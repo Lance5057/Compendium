@@ -100,16 +100,19 @@ public class CompendiumItemHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		for (TagKey<Item> tag : itemTag)
-			itp.tag(tag).addOptional(ITEM.getId());
+		if (!this.isIgnored())
+			for (TagKey<Item> tag : itemTag)
+				itp.tag(tag).addOptional(ITEM.getId());
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
-		this.itemTag.add(ItemTags.create(rc));
+		if (!this.isIgnored())
+			this.itemTag.add(ItemTags.create(rc));
 	}
 
 	public void setupItemTag(TagKey<Item> tag) {
-		this.itemTag.add(tag);
+		if (!this.isIgnored())
+			this.itemTag.add(tag);
 	}
 
 	public boolean is(ItemStack item) {

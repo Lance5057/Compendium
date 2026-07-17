@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    },
+    {
+      "item": "irons_jewelry:sapphire"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:sapphire_block_item"
+  }
+}

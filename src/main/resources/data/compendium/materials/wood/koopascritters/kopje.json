@@ -1,0 +1,76 @@
+{
+  "name": "kopje",
+  "namespace": "koopascritters",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "koopascritters:stripped_kopje_log",
+    "existsLocationItem": "koopascritters:stripped_kopje_log",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "generate": "IGNORE"
+  },
+  "stripped_log": {
+    "generate": "IGNORE"
+  },
+  "wood": {
+    "generate": "IGNORE"
+  },
+  "stripped_wood": {
+    "generate": "IGNORE"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "koopascritters:block/kopjeplanks",
+      "logLocation": "koopascritters:block/kopjelogside",
+      "strippedLogLocation": "koopascritters:block/kopjelogstrippedside",
+      "logTopLocation": "koopascritters:block/kopjelogtop",
+      "strippedLogTopLocation": "koopascritters:block/kopjelogstrippedtop"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

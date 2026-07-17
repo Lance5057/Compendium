@@ -1,0 +1,84 @@
+{
+  "name": "strawberry",
+  "namespace": "mysticsbiomes",
+  "type": "WOOD",
+  "version": 1.1,
+  "planks": {
+    "existsLocationBlock": "mysticsbiomes:strawberry_planks",
+    "existsLocationItem": "mysticsbiomes:strawberry_planks",
+    "generate": "EXISTS"
+  },
+  "log": {
+    "existsLocationBlock": "mysticsbiomes:strawberry_log",
+    "existsLocationItem": "mysticsbiomes:strawberry_log",
+    "generate": "EXISTS"
+  },
+  "stripped_log": {
+    "existsLocationBlock": "mysticsbiomes:stripped_strawberry_log",
+    "existsLocationItem": "mysticsbiomes:stripped_strawberry_log",
+    "generate": "EXISTS"
+  },
+  "wood": {
+    "existsLocationBlock": "mysticsbiomes:strawberry_wood",
+    "existsLocationItem": "mysticsbiomes:strawberry_wood",
+    "generate": "EXISTS"
+  },
+  "stripped_wood": {
+    "existsLocationBlock": "mysticsbiomes:stripped_strawberry_wood",
+    "existsLocationItem": "mysticsbiomes:stripped_strawberry_wood",
+    "generate": "EXISTS"
+  },
+  "specialLocations": {
+    "textures": {
+      "plankLocation": "mysticsbiomes:block/strawberry_planks",
+      "logLocation": "mysticsbiomes:block/strawberry_log",
+      "strippedLogLocation": "mysticsbiomes:block/stripped_strawberry_log",
+      "logTopLocation": "mysticsbiomes:block/strawberry_log_top",
+      "strippedLogTopLocation": "mysticsbiomes:block/stripped_strawberry_log_top"
+    }
+  },
+  "extensions": [
+    {
+      "type": "EXTRALOGS",
+      "small_log": {
+        "generate": "GENERATE"
+      },
+      "log": {
+        "generate": "GENERATE"
+      },
+      "log_slab": {
+        "generate": "GENERATE"
+      },
+      "log_stairs": {
+        "generate": "GENERATE"
+      },
+      "stripped_small_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_slab": {
+        "generate": "GENERATE"
+      },
+      "stripped_log_stairs": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAPLANKS",
+      "plank": {
+        "generate": "GENERATE"
+      },
+      "plank_block": {
+        "generate": "GENERATE"
+      },
+      "plank_slab": {
+        "generate": "GENERATE"
+      },
+      "plank_stairs": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

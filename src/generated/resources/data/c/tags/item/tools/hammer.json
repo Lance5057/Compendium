@@ -10,6 +10,14 @@
       "required": false
     },
     {
+      "id": "compendium:azure_electrum_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:azure_silver_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:bellmetal_hammer_item",
       "required": false
     },
@@ -18,11 +26,31 @@
       "required": false
     },
     {
+      "id": "compendium:blaze_gold_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:brass_hammer_item",
       "required": false
     },
     {
+      "id": "compendium:bronze_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:chlorophyte_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_iron_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_steel_hammer_item",
       "required": false
     },
     {
@@ -31,6 +59,14 @@
     },
     {
       "id": "compendium:deepbronze_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:demonite_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dreadsteel_hammer_item",
       "required": false
     },
     {
@@ -66,6 +102,10 @@
       "required": false
     },
     {
+      "id": "compendium:rose_gold_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:seabrass_hammer_item",
       "required": false
     },
@@ -74,7 +114,19 @@
       "required": false
     },
     {
+      "id": "compendium:steel_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:tyrian_steel_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:zinc_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amber_hammer_item",
       "required": false
     },
     {
@@ -102,11 +154,27 @@
       "required": false
     },
     {
+      "id": "compendium:garnet_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_hammer_item",
       "required": false
     },
     {
+      "id": "compendium:moonstone_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:obsidian_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:onyx_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:peridot_hammer_item",
       "required": false
     },
     {
@@ -118,7 +186,19 @@
       "required": false
     },
     {
+      "id": "compendium:ruby_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:sapphire_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:source_gem_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:topaz_hammer_item",
       "required": false
     }
   ]
