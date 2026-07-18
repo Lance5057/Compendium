@@ -153,6 +153,7 @@ dependencies {
     implementation "curse.maven:selene-499980:8426304"
     implementation "curse.maven:terrablender-neoforge-940057:6054947"
     implementation "curse.maven:atlas-api-1145462:6880789"
+    implementation "curse.maven:platform-997634:8075942"
     
     implementation "curse.maven:barnyard-buddies-1321667:7904099"
     localRuntime "curse.maven:delicate-dyes-1283159:7974242"
@@ -178,6 +179,7 @@ dependencies {
     implementation "curse.maven:would-1147324:7035799"
     implementation "curse.maven:the-great-outdoors-1444730:7586218"
     implementation "curse.maven:irons-jewelry-1101111:8365016"
+    implementation "curse.maven:vanillabackport-417430:8229724"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -57,11 +57,11 @@
       "required": false
     },
     {
-      "id": "compendium:chorus_wood_item",
+      "id": "compendium:chorus_log_item",
       "required": false
     },
     {
-      "id": "compendium:chorus_log_item",
+      "id": "compendium:chorus_wood_item",
       "required": false
     },
     {
@@ -142,6 +142,10 @@
     },
     {
       "id": "compendium:oak_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pale_oak_small_logs_item",
       "required": false
     },
     {

@@ -133,6 +133,10 @@
       "required": false
     },
     {
+      "id": "compendium:pale_oak_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:palm_small_log_item",
       "required": false
     },

@@ -31,9 +31,9 @@
   "specialLocations": {
     "textures": {
       "plankLocation": "herios_floral_expansion:block/driedstem_planks",
-      "logLocation": "herios_floral_expansion:block/driedstem_log",
-      "strippedLogLocation": "herios_floral_expansion:block/stripped_driedstem_log",
-      "logTopLocation": "herios_floral_expansion:block/dried_stem_log_top",
+      "logLocation": "herios_floral_expansion:block/driedstem_log_side",
+      "strippedLogLocation": "herios_floral_expansion:block/stripped_dried_stem_log_side",
+      "logTopLocation": "herios_floral_expansion:block/driedstem_log_top",
       "strippedLogTopLocation": "herios_floral_expansion:block/stripped_dried_stem_log_top"
     }
   },

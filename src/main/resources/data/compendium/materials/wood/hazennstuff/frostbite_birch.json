@@ -32,8 +32,8 @@
     "textures": {
       "plankLocation": "hazennstuff:block/frostbite_birch_planks",
       "logLocation": "hazennstuff:block/frostbite_birch_log",
-      "strippedLogLocation": "hazennstuff:block/stripped_frostbite_birch_log_side",
-      "logTopLocation": "hazennstuff:block/frostbite_birch_log_side",
+      "strippedLogLocation": "hazennstuff:block/stripped_frostbite_birch_log",
+      "logTopLocation": "hazennstuff:block/frostbite_birch_log_top",
       "strippedLogTopLocation": "hazennstuff:block/stripped_frostbite_birch_log_top"
     }
   },

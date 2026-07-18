@@ -22,7 +22,7 @@
     "generate": "GENERATE"
   },
   "stripped_wood": {
-    "existsLocationBlock": "ars_nouveau:stripped_archwood_wood",
+    "existsLocationBlock": "ars_nouveau:stripped_purple_archwood_wood",
     "existsLocationItem": "ars_nouveau:stripped_purple_archwood_wood",
     "generate": "EXISTS"
   },

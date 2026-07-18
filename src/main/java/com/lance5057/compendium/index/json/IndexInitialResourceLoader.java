@@ -609,16 +609,22 @@ public class IndexInitialResourceLoader {
 		warped.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(warped);
 
-//		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
-//		pale_oak.LOG.setGenerate();
-//		pale_oak.PLANKS.setGenerate();
-//		pale_oak.STRIPPED_LOG.setGenerate();
-//		pale_oak.WOOD.setGenerate();
-//		pale_oak.STRIPPED_WOOD.setGenerate();
-//
-//		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
-//		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
-//		buildDefault(pale_oak);
+		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
+		pale_oak.LOG.setExists(TagUtil.mcLoc("pale_oak_log"), TagUtil.mcLoc("pale_oak_log"));
+		pale_oak.PLANKS.setExists(TagUtil.mcLoc("pale_oak_planks"), TagUtil.mcLoc("pale_oak_planks"));
+		pale_oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_pale_oak_log"), TagUtil.mcLoc("stripped_pale_oak_log"));
+		pale_oak.WOOD.setExists(TagUtil.mcLoc("pale_oak_wood"), TagUtil.mcLoc("pale_oak_log"));
+		pale_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_pale_oak_wood"), TagUtil.mcLoc("stripped_pale_oak_wood"));
+		pale_oak.specialLocations = new SpecialLocationsWood(
+				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/pale_oak_planks"),
+						TagUtil.mcLoc("block/pale_oak_log"),
+						TagUtil.mcLoc("block/stripped_pale_oak_log"),
+						TagUtil.mcLoc("block/pale_oak_log_top"),
+						TagUtil.mcLoc("block/stripped_pale_oak_log_top")));
+
+		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
+		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
+		buildDefault(pale_oak);
 
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 	}
@@ -1470,9 +1476,9 @@ public class IndexInitialResourceLoader {
 
 		giant_stem.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
 				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_planks"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_log"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_giantstem_log"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giant_stem_log_top"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_log_side"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_giant_stem_log_side"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/giantstem_log_top"),
 				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_giant_stem_log_top")));
 		buildDefault(giant_stem.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "herios_floral_expansion");
@@ -1495,9 +1501,9 @@ public class IndexInitialResourceLoader {
 
 		dried_stem.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
 				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_planks"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_log"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_driedstem_log"),
-				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/dried_stem_log_top"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_log_side"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_dried_stem_log_side"),
+				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/driedstem_log_top"),
 				ResourceLocation.fromNamespaceAndPath("herios_floral_expansion", "block/stripped_dried_stem_log_top")));
 		buildDefault(dried_stem.addExtension(new ExtensionExtraLogs().generateAll())
 				.addExtension(new ExtensionExtraPlanks().generateAll()), "herios_floral_expansion");
@@ -1756,8 +1762,8 @@ public class IndexInitialResourceLoader {
 				new SpecialLocationsWood(new SpecialTextureLocationsWood(
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_planks"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log"),
-						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_frostbite_birch_log_side"),
-						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log_side"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/stripped_frostbite_birch_log"),
+						ResourceLocation.fromNamespaceAndPath("hazennstuff", "block/frostbite_birch_log_top"),
 						ResourceLocation.fromNamespaceAndPath("hazennstuff",
 								"block/stripped_frostbite_birch_log_top"))));
 
@@ -2222,6 +2228,8 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_log"));
 		whitewood.WOOD.setExists(ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_wood"),
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "white_wood_wood"));
+		whitewood.STRIPPED_LOG.setIgnore();
+		whitewood.STRIPPED_WOOD.setIgnore();
 
 		whitewood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
 				ResourceLocation.fromNamespaceAndPath("abyssal_decor", "block/whitewoodplanks"), null,
@@ -2425,7 +2433,7 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"),
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"));
 		archwood.WOOD.setGenerate();
-		archwood.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_archwood_wood"),
+		archwood.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"),
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"));
 
 		archwood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(

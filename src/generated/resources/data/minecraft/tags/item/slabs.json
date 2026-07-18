@@ -37,10 +37,6 @@
       "required": false
     },
     {
-      "id": "compendium:black_styled_planks_slab_item",
-      "required": false
-    },
-    {
       "id": "compendium:black_cherry_styled_planks_slab_item",
       "required": false
     },
@@ -49,15 +45,7 @@
       "required": false
     },
     {
-      "id": "compendium:blue_styled_planks_slab_item",
-      "required": false
-    },
-    {
       "id": "compendium:blue_spruce_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:brown_styled_planks_slab_item",
       "required": false
     },
     {
@@ -85,10 +73,6 @@
       "required": false
     },
     {
-      "id": "compendium:cyan_styled_planks_slab_item",
-      "required": false
-    },
-    {
       "id": "compendium:dark_oak_styled_planks_slab_item",
       "required": false
     },
@@ -113,14 +97,6 @@
       "required": false
     },
     {
-      "id": "compendium:gray_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:green_styled_planks_slab_item",
-      "required": false
-    },
-    {
       "id": "compendium:hawthorn_styled_planks_slab_item",
       "required": false
     },
@@ -134,22 +110,6 @@
     },
     {
       "id": "compendium:lavender_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:light_blue_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:light_gray_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lime_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:magenta_styled_planks_slab_item",
       "required": false
     },
     {
@@ -177,7 +137,7 @@
       "required": false
     },
     {
-      "id": "compendium:orange_styled_planks_slab_item",
+      "id": "compendium:pale_oak_styled_planks_slab_item",
       "required": false
     },
     {
@@ -190,18 +150,6 @@
     },
     {
       "id": "compendium:pine_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:pink_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:purple_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:red_styled_planks_slab_item",
       "required": false
     },
     {
@@ -245,10 +193,6 @@
       "required": false
     },
     {
-      "id": "compendium:white_styled_planks_slab_item",
-      "required": false
-    },
-    {
       "id": "compendium:white_wood_styled_planks_slab_item",
       "required": false
     },
@@ -262,10 +206,6 @@
     },
     {
       "id": "compendium:wisewood_styled_planks_slab_item",
-      "required": false
-    },
-    {
-      "id": "compendium:yellow_styled_planks_slab_item",
       "required": false
     }
   ]
