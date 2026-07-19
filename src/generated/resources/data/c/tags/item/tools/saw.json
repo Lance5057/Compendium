@@ -42,10 +42,6 @@
       "required": false
     },
     {
-      "id": "compendium:copper_saw_item",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_iron_saw_item",
       "required": false
     },
@@ -74,15 +70,7 @@
       "required": false
     },
     {
-      "id": "compendium:gold_saw_item",
-      "required": false
-    },
-    {
       "id": "compendium:ignitium_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:iron_saw_item",
       "required": false
     },
     {
@@ -91,10 +79,6 @@
     },
     {
       "id": "compendium:moonsilver_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:netherite_saw_item",
       "required": false
     },
     {
@@ -130,43 +114,11 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:diamond_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_saw_item",
-      "required": false
-    },
-    {
       "id": "compendium:garnet_saw_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_saw_item",
-      "required": false
-    },
-    {
       "id": "compendium:moonstone_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_saw_item",
       "required": false
     },
     {
@@ -175,14 +127,6 @@
     },
     {
       "id": "compendium:peridot_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_saw_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_saw_item",
       "required": false
     },
     {

@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "compendium:crimson_styled_planks_slab_item",
-      "required": false
-    },
     "minecraft:crimson_slab"
   ]
 }

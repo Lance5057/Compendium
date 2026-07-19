@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "compendium:stripped_acacia_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_alder_small_log_item",
       "required": false
     },
@@ -29,10 +25,6 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_birch_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_black_cherry_small_log_item",
       "required": false
     },
@@ -49,10 +41,6 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_cherry_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_chorus_small_log_item",
       "required": false
     },
@@ -62,14 +50,6 @@
     },
     {
       "id": "compendium:stripped_corrupted_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_crimson_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_dark_oak_small_log_item",
       "required": false
     },
     {
@@ -97,10 +77,6 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_jungle_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_kopje_small_log_item",
       "required": false
     },
@@ -113,10 +89,6 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_mangrove_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_maple_small_log_item",
       "required": false
     },
@@ -126,14 +98,6 @@
     },
     {
       "id": "compendium:stripped_netherwood_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_oak_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_pale_oak_small_log_item",
       "required": false
     },
     {
@@ -154,10 +118,6 @@
     },
     {
       "id": "compendium:stripped_sea_foam_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_spruce_small_log_item",
       "required": false
     },
     {
@@ -182,10 +142,6 @@
     },
     {
       "id": "compendium:stripped_walnut_small_log_item",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_warped_small_log_item",
       "required": false
     },
     {

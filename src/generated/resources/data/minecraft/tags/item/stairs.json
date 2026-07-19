@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "compendium:acacia_styled_planks_stairs_item",
-      "required": false
-    },
-    {
       "id": "compendium:alder_styled_planks_stairs_item",
       "required": false
     },
@@ -33,10 +29,6 @@
       "required": false
     },
     {
-      "id": "compendium:birch_styled_planks_stairs_item",
-      "required": false
-    },
-    {
       "id": "compendium:black_cherry_styled_planks_stairs_item",
       "required": false
     },
@@ -53,10 +45,6 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_styled_planks_stairs_item",
-      "required": false
-    },
-    {
       "id": "compendium:chorus_styled_planks_stairs_item",
       "required": false
     },
@@ -66,14 +54,6 @@
     },
     {
       "id": "compendium:corrupted_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crimson_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_oak_styled_planks_stairs_item",
       "required": false
     },
     {
@@ -101,10 +81,6 @@
       "required": false
     },
     {
-      "id": "compendium:jungle_styled_planks_stairs_item",
-      "required": false
-    },
-    {
       "id": "compendium:kopje_styled_planks_stairs_item",
       "required": false
     },
@@ -117,10 +93,6 @@
       "required": false
     },
     {
-      "id": "compendium:mangrove_styled_planks_stairs_item",
-      "required": false
-    },
-    {
       "id": "compendium:maple_styled_planks_stairs_item",
       "required": false
     },
@@ -130,14 +102,6 @@
     },
     {
       "id": "compendium:netherwood_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:oak_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:pale_oak_styled_planks_stairs_item",
       "required": false
     },
     {
@@ -158,10 +122,6 @@
     },
     {
       "id": "compendium:sea_foam_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_styled_planks_stairs_item",
       "required": false
     },
     {
@@ -186,10 +146,6 @@
     },
     {
       "id": "compendium:walnut_styled_planks_stairs_item",
-      "required": false
-    },
-    {
-      "id": "compendium:warped_styled_planks_stairs_item",
       "required": false
     },
     {

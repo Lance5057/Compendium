@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "compendium:spruce_styled_planks_slab_item",
-      "required": false
-    },
     "minecraft:spruce_slab"
   ]
 }

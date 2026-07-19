@@ -37,10 +37,6 @@
       "required": false
     },
     {
-      "id": "compendium:copper_nugget_item",
-      "required": false
-    },
-    {
       "id": "silentgear:crimson_iron_nugget",
       "required": false
     },
@@ -69,15 +65,7 @@
       "required": false
     },
     {
-      "id": "minecraft:gold_nugget",
-      "required": false
-    },
-    {
       "id": "compendium:ignitium_nugget_item",
-      "required": false
-    },
-    {
-      "id": "minecraft:iron_nugget",
       "required": false
     },
     {
@@ -86,10 +74,6 @@
     },
     {
       "id": "abyssal_decor:moonsilver_nugget",
-      "required": false
-    },
-    {
-      "id": "compendium:netherite_nugget_item",
       "required": false
     },
     {

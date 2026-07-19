@@ -5,31 +5,7 @@
       "required": false
     },
     {
-      "id": "compendium:copper_pickaxe_item",
-      "required": false
-    },
-    {
       "id": "compendium:amber_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:amethyst_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_pickaxe_item",
       "required": false
     },
     {
@@ -37,15 +13,7 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_pickaxe_item",
-      "required": false
-    },
-    {
       "id": "compendium:moonstone_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_pickaxe_item",
       "required": false
     },
     {
@@ -54,14 +22,6 @@
     },
     {
       "id": "compendium:peridot_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_pickaxe_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_pickaxe_item",
       "required": false
     },
     {

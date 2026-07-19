@@ -29,10 +29,6 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_block_item",
-      "required": false
-    },
-    {
       "id": "compendium:garnet_block_item",
       "required": false
     },

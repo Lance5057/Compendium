@@ -74,7 +74,7 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-		buildDefaults();
+//		buildDefaults();
 		moddedDefaults();
 //		addons();
 		readOtherMods();

@@ -41,10 +41,6 @@
       "required": false
     },
     {
-      "id": "compendium:copper_shears_item",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_iron_shears_item",
       "required": false
     },
@@ -73,15 +69,7 @@
       "required": false
     },
     {
-      "id": "compendium:gold_shears_item",
-      "required": false
-    },
-    {
       "id": "compendium:ignitium_shears_item",
-      "required": false
-    },
-    {
-      "id": "minecraft:shears",
       "required": false
     },
     {
@@ -90,10 +78,6 @@
     },
     {
       "id": "compendium:moonsilver_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:netherite_shears_item",
       "required": false
     },
     {
@@ -129,43 +113,11 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:diamond_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_shears_item",
-      "required": false
-    },
-    {
       "id": "compendium:garnet_shears_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_shears_item",
-      "required": false
-    },
-    {
       "id": "compendium:moonstone_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_shears_item",
       "required": false
     },
     {
@@ -174,14 +126,6 @@
     },
     {
       "id": "compendium:peridot_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_shears_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_shears_item",
       "required": false
     },
     {

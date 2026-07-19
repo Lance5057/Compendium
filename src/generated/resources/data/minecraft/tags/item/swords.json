@@ -41,14 +41,6 @@
       "required": false
     },
     {
-      "id": "compendium:copper_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:copper_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_iron_zweihander_item",
       "required": false
     },
@@ -77,15 +69,7 @@
       "required": false
     },
     {
-      "id": "compendium:gold_zweihander_item",
-      "required": false
-    },
-    {
       "id": "compendium:ignitium_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:iron_zweihander_item",
       "required": false
     },
     {
@@ -94,10 +78,6 @@
     },
     {
       "id": "compendium:moonsilver_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:netherite_zweihander_item",
       "required": false
     },
     {
@@ -137,50 +117,6 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:amethyst_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:diamond_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:garnet_sword_item",
       "required": false
     },
@@ -189,27 +125,11 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:lapis_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:moonstone_sword_item",
       "required": false
     },
     {
       "id": "compendium:moonstone_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_sword_item",
       "required": false
     },
     {
@@ -226,22 +146,6 @@
     },
     {
       "id": "compendium:peridot_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_zweihander_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_sword_item",
       "required": false
     },
     {

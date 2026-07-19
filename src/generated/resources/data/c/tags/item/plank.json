@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "compendium:acacia_plank_item",
-      "required": false
-    },
-    {
       "id": "compendium:alder_plank_item",
       "required": false
     },
@@ -33,10 +29,6 @@
       "required": false
     },
     {
-      "id": "compendium:birch_plank_item",
-      "required": false
-    },
-    {
       "id": "compendium:black_cherry_plank_item",
       "required": false
     },
@@ -53,10 +45,6 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_plank_item",
-      "required": false
-    },
-    {
       "id": "compendium:chorus_plank_item",
       "required": false
     },
@@ -66,14 +54,6 @@
     },
     {
       "id": "compendium:corrupted_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crimson_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_oak_plank_item",
       "required": false
     },
     {
@@ -101,10 +81,6 @@
       "required": false
     },
     {
-      "id": "compendium:jungle_plank_item",
-      "required": false
-    },
-    {
       "id": "compendium:kopje_plank_item",
       "required": false
     },
@@ -117,10 +93,6 @@
       "required": false
     },
     {
-      "id": "compendium:mangrove_plank_item",
-      "required": false
-    },
-    {
       "id": "compendium:maple_plank_item",
       "required": false
     },
@@ -130,14 +102,6 @@
     },
     {
       "id": "compendium:netherwood_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:oak_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:pale_oak_plank_item",
       "required": false
     },
     {
@@ -158,10 +122,6 @@
     },
     {
       "id": "compendium:sea_foam_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_plank_item",
       "required": false
     },
     {
@@ -186,10 +146,6 @@
     },
     {
       "id": "compendium:walnut_plank_item",
-      "required": false
-    },
-    {
-      "id": "compendium:warped_plank_item",
       "required": false
     },
     {

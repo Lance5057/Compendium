@@ -41,10 +41,6 @@
       "required": false
     },
     {
-      "id": "minecraft:copper_ingot",
-      "required": false
-    },
-    {
       "id": "silentgear:crimson_iron_ingot",
       "required": false
     },
@@ -73,15 +69,7 @@
       "required": false
     },
     {
-      "id": "minecraft:gold_ingot",
-      "required": false
-    },
-    {
       "id": "cataclysm:ignitium_ingot",
-      "required": false
-    },
-    {
-      "id": "minecraft:iron_ingot",
       "required": false
     },
     {
@@ -90,10 +78,6 @@
     },
     {
       "id": "abyssal_decor:moonsilver_ingot",
-      "required": false
-    },
-    {
-      "id": "minecraft:netherite_ingot",
       "required": false
     },
     {

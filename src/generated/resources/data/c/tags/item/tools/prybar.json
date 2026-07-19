@@ -41,10 +41,6 @@
       "required": false
     },
     {
-      "id": "compendium:copper_prybar_item",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_iron_prybar_item",
       "required": false
     },
@@ -73,15 +69,7 @@
       "required": false
     },
     {
-      "id": "compendium:gold_prybar_item",
-      "required": false
-    },
-    {
       "id": "compendium:ignitium_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:iron_prybar_item",
       "required": false
     },
     {
@@ -90,10 +78,6 @@
     },
     {
       "id": "compendium:moonsilver_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:netherite_prybar_item",
       "required": false
     },
     {
@@ -129,43 +113,11 @@
       "required": false
     },
     {
-      "id": "compendium:amethyst_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:crying_obsidian_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_prismarine_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:diamond_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:emerald_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:ender_pearl_prybar_item",
-      "required": false
-    },
-    {
       "id": "compendium:garnet_prybar_item",
       "required": false
     },
     {
-      "id": "compendium:lapis_prybar_item",
-      "required": false
-    },
-    {
       "id": "compendium:moonstone_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:obsidian_prybar_item",
       "required": false
     },
     {
@@ -174,14 +126,6 @@
     },
     {
       "id": "compendium:peridot_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:prismarine_prybar_item",
-      "required": false
-    },
-    {
-      "id": "compendium:quartz_prybar_item",
       "required": false
     },
     {
