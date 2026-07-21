@@ -16,6 +16,9 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.datafixers.util.Pair;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -63,6 +66,12 @@ public class ClientWood {
 					strippedLogTopTexture = mw.specialLocations.textures.strippedLogTopLocation;
 			}
 		}
+
+//		planksTexture = ClientUtil.checkAtlasSpriteExists(planksTexture);
+//		logTexture = ClientUtil.checkAtlasSpriteExists(logTexture);
+//		strippedLogTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTexture);
+//		logTopTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTexture);
+//		strippedLogTopTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTopTexture);
 
 //		if (mw.PLANKS.isNotIgnored()) {
 //			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),

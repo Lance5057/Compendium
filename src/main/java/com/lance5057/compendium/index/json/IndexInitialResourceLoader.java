@@ -614,13 +614,12 @@ public class IndexInitialResourceLoader {
 		pale_oak.PLANKS.setExists(TagUtil.mcLoc("pale_oak_planks"), TagUtil.mcLoc("pale_oak_planks"));
 		pale_oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_pale_oak_log"), TagUtil.mcLoc("stripped_pale_oak_log"));
 		pale_oak.WOOD.setExists(TagUtil.mcLoc("pale_oak_wood"), TagUtil.mcLoc("pale_oak_log"));
-		pale_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_pale_oak_wood"), TagUtil.mcLoc("stripped_pale_oak_wood"));
+		pale_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_pale_oak_wood"),
+				TagUtil.mcLoc("stripped_pale_oak_wood"));
 		pale_oak.specialLocations = new SpecialLocationsWood(
 				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/pale_oak_planks"),
-						TagUtil.mcLoc("block/pale_oak_log"),
-						TagUtil.mcLoc("block/stripped_pale_oak_log"),
-						TagUtil.mcLoc("block/pale_oak_log_top"),
-						TagUtil.mcLoc("block/stripped_pale_oak_log_top")));
+						TagUtil.mcLoc("block/pale_oak_log"), TagUtil.mcLoc("block/stripped_pale_oak_log"),
+						TagUtil.mcLoc("block/pale_oak_log_top"), TagUtil.mcLoc("block/stripped_pale_oak_log_top")));
 
 		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
 		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
@@ -768,7 +767,7 @@ public class IndexInitialResourceLoader {
 		quark();
 		heriosFloralExpansion();
 		mysticsBiomes();
-		would();
+//		would();
 		theGreatOutdoors();
 		ironJewelry();
 	}
@@ -2433,7 +2432,8 @@ public class IndexInitialResourceLoader {
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"),
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_log"));
 		archwood.WOOD.setGenerate();
-		archwood.STRIPPED_WOOD.setExists(ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"),
+		archwood.STRIPPED_WOOD.setExists(
+				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"),
 				ResourceLocation.fromNamespaceAndPath("ars_nouveau", "stripped_purple_archwood_wood"));
 
 		archwood.specialLocations = new SpecialLocationsWood(new SpecialTextureLocationsWood(
