@@ -1,0 +1,48 @@
+{
+  "values": [
+    {
+      "id": "compendium:acacia_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:birch_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:cherry_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:jungle_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:mangrove_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:pale_oak_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:spruce_plank_item",
+      "required": false
+    },
+    {
+      "id": "compendium:warped_plank_item",
+      "required": false
+    }
+  ]
+}

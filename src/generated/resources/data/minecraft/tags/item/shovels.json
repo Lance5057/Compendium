@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "compendium:copper_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:emerald_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_shovel_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_shovel_item",
+      "required": false
+    }
+  ]
+}

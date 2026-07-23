@@ -5,6 +5,7 @@ import com.lance5057.compendium.Compendium;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.resources.ResourceLocation;
 
 public class ClientUtil {
@@ -34,12 +35,4 @@ public class ClientUtil {
 		return Compendium.modLoc("item/" + item);
 	}
 
-	public static ResourceLocation checkAtlasSpriteExists(ResourceLocation texture) {
-		if (Minecraft.getInstance().getModelManager().getAtlas(TextureAtlas.LOCATION_BLOCKS).getSprite(texture)
-				.atlasLocation() == MissingTextureAtlasSprite.getLocation()) {
-			return MissingTextureAtlasSprite.getLocation();
-		}
-
-		return texture;
-	}
 }

@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "minecraft:copper_ingot",
+      "required": false
+    },
+    {
+      "id": "minecraft:gold_ingot",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_ingot",
+      "required": false
+    },
+    {
+      "id": "minecraft:netherite_ingot",
+      "required": false
+    }
+  ]
+}

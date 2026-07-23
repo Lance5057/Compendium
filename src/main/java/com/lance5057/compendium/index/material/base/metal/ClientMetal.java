@@ -36,8 +36,6 @@ public class ClientMetal {
 						texture = mm.specialLocations.textures.blockLocation;
 			}
 
-//			ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(mb.namespace, "block/" + mb.name);
-
 			if (mm.BLOCK.shouldGenerate()) {
 				ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 				ResourceLocation modelLoc = TagUtil.modLoc(mb.name + "_block");
@@ -197,6 +195,7 @@ public class ClientMetal {
 						planks_style.toLowerCase());
 				ResourceLocation t = Compendium
 						.modLoc("block/material/metal/" + mb.name + "/tile/" + planks_style.toLowerCase());
+
 				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 
 				if (eep.BLOCK.isNotIgnored()) {

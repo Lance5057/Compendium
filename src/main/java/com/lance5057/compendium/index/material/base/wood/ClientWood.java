@@ -67,17 +67,6 @@ public class ClientWood {
 			}
 		}
 
-//		planksTexture = ClientUtil.checkAtlasSpriteExists(planksTexture);
-//		logTexture = ClientUtil.checkAtlasSpriteExists(logTexture);
-//		strippedLogTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTexture);
-//		logTopTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTexture);
-//		strippedLogTopTexture = ClientUtil.checkAtlasSpriteExists(strippedLogTopTexture);
-
-//		if (mw.PLANKS.isNotIgnored()) {
-//			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/planks"),
-//					mw.name + "_planks", "");
-//		}
-
 		if (mw.PLANKS.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_planks");

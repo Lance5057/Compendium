@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "minecraft:amethyst_shard",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_gem_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_gem_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:diamond",
+      "required": false
+    },
+    {
+      "id": "minecraft:emerald",
+      "required": false
+    },
+    {
+      "id": "minecraft:ender_pearl",
+      "required": false
+    },
+    {
+      "id": "minecraft:lapis_lazuli",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_gem_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:prismarine_crystals",
+      "required": false
+    },
+    {
+      "id": "minecraft:quartz",
+      "required": false
+    }
+  ]
+}

@@ -898,10 +898,6 @@ public class CompendiumClient {
 
 	public static BakedModel basicModelAllTexture(ModifyBakingResult event, ResourceLocation blockTexture,
 			ResourceLocation location, ModelResourceLocation modelLocation, ModelState state, String textureName) {
-//		ResourceLocation rc = Compendium.modLoc("extra/" + modelExtraName);
-
-//		ResourceLocation output_location = ClientUtil.createMaterialStyleLayerLocation(modelBase, modelLayer, mb.name,
-//				style.toLowerCase());
 
 		BlockModel frame_model = (BlockModel) event.getModelBakery().getModel(location);
 
@@ -924,7 +920,7 @@ public class CompendiumClient {
 //		Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
 //		ModelResourceLocation block_model = new ModelResourceLocation(output_location, variant);
-		
+
 		for (Pair<String, ResourceLocation> p : textures) {
 
 			if (model.textureMap.containsKey(p.getFirst())) {

@@ -1,0 +1,63 @@
+{
+  "name": "obsidian",
+  "tagNamespace": "minecraft",
+  "type": "GEM",
+  "block": {
+    "existsLocationBlock": "minecraft:obsidian",
+    "existsLocationItem": "minecraft:obsidian",
+    "generate": "EXISTS"
+  },
+  "gem": {
+    "generate": "GENERATE"
+  },
+  "shard": {
+    "generate": "GENERATE"
+  },
+  "tier": {
+    "vanillaTier": "DIAMOND"
+  },
+  "extensions": [
+    {
+      "type": "ADVANCEDTOOLS",
+      "prybar": {
+        "generate": "GENERATE"
+      },
+      "hammer": {
+        "generate": "GENERATE"
+      },
+      "saw": {
+        "generate": "GENERATE"
+      },
+      "shears": {
+        "generate": "GENERATE"
+      },
+      "zweihander": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "EXTRAGEMBLOCKS",
+      "block": {
+        "generate": "GENERATE"
+      }
+    },
+    {
+      "type": "VANILLATOOLS",
+      "sword": {
+        "generate": "GENERATE"
+      },
+      "axe": {
+        "generate": "GENERATE"
+      },
+      "shovel": {
+        "generate": "GENERATE"
+      },
+      "hoe": {
+        "generate": "GENERATE"
+      },
+      "pickaxe": {
+        "generate": "GENERATE"
+      }
+    }
+  ]
+}

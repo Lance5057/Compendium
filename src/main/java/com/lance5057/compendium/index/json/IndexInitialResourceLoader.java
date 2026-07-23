@@ -35,6 +35,7 @@ import com.lance5057.compendium.index.material.base.gem.locations.SpecialLocatio
 import com.lance5057.compendium.index.material.base.gem.locations.SpecialTextureLocationsGem;
 import com.lance5057.compendium.index.material.base.glass.MaterialGlass;
 import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
+import com.lance5057.compendium.index.material.base.stone.MaterialStone;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialLocationsTextile;
 import com.lance5057.compendium.index.material.base.textile.locations.SpecialTextureLocationsTextile;
@@ -45,6 +46,7 @@ import com.lance5057.compendium.index.material.extensions.ExtensionAdvancedTools
 import com.lance5057.compendium.index.material.extensions.ExtensionVanillaTools;
 import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.metal.ExtensionMetalStyleBlocks;
+import com.lance5057.compendium.index.material.extensions.stone.ExtensionStoneStyleBlocks;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraLogs;
 import com.lance5057.compendium.index.material.extensions.wood.ExtensionExtraPlanks;
 import com.lance5057.compendium.util.CompendiumTier;
@@ -74,8 +76,8 @@ public class IndexInitialResourceLoader {
 				e.printStackTrace();
 			}
 
-//		buildDefaults();
-		moddedDefaults();
+		buildDefaults();
+//		moddedDefaults();
 //		addons();
 		readOtherMods();
 		readResourcePacks(resourcePackPath);
@@ -163,6 +165,19 @@ public class IndexInitialResourceLoader {
 		wood();
 		wool();
 		gem();
+		stone();
+	}
+
+	private static void stone() {
+		MaterialStone stone = new MaterialStone("stone", "minecraft");
+
+		stone.COBBLESTONE.setExists(TagUtil.mcLoc("cobblestone"), TagUtil.mcLoc("cobblestone"));
+		stone.STONE.setExists(TagUtil.mcLoc("stone"), TagUtil.mcLoc("stone"));
+		stone.SMOOTH_STONE.setExists(TagUtil.mcLoc("smooth_stone"), TagUtil.mcLoc("smooth_stone"));
+		
+		stone.addExtension(new ExtensionStoneStyleBlocks().generateAll());
+		
+		buildDefault(stone);
 	}
 
 	private static void gem() {

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "compendium:pale_oak_styled_planks_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "compendium:pale_oak_plank_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "compendium:pale_oak_styled_planks_item"
+    ]
+  }
+}

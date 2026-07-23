@@ -1,0 +1,19 @@
+{
+  "name": "pink_wool",
+  "tagNamespace": "minecraft",
+  "type": "TEXTILE",
+  "block": {
+    "existsLocationBlock": "minecraft:pink_wool",
+    "existsLocationItem": "minecraft:pink_wool",
+    "generate": "EXISTS"
+  },
+  "string": {
+    "generate": "IGNORE"
+  },
+  "carpet": {
+    "existsLocationBlock": "minecraft:pink_carpet",
+    "existsLocationItem": "minecraft:pink_carpet",
+    "generate": "EXISTS"
+  },
+  "extensions": []
+}

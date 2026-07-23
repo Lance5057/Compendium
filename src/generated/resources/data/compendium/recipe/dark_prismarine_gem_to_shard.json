@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    },
+    {
+      "item": "compendium:dark_prismarine_shard_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "compendium:dark_prismarine_gem_item"
+  }
+}
