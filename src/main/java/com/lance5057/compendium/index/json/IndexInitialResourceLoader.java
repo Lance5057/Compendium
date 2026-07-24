@@ -165,7 +165,7 @@ public class IndexInitialResourceLoader {
 		wood();
 		wool();
 		gem();
-		stone();
+//		stone();
 	}
 
 	private static void stone() {
@@ -624,21 +624,21 @@ public class IndexInitialResourceLoader {
 		warped.addExtension(new ExtensionExtraPlanks().generateAll());
 		buildDefault(warped);
 
-		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
-		pale_oak.LOG.setExists(TagUtil.mcLoc("pale_oak_log"), TagUtil.mcLoc("pale_oak_log"));
-		pale_oak.PLANKS.setExists(TagUtil.mcLoc("pale_oak_planks"), TagUtil.mcLoc("pale_oak_planks"));
-		pale_oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_pale_oak_log"), TagUtil.mcLoc("stripped_pale_oak_log"));
-		pale_oak.WOOD.setExists(TagUtil.mcLoc("pale_oak_wood"), TagUtil.mcLoc("pale_oak_log"));
-		pale_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_pale_oak_wood"),
-				TagUtil.mcLoc("stripped_pale_oak_wood"));
-		pale_oak.specialLocations = new SpecialLocationsWood(
-				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/pale_oak_planks"),
-						TagUtil.mcLoc("block/pale_oak_log"), TagUtil.mcLoc("block/stripped_pale_oak_log"),
-						TagUtil.mcLoc("block/pale_oak_log_top"), TagUtil.mcLoc("block/stripped_pale_oak_log_top")));
-
-		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
-		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
-		buildDefault(pale_oak);
+//		MaterialWood pale_oak = new MaterialWood("pale_oak", "compendium");
+//		pale_oak.LOG.setExists(TagUtil.mcLoc("pale_oak_log"), TagUtil.mcLoc("pale_oak_log"));
+//		pale_oak.PLANKS.setExists(TagUtil.mcLoc("pale_oak_planks"), TagUtil.mcLoc("pale_oak_planks"));
+//		pale_oak.STRIPPED_LOG.setExists(TagUtil.mcLoc("stripped_pale_oak_log"), TagUtil.mcLoc("stripped_pale_oak_log"));
+//		pale_oak.WOOD.setExists(TagUtil.mcLoc("pale_oak_wood"), TagUtil.mcLoc("pale_oak_log"));
+//		pale_oak.STRIPPED_WOOD.setExists(TagUtil.mcLoc("stripped_pale_oak_wood"),
+//				TagUtil.mcLoc("stripped_pale_oak_wood"));
+//		pale_oak.specialLocations = new SpecialLocationsWood(
+//				new SpecialTextureLocationsWood(TagUtil.mcLoc("block/pale_oak_planks"),
+//						TagUtil.mcLoc("block/pale_oak_log"), TagUtil.mcLoc("block/stripped_pale_oak_log"),
+//						TagUtil.mcLoc("block/pale_oak_log_top"), TagUtil.mcLoc("block/stripped_pale_oak_log_top")));
+//
+//		pale_oak.addExtension(new ExtensionExtraLogs().generateAll());
+//		pale_oak.addExtension(new ExtensionExtraPlanks().generateAll());
+//		buildDefault(pale_oak);
 
 //		buildDefault(new MaterialWood("bamboo", false).addExtension(new ExtensionExtraLogs(true, true, true, true)));
 	}

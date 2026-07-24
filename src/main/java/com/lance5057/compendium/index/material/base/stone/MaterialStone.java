@@ -8,6 +8,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -26,6 +28,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 public class MaterialStone extends _MaterialBase {
 	/**
@@ -243,28 +246,21 @@ public class MaterialStone extends _MaterialBase {
 
 	}
 
-//	@Override
-//	public boolean isIndexItem(ItemStack stack) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	@Override
-//	public Optional<IIndexEntry> getEntryItemBelongsTo(ItemStack stack) {
-//		// TODO Auto-generated method stub
-//		return Optional.empty();
-//	}
-//
-//	@Override
-//	public ItemStack breakDownItem(Ingredient ingredient) {
-//		// TODO Auto-generated method stub
-//		return ItemStack.EMPTY;
-//	}
-//
-//	@Override
-//	public ItemStack buildUpItem(Ingredient ingredient) {
-//		// TODO Auto-generated method stub
-//		return ItemStack.EMPTY;
-//	}
+	@Override
+	public void attachComponents(ModifyDefaultComponentsEvent event) {
+		if (STONE.isNotIgnored())
+			event.modify(STONE.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (COBBLESTONE.isNotIgnored())
+			event.modify(COBBLESTONE.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		if (SMOOTH_STONE.isNotIgnored())
+			event.modify(SMOOTH_STONE.BLOCK_ITEM.get(),
+					builder -> builder.set(CompendiumComponents.INDEX.get(), new IndexEntryComponent(getType(), name)));
+
+		this.extensions.forEach(i -> i.attachComponents(this, event));
+	}
 
 }

@@ -46,9 +46,9 @@ public class ExtensionStoneStyleBlocks extends _MaterialExtension {
 
 	@Override
 	public void setup(_MaterialBase base) {
-		BLOCK.setName(base.name + "_block");
+		BLOCK.setName(base.name + "_styled_stone");
 		BLOCK.setup(base,
-				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
+				() -> new SimpleStyleBlock(Block.Properties.ofFullCopy(Blocks.STONE),
 						Compendium.modLoc(base.name + "_styled_stone"), base.getType(), base.name, List
 								.of("stone_block"),
 						StyleData.STONE_BLOCK),

@@ -7,6 +7,7 @@ import com.lance5057.compendium.CompendiumClient;
 import com.lance5057.compendium.client.ClientUtil;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.material.extensions.gem.ExtensionGemStyleBlocks;
+import com.lance5057.compendium.index.material.extensions.stone.ExtensionStoneStyleBlocks;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.index.util.CompendiumItemHandler;
 import com.lance5057.compendium.style.StyleData;
@@ -102,13 +103,13 @@ public class ClientStone {
 		for (_MaterialExtension me : mw.extensions) {
 			Map<ModelResourceLocation, BakedModel> models = event.getModels();
 
-			if (me instanceof ExtensionGemStyleBlocks eep) {
+			if (me instanceof ExtensionStoneStyleBlocks eep) {
 				doStyleBlocks(event, mw, eep, models);
 			}
 		}
 	}
 
-	private static void doStyleBlocks(ModifyBakingResult event, MaterialStone mw, ExtensionGemStyleBlocks eep,
+	private static void doStyleBlocks(ModifyBakingResult event, MaterialStone mw, ExtensionStoneStyleBlocks eep,
 			Map<ModelResourceLocation, BakedModel> models) {
 		if (eep.BLOCK.isNotIgnored()) {
 			CompendiumClient.buildStateModelVariantAltLocation(event, models, TagUtil.modLoc("extra/styled_stone"),

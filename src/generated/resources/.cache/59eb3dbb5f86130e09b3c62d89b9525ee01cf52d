@@ -1,4 +1,4 @@
-// 1.21.1	2026-07-23T13:28:08.5653961	Loot Tables
+// 1.21.1	2026-07-24T11:45:03.6108326	Loot Tables
 113055c13dee35ed5c4c16e0cc72ceada332467c data/compendium/loot_table/blocks/acacia_plank.json
 e30e90d8e524f1fceea7d7e44ab7782a972b256b data/compendium/loot_table/blocks/acacia_small_log.json
 49e9dda2729911db8a3697e4631cde2da17b11de data/compendium/loot_table/blocks/acacia_small_logs.json
@@ -104,7 +104,6 @@ a43e312254b7ecfe2bbc83c2187b1fe8741e0690 data/compendium/loot_table/blocks/spruc
 12e218eec8631ce62765f8761f576ceccbb2069b data/compendium/loot_table/blocks/spruce_styled_planks.json
 c69d5dfdb2a7023bc474bfcef20c011e7cdf2920 data/compendium/loot_table/blocks/spruce_styled_planks_slab.json
 134e949712e5ad6b2b01a61d6ec4aa8859ec1494 data/compendium/loot_table/blocks/spruce_styled_planks_stairs.json
-e7a59186533a8356e0ad4018d582485bcc204023 data/compendium/loot_table/blocks/stone_block.json
 7cee9c9ec8760e0f3ace45c7aa1764813645dc50 data/compendium/loot_table/blocks/stripped_acacia_small_log.json
 52142a1c18b7bc5ab44412596062d6fe36553a97 data/compendium/loot_table/blocks/stripped_acacia_small_logs.json
 e681d191ba949b29d75bc0a3d9d9ee142df7b561 data/compendium/loot_table/blocks/stripped_acacia_small_logs_slab.json

@@ -56,10 +56,6 @@
       "id": "compendium:quartz_styled_gem",
       "required": false
     },
-    {
-      "id": "compendium:stone_block",
-      "required": false
-    },
     "compendium:cosmetic_toolbox",
     "compendium:hammering_station",
     "compendium:window"
