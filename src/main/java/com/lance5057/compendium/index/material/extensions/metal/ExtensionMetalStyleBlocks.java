@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -14,22 +15,38 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
 import com.lance5057.compendium.blocks.SimpleStyleBlock;
+import com.lance5057.compendium.client.BlacklistedModel;
 import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.components.block.StyleBlockComponent;
 import com.lance5057.compendium.data.loottables.BlockLootTables;
+import com.lance5057.compendium.data.loottables.RecipeLootTables;
+import com.lance5057.compendium.data.recipebuilders.HammeringRecipeBuilder;
 import com.lance5057.compendium.index.material.base._MaterialBase;
+import com.lance5057.compendium.index.material.base.metal.MaterialMetal;
 import com.lance5057.compendium.index.material.extensions.MaterialExtensionSerializer;
 import com.lance5057.compendium.index.material.extensions._MaterialExtension;
 import com.lance5057.compendium.index.util.CompendiumBlockHandler;
 import com.lance5057.compendium.style.StyleData;
+import com.lance5057.compendium.util.TagUtil;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloat;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimatedFloatVector3;
+import com.lance5057.compendium.util.rendering.animation.floats.AnimationFloatTransform;
 
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -83,7 +100,41 @@ public class ExtensionMetalStyleBlocks extends _MaterialExtension {
 
 	@Override
 	public void recipes(_MaterialBase base, RecipeOutput consumer) {
+		BlacklistedModel standardHammeringModel = new BlacklistedModel(
+				ResourceLocation.parse("compendium:gold_hammer_item"), false,
+				new AnimationFloatTransform()
+						.setRotation(new AnimatedFloatVector3()
+								.setZ(new AnimatedFloat(-45.000F, 45.000F, 0.000F, 0.500F, true, true)))
+						.setLocation(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(-8.000F, 0.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(-10.000F, 10.000F, 0.000F, 0.000F, false, false))
+								.setZ(new AnimatedFloat(-8.000F, 8.000F, 0.000F, 0.000F, false, false)))
+						.setScale(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setY(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false))
+								.setZ(new AnimatedFloat(0.500F, 0.500F, 0.000F, 1.000F, false, false)))
+						.setPivot(new AnimatedFloatVector3()
+								.setX(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))
+								.setY(new AnimatedFloat(0.000F, 3.000F, 0.000F, 0.000F, false, false))));
 
+		if (BLOCK.shouldGenerate()) {
+			ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BLOCK.BLOCK_ITEM, 2)
+					.define('p', ((MaterialMetal) base).NUGGET.ITEM).pattern("p p").pattern("   ").pattern("p p")
+					.unlockedBy("plank",
+							CriteriaTriggers.INVENTORY_CHANGED
+									.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(),
+											InventoryChangeTrigger.TriggerInstance.Slots.ANY,
+											List.of(ItemPredicate.Builder.item()
+													.of(((MaterialMetal) base).NUGGET.ITEM.asItem()).build()))))
+					.save(consumer, TagUtil.modLoc(base.name + "_style_block_from_nugget"));
+
+			HammeringRecipeBuilder
+					.hammer(Ingredient.of(BLOCK.BLOCK_ITEM),
+							new ItemStack(((MaterialMetal) base).NUGGET.ITEM.asItem(), 2))
+					.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+							standardHammeringModel)
+					.save(consumer, TagUtil.modLoc(base.name + "_nugget_from_style_block"));
+		}
 	}
 
 	@Override

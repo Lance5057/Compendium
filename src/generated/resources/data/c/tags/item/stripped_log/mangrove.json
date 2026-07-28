@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:stripped_mangrove_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:stripped_mangrove_wood",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_mangrove_small_logs_item",
       "required": false
     }

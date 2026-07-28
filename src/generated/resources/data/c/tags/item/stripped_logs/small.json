@@ -33,10 +33,6 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_pale_oak_small_log_item",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_spruce_small_log_item",
       "required": false
     },

@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:acacia_planks",
+      "required": false
+    },
+    {
       "id": "compendium:acacia_styled_planks_item",
       "required": false
     }

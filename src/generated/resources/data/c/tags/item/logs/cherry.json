@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:cherry_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:cherry_wood",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_small_logs_item",
       "required": false
     }

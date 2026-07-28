@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "minecraft:prismarine",
+      "required": false
+    },
     "minecraft:prismarine"
   ]
 }

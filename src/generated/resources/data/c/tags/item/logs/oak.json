@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:oak_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:oak_wood",
+      "required": false
+    },
+    {
       "id": "compendium:oak_small_logs_item",
       "required": false
     }

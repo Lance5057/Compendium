@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:acacia_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:acacia_log",
+      "required": false
+    },
+    {
       "id": "compendium:acacia_small_logs_item",
       "required": false
     }

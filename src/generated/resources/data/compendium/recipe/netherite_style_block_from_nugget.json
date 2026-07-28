@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "p": {
+      "item": "compendium:netherite_nugget_item"
+    }
+  },
+  "pattern": [
+    "p p",
+    "   ",
+    "p p"
+  ],
+  "result": {
+    "count": 2,
+    "id": "compendium:netherite_styled_metal_item"
+  }
+}

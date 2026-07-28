@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:dark_oak_planks",
+      "required": false
+    },
+    {
       "id": "compendium:dark_oak_styled_planks_item",
       "required": false
     }
