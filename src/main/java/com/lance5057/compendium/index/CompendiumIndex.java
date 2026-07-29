@@ -126,24 +126,29 @@ public class CompendiumIndex {
 		ARMOR_MATERIALS.register(bus);
 	}
 
+	public static BigInteger checksum = BigInteger.ZERO;
+
 	public static BigInteger generateChecksum() throws IOException, NoSuchAlgorithmException, NotSerializableException {
-		ByteArrayOutputStream baos = null;
-		ObjectOutputStream oos = null;
-		try {
-			baos = new ByteArrayOutputStream();
-			oos = new ObjectOutputStream(baos);
-			oos.writeObject(index);
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			md.update(baos.toByteArray());
-			return new BigInteger(1, md.digest());
-		} catch (NotSerializableException e) {
-			Compendium.LOGGER
-					.error("Unserializeable Object! Either make it implement Serializable or mark it transient!");
-			return new BigInteger("0");
-		} finally {
-			oos.close();
-			baos.close();
-		}
+		if (checksum == BigInteger.ZERO) {
+			ByteArrayOutputStream baos = null;
+			ObjectOutputStream oos = null;
+			try {
+				baos = new ByteArrayOutputStream();
+				oos = new ObjectOutputStream(baos);
+				oos.writeObject(index);
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				md.update(baos.toByteArray());
+				return new BigInteger(1, md.digest());
+			} catch (NotSerializableException e) {
+				Compendium.LOGGER
+						.error("Unserializeable Object! Either make it implement Serializable or mark it transient!");
+				return BigInteger.ZERO;
+			} finally {
+				oos.close();
+				baos.close();
+			}
+		} else
+			return checksum;
 	}
 
 	public static boolean isIndexItem(ItemStack stack) {
