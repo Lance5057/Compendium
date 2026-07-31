@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:jungle_log",
+      "id": "minecraft:jungle_wood",
       "required": false
     },
     {
-      "id": "minecraft:jungle_wood",
+      "id": "minecraft:jungle_log",
       "required": false
     },
     {

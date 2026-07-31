@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:spruce_log",
+      "id": "minecraft:spruce_wood",
       "required": false
     },
     {
-      "id": "minecraft:spruce_wood",
+      "id": "minecraft:spruce_log",
       "required": false
     },
     {
