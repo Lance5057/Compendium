@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:mangrove_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:mangrove_log",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_small_logs_item",
       "required": false
     }

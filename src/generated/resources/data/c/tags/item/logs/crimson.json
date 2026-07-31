@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:crimson_stem",
+      "required": false
+    },
+    {
+      "id": "minecraft:crimson_hyphae",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_small_logs_item",
       "required": false
     }

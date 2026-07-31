@@ -131,22 +131,22 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void setupItemTag(ResourceLocation rc) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			this.itemTag.add(ItemTags.create(rc));
 	}
 
 	public void setupItemTag(TagKey<Item> tag) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			this.itemTag.add(tag);
 	}
 
 	public void setupBlockTag(ResourceLocation rc) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			this.blockTag.add(BlockTags.create(rc));
 	}
 
 	public void setupBlockTag(TagKey<Block> tag) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			this.blockTag.add(tag);
 	}
 
@@ -160,13 +160,13 @@ public class CompendiumBlockHandler implements Serializable {
 	}
 
 	public void itemTag(ItemTagsProvider itp) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			for (TagKey<Item> tag : itemTag)
 				itp.tag(tag).addOptional(BLOCK_ITEM.getId());
 	}
 
 	public void blockTag(BlockTagsProvider btp) {
-		if (this.shouldGenerate())
+		if (this.isNotIgnored())
 			for (TagKey<Block> tag : blockTag)
 				btp.tag(tag).addOptional(BLOCK.getId());
 	}

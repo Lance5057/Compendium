@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:stripped_oak_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:stripped_oak_wood",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_oak_small_logs_item",
       "required": false
     }

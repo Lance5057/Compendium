@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:cherry_planks",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_styled_planks_item",
       "required": false
     }

@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:crimson_planks",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_styled_planks_item",
       "required": false
     }

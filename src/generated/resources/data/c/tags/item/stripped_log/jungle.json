@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:stripped_jungle_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:stripped_jungle_wood",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_jungle_small_logs_item",
       "required": false
     }

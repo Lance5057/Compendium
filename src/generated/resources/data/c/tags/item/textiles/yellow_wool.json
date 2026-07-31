@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "minecraft:yellow_wool",
+      "required": false
+    },
     "minecraft:yellow_wool"
   ]
 }

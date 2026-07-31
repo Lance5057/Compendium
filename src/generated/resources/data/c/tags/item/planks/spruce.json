@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:spruce_planks",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_styled_planks_item",
       "required": false
     }

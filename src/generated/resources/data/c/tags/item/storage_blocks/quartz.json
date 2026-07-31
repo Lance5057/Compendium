@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "minecraft:quartz_block",
+      "required": false
+    },
     "minecraft:quartz_block"
   ]
 }

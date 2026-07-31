@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:stripped_warped_stem",
+      "required": false
+    },
+    {
+      "id": "minecraft:stripped_warped_hyphae",
+      "required": false
+    },
+    {
       "id": "compendium:stripped_warped_small_logs_item",
       "required": false
     }

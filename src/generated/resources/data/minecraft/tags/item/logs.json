@@ -1,7 +1,23 @@
 {
   "values": [
     {
+      "id": "minecraft:acacia_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:acacia_log",
+      "required": false
+    },
+    {
       "id": "compendium:acacia_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:birch_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:birch_log",
       "required": false
     },
     {
@@ -9,7 +25,23 @@
       "required": false
     },
     {
+      "id": "minecraft:cherry_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:cherry_wood",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:crimson_stem",
+      "required": false
+    },
+    {
+      "id": "minecraft:crimson_hyphae",
       "required": false
     },
     {
@@ -17,7 +49,23 @@
       "required": false
     },
     {
+      "id": "minecraft:dark_oak_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:dark_oak_log",
+      "required": false
+    },
+    {
       "id": "compendium:dark_oak_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:jungle_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:jungle_wood",
       "required": false
     },
     {
@@ -25,7 +73,23 @@
       "required": false
     },
     {
+      "id": "minecraft:mangrove_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:mangrove_log",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:oak_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:oak_wood",
       "required": false
     },
     {
@@ -33,11 +97,23 @@
       "required": false
     },
     {
-      "id": "compendium:pale_oak_small_logs_item",
+      "id": "minecraft:spruce_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:spruce_wood",
       "required": false
     },
     {
       "id": "compendium:spruce_small_logs_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:warped_stem",
+      "required": false
+    },
+    {
+      "id": "minecraft:warped_hyphae",
       "required": false
     },
     {

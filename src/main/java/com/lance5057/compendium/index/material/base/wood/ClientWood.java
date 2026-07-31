@@ -67,7 +67,7 @@ public class ClientWood {
 			}
 		}
 
-		if (mw.PLANKS.shouldGenerate()) {
+		if (mw.PLANKS.isNotIgnored()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_planks");
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
@@ -77,7 +77,7 @@ public class ClientWood {
 			models.put(m, bm);
 		}
 
-		if (mw.WOOD.shouldGenerate()) {
+		if (mw.WOOD.isNotIgnored()) {
 			String n = mw.name + "_wood";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_wood_inventory");
@@ -90,7 +90,7 @@ public class ClientWood {
 
 		}
 
-		if (mw.LOG.shouldGenerate()) {
+		if (mw.LOG.isNotIgnored()) {
 			String n = mw.name + "_log";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_log_inventory");
@@ -126,7 +126,7 @@ public class ClientWood {
 							BlockModelRotation.X0_Y0, Pair.of("0", logTexture), Pair.of("1", logExtraCaps)));
 		}
 
-		if (mw.STRIPPED_WOOD.shouldGenerate()) {
+		if (mw.STRIPPED_WOOD.isNotIgnored()) {
 			String n = "stripped_" + mw.name + "_wood";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_wood_inventory");
@@ -136,7 +136,7 @@ public class ClientWood {
 			doLog(event, mw, models, strippedLogTexture, strippedLogTexture, n, modelLoc, inventoryModelLoc, model);
 		}
 
-		if (mw.STRIPPED_LOG.shouldGenerate()) {
+		if (mw.STRIPPED_LOG.isNotIgnored()) {
 			String n = "stripped_" + mw.name + "_log";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_log_inventory");

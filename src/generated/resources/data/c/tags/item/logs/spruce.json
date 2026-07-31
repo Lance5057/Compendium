@@ -1,6 +1,14 @@
 {
   "values": [
     {
+      "id": "minecraft:spruce_log",
+      "required": false
+    },
+    {
+      "id": "minecraft:spruce_wood",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_small_logs_item",
       "required": false
     }

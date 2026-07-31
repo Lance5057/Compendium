@@ -17,15 +17,11 @@
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_axe_item",
-      "required": false
-    },
-    {
       "id": "compendium:crying_obsidian_sword_item",
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_sword_item",
+      "id": "compendium:crying_obsidian_axe_item",
       "required": false
     },
     {
@@ -33,7 +29,7 @@
       "required": false
     },
     {
-      "id": "compendium:emerald_axe_item",
+      "id": "compendium:dark_prismarine_sword_item",
       "required": false
     },
     {
@@ -41,7 +37,7 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_axe_item",
+      "id": "compendium:emerald_axe_item",
       "required": false
     },
     {
@@ -49,11 +45,15 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_axe_item",
+      "id": "compendium:ender_pearl_axe_item",
       "required": false
     },
     {
       "id": "compendium:lapis_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
@@ -73,11 +73,11 @@
       "required": false
     },
     {
-      "id": "compendium:quartz_axe_item",
+      "id": "compendium:quartz_sword_item",
       "required": false
     },
     {
-      "id": "compendium:quartz_sword_item",
+      "id": "compendium:quartz_axe_item",
       "required": false
     }
   ]

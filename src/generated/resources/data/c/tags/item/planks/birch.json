@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "minecraft:birch_planks",
+      "required": false
+    },
+    {
       "id": "compendium:birch_styled_planks_item",
       "required": false
     }
