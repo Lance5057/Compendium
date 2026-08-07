@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "compendium:copper_sword_item",
+      "id": "compendium:copper_axe_item",
       "required": false
     },
     {
-      "id": "compendium:copper_axe_item",
+      "id": "compendium:copper_sword_item",
       "required": false
     },
     {
@@ -33,11 +33,11 @@
       "required": false
     },
     {
-      "id": "compendium:emerald_sword_item",
+      "id": "compendium:emerald_axe_item",
       "required": false
     },
     {
-      "id": "compendium:emerald_axe_item",
+      "id": "compendium:emerald_sword_item",
       "required": false
     },
     {
@@ -49,15 +49,11 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_sword_item",
-      "required": false
-    },
-    {
       "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
-      "id": "compendium:obsidian_axe_item",
+      "id": "compendium:lapis_sword_item",
       "required": false
     },
     {
@@ -65,11 +61,15 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_sword_item",
+      "id": "compendium:obsidian_axe_item",
       "required": false
     },
     {
       "id": "compendium:prismarine_axe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_sword_item",
       "required": false
     },
     {

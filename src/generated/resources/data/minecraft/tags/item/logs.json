@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:acacia_wood",
+      "id": "minecraft:acacia_log",
       "required": false
     },
     {
-      "id": "minecraft:acacia_log",
+      "id": "minecraft:acacia_wood",
       "required": false
     },
     {
@@ -25,11 +25,11 @@
       "required": false
     },
     {
-      "id": "minecraft:cherry_log",
+      "id": "minecraft:cherry_wood",
       "required": false
     },
     {
-      "id": "minecraft:cherry_wood",
+      "id": "minecraft:cherry_log",
       "required": false
     },
     {
@@ -37,11 +37,11 @@
       "required": false
     },
     {
-      "id": "minecraft:crimson_stem",
+      "id": "minecraft:crimson_hyphae",
       "required": false
     },
     {
-      "id": "minecraft:crimson_hyphae",
+      "id": "minecraft:crimson_stem",
       "required": false
     },
     {
@@ -61,11 +61,11 @@
       "required": false
     },
     {
-      "id": "minecraft:jungle_log",
+      "id": "minecraft:jungle_wood",
       "required": false
     },
     {
-      "id": "minecraft:jungle_wood",
+      "id": "minecraft:jungle_log",
       "required": false
     },
     {
@@ -73,11 +73,11 @@
       "required": false
     },
     {
-      "id": "minecraft:mangrove_wood",
+      "id": "minecraft:mangrove_log",
       "required": false
     },
     {
-      "id": "minecraft:mangrove_log",
+      "id": "minecraft:mangrove_wood",
       "required": false
     },
     {
@@ -85,11 +85,11 @@
       "required": false
     },
     {
-      "id": "minecraft:oak_log",
+      "id": "minecraft:oak_wood",
       "required": false
     },
     {
-      "id": "minecraft:oak_wood",
+      "id": "minecraft:oak_log",
       "required": false
     },
     {
@@ -97,11 +97,11 @@
       "required": false
     },
     {
-      "id": "minecraft:spruce_log",
+      "id": "minecraft:spruce_wood",
       "required": false
     },
     {
-      "id": "minecraft:spruce_wood",
+      "id": "minecraft:spruce_log",
       "required": false
     },
     {
@@ -109,11 +109,11 @@
       "required": false
     },
     {
-      "id": "minecraft:warped_stem",
+      "id": "minecraft:warped_hyphae",
       "required": false
     },
     {
-      "id": "minecraft:warped_hyphae",
+      "id": "minecraft:warped_stem",
       "required": false
     },
     {

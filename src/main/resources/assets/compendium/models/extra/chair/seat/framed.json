@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "0block/acacia_planks",
-		"particle": "0block/acacia_planks"
+		"0": "block/acacia_planks",
+		"particle": "block/acacia_planks"
 	},
 	"elements": [
 		{

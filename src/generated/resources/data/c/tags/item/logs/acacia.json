@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:acacia_wood",
+      "id": "minecraft:acacia_log",
       "required": false
     },
     {
-      "id": "minecraft:acacia_log",
+      "id": "minecraft:acacia_wood",
       "required": false
     },
     {

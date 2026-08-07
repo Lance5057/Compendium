@@ -764,12 +764,12 @@ public class IndexInitialResourceLoader {
 		delicateDyesGingham();
 		dyenamics();
 		dyenamicsGingham();
-//		extraDelight();
+		extraDelight();
 		enchanted();
 		arsNouveau();
 //		// bloomingNature();
 		abyssalDecor();
-//		cluttered();
+		cluttered();
 		cataclysm();
 		ironSpells();
 		create();

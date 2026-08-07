@@ -67,7 +67,7 @@ public class ClientWood {
 			}
 		}
 
-		if (mw.PLANKS.isNotIgnored()) {
+		if (mw.PLANKS.shouldGenerate()) {
 			ResourceLocation loc = TagUtil.modLoc("block/cube_all");
 			ResourceLocation modelLoc = TagUtil.modLoc(mw.name + "_planks");
 			ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
@@ -77,7 +77,7 @@ public class ClientWood {
 			models.put(m, bm);
 		}
 
-		if (mw.WOOD.isNotIgnored()) {
+		if (mw.WOOD.shouldGenerate()) {
 			String n = mw.name + "_wood";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_wood_inventory");
@@ -90,7 +90,7 @@ public class ClientWood {
 
 		}
 
-		if (mw.LOG.isNotIgnored()) {
+		if (mw.LOG.shouldGenerate()) {
 			String n = mw.name + "_log";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_log_inventory");
@@ -98,7 +98,8 @@ public class ClientWood {
 			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/log");
 
 			doLog(event, mw, models, logTexture, logTopTexture, n, modelLoc, inventoryModelLoc, model);
-
+		}
+		if (mw.LOG.isNotIgnored()) {
 			event.getModels().put(
 					ModelResourceLocation.standalone(TagUtil.modLoc("recipes/" + mw.name + "_split_log_stage0")),
 					CompendiumClient.basicModelManyTexture(event, TagUtil.modLoc("recipes/split_log_stage0"),
@@ -126,7 +127,7 @@ public class ClientWood {
 							BlockModelRotation.X0_Y0, Pair.of("0", logTexture), Pair.of("1", logExtraCaps)));
 		}
 
-		if (mw.STRIPPED_WOOD.isNotIgnored()) {
+		if (mw.STRIPPED_WOOD.shouldGenerate()) {
 			String n = "stripped_" + mw.name + "_wood";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_wood_inventory");
@@ -136,7 +137,7 @@ public class ClientWood {
 			doLog(event, mw, models, strippedLogTexture, strippedLogTexture, n, modelLoc, inventoryModelLoc, model);
 		}
 
-		if (mw.STRIPPED_LOG.isNotIgnored()) {
+		if (mw.STRIPPED_LOG.shouldGenerate()) {
 			String n = "stripped_" + mw.name + "_log";
 			ResourceLocation modelLoc = TagUtil.modLoc(n);
 			ResourceLocation inventoryModelLoc = TagUtil.modLoc(mw.name + "_stripped_log_inventory");
@@ -144,7 +145,8 @@ public class ClientWood {
 			ResourceLocation model = TagUtil.modLoc("extra/wood_basic/stripped_log");
 
 			doLog(event, mw, models, strippedLogTexture, strippedLogTopTexture, n, modelLoc, inventoryModelLoc, model);
-
+		}
+		if (mw.STRIPPED_LOG.isNotIgnored()) {
 			event.getModels()
 					.put(ModelResourceLocation
 							.standalone(TagUtil.modLoc("recipes/" + mw.name + "_stripped_split_log_stage0")),
