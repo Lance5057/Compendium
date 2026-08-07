@@ -48,52 +48,52 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class ToolUtil {
-	public static void breakInRadius(Level level, Player player, int radius, BlockPos originPos) {
-		if (level instanceof ServerLevel server) {
-			Stream<BlockPos> brokenBlocks = getBreakBlocks(server, player, radius, 0, originPos);
-			ItemStack heldItem = player.getMainHandItem();
-			brokenBlocks.forEach(pos -> {
-				if (!pos.equals(originPos)) { // Vanilla handles this
-					BlockState state = server.getBlockState(pos);
-					if (player.getMainHandItem().isCorrectToolForDrops(state)) {
-						ServerPlayer serverPlayer = (ServerPlayer) player;
-						if (player.getAbilities().instabuild) {
-							if (state.onDestroyedByPlayer(server, pos, player, true, state.getFluidState()))
-								state.getBlock().destroy(server, pos, state);
-						} else {
-							BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(server, pos, state, player);
-							NeoForge.EVENT_BUS.post(event);
-
-							if (event.isCanceled()) {
-								// Forge copy
-								serverPlayer.connection.send(new ClientboundBlockUpdatePacket(server, pos));
-								BlockEntity tile = server.getBlockEntity(pos);
-								if (tile != null) {
-									Packet<?> packet = tile.getUpdatePacket();
-									if (packet != null) {
-										serverPlayer.connection.send(packet);
-									}
-								}
-							} else {
-								heldItem.getItem().mineBlock(heldItem, server, state, pos, player);
-								BlockEntity blockEntity = server.getBlockEntity(pos);
-								state.getBlock().destroy(server, pos, state);
-								state.getBlock().playerDestroy(server, player, pos, state, blockEntity, heldItem);
-//								state.getBlock().popExperience((ServerLevel) level, pos, event.getExpToDrop());
-
-								CommonHooks.handleBlockDrops(server, originPos, state, blockEntity, null, player,
-										heldItem);
-
-								level.removeBlock(pos, false);
-								level.levelEvent(2001, pos, Block.getId(state));
-								serverPlayer.connection.send(new ClientboundBlockUpdatePacket(level, pos));
-							}
-						}
-					}
-				}
-			});
-		}
-	}
+//	public static void breakInRadius(Level level, Player player, int radius, BlockPos originPos) {
+////		if (level instanceof ServerLevel server) {
+//			Stream<BlockPos> brokenBlocks = getBreakBlocks(level, player, radius, 0, originPos);
+//			ItemStack heldItem = player.getMainHandItem();
+//			brokenBlocks.forEach(pos -> {
+//				if (!pos.equals(originPos)) { // Vanilla handles this
+//					BlockState state = level.getBlockState(pos);
+//					if (player.getMainHandItem().isCorrectToolForDrops(state)) {
+//						ServerPlayer serverPlayer = (ServerPlayer) player;
+//						if (player.getAbilities().instabuild) {
+//							if (state.onDestroyedByPlayer(level, pos, player, true, state.getFluidState()))
+//								state.getBlock().destroy(level, pos, state);
+//						} else {
+//							BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(level, pos, state, player);
+//							NeoForge.EVENT_BUS.post(event);
+//
+//							if (event.isCanceled()) {
+//								// Forge copy
+//								serverPlayer.connection.send(new ClientboundBlockUpdatePacket(level, pos));
+//								BlockEntity tile = level.getBlockEntity(pos);
+//								if (tile != null) {
+//									Packet<?> packet = tile.getUpdatePacket();
+//									if (packet != null) {
+//										serverPlayer.connection.send(packet);
+//									}
+//								}
+//							} else {
+//								heldItem.getItem().mineBlock(heldItem, level, state, pos, player);
+//								BlockEntity blockEntity = level.getBlockEntity(pos);
+//								state.getBlock().destroy(level, pos, state);
+//								state.getBlock().playerDestroy(level, player, pos, state, blockEntity, heldItem);
+////								state.getBlock().popExperience((ServerLevel) level, pos, event.getExpToDrop());
+//
+//								CommonHooks.handleBlockDrops(level, originPos, state, blockEntity, null, player,
+//										heldItem);
+//
+//								level.removeBlock(pos, false);
+//								level.levelEvent(2001, pos, Block.getId(state));
+//								serverPlayer.connection.send(new ClientboundBlockUpdatePacket(level, pos));
+//							}
+//						}
+//					}
+//				}
+//			});
+//		}
+//	}
 
 	public static Stream<BlockPos> getBreakBlocks(Level level, Player player, int radius, BlockPos originPosition) {
 		return getBreakBlocks(level, player, radius, 0, originPosition);

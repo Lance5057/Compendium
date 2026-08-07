@@ -5,13 +5,13 @@ import java.util.stream.Collectors;
 
 import com.lance5057.compendium.CompendiumItems;
 import com.lance5057.compendium.items.HandedAbilityTool;
+import com.lance5057.compendium.items.tools.api.IAOETool;
 import com.lance5057.compendium.util.ToolUtil;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -22,32 +22,30 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
-public class HammerItem extends HandedAbilityTool {
+public class HammerItem extends HandedAbilityTool implements IAOETool {
 
 	public HammerItem(Tier tier, Item.Properties builder) {
 		super(tier, BlockTags.MINEABLE_WITH_PICKAXE, builder);
 	}
 
-	@Override
-	public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
-		int radius = 1;
-		if (player.isCrouching()) {
-			radius = 0;
-		}
-
-		// float originHardness = level.getBlockState(pos).getBlockHardness(null, null);
-
-		// only do a 3x3 break if the player's tool is effective on the block they are
-		// breaking
-		// this makes it so breaking gravel doesn't break nearby stone
-		if (player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
-			ToolUtil.breakInRadius(level, player, radius, pos);
-		}
-
-		return true;
-	}
-
-	BlockState to;
+//	@Override
+//	public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
+//		int radius = 1;
+//		if (player.isCrouching()) {
+//			radius = 0;
+//		}
+//
+//		// float originHardness = level.getBlockState(pos).getBlockHardness(null, null);
+//
+//		// only do a 3x3 break if the player's tool is effective on the block they are
+//		// breaking
+//		// this makes it so breaking gravel doesn't break nearby stone
+//		if (player.getMainHandItem().isCorrectToolForDrops(level.getBlockState(pos))) {
+//			ToolUtil.breakInRadius(level, player, radius, pos);
+//		}
+//
+//		return true;
+//	}
 
 	@Override
 	protected InteractionResult mainInteractionHandAbility(UseOnContext context) {
@@ -124,6 +122,21 @@ public class HammerItem extends HandedAbilityTool {
 		}
 
 		return InteractionResult.FAIL;
+	}
+
+	@Override
+	public int getWidth() {
+		return 1;
+	}
+
+	@Override
+	public int getHeight() {
+		return 1;
+	}
+
+	@Override
+	public int getDepth() { 
+		return 0;
 	}
 
 //	private HammerHandedToolRecipe matchRecipe(UseOnContext context) {
