@@ -8,6 +8,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumComponents;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -19,8 +21,12 @@ import com.lance5057.compendium.util.TagUtil;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -46,7 +52,9 @@ public class MaterialGlass extends _MaterialBase {
 	@Override
 	public void setup() {
 		BLOCK.setName(name + "_block");
-		BLOCK.setup(this);
+		BLOCK.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.GLASS)),
+				() -> new BlockItem(BLOCK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 		BLOCK.setupItemTag(Tags.Items.GLASS_BLOCKS);
 		BLOCK.setupItemTag(TagUtil.neoTag("glass_blocks/" + name));
 

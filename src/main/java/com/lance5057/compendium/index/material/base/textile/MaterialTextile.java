@@ -32,6 +32,8 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -81,7 +83,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	private void setupCarpet() {
 		CARPET.setName(name + "_carpet");
-		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)));
+		CARPET.setup(this, () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CARPET)),
+				() -> new BlockItem(CARPET.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(this.getType(), this.name))));
 
 		CARPET.setupItemTag(TagUtil.neoTag("carpet/" + name));
 		CARPET.setupItemTag(ItemTags.WOOL_CARPETS);
@@ -95,7 +99,9 @@ public class MaterialTextile extends _MaterialBase {
 
 	private void setupBlock() {
 		BLOCK.setName(name + "_block");
-		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
+		BLOCK.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)),
+				() -> new BlockItem(BLOCK.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(this.getType(), this.name))));
 
 		BLOCK.setupItemTag(CompendiumTags.TEXTILES);
 		BLOCK.setupItemTag(TagUtil.neoTag("textiles/" + name));

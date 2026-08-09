@@ -22,6 +22,8 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -63,21 +65,27 @@ public class MaterialStone extends _MaterialBase {
 	@Override
 	public void setup() {
 		COBBLESTONE.setName(name + "_cobblestone");
-		COBBLESTONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)));
+		COBBLESTONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)),
+				() -> new BlockItem(COBBLESTONE.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 
 		COBBLESTONE.setupItemTag(Tags.Items.COBBLESTONES);
 		COBBLESTONE.setupItemTag(TagUtil.neoTag("cobblestones/" + name));
 		COBBLESTONE.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);
 
 		STONE.setName(name + "_stone");
-		STONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+		STONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
+				() -> new BlockItem(STONE.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 
 		STONE.setupItemTag(Tags.Items.STONES);
 		STONE.setupItemTag(TagUtil.neoTag("stones/" + name));
 		STONE.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);
 
 		SMOOTH_STONE.setName(name + "_stone");
-		SMOOTH_STONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)));
+		SMOOTH_STONE.setup(this, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)),
+				() -> new BlockItem(SMOOTH_STONE.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(this.getType(), this.name))));
 
 		SMOOTH_STONE.setupItemTag(Tags.Items.STONES);
 		SMOOTH_STONE.setupItemTag(TagUtil.neoTag("stones/" + name));

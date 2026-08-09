@@ -174,9 +174,9 @@ public class IndexInitialResourceLoader {
 		stone.COBBLESTONE.setExists(TagUtil.mcLoc("cobblestone"), TagUtil.mcLoc("cobblestone"));
 		stone.STONE.setExists(TagUtil.mcLoc("stone"), TagUtil.mcLoc("stone"));
 		stone.SMOOTH_STONE.setExists(TagUtil.mcLoc("smooth_stone"), TagUtil.mcLoc("smooth_stone"));
-		
+
 		stone.addExtension(new ExtensionStoneStyleBlocks().generateAll());
-		
+
 		buildDefault(stone);
 	}
 
@@ -782,7 +782,7 @@ public class IndexInitialResourceLoader {
 		quark();
 		heriosFloralExpansion();
 		mysticsBiomes();
-//		would();
+		would();
 		theGreatOutdoors();
 		ironJewelry();
 	}
@@ -1712,7 +1712,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(azure_silver);
 
 		MaterialMetal blaze_gold = new MaterialMetal("blaze_gold", "silentgear");
-		blaze_gold.tier = new CompendiumTier("NETHERITE");
+		blaze_gold.tier = new CompendiumTier("DIAMOND");
 		blaze_gold.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_block"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_block"));
 		blaze_gold.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "blaze_gold_ingot"));
@@ -1724,10 +1724,10 @@ public class IndexInitialResourceLoader {
 		buildDefault(blaze_gold);
 
 		MaterialMetal bronze = new MaterialMetal("bronze", "silentgear");
-		bronze.tier = new CompendiumTier("NETHERITE");
-		// bronze.BLOCK.setGenerate();
+		bronze.tier = new CompendiumTier("IRON");
+		bronze.BLOCK.setGenerate();
 		bronze.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "bronze_ingot"));
-		// bronze.NUGGET.setGenerate();
+		bronze.NUGGET.setGenerate();
 
 		bronze.addExtension(new ExtensionAdvancedTools().generateAll());
 		bronze.addExtension(new ExtensionMetalStyleBlocks().generateAll());
@@ -1735,7 +1735,7 @@ public class IndexInitialResourceLoader {
 		buildDefault(bronze);
 
 		MaterialMetal crimson_iron = new MaterialMetal("crimson_iron", "silentgear");
-		crimson_iron.tier = new CompendiumTier("NETHERITE");
+		crimson_iron.tier = new CompendiumTier("DIAMOND");
 		crimson_iron.BLOCK.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_block"),
 				ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_block"));
 		crimson_iron.INGOT.setExists(ResourceLocation.fromNamespaceAndPath("silentgear", "crimson_iron_ingot"));

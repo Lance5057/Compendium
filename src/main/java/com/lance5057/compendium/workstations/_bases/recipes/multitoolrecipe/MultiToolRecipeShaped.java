@@ -28,7 +28,7 @@ public abstract class MultiToolRecipeShaped extends MultiToolRecipe {
 
 	@Override
 	public ItemStack getResultItem(Provider registries) {
-		return recipeOutput;
+		return recipeOutput.copy();
 	}
 
 }

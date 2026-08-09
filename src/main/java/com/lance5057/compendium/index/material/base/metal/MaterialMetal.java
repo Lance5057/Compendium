@@ -27,8 +27,12 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.CreativeModeTab.Output;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
@@ -64,17 +68,21 @@ public class MaterialMetal extends _MaterialBase {
 	@Override
 	public void setup() {
 		INGOT.setName(name + "_ingot");
-		INGOT.setup(this);
+		INGOT.setup(this, () -> new Item(new Item.Properties().component(CompendiumComponents.INDEX,
+				new IndexEntryComponent(this.getType(), this.name))));
 		INGOT.setupItemTag(Tags.Items.INGOTS);
 		INGOT.setupItemTag(TagUtil.neoTag("ingots/" + name));
 
 		NUGGET.setName(name + "_nugget");
-		NUGGET.setup(this);
+		NUGGET.setup(this, () -> new Item(new Item.Properties().component(CompendiumComponents.INDEX,
+				new IndexEntryComponent(this.getType(), this.name))));
 		NUGGET.setupItemTag(Tags.Items.NUGGETS);
 		NUGGET.setupItemTag(TagUtil.neoTag("nuggets/" + name));
 
 		BLOCK.setName(name + "_block");
-		BLOCK.setup(this);
+		BLOCK.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.COPPER_BLOCK)),
+				() -> new BlockItem(BLOCK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
 		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/" + name));
 		BLOCK.setupBlockTag(BlockTags.MINEABLE_WITH_PICKAXE);

@@ -8,7 +8,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
+import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.CompendiumTags;
+import com.lance5057.compendium.components.block.IndexEntryComponent;
 import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.material.base.MaterialTypeSerializer;
 import com.lance5057.compendium.index.material.base._MaterialBase;
@@ -25,7 +27,11 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -59,17 +65,21 @@ public class MaterialGem extends _MaterialBase {
 	@Override
 	public void setup() {
 		BLOCK.setName(name + "_block");
-		BLOCK.setup(this);
+		BLOCK.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)),
+				() -> new BlockItem(BLOCK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 		BLOCK.setupItemTag(Tags.Items.STORAGE_BLOCKS);
 		BLOCK.setupItemTag(TagUtil.neoTag("storage_blocks/" + name));
 
 		GEM.setName(name + "_gem");
-		GEM.setup(this);
+		GEM.setup(this, () -> new Item(new Item.Properties().component(CompendiumComponents.INDEX,
+				new IndexEntryComponent(this.getType(), this.name))));
 		GEM.setupItemTag(Tags.Items.GEMS);
 		GEM.setupItemTag(TagUtil.neoTag("gems/" + name));
 
 		SHARD.setName(name + "_shard");
-		SHARD.setup(this);
+		SHARD.setup(this, () -> new Item(new Item.Properties().component(CompendiumComponents.INDEX,
+				new IndexEntryComponent(this.getType(), this.name))));
 		SHARD.setupItemTag(CompendiumTags.GEM_SHARD);
 		SHARD.setupItemTag(TagUtil.neoTag("gem_shards/" + name));
 

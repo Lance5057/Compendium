@@ -68,8 +68,7 @@ public class CompendiumIndex {
 		}).toList();
 
 		if (metal != null && metal.size() > 0) {
-			Random r = new Random();
-			return metal.get(r.nextInt(metal.size())).getName();
+			return metal.getFirst().getName();
 		}
 
 		Compendium.LOGGER.error("No valid " + type.toString() + " types in index!");

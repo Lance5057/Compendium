@@ -18,11 +18,11 @@ public class CompendiumComponents {
 			.register("multi_material_block",
 					() -> DataComponentType.<MultiMaterialBlockComponent>builder()
 							.persistent(MultiMaterialBlockComponent.CODEC)
-							.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC).cacheEncoding().build());
+							.networkSynchronized(MultiMaterialBlockComponent.STREAM_CODEC).build());
 
 	public static Supplier<DataComponentType<StyleBlockComponent>> STYLE = COMPONENTS.register("style_block",
 			() -> DataComponentType.<StyleBlockComponent>builder().persistent(StyleBlockComponent.CODEC)
-					.networkSynchronized(StyleBlockComponent.STREAM_CODEC).cacheEncoding().build());
+					.networkSynchronized(StyleBlockComponent.STREAM_CODEC).build());
 
 	public static Supplier<DataComponentType<IndexEntryComponent>> INDEX = COMPONENTS.register("index_block",
 			() -> DataComponentType.<IndexEntryComponent>builder().persistent(IndexEntryComponent.CODEC)

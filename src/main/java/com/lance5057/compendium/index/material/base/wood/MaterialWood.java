@@ -23,6 +23,8 @@ import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -113,8 +115,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupStrippedWood(boolean isNether) {
-		STRIPPED_WOOD.setup(this,
-				() -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		STRIPPED_WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
+				() -> new BlockItem(STRIPPED_WOOD.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(this.getType(), this.name))));
 
 		STRIPPED_WOOD.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_WOOD.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -126,7 +129,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupWood(boolean isNether) {
-		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		WOOD.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
+				() -> new BlockItem(WOOD.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 
 		WOOD.setupItemTag(ItemTags.LOGS);
 		WOOD.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -138,7 +143,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupStrippedLogs(boolean isNether) {
-		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)));
+		STRIPPED_LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_LOG)),
+				() -> new BlockItem(STRIPPED_LOG.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(this.getType(), this.name))));
 
 		STRIPPED_LOG.setupItemTag(Tags.Items.STRIPPED_LOGS);
 		STRIPPED_LOG.setupItemTag(TagUtil.neoTag("stripped_log/" + name));
@@ -148,7 +155,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupLogs(boolean isNether) {
-		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)));
+		LOG.setup(this, () -> new RotatedPillarBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_LOG)),
+				() -> new BlockItem(LOG.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 
 		LOG.setupItemTag(ItemTags.LOGS);
 		LOG.setupItemTag(TagUtil.neoTag("logs/" + name));
@@ -158,7 +167,9 @@ public class MaterialWood extends _MaterialBase {
 	}
 
 	public void setupPlanks() {
-		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+		PLANKS.setup(this, () -> new Block(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)),
+				() -> new BlockItem(PLANKS.BLOCK.get(), new Item.Properties().component(CompendiumComponents.INDEX,
+						new IndexEntryComponent(this.getType(), this.name))));
 
 		PLANKS.setupItemTag(ItemTags.PLANKS);
 		PLANKS.setupItemTag(TagUtil.neoTag("planks/" + name));

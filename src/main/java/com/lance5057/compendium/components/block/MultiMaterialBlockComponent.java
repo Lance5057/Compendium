@@ -26,6 +26,10 @@ public class MultiMaterialBlockComponent {
 		this.types = types;
 	}
 
+	public void setType(MultiMaterialType type, int slot) {
+		this.types.set(slot, type);
+	}
+
 	public static final Codec<MultiMaterialBlockComponent> CODEC = RecordCodecBuilder.create(p_337946_ -> p_337946_
 			.group(Codec.list(MultiMaterialType.CODEC).fieldOf("types")
 					.forGetter(MultiMaterialBlockComponent::getTypes))
@@ -66,6 +70,11 @@ public class MultiMaterialBlockComponent {
 			tooltipAdder.accept(Component.translatable("compendium.tooltip.material.see_more").withColor(0xFFAAAAAA));
 		}
 
+	}
+
+	public MultiMaterialBlockComponent copy() {
+
+		return new MultiMaterialBlockComponent(new ArrayList<MultiMaterialType>(types));
 	}
 
 	@Override

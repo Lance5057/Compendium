@@ -13,11 +13,11 @@
       "required": false
     },
     {
-      "id": "minecraft:birch_wood",
+      "id": "minecraft:birch_log",
       "required": false
     },
     {
-      "id": "minecraft:birch_log",
+      "id": "minecraft:birch_wood",
       "required": false
     },
     {
@@ -49,11 +49,11 @@
       "required": false
     },
     {
-      "id": "minecraft:dark_oak_wood",
+      "id": "minecraft:dark_oak_log",
       "required": false
     },
     {
-      "id": "minecraft:dark_oak_log",
+      "id": "minecraft:dark_oak_wood",
       "required": false
     },
     {
@@ -73,11 +73,11 @@
       "required": false
     },
     {
-      "id": "minecraft:mangrove_log",
+      "id": "minecraft:mangrove_wood",
       "required": false
     },
     {
-      "id": "minecraft:mangrove_wood",
+      "id": "minecraft:mangrove_log",
       "required": false
     },
     {
@@ -85,11 +85,11 @@
       "required": false
     },
     {
-      "id": "minecraft:oak_wood",
+      "id": "minecraft:oak_log",
       "required": false
     },
     {
-      "id": "minecraft:oak_log",
+      "id": "minecraft:oak_wood",
       "required": false
     },
     {
@@ -97,11 +97,11 @@
       "required": false
     },
     {
-      "id": "minecraft:spruce_wood",
+      "id": "minecraft:spruce_log",
       "required": false
     },
     {
-      "id": "minecraft:spruce_log",
+      "id": "minecraft:spruce_wood",
       "required": false
     },
     {

@@ -111,7 +111,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 	protected void playFinalSound(Player player) {
 //		level.playSound(player, worldPosition, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1, 0);
 	}
-	
+
 	@Override
 	public void finishRecipe(Player player, WorkbenchRecipe r) {
 //		 {
@@ -140,8 +140,9 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 //			
 ////			}
 //		} else {
-		ItemStack s = this.getInventory().insertItem(OUTPUT_SLOT,
-				r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false);
+		ItemStack s = this.getInventory()
+				.insertItem(OUTPUT_SLOT, r.assemble(MultiToolRecipeWrapper.of(5, 5, this.getInventory()), null), false)
+				.copy();
 		if (!s.isEmpty()) {
 			ItemUtil.giveOrDrop(s, player);
 		}
@@ -200,34 +201,36 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 			@Override
 			protected void onContentsChanged(int slot) {
-				if (this.getBe() instanceof WorkbenchBlockEntity wb) {
-					if (!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
-						wb.gridLevel = 5;
-					else if (!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
-						wb.gridLevel = 4;
-					else
-						wb.gridLevel = 3;
+				if (!this.getBe().getLevel().isClientSide) {
+					if (this.getBe() instanceof WorkbenchBlockEntity wb) {
+						if (!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
+							wb.gridLevel = 5;
+						else if (!this.getStackInSlot(UPGRADE_4x4_SLOT).isEmpty())
+							wb.gridLevel = 4;
+						else
+							wb.gridLevel = 3;
 
-					if (slot >= 0 && slot < 25) {
-						if (slot != PRODUCT_DISPLAY_SLOT) {
+						if (slot >= 0 && slot < 25) {
+							if (slot != PRODUCT_DISPLAY_SLOT) {
 //							zeroProgress();
-							updateInventory();
+								updateInventory();
+							}
 						}
-					}
 
-					if (slot == UPGRADE_LIGHT_SLOT) {
-						if (this.getStackInSlot(slot).isEmpty()) {
-							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, false),
-									Block.UPDATE_ALL);
-							BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
-							wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, false),
-									Block.UPDATE_ALL);
-						} else {
-							wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, true),
-									Block.UPDATE_ALL);
-							BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
-							wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, true),
-									Block.UPDATE_ALL);
+						if (slot == UPGRADE_LIGHT_SLOT) {
+							if (this.getStackInSlot(slot).isEmpty()) {
+								wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, false),
+										Block.UPDATE_ALL);
+								BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
+								wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, false),
+										Block.UPDATE_ALL);
+							} else {
+								wb.level.setBlock(worldPosition, getBlockState().setValue(WorkbenchBlock.LIT, true),
+										Block.UPDATE_ALL);
+								BlockPos p = worldPosition.relative(getBlockState().getValue(WorkbenchBlock.FACING));
+								wb.level.setBlock(p, wb.level.getBlockState(p).setValue(WorkbenchBlock.LIT, true),
+										Block.UPDATE_ALL);
+							}
 						}
 					}
 				}

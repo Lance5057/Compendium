@@ -88,10 +88,13 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK.setName(base.name + "_plank");
 		PLANK.setup(base,
 				() -> new PipeStyleBlock(0.125f, Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS),
-						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List.of("plank"),
+						Compendium.modLoc(base.name + "_plank_inventory"), base.getType(), base.name, List
+								.of("plank"),
 						StyleData.PLANK),
-				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties().component(CompendiumComponents.STYLE,
-						new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))));
+				() -> new BlockItem(PLANK.BLOCK.get(), new Item.Properties()
+						.component(CompendiumComponents.STYLE,
+								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
+						.component(CompendiumComponents.INDEX, new IndexEntryComponent(base.getType(), base.name))));
 		PLANK.setupItemTag(CompendiumTags.PLANK);
 		PLANK.setupItemTag(TagUtil.neoTag("plank/" + base.name));
 		PLANK.setupBlockTag(BlockTags.MINEABLE_WITH_AXE);

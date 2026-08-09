@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
@@ -98,18 +99,28 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 				if (CompendiumIndex.isIndexItem(i, mmt.getType())) {
 					Optional<IIndexEntry> o = CompendiumIndex.getEntryItemBelongsTo(i);
 
-					if (mats.size() > sm.getMaterialLayer()) {
-						String m = o.get().getName();
+					if (o.isPresent())
+						if (mats.size() > sm.getMaterialLayer()) {
+							String m = o.get().getName();
 
-						mmt.setCurrentMaterial(m);
-						newMats.set(sm.getMaterialLayer(), mmt);
-					}
+							mmt.setCurrentMaterial(m);
+							newMats.set(sm.getMaterialLayer(), mmt);
+							
+							Compendium.LOGGER.debug(mmt.getCurrentMaterial());
+						}
 				}
 			}
 
 			s.remove(CompendiumComponents.MULTI_MATERIAL);
 			s.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(newMats));
+
+			
+			
 		}
+		
+		MultiMaterialBlockComponent test = s.get(CompendiumComponents.MULTI_MATERIAL);
+		for(MultiMaterialType t : test.getTypes())
+			Compendium.LOGGER.debug(t.getCurrentMaterial());
 
 		return s;
 	}
