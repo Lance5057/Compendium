@@ -7,7 +7,7 @@ import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item.TooltipContext;
@@ -45,20 +45,23 @@ public class IndexEntryComponent {
 					Codec.STRING.fieldOf("name").forGetter(IndexEntryComponent::getName))
 			.apply(p_337946_, IndexEntryComponent::new));
 
-	public static final StreamCodec<RegistryFriendlyByteBuf, IndexEntryComponent> STREAM_CODEC = StreamCodec
-			.of(IndexEntryComponent::write, IndexEntryComponent::read);
+//	public static final StreamCodec<RegistryFriendlyByteBuf, IndexEntryComponent> STREAM_CODEC = StreamCodec
+//			.of(IndexEntryComponent::write, IndexEntryComponent::read);
 
-	private static IndexEntryComponent read(RegistryFriendlyByteBuf buffer) {
-		String n = buffer.readUtf();
-		String t = buffer.readUtf();
-
-		return new IndexEntryComponent(t, n);
-	}
-
-	private static void write(RegistryFriendlyByteBuf buffer, IndexEntryComponent bm) {
-		buffer.writeUtf(bm.getName());
-		buffer.writeUtf(bm.getTypeAsString());
-	}
+	public static final StreamCodec<ByteBuf, IndexEntryComponent> UNIT_STREAM_CODEC = StreamCodec
+			.unit(new IndexEntryComponent(MATERIAL_TYPES.WOOD, ""));
+//
+//	private static IndexEntryComponent read(RegistryFriendlyByteBuf buffer) {
+//		String n = buffer.readUtf();
+//		String t = buffer.readUtf();
+//
+//		return new IndexEntryComponent(t, n);
+//	}
+//
+//	private static void write(RegistryFriendlyByteBuf buffer, IndexEntryComponent bm) {
+//		buffer.writeUtf(bm.getName());
+//		buffer.writeUtf(bm.getTypeAsString());
+//	}
 
 	@Override
 	public int hashCode() {

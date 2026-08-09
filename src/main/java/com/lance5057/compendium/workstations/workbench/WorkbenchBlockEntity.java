@@ -233,6 +233,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 							}
 						}
 					}
+
 				}
 			}
 		};

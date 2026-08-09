@@ -27,7 +27,7 @@ import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
-@EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.DEDICATED_SERVER)
 public class CompendiumEvents {
 
 	@SubscribeEvent
@@ -90,38 +90,6 @@ public class CompendiumEvents {
 			} catch (NoSuchAlgorithmException | IOException e) {
 				e.printStackTrace();
 			}
-	}
-
-	@SubscribeEvent
-	public static void registerComponentToolTips(ItemTooltipEvent event) {
-		ItemStack stack = event.getItemStack();
-		TooltipContext ctx = event.getContext();
-		List<Component> tooltip = event.getToolTip();
-		TooltipFlag flag = event.getFlags();
-
-		MultiMaterialBlockComponent tooltipProvider = stack.get(CompendiumComponents.MULTI_MATERIAL.get());
-
-		if (tooltipProvider != null) {
-			tooltipProvider.addToTooltip(ctx, i -> {
-				tooltip.add(i);
-			}, flag);
-		}
-
-		StyleBlockComponent tooltipProvider1 = stack.get(CompendiumComponents.STYLE.get());
-
-		if (tooltipProvider1 != null) {
-			tooltipProvider1.addToTooltip(stack, ctx, i -> {
-				tooltip.add(i);
-			}, flag);
-		}
-
-		IndexEntryComponent tooltipProvider2 = stack.get(CompendiumComponents.INDEX.get());
-
-		if (tooltipProvider2 != null) {
-			tooltipProvider2.addToTooltip(stack, ctx, i -> {
-				tooltip.add(i);
-			}, flag);
-		}
 	}
 
 	@SubscribeEvent

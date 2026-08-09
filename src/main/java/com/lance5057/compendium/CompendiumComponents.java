@@ -8,6 +8,7 @@ import com.lance5057.compendium.components.block.StyleBlockComponent;
 
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class CompendiumComponents {
@@ -24,7 +25,7 @@ public class CompendiumComponents {
 			() -> DataComponentType.<StyleBlockComponent>builder().persistent(StyleBlockComponent.CODEC)
 					.networkSynchronized(StyleBlockComponent.STREAM_CODEC).build());
 
-	public static Supplier<DataComponentType<IndexEntryComponent>> INDEX = COMPONENTS.register("index_block",
-			() -> DataComponentType.<IndexEntryComponent>builder().persistent(IndexEntryComponent.CODEC)
-					.networkSynchronized(IndexEntryComponent.STREAM_CODEC).cacheEncoding().build());
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<IndexEntryComponent>> INDEX = COMPONENTS
+			.registerComponentType("index_block", builder -> builder.persistent(IndexEntryComponent.CODEC)
+					.networkSynchronized(IndexEntryComponent.UNIT_STREAM_CODEC));
 }

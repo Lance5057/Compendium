@@ -8,7 +8,9 @@ import com.lance5057.compendium.Compendium;
 import com.lance5057.compendium.CompendiumComponents;
 import com.lance5057.compendium.components.block.MultiMaterialBlockComponent;
 import com.lance5057.compendium.index.CompendiumIndex;
+import com.lance5057.compendium.index.CompendiumIndex.MATERIAL_TYPES;
 import com.lance5057.compendium.index.IIndexEntry;
+import com.lance5057.compendium.index.material.base._MaterialBase;
 import com.lance5057.compendium.multimaterial.MultiMaterialType;
 import com.lance5057.compendium.recipes.interfaces.item.io.multiple.IRecipeShapedItemIn;
 import com.lance5057.compendium.recipes.interfaces.item.io.single.IRecipeSingleItemOut;
@@ -99,28 +101,18 @@ public class WorkbenchRecipe extends MultiToolRecipeShaped
 				if (CompendiumIndex.isIndexItem(i, mmt.getType())) {
 					Optional<IIndexEntry> o = CompendiumIndex.getEntryItemBelongsTo(i);
 
-					if (o.isPresent())
-						if (mats.size() > sm.getMaterialLayer()) {
-							String m = o.get().getName();
+					if (mats.size() > sm.getMaterialLayer()) {
+						String m = o.get().getName();
 
-							mmt.setCurrentMaterial(m);
-							newMats.set(sm.getMaterialLayer(), mmt);
-							
-							Compendium.LOGGER.debug(mmt.getCurrentMaterial());
-						}
+						mmt.setCurrentMaterial(m);
+						newMats.set(sm.getMaterialLayer(), mmt);
+					}
 				}
 			}
 
 			s.remove(CompendiumComponents.MULTI_MATERIAL);
 			s.set(CompendiumComponents.MULTI_MATERIAL, new MultiMaterialBlockComponent(newMats));
-
-			
-			
 		}
-		
-		MultiMaterialBlockComponent test = s.get(CompendiumComponents.MULTI_MATERIAL);
-		for(MultiMaterialType t : test.getTypes())
-			Compendium.LOGGER.debug(t.getCurrentMaterial());
 
 		return s;
 	}
