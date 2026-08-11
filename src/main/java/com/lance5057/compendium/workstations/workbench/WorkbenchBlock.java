@@ -51,6 +51,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -68,6 +69,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.items.IItemHandler;
 
 public class WorkbenchBlock extends StationGui {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -205,6 +207,24 @@ public class WorkbenchBlock extends StationGui {
 				&& level.getWorldBorder().isWithinBounds(blockpos1)
 						? this.defaultBlockState().setValue(FACING, direction).setValue(WATERLOGGED, false)
 						: null;
+	}
+
+	@Override
+	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+		if (state.getBlock() != newState.getBlock()) {
+			BlockEntity tileEntity = level.getBlockEntity(pos);
+			if (tileEntity instanceof WorkbenchBlockEntity te) {
+				IItemHandler items = te.getInventory();
+				for (int i = 0; i < te.getInventory().getSlots(); i++) {
+					if (i != WorkbenchBlockEntity.PRODUCT_DISPLAY_SLOT)
+						level.addFreshEntity(
+								new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), items.getStackInSlot(i)));
+				}
+				level.updateNeighbourForOutputSignal(pos, this);
+			}
+
+			super.onRemove(state, level, pos, newState, isMoving);
+		}
 	}
 
 }

@@ -76,24 +76,54 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 				.component(DataComponents.TOOL, base.tier.createToolProperties(CompendiumTags.PRYABLE))));
 		PRYBAR.setupItemTag(CompendiumTags.PRYBAR);
 		PRYBAR.setupItemTag(TagUtil.neoTag("prybar/" + base.name));
+		PRYBAR.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		PRYBAR.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
+		PRYBAR.setupItemTag(Tags.Items.ENCHANTABLES);
+		PRYBAR.setupItemTag(ItemTags.WEAPON_ENCHANTABLE);
+		PRYBAR.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		PRYBAR.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		PRYBAR.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		PRYBAR.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		PRYBAR.setupItemTag(ItemTags.SHARP_WEAPON_ENCHANTABLE);
+		PRYBAR.setupItemTag(Tags.Items.TOOLS);
 
 		HAMMER.setName(base.name + "_hammer");
 		HAMMER.setup(base, () -> new HammerItem(base.tier,
 				new Item.Properties().attributes(PickaxeItem.createAttributes(base.tier, 1.0F, -2.8F))));
 		HAMMER.setupItemTag(CompendiumTags.HAMMER);
 		HAMMER.setupItemTag(TagUtil.neoTag("hammer/" + base.name));
+		HAMMER.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		HAMMER.setupItemTag(Tags.Items.ENCHANTABLES);
+		HAMMER.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		HAMMER.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		HAMMER.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		HAMMER.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		HAMMER.setupItemTag(Tags.Items.TOOLS);
+		HAMMER.setupItemTag(Tags.Items.MINING_TOOL_TOOLS);
+		HAMMER.setupItemTag(ItemTags.CLUSTER_MAX_HARVESTABLES);
 
 		SAW.setName(base.name + "_saw");
 		SAW.setup(base, () -> new SawItem(base.tier,
 				new Item.Properties().attributes(AxeItem.createAttributes(base.tier, 5.0F, -3.0F))));
 		SAW.setupItemTag(CompendiumTags.SAW);
 		SAW.setupItemTag(TagUtil.neoTag("saw/" + base.name));
+		SAW.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		SAW.setupItemTag(Tags.Items.ENCHANTABLES);
+		SAW.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		SAW.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		SAW.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		SAW.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		SAW.setupItemTag(Tags.Items.TOOLS);
 
 		SHEARS.setName(base.name + "_shears");
 		SHEARS.setup(base, () -> new ShearsItem(new Item.Properties().durability(base.tier.getUses())
 				.component(DataComponents.TOOL, ShearsItem.createToolProperties())));
 		SHEARS.setupItemTag(Tags.Items.TOOLS_SHEAR);
 		SHEARS.setupItemTag(TagUtil.neoTag("shears/" + base.name));
+		SHEARS.setupItemTag(Tags.Items.ENCHANTABLES);
+		SHEARS.setupItemTag(Tags.Items.TOOLS);
+		SHEARS.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		SHEARS.setupItemTag(ItemTags.MINING_ENCHANTABLE);
 
 		ZWEIHANDER.setName(base.name + "_zweihander");
 		ZWEIHANDER.setup(base, () -> new ZweihanderItem(base.tier,
@@ -101,6 +131,16 @@ public class ExtensionAdvancedTools extends _MaterialExtension {
 		ZWEIHANDER.setupItemTag(ItemTags.SWORDS);
 		ZWEIHANDER.setupItemTag(TagUtil.neoTag("zweihander"));
 		ZWEIHANDER.setupItemTag(TagUtil.neoTag("zweihander/" + base.name));
+		ZWEIHANDER.setupItemTag(ItemTags.VANISHING_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(Tags.Items.MELEE_WEAPON_TOOLS);
+		ZWEIHANDER.setupItemTag(Tags.Items.ENCHANTABLES);
+		ZWEIHANDER.setupItemTag(ItemTags.WEAPON_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(ItemTags.DURABILITY_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(ItemTags.BREAKS_DECORATED_POTS);
+		ZWEIHANDER.setupItemTag(ItemTags.MINING_LOOT_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(ItemTags.MINING_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(ItemTags.SHARP_WEAPON_ENCHANTABLE);
+		ZWEIHANDER.setupItemTag(Tags.Items.TOOLS);
 
 //		BOW.setName(base.name + "_bow");
 //		BOW.setup(base, () -> new BowItem(new Item.Properties()));

@@ -87,12 +87,17 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 					final int index = i;
 					b.setResponder(s -> setMaterialFromBox(index, s, mtrs));
+					b.setFilter(s -> isAlpha(s));
 
 					boxes.add(b);
 				}
 			}
 		}
 
+	}
+
+	private boolean isAlpha(String s) {
+		return s.matches("^[a-za_]*$");
 	}
 
 	@Override
@@ -126,6 +131,7 @@ public class AdjustinatorMultiMaterialScreen extends AbstractContainerScreen<Adj
 
 	private void setMaterialFromBox(int index, String s, MultiMaterialBlockEntity mmbe) {
 		PacketDistributor.sendToServer(new AdjustinatorCallBackPacket(index, s, pos));
+//		s = this.isAlpha(s);
 		mmbe.setMaterial(index, s);
 		mmbe.getLevel().sendBlockUpdated(pos, mmbe.getBlockState(), mmbe.getBlockState(), Block.UPDATE_ALL);
 	}
