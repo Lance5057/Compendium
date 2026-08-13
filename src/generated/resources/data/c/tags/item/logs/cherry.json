@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:cherry_wood",
+      "id": "minecraft:cherry_log",
       "required": false
     },
     {
-      "id": "minecraft:cherry_log",
+      "id": "minecraft:cherry_wood",
       "required": false
     },
     {

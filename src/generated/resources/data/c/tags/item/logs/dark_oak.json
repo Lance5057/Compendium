@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:dark_oak_log",
+      "id": "minecraft:dark_oak_wood",
       "required": false
     },
     {
-      "id": "minecraft:dark_oak_wood",
+      "id": "minecraft:dark_oak_log",
       "required": false
     },
     {

@@ -5,7 +5,27 @@
       "required": false
     },
     {
+      "id": "compendium:copper_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:copper_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gold_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:iron_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:netherite_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:amethyst_hammer_item",
       "required": false
     },
     {
@@ -13,7 +33,15 @@
       "required": false
     },
     {
+      "id": "compendium:crying_obsidian_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:crying_obsidian_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_hammer_item",
       "required": false
     },
     {
@@ -21,7 +49,19 @@
       "required": false
     },
     {
+      "id": "compendium:diamond_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:emerald_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:emerald_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_hammer_item",
       "required": false
     },
     {
@@ -29,7 +69,15 @@
       "required": false
     },
     {
+      "id": "compendium:lapis_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:lapis_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_hammer_item",
       "required": false
     },
     {
@@ -37,7 +85,15 @@
       "required": false
     },
     {
+      "id": "compendium:prismarine_hammer_item",
+      "required": false
+    },
+    {
       "id": "compendium:prismarine_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_hammer_item",
       "required": false
     },
     {
