@@ -139,9 +139,9 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		LOG_SLAB.setName(base.name + "_small_logs_slab");
 		LOG_SLAB.setup(base,
 				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
-						Compendium.modLoc(base.name + "_log_slab_inventory"), base.getType(), base.name, List
-								.of("log_slab"),
-						StyleData.LOG_SLAB),
+						List.of(StyleData.LOG_SLAB), Compendium.modLoc(base.name + "_log_slab_inventory"), base
+								.getType(),
+						base.name, List.of("log_slab")),
 				() -> new BlockItem(LOG_SLAB.BLOCK.get(), new Item.Properties()
 						.component(CompendiumComponents.STYLE,
 								new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
@@ -220,9 +220,10 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+								List.of(StyleData.LOG_SLAB),
 								Compendium.modLoc(base.name
 										+ "_stripped_log_slab_inventory"),
-								base.getType(), base.name, List.of("log_slab"), StyleData.LOG_SLAB),
+								base.getType(), base.name, List.of("log_slab")),
 						() -> new BlockItem(STRIPPED_LOG_SLAB.BLOCK.get(),
 								new Item.Properties()
 										.component(CompendiumComponents.STYLE,

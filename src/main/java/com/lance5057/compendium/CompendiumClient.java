@@ -487,26 +487,26 @@ public class CompendiumClient {
 	public static void doStyleSlab(ModifyBakingResult event, MaterialWood mw, String slab_style,
 			ResourceLocation plankSlabModelLoc, ResourceLocation plankSlabModelLocInventory, BlockModelRotation rot,
 			Pair<String, ResourceLocation>... textures) {
-		MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
-
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_top"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-
-		event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
-
-//		ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
-//				slab_style.toLowerCase());
-
-		event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
-						new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
+//		MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
+//
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_top"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//
+//		event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
+//
+////		ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
+////				slab_style.toLowerCase());
+//
+//		event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+//						new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
 	}
 
 	@SafeVarargs

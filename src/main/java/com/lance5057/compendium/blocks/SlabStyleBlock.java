@@ -1,7 +1,6 @@
 package com.lance5057.compendium.blocks;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.lance5057.compendium.blocks.entities.SimpleStyleBlockEntity;
@@ -93,7 +92,7 @@ public class SlabStyleBlock extends DirectionalBlock implements EntityBlock, ISt
 	public SlabStyleBlock(Properties properties, List<StyleData> styles, ResourceLocation itemRendererLocation,
 			String matType, String materialName, List<String> styleBases) {
 		super(properties);
-		this.styles = styles;
+		this.styles = styles.toArray(new StyleData[0]);
 		this.itemRendererLocation = itemRendererLocation;
 		this.styleBases = styleBases;
 		this.materialName = materialName;
@@ -106,7 +105,7 @@ public class SlabStyleBlock extends DirectionalBlock implements EntityBlock, ISt
 	public SlabStyleBlock(Properties properties, List<StyleData> styles, ResourceLocation itemRendererLocation,
 			MATERIAL_TYPES matType, String materialName, List<String> styleBases) {
 		super(properties);
-		this.styles = styles;
+		this.styles = styles.toArray(new StyleData[0]);
 		this.itemRendererLocation = itemRendererLocation;
 		this.styleBases = styleBases;
 		this.materialName = materialName;
@@ -123,12 +122,12 @@ public class SlabStyleBlock extends DirectionalBlock implements EntityBlock, ISt
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FULL_SLAB, WATERLOGGED);
+		builder.add(FACING, FULL_SLAB, WATERLOGGED);
 	}
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new SimpleStyleBlockEntity(pos, state, matType, materialName, styles);
+		return new SimpleStyleBlockEntity(pos, state, matType, materialName, styles.length, styles);
 	}
 
 	@Override
@@ -140,9 +139,9 @@ public class SlabStyleBlock extends DirectionalBlock implements EntityBlock, ISt
 	public List<String> getStyles(List<Integer> current) {
 		List<String> s = new ArrayList<String>();
 		for (int i = 0; i < current.size(); i++) {
-			if (styles.size() > i) {
-				if (styles.get(i).getTypes().size() > current.get(i))
-					s.add(styles.get(i).getTypes().get(current.get(i)));
+			if (styles.length > i) {
+				if (styles[i].getTypes().size() > current.get(i))
+					s.add(styles[i].getTypes().get(current.get(i)));
 			}
 		}
 
@@ -167,7 +166,7 @@ public class SlabStyleBlock extends DirectionalBlock implements EntityBlock, ISt
 	}
 
 	@Override
-	public List<StyleData> getStyleData() {
+	public StyleData[] getStyleData() {
 		return this.styles;
 	}
 

@@ -16,19 +16,16 @@ import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.mojang.datafixers.util.Pair;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.client.resources.model.MultiPartBakedModel;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult;
 import net.neoforged.neoforge.client.model.RegistryAwareItemModelShaper;
 
@@ -700,17 +697,18 @@ public class ClientWood {
 						.createStyleBlockLocation(mw.name + "_styled_planks_slab", planks_style.toLowerCase());
 				MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
 
-				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
-						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
-								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
-								Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
-				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
-						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab_top"),
-								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
-								Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
-				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
-						CompendiumClient.basicModelAllTexture(event, t, loc,
-								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
+				doSlab(event, t, plankSlabModelLoc, plank_slab, true, true);
+				doSlab(event, t, plankSlabModelLoc, plank_slab, false, true);
+				doSlab(event, t, plankSlabModelLoc, plank_slab, true, false);
+				doSlab(event, t, plankSlabModelLoc, plank_slab, false, false);
+
+//				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
+//						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab_top"),
+//								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
+//								Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
+//				plank_slab.add(s -> s.getValue(SlabStyleBlock.FULL_SLAB),
+//						CompendiumClient.basicModelAllTexture(event, t, loc,
+//								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
 
 				event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
 
@@ -739,6 +737,49 @@ public class ClientWood {
 			}
 		}
 
+	}
+
+	public static void doSlab(ModifyBakingResult event, ResourceLocation t, ResourceLocation plankSlabModelLoc,
+			MultiPartBakedModel.Builder plank_slab, boolean full, boolean water) {
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.DOWN && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),
+						Pair.of("top", t), Pair.of("bottom", t)));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.UP && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),
+						Pair.of("top", t), Pair.of("bottom", t)));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.EAST && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),
+						Pair.of("top", t), Pair.of("bottom", t)));
+
+		plank_slab.add(s -> s.getValue(SlabStyleBlock.FACING) == Direction.NORTH
+				&& s.getValue(SlabStyleBlock.FULL_SLAB) == full && s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),	
+						Pair.of("top", t), Pair.of("bottom", t)));
+
+		plank_slab.add(s -> s.getValue(SlabStyleBlock.FACING) == Direction.SOUTH
+				&& s.getValue(SlabStyleBlock.FULL_SLAB) == full && s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),
+						Pair.of("top", t), Pair.of("bottom", t)));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.WEST && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
+						new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, Pair.of("side", t),
+						Pair.of("top", t), Pair.of("bottom", t)));
 	}
 
 	private static void doExtraLogs(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
