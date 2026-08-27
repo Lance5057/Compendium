@@ -1,14 +1,6 @@
 {
   "values": [
     {
-      "id": "minecraft:stripped_acacia_wood",
-      "required": false
-    },
-    {
-      "id": "minecraft:acacia_wood",
-      "required": false
-    },
-    {
       "id": "minecraft:acacia_planks",
       "required": false
     },
@@ -21,7 +13,11 @@
       "required": false
     },
     {
-      "id": "compendium:acacia_small_logs",
+      "id": "minecraft:stripped_acacia_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:acacia_wood",
       "required": false
     },
     {
@@ -29,23 +25,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_acacia_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_acacia_small_logs_stairs",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_small_logs_slab",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_acacia_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:acacia_small_logs_stairs",
       "required": false
     },
     {
@@ -53,11 +33,27 @@
       "required": false
     },
     {
-      "id": "compendium:acacia_plank",
+      "id": "compendium:acacia_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:acacia_styled_planks",
+      "id": "compendium:acacia_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_acacia_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:acacia_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_acacia_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:acacia_plank",
       "required": false
     },
     {
@@ -69,11 +65,15 @@
       "required": false
     },
     {
-      "id": "minecraft:birch_log",
+      "id": "compendium:acacia_styled_planks",
       "required": false
     },
     {
       "id": "minecraft:birch_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:birch_log",
       "required": false
     },
     {
@@ -86,14 +86,6 @@
     },
     {
       "id": "minecraft:stripped_birch_wood",
-      "required": false
-    },
-    {
-      "id": "compendium:birch_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_birch_small_logs_slab",
       "required": false
     },
     {
@@ -113,11 +105,19 @@
       "required": false
     },
     {
+      "id": "compendium:birch_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:birch_small_logs_slab",
       "required": false
     },
     {
-      "id": "compendium:birch_small_logs",
+      "id": "compendium:birch_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_birch_small_logs_slab",
       "required": false
     },
     {
@@ -129,11 +129,15 @@
       "required": false
     },
     {
+      "id": "compendium:birch_styled_planks",
+      "required": false
+    },
+    {
       "id": "compendium:birch_plank",
       "required": false
     },
     {
-      "id": "compendium:birch_styled_planks",
+      "id": "minecraft:cherry_log",
       "required": false
     },
     {
@@ -141,7 +145,7 @@
       "required": false
     },
     {
-      "id": "minecraft:cherry_log",
+      "id": "minecraft:stripped_cherry_wood",
       "required": false
     },
     {
@@ -153,19 +157,7 @@
       "required": false
     },
     {
-      "id": "minecraft:stripped_cherry_wood",
-      "required": false
-    },
-    {
-      "id": "compendium:cherry_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_cherry_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:cherry_small_logs_stairs",
+      "id": "compendium:cherry_small_logs",
       "required": false
     },
     {
@@ -177,7 +169,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_cherry_small_logs",
+      "id": "compendium:cherry_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_cherry_small_logs_slab",
       "required": false
     },
     {
@@ -185,7 +181,15 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_small_logs",
+      "id": "compendium:stripped_cherry_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:cherry_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:cherry_styled_planks",
       "required": false
     },
     {
@@ -201,15 +205,15 @@
       "required": false
     },
     {
-      "id": "compendium:cherry_styled_planks",
-      "required": false
-    },
-    {
       "id": "minecraft:crimson_hyphae",
       "required": false
     },
     {
       "id": "minecraft:stripped_crimson_hyphae",
+      "required": false
+    },
+    {
+      "id": "minecraft:stripped_crimson_stem",
       "required": false
     },
     {
@@ -221,15 +225,7 @@
       "required": false
     },
     {
-      "id": "minecraft:stripped_crimson_stem",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:crimson_small_logs_slab",
       "required": false
     },
     {
@@ -237,15 +233,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_crimson_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_crimson_small_logs",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:crimson_small_logs_slab",
       "required": false
     },
     {
@@ -257,6 +249,14 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_crimson_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_crimson_small_logs",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_plank",
       "required": false
     },
@@ -265,23 +265,11 @@
       "required": false
     },
     {
-      "id": "compendium:crimson_styled_planks_stairs",
-      "required": false
-    },
-    {
       "id": "compendium:crimson_styled_planks_slab",
       "required": false
     },
     {
-      "id": "minecraft:stripped_dark_oak_log",
-      "required": false
-    },
-    {
-      "id": "minecraft:dark_oak_wood",
-      "required": false
-    },
-    {
-      "id": "minecraft:dark_oak_log",
+      "id": "compendium:crimson_styled_planks_stairs",
       "required": false
     },
     {
@@ -289,19 +277,19 @@
       "required": false
     },
     {
+      "id": "minecraft:dark_oak_wood",
+      "required": false
+    },
+    {
       "id": "minecraft:dark_oak_planks",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_logs",
+      "id": "minecraft:dark_oak_log",
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:dark_oak_small_logs_stairs",
+      "id": "minecraft:stripped_dark_oak_log",
       "required": false
     },
     {
@@ -309,7 +297,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_dark_oak_small_logs_slab",
+      "id": "compendium:dark_oak_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_small_logs_slab",
       "required": false
     },
     {
@@ -317,7 +309,15 @@
       "required": false
     },
     {
-      "id": "compendium:dark_oak_small_logs_slab",
+      "id": "compendium:dark_oak_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_oak_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dark_oak_small_logs_slab",
       "required": false
     },
     {
@@ -329,7 +329,7 @@
       "required": false
     },
     {
-      "id": "compendium:dark_oak_styled_planks_slab",
+      "id": "compendium:dark_oak_styled_planks",
       "required": false
     },
     {
@@ -337,19 +337,11 @@
       "required": false
     },
     {
-      "id": "compendium:dark_oak_styled_planks",
-      "required": false
-    },
-    {
-      "id": "minecraft:jungle_wood",
+      "id": "compendium:dark_oak_styled_planks_slab",
       "required": false
     },
     {
       "id": "minecraft:jungle_planks",
-      "required": false
-    },
-    {
-      "id": "minecraft:jungle_log",
       "required": false
     },
     {
@@ -361,11 +353,11 @@
       "required": false
     },
     {
-      "id": "compendium:jungle_small_logs_stairs",
+      "id": "minecraft:jungle_log",
       "required": false
     },
     {
-      "id": "compendium:jungle_small_logs_slab",
+      "id": "minecraft:jungle_wood",
       "required": false
     },
     {
@@ -373,7 +365,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_jungle_small_logs_stairs",
+      "id": "compendium:stripped_jungle_small_log",
       "required": false
     },
     {
@@ -381,11 +373,15 @@
       "required": false
     },
     {
+      "id": "compendium:jungle_small_logs_stairs",
+      "required": false
+    },
+    {
       "id": "compendium:jungle_small_logs",
       "required": false
     },
     {
-      "id": "compendium:stripped_jungle_small_log",
+      "id": "compendium:stripped_jungle_small_logs_stairs",
       "required": false
     },
     {
@@ -393,15 +389,7 @@
       "required": false
     },
     {
-      "id": "compendium:jungle_styled_planks",
-      "required": false
-    },
-    {
-      "id": "compendium:jungle_plank",
-      "required": false
-    },
-    {
-      "id": "compendium:jungle_styled_planks_slab",
+      "id": "compendium:jungle_small_logs_slab",
       "required": false
     },
     {
@@ -409,15 +397,15 @@
       "required": false
     },
     {
-      "id": "minecraft:mangrove_log",
+      "id": "compendium:jungle_plank",
       "required": false
     },
     {
-      "id": "minecraft:stripped_mangrove_log",
+      "id": "compendium:jungle_styled_planks",
       "required": false
     },
     {
-      "id": "minecraft:stripped_mangrove_wood",
+      "id": "compendium:jungle_styled_planks_slab",
       "required": false
     },
     {
@@ -425,19 +413,23 @@
       "required": false
     },
     {
+      "id": "minecraft:stripped_mangrove_wood",
+      "required": false
+    },
+    {
+      "id": "minecraft:mangrove_log",
+      "required": false
+    },
+    {
       "id": "minecraft:mangrove_planks",
       "required": false
     },
     {
-      "id": "compendium:stripped_mangrove_small_logs_stairs",
+      "id": "minecraft:stripped_mangrove_log",
       "required": false
     },
     {
-      "id": "compendium:mangrove_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_mangrove_small_logs",
+      "id": "compendium:stripped_mangrove_small_logs_slab",
       "required": false
     },
     {
@@ -449,7 +441,15 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_mangrove_small_log",
+      "id": "compendium:stripped_mangrove_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:mangrove_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_mangrove_small_logs_stairs",
       "required": false
     },
     {
@@ -457,11 +457,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_mangrove_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:mangrove_styled_planks_stairs",
+      "id": "compendium:stripped_mangrove_small_log",
       "required": false
     },
     {
@@ -469,15 +465,19 @@
       "required": false
     },
     {
-      "id": "compendium:mangrove_styled_planks",
-      "required": false
-    },
-    {
       "id": "compendium:mangrove_styled_planks_slab",
       "required": false
     },
     {
-      "id": "minecraft:stripped_oak_wood",
+      "id": "compendium:mangrove_styled_planks",
+      "required": false
+    },
+    {
+      "id": "compendium:mangrove_styled_planks_stairs",
+      "required": false
+    },
+    {
+      "id": "minecraft:oak_log",
       "required": false
     },
     {
@@ -489,7 +489,7 @@
       "required": false
     },
     {
-      "id": "minecraft:oak_log",
+      "id": "minecraft:stripped_oak_wood",
       "required": false
     },
     {
@@ -497,19 +497,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_oak_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_oak_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:oak_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:oak_small_logs_slab",
+      "id": "compendium:oak_small_logs_stairs",
       "required": false
     },
     {
@@ -517,7 +505,23 @@
       "required": false
     },
     {
+      "id": "compendium:oak_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:oak_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_oak_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_oak_small_log",
+      "required": false
+    },
+    {
+      "id": "compendium:oak_small_log",
       "required": false
     },
     {
@@ -525,7 +529,7 @@
       "required": false
     },
     {
-      "id": "compendium:oak_small_logs_stairs",
+      "id": "compendium:oak_plank",
       "required": false
     },
     {
@@ -537,15 +541,7 @@
       "required": false
     },
     {
-      "id": "compendium:oak_plank",
-      "required": false
-    },
-    {
       "id": "compendium:oak_styled_planks_stairs",
-      "required": false
-    },
-    {
-      "id": "minecraft:spruce_log",
       "required": false
     },
     {
@@ -565,11 +561,7 @@
       "required": false
     },
     {
-      "id": "compendium:spruce_small_log",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_small_logs",
+      "id": "minecraft:spruce_log",
       "required": false
     },
     {
@@ -577,15 +569,7 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_spruce_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:spruce_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_spruce_small_log",
+      "id": "compendium:spruce_small_log",
       "required": false
     },
     {
@@ -593,11 +577,23 @@
       "required": false
     },
     {
+      "id": "compendium:spruce_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_logs_slab",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_log",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_small_logs_stairs",
       "required": false
     },
     {
-      "id": "compendium:spruce_styled_planks",
+      "id": "compendium:spruce_small_logs_slab",
       "required": false
     },
     {
@@ -605,11 +601,19 @@
       "required": false
     },
     {
+      "id": "compendium:spruce_plank",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_styled_planks_stairs",
       "required": false
     },
     {
-      "id": "compendium:spruce_plank",
+      "id": "compendium:spruce_styled_planks",
+      "required": false
+    },
+    {
+      "id": "minecraft:warped_planks",
       "required": false
     },
     {
@@ -617,7 +621,7 @@
       "required": false
     },
     {
-      "id": "minecraft:warped_stem",
+      "id": "minecraft:stripped_warped_stem",
       "required": false
     },
     {
@@ -625,11 +629,7 @@
       "required": false
     },
     {
-      "id": "minecraft:stripped_warped_stem",
-      "required": false
-    },
-    {
-      "id": "minecraft:warped_planks",
+      "id": "minecraft:warped_stem",
       "required": false
     },
     {
@@ -641,19 +641,11 @@
       "required": false
     },
     {
-      "id": "compendium:stripped_warped_small_logs",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_warped_small_logs_slab",
-      "required": false
-    },
-    {
-      "id": "compendium:stripped_warped_small_log",
-      "required": false
-    },
-    {
       "id": "compendium:stripped_warped_small_logs_stairs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_warped_small_logs",
       "required": false
     },
     {
@@ -661,7 +653,15 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_warped_small_logs_slab",
+      "required": false
+    },
+    {
       "id": "compendium:warped_small_logs",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_warped_small_log",
       "required": false
     },
     {
@@ -669,11 +669,11 @@
       "required": false
     },
     {
-      "id": "compendium:warped_styled_planks_slab",
+      "id": "compendium:warped_styled_planks",
       "required": false
     },
     {
-      "id": "compendium:warped_styled_planks",
+      "id": "compendium:warped_styled_planks_slab",
       "required": false
     },
     {

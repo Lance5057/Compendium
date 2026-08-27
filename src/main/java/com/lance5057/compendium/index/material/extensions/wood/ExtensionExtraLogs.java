@@ -138,7 +138,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 
 		LOG_SLAB.setName(base.name + "_small_logs_slab");
 		LOG_SLAB.setup(base,
-				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+				() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion(),
 						List.of(StyleData.LOG_SLAB), Compendium.modLoc(base.name + "_log_slab_inventory"), base
 								.getType(),
 						base.name, List.of("log_slab")),
@@ -219,7 +219,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 		STRIPPED_LOG_SLAB.setName("stripped_" + base.name + "_small_logs_slab");
 		STRIPPED_LOG_SLAB
 				.setup(base,
-						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion(),
 								List.of(StyleData.LOG_SLAB),
 								Compendium.modLoc(base.name
 										+ "_stripped_log_slab_inventory"),
@@ -1101,7 +1101,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			blp.add(this.LOG.BLOCK.get(), BlockLootTables.createStyleItemDrop(LOG.BLOCK.get()));
 		}
 		if (LOG_SLAB.shouldGenerate()) {
-			blp.add(LOG_SLAB.BLOCK.get(), this.createSlabItemTable(this.LOG_SLAB.BLOCK.get()));
+			blp.add(LOG_SLAB.BLOCK.get(), BlockLootTables.createStyleItemDrop(LOG_SLAB.BLOCK.get()));
 		}
 		if (LOG_STAIRS.shouldGenerate()) {
 			blp.add(this.LOG_STAIRS.BLOCK.get(), BlockLootTables.createStyleItemDrop(LOG_STAIRS.BLOCK.get()));
@@ -1115,7 +1115,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 			blp.add(this.STRIPPED_LOG.BLOCK.get(), BlockLootTables.createStyleItemDrop(STRIPPED_LOG.BLOCK.get()));
 		}
 		if (STRIPPED_LOG_SLAB.shouldGenerate()) {
-			blp.add(STRIPPED_LOG_SLAB.BLOCK.get(), this.createSlabItemTable(this.STRIPPED_LOG_SLAB.BLOCK.get()));
+			blp.add(STRIPPED_LOG_SLAB.BLOCK.get(),  BlockLootTables.createStyleItemDrop(STRIPPED_LOG_SLAB.BLOCK.get()));
 		}
 		if (STRIPPED_LOG_STAIRS.shouldGenerate()) {
 			blp.add(this.STRIPPED_LOG_STAIRS.BLOCK.get(),

@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:stripped_jungle_wood",
+      "id": "minecraft:stripped_jungle_log",
       "required": false
     },
     {
-      "id": "minecraft:stripped_jungle_log",
+      "id": "minecraft:stripped_jungle_wood",
       "required": false
     },
     {

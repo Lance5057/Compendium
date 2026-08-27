@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:stripped_oak_wood",
+      "id": "minecraft:stripped_oak_log",
       "required": false
     },
     {
-      "id": "minecraft:stripped_oak_log",
+      "id": "minecraft:stripped_oak_wood",
       "required": false
     },
     {

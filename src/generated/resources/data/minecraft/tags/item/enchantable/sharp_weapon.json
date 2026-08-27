@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "compendium:copper_prybar_item",
+      "id": "compendium:copper_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:copper_zweihander_item",
+      "id": "compendium:copper_prybar_item",
       "required": false
     },
     {
@@ -17,11 +17,11 @@
       "required": false
     },
     {
-      "id": "compendium:gold_prybar_item",
+      "id": "compendium:gold_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:gold_zweihander_item",
+      "id": "compendium:gold_prybar_item",
       "required": false
     },
     {
@@ -73,11 +73,11 @@
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_prybar_item",
+      "id": "compendium:dark_prismarine_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_zweihander_item",
+      "id": "compendium:dark_prismarine_prybar_item",
       "required": false
     },
     {
@@ -105,15 +105,11 @@
       "required": false
     },
     {
-      "id": "compendium:emerald_axe_item",
-      "required": false
-    },
-    {
       "id": "compendium:emerald_sword_item",
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_zweihander_item",
+      "id": "compendium:emerald_axe_item",
       "required": false
     },
     {
@@ -121,7 +117,7 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_sword_item",
+      "id": "compendium:ender_pearl_zweihander_item",
       "required": false
     },
     {
@@ -129,7 +125,7 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_zweihander_item",
+      "id": "compendium:ender_pearl_sword_item",
       "required": false
     },
     {
@@ -137,11 +133,15 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_axe_item",
+      "id": "compendium:lapis_zweihander_item",
       "required": false
     },
     {
       "id": "compendium:lapis_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
@@ -161,11 +161,11 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_prybar_item",
+      "id": "compendium:prismarine_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:prismarine_zweihander_item",
+      "id": "compendium:prismarine_prybar_item",
       "required": false
     },
     {
@@ -185,11 +185,11 @@
       "required": false
     },
     {
-      "id": "compendium:quartz_sword_item",
+      "id": "compendium:quartz_axe_item",
       "required": false
     },
     {
-      "id": "compendium:quartz_axe_item",
+      "id": "compendium:quartz_sword_item",
       "required": false
     }
   ]

@@ -8,20 +8,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "conditions": [
-                {
-                  "block": "compendium:cherry_small_logs_slab",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "type": "double"
-                  }
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:copy_components",
               "include": [
                 "compendium:style_block"
