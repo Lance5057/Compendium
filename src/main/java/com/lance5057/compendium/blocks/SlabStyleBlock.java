@@ -185,7 +185,8 @@ public class SlabStyleBlock extends Block implements EntityBlock, IStyleBlock, S
 	@Override
 	public boolean canPlaceLiquid(@Nullable Player player, BlockGetter level, BlockPos pos, BlockState state,
 			Fluid fluid) {
-		return !state.getValue(FULL_SLAB) ? SimpleWaterloggedBlock.super.canPlaceLiquid(player, level, pos, state, fluid)
+		return !state.getValue(FULL_SLAB)
+				? SimpleWaterloggedBlock.super.canPlaceLiquid(player, level, pos, state, fluid)
 				: false;
 	}
 
