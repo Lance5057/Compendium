@@ -293,19 +293,21 @@ public class CosmeticToolboxPlacedScreen extends AbstractContainerScreen<Cosmeti
 			int k = this.startIndex + 8;
 
 			for (int l = this.startIndex; l < k; ++l) {
-				int i1 = l - this.startIndex;
-				double d0 = p_99318_ - (double) (i);
-				double d1 = p_99319_ - (double) (j + i1 * 18);
-				if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
+				if (l < ((IStyleable) menu.entity).getStyles().get(menu.curStyleType).getTypes().size()) {
+					int i1 = l - this.startIndex;
+					double d0 = p_99318_ - (double) (i);
+					double d1 = p_99319_ - (double) (j + i1 * 18);
+					if (d0 >= 0.0 && d1 >= 0.0 && d0 < 145.0 && d1 < 18.0) {
 
-					PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, menu.curStyleType, l));
-					
-					if (menu.entity != null)
-						((IStyleable) menu.entity).setCurrent(menu.curStyleType, l);
+						PacketDistributor.sendToServer(new StyleSetPacket(this.menu.containerId, menu.curStyleType, l));
 
-					Minecraft.getInstance().getSoundManager()
-							.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
-					return true;
+						if (menu.entity != null)
+							((IStyleable) menu.entity).setCurrent(menu.curStyleType, l);
+
+						Minecraft.getInstance().getSoundManager()
+								.play(SimpleSoundInstance.forUI(SoundEvents.MAGMA_CUBE_SQUISH, 1.0F));
+						return true;
+					}
 				}
 			}
 

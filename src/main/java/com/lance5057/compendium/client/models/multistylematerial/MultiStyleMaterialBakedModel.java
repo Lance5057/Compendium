@@ -104,7 +104,7 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 			List<MultiMaterialType> mats = extraData.get(MultiMaterialModelData.STATE);
 			List<String> s = extraData.get(StyleModelData.STYLES);
 			List<BakedQuad> l = new ArrayList<BakedQuad>();
-			if (s != null && s.size() > 0)
+			if (s != null && s.size() > 0 && s.size() > styleLayer && s.get(styleLayer) != null)
 				if (mats != null && mats.size() != 0 && mats.size() > materialLayer
 						&& mats.get(materialLayer) != null) {
 
@@ -112,8 +112,8 @@ public class MultiStyleMaterialBakedModel implements IDynamicBakedModel {
 					String st = s.get(styleLayer);
 
 					if (m != "") {
-						ResourceLocation rc = ClientUtil.createMaterialStyleLayerBlockLocation(baseName, layerName, m, st,
-								suffix);
+						ResourceLocation rc = ClientUtil.createMaterialStyleLayerBlockLocation(baseName, layerName, m,
+								st, suffix);
 
 						BakedModel t = Minecraft.getInstance().getModelManager()
 								.getModel(new ModelResourceLocation(rc, ""));

@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "compendium:stripped_acacia_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:acacia_small_log_item",
       "required": false
     },
@@ -9,11 +13,27 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_birch_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:cherry_small_log_item",
       "required": false
     },
     {
+      "id": "compendium:stripped_cherry_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:crimson_small_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_crimson_small_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_dark_oak_small_log_item",
       "required": false
     },
     {
@@ -25,6 +45,14 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_jungle_small_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_mangrove_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:mangrove_small_log_item",
       "required": false
     },
@@ -33,11 +61,23 @@
       "required": false
     },
     {
+      "id": "compendium:stripped_oak_small_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_spruce_small_log_item",
+      "required": false
+    },
+    {
       "id": "compendium:spruce_small_log_item",
       "required": false
     },
     {
       "id": "compendium:warped_small_log_item",
+      "required": false
+    },
+    {
+      "id": "compendium:stripped_warped_small_log_item",
       "required": false
     }
   ]

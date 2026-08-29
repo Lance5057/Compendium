@@ -27,7 +27,7 @@ import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
-@EventBusSubscriber(modid = Compendium.MOD_ID, value = Dist.DEDICATED_SERVER)
+@EventBusSubscriber(modid = Compendium.MOD_ID)
 public class CompendiumEvents {
 
 	@SubscribeEvent
@@ -79,17 +79,6 @@ public class CompendiumEvents {
 		event.modify(Items.WARPED_STAIRS, builder -> builder.set(CompendiumComponents.INDEX.get(),
 				new IndexEntryComponent(MATERIAL_TYPES.WOOD, "warped")));
 
-	}
-
-	@SubscribeEvent
-	public static void ServerChecksumEvent(OnDatapackSyncEvent event) {
-		if (event.getPlayer() != null)
-			try {
-				event.getPlayer().connection
-						.send(new ChecksumVerificationPacket(CompendiumIndex.generateChecksum().toString()));
-			} catch (NoSuchAlgorithmException | IOException e) {
-				e.printStackTrace();
-			}
 	}
 
 	@SubscribeEvent

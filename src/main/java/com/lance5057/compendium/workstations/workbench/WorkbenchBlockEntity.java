@@ -201,7 +201,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 
 			@Override
 			protected void onContentsChanged(int slot) {
-				if (!this.getBe().getLevel().isClientSide) {
+//				if (!this.getBe().getLevel().isClientSide) {
 					if (this.getBe() instanceof WorkbenchBlockEntity wb) {
 						if (!this.getStackInSlot(UPGRADE_5x5_SLOT).isEmpty())
 							wb.gridLevel = 5;
@@ -235,7 +235,7 @@ public class WorkbenchBlockEntity extends MultiToolRecipeStation<WorkbenchRecipe
 					}
 
 				}
-			}
+//			}
 		};
 	}
 

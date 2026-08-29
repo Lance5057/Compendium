@@ -187,6 +187,7 @@ public class ExtensionExtraLogs extends _MaterialExtension {
 												new StyleBlockComponent(new ArrayList<Integer>(Arrays.asList(0))))
 										.component(CompendiumComponents.INDEX,
 												new IndexEntryComponent(base.getType(), base.name))));
+		STRIPPED_SMALL_LOG.setupItemTag(CompendiumTags.SMALL_LOG);
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs"));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("logs/stripped/small_logs/" + base.name));
 		STRIPPED_SMALL_LOG.setupItemTag(TagUtil.neoTag("stripped_logs/small"));

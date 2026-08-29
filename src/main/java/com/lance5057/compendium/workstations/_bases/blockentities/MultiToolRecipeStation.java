@@ -163,52 +163,52 @@ public abstract class MultiToolRecipeStation<V extends MultiToolRecipe> extends 
 	}
 
 	public boolean use(Level pLevel, Player player, InteractionHand hand, ItemStack tool) {
-		if (!pLevel.isClientSide) {
-			Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
+//		if (!pLevel.isClientSide) {
+		Optional<RecipeHolder<V>> currentRecipe = matchRecipe();
 
-			if (currentRecipe.isPresent()) {
-				RecipeHolder<V> r = currentRecipe.get();
+		if (currentRecipe.isPresent()) {
+			RecipeHolder<V> r = currentRecipe.get();
 
-				if (this.curTool == null) {
-					setupStage(r.value(), stage);
-					if (searchForNextItem(pLevel, player, hand, curTool))
-						return true;
-					return false;
-				}
-				if (this.curTool.test(tool)) {
-					level.playSound(player, worldPosition, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1, 0);
-					if (tool.getCount() >= this.toolCount) {
+			if (this.curTool == null) {
+				setupStage(r.value(), stage);
+				if (searchForNextItem(pLevel, player, hand, curTool))
+					return true;
+				return false;
+			}
+			if (this.curTool.test(tool)) {
+				level.playSound(player, worldPosition, SoundEvents.METAL_HIT, SoundSource.BLOCKS, 1, 0);
+				if (tool.getCount() >= this.toolCount) {
 
-						if (this.progress >= this.maxProgress - 1) {
+					if (this.progress >= this.maxProgress - 1) {
 
-							if (isFinalStage(r.value())) {
-								doFinalStage(player, tool, r);
-								return true;
-							} else {
-
-								doNextStage(pLevel, player, hand, r);
-								return true;
-							}
+						if (isFinalStage(r.value())) {
+							doFinalStage(player, tool, r);
+							return true;
 						} else {
-							if (tool.isDamageableItem())
-								tool.hurtAndBreak(1, player, null);
-							else
-								tool.setCount(tool.getCount() - this.toolCount);
 
-							progress++;
+							doNextStage(pLevel, player, hand, r);
 							return true;
 						}
-					}
-				} else {
-					if (searchForNextItem(pLevel, player, hand, curTool))
+					} else {
+						if (tool.isDamageableItem())
+							tool.hurtAndBreak(1, player, null);
+						else
+							tool.setCount(tool.getCount() - this.toolCount);
+
+						progress++;
 						return true;
-					return false;
+					}
 				}
+			} else {
+				if (searchForNextItem(pLevel, player, hand, curTool))
+					return true;
+				return false;
 			}
-			this.updateInventory();
-			return false;
 		}
+		this.updateInventory();
 		return false;
+//		}
+//		return false;
 	}
 
 	protected void doNextStage(Level pLevel, Player player, InteractionHand hand, RecipeHolder<V> r) {
