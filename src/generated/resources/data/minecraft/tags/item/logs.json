@@ -13,11 +13,11 @@
       "required": false
     },
     {
-      "id": "minecraft:birch_log",
+      "id": "minecraft:birch_wood",
       "required": false
     },
     {
-      "id": "minecraft:birch_wood",
+      "id": "minecraft:birch_log",
       "required": false
     },
     {
@@ -61,11 +61,11 @@
       "required": false
     },
     {
-      "id": "minecraft:jungle_wood",
+      "id": "minecraft:jungle_log",
       "required": false
     },
     {
-      "id": "minecraft:jungle_log",
+      "id": "minecraft:jungle_wood",
       "required": false
     },
     {

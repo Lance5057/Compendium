@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "compendium:copper_prybar_item",
+      "id": "compendium:copper_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:copper_zweihander_item",
+      "id": "compendium:copper_prybar_item",
       "required": false
     },
     {
@@ -17,11 +17,11 @@
       "required": false
     },
     {
-      "id": "compendium:gold_prybar_item",
+      "id": "compendium:gold_zweihander_item",
       "required": false
     },
     {
-      "id": "compendium:gold_zweihander_item",
+      "id": "compendium:gold_prybar_item",
       "required": false
     },
     {
@@ -69,11 +69,15 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:crying_obsidian_axe_item",
+=======
+      "id": "compendium:dark_prismarine_zweihander_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
-      "id": "compendium:dark_prismarine_zweihander_item",
+      "id": "compendium:dark_prismarine_prybar_item",
       "required": false
     },
     {
@@ -106,6 +110,13 @@
     },
     {
       "id": "compendium:emerald_sword_item",
+<<<<<<< HEAD
+      "required": false
+    },
+    {
+      "id": "compendium:emerald_axe_item",
+=======
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -113,15 +124,15 @@
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_zweihander_item",
-      "required": false
-    },
-    {
       "id": "compendium:ender_pearl_prybar_item",
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:ender_pearl_axe_item",
+=======
+      "id": "compendium:ender_pearl_zweihander_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -129,7 +140,7 @@
       "required": false
     },
     {
-      "id": "compendium:lapis_zweihander_item",
+      "id": "compendium:ender_pearl_sword_item",
       "required": false
     },
     {
@@ -137,11 +148,25 @@
       "required": false
     },
     {
+<<<<<<< HEAD
+=======
+      "id": "compendium:lapis_zweihander_item",
+      "required": false
+    },
+    {
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "id": "compendium:lapis_sword_item",
       "required": false
     },
     {
       "id": "compendium:lapis_axe_item",
+<<<<<<< HEAD
+=======
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_zweihander_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -162,6 +187,13 @@
     },
     {
       "id": "compendium:prismarine_zweihander_item",
+<<<<<<< HEAD
+=======
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_prybar_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -181,11 +213,15 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:quartz_prybar_item",
+=======
+      "id": "compendium:quartz_axe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
-      "id": "compendium:quartz_axe_item",
+      "id": "compendium:quartz_sword_item",
       "required": false
     },
     {

@@ -125,10 +125,11 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB.setName(base.name + "_styled_planks_slab");
 		PLANK_SLAB
 				.setup(base,
-						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_SLAB).noOcclusion(),
+						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion(),
+								List.of(StyleData.PLANKS),
 								Compendium.modLoc(base.name
 										+ "_styled_planks_slab_inventory"),
-								base.getType(), base.name, List.of("plank_block"), StyleData.PLANKS),
+								base.getType(), base.name, List.of("plank_block")),
 						() -> new BlockItem(PLANK_SLAB.BLOCK.get(),
 								new Item.Properties()
 										.component(CompendiumComponents.STYLE,
@@ -339,7 +340,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 			blp.add(PLANK_BLOCK.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_BLOCK.BLOCK.get()));
 		}
 		if (!this.PLANK_SLAB.isIgnored()) {
-			blp.add(PLANK_SLAB.BLOCK.get(), this.createSlabItemTable(PLANK_SLAB.BLOCK.get()));
+			blp.add(PLANK_SLAB.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_SLAB.BLOCK.get()));
 		}
 		if (!this.PLANK_STAIRS.isIgnored()) {
 			blp.add(PLANK_STAIRS.BLOCK.get(), BlockLootTables.createStyleItemDrop(PLANK_STAIRS.BLOCK.get()));

@@ -1,11 +1,34 @@
 {
   "values": [
     {
+<<<<<<< HEAD
       "id": "compendium:copper_prybar_item",
       "required": false
     },
     {
       "id": "compendium:copper_saw_item",
+=======
+      "id": "compendium:copper_shears_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+<<<<<<< HEAD
+      "id": "compendium:copper_hammer_item",
+      "required": false
+    },
+    {
+      "id": "compendium:copper_zweihander_item",
+=======
+      "id": "compendium:copper_saw_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+<<<<<<< HEAD
+      "id": "compendium:copper_shears_item",
+=======
+      "id": "compendium:copper_zweihander_item",
       "required": false
     },
     {
@@ -13,19 +36,20 @@
       "required": false
     },
     {
-      "id": "compendium:copper_zweihander_item",
+      "id": "compendium:copper_prybar_item",
       "required": false
     },
     {
-      "id": "compendium:copper_shears_item",
+      "id": "compendium:copper_axe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+      "id": "compendium:copper_shovel_item",
       "required": false
     },
     {
       "id": "compendium:copper_sword_item",
-      "required": false
-    },
-    {
-      "id": "compendium:copper_pickaxe_item",
       "required": false
     },
     {
@@ -41,11 +65,34 @@
       "required": false
     },
     {
-      "id": "compendium:gold_prybar_item",
+<<<<<<< HEAD
+=======
+      "id": "compendium:copper_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gold_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gold_hammer_item",
       "required": false
     },
     {
       "id": "compendium:gold_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:gold_shears_item",
+      "required": false
+    },
+    {
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "id": "compendium:gold_prybar_item",
+      "required": false
+    },
+    {
+      "id": "minecraft:shears",
       "required": false
     },
     {
@@ -69,6 +116,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "minecraft:shears",
       "required": false
     },
@@ -86,10 +134,21 @@
     },
     {
       "id": "compendium:netherite_hammer_item",
+=======
+      "id": "compendium:iron_saw_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+      "id": "compendium:netherite_hammer_item",
       "required": false
     },
     {
       "id": "compendium:netherite_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:netherite_shears_item",
       "required": false
     },
     {
@@ -101,11 +160,11 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:amethyst_hammer_item",
-      "required": false
-    },
-    {
-      "id": "compendium:amethyst_zweihander_item",
+=======
+      "id": "compendium:amethyst_saw_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -117,6 +176,10 @@
       "required": false
     },
     {
+      "id": "compendium:amethyst_zweihander_item",
+      "required": false
+    },
+    {
       "id": "compendium:amethyst_prybar_item",
       "required": false
     },
@@ -125,7 +188,11 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:amethyst_shovel_item",
+=======
+      "id": "compendium:amethyst_axe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -134,6 +201,7 @@
     },
     {
       "id": "compendium:amethyst_pickaxe_item",
+<<<<<<< HEAD
       "required": false
     },
     {
@@ -150,10 +218,12 @@
     },
     {
       "id": "compendium:crying_obsidian_zweihander_item",
+=======
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_saw_item",
+      "id": "compendium:amethyst_shovel_item",
       "required": false
     },
     {
@@ -161,7 +231,34 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:crying_obsidian_pickaxe_item",
+=======
+      "id": "compendium:crying_obsidian_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_hammer_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_saw_item",
+      "required": false
+    },
+    {
+<<<<<<< HEAD
+=======
+      "id": "compendium:crying_obsidian_zweihander_item",
+      "required": false
+    },
+    {
+      "id": "compendium:crying_obsidian_pickaxe_item",
+      "required": false
+    },
+    {
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "id": "compendium:crying_obsidian_hoe_item",
       "required": false
     },
     {
@@ -169,7 +266,7 @@
       "required": false
     },
     {
-      "id": "compendium:crying_obsidian_hoe_item",
+      "id": "compendium:crying_obsidian_axe_item",
       "required": false
     },
     {
@@ -177,7 +274,11 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:crying_obsidian_axe_item",
+=======
+      "id": "compendium:dark_prismarine_zweihander_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -185,7 +286,11 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:dark_prismarine_zweihander_item",
+=======
+      "id": "compendium:dark_prismarine_shears_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -193,6 +298,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:dark_prismarine_prybar_item",
       "required": false
     },
@@ -206,6 +312,9 @@
     },
     {
       "id": "compendium:dark_prismarine_sword_item",
+=======
+      "id": "compendium:dark_prismarine_saw_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -213,11 +322,35 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:dark_prismarine_pickaxe_item",
+=======
+      "id": "compendium:dark_prismarine_axe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+<<<<<<< HEAD
+      "id": "compendium:dark_prismarine_hoe_item",
+=======
+      "id": "compendium:dark_prismarine_sword_item",
       "required": false
     },
     {
       "id": "compendium:dark_prismarine_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:dark_prismarine_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:diamond_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:diamond_prybar_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -233,7 +366,15 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:diamond_saw_item",
+=======
+      "id": "compendium:diamond_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:emerald_prybar_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -273,6 +414,10 @@
       "required": false
     },
     {
+      "id": "compendium:emerald_sword_item",
+      "required": false
+    },
+    {
       "id": "compendium:emerald_axe_item",
       "required": false
     },
@@ -281,11 +426,15 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:ender_pearl_hammer_item",
+=======
+      "id": "compendium:ender_pearl_prybar_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
-      "id": "compendium:ender_pearl_zweihander_item",
+      "id": "compendium:ender_pearl_shears_item",
       "required": false
     },
     {
@@ -297,6 +446,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:ender_pearl_prybar_item",
       "required": false
     },
@@ -306,10 +456,17 @@
     },
     {
       "id": "compendium:ender_pearl_hoe_item",
+=======
+      "id": "compendium:ender_pearl_zweihander_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
       "id": "compendium:ender_pearl_pickaxe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_axe_item",
       "required": false
     },
     {
@@ -318,6 +475,29 @@
     },
     {
       "id": "compendium:ender_pearl_shovel_item",
+<<<<<<< HEAD
+=======
+      "required": false
+    },
+    {
+      "id": "compendium:ender_pearl_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_prybar_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_zweihander_item",
       "required": false
     },
     {
@@ -325,6 +505,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:lapis_zweihander_item",
       "required": false
     },
@@ -341,7 +522,17 @@
       "required": false
     },
     {
+=======
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "id": "compendium:lapis_sword_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:lapis_axe_item",
       "required": false
     },
     {
@@ -349,6 +540,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:lapis_hoe_item",
       "required": false
     },
@@ -366,6 +558,13 @@
     },
     {
       "id": "compendium:obsidian_prybar_item",
+=======
+      "id": "compendium:lapis_shovel_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_zweihander_item",
       "required": false
     },
     {
@@ -377,7 +576,19 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:obsidian_hammer_item",
+=======
+      "id": "compendium:obsidian_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:obsidian_pickaxe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -386,10 +597,13 @@
     },
     {
       "id": "compendium:obsidian_axe_item",
+<<<<<<< HEAD
       "required": false
     },
     {
       "id": "compendium:obsidian_pickaxe_item",
+=======
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -421,7 +635,11 @@
       "required": false
     },
     {
-      "id": "compendium:prismarine_hoe_item",
+      "id": "compendium:prismarine_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:prismarine_saw_item",
       "required": false
     },
     {
@@ -429,15 +647,43 @@
       "required": false
     },
     {
+      "id": "compendium:prismarine_pickaxe_item",
+      "required": false
+    },
+    {
       "id": "compendium:prismarine_axe_item",
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:prismarine_shovel_item",
+=======
+      "id": "compendium:prismarine_hoe_item",
       "required": false
     },
     {
+      "id": "compendium:prismarine_sword_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
+      "required": false
+    },
+    {
+<<<<<<< HEAD
       "id": "compendium:prismarine_pickaxe_item",
+=======
+      "id": "compendium:quartz_prybar_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_saw_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_shears_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_hammer_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -445,6 +691,7 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:quartz_prybar_item",
       "required": false
     },
@@ -458,6 +705,13 @@
     },
     {
       "id": "compendium:quartz_saw_item",
+=======
+      "id": "compendium:quartz_hoe_item",
+      "required": false
+    },
+    {
+      "id": "compendium:quartz_axe_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
@@ -465,12 +719,17 @@
       "required": false
     },
     {
+<<<<<<< HEAD
       "id": "compendium:quartz_axe_item",
+=======
+      "id": "compendium:quartz_shovel_item",
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
       "required": false
     },
     {
       "id": "compendium:quartz_sword_item",
       "required": false
+<<<<<<< HEAD
     },
     {
       "id": "compendium:quartz_hoe_item",
@@ -479,6 +738,8 @@
     {
       "id": "compendium:quartz_shovel_item",
       "required": false
+=======
+>>>>>>> branch 'server' of https://github.com/Lance5057/Compendium.git
     }
   ]
 }

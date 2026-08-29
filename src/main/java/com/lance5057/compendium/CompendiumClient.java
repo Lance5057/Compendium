@@ -12,7 +12,6 @@ import com.lance5057.compendium.blocks.SlabStyleBlock;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerRenderer;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.drawer.ComponentDrawerScreen;
 import com.lance5057.compendium.blocks.RecipeToolSupplier.toolrack.ToolRackRenderer;
-import com.lance5057.compendium.blocks.bed.BedSideType;
 import com.lance5057.compendium.blocks.bed.FancyBedBlock;
 import com.lance5057.compendium.blocks.chair.ChairBlock;
 import com.lance5057.compendium.blocks.shingles.slanted.cap.ShinglesCapSlanted;
@@ -45,7 +44,6 @@ import com.lance5057.compendium.index.material.base.textile.ClientTextile;
 import com.lance5057.compendium.index.material.base.textile.MaterialTextile;
 import com.lance5057.compendium.index.material.base.wood.ClientWood;
 import com.lance5057.compendium.index.material.base.wood.MaterialWood;
-import com.lance5057.compendium.style.StyleData;
 import com.lance5057.compendium.util.TagUtil;
 import com.lance5057.compendium.workstations.cosmetictoolbox.CosmeticToolboxScreen;
 import com.lance5057.compendium.workstations.cosmetictoolbox.placed.CosmeticToolboxPlacedScreen;
@@ -76,10 +74,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -487,26 +483,26 @@ public class CompendiumClient {
 	public static void doStyleSlab(ModifyBakingResult event, MaterialWood mw, String slab_style,
 			ResourceLocation plankSlabModelLoc, ResourceLocation plankSlabModelLocInventory, BlockModelRotation rot,
 			Pair<String, ResourceLocation>... textures) {
-		MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
-
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_top"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"),
-						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
-
-		event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
-
-//		ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
-//				slab_style.toLowerCase());
-
-		event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
-				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
-						new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
+//		MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
+//
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.BOTTOM,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_top"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//		plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.DOUBLE,
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"),
+//						new ModelResourceLocation(plankSlabModelLoc, ""), rot, textures));
+//
+//		event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
+//
+////		ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleLocation(mw.name + "_log_slab_inventory",
+////				slab_style.toLowerCase());
+//
+//		event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
+//				basicModelManyTexture(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+//						new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0, textures));
 	}
 
 	@SafeVarargs
@@ -894,6 +890,55 @@ public class CompendiumClient {
 		ModelResourceLocation w_inv = new ModelResourceLocation(modelLoc_inv, "");
 
 		event.getModels().put(w_inv, basicModelManyTexture(event, loc_inv, w_inv, BlockModelRotation.X0_Y0, textures));
+	}
+
+	@SafeVarargs
+	public static void doSlabAll(ModifyBakingResult event, ResourceLocation modelTopLoc,
+			ResourceLocation modelBottomLoc, ResourceLocation modelFullLoc, ResourceLocation modelSaveLoc,
+			MultiPartBakedModel.Builder plank_slab, Pair<String, ResourceLocation>... textures) {
+		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, plank_slab, true, true, textures);
+		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, plank_slab, false, true, textures);
+		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, plank_slab, true, false, textures);
+		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, plank_slab, false, false, textures);
+	}
+
+	@SafeVarargs
+	public static void doSlab(ModifyBakingResult event, ResourceLocation modelTopLoc, ResourceLocation modelBottomLoc,
+			ResourceLocation modelSaveLoc, MultiPartBakedModel.Builder plank_slab, boolean full, boolean water,
+			Pair<String, ResourceLocation>... textures) {
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.DOWN && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelBottomLoc,
+						new ModelResourceLocation(modelSaveLoc, ""), BlockModelRotation.X0_Y0, textures));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.UP && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelTopLoc, new ModelResourceLocation(modelSaveLoc, ""),
+						BlockModelRotation.X180_Y0, textures));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.EAST && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelTopLoc, new ModelResourceLocation(modelSaveLoc, ""),
+						BlockModelRotation.X90_Y270, textures));
+
+		plank_slab.add(s -> s.getValue(SlabStyleBlock.FACING) == Direction.NORTH
+				&& s.getValue(SlabStyleBlock.FULL_SLAB) == full && s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelTopLoc, new ModelResourceLocation(modelSaveLoc, ""),
+						BlockModelRotation.X90_Y180, textures));
+
+		plank_slab.add(s -> s.getValue(SlabStyleBlock.FACING) == Direction.SOUTH
+				&& s.getValue(SlabStyleBlock.FULL_SLAB) == full && s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelBottomLoc,
+						new ModelResourceLocation(modelSaveLoc, ""), BlockModelRotation.X90_Y0, textures));
+
+		plank_slab.add(
+				s -> s.getValue(SlabStyleBlock.FACING) == Direction.WEST && s.getValue(SlabStyleBlock.FULL_SLAB) == full
+						&& s.getValue(SlabStyleBlock.WATERLOGGED) == water,
+				CompendiumClient.basicModelManyTexture(event, modelBottomLoc,
+						new ModelResourceLocation(modelSaveLoc, ""), BlockModelRotation.X90_Y90, textures));
 	}
 
 	public static BakedModel basicModelAllTexture(ModifyBakingResult event, ResourceLocation blockTexture,

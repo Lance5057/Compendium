@@ -49,11 +49,11 @@
       "required": false
     },
     {
-      "id": "minecraft:stripped_dark_oak_log",
+      "id": "minecraft:stripped_dark_oak_wood",
       "required": false
     },
     {
-      "id": "minecraft:stripped_dark_oak_wood",
+      "id": "minecraft:stripped_dark_oak_log",
       "required": false
     },
     {
