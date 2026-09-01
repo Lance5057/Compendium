@@ -108,7 +108,7 @@ public class SlabStyleBlock extends Block implements EntityBlock, IStyleBlock, S
 		this.matType = matType;
 
 		this.registerDefaultState(this.defaultBlockState().setValue(FULL_SLAB, false).setValue(WATERLOGGED, false)
-				.setValue(FACING, Direction.SOUTH));
+				.setValue(FACING, Direction.DOWN));
 	}
 
 	@Override
@@ -224,14 +224,41 @@ public class SlabStyleBlock extends Block implements EntityBlock, IStyleBlock, S
 		if (blockstate.is(this)) {
 			return blockstate.setValue(FULL_SLAB, true).setValue(WATERLOGGED, Boolean.valueOf(false));
 		} else {
+			BlockPos clickPos = context.getClickedPos();
 			FluidState fluidstate = context.getLevel().getFluidState(blockpos);
-			BlockState blockstate1 = this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection())
-					.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-			return blockstate1;
+			BlockState blockstate1 = this.defaultBlockState().setValue(WATERLOGGED,
+					Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+			Direction direction = context.getClickedFace();
+
+			double x = context.getClickLocation().x - blockpos.getX() - 0.5;
+			double z = context.getClickLocation().z - blockpos.getZ() - 0.5;
+
+			if (direction == Direction.DOWN || direction == Direction.UP) {
+				double fX = Math.abs(x);
+				double fZ = Math.abs(z);
+				if (fX > fZ) {
+					if (x > 0)
+						return blockstate1.setValue(FACING, Direction.EAST);
+					else
+						return blockstate1.setValue(FACING, Direction.WEST);
+				} else {
+					if (z > 0)
+						return blockstate1.setValue(FACING, Direction.SOUTH);
+					else
+						return blockstate1.setValue(FACING, Direction.NORTH);
+				}
+
+			} else {
+				if (context.getClickLocation().y - (double) blockpos.getY() > 0.5) {
+					return blockstate1.setValue(FACING, Direction.UP);
+				} else
+					return blockstate1.setValue(FACING, Direction.DOWN);
+			}
+
+//			return blockstate1;
 //			Direction direction = context.getClickedFace();
 //			return direction != Direction.DOWN
-//					&& (direction == Direction.UP || !(context.getClickLocation().y - (double) blockpos.getY() > 0.5))
-//							? blockstate1
+//					&& (direction == Direction.UP || 
 //							: blockstate1.setValue(TYPE, SlabType.TOP);
 		}
 	}
@@ -240,7 +267,7 @@ public class SlabStyleBlock extends Block implements EntityBlock, IStyleBlock, S
 	protected boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
 		ItemStack itemstack = useContext.getItemInHand();
 		Boolean slabtype = state.getValue(FULL_SLAB);
-		if (slabtype || !itemstack.is(this.asItem())) {
+		if (slabtype || !itemstack.is(this.asItem()) || useContext.getPlayer().isShiftKeyDown()) {
 			return false;
 		}
 		return true;

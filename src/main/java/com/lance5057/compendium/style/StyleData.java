@@ -69,7 +69,8 @@ public class StyleData {
 	public static StyleData LOG_SLAB = new StyleData("log_slab",
 			List.of("small_logs", "small_logs_rotated", "split", "split_rotated", "crosscut", "crosscut_small",
 					"small_wood", "small_wood_rotated", "wood", "wood_rotated", "campfire", "firewood", "smaller_logs",
-					"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated", "trellis"));
+					"smaller_logs_rotated", "smallest_logs", "smallest_logs_rotated", "trellis", "3_beam",
+					"3_beam_rotated", "beam", "beam_rotated", "small_beam", "small_beam_rotated"));
 	public static StyleData SMALL_LOG = new StyleData("small_log", List.of("small_log", "smaller_log", "smallest_log"));
 	public static StyleData LOG_STAIRS = new StyleData("log_stairs",
 			List.of("small_logs", "small_logs_rotated_side", "small_logs_rotated_front", "small_logs_rotated_top",
@@ -88,6 +89,20 @@ public class StyleData {
 					"wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated", "wicker", "two_panel",
 					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal", "greek", "greek_trimmed",
 					"greek_trimmed_rotated", "greek_caged", "braid", "braid_rotated"));
+
+	public static StyleData PLANKS_SLAB = new StyleData("plank_slab",
+			List.of("boards", "boards_rotated", "boards_seamless", "boards_seamless_rotated", "boards_stacked",
+					"boards_stacked_rotated", "big_weave", "alternate_weave", "close_weave", "double_weave", "blocks",
+					"blocks_offset", "box", "chiseled", "cross", "diagonal", "diagonal_rotated", "herringbone",
+					"double_herringbone", "panel", "parquet", "planks_stacked", "planks_stacked_rotated",
+					"planks_seamless", "planks_seamless_rotated", "sheet", "small_blocks", "small_blocks_offset",
+					"thin", "thin_rotated", "vertical", "wainscotting_single", "wainscotting_double",
+					"wainscotting_grate", "wainscotting_seamless", "walkway", "walkway_rotated", "wicker", "two_panel",
+					"four_panels", "nine_panels", "banded", "domed", "five", "paper", "petal", "greek", "greek_trimmed",
+					"greek_trimmed_rotated", "greek_caged", "braid", "braid_rotated", "3_slats", "3_slats_rotated",
+					"box_slab", "bracing_cross", "diagonal_ornate_bracing", "half_box_slab", "small_beam",
+					"small_beam_rotated", "ornate_bracing", "small_bracing", "trellis", "straight_trellis",
+					"twin_bracing_cross", "twin_bracing", "twin_bracing_rotated"));
 
 	public static StyleData WINDOW_TRIM = new StyleData("window_trim",
 			List.of("quarter", "quarter_trimmed", "bars", "bars_trimmed", "bars_horizontal", "bars_horizontal_trimmed",

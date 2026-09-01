@@ -508,10 +508,10 @@ public class Recipes extends RecipeProvider implements IConditionBuilder {
 						standardHammeringModel)
 				.save(consumer);
 
-		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE), new ItemStack(Items.PRISMARINE_SHARD, 4))
-				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
-						standardHammeringModel)
-				.save(consumer);
+//		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE), new ItemStack(Items.PRISMARINE_SHARD, 4))
+//				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
+//						standardHammeringModel)
+//				.save(consumer);
 		HammeringRecipeBuilder.hammer(Ingredient.of(Items.PRISMARINE_STAIRS), new ItemStack(Items.PRISMARINE))
 				.tool(Ingredient.of(CompendiumTags.HAMMER), 2, true, RecipeLootTables.EMPTY, List.of(),
 						standardHammeringModel)

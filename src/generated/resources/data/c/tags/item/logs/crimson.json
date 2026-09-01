@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:crimson_hyphae",
+      "id": "minecraft:crimson_stem",
       "required": false
     },
     {
-      "id": "minecraft:crimson_stem",
+      "id": "minecraft:crimson_hyphae",
       "required": false
     },
     {

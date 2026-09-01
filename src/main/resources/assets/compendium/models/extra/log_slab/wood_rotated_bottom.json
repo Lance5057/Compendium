@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "compendium:block/slab_rotated",
   "textures": {
     "bottom": "minecraft:block/acacia_planks",
     "side": "minecraft:block/acacia_planks",

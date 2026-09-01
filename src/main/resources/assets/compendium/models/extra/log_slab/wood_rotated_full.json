@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "compendium:block/cube_all_rotated",
   "textures": {
     "all": "minecraft:block/acacia_planks"
   }

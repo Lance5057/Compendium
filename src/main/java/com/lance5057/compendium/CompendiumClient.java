@@ -895,11 +895,19 @@ public class CompendiumClient {
 	@SafeVarargs
 	public static void doSlabAll(ModifyBakingResult event, ResourceLocation modelTopLoc,
 			ResourceLocation modelBottomLoc, ResourceLocation modelFullLoc, ResourceLocation modelSaveLoc,
-			MultiPartBakedModel.Builder plank_slab, Pair<String, ResourceLocation>... textures) {
-		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, plank_slab, true, true, textures);
-		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, plank_slab, false, true, textures);
-		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, plank_slab, true, false, textures);
-		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, plank_slab, false, false, textures);
+			ResourceLocation modelSaveLocInventory, Pair<String, ResourceLocation>... textures) {
+		MultiPartBakedModel.Builder builder = new MultiPartBakedModel.Builder();
+
+		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, builder, true, true, textures);
+		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, builder, false, true, textures);
+		doSlab(event, modelFullLoc, modelFullLoc, modelSaveLoc, builder, true, false, textures);
+		doSlab(event, modelTopLoc, modelBottomLoc, modelSaveLoc, builder, false, false, textures);
+
+		event.getModels().put(new ModelResourceLocation(modelSaveLoc, ""), builder.build());
+
+		event.getModels().put(new ModelResourceLocation(modelSaveLocInventory, ""),
+				CompendiumClient.basicModelManyTexture(event, modelBottomLoc,
+						new ModelResourceLocation(modelSaveLocInventory, ""), BlockModelRotation.X0_Y0, textures));
 	}
 
 	@SafeVarargs

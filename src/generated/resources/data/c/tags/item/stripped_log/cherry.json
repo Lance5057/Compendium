@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "minecraft:stripped_cherry_wood",
+      "id": "minecraft:stripped_cherry_log",
       "required": false
     },
     {
-      "id": "minecraft:stripped_cherry_log",
+      "id": "minecraft:stripped_cherry_wood",
       "required": false
     },
     {

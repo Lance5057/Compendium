@@ -688,37 +688,48 @@ public class ClientWood {
 						"all");
 				event.getModels().put(m, bm);
 			}
+		}
 
+		for (String planks_style : StyleData.PLANKS_SLAB.getTypes()) {
 			if (eep.PLANK_SLAB.isNotIgnored()) {
-				// slabs
 				ResourceLocation plankSlabModelLoc = ClientUtil
 						.createStyleBlockLocation(mw.name + "_styled_planks_slab", planks_style.toLowerCase());
-				MultiPartBakedModel.Builder plank_slab = new MultiPartBakedModel.Builder();
-
-				CompendiumClient.doSlabAll(event, TagUtil.mcLoc("block/acacia_slab"),
-						TagUtil.mcLoc("block/acacia_slab"), TagUtil.modLoc("block/cube_column_ends"), modelLoc,
-						plank_slab, Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t));
-
-//				plank_slab.add(s -> s.getValue(SlabStyleBlock.TYPE) == SlabType.TOP,
-//						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab_top"),
-//								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0,
-//								Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
-//				plank_slab.add(s -> s.getValue(SlabStyleBlock.FULL_SLAB),
-//						CompendiumClient.basicModelAllTexture(event, t, loc,
-//								new ModelResourceLocation(plankSlabModelLoc, ""), BlockModelRotation.X0_Y0, "all"));
-
-				event.getModels().put(new ModelResourceLocation(plankSlabModelLoc, ""), plank_slab.build());
-
 				ResourceLocation plankSlabModelLocInventory = ClientUtil.createStyleBlockLocation(
 						mw.name + "_styled_planks_slab_inventory", planks_style.toLowerCase());
 
-				event.getModels().put(new ModelResourceLocation(plankSlabModelLocInventory, ""),
-						CompendiumClient.basicModelManyTexture(event, TagUtil.mcLoc("block/acacia_slab"),
-								new ModelResourceLocation(plankSlabModelLocInventory, ""), BlockModelRotation.X0_Y0,
-								Pair.of("side", t), Pair.of("top", t), Pair.of("bottom", t)));
-			}
+				if (planks_style.equals("3_slats") || planks_style.equals("3_slats_rotated")
+						|| planks_style.equals("box_slab") || planks_style.equals("bracing")
+						|| planks_style.equals("diagonal_ornate_bracing") || planks_style.equals("half_box_slab")
+						|| planks_style.equals("ornate_bracing") || planks_style.equals("small_bracing")
+						|| planks_style.equals("trellis") || planks_style.equals("straight_trellis")
+						|| planks_style.equals("twin_bracing") || planks_style.equals("twin_bracing_rotated")
+						|| planks_style.equals("twin_bracing_cross") || planks_style.equals("bracing_cross")
+						|| planks_style.equals("small_beam") || planks_style.equals("small_beam_rotated")) {
+					ResourceLocation t = TagUtil.mcLoc("block/" + mw.name + "_planks");
+					CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/planks_slab/" + planks_style + "_bottom"),
+							TagUtil.modLoc("extra/planks_slab/" + planks_style + "_bottom"),
+							TagUtil.modLoc("extra/planks_slab/" + planks_style + "_full"), plankSlabModelLoc,
+							plankSlabModelLocInventory, Pair.of("0", t), Pair.of("particle", t));
 
+				} else {
+					ResourceLocation t = Compendium
+							.modLoc("block/material/wood/" + mw.name + "/planks/" + planks_style.toLowerCase());
+					CompendiumClient.doSlabAll(event, TagUtil.mcLoc("block/acacia_slab"),
+							TagUtil.mcLoc("block/acacia_slab"), TagUtil.modLoc("block/cube_column_ends"),
+							plankSlabModelLoc, plankSlabModelLocInventory, Pair.of("side", t), Pair.of("top", t),
+							Pair.of("bottom", t));
+				}
+			}
+		}
+
+		for (String planks_style : StyleData.PLANKS.getTypes()) {
 			if (eep.PLANK_STAIRS.isNotIgnored()) {
+				ResourceLocation loc = TagUtil.modLoc("block/cube_all");
+				ResourceLocation modelLoc = ClientUtil.createStyleBlockLocation(mw.name + "_styled_planks",
+						planks_style.toLowerCase());
+				ResourceLocation t = Compendium
+						.modLoc("block/material/wood/" + mw.name + "/planks/" + planks_style.toLowerCase());
+				ModelResourceLocation m = new ModelResourceLocation(modelLoc, "");
 				// stairs
 				ResourceLocation plankStairsModelLoc = ClientUtil
 						.createStyleBlockLocation(mw.name + "_styled_planks_stairs", planks_style.toLowerCase());
@@ -733,7 +744,6 @@ public class ClientWood {
 						straight, inner, outer, 90, 0, Pair.of("top", t), Pair.of("bottom", t), Pair.of("side", t));
 			}
 		}
-
 	}
 
 	private static void doExtraLogs(ModifyBakingResult event, MaterialWood mw, ExtensionExtraLogs eel,
@@ -1017,14 +1027,18 @@ public class ClientWood {
 
 			if (slab_style.equals("small_logs") || slab_style.equals("small_logs_rotated")
 					|| slab_style.equals("crosscut_small")) {
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0,
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc,
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs")),
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")),
 						Pair.of("particle", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/small_logs_top")));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0,
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc,
 						Pair.of("0", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs")),
 						Pair.of("1",
 								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")),
@@ -1032,13 +1046,17 @@ public class ClientWood {
 								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_small_logs_top")));
 
 			} else if (slab_style.equals("split") || slab_style.equals("split_rotated")) {
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")),
 						Pair.of("particle", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("0", logStrippedSideTexture),
 						Pair.of("1", logStrippedEndTexture),
 						Pair.of("2",
 								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")),
@@ -1046,12 +1064,16 @@ public class ClientWood {
 								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")));
 
 			} else if (slab_style.equals("crosscut")) {
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("0", logSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("0", logSideTexture), Pair.of("0", logSideTexture),
 						Pair.of("1", logEndTexture), Pair.of("particle", logEndTexture));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("0", logStrippedSideTexture),
 						Pair.of("0", logStrippedSideTexture), Pair.of("1", logStrippedEndTexture),
 						Pair.of("particle", logStrippedEndTexture));
 
@@ -1064,74 +1086,70 @@ public class ClientWood {
 				if (slab_style.contains("rotated"))
 					rot = BlockModelRotation.X0_Y90;
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("top", logTexture), Pair.of("bottom", logTexture), Pair.of("side", logTexture),
-						Pair.of("particle", logTexture));
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("top", logTexture), Pair.of("bottom", logTexture),
+						Pair.of("side", logTexture), Pair.of("particle", logTexture));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						rot, Pair.of("top", logStrippedTexture), Pair.of("bottom", logStrippedTexture),
-						Pair.of("side", logStrippedTexture), Pair.of("particle", logStrippedTexture));
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("top", logStrippedTexture),
+						Pair.of("bottom", logStrippedTexture), Pair.of("side", logStrippedTexture),
+						Pair.of("particle", logStrippedTexture));
 
 			} else if (slab_style.equals("wood") || slab_style.equals("wood_rotated")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-				if (slab_style.contains("rotated"))
-					rot = BlockModelRotation.X0_Y90;
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("top", logSideTexture), Pair.of("bottom", logSideTexture),
 						Pair.of("side", logSideTexture), Pair.of("particle", logSideTexture));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						rot, Pair.of("top", logStrippedSideTexture), Pair.of("bottom", logStrippedSideTexture),
-						Pair.of("side", logStrippedSideTexture), Pair.of("particle", logStrippedSideTexture));
-
-			} else if (slab_style.equals("campfire")) {
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")),
-						Pair.of("particle", logSideTexture));
-
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("top", logStrippedSideTexture),
+						Pair.of("bottom", logStrippedSideTexture), Pair.of("side", logStrippedSideTexture),
 						Pair.of("particle", logStrippedSideTexture));
 
 			} else if (slab_style.equals("firewood")) {
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
+
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("0", logSideTexture), Pair.of("1", logEndTexture),
 						Pair.of("2", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/log_split_side")),
 						Pair.of("particle", logSideTexture));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						BlockModelRotation.X0_Y0, Pair.of("0", logStrippedSideTexture), Pair.of("1", logEndTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("0", logStrippedSideTexture),
+						Pair.of("1", logStrippedEndTexture),
 						Pair.of("2",
 								TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_log_split_side")),
 						Pair.of("particle", logStrippedSideTexture));
 
 			} else if (slab_style.equals("smaller_logs") || slab_style.equals("smaller_logs_rotated")
-					|| slab_style.equals("smallest_logs") || slab_style.equals("smallest_logs_rotated")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
+					|| slab_style.equals("smallest_logs") || slab_style.equals("smallest_logs_rotated")
+					|| slab_style.equals("trellis") || slab_style.equals("campfire") || slab_style.equals("3_beam")
+					|| slab_style.equals("3_beam_rotated") || slab_style.equals("beam")
+					|| slab_style.equals("beam_rotated") || slab_style.equals("small_beam")
+					|| slab_style.equals("small_beam_rotated")) {
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), plankSlabModelLoc,
+						plankSlabIventoryModelLoc, Pair.of("0", logSideTexture),
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")),
 						Pair.of("particle", logSideTexture));
 
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						rot, Pair.of("0", logStrippedSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")),
-						Pair.of("particle", logStrippedSideTexture));
-
-			} else if (slab_style.equals("trellis")) {
-				BlockModelRotation rot = BlockModelRotation.X0_Y0;
-
-				CompendiumClient.doStyleSlab(event, mw, slab_style, plankSlabModelLoc, plankSlabIventoryModelLoc, rot,
-						Pair.of("0", logSideTexture),
-						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/extra_caps")),
-						Pair.of("particle", logSideTexture));
-
-				CompendiumClient.doStyleSlab(event, mw, slab_style, strippedSlabModelLoc, strippedSlabIventoryModelLoc,
-						rot, Pair.of("0", logStrippedSideTexture),
+				CompendiumClient.doSlabAll(event, TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_bottom"),
+						TagUtil.modLoc("extra/log_slab/" + slab_style + "_full"), strippedSlabModelLoc,
+						strippedSlabIventoryModelLoc, Pair.of("0", logStrippedSideTexture),
 						Pair.of("1", TagUtil.modLoc("block/material/wood/" + mw.name + "/logs/stripped_extra_caps")),
 						Pair.of("particle", logStrippedSideTexture));
 			}

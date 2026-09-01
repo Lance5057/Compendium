@@ -126,7 +126,7 @@ public class ExtensionExtraPlanks extends _MaterialExtension {
 		PLANK_SLAB
 				.setup(base,
 						() -> new SlabStyleBlock(Block.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion(),
-								List.of(StyleData.PLANKS),
+								List.of(StyleData.PLANKS_SLAB),
 								Compendium.modLoc(base.name
 										+ "_styled_planks_slab_inventory"),
 								base.getType(), base.name, List.of("plank_block")),

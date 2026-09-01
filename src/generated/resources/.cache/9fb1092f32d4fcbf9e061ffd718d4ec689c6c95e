@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-15T03:23:50.502590156	Recipes
+// 1.21.1	2026-08-30T02:32:03.376588953	Recipes
 3e326f824a4bf9a86b6dc2f4465161a718f62260 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_item.json
 3d22dd1f4a09da997db9f715842083edbc792dd2 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_slab_item.json
 bf00779eaf68817371fee6f8482e2c5ccbfd3fc9 data/compendium/advancement/recipes/building_blocks/acacia_small_logs_stairs_item.json
@@ -1286,7 +1286,6 @@ b6d4b4c6ca38fa11832f5a45f8dd1495ad9246fd data/minecraft/advancement/recipes/hamm
 78138767a5538cdfab8a0d4a7b211606180e8b60 data/minecraft/advancement/recipes/hammering/polished_tuff.json
 2122c1707cd80a52f5dacf73445357ed30b96b4a data/minecraft/advancement/recipes/hammering/popped_chorus_fruit.json
 1e7e78b73ea4f9b424293f77b8e770b5361b5dcf data/minecraft/advancement/recipes/hammering/prismarine_bricks.json
-b99da3d2d2d19ce8aa154714a603512c9810b2c5 data/minecraft/advancement/recipes/hammering/prismarine_shard.json
 a1c56eacfc8af7a553eda957f36bfbca087756e7 data/minecraft/advancement/recipes/hammering/purple_concrete_powder.json
 2df68f5bdef7c6c0e1e1c8a12161f950f7fb551a data/minecraft/advancement/recipes/hammering/quartz.json
 76b4abb244dfff6f5f336581c3ddf24810de1aa9 data/minecraft/advancement/recipes/hammering/quartz_block.json
@@ -1350,7 +1349,6 @@ d7d723a8473fcd41c115ca25b9b864da93891566 data/minecraft/recipe/hammering/polishe
 b51ce61374f9d15485da38f0e5dad28c8bd475a3 data/minecraft/recipe/hammering/polished_tuff.json
 01e7790f7a76d1051e02fd597ed0b1602adc12ef data/minecraft/recipe/hammering/popped_chorus_fruit.json
 6f466c50cfe68e9d5e92d3d0c2c1d9e6e6318420 data/minecraft/recipe/hammering/prismarine_bricks.json
-0a9098ff97710ddfa01c4a1190ac339247a3b262 data/minecraft/recipe/hammering/prismarine_shard.json
 af82a665d88c49df23afaa202113894d441f7914 data/minecraft/recipe/hammering/purple_concrete_powder.json
 cf0f85a0d6c5d424c2a1e50e82bccef747022ddc data/minecraft/recipe/hammering/quartz.json
 d295241aef27298e18a8af5b15df02b7ff371e1c data/minecraft/recipe/hammering/quartz_block.json

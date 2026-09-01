@@ -75,7 +75,7 @@ public class CosmeticToolboxScreen extends AbstractContainerScreen<CosmeticToolb
 			return;
 
 		BlockEntity ent = this.minecraft.level.getBlockEntity(pos);
-		BlockState state = this.minecraft.level.getBlockState(pos).getBlock().defaultBlockState();
+		BlockState state = this.minecraft.level.getBlockState(pos);
 		if (ent != null) {
 
 			int i = this.leftPos + 8;
